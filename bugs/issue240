@@ -1,0 +1,477 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 240: Snapshots should (but currently do not) include people's public tags - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue240
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue240">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue240">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Snapshots should (but currently do not) include people's public tags</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.05</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  Snapshots should (but currently do not) include TrackerModel and TrackerQueryModel instances
+  
+  <span>
+   <br><span>View:</span>
+     <a href="issue391">391</a>
+  </span>
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Lorthirk, jessica, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-28.23:33:31</b> by <b>paulproteus</b>, last changed <b>2011-05-05.16:03:51</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file272/0001-Snapshot-exporter-now-exports-tags-for-users-and-tag.patch">0001-Snapshot-exporter-now-exports-tags-for-users-and-tag.patch</a>
+  </td>
+  <td>
+   <span>Lorthirk</span>,
+   <span>2011-05-04.17:53:31</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1832">msg1832 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-05.16:03:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Lorthirk!
+
+Some small bits of feedback, on things you could improve:
+
+* When I look in "git log -p", I see that you removed the newline at the end of
+the snapshot_public_data.py file. We've been leaving the last character of the
+file as the '\n' character.
+
+* It would be nice if you left a comment in the snapshot_public_data.py file
+about why it's safe to export *all* the tags. It looks a little suspicious to
+export all of them without a comment (although I agree that it's correct).
+
+* Total nitpick: Usually we write comments as "# comment" not "#comment" (notice
+the space character).
+
+None of these are show-stoppers, since the patch passes its tests and looks
+good. Good work! Pushing.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1830">msg1830 (view)</a></th>
+   <th>Author: Lorthirk</th>
+   <th>Date: 2011-05-04.17:53:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Added back the updated patch. Now it's ready to be reviewed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1822">msg1822 (view)</a></th>
+   <th>Author: Lorthirk</th>
+   <th>Date: 2011-05-04.09:47:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I removed the patch and put back the status to in-progress since I had an idea 
+about a small improvement of the test, which I hope to write down this evening.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1821">msg1821 (view)</a></th>
+   <th>Author: Lorthirk</th>
+   <th>Date: 2011-05-03.21:17:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Patch attached, with the implementation + update of test_snapshot_person.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1812">msg1812 (view)</a></th>
+   <th>Author: Lorthirk</th>
+   <th>Date: 2011-05-02.08:52:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm writing the test case now. Once this is done, <a href="issue391">issue 391</a> can be taken care of 
+(since they share the same code, and this is near to being closed, I think it's 
+best to close this before starting 391).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1793">msg1793 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-01.09:12:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Quietly bumping toward 0.11.05, gently.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1731">msg1731 (view)</a></th>
+   <th>Author: Lorthirk</th>
+   <th>Date: 2011-04-24.22:51:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>snapshot_public_data.py now exports tags, tagtypes and tags_person_links correctly, 
+but an exception is being raised now in bug exporting (I suspect, due to no rows 
+present for table search_bugtracker in database). Test is still to be written.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1643">msg1643 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-20.06:37:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Jessica, adding you to nosy.
+
+You were looking for bitesize-esque things to do. This one is maybe
+mouthful-size, but if you already know Django, it shouldn't be too crazy hard.
+Feel free to assign it to yourself and/or remove yourself from nosy.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1568">msg1568 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-16.21:46:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If you like backend-type Python work, this is a good first bug to look at.
+
+People's "tags" are the self-labeled text people add to themselves, like at
+<a href="https://openhatch.org/people/paulproteus/">https://openhatch.org/people/paulproteus/</a> the "can pitch in with" text.
+
+We store these attached to a Person using the Link_Person_Tag model and the Tag
+and TagType model. You can find those in mysite/profile/models.py.
+
+We create data snapshots -- see
+<a href="https://openhatch.org/wiki/Importing_a_data_snapshot">https://openhatch.org/wiki/Importing_a_data_snapshot</a> for more information about
+them. These nightly shapshots are helpful for developers to work on the
+OpenHatch code.
+
+The problem is that the snapshots don't include these "Tag" objects, nor the
+"Link_Person_Tag" objects that tie the tags to a person. These tags are public
+information
+
+mysite/customs/management/commands/snapshot_public_data.py is where the code
+lives that does the snapshotting.
+
+The point of this bug is so that the snapshot that we generate, with
+snapshot_public_data, includes all instances of Link_Person_Tag, and any Tag
+objects that requires.
+
+Long description -- but it's actually reasonably easy. When you submit it, you
+should submit it with an automated test that verifies it works -- see "class
+DataExport" in mysite/customs/tests.py to see how to write one.
+
+As always, we are available to help you work on this! Join us on #openhatch or
+just ask on this ticket.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg845">msg845 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-28.23:33:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right now, the snapshots don't export people's tags. That's a shame.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-05-05&nbsp;16:03:51</td><td>paulproteus</td><td>unlink</td><td><a href="issue391">issue391 blockers</a></td></tr>
+<tr><td>2011-05-05&nbsp;16:03:51</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1832">msg1832</a></td></tr>
+<tr><td>2011-05-04&nbsp;17:53:31</td><td>Lorthirk</td><td>set</td><td>status: in-progress -> need-review<br />assignedto: <a href="user95">Lorthirk</a> -> <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg1830">msg1830</a><br />files:
+  + <a href="file272">0001-Snapshot-exporter-now-exports-tags-for-users-and-tag.patch</a></td></tr>
+<tr><td>2011-05-04&nbsp;09:47:53</td><td>Lorthirk</td><td>set</td><td>status: need-review -> in-progress<br />assignedto: <a href="user3">paulproteus</a> -> <a href="user95">Lorthirk</a><br />messages:
+  + <a href="msg1822">msg1822</a></td></tr>
+<tr><td>2011-05-04&nbsp;09:47:09</td><td>Lorthirk</td><td>set</td><td>files:
+  - <a href="file271">0001-Snapshot-exporter-now-exports-tags-for-users-and-tag.patch</a></td></tr>
+<tr><td>2011-05-03&nbsp;21:17:50</td><td>Lorthirk</td><td>set</td><td>assignedto: <a href="user95">Lorthirk</a> -> <a href="user3">paulproteus</a></td></tr>
+<tr><td>2011-05-03&nbsp;21:17:32</td><td>Lorthirk</td><td>set</td><td>status: in-progress -> need-review<br />files:
+  + <a href="file271">0001-Snapshot-exporter-now-exports-tags-for-users-and-tag.patch</a><br />messages:
+  + <a href="msg1821">msg1821</a></td></tr>
+<tr><td>2011-05-02&nbsp;08:52:54</td><td>Lorthirk</td><td>set</td><td>superseder:
+  + <a href="issue391">Snapshots should (but currently do not) include TrackerModel and TrackerQueryModel instances</a><br />messages:
+  + <a href="msg1812">msg1812</a></td></tr>
+<tr><td>2011-05-02&nbsp;08:49:11</td><td>Lorthirk</td><td>link</td><td><a href="issue391">issue391 blockers</a></td></tr>
+<tr><td>2011-05-01&nbsp;09:12:57</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1793">msg1793</a><br />milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-24&nbsp;22:51:56</td><td>Lorthirk</td><td>set</td><td>messages:
+  - <a href="msg1729">msg1729</a></td></tr>
+<tr><td>2011-04-24&nbsp;22:51:53</td><td>Lorthirk</td><td>set</td><td>messages:
+  + <a href="msg1731">msg1731</a></td></tr>
+<tr><td>2011-04-24&nbsp;22:32:12</td><td>Lorthirk</td><td>set</td><td>status: chatting -> in-progress<br />assignedto: <a href="user95">Lorthirk</a><br />messages:
+  + <a href="msg1729">msg1729</a><br />nosy:
+  + <a href="user95">Lorthirk</a></td></tr>
+<tr><td>2011-04-20&nbsp;06:37:54</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user96">jessica</a><br />messages:
+  + <a href="msg1643">msg1643</a></td></tr>
+<tr><td>2011-04-19&nbsp;09:37:25</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-04-16&nbsp;21:46:29</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1568">msg1568</a><br />milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-01-28&nbsp;23:33:31</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,391 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 201: Google Code bug importer crashes with AttributeError - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue201
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue201">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue201">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Google Code bug importer crashes with AttributeError</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-08.20:02:46</b> by <b>paulproteus</b>, last changed <b>2011-01-26.23:07:16</b> by <b>pythonian4000</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg809">msg809 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-26.23:07:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm not going to bother; I will be working on asyncification of the importer
+next milestone (likely with your help ^_^) so all of the patches I have just
+applied will likely be defunct anyway =)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg804">msg804 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-26.14:26:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It's going to be easier to test this post-asyncification.
+
+Jack, if you don't want to bother writing a test, just mark this as resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg730">msg730 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-11.05:42:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Fixed! Sorry for ganking this from you.
+
+It was a really simple patch, but I tried for about half an hour to write a test
+for it, and I couldn't quite write one. Can you, maybe, post-Jan 17?
+
+If so, feel free to keep it assigned to you (we can rename it).
+
+<a href="http://gitorious.org/openhatch/oh-mainline/commit/c6b7a183572b368972a619b165092d3430300da1">http://gitorious.org/openhatch/oh-mainline/commit/c6b7a183572b368972a619b165092d3430300da1</a>
+is the commit!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg720">msg720 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-09.06:15:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I might give this a shot, since it's blocking the nightly run bug tracker import.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg714">msg714 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-08.22:25:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I do maybe want to look into this :)
+
+I am away until the 17th of January, so will start this then.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg689">msg689 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-08.21:30:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>(jack, do you maybe want to look into this?)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg681">msg681 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-08.20:02:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>A crash from the nightly bug crawl:
+
+2011-01-08 15:01:46,470 create_or_refresh_one_google_bug:220 INFO     [Google]
+Refreshing bug 1376 from project named SymPy.
+Traceback (most recent call last):
+  File "./bin/production", line 79, in &lt;module&gt;
+    djangorecipe.manage.main('mysite.deployment_settings')
+  File
+"/home/deploy/milestone-a/eggs/djangorecipe-0.20-py2.6.egg/djangorecipe/manage.py",
+line 16, in main
+    management.execute_manager(mod)
+  File
+"/home/deploy/milestone-a/parts/production/django/core/management/__init__.py",
+line 362, in execute_manager
+    utility.execute()
+  File
+"/home/deploy/milestone-a/parts/production/django/core/management/__init__.py",
+line 303, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File
+"/home/deploy/milestone-a/parts/production/django/core/management/base.py", line
+195, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File
+"/home/deploy/milestone-a/parts/production/django/core/management/base.py", line
+222, in execute
+    output = self.handle(*args, **options)
+  File
+"/home/deploy/milestone-a/mysite/customs/management/commands/customs_daily_tasks.py",
+line 176, in handle
+    self.find_and_update_enabled_google_instances()
+  File
+"/home/deploy/milestone-a/mysite/customs/management/commands/customs_daily_tasks.py",
+line 135, in find_and_update_enabled_google_tances
+    instantiated.update()
+  File "/home/deploy/milestone-a/mysite/customs/bugtrackers/google.py", line
+256, in update
+    self.create_or_refresh_one_google_bug(gb=gb)
+  File "/home/deploy/milestone-a/mysite/customs/bugtrackers/google.py", line
+223, in create_or_refresh_one_google_bug
+    data = gb.as_data_dict_for_bug_object(self.extract_tracker_specific_data)
+  File "/home/deploy/milestone-a/mysite/customs/bugtrackers/google.py", line
+151, in as_data_dict_for_bug_object
+    ret_dict = extract_tracker_specific_data(issue, ret_dict)
+  File "/home/deploy/milestone-a/mysite/customs/bugtrackers/google.py", line
+293, in extract_tracker_specific_data
+    ret_dict['bite_size_tag_name'] = gt.bitesized_label
+AttributeError: 'GoogleTracker' object has no attribute 'bitesized_label'</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-01-26&nbsp;23:07:16</td><td>pythonian4000</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg809">msg809</a></td></tr>
+<tr><td>2011-01-26&nbsp;14:26:32</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg804">msg804</a></td></tr>
+<tr><td>2011-01-11&nbsp;05:42:45</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg730">msg730</a></td></tr>
+<tr><td>2011-01-09&nbsp;06:15:39</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg720">msg720</a></td></tr>
+<tr><td>2011-01-08&nbsp;22:25:59</td><td>pythonian4000</td><td>set</td><td>assignedto: <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg714">msg714</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:30:56</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg689">msg689</a><br />milestone: <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2011-01-08&nbsp;20:02:46</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

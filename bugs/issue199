@@ -1,0 +1,598 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 199: Make cartoon headers for 'missions' pages - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue199
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue199">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue199">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Make cartoon headers for 'missions' pages</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>aldeka</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-07.02:02:10</b> by <b>aldeka</b>, last changed <b>2011-02-04.03:10:31</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file126/piece-of-shite.patch">piece-of-shite.patch</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-01-31.05:05:51</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file113/training-missions-blank.png">training-missions-blank.png</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-01-23.04:07:50</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file110/training-missions.png">training-missions.png</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-01-22.22:15:36</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file111/training-missions.png">training-missions.png</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-01-23.03:17:31</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file112/training-missions.png">training-missions.png</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-01-23.04:07:43</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg973">msg973 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-04.03:10:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>All done. Pulled from yours; pushed to "origin"!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg951">msg951 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-02.06:45:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>oh-bigfiles updated, oh-mainline has a bunch of its old files removed (and added
+to the oh-bigfiles archive). pull from my evil clones for teh details; either
+patch is big enough to break roundup.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg942">msg942 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-01.19:01:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>lol 1: Hold your horses, I can't do this until I get home to my Mac. :)
+
+lol 2: Photoshop files = opening the source? Ironic. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg940">msg940 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-01.18:54:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>source code!!!!!!!!!!!!! I want to mark this as resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg919">msg919 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-01.08:42:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>re: CSS: Okay, so be it.
+
+re: big files: I suggest moving them to the oh-bigfiles repository before you
+remove them. Maybe in a "archived/" directory. I'm a digital packrat.
+
+I'm not letting this bug be considered "closed" until you push the "source code"
+for the training missions image! (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg898">msg898 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-01-31.18:41:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>re: css files, I agree, but I couldn't figure out how to add another CSS file
+without messing up / unhooking the existing ones. There's some weird django
+asset packaging thing for all the css files in the base template and I don't
+know how it works.
+
+Wilco re: source files. Also, I noticed there's about a billion old image files
+left over in /static/images that aren't being used anymore, ancient former logo
+designs and the like. Should I/someone delete those?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg891">msg891 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-31.14:24:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Okay, this is totally great.
+
+Sorry that "git merge" and you got into a fight, and time lost. Hopefully we can
+prevent that through <a href="https://openhatch.org/bugs/issue253">https://openhatch.org/bugs/issue253</a> .
+
+I'm going to deploy this right now, because it's too awesome to hold back on. I
+have some feedback that maybe is worth responding to.
+
+* For me, as I look at <a href="http://127.0.0.1:8000/missions/tar,">http://127.0.0.1:8000/missions/tar,</a> it's somewhat strange
+to have the top blue line of the &lt;div class="head"&gt; be overlapping with the rock
+face. I know that's the way the rest of them work, but I wonder what you think.
+
+* The CSS you added to to templates/missions/main.html would be better if it
+were in a .css file. Something we often do is give the &lt;body&gt; tag on certain
+pages like that a specific class so you can put that in your selector. See e.g.
+mysite/project/templates/edit_project.html
+
+* It'd be great to have the source files. For those, a somewhat unusual process:
+Go to <a href="http://gitorious.org/openhatch/oh-bigfiles">http://gitorious.org/openhatch/oh-bigfiles</a> and click "Clone repository",
+then clone your personal oh-bigfiles repo, and add the source files, and do a
+"git push". Then ping me here, and I'll merge that into the main oh-bigfiles repo.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg878">msg878 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-01-31.05:05:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It's a patch. Hooray.
+
+You're worried that FLOSS development is hostile to noobs or user-unfriendly?
+Someone write a frakking version control system that people who aren't bearded
+UNIX-humpers can use. The only changes I made in this one were about 15 minutes
+of goddamn static web design tweaks, yet the process took how many freaking
+hours beginning to end?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg841">msg841 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-28.21:00:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm going to unilaterally decrease the scope of this to just be about the
+"missions" pages.
+
+So what's the next step? I think these look great -- do you want to make a patch
+series that puts these images into place? If not, do you want someone else to?
+
+Where are you imagining using the blank.png versus the non-blank.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg757">msg757 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-01-23.03:17:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>draft v2</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg754">msg754 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-01-22.22:15:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here's a draft for the missions page. Thoughts?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg678">msg678 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-01-07.03:27:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oh good, I'm glad you approve! :)
+
+I just noticed that of the four main pages linked in the nav, two were
+consistently styled/laid out and two...weren't. Making all of them have similar
+headers would probably be a good thing.
+
+Guess we can decide at the meeting on Sat. if we want this to be part of the
+next milestone or not.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg677">msg677 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-07.02:03:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Wow, that would be awesome.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg676">msg676 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-01-07.02:02:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Maybe a fighter or secret agent for the training missions... a blueprint type
+thing for the projects page?</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-02-04&nbsp;03:10:31</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg973">msg973</a></td></tr>
+<tr><td>2011-02-02&nbsp;06:45:20</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg951">msg951</a></td></tr>
+<tr><td>2011-02-01&nbsp;19:01:54</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg942">msg942</a></td></tr>
+<tr><td>2011-02-01&nbsp;18:54:04</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg940">msg940</a></td></tr>
+<tr><td>2011-02-01&nbsp;08:42:44</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg919">msg919</a></td></tr>
+<tr><td>2011-01-31&nbsp;18:41:58</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg898">msg898</a></td></tr>
+<tr><td>2011-01-31&nbsp;14:24:20</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting<br />messages:
+  + <a href="msg891">msg891</a></td></tr>
+<tr><td>2011-01-31&nbsp;05:22:06</td><td>aldeka</td><td>set</td><td>status: chatting -> need-review</td></tr>
+<tr><td>2011-01-31&nbsp;05:05:51</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file126">piece-of-shite.patch</a><br />messages:
+  + <a href="msg878">msg878</a></td></tr>
+<tr><td>2011-01-28&nbsp;21:00:40</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg841">msg841</a><br />title: Make cartoon headers for 'projects' and 'missions' pages -> Make cartoon headers for 'missions' pages</td></tr>
+<tr><td>2011-01-23&nbsp;04:07:50</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file113">training-missions-blank.png</a></td></tr>
+<tr><td>2011-01-23&nbsp;04:07:43</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file112">training-missions.png</a></td></tr>
+<tr><td>2011-01-23&nbsp;03:17:32</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file111">training-missions.png</a><br />messages:
+  + <a href="msg757">msg757</a></td></tr>
+<tr><td>2011-01-22&nbsp;22:15:36</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file110">training-missions.png</a><br />messages:
+  + <a href="msg754">msg754</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:25:45</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2011-01-07&nbsp;03:27:58</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg678">msg678</a></td></tr>
+<tr><td>2011-01-07&nbsp;02:03:28</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg677">msg677</a></td></tr>
+<tr><td>2011-01-07&nbsp;02:02:10</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

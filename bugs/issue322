@@ -1,0 +1,598 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 322: Make logged-in landing page 'modal' for each major type of contributor - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue322
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue322">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue322">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Make logged-in landing page 'modal' for each major type of contributor</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, glyph, jessica, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>jessica</td>
+ <th>Keywords</th>
+ <td>
+  usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-02-27.06:48:40</b> by <b>aldeka</b>, last changed <b>2011-05-01.08:04:54</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file256/0001-Make-logged-in-landing-page-modal-like-landing-page-.patch">0001-Make-logged-in-landing-page-modal-like-landing-page-.patch</a>
+  </td>
+  <td>
+   <span>jessica</span>,
+   <span>2011-04-30.03:14:21</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file258/0001-Make-logged-in-landing-page-modal.patch">0001-Make-logged-in-landing-page-modal.patch</a>
+  </td>
+  <td>
+   <span>jessica</span>,
+   <span>2011-05-01.02:17:57</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1782">msg1782 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-01.08:04:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Jessica,
+
+Some last-minute feedback before I close this ticket.
+
+* The second patch as submitted includes changes to mysite/profile/models.py that 
+you don't seem to need.
+
+* That patch adds some JavaScript code that we could probably move into a global 
+.js file, since it occurs twice.
+
+That's really all I have to say other than:
+
+* This patch totally rules. I'm thrilled and relieved that you're choosing to 
+work with us for as long as you do.
+
+This patch is deployed.
+
+(glyph, log in and take a look. We haven't done the "Attract contributors" side 
+of the world yet. File bugs as appropriate.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1775">msg1775 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-05-01.02:17:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Having a error because it's not a valid function is not nitpick. Thought I
+tested the link. Sorry about that!
+
+Also, sorry about the extra white space at the end. I turned on space
+identifiers in Eclipse so hopefully cleaned up trails this time. 
+
+If not, I can get them in version 11.05 probably.
+
+Right-o.
+
+Changed "Recommended people/collaborators" to be "Collaborators" if in a
+project. If not, it's "Potential collaborators" which is randPeople(). Mentors
+would be great for 11.05.
+
+I didn't notice nudges and have put them back in. Nudge on mission and nudge on
+bugs. AKA, if no missions, nudge text. If no tags, nudge text.
+
+Mission status if in progress should be 11.05 (unless someone can do that cause
+I'm out of time).
+
+Yes, moved stuff around. I followed the mockup since it was agreed on but did a
+little shuffling. Also, did the CSS a little differently so the boxes don't
+float to fit. This means white space but means consistency as well.
+
+Yes, to a better "Attract new contributors" page but I don't have extra time
+today. Already behind on some other stuff :) Definitely agree that should be in
+11.05. 
+
+Whatever doesn't get in 11.04 will appear in a new bug to continue making the
+logged in user landing pages more dynamic.
+
+-------Edit-------
+Changed a few things based on IRC feedback but there's a more recent screen shot:
+<a href="http://farm6.static.flickr.com/5186/5673845559_4515c78bfb_o.png">http://farm6.static.flickr.com/5186/5673845559_4515c78bfb_o.png</a> - User has no
+missions, but wants to help one project
+
+Other screenshots from before the IRC feedback (stuff moved around and a little
+tweak on text):
+<a href="http://www.flickr.com/photos/digifoo/sets/72157626493175573/show/">http://www.flickr.com/photos/digifoo/sets/72157626493175573/show/</a>
+
+
+Patch attached</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1765">msg1765 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-30.15:56:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Jessica,
+
+A few thoughts as I review the patch:
+
+* The changes to .gitignore should really be their own commit.
+
+* Some of the changes you made make git complain about 'whitespace errors'. That 
+usually means you ended a line with some " " (space) characters. git doesn't like 
+that, in part because it can sometimes cause merge conflicts meaninglessly.
+
+* I get a TemplateSyntaxError because mysite.missions.svn.views.about is not a 
+valid function. It's mysite.missions.svn.views.main_page ; same with the tar 
+view. (I fixed that locally when reviewing so the page would render.)
+
+Nitpicking aside, some more meaningful comments:
+
+* Wow, this is so good.
+
+* "Recommended people" maybe should be "People you've collaborated with", since 
+that's all it is for now, and it could be smaller, since it's not actually that 
+exciting. Probably we should improve this to say, "People you should probably 
+contact" and list prospective mentors!?!?!!? (*excited but timid gulp*)
+
+* The text for if you haven't done the missions could maybe explain what the 
+missions are, in case you don't know. We used to have a "Nudge" for missions on 
+the old logged-in landing page; maybe you could use something like that?
+
+* Also, it says: "I have helped: No projects listed yet." -- not true! This 
+should be the list of projects that appear in my profile. You can nab this from 
+mysite.models.Person.get_list_of_all_project_names() -- note that this method 
+only gets the ones that are 'published', which I think is fine.
+
+* Maybe the 'Projects' part of the page should move to the top half, since along 
+with missions it's the most useful thing.
+
+I presume you know the 'Attract new contributors' tab is mostly the same. I think 
+we can add some things to it, if you're up for it:
+
+* It maybe should link to projects you're a part of, particular show the ones 
+that have wannahelpers.
+
+* It should maybe provide a 'nudge' to fill out the project page, if it's blank.
+
+* If one of the projects doesn't have any Bug objects associated with it, it 
+could (for now) link to the wiki page about adding a bug tracker. (Soon, maybe 
+later today, there'll be an in-site UI for that.)
+
+I guess it does do all those things right now, in theory, but because it's the 
+same as if I'm not logged in and it doesn't mention anything personal to me, I 
+ignore the old links. That's the way my brain works, I guess. Maybe others' work 
+similarly.
+
+That's what I have for you. One more thing: this is *phenomenal*. It gives me so 
+much hope for this website we have!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1760">msg1760 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-30.03:14:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have ideas for 11.05 ;) Let's see. I did just completed missions. Recommended
+people is slightly different because of the trapped white space looked funny.
+Hope that's alright. "Attract" tab is basically the current not logged-in user
+landing but no "Create a profile" box and no "Try it out!" link, of course.
+
+It seems I can just do one file at a time so here are some screenshots. 
+
+Patch is attached for review.
+
+Seasoned user (from snapshot):
+<a href="http://www.flickr.com/photos/digifoo/5671521378/sizes/l/in/photostream/">http://www.flickr.com/photos/digifoo/5671521378/sizes/l/in/photostream/</a>
+New user: <a href="http://www.flickr.com/photos/digifoo/5670953743/sizes/l/in/photostream/">http://www.flickr.com/photos/digifoo/5670953743/sizes/l/in/photostream/</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1759">msg1759 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-28.04:42:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Recommended people are, indeed, collaborators, if the user has any.
+
+You could code up a way to check if which missions "new", but for now, I would
+put together something ad-hoc. Maybe check for what missions have uncompleted
+steps, and show all those?
+
+The "Recent activity" is, I think, just the global site activity feed.
+
+I think that we'll probably want to revisit the contents of these pages,
+honestly, so I wouldn't spend much time focusing on getting what you show there
+to be exactly right.
+
+I would say that this ticket is really for the UI consistency -- tabs just like
+when you're not logged in -- and we should later figure out the right things to
+put on those pages.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1758">msg1758 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-28.04:31:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Are the "recommended people" the collaborators (if the logged in user has some). 
+It looks like it since the 3 shown in the screen are all in OpenHatch. 
+
+Do I need to code up a way to know which missions are "new"? 
+missions/templates/main.html looks like missions are part of the template and not 
+in the db, right? I see steps in missions_steps but don't see just missions.
+
+What about "recent activity"? Maybe on the bottom left next to news like the no 
+logged in user's version of the front page?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1566">msg1566 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-04-16.21:11:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I guess someone could get to work on this, and just not including the IWH handler 
+widget for the 'contributor' tab. Just follow the mockup (and the existing non-
+logged-in front page design!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1359">msg1359 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-03-26.19:01:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is dependent on features existing (e.g. IWH handlers) that don't yet.
+Moving out of this milestone.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1240">msg1240 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-03-12.21:34:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Partially dependent on <a href="issue282">issue282</a> (for 'i wanna help' support).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1238">msg1238 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-12.21:31:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>UI-wise, it seems we're pretty happy with <a href="http://openhatch.org/bugs/file144/tab-">http://openhatch.org/bugs/file144/tab-</a>
+mockup-3.png
+
+So next step is trying to convert that to Django?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1196">msg1196 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-27.06:48:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Builds off of <a href="issue281">issue281</a>.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-05-01&nbsp;08:04:54</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg1782">msg1782</a></td></tr>
+<tr><td>2011-05-01&nbsp;02:17:57</td><td>jessica</td><td>set</td><td>files:
+  + <a href="file258">0001-Make-logged-in-landing-page-modal.patch</a><br />messages:
+  + <a href="msg1775">msg1775</a></td></tr>
+<tr><td>2011-04-30&nbsp;15:56:25</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress</td></tr>
+<tr><td>2011-04-30&nbsp;15:56:20</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1765">msg1765</a></td></tr>
+<tr><td>2011-04-30&nbsp;03:14:22</td><td>jessica</td><td>set</td><td>status: in-progress -> need-review<br />files:
+  + <a href="file256">0001-Make-logged-in-landing-page-modal-like-landing-page-.patch</a><br />messages:
+  + <a href="msg1760">msg1760</a></td></tr>
+<tr><td>2011-04-28&nbsp;04:42:34</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1759">msg1759</a></td></tr>
+<tr><td>2011-04-28&nbsp;04:31:00</td><td>jessica</td><td>set</td><td>messages:
+  + <a href="msg1758">msg1758</a></td></tr>
+<tr><td>2011-04-27&nbsp;02:02:28</td><td>jessica</td><td>set</td><td>status: chatting -> in-progress</td></tr>
+<tr><td>2011-04-25&nbsp;17:39:00</td><td>jessica</td><td>set</td><td>assignedto: <a href="user96">jessica</a><br />nosy:
+  + <a href="user96">jessica</a></td></tr>
+<tr><td>2011-04-22&nbsp;02:49:22</td><td>glyph</td><td>set</td><td>nosy:
+  + <a href="user117">glyph</a></td></tr>
+<tr><td>2011-04-20&nbsp;23:51:15</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a><br />keyword:
+  + <a href="keyword7">usability</a></td></tr>
+<tr><td>2011-04-16&nbsp;21:11:31</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user4">aldeka</a> -> (no value)<br />messages:
+  + <a href="msg1566">msg1566</a></td></tr>
+<tr><td>2011-03-26&nbsp;19:01:23</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg1359">msg1359</a><br />milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-03-12&nbsp;21:34:05</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg1240">msg1240</a></td></tr>
+<tr><td>2011-03-12&nbsp;21:31:56</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1238">msg1238</a></td></tr>
+<tr><td>2011-02-27&nbsp;06:48:40</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

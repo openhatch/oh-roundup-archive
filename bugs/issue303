@@ -1,0 +1,579 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 303: Traditional login page: remove the information about username being case-sensitive - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue303
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue303">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue303">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Traditional login page: remove the information about username being case-sensitive</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  florapdx, jesstess, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-02-18.18:59:35</b> by <b>ktarnowski</b>, last changed <b>2013-09-15.12:02:00</b> by <b>Aaron1011</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3858">msg3858 (view)</a></th>
+   <th>Author: Aaron1011</th>
+   <th>Date: 2013-09-15.12:02:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>With the latest code, this message no longer appears.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2118">msg2118 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-24.00:25:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>OK so the message that says: "Note that both fields are case-sensitive."should
+be: "Password is case-sensitive." ??
+
+Changing this message isn't trivial. So I'm taking off the bite-sized label.
+And I no longer have time to fix it, so I'm de-assigning it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2116">msg2116 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-06-23.23:29:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've confirmed that logging in with a username and password is case-insensitive to the username.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2040">msg2040 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-05.20:02:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm marking this for review, hoping that paulproteus can either clarify it, or
+come to the same conclusions as me and mark this issue resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1991">msg1991 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-01.22:21:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So now pythonian400 now says it's the account creation form...
+
+&lt;pythonian4000&gt; And yes, I believe you are right in terms of the username login
+form being case-sensitive.
+&lt;pythonian4000&gt; It is just the user creation form that is now case-insensitive.
+Reference conversation:
+<a href="http://irclogs.jackgrigg.com/text.pl?server=irc.freenode.net;channel=openhatch;date=2011-06-01">http://irclogs.jackgrigg.com/text.pl?server=irc.freenode.net;channel=openhatch;date=2011-06-01</a>
+
+So in mysite/accounts/forms.py and
+mysite/accounts/templates/accounts/signup.html
+
+Is there something wrong with how this is currently setup?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1990">msg1990 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-01.21:23:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Is this issue really valid? -- I'm thinking not.
+We _are_ using case-sensitive password and usernames, aren't we?
+
+So why tell people we are not?
+
+The check that Jack Griggs setup for central login, was to check that the
+username in any upper/lowercase wasn't in the database.
+
+that just means someone can't go an create a PalHmbs username.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1924">msg1924 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-28.22:30:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It does, but I/we didn't get to fix it in the last milestone (11.05). Shifting it forward.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1848">msg1848 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-07.21:04:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The non-multi-language solution is totally okay here. Sorry I didn't say 
+that before!
+
+Does that get you all unstuck?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1663">msg1663 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-21.06:00:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've found -- <a href="http://stackoverflow.com/questions/1481771/django-override-default-">http://stackoverflow.com/questions/1481771/django-override-default-</a>
+form-error-messages/4764886#4764886
+
+I think we ought to be able to override the default behaviour - But this wouldn't 
+be a multi-language solution, so I'm not sure if it's acceptable.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1661">msg1661 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-21.00:25:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If you go to the login page (<a href="http://openhatch.org/account/login/">http://openhatch.org/account/login/</a>), then on the 
+right under "relatedly" click "Log in with a password" and then type a character 
+in each field. It'll then say "Please enter a correct username and password. Note 
+that both fields are case-sensitive."
+
+Hope that helps :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1660">msg1660 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-20.23:53:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://openhatch.org/account/login/old?next=">http://openhatch.org/account/login/old?next=</a>
+
+I poked around at it and it looked like the errors were coded at the django level 
+so I guess the login method would have to be overriden to change the text? Like 
+if login worked, awesome, otherwise show this spiffy new error message.
+
+I'm not sure so I tossed it back for someone with more time/experience :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1658">msg1658 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.23:36:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Has somebody fixed this on the already?
+I can't see anywhere on any of the login pages where it states that the username 
+is case-sensitive.
+
+I'm looking specifically at - Sign up (without OpenID)
+which is at <a href="http://openhatch.org/account/signup/">http://openhatch.org/account/signup/</a>
+
+I'd be happy to fix the login text if I can be pointed to it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1549">msg1549 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-04-16.19:33:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Agreed. Deassign-ed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1544">msg1544 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-16.19:19:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm hoping that someone wants to get this in for 0.11.04. Maybe ktarnowski, but 
+if not, please de-assign.
+
+It's a great bug for a newcomer to get started with.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1234">msg1234 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-10.03:54:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>To be clear:
+
+This bug represents the goal of changing the *text* of the login page. Right now
+it talks about usernames being case-sensitive. But now usernames are not
+case-sensitive, so the text should be changed to represent that.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1115">msg1115 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-18.19:42:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Unfortunately, django.contrib.auth.views.login() in Django 1.1 does not accept form 
+override parameter.
+
+I think we can defer it until OH runs on Django &gt;= 1.2.x. Otherwise the login() 
+method will be just another copy paste.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1114">msg1114 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-18.18:59:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Currently, the username/password login page informs user that both username and 
+password are case-sensitive.
+
+With <a href="https://openhatch.org/bugs/issue269">https://openhatch.org/bugs/issue269</a> deployed, that's no longer the case.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-09-15&nbsp;12:02:00</td><td>Aaron1011</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg3858">msg3858</a></td></tr>
+<tr><td>2013-08-02&nbsp;21:42:20</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user680">florapdx</a></td></tr>
+<tr><td>2011-06-24&nbsp;00:25:50</td><td>palhmbs</td><td>set</td><td>status: in-progress -> chatting</td></tr>
+<tr><td>2011-06-24&nbsp;00:25:39</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a> -> <a href="userNone"></a><br />messages:
+  + <a href="msg2118">msg2118</a><br />keyword:
+  - <a href="keyword1">bitesize</a><br />milestone: <a href="milestone9">0.11.06</a> -> <a href="milestoneNone"></a></td></tr>
+<tr><td>2011-06-23&nbsp;23:29:38</td><td>jesstess</td><td>set</td><td>status: need-review -> in-progress<br />assignedto: <a href="user3">paulproteus</a> -> <a href="user42">palhmbs</a><br />title: Traditional login page: remove the information about username being case-sesititve -> Traditional login page: remove the information about username being case-sensitive<br />messages:
+  + <a href="msg2116">msg2116</a><br />nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2011-06-05&nbsp;20:02:36</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-review<br />assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2040">msg2040</a></td></tr>
+<tr><td>2011-06-01&nbsp;22:21:57</td><td>palhmbs</td><td>set</td><td>status: need-review -> chatting<br />messages:
+  + <a href="msg1991">msg1991</a></td></tr>
+<tr><td>2011-06-01&nbsp;21:23:46</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg1990">msg1990</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:48:17</td><td>jessica</td><td>set</td><td>nosy:
+  - <a href="user96">jessica</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:30:22</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1924">msg1924</a><br />keyword:
+  + <a href="keyword7">usability</a><br />milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-07&nbsp;21:04:29</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1848">msg1848</a></td></tr>
+<tr><td>2011-04-30&nbsp;22:43:28</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-21&nbsp;06:07:02</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-04-21&nbsp;06:00:04</td><td>palhmbs</td><td>set</td><td>status: need-example -> chatting<br />messages:
+  + <a href="msg1663">msg1663</a></td></tr>
+<tr><td>2011-04-21&nbsp;00:25:33</td><td>jessica</td><td>set</td><td>messages:
+  + <a href="msg1661">msg1661</a></td></tr>
+<tr><td>2011-04-20&nbsp;23:53:27</td><td>jessica</td><td>set</td><td>messages:
+  + <a href="msg1660">msg1660</a></td></tr>
+<tr><td>2011-04-20&nbsp;23:38:58</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-example</td></tr>
+<tr><td>2011-04-20&nbsp;23:36:32</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1658">msg1658</a></td></tr>
+<tr><td>2011-04-19&nbsp;02:47:15</td><td>jessica</td><td>set</td><td>assignedto: <a href="user96">jessica</a> -> (no value)</td></tr>
+<tr><td>2011-04-18&nbsp;20:52:31</td><td>jessica</td><td>set</td><td>assignedto: <a href="user96">jessica</a><br />nosy:
+  + <a href="user96">jessica</a></td></tr>
+<tr><td>2011-04-16&nbsp;19:33:27</td><td>ktarnowski</td><td>set</td><td>assignedto: <a href="user52">ktarnowski</a> -> (no value)<br />messages:
+  + <a href="msg1549">msg1549</a><br />nosy:
+  - <a href="user52">ktarnowski</a></td></tr>
+<tr><td>2011-04-16&nbsp;19:19:58</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1544">msg1544</a><br />milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-03-10&nbsp;03:54:17</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1234">msg1234</a><br />keyword:
+  + <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2011-02-18&nbsp;19:42:54</td><td>ktarnowski</td><td>set</td><td>status: in-progress -> chatting<br />messages:
+  + <a href="msg1115">msg1115</a><br />milestone: <a href="milestone5">0.11.02</a> -> (no value)</td></tr>
+<tr><td>2011-02-18&nbsp;18:59:35</td><td>ktarnowski</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

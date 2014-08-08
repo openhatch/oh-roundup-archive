@@ -1,0 +1,461 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 362: Folder diff mission should recognize backwards diff - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue362
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue362">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue362">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Folder diff mission should recognize backwards diff</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Lorthirk, TravisB, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>TravisB</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-04-03.20:33:52</b> by <b>Lorthirk</b>, last changed <b>2011-04-23.20:59:00</b> by <b>palhmbs</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file239/0001-Fix-diffpatch-mission-step-3-to-include-a-special-me.patch">0001-Fix-diffpatch-mission-step-3-to-include-a-special-me.patch</a>
+  </td>
+  <td>
+   <span>TravisB</span>,
+   <span>2011-04-23.17:38:01</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file236/badpatch">badpatch</a>
+  </td>
+  <td>
+   <span>TravisB</span>,
+   <span>2011-04-22.03:44:56</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1705">msg1705 (view)</a></th>
+   <th>Author: TravisB</th>
+   <th>Date: 2011-04-23.17:38:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Uploaded git patch!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1703">msg1703 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-23.17:24:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>TravisB, this is great!
+
+Can you re-submit this after making a local commit, by following 
+<a href="http://openhatch.org/wiki/How_to_generate_patches_with_git_format-patch">http://openhatch.org/wiki/How_to_generate_patches_with_git_format-patch</a>
+
+(You don't have to create a branch on your machine if you don't want.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1690">msg1690 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-22.05:23:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've reviewed this, and it throws the error properly, ./bin/mysite test missions 
+are fine. So it totally fixes this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1688">msg1688 (view)</a></th>
+   <th>Author: TravisB</th>
+   <th>Date: 2011-04-22.03:44:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Uploading the reverse diff so people don't have to bother doing it themselves.
+[badpatch]</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1686">msg1686 (view)</a></th>
+   <th>Author: TravisB</th>
+   <th>Date: 2011-04-22.02:34:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Submitted patch.  Change note or contact me in IRC (TravisB) with any questions 
+or concerns.
+
+Contains:
+     * Added a check and special error message if users submit a reverse patch on 
+the recursive patch section of the mission
+     * Test function</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1682">msg1682 (view)</a></th>
+   <th>Author: TravisB</th>
+   <th>Date: 2011-04-21.22:22:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Patch.  Test case coming later tonight.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1641">msg1641 (view)</a></th>
+   <th>Author: TravisB</th>
+   <th>Date: 2011-04-20.06:32:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'll be working on this in the late afternoon 04/20/2011.  We'll see how it goes!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1584">msg1584 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-17.19:37:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If someone wants to tackle this, here's what you need to know:
+
+* Take a look at the diff mission -- mysite/missions/diffpatch/views.py
+
+The implementation of the steps detects certain kinds of errors. You're going to
+have to add detection of a new error: the patch being reversed. This requires
+creating a new Exception subclass that the gets detected and raised.
+
+You should also check out the test suite for the diffpatch mission:
+
+mysite/missions/diffpatch/tests.py
+
+You'll have to write a test for this new case.
+
+<a href="http://openhatch.org/wiki/Automated_testing">http://openhatch.org/wiki/Automated_testing</a> talks a little more about how we use
+test suites.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1416">msg1416 (view)</a></th>
+   <th>Author: Lorthirk</th>
+   <th>Date: 2011-04-03.20:33:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>While doing the third part of the diff mission, i switched the two folders 
+submitted to the diff command, thus creating a backwards diff. The page resulted in 
+the error "The patch would not apply correctly to the file "Ratatouille.txt" (or 
+something similar). I think it should recognize a backwards diff instead.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-23&nbsp;20:59:00</td><td>palhmbs</td><td>set</td><td>status: need-review -> resolved</td></tr>
+<tr><td>2011-04-23&nbsp;19:55:16</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-04-23&nbsp;17:38:35</td><td>TravisB</td><td>set</td><td>messages:
+  + <a href="msg1705">msg1705</a></td></tr>
+<tr><td>2011-04-23&nbsp;17:38:01</td><td>TravisB</td><td>set</td><td>files:
+  + <a href="file239">0001-Fix-diffpatch-mission-step-3-to-include-a-special-me.patch</a></td></tr>
+<tr><td>2011-04-23&nbsp;17:37:40</td><td>TravisB</td><td>set</td><td>files:
+  - <a href="file235">issue362Patch</a></td></tr>
+<tr><td>2011-04-23&nbsp;17:24:58</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1703">msg1703</a></td></tr>
+<tr><td>2011-04-22&nbsp;05:23:38</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1690">msg1690</a></td></tr>
+<tr><td>2011-04-22&nbsp;03:44:56</td><td>TravisB</td><td>set</td><td>files:
+  + <a href="file236">badpatch</a><br />messages:
+  + <a href="msg1688">msg1688</a></td></tr>
+<tr><td>2011-04-22&nbsp;03:42:56</td><td>TravisB</td><td>set</td><td>files:
+  + <a href="file235">issue362Patch</a></td></tr>
+<tr><td>2011-04-22&nbsp;03:42:45</td><td>TravisB</td><td>set</td><td>files:
+  - <a href="file234">issue362Patch</a></td></tr>
+<tr><td>2011-04-22&nbsp;03:15:15</td><td>TravisB</td><td>set</td><td>files:
+  + <a href="file234">issue362Patch</a></td></tr>
+<tr><td>2011-04-22&nbsp;03:15:06</td><td>TravisB</td><td>set</td><td>files:
+  - <a href="file233">issue362Patch</a></td></tr>
+<tr><td>2011-04-22&nbsp;03:05:16</td><td>TravisB</td><td>set</td><td>files:
+  + <a href="file233">issue362Patch</a></td></tr>
+<tr><td>2011-04-22&nbsp;03:05:08</td><td>TravisB</td><td>set</td><td>files:
+  - <a href="file232">issue362Patch</a></td></tr>
+<tr><td>2011-04-22&nbsp;02:34:57</td><td>TravisB</td><td>set</td><td>status: in-progress -> need-review<br />files:
+  + <a href="file232">issue362Patch</a><br />messages:
+  + <a href="msg1686">msg1686</a></td></tr>
+<tr><td>2011-04-22&nbsp;02:31:08</td><td>TravisB</td><td>set</td><td>files:
+  - <a href="file228">issue362Patch</a></td></tr>
+<tr><td>2011-04-22&nbsp;00:14:57</td><td>TravisB</td><td>set</td><td>status: chatting -> in-progress</td></tr>
+<tr><td>2011-04-21&nbsp;22:22:24</td><td>TravisB</td><td>set</td><td>files:
+  + <a href="file228">issue362Patch</a><br />messages:
+  + <a href="msg1682">msg1682</a></td></tr>
+<tr><td>2011-04-20&nbsp;06:32:33</td><td>TravisB</td><td>set</td><td>messages:
+  + <a href="msg1641">msg1641</a></td></tr>
+<tr><td>2011-04-20&nbsp;06:30:11</td><td>TravisB</td><td>set</td><td>assignedto: <a href="user51">TravisB</a></td></tr>
+<tr><td>2011-04-20&nbsp;06:16:16</td><td>TravisB</td><td>set</td><td>nosy:
+  + <a href="user51">TravisB</a></td></tr>
+<tr><td>2011-04-17&nbsp;19:37:11</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1584">msg1584</a></td></tr>
+<tr><td>2011-04-16&nbsp;21:03:49</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-03&nbsp;20:33:52</td><td>Lorthirk</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

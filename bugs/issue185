@@ -1,0 +1,727 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 185: Create a basic "git" training mission - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue185
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue185">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue185">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Create a basic "git" training mission</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.05</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mark, TravisB, doherty, jesstess, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>palhmbs</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-11-20.22:09:05</b> by <b>paulproteus</b>, last changed <b>2011-05-01.09:12:39</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file261/0001-Final-Git-Changes.patch">0001-Final-Git-Changes.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-05-01.09:08:27</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file244/0001-Implement-most-of-Git-mission.-Squashed-from-9-commi.patch">0001-Implement-most-of-Git-mission.-Squashed-from-9-commi.patch</a>
+  </td>
+  <td>
+   <span>paulproteus</span>,
+   <span>2011-04-24.02:09:29</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file245/0001-URL-Fix.patch">0001-URL-Fix.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-04-24.09:25:49</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file243/Git_mission_9_squashed_commits.patch">Git_mission_9_squashed_commits.patch</a>
+  </td>
+  <td>
+   <span>pythonian4000</span>,
+   <span>2011-04-24.01:05:30</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file215/git_mission.patch">git_mission.patch</a>
+  </td>
+  <td>
+   <span>Mark</span>,
+   <span>2011-04-18.21:52:08</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1792">msg1792 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-01.09:12:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is "done", subject to the bugs that are in the tracker.
+
+Yay palhmbs and Mark and everyone else that pushed this forward.
+
+The "Final Git Changes" patch missed 0.11.04 by about 3 minutes, but it's still
+April somewhere in the world.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1791">msg1791 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-01.09:08:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hopefully the new changes to add some &lt;code&gt; tags to make the git commands clearer 
+works in this patch.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1774">msg1774 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-01.02:09:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've decided to use &lt;abrev&gt; to include some hints - and I put paulproteus's note 
+at the bottom of "Creating a Patch" 
+
+I decided to link to the diff patch mission from inside that note, and the 
+settings.py has the http:// instead of git://</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1773">msg1773 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-01.02:06:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hopefully I've managed to add in paulproteus's suggestions...
+
+Please review!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1770">msg1770 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-30.22:23:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Seems that Travis has disappeared. Therefore, I'll finish this off for this 
+milestone.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1725">msg1725 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-24.19:34:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've been trying to work out how to pass http through nginx, so that git clone 
+works. So far I haven't found a solution. 
+Also, most people nowadays are using gitolite to serve up their repos, and I'm 
+pretty sure we don't need as complete as gitolite.
+
+paulproteus thought it would be easy using -- 
+<a href="http://norbu09.org/2009/08/02/git-via-HTTP-(startup-automation-3).html">http://norbu09.org/2009/08/02/git-via-HTTP-(startup-automation-3).html</a>
+
+I have tried with directions above and -- 
+<a href="http://www.toofishes.net/blog/git-smart-http-transport-nginx/">http://www.toofishes.net/blog/git-smart-http-transport-nginx/</a>
+
+I also have gone through the mission and it all seems to work wonderfully with a 
+git daemon on git://.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1724">msg1724 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-24.09:25:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Fixed a small problem with a URL - was a return between url and mysite
+
+  -&lt;p&gt;If you want to know more about git, read &lt;a href="{% url
+  -mysite.missions.git.views.long_description %}"&gt;more about Git&lt;/a&gt;.&lt;/p&gt;
+  +&lt;p&gt;If you want to know more about git, read
+  +&lt;a href="{% url mysite.missions.git.views.long_description %}"&gt;more about 
+Git&lt;/a&gt;.&lt;/p&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1721">msg1721 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-24.02:09:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This patch actually applies, and isn't corrupted by cgit.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1720">msg1720 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-24.01:05:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here be a squashed version of Mark's patch, after fixing tht mysite/settings.py
+diffs to apply on the current origin/master.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1711">msg1711 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-23.21:02:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Me and TravisB are gonna work on this for the milestone - so I added Travisb to 
+the nosy.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1608">msg1608 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2011-04-18.21:52:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Attached is the patch of everything I have thus far. Additional changes needed is 
+the feedback from paulproteus and the ability to serve the repository.  The URL 
+for checkout will need to be updated in the template, as it currently says to use 
+the git method of pulling the repo, rather than http.
+
+Feedback from paulproteus. (note it was later decided that a specific bash/editor 
+mission was probably more suited to teaching those skills than the git mission 
+would be.)
+
+* Second page: You're asking people to read the code comments to find the author 
+of something, but that's confusing because "git log" and "git annotate" (AKA "git 
+blame") are the more common tools for finding the author of some code. Maybe you 
+could ask them to do something different, like paste the output of the program?
+
+Also, people have suggested we explain to people they need to "cd" into a 
+directory, or open a particular file with a text editor -- whatever you ask 
+people to do, it should only be unclear if that's what you want. We can't 
+necessarily assume much of the skill level of people running through these 
+missions.
+
+* Third page: I would link to the diff/patch mission in the text, and also have a 
+paragraph like:
+
+"Files created by git format-patch are like normal patch files, but they also 
+carry information about the git commit that created the patch: the author, the 
+date, and the commit log message are all there at the top of the patch."
+
+Also, you don't explain here how to "check your changes into your local copy".
+
+Also, if the person is an OS X user, we could suggest they creating the
+patch with GitX, or with gitg in GNU/Linux-y systems.
+
+Also, "open the patch file" in what?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1543">msg1543 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-16.19:13:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>A snapshot of Mark's work so far is at 
+<a href="https://docs.google.com/document/d/16uZQWvvYWoWob2gjwCwqv24Wi9IRfllqCb5pw0oiu9c">https://docs.google.com/document/d/16uZQWvvYWoWob2gjwCwqv24Wi9IRfllqCb5pw0oiu9c</a>
+/edit?hl=en&amp;authkey=CP2JvrIM</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1525">msg1525 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-14.23:15:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Mark just posted on Devel that he is getting close to having patches for this,
+so I'm chucking it in the latest milestone (which we now have two weeks for ^_^ ).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1064">msg1064 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2011-02-14.17:57:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Notes from Paulproteus: the most useful one would be a training mission that 
+teaches how to use git format-patch, assuming no git knowledge.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg795">msg795 (view)</a></th>
+   <th>Author: doherty</th>
+   <th>Date: 2011-01-25.23:44:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This month's milestone is turning out to be too ambitious :(</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg719">msg719 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-09.06:14:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey Mike!
+
+I think that it would be helpful to agree on the "plot" of the mission before
+you start coding it. If you have some ideas for it, I suggest you mail them to
+devel@ and we can discuss there. If  not, then you and I and the rest of
+#openhatch can brainstorrm on IRC first.
+
+Then, I suggest that you submit some patches that add the skeleton of the
+mission to the codebase. By "skeleton" I'm thinking, just enough to show all the
+pages, and put some placeholder text on them.
+
+Then, I suggest you modify the mission so it actually does whatever the "meat"
+of the mission is. (For example, for the Subversion mission, this would be
+tracking the state of the user through the mission, and the work of creating a
+Subversion repository for the user, and the complex code that validates the
+user's input.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg704">msg704 (view)</a></th>
+   <th>Author: doherty</th>
+   <th>Date: 2011-01-08.21:53:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've started this just now...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg659">msg659 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-18.21:48:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Later!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg582">msg582 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-20.22:09:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It would be really nice if we had a training mission for "git". Then we could
+remove the "First, a word about git" discussion from
+<a href="http://openhatch.org/wiki/Adding_a_field_to_the_profile">http://openhatch.org/wiki/Adding_a_field_to_the_profile</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-05-01&nbsp;09:12:39</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1792">msg1792</a><br />milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-05-01&nbsp;09:08:54</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file259">0001-Changes-for-git-mission.patch</a></td></tr>
+<tr><td>2011-05-01&nbsp;09:08:27</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file261">0001-Final-Git-Changes.patch</a><br />messages:
+  + <a href="msg1791">msg1791</a></td></tr>
+<tr><td>2011-05-01&nbsp;09:07:32</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg1778">msg1778</a></td></tr>
+<tr><td>2011-05-01&nbsp;04:30:14</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file259">0001-Changes-for-git-mission.patch</a><br />messages:
+  + <a href="msg1778">msg1778</a></td></tr>
+<tr><td>2011-05-01&nbsp;04:30:01</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file257">0001-Changes-for-git-mission.patch</a></td></tr>
+<tr><td>2011-05-01&nbsp;02:09:46</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-05-01&nbsp;02:09:39</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1774">msg1774</a></td></tr>
+<tr><td>2011-05-01&nbsp;02:06:54</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file257">0001-Changes-for-git-mission.patch</a><br />messages:
+  + <a href="msg1773">msg1773</a></td></tr>
+<tr><td>2011-04-30&nbsp;22:23:11</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user51">TravisB</a> -> <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1770">msg1770</a><br />nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-04-24&nbsp;19:34:02</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1725">msg1725</a></td></tr>
+<tr><td>2011-04-24&nbsp;09:25:50</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file245">0001-URL-Fix.patch</a><br />messages:
+  + <a href="msg1724">msg1724</a></td></tr>
+<tr><td>2011-04-24&nbsp;02:09:29</td><td>paulproteus</td><td>set</td><td>files:
+  + <a href="file244">0001-Implement-most-of-Git-mission.-Squashed-from-9-commi.patch</a><br />messages:
+  + <a href="msg1721">msg1721</a></td></tr>
+<tr><td>2011-04-24&nbsp;01:05:30</td><td>pythonian4000</td><td>set</td><td>files:
+  + <a href="file243">Git_mission_9_squashed_commits.patch</a><br />messages:
+  + <a href="msg1720">msg1720</a></td></tr>
+<tr><td>2011-04-23&nbsp;21:02:28</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user29">Mark</a> -> <a href="user51">TravisB</a><br />messages:
+  + <a href="msg1711">msg1711</a><br />nosy:
+  + <a href="user51">TravisB</a></td></tr>
+<tr><td>2011-04-18&nbsp;21:52:10</td><td>Mark</td><td>set</td><td>files:
+  + <a href="file215">git_mission.patch</a><br />messages:
+  + <a href="msg1608">msg1608</a></td></tr>
+<tr><td>2011-04-16&nbsp;19:13:55</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1543">msg1543</a></td></tr>
+<tr><td>2011-04-14&nbsp;23:15:20</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1525">msg1525</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-02-15&nbsp;18:10:15</td><td>Mark</td><td>set</td><td>assignedto: <a href="user47">doherty</a> -> <a href="user29">Mark</a></td></tr>
+<tr><td>2011-02-14&nbsp;17:57:57</td><td>Mark</td><td>set</td><td>nosy:
+  + <a href="user29">Mark</a><br />messages:
+  + <a href="msg1064">msg1064</a></td></tr>
+<tr><td>2011-02-12&nbsp;17:02:01</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2011-01-25&nbsp;23:44:28</td><td>doherty</td><td>set</td><td>messages:
+  + <a href="msg795">msg795</a><br />milestone: <a href="milestone4">0.11.01</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-01-09&nbsp;06:14:21</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg719">msg719</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:55:19</td><td>doherty</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:53:08</td><td>doherty</td><td>set</td><td>status: chatting -> in-progress<br />assignedto: <a href="user47">doherty</a><br />messages:
+  + <a href="msg704">msg704</a><br />nosy:
+  + <a href="user47">doherty</a></td></tr>
+<tr><td>2010-12-18&nbsp;21:48:21</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg659">msg659</a><br />milestone: <a href="milestone3">0.10.12</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2010-11-20&nbsp;22:09:05</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

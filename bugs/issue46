@@ -1,0 +1,326 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 46: Interface should (but does not) warn when adding invalid urls (httttp://) to personal homepage_url - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue46
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue46">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue46">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Interface should (but does not) warn when adding invalid urls (httttp://) to personal homepage_url</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  bboissin, paulproteus, rafpaf, stump
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>stump</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-03-17.17:07:43</b> by <b>bboissin</b>, last changed <b>2010-03-31.20:13:31</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg142">msg142 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-31.20:13:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>stump's patch fixed it, and is deployed! I'm marking this as resolved.
+
+bboisson, reply here if you find the truth to be otherwise. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg132">msg132 (view)</a></th>
+   <th>Author: stump</th>
+   <th>Date: 2010-03-30.16:51:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think I'll give this a try.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg128">msg128 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-25.23:24:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>There is, and we even use it.
+
+We just don't use it for form validation here, and the code we have written for
+ourselves in this form is kind of messy.
+
+So for now I'll say, we'll get to this in a little bit. I'm adding stump as nosy
+in case he feels like giving it a look.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg124">msg124 (view)</a></th>
+   <th>Author: bboissin</th>
+   <th>Date: 2010-03-25.18:49:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yes it is. Isn't there a url field in django that could be used?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg123">msg123 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-25.18:44:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is for the personal home page link? Let me take a look at that....</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg100">msg100 (view)</a></th>
+   <th>Author: bboissin</th>
+   <th>Date: 2010-03-17.17:07:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I did a mistake and added an url in the form of htttp:// (3 't'), and there was 
+no warnings whatsoever.
+
+It probably shouldn't allow urls with schemes different from http/https anyway.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-03-31&nbsp;20:13:31</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg142">msg142</a></td></tr>
+<tr><td>2010-03-30&nbsp;16:51:32</td><td>stump</td><td>set</td><td>assignedto: <a href="user19">stump</a><br />messages:
+  + <a href="msg132">msg132</a></td></tr>
+<tr><td>2010-03-25&nbsp;23:24:31</td><td>paulproteus</td><td>set</td><td>title: Interface shouldn't warn when adding invalid urls (httttp://) -> Interface should (but does not) warn when adding invalid urls (httttp://) to personal homepage_url</td></tr>
+<tr><td>2010-03-25&nbsp;23:24:08</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user5">rafpaf</a>, <a href="user19">stump</a><br />messages:
+  + <a href="msg128">msg128</a></td></tr>
+<tr><td>2010-03-25&nbsp;18:49:57</td><td>bboissin</td><td>set</td><td>messages:
+  + <a href="msg124">msg124</a></td></tr>
+<tr><td>2010-03-25&nbsp;18:44:06</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg123">msg123</a></td></tr>
+<tr><td>2010-03-17&nbsp;17:07:43</td><td>bboissin</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

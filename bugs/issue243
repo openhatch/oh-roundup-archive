@@ -1,0 +1,615 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 243: If the bug recommendation list is not fresh, then we should display the user's home page / the bug search page while we calculate the bug recommendation list in a background GET - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue243
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue243">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue243">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">If the bug recommendation list is not fresh, then we should display the user's home page / the bug search page while we calculate the bug recommendation list in a background GET</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.02</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, ktarnowski, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>ktarnowski</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-29.23:07:44</b> by <b>paulproteus</b>, last changed <b>2011-02-22.00:24:02</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1150">msg1150 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-22.00:24:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is resolved. See <a href="issue310">issue310</a> for something else. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1148">msg1148 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-22.00:20:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Traceback (most recent call last):
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/core/handlers/base.py",
+line 99, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+
+  File "&lt;string&gt;", line 2, in home
+
+  File "/home/deploy/milestone-a.buildout/mysite/base/decorators.py", line 67,
+in view
+    request, template, view_data = func(*args, **kw)
+
+  File "/home/deploy/milestone-a.buildout/mysite/base/views.py", line 94, in home
+    suggested_searches = request.user.get_profile().get_recommended_search_terms()
+
+  File "/home/deploy/milestone-a.buildout/mysite/profile/models.py", line 302,
+in get_recommended_search_terms
+    return Person.only_terms_with_results(terms)
+
+  File "/home/deploy/milestone-a.buildout/mysite/profile/models.py", line 277,
+in only_terms_with_results
+    hit_count = query.get_or_create_cached_hit_count()
+
+  File "/home/deploy/milestone-a.buildout/mysite/search/controllers.py", line
+366, in get_or_create_cached_hit_count
+    defaults={'hit_count': count})
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/manager.py", line
+122, in get_or_create
+    return self.get_query_set().get_or_create(**kwargs)
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/query.py",
+line 336, in get_or_create
+    obj.save(force_insert=True)
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/base.py",
+line 431, in save
+    self.save_base(force_insert=force_insert, force_update=force_update)
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/base.py",
+line 516, in save_base
+    result = manager._insert(values, return_id=update_pk)
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/manager.py", line
+176, in _insert
+    return insert_query(self.model, values, **kwargs)
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/query.py",
+line 1109, in insert_query
+    return query.execute_sql(return_id)
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/sql/subqueries.py",
+line 324, in execute_sql
+    cursor = super(InsertQuery, self).execute_sql(None)
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/sql/query.py",
+line 2347, in execute_sql
+    cursor.execute(sql, params)
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/backends/mysql/base.py",
+line 84, in execute
+    return self.cursor.execute(query, args)
+
+  File
+"/home/deploy/milestone-a.buildout/eggs/MySQL_python-1.2.3c1-py2.6-linux-i686.egg/MySQLdb/cursors.py",
+line 173, in execute
+    self.errorhandler(self, exc, value)
+
+  File
+"/home/deploy/milestone-a.buildout/eggs/MySQL_python-1.2.3c1-py2.6-linux-i686.egg/MySQLdb/connections.py",
+line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+
+OperationalError: (1205, 'Lock wait timeout exceeded; try restarting transaction')
+
+I guess the cached hit count should *not* live in the database. I guess it
+should live in memcached.
+
+I guess that's a separate issue, in theory.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1147">msg1147 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-22.00:17:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I deployed it... but <a href="https://openhatch.org/">https://openhatch.org/</a> is still taking the usual "forever"
+to load for me. I still suspect it's because of bug recommendations, so I should
+probably read the new code a little more carefully to see if we're calling the
+method somehow.
+
+We should probably figure out what's going on. Marking as "chatting" for now. |:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1146">msg1146 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-21.21:53:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>These look good to me. I'm going to let Hudson test them, and if Hudson agrees,
+then I will deploy.
+
+Some small nitpicks:
+
+* There are some unnecessary deltas in here that still get reverted -- namely,
+references to the AJAX loader spinner that you added.
+
+I think that's all for now. I'm glad this is (hopefully) landing!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1145">msg1145 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-21.21:42:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Included suggested changes and fixes. Rebased and merged to local master without a 
+fuss.
+
+<a href="http://gitorious.org/~ktarnowski/openhatch/ktarnowskis-oh-mainline/commits/243-bug-">http://gitorious.org/~ktarnowski/openhatch/ktarnowskis-oh-mainline/commits/243-bug-</a>
+recommendations-krzysztof</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1112">msg1112 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-18.18:47:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for the comments - it should be fine now, hopefully.
+
+I've totally missed the throbber; I've been looking for other keywords.
+
+Re. language: too fast, too furious ;-)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1110">msg1110 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-18.15:24:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This looks really good overall! Some thoughts:
+
+* It's easier to review if you squash commits+reversions away. For example, you
+added ajax-loader-medium and then removed it. You can use "git rebase -i" to
+combine those commits, and then it's like the file never existed.
+
+* This comment isn't quite proper English: /* People's list */ -- I think it
+should be "People list", but I'm actually not sure. Probably a more descriptive
+comment would help.
+
+* It's really really good that you're making lots of separate commits, with e.g.
+moving inline CSS out of files as one individual commit.
+
+* "On age cases" -- I think you mean, "On edge cases"?
+
+* If a user is new to the site, and therefore we don't know anything about them,
+do you show "We're sorry"? That's kind of sad, if so!
+
+* In general, these changes are *great*.
+
+I think displaying text would be nice thing to do.
+
+We do already have two throbbers in the tree: can you use those  instead?
+
+mysite/static/images/throbber-54px.gif
+mysite/static/images/throbber.gif
+
+That's my feedback.
+
+It's fine giving me Gitorious branches to review; it's pretty eays to get all
+the changes. Before I push, I'm going to rebase the changes onto the current
+origin/master, which (having just tried it) is going to very easy. But because
+of that rebase-y workflow, in general if there are individual commits that are
+shippable now, then I would suggest using "git rebase -i" to move them to the
+early part of the patch series, and then just ask me to take the
+non-controversial changes immediately.
+
+Like template refactorings, for example.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1109">msg1109 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-18.11:03:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Please fetch changes from my development branch: 
+<a href="http://gitorious.org/~ktarnowski/openhatch/ktarnowskis-oh-mainline/commits/243-">http://gitorious.org/~ktarnowski/openhatch/ktarnowskis-oh-mainline/commits/243-</a>
+bug-recommendations-krzysztof (starting with commit 5c4234e).
+
+Input regarding UI/UX of the new solution is desirable, i.a. is there a need for 
+displaying text ('Loading your...') along with animated AJAX image?
+
+AJAX loaders can be generated using online tool available at 
+<a href="http://www.preloaders.net/,">http://www.preloaders.net/,</a> in case the one used here is deemed unsatisfactory.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1085">msg1085 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-16.19:11:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I agree; having background jobs work reliably is a good thing.
+
+And yay!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1069">msg1069 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-14.20:03:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Excellent idea. It's less painful for me to implement ;-)
+
+It would be nice, though, to have good mechanism for executing background tasks. I 
+will create a separate issue for that one.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1026">msg1026 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-12.20:15:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>There's an easy way to solve this, actually:
+
+The slowest part of loading <a href="http://openhatch.org/">http://openhatch.org/</a> (and /search/) can be loading
+the user's list of recommended bugs. But it's hard to keep that list always
+up-to-date, and when there are new 
+
+So the template should just a little check. Here's pseudocode:
+
+{% if person.bug_recommendation_list_is_available %}
+   {{ person.bug_recommendation_list }}
+{% else %}
+   &lt;span id="replace_with_bugs"&gt;Calculating your recommended bugs. One
+moment...&lt;/span&gt;
+{% endif %}
+
+And then here's some sample pseudocode in JQuery:
+
+$( function() {
+    if ($("#replace_with_bugs").size() &gt; 0) {
+         $.get('/+account/bug_recommendation_list_as_template_fragment',
+              function(data) {
+                     $('#replace_with_bugs').html(data);
+               });})
+
+This wouldn't even require creating a new scheduled task.
+
+You could solve this if you have basic 
+
+It would be nice to accompany this with a test, from the Python side, that if
+the person's list of recommended bugs is somehow not available yet, that
+rendering the home page does not cause it to get rendered. You can do that by
+mocking out mysite.profile.controllers.RecommendBugs.recommend() and making sure
+the mock method was not called.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg861">msg861 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-29.23:07:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So, uh, right now, when I (Asheesh) log in, it takes 20-30 seconds to render my
+home page. This is because it spends all that time working on calculating my bug
+recommendations.
+
+We should have a mechanism for eagerly filling this cache. See some discussion
+on IRC, starting at
+<a href="http://irclogs.jackgrigg.com/irc.freenode.net/openhatch/2011-01-29#i_2523321">http://irclogs.jackgrigg.com/irc.freenode.net/openhatch/2011-01-29#i_2523321</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-02-22&nbsp;00:24:02</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg1150">msg1150</a></td></tr>
+<tr><td>2011-02-22&nbsp;00:20:31</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1148">msg1148</a></td></tr>
+<tr><td>2011-02-22&nbsp;00:17:27</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting<br />messages:
+  + <a href="msg1147">msg1147</a></td></tr>
+<tr><td>2011-02-21&nbsp;21:53:56</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1146">msg1146</a></td></tr>
+<tr><td>2011-02-21&nbsp;21:42:53</td><td>ktarnowski</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg1145">msg1145</a></td></tr>
+<tr><td>2011-02-18&nbsp;18:47:28</td><td>ktarnowski</td><td>set</td><td>messages:
+  + <a href="msg1112">msg1112</a></td></tr>
+<tr><td>2011-02-18&nbsp;15:24:19</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress</td></tr>
+<tr><td>2011-02-18&nbsp;15:24:14</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1110">msg1110</a></td></tr>
+<tr><td>2011-02-18&nbsp;11:03:59</td><td>ktarnowski</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg1109">msg1109</a></td></tr>
+<tr><td>2011-02-16&nbsp;19:11:40</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1085">msg1085</a></td></tr>
+<tr><td>2011-02-14&nbsp;20:03:30</td><td>ktarnowski</td><td>set</td><td>status: chatting -> in-progress<br />assignedto: <a href="user52">ktarnowski</a><br />messages:
+  + <a href="msg1069">msg1069</a><br />nosy:
+  + <a href="user52">ktarnowski</a></td></tr>
+<tr><td>2011-02-12&nbsp;21:23:32</td><td>aldeka</td><td>set</td><td>nosy:
+  + <a href="user4">aldeka</a></td></tr>
+<tr><td>2011-02-12&nbsp;20:15:43</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1026">msg1026</a><br />title: We should periodically fill the bug recommendation cache, so that logging in doesn't take 20 secons -> If the bug recommendation list is not fresh, then we should display the user's home page / the bug search page while we calculate the bug recommendation list in a background GET</td></tr>
+<tr><td>2011-01-29&nbsp;23:07:44</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

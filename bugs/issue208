@@ -1,0 +1,321 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 208: Buildhelper has a web-accessible edit page - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue208
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue208">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue208">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Buildhelper has a web-accessible edit page</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>aldeka</td>
+ <th>Keywords</th>
+ <td>
+  buildhelper, usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-08.21:48:53</b> by <b>aldeka</b>, last changed <b>2014-04-26.19:32:43</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4281">msg4281 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-04-26.19:32:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Since we removed the Buildhelper UI, I'll mark this as resolved, although the 
+truth is closer to WONTFIX.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2657">msg2657 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-10.00:36:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Sadly not yet.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2612">msg2612 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-11-07.22:50:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>What this bug entails:
+
+We believe that it's too hard to create development environments for most 
+projects. We made a draft web app--the buildhelper tab on OpenHatch project 
+pages--that makes a checklist for prospective contributors, so they can go 
+through the steps one by one. Right now, there's no way to write or edit these 
+checklists, though. What this bug will do is implement editing with the 
+buildhelper data living inside one large textarea, with a standard text-based 
+format. 
+
+This bug would be good for someone who thinks it'd be fun to try to convert user-
+inputted text to and from Django ORM objects. As for what format the buildhelper 
+text ought to have, we were thinking something vaguely MediaWiki-ish; ask Asheesh 
+for more details on that.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2561">msg2561 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-01.06:38:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>In 0.11.10, we'll do this with a &lt;textarea&gt;.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1931">msg1931 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-28.23:06:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Aldeka, what is the buildhelper? - &amp; can we get some better descriptions related to <a href="issue212">issue212</a>, 
+<a href="issue204">issue204</a> &amp; <a href="issue210">issue210</a>.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-04-26&nbsp;19:32:43</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg4281">msg4281</a></td></tr>
+<tr><td>2011-11-10&nbsp;00:36:03</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2657">msg2657</a><br />milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-11-07&nbsp;22:50:48</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg2612">msg2612</a></td></tr>
+<tr><td>2011-10-01&nbsp;06:38:48</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2561">msg2561</a><br />milestone: <a href="milestone11">0.11.09</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-09-30&nbsp;17:43:32</td><td>paulproteus</td><td>set</td><td>keyword:
+  + <a href="keyword15">buildhelper</a></td></tr>
+<tr><td>2011-09-24&nbsp;20:33:22</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user4">aldeka</a></td></tr>
+<tr><td>2011-09-13&nbsp;04:09:26</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone11">0.11.09</a></td></tr>
+<tr><td>2011-08-06&nbsp;21:02:45</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone10">0.11.07</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:34:40</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-06-11&nbsp;20:52:45</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user4">aldeka</a> -> (no value)</td></tr>
+<tr><td>2011-05-28&nbsp;23:06:21</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1931">msg1931</a><br />keyword:
+  + <a href="keyword7">usability</a><br />milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-01&nbsp;00:28:58</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:48:53</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

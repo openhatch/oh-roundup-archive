@@ -1,0 +1,384 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 168: Website should inform people that we publish their data, and in snapshots; snapshots should explain where personal data comes from - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue168
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue168">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue168">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Website should inform people that we publish their data, and in snapshots; snapshots should explain where personal data comes from</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.10.11</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, zathras
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-11-12.23:32:21</b> by <b>zathras</b>, last changed <b>2010-12-13.23:25:20</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg639">msg639 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-13.23:25:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://openhatch.org/wiki/Importing_a_data_snapshot">http://openhatch.org/wiki/Importing_a_data_snapshot</a> talks about the privacy policy.
+
+<a href="http://gitorious.org/openhatch/oh-mainline/commit/23c317d1e9c7de4d141cf43602616923678e295e">http://gitorious.org/openhatch/oh-mainline/commit/23c317d1e9c7de4d141cf43602616923678e295e</a>
+<a href="http://gitorious.org/openhatch/oh-mainline/commit/c44652ba3a00a3ab28ac923cdf50f9cb0d90a2b6">http://gitorious.org/openhatch/oh-mainline/commit/c44652ba3a00a3ab28ac923cdf50f9cb0d90a2b6</a>
+<a href="http://gitorious.org/openhatch/oh-mainline/commit/0e1600348bc1c3c35690e7b8f12da4f17411b4ee">http://gitorious.org/openhatch/oh-mainline/commit/0e1600348bc1c3c35690e7b8f12da4f17411b4ee</a>
+
+I think that does the trick. Marking as resolved *now*.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg638">msg638 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-13.23:05:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oh, I see from the ticket there's more to do than just write and link-to the policy.
+
+I'll add some links to the privacy policy from the code, too.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg637">msg637 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-13.23:05:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="https://openhatch.org/policies-etc/">https://openhatch.org/policies-etc/</a>
+
+Fixed!
+
+Thanks Travis and Zathras.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg633">msg633 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-11.19:13:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a basic respect-for-users thing that I think we should handle.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg629">msg629 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-10.00:34:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Travis has been working on a draft of this...
+
+his version at: <a href="http://pastie.org/1350530">http://pastie.org/1350530</a>
+
+I'm editing a version at <a href="http://piratepad.net/openhatch-policies">http://piratepad.net/openhatch-policies</a>
+
+Travis, thanks for starting this! (And we should get you as a "nosy" on this
+ticket if possible.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg559">msg559 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-11-16.14:08:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Fine by me. However I would (if not already implemented):
+- make an explicit remark on the form where data is entered that this is the policy
+- make sure this policy is clear when importing data for instance so this "bug"
+is not filed again (add it to readme, wiki and/or echo it to screen at the end
+of the snapshot import)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg556">msg556 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-16.03:36:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>My policy is: It's okay if we publish personal information that people have
+already chosen to publish on the website.
+
+If you think that's reasonable, we can mark this as resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg530">msg530 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-11-12.23:32:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>snapshot 2010-11-12.json.gz
+table: profile_person
+field: contact_blurb
+id=46
+above field contains emailaddress
+
+Suggestion:
+When a snapshot is made: regex on emaikadresses on fields and replace or delete
+them. Process will be expensive in CPU, disk IO and time but will guarantee
+removal of email-addresses even in fields not supposed to contain them.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-12-13&nbsp;23:25:20</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg639">msg639</a></td></tr>
+<tr><td>2010-12-13&nbsp;23:05:45</td><td>paulproteus</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg638">msg638</a></td></tr>
+<tr><td>2010-12-13&nbsp;23:05:04</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg637">msg637</a></td></tr>
+<tr><td>2010-12-11&nbsp;19:17:34</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a></td></tr>
+<tr><td>2010-12-11&nbsp;19:13:47</td><td>paulproteus</td><td>set</td><td>priority: bug -> urgent<br />messages:
+  + <a href="msg633">msg633</a></td></tr>
+<tr><td>2010-12-10&nbsp;00:34:45</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg629">msg629</a></td></tr>
+<tr><td>2010-11-16&nbsp;15:48:22</td><td>paulproteus</td><td>set</td><td>title: snapshot contains personal data -> Website should inform people that we publish their data, and in snapshots; snapshots should explain where personal data comes from</td></tr>
+<tr><td>2010-11-16&nbsp;14:08:51</td><td>zathras</td><td>set</td><td>messages:
+  + <a href="msg559">msg559</a></td></tr>
+<tr><td>2010-11-16&nbsp;06:15:33</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-11-16&nbsp;03:36:31</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg556">msg556</a></td></tr>
+<tr><td>2010-11-12&nbsp;23:32:21</td><td>zathras</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

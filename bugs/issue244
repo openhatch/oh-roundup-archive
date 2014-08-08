@@ -1,0 +1,403 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 244: Make a feed (Atom/RSS) for site activity - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue244
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue244">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue244">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Make a feed (Atom/RSS) for site activity</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-29.23:23:12</b> by <b>paulproteus</b>, last changed <b>2011-02-01.22:12:59</b> by <b>pythonian4000</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg944">msg944 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-01.22:12:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>These issues are fixed in <a href="https://openhatch.org/bugs/issue259">https://openhatch.org/bugs/issue259</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg941">msg941 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-01.19:00:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thoughts:
+
+* I would suggest, rather than shipping a new fixture, modifying the Person
+object in your test_get_full_name_and_username_for_user_with_no_full_name()
+function.
+
+* for "get_absolute_url()" I would suggest you either use plain old string
+addition (rather than "".join()), or use the urlparse module to assemble a URL.
+But string addition would be fine.
+
+* The link you generate in landing_page_for_logged_in_users.html -- inside the
+&lt;a href=""&gt; -- I'd prefer that be surrounded with quotation marks. That's
+something I'll add on.
+
+Otherwise, that looks good. Good enough to ship! Feel free to fix these things I
+suggested, or not, I guess. (-:
+
+<a href="https://openhatch.org/+feeds/activity/">https://openhatch.org/+feeds/activity/</a> !!!!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg935">msg935 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-01.12:38:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oops! Forgot to update the copyright for profile/tests.py
+Apply this after the other two.
+
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=10d4c13b985a9dd2bc6432bc7ba273f9b4b9e0da">http://git.jackgrigg.com/openhatch/patch/?id=10d4c13b985a9dd2bc6432bc7ba273f9b4b9e0da</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg932">msg932 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-01.12:12:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I keep getting an error when applying the Feed implementation patch:
+  Fatal: git apply: bad git-diff - expected /dev/null on line 38
+
+Apart from that, the patch files seem to address the issues mentioned by 
+paulproteus.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg931">msg931 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-01.10:52:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right, your changes are implemented.
+
+Feed implementation:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=a68832d76b9eeb75acbfc76dab0f31b93a3f46c0">http://git.jackgrigg.com/openhatch/patch/?id=a68832d76b9eeb75acbfc76dab0f31b93a3f46c0</a>
+
+Link addition:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=7a4ef5bc0e002181e2b5a52189f75075a75c98ba">http://git.jackgrigg.com/openhatch/patch/?id=7a4ef5bc0e002181e2b5a52189f75075a75c98ba</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg922">msg922 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-01.09:03:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>re: feed templates:
+
+You should use {% reverse %} in landing_page_for_logged_in_users.html
+
+re: feed implementation:
+
+You should write a test for get_full_name_and_username.
+
+Also, Answer.get_question_text is pretty strange -- you're doing "in"
+comparisons with strings. Are you sure that's right?
+
+You calculate "project_string" repeatedly in the function.
+
+You should also use the Django URL helper functions in Answer.get_absolute_url.
+
+I would probably just fix some of this up, but I really have to go to sleep! So
+I think it'll miss the milestone )-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg917">msg917 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-01.07:22:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Done! And just in time to make 0.11.01 =)
+
+Implement the feed:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=110bd4fee33ffabef1f1224be22aa5d820d8cafb">http://git.jackgrigg.com/openhatch/patch/?id=110bd4fee33ffabef1f1224be22aa5d820d8cafb</a>
+
+Add link to user homepage:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=f4e2f52cd6fcbf783c542cd5d35329b6a04e4e03">http://git.jackgrigg.com/openhatch/patch/?id=f4e2f52cd6fcbf783c542cd5d35329b6a04e4e03</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg862">msg862 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-29.23:23:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Some people (e.g., me) like going to the OpenHatch site and seeing what the
+recent updates are. It would be nice if there were a feed people could subscribe to.
+
+This may or may not (other people seem to think "Not") become the main site feed.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-02-01&nbsp;22:12:59</td><td>pythonian4000</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2011-02-01&nbsp;22:12:50</td><td>pythonian4000</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg944">msg944</a></td></tr>
+<tr><td>2011-02-01&nbsp;19:00:08</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg941">msg941</a></td></tr>
+<tr><td>2011-02-01&nbsp;12:38:13</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg935">msg935</a></td></tr>
+<tr><td>2011-02-01&nbsp;12:12:19</td><td>ktarnowski</td><td>set</td><td>messages:
+  + <a href="msg932">msg932</a></td></tr>
+<tr><td>2011-02-01&nbsp;10:52:37</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg931">msg931</a></td></tr>
+<tr><td>2011-02-01&nbsp;09:03:52</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting<br />messages:
+  + <a href="msg922">msg922</a></td></tr>
+<tr><td>2011-02-01&nbsp;07:22:43</td><td>pythonian4000</td><td>set</td><td>status: unread -> need-review<br />nosy:
+  + <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg917">msg917</a><br />priority: wish -> feature<br />assignedto: <a href="user34">pythonian4000</a><br />milestone: <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2011-01-29&nbsp;23:23:12</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

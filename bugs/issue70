@@ -1,0 +1,447 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 70: Look into properly supporting documentation bugs - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue70
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue70">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue70">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Look into properly supporting documentation bugs</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-04-17.18:43:39</b> by <b>paulproteus</b>, last changed <b>2010-07-06.14:39:02</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file49/Bugzilla_importer_set_bug_easy_tag.patch">Bugzilla_importer_set_bug_easy_tag.patch</a>
+  </td>
+  <td>
+   <span>pythonian4000</span>,
+   <span>2010-07-03.12:45:31</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file48/Trac_importer_documentation_bug_support_and_upgrades.patch">Trac_importer_documentation_bug_support_and_upgrades.patch</a>
+  </td>
+  <td>
+   <span>pythonian4000</span>,
+   <span>2010-07-03.12:42:48</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file45/bugzilla_documentation_bug_support.patch">bugzilla_documentation_bug_support.patch</a>
+  </td>
+  <td>
+   <span>pythonian4000</span>,
+   <span>2010-07-02.07:12:50</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg343">msg343 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-07-06.14:39:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Pushed and deployed! Egad. (-:
+
+Regarding the bite_size_tag_name, I don't think we ever got around to using
+that. So we should remove it. I'll do that in a separate commit or two once your
+stuff is all merged.
+
+I'll close this ticket!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg340">msg340 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-07-03.12:45:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Also, here is a quick patch for the Bugzilla importer setting the
+bite_size_tag_name of each Bug [not sure what purpose it serves, but it was
+being set in the old (pre-last-patch) Trac importer, so it must be important! =) ].</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg339">msg339 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-07-03.12:42:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ah heck, may as well do it for other importers as well! Here is a separate patch
+adding documentation bug support to the Trac importer, as well as better
+formatting the way bugs are searched and returned using generators.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg335">msg335 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-07-02.07:12:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Rather than just doing it for Gnome, I have added documentation bug support for
+all the Bugzilla trackers I could find suitable queries for, as well as better
+formatting the way bugs are searched and returned using generators.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg334">msg334 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-06-30.23:17:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hmm, out of curiosity I searched the Gnome tracker for the keyword
+'documentation' and found a lot of bugs. Seems they have started using it since
+this bug was filed, though I am unsure of the extent of its usage. I will keep
+looking for products or components that seem documentation specific (and if
+anyone else has examples, please put them here), but I will also put in a check
+for this keyword.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg331">msg331 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-06-30.22:58:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Sure. The way I'm looking at this is to put a check of known documentation
+components or products in extract_tracker_specific_data.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg314">msg314 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-30.16:38:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The next step for this task is to identify queries on bug trackers in the GNOME 
+world that return only/mostly documentation bugs.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg310">msg310 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-30.16:25:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Jack, I wonder if you want to try doing this. It'd be great to import more 
+documentation-related bugs from the world.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg160">msg160 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-04-17.18:43:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>&gt; There's no tag. Each product generally has one (or more)
+&gt; component for documentation bugs. Some products are only
+&gt; documentation, like gnome-user-docs.
+
+So in that case, we should look for documentation-related components.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-07-06&nbsp;14:39:02</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg343">msg343</a></td></tr>
+<tr><td>2010-07-03&nbsp;12:45:31</td><td>pythonian4000</td><td>set</td><td>files:
+  + <a href="file49">Bugzilla_importer_set_bug_easy_tag.patch</a><br />messages:
+  + <a href="msg340">msg340</a></td></tr>
+<tr><td>2010-07-03&nbsp;12:42:48</td><td>pythonian4000</td><td>set</td><td>files:
+  + <a href="file48">Trac_importer_documentation_bug_support_and_upgrades.patch</a><br />messages:
+  + <a href="msg339">msg339</a><br />title: Look into properly supporting documentation bugs in Bugzilla importer -> Look into properly supporting documentation bugs</td></tr>
+<tr><td>2010-07-02&nbsp;07:13:17</td><td>pythonian4000</td><td>set</td><td>status: need-review -> in-progress</td></tr>
+<tr><td>2010-07-02&nbsp;07:12:50</td><td>pythonian4000</td><td>set</td><td>status: need-example -> need-review<br />files:
+  + <a href="file45">bugzilla_documentation_bug_support.patch</a><br />messages:
+  + <a href="msg335">msg335</a><br />title: Look into GNOME documentation bugs -> Look into properly supporting documentation bugs in Bugzilla importer</td></tr>
+<tr><td>2010-06-30&nbsp;23:17:35</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-example<br />messages:
+  + <a href="msg334">msg334</a></td></tr>
+<tr><td>2010-06-30&nbsp;22:58:37</td><td>pythonian4000</td><td>set</td><td>assignedto: <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg331">msg331</a></td></tr>
+<tr><td>2010-06-30&nbsp;16:38:32</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg314">msg314</a><br />keyword:
+  + <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2010-06-30&nbsp;16:25:09</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg310">msg310</a></td></tr>
+<tr><td>2010-04-17&nbsp;18:43:39</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

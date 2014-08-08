@@ -1,0 +1,483 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 45: Suggested bug list Atom feed - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue45
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue45">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue45">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Suggested bug list Atom feed</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  TimPost, paulproteus, pythonian4000, rafpaf
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-03-16.14:45:55</b> by <b>TimPost</b>, last changed <b>2011-02-01.18:34:30</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg937">msg937 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-01.18:34:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yup, I pushed these and forgot to say so!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg916">msg916 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-01.05:37:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Just quickly correcting the title finally ^_^</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg908">msg908 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-01.00:48:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Not sure where we are at with this. I squashed everything (along with changes
+discussed from
+<a href="http://irclogs.jackgrigg.com/irc.freenode.net/openhatch/2011-01-31#i_2525120">http://irclogs.jackgrigg.com/irc.freenode.net/openhatch/2011-01-31#i_2525120</a> )
+into two commits. Have these already been pushed? I think they may have been
+from my git log. If, paulproteus, you think this is done then feel free to
+resolve it =)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg892">msg892 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-31.14:39:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is great that we're finally getting this. Some thoughts:
+
+* You generate an &lt;img src&gt; tag in the landing page for logged in users, but
+that img tag has no quotes around the URL.
+
+* Copyright-wise, I can't push this in good faith without some idea of where the
+feed icons came from. Is there a source that we can cite? (Are they under a free
+license?)
+
+* I don't like putting code at the 'mysite' level. Can we jam this into an
+existing "app" like the profile app?
+
+The good:
+
+It's extremely elegant to use the Django syndication functionality. It is really
+*super* tidy.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg867">msg867 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-30.10:55:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This extra patch puts the title of the Recommended Bugs feed in a class string;
+since it is fixed, having it enclosed in a method is just extra overhead.
+
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=d678fbc96a571d9222746718b829c0337119f698">http://git.jackgrigg.com/openhatch/patch/?id=d678fbc96a571d9222746718b829c0337119f698</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg866">msg866 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-30.09:57:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm posting this as two separate commits so that the actual feed generator can
+be pushed even if the link layout patch needs work, so that my soon-to-exist
+patches for <a href="https://openhatch.org/bugs/issue244">https://openhatch.org/bugs/issue244</a> can be applied ^_^
+
+Actual feed generation:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=e50ce63f3cb151e6d9ba11b5433cc2e7144e33c8">http://git.jackgrigg.com/openhatch/patch/?id=e50ce63f3cb151e6d9ba11b5433cc2e7144e33c8</a>
+
+Adding a link to homepage:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=d678fbc96a571d9222746718b829c0337119f698">http://git.jackgrigg.com/openhatch/patch/?id=d678fbc96a571d9222746718b829c0337119f698</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg851">msg851 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-29.15:50:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here are some groggy morning thoughts;
+
+1. Bug recommendations are actually pretty intensive for the server. We 
+should make sure we do a good job of caching these.
+
+2. In general, this is totally rad. If possible, use /+feeds/ as the URL 
+prefix rather than /feeds/ -- we seem to have created a convention 
+of doing that sort of prefixing of new system URL prefixes.
+
+3. We should make sure the user interface showcases this RSS feed somehow. 
+Maybe just having a big ol' page of "Goodies" or "RSS feeds you might 
+like" could be enough, or maybe showcasing it right next to the list of 
+recommended bugs. (or both?)
+
+(We can ship this without doing #2 and #3 but those should be on our 
+radar.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg850">msg850 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-29.06:14:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I got bored. Again ^_^
+
+I've implemented this so that it generates feeds from URLs such as
+
+<a href="http://openhatch.org/feeds/recbugs/pythonian4000/">http://openhatch.org/feeds/recbugs/pythonian4000/</a>
+
+I don't actually see a need to obfuscate the username because in all honesty,
+usernames and the real names associated with them are public knowledge on
+OpenHatch, and the only extra information you get from this is what that
+person's recommended bugs are, which I don't think anyone aside from that person
+will really care about. I will, however, check all this at the meeting tomorrow
+before I post a patch.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg849">msg849 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-29.03:39:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This sounds awesome. I've done some investigation and Django has a built-in
+syndication framework:
+
+<a href="http://docs.djangoproject.com/en/1.1/ref/contrib/syndication/">http://docs.djangoproject.com/en/1.1/ref/contrib/syndication/</a>
+
+The issue will be the fact that a user is usually authenticated to get their
+suggested bug list. With this alone you cannot authenticate the feed, so you
+would have to pass at least some form of the username (e.g. a hash of some sort)
+in the url. This isn't so bad, as all that someone malicious could get access to
+is the user's recommended bug list.
+
+There is a Django snippet that adds basic HTTP authentication (which I put here
+so I remember it),
+
+<a href="http://djangosnippets.org/snippets/2291/">http://djangosnippets.org/snippets/2291/</a>
+
+but I don't think that is compatible with our OpenID stuff, and many feed
+readers don't support authentication anyway. So I think our best bet is to have
+feeds of the form
+
+<a href="http://openhatch.org/feeds/recbugs/&lt;something_usernamey">http://openhatch.org/feeds/recbugs/&lt;something_usernamey</a>&gt;/
+
+Now, I'm going to be really ambitious and flag this for the current 0.11.01
+milestone, mainly so I remember to discuss it at the meeting tomorrow. But
+actual implementation by 0.11.02 (if not by this milestone) is definitely feasible.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg130">msg130 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-28.19:02:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a cool idea. We'll get on it shortly. No current guess for by when.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg94">msg94 (view)</a></th>
+   <th>Author: TimPost</th>
+   <th>Date: 2010-03-16.14:45:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It would be great if the suggested bug list offered a feed (RSS2/ATOM). Bugs 
+would get more attention because people would see them in their readers.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-02-01&nbsp;18:34:30</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg937">msg937</a></td></tr>
+<tr><td>2011-02-01&nbsp;05:37:37</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg916">msg916</a><br />title: Suggested bug list RSS feed -> Suggested bug list Atom feed</td></tr>
+<tr><td>2011-02-01&nbsp;00:48:04</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg908">msg908</a></td></tr>
+<tr><td>2011-01-31&nbsp;14:39:22</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting<br />messages:
+  + <a href="msg892">msg892</a></td></tr>
+<tr><td>2011-01-30&nbsp;10:55:58</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg867">msg867</a></td></tr>
+<tr><td>2011-01-30&nbsp;09:58:14</td><td>pythonian4000</td><td>set</td><td>status: need-example -> need-review</td></tr>
+<tr><td>2011-01-30&nbsp;09:57:58</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg866">msg866</a></td></tr>
+<tr><td>2011-01-29&nbsp;15:50:11</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg851">msg851</a></td></tr>
+<tr><td>2011-01-29&nbsp;06:14:32</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-example<br />messages:
+  + <a href="msg850">msg850</a></td></tr>
+<tr><td>2011-01-29&nbsp;04:04:21</td><td>pythonian4000</td><td>set</td><td>milestone: <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2011-01-29&nbsp;03:39:02</td><td>pythonian4000</td><td>set</td><td>nosy:
+  + <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg849">msg849</a><br />assignedto: <a href="user34">pythonian4000</a></td></tr>
+<tr><td>2010-03-28&nbsp;19:02:05</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user3">paulproteus</a>, <a href="user5">rafpaf</a><br />messages:
+  + <a href="msg130">msg130</a></td></tr>
+<tr><td>2010-03-16&nbsp;14:45:55</td><td>TimPost</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

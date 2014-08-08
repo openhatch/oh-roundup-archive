@@ -1,0 +1,333 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 100: OpenHatch code doesn't generate valid HTML(5) markup - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue100
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue100">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue100">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">OpenHatch code doesn't generate valid HTML(5) markup</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000, rafpaf
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-06-18.22:47:57</b> by <b>paulproteus</b>, last changed <b>2011-03-03.14:50:30</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1232">msg1232 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-03.14:50:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Some further thoughts:
+
+* The HTML5 schema is available as a RelaxNG schema:
+<a href="https://bitbucket.org/validator/syntax/src">https://bitbucket.org/validator/syntax/src</a>
+* <a href="http://www.halfcooked.com/mt/archives/000892.html">http://www.halfcooked.com/mt/archives/000892.html</a> lets you validate documents
+with the RelaxNG schema
+* We could add something to our test runner so that if a page ever generates
+invalid HTML(5) during test runs, the test fails.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1230">msg1230 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-03.14:27:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I can't find any HTMl5 validators in Python yet, either.
+
+<a href="http://about.validator.nu/#src">http://about.validator.nu/#src</a> says how to download it and run it locally,
+though that's a Java-based app.
+
+I've pushed your patch!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1229">msg1229 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-03.11:33:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I don't know what happened to the jQuery errors, but I just re-ran the validator
+and there were only two issues - a warning about the Content-Language state
+being obsolete, and an error with an extra &lt;/div&gt; tag at the bottom. Running it
+over my personal OH server's homepage also picked up on extra &lt;span&gt; tags in the
+"Recent Activity" box that only appeared when a user had entered an actual name.
+The following patch fixes the two errors (ignoring the Content-Language issue
+for now):
+
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=7bf9e0ae68890be42bb5fad196c2ae65e3f786b4">http://git.jackgrigg.com/openhatch/patch/?id=7bf9e0ae68890be42bb5fad196c2ae65e3f786b4</a>
+
+As for the automated testing, I guess it would need to create a fake user and
+generate every possible HTML page the site could come up with, validating each
+one in turn. I couldn't find (in my brief search) any Python modules for
+validating HTML5, but I did notice that <a href="http://about.validator.nu/">http://about.validator.nu/</a> mentions that
+they have an API, which could be useful.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg291">msg291 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-27.23:16:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Someone should turn this bug into the following things:
+
+1. A list of what sorts of invalid HTML we're willing to use
+
+2. An automated test that "Fails" if use invalid markup beyond what our policy 
+says is okay
+
+3. A list of steps necessary to make that test pass</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg259">msg259 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-18.22:47:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://html5.validator.nu/?doc=http://openhatch.org">http://html5.validator.nu/?doc=http://openhatch.org</a>
+
+Four errors, as of this writing. One is necessary for the way we use the jQuery 
+tipsy plugin, but the others we could fix.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-03-03&nbsp;14:50:30</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting<br />messages:
+  + <a href="msg1232">msg1232</a></td></tr>
+<tr><td>2011-03-03&nbsp;14:27:02</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1230">msg1230</a></td></tr>
+<tr><td>2011-03-03&nbsp;11:35:50</td><td>pythonian4000</td><td>set</td><td>nosy:
+  + <a href="user34">pythonian4000</a></td></tr>
+<tr><td>2011-03-03&nbsp;11:33:33</td><td>pythonian4000</td><td>set</td><td>status: deferred -> need-review<br />messages:
+  + <a href="msg1229">msg1229</a></td></tr>
+<tr><td>2010-06-27&nbsp;23:16:20</td><td>paulproteus</td><td>set</td><td>status: unread -> deferred<br />messages:
+  + <a href="msg291">msg291</a></td></tr>
+<tr><td>2010-06-18&nbsp;22:47:57</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,383 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 116: Abstraction of bug importers - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue116
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue116">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue116">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Abstraction of bug importers</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-07-16.01:54:47</b> by <b>pythonian4000</b>, last changed <b>2010-08-17.21:26:34</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file57/abstraction_of_Bugzilla_subclasses.patch">abstraction_of_Bugzilla_subclasses.patch</a>
+  </td>
+  <td>
+   <span>pythonian4000</span>,
+   <span>2010-07-16.01:54:47</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file58/fix_bug_id_boolean_not_set.patch">fix_bug_id_boolean_not_set.patch</a>
+  </td>
+  <td>
+   <span>pythonian4000</span>,
+   <span>2010-07-16.05:14:24</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg407">msg407 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-08-17.21:26:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Generally quite sane code. Some thoughts:
+
+* I changed type({}) to dict; see f73030a15a420e883730feb3e00ed1ec808ee6bf
+
+* I see a "FIXME: How do we efficiently implement this?" in 
+mysite/customs/bugtrackers/bugzilla.py as regards removing the "JJ:" prefix from 
+KDE Junior Jobs bugs. I think it's okay to leave that ugly text in the bugs' 
+titles in OpenHatch for now -- we can use it to prod Lydia from KDE to remove it 
+from the actual bugs. (-;
+
+Feedback on def generate_project_name(self, bb) -- we should probably just 
+remove this from the class we generate.
+
+I'm quite excited that you've changed the Bugzilla tests to use database-based 
+Bugzilla objects! We could move those out to fixtures, but in-line is okay too.
+
+As for the views, they look quite good too. At least, in the code. I'll see if I 
+can apply some CSS magic to make it render more nicely. In addition, we'll have 
+to think about access control (Right now I think that having the total set of 
+bug trackers be editable by all, but logging the edits, would be fine.)
+
+I'm going to push this to a branch on the code.openhatch.org git repository 
+called "next" because it's something I want to get out in a release very soon.
+
+This is awesome, and I'm closing this bug as "resolved". Any specific issues 
+with this code get new bugs and new commits.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg406">msg406 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-08-17.21:13:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here is some feedback on the code I see at 
+<a href="http://git.jackgrigg.com/openhatch/commit/?">http://git.jackgrigg.com/openhatch/commit/?</a>
+h=bug_importer_metaclasses&amp;id=75147610e7bd367873a46884d36ae3f06d50c377 . I'm 
+using that version of the patches since those are freshly rebased.
+
+* Use the first line of the git commit message as a "Subject" line
+
+This way, it serves as a nice summary. It's okay to have that be a little long; 
+the Linux kernel project likes to keep those super-short, but it's more 
+important to me that they be a complete idea. So e.g. 80 characters is fine 
+there. To be super-specific, I'd prefer a commit log message like the one at 
+<a href="http://git.jackgrigg.com/openhatch/commit/?">http://git.jackgrigg.com/openhatch/commit/?</a>
+h=bug_importer_metaclasses&amp;id=cbb7b62aba2f0e829a01a8801c719905a437239e be one 
+line.
+
+* Never change a migration file!
+
+If you really need to, squash away the old commit so we can't see it. (-: The 
+problem with changing migration files is that if South thinks it's run the 
+migration, it won't re-run it with your changes. So it's better to make a new 
+migration.
+
+Further feedback coming...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg369">msg369 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-07-16.05:14:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Whoops! Noticed that bug_id_list_only was never set by the abstract subclass
+generator, which would cause problems for trackers like Fedora in that a
+non-existant method would be called. Fixed in extra patch.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg367">msg367 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-07-16.01:54:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a bug for tracking the abstraction of the various bug importers.
+Eventually we want to be able to add bug trackers through a web interface, and
+abstraction of the tracker-specific information to a model is required.
+
+Speaking of which, here is a patch which abstracts the Bugzilla importer. It
+takes information from a model object and creates a subclass for that object
+which is identical in function to the current subclasses that are hard-coded
+into the importer. The old subclasses are left there for now, and can still be
+used in future (trackers that overload the bug project name generator will be
+left as special cases for now), as the functionality of the actual importer is
+unchanged.
+
+The next step for the Bugzilla importer is to create a webform from the two
+models that hold the tracker-specific data, so we can actually enter all the
+trackers in - but I will leave that to someone who knows a bit more about the
+html side of the site (Asheesh? ^_^)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-08-17&nbsp;21:26:34</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg407">msg407</a></td></tr>
+<tr><td>2010-08-17&nbsp;21:13:19</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg406">msg406</a></td></tr>
+<tr><td>2010-08-10&nbsp;22:38:07</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-review</td></tr>
+<tr><td>2010-07-16&nbsp;05:14:24</td><td>pythonian4000</td><td>set</td><td>files:
+  + <a href="file58">fix_bug_id_boolean_not_set.patch</a><br />status: unread -> chatting<br />messages:
+  + <a href="msg369">msg369</a></td></tr>
+<tr><td>2010-07-16&nbsp;01:54:47</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

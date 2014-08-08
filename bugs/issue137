@@ -1,0 +1,319 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 137: Stack traces should be sent somewhere public - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue137
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue137">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue137">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Stack traces should be sent somewhere public</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jesstess, paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  transparency
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-09-15.20:17:02</b> by <b>paulproteus</b>, last changed <b>2011-04-21.18:25:30</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1673">msg1673 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-21.18:25:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://gitorious.org/openhatch/oh-">http://gitorious.org/openhatch/oh-</a>
+mainline/commit/b4e69ed69b2c8e61ce405e11599f662ed463bebe !</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1545">msg1545 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-16.19:20:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The plan for now is to send Django exception emails to a new list called OH-
+monitoring-private, or something like that. It will be members-only and you'll 
+have to ask me to be on it, but I will try to be as responsive and open as 
+possible.
+
+I would be open to suggestions on the list's name! Targeting for 0.11.04.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg694">msg694 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-08.21:37:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It says, assigned to me, but for what it's worth I'm not currently working on
+it. I'll de-assign it for now.
+
+Also, django-sentry is really cool:
+<a href="http://blog.disqus.com/post/1178923988/django-sentry">http://blog.disqus.com/post/1178923988/django-sentry</a> (and free software)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg427">msg427 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-09-16.00:39:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>IRC integration would be cool! Had a quick look round for Django-compatible IRC
+bots and found Yardbird, which is specifically designed for Django:
+<a href="http://zork.net/yardbird/">http://zork.net/yardbird/</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg424">msg424 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-09-15.20:17:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The problem:
+
+Right now, when someone hits a bug on the #openhatch site and gets the error page,
+
+The solution:
+
+* Create some Django code that only emails out the stack trace, not the
+variables like session ID that might be sensitive.
+* Configure the site so it emails them to a public list or otherwise makes them
+public. (Bonus points if it drops a note on IRC.)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-21&nbsp;18:25:30</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg1673">msg1673</a></td></tr>
+<tr><td>2011-04-16&nbsp;19:20:22</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg1545">msg1545</a><br />milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:37:28</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> (no value)<br />messages:
+  + <a href="msg694">msg694</a></td></tr>
+<tr><td>2010-11-27&nbsp;21:54:06</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2010-09-16&nbsp;00:39:49</td><td>pythonian4000</td><td>set</td><td>nosy:
+  + <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg427">msg427</a></td></tr>
+<tr><td>2010-09-15&nbsp;20:17:02</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

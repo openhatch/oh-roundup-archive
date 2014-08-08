@@ -1,0 +1,511 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 369: In creating a new project, "Save and publish" button should rate limit - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue369
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue369">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue369">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">In creating a new project, "Save and publish" button should rate limit</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.06</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  foxfirefey, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>palhmbs</td>
+ <th>Keywords</th>
+ <td>
+  bitesize, javascript, performance, usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-04-09.20:44:27</b> by <b>foxfirefey</b>, last changed <b>2011-06-19.23:55:59</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file349/0001-create-project3.patch">0001-create-project3.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-06-12.06:26:35</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2087">msg2087 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-19.23:55:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The updated patch here is great.
+
+Paul, thanks for your patience, and sorry that it took me a week (!! eek) to
+review this.
+
+I've pushed it to origin/master, and am deploying it now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2071">msg2071 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-12.06:26:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Fixed - The only issue I have is when the person re-saves any changes after the
+project has been added it doesn't hide the Save link.
+
+But it saves it so quickly I'm loathe to try harder to fix it as I haven't
+totally got my head around how the show/hide stuff currently works.
+
+Anyway - please review!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2054">msg2054 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-06.22:38:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Some feedback:
+
+* You introduce end-of-line whitespace. Try not to do that in the future.
+
+* Good job citing your source on the ajaxload.info image. The images there do
+look okay for use.
+
+* This commit creates a bug, so I can't merge it yet.
+
+The following behavior works on the live site:
+
+* Go to /+portfolio/editor/
+* Click "Add a project"
+* See a new little project box appear
+* Enter a project name in, and hit save
+* Click "Add a project"
+* Type a project name in, and hit Save
+
+With your patch, "Save" is missing the second time. I think you're
+hiding/deleting too many elements in jQuery.
+
+Other than the bug, I like what you've done! Marking "in-progress" for now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2035">msg2035 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-05.11:13:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well, I hope this is a comprehensive fix (and passes review)!
+
+Cheers, Paul.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2025">msg2025 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-04.20:14:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I like the Roundup style and the new suggestion by palhmbs. What about doing both 
+of them?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2024">msg2024 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-04.07:57:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>bump.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1999">msg1999 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-02.00:00:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've looked into this further, and it may be as simple as giving the user some
+feedback back quickly first.
+
+in the file mysite/static/js/importer.js
+
+in the function: PortfolioEntry.Save.save....
+
+Adding...
+Notifier.displayMessage('Saving, please wait!');
+
+Should give the user a message quickly that should help them to know somethings
+up and that they do in-fact need to be patient!!
+
+What do you think?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1992">msg1992 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-01.22:32:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Looking at oh_roundup it uses: in the &lt;form&gt; an onsubmit="return submit_once()"
+
+and the javascript function is:
+
+submitted = false;
+
+function submit_once() {
+if (submitted) {
+alert("Your request is being processed.\nPlease be patient.");
+event.returnValue = 0; // work-around for IE
+return 0;
+}
+submitted = true;
+return 1;
+} 
+
+So this should be real easy to implement.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1915">msg1915 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-28.21:53:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>jQuery - woot!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1571">msg1571 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-16.21:59:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a pretty important usability bug, and it requires some JavaScript coding
+ability.
+
+Let us know on this ticket if you want to try to fix it. I think that one
+reasonable way to do it is to give the submit button a HTML attribute that
+indicates that it is working, and then clears that HTML attribute when the
+server responds indicating that the "Save" worked. Maybe you could use jQuery's
+addClass() method for that.
+
+(For what it's worth: Roundup has some functionality very much like this. When
+you go to edit a bug and click "Submit changes" twice in a row, Roundup tells
+you to just be patient! So you could read that source code for inspiration.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1451">msg1451 (view)</a></th>
+   <th>Author: foxfirefey</th>
+   <th>Date: 2011-04-09.20:44:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just tried creating a new project and there was a huge latency (over 30
+seconds) that made me wonder if I had actually clicked the button right.  By the
+time the requests had succeeded, I found out I had actually created 5 new
+projects, instead of just one!  I believe there should be a way where, upon
+clicking, the "save and publish" button is disabled as an indicator that the
+save is processing, and then only becomes re-enabled upon failure (or changed to
+the plain Save after success).</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-06-19&nbsp;23:55:59</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2087">msg2087</a></td></tr>
+<tr><td>2011-06-12&nbsp;06:28:01</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file326">0001-create-project.patch</a></td></tr>
+<tr><td>2011-06-12&nbsp;06:26:35</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review<br />files:
+  + <a href="file349">0001-create-project3.patch</a><br />messages:
+  + <a href="msg2071">msg2071</a></td></tr>
+<tr><td>2011-06-06&nbsp;22:38:47</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2054">msg2054</a></td></tr>
+<tr><td>2011-06-05&nbsp;11:13:26</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review<br />files:
+  + <a href="file326">0001-create-project.patch</a><br />messages:
+  + <a href="msg2035">msg2035</a></td></tr>
+<tr><td>2011-06-04&nbsp;20:14:13</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2025">msg2025</a></td></tr>
+<tr><td>2011-06-04&nbsp;07:57:08</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg2024">msg2024</a></td></tr>
+<tr><td>2011-06-02&nbsp;00:00:06</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1999">msg1999</a></td></tr>
+<tr><td>2011-06-01&nbsp;22:32:59</td><td>palhmbs</td><td>set</td><td>status: chatting -> in-progress<br />messages:
+  + <a href="msg1992">msg1992</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:53:02</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1915">msg1915</a><br />nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:52:28</td><td>palhmbs</td><td>set</td><td>keyword:
+  + <a href="keyword1">bitesize</a>, <a href="keyword5">performance</a><br />milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-04-30&nbsp;22:44:41</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-16&nbsp;21:59:23</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1571">msg1571</a><br />keyword:
+  + <a href="keyword3">javascript</a>, <a href="keyword7">usability</a><br />milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-09&nbsp;20:44:27</td><td>foxfirefey</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,456 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 156: Timestamp export does not save timestamps; Person export does not save locations properly - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue156
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue156">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue156">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Timestamp export does not save timestamps; Person export does not save locations properly</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.10.11</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-09-30.20:20:28</b> by <b>aldeka</b>, last changed <b>2010-12-06.07:03:48</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg621">msg621 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-06.07:03:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I ran the test suite, and it seems I fixed these issues already.
+
+Marking as 'resolved'.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg616">msg616 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-04.21:44:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Assigning to myself for now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg526">msg526 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2010-10-18.18:30:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'll look at what you added, but I'd prefer to kick the remaining issues and
+work on something else next. :P</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg522">msg522 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-17.22:16:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is getting there! I've committed and pushed to origin/master. Some feedback:
+
+* Timestamps do not serialize+deserialize correctly. I wrote a test that fails
+that demonstrates this.
+
+* After the import, everyone's location get displayed as the Invisible Island. I
+wrote a test that fails that demonstrates this.
+
+* You had a test method whose name was unusual stylistically. I wrote commit
+96b1e3f9b4f64858ecca2066b6c476098e0af76b to fix that.
+
+* Also, in the Person test, it would be valuable to delete the User objects,
+too, before you do the import. (That properly simulates a blank database that
+people will probably import into.) I add that to your test, and it still passes
+-- so good!
+
+* I realized we make everyone's email address be the empty string, and I kind of
+expect weird things to happen with that the way it is. So I made email address
+handling more complex; you can read the corresponding test in DataExport.
+
+I pushed this to origin/master even though it has broken tests (namely, the ones
+I added). If you want to kick fixing that to me, I would be okay with that, just
+didn't want to take it away from you if you thought it would be fun. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg520">msg520 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2010-10-17.20:49:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Person, Project, and Timestamp dumping + tests: gooooo!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg496">msg496 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2010-10-08.05:13:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>this is so much more complex than it needs to be, blaugh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg495">msg495 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-08.05:06:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Rejecting patch for now; it has lots of unrelated changes in it</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg491">msg491 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2010-10-07.22:12:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Made a Project dumper (and test). Patch attached, natch. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg483">msg483 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-01.04:10:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just committed and pushed your first two patches.
+
+Karen, your next assignments, if you choose to accept 
+them:
+
+* Write a test (and make it pass) that we dump all 
+Project objects
+** This can be like Bug in that there's no private data 
+to worry about
+
+* Write a test (and make it pass) that we dump all 
+Timestamp objects
+** This can be like Bug in that there's no private data
+
+The above will be easy. Then we can talk about handling 
+the private data in the Person model. If you feel like 
+diving into Person without chatting first, go ahead; 
+but otherwise feel free to chat with me about what 
+makes sense for that!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg481">msg481 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2010-09-30.20:20:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>also patch 2 -- patch 2 is where things actually work (?)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg480">msg480 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2010-09-30.20:20:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>patch 1, lol</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-12-06&nbsp;07:03:48</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg621">msg621</a></td></tr>
+<tr><td>2010-12-04&nbsp;21:44:23</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user4">aldeka</a> -> <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg616">msg616</a></td></tr>
+<tr><td>2010-12-04&nbsp;21:36:37</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-10-18&nbsp;18:30:24</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg526">msg526</a></td></tr>
+<tr><td>2010-10-17&nbsp;22:16:45</td><td>paulproteus</td><td>set</td><td>files:
+  - <a href="file88">datadumping.patch</a></td></tr>
+<tr><td>2010-10-17&nbsp;22:16:43</td><td>paulproteus</td><td>set</td><td>files:
+  - <a href="file81">0001-Edited-Added-project-dumper-and-test.patch</a></td></tr>
+<tr><td>2010-10-17&nbsp;22:16:41</td><td>paulproteus</td><td>set</td><td>files:
+  - <a href="file80">0001-Added-project-dumper-and-test.patch</a></td></tr>
+<tr><td>2010-10-17&nbsp;22:16:35</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg522">msg522</a><br />title: Bug data dumping needs to exist; also needs a test -> Timestamp export does not save timestamps; Person export does not save locations properly</td></tr>
+<tr><td>2010-10-17&nbsp;20:49:06</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file88">datadumping.patch</a><br />messages:
+  + <a href="msg520">msg520</a></td></tr>
+<tr><td>2010-10-08&nbsp;05:13:13</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file81">0001-Edited-Added-project-dumper-and-test.patch</a><br />messages:
+  + <a href="msg496">msg496</a></td></tr>
+<tr><td>2010-10-08&nbsp;05:06:16</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg495">msg495</a></td></tr>
+<tr><td>2010-10-07&nbsp;22:12:22</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file80">0001-Added-project-dumper-and-test.patch</a><br />messages:
+  + <a href="msg491">msg491</a></td></tr>
+<tr><td>2010-10-01&nbsp;04:10:35</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg483">msg483</a></td></tr>
+<tr><td>2010-10-01&nbsp;04:00:48</td><td>paulproteus</td><td>set</td><td>files:
+  - <a href="file79">0002-Wrote-test-for-bug-dumping-it-passes.patch</a></td></tr>
+<tr><td>2010-10-01&nbsp;04:00:40</td><td>paulproteus</td><td>set</td><td>files:
+  - <a href="file78">0001-Added-bug-data-dump-test.patch</a></td></tr>
+<tr><td>2010-09-30&nbsp;20:20:56</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg481">msg481</a></td></tr>
+<tr><td>2010-09-30&nbsp;20:20:39</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file79">0002-Wrote-test-for-bug-dumping-it-passes.patch</a></td></tr>
+<tr><td>2010-09-30&nbsp;20:20:28</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

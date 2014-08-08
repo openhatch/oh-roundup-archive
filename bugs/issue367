@@ -1,0 +1,551 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 367: Migrate Launchpad bug importer to Twisted - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue367
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue367">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue367">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Migrate Launchpad bug importer to Twisted</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.12</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  armooo, paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>armooo</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-04-05.14:04:35</b> by <b>pythonian4000</b>, last changed <b>2011-12-22.22:04:04</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file434/0001-Create-a-launchpad-bugimporter.patch">0001-Create-a-launchpad-bugimporter.patch</a>
+  </td>
+  <td>
+   <span>armooo</span>,
+   <span>2011-12-21.03:07:54</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file435/0002-Add-Launchpad-form-and-adjust-views-accordingly.patch">0002-Add-Launchpad-form-and-adjust-views-accordingly.patch</a>
+  </td>
+  <td>
+   <span>armooo</span>,
+   <span>2011-12-21.03:08:03</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file436/0003-Added-bitesized-and-doc-tag-processing.patch">0003-Added-bitesized-and-doc-tag-processing.patch</a>
+  </td>
+  <td>
+   <span>armooo</span>,
+   <span>2011-12-21.03:08:11</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file437/0004-Removed-the-old-launchpad-bugtracker.patch">0004-Removed-the-old-launchpad-bugtracker.patch</a>
+  </td>
+  <td>
+   <span>armooo</span>,
+   <span>2011-12-21.03:08:19</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file432/asheesh-additions.patch">asheesh-additions.patch</a>
+  </td>
+  <td>
+   <span>paulproteus</span>,
+   <span>2011-12-06.00:10:12</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file438/launchpad_review2.patch">launchpad_review2.patch</a>
+  </td>
+  <td>
+   <span>armooo</span>,
+   <span>2011-12-22.02:43:14</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2837">msg2837 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-22.22:04:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just deployed this.
+
+I made some small additions -- primarily, removing the LaunchpadQueryForm. I
+agree that the Model is needed, although I determined the Form is not.
+
+Also the LaunchpadTrackerForm now causes a QueryModel to be created. That way,
+the customs_twist.Command.update_trackers code will detect that it should
+refresh that Launchpad tracker (as you pointed out).
+
+This is totally great. Thanks!.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2832">msg2832 (view)</a></th>
+   <th>Author: armooo</th>
+   <th>Date: 2011-12-22.02:43:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>*  It looks like asheesh-additions.patch it making the TrackerQueryModel optional 
+from the UI, but customs_twist.Command.update_trackers is based on the last 
+polled date of the TrackerQueryModel. I could directly use TrackerQueryModel and 
+not LaunchpadQueryModel (if the django ORM is ok with it). Is this your suggestion?
+
+* I split the mysite/customs/bugimporters/base.py changes in to a new commit.
+
+* I removed self.bug_urls, but changed it to a call to process_bugs not 
+handle_task_data_json. This way the LaunchpadBug creation stays in one place and 
+we have the to call determine_if_finished which seems to be required to stop the 
+reactor if no new bugs are found. The other process_bugs methods also take the 
+same list of (url, data).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2831">msg2831 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-22.00:59:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This looks quite good. Just a few nitpicks:
+
+* You don't need a LaunchpadQueryModel at all since you don't use it
+
+* The changes to mysite/customs/bugimporters/base.py should be in their own
+commit. (Good changes, though!)
+
+* This delta:
+
++        # The bug data that show up in bug_collection['entries']
++        # is equivalent to what we get back if we asked for the
++        # data on that bug explicitly.
++        for bug in bug_collection['entries']:
++            self.bug_urls.append((bug['web_link'], bug))
+
+arguably reproduces logic available in:
+
++    def handle_task_data_json(self, data, lp_bug):
+
+So why don't you just call the handle_task_data_json() method?
+
+In asheesh-additions.patch there are some changes that, effectively, make URL
+models optional. I suggest adding those to your patchset.
+
+Also, it's easier to review if you do:
+
+git format-patch --stdout master &gt; entire-series-in-one-file.patch
+
+Can you address those items? Beyond those things, this looks great, and I'm
+thrilled that we can likely land this quite soon.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2799">msg2799 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-06.00:20:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>A further thought:
+
+The way we're modeling things now, there is one Launchpad BugTracker per project.
+
+This is a little odd for the following case: if someone adds a bug to their
+project, but then within Launchpad the same bug ID is reassigned to some other
+project, we might handle things wrong.
+
+It's something we should just make sure to cook up a test for, and be
+happy-enough with the results at some point.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2797">msg2797 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-06.00:14:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Three more notes:
+
+1. I might be wrong about when a call to self.push_urls_onto_reactor() is needed.
+
+2. Feel free to make liberal use of the FakeGetPage() object at the top of
+mysite/customs/tests.py. If you use @mock.patch() to patch out the real getPage
+with that one, then that will let you download arbitrary URLs (so long as you
+save a copy of them somewhere in the repo) during a run of a test.
+
+3. I can totally see how crazy this code is now. Luckily there are some ideas
+for cleaning up our use of Twisted, which would de-insane it.
+
+I don't think this is going to be done before 0.11.11, but we've made a lot of
+really good progress on it! Marking as "later," but I'm hoping we can land it
+for 0.11.12.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2796">msg2796 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-06.00:10:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here's the progress of work on this so far:
+
+* armooo has a branch on Gitorious with some work:
+<a href="https://gitorious.org/~armooo/openhatch/armooos-oh-mainline/commits/launchpad">https://gitorious.org/~armooo/openhatch/armooos-oh-mainline/commits/launchpad</a> ,
+started at the Dec 4 OpenHatch sprint.
+
+* I took a look at it, and have some remarks as well as patches.
+
+In general, you don't have to call self.process_queries() with the Launchpad
+BugImporter class; that should be handled by the framework.
+
+I notice the new Launchpad importer has no subclass of "BugParser". This is a
+convention; it seems it's okay to not follow it. The most idiomatic use of
+BugParser can be seen in bugimporters/bugzilla.py 
+
+I added a test and some sample data and did a little bit of cleanup in the
+attached patches. They should apply cleanly on top of the current state of
+armooo's gitorious branch; armooo, feel free to push them on top your branch
+immediately.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2701">msg2701 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-14.02:27:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If we do this, we have to write our own consumer of the Launchpad API, I think.
+
+That's life. Let's do it. Marking as 0.11.11.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1428">msg1428 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-05.14:04:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This issue is tracked in <a href="issue260">issue260</a>.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-12-22&nbsp;22:04:04</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg2837">msg2837</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone14">0.11.12</a></td></tr>
+<tr><td>2011-12-22&nbsp;02:43:19</td><td>armooo</td><td>set</td><td>files:
+  + <a href="file438">launchpad_review2.patch</a><br />messages:
+  + <a href="msg2832">msg2832</a></td></tr>
+<tr><td>2011-12-22&nbsp;00:59:38</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />assignedto: <a href="user292">armooo</a><br />messages:
+  + <a href="msg2831">msg2831</a></td></tr>
+<tr><td>2011-12-21&nbsp;03:08:19</td><td>armooo</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file437">0004-Removed-the-old-launchpad-bugtracker.patch</a></td></tr>
+<tr><td>2011-12-21&nbsp;03:08:11</td><td>armooo</td><td>set</td><td>files:
+  + <a href="file436">0003-Added-bitesized-and-doc-tag-processing.patch</a></td></tr>
+<tr><td>2011-12-21&nbsp;03:08:03</td><td>armooo</td><td>set</td><td>files:
+  + <a href="file435">0002-Add-Launchpad-form-and-adjust-views-accordingly.patch</a></td></tr>
+<tr><td>2011-12-21&nbsp;03:07:54</td><td>armooo</td><td>set</td><td>files:
+  + <a href="file434">0001-Create-a-launchpad-bugimporter.patch</a></td></tr>
+<tr><td>2011-12-06&nbsp;00:20:02</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2799">msg2799</a></td></tr>
+<tr><td>2011-12-06&nbsp;00:16:53</td><td>paulproteus</td><td>unlink</td><td><a href="issue260">issue260 blockers</a></td></tr>
+<tr><td>2011-12-06&nbsp;00:14:07</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone13">0.11.11</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-12-06&nbsp;00:14:02</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2797">msg2797</a></td></tr>
+<tr><td>2011-12-06&nbsp;00:10:13</td><td>paulproteus</td><td>set</td><td>files:
+  + <a href="file432">asheesh-additions.patch</a><br />nosy:
+  + <a href="user292">armooo</a><br />messages:
+  + <a href="msg2796">msg2796</a></td></tr>
+<tr><td>2011-11-14&nbsp;02:27:17</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2701">msg2701</a><br />milestone: <a href="milestone13">0.11.11</a></td></tr>
+<tr><td>2011-04-05&nbsp;14:04:54</td><td>pythonian4000</td><td>link</td><td><a href="issue260">issue260 blockers</a></td></tr>
+<tr><td>2011-04-05&nbsp;14:04:35</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

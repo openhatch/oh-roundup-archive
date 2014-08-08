@@ -1,0 +1,462 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 76: Add JSON API for the profile widget - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue76
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue76">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue76">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Add JSON API for the profile widget</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mark, int3, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-05-10.19:20:09</b> by <b>int3</b>, last changed <b>2011-08-02.13:49:17</b> by <b>Mark</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file17/0001-Add-JSON-support-for-the-widget.patch">0001-Add-JSON-support-for-the-widget.patch</a>
+  </td>
+  <td>
+   <span>int3</span>,
+   <span>2010-05-13.20:14:40</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file18/0002-Add-link-to-JSON-API-for-profile.patch">0002-Add-link-to-JSON-API-for-profile.patch</a>
+  </td>
+  <td>
+   <span>int3</span>,
+   <span>2010-05-13.20:15:19</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2239">msg2239 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2011-08-02.13:49:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Opening it back up.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2183">msg2183 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2011-07-14.16:46:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Since I'll be working on general API's for the site, I'll go ahead and assign this 
+one to myself.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1851">msg1851 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-07.21:20:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>un-assigned - Now free for all to grab.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg198">msg198 (view)</a></th>
+   <th>Author: rafpaf</th>
+   <th>Date: 2010-05-13.20:38:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey int3, thanks for the code!
+
+It looks like a bit more work will be needed to get this into shippable shape.
+Two tasks in particular:
+
+== 1. JSON serialization of tags ==
+
+When I run the code with your patch included, and I load the widget for someone
+who has the tag "I will never understand Deleuze", I get this traceback:
+
+Traceback:
+File "/home/raffi/oh/milestone-a/parts/mysite/django/core/handlers/base.py" in
+get_response
+  99.                     response = callback(request, *callback_args,
+**callback_kwargs)
+File "/home/raffi/oh/milestone-a/mysite/profile/views.py" in widget_display_json
+  174.     json = simplejson.dumps(data, cls=django_json_encoder)
+File
+"/home/raffi/oh/milestone-a/eggs/simplejson-2.1.1-py2.6-linux-i686.egg/simplejson/__init__.py"
+in dumps
+  268.         use_decimal=use_decimal, **kw).encode(obj)
+File
+"/home/raffi/oh/milestone-a/eggs/simplejson-2.1.1-py2.6-linux-i686.egg/simplejson/encoder.py"
+in encode
+  214.         chunks = self.iterencode(o, _one_shot=True)
+File
+"/home/raffi/oh/milestone-a/eggs/simplejson-2.1.1-py2.6-linux-i686.egg/simplejson/encoder.py"
+in iterencode
+  282.             return _iterencode(o, 0)
+File "/home/raffi/oh/milestone-a/mysite/profile/views.py" in default
+  170.             return simplejson.JSONEncoder.default(self, obj)
+File
+"/home/raffi/oh/milestone-a/eggs/simplejson-2.1.1-py2.6-linux-i686.egg/simplejson/encoder.py"
+in default
+  190.         raise TypeError(repr(o) + " is not JSON serializable")
+
+Exception Type: TypeError at /people/rafpaf/openhatch-widget.json
+Exception Value: &lt;Tag: understands_not: Deleuze&gt; is not JSON serializable
+
+== 2. User privacy ==
+
+Another task for you is to keep some of our users' data private. For instance,
+tags are public, but fields like these should be kept out of the JSON:
+location_confirmed, blacklisted_repository_committers, show_email,
+expand_next_steps, dont_guess_my_location. That's an incomplete list. I suppose
+the best solution is to JSON-ify only the fields you're interested in (projects,
+tags, etc.)
+
+Thanks again for your contributions so far, int3!
+
+(By the way, Deleuze is &lt;<a href="http://en.wikipedia.org/wiki/Gilles_Deleuze">http://en.wikipedia.org/wiki/Gilles_Deleuze</a>&gt;, a
+difficult philosopher.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg196">msg196 (view)</a></th>
+   <th>Author: int3</th>
+   <th>Date: 2010-05-13.20:15:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Add a link to the widget JSON API.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg195">msg195 (view)</a></th>
+   <th>Author: int3</th>
+   <th>Date: 2010-05-13.20:14:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Add in changes from the previous review. Also, the last patch broke a number of 
+things, and I've fixed those as well.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg186">msg186 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-05-10.19:31:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Patch review, 2010-05-10:
+
+&lt;paulproteus&gt; int3: You replace get_object_or_404 with Person.objects.filter()
+&lt;paulproteus&gt; Instead I'd prefer get_list_or_404 so we still get the 404
+&lt;<a href="http://docs.djangoproject.com/en/dev/topics/http/shortcuts/">http://docs.djangoproject.com/en/dev/topics/http/shortcuts/</a>&gt;
+-*- paulproteus is still reading
+&lt;int3&gt; I realized get_list_or_404 returns a list, not a QuerySet. Let me see if
+there's a 404 version of it.
+&lt;int3&gt; s/of it/of filter/
+&lt;paulproteus&gt; I think it returns a QuerySet
+-*- paulproteus checks
+&lt;paulproteus&gt; You're right!
+&lt;paulproteus&gt; Drat.
+&lt;paulproteus&gt; Would you be willing to write a helper in mysite/base/helpers.py ?
+&lt;int3&gt; okay, sure
+&lt;int3&gt; get_queryset_or_404 ?
+&lt;int3&gt; or rather
+&lt;int3&gt; filter_or_404
+&lt;paulproteus&gt; Yeah, sounds great.
+&lt;paulproteus&gt; Also you don't actually, on the web, *link* to the JSON file we
+now export (-:
+&lt;paulproteus&gt; I'd like it if your patch did so. It'll require some thought to
+put the link in a sensible place.
+&lt;paulproteus&gt; I think that if you fix those issues, I'd very happily merge and
+deploy this. Does that sound okay to you?
+&lt;int3&gt; yep, sure</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-08-02&nbsp;13:49:17</td><td>Mark</td><td>set</td><td>assignedto: <a href="user29">Mark</a> -> <a href="userNone"></a></td></tr>
+<tr><td>2011-08-02&nbsp;13:49:08</td><td>Mark</td><td>set</td><td>messages:
+  + <a href="msg2239">msg2239</a></td></tr>
+<tr><td>2011-07-14&nbsp;16:46:53</td><td>Mark</td><td>set</td><td>assignedto: <a href="user29">Mark</a><br />messages:
+  + <a href="msg2183">msg2183</a><br />nosy:
+  + <a href="user29">Mark</a><br />keyword:
+  - <a href="keyword9">needs-decision</a><br />milestone: <a href="milestone10">0.11.07</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:37:55</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:49:16</td><td>palhmbs</td><td>set</td><td>keyword:
+  + <a href="keyword9">needs-decision</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:48:55</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-07&nbsp;21:20:29</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user30">int3</a> -> (no value)<br />messages:
+  + <a href="msg1851">msg1851</a><br />milestone: <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2010-05-13&nbsp;20:38:17</td><td>rafpaf</td><td>set</td><td>messages:
+  + <a href="msg198">msg198</a></td></tr>
+<tr><td>2010-05-13&nbsp;20:15:19</td><td>int3</td><td>set</td><td>files:
+  + <a href="file18">0002-Add-link-to-JSON-API-for-profile.patch</a><br />messages:
+  + <a href="msg196">msg196</a></td></tr>
+<tr><td>2010-05-13&nbsp;20:14:56</td><td>int3</td><td>set</td><td>files:
+  - <a href="file13">0001-Add-JSON-support-for-the-widget.patch</a></td></tr>
+<tr><td>2010-05-13&nbsp;20:14:40</td><td>int3</td><td>set</td><td>files:
+  + <a href="file17">0001-Add-JSON-support-for-the-widget.patch</a><br />messages:
+  + <a href="msg195">msg195</a></td></tr>
+<tr><td>2010-05-10&nbsp;19:31:17</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg186">msg186</a></td></tr>
+<tr><td>2010-05-10&nbsp;19:23:49</td><td>int3</td><td>set</td><td>files:
+  + <a href="file13">0001-Add-JSON-support-for-the-widget.patch</a></td></tr>
+<tr><td>2010-05-10&nbsp;19:20:09</td><td>int3</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

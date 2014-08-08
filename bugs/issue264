@@ -1,0 +1,469 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 264: Create a central login system - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue264
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue264">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue264">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Create a central login system</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.02</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-02-04.00:08:04</b> by <b>pythonian4000</b>, last changed <b>2011-02-26.00:47:37</b> by <b>pythonian4000</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1171">msg1171 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-26.00:47:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>As per all blocking issues (72, 265, 23) being resolved, this is complete!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1170">msg1170 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-26.00:46:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Using superseder wrong - that is for duplicates basically, or at least new bugs
+that replace this one. Those should really be blockers...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1082">msg1082 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-16.11:53:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Setting this to 0.11.02 as if and once <a href="issue23">issue23</a> is done, this can be closed
+(setting up forums as per <a href="issue272">issue272</a> is not a blocker on this as they do not exist
+yet).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1077">msg1077 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-16.10:15:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>For some reason I never noticed the "Superseder" field...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1054">msg1054 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-13.08:14:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The Django side of things has been deployed, as per
+<a href="https://openhatch.org/bugs/issue265">https://openhatch.org/bugs/issue265</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg980">msg980 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-04.19:50:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Alright, I will do so :)
+
+I've had trouble setting up my own MediaWiki under /wiki/ to test-drive it because the standard 
+./bin/mysite runserver is being proxies to by Apache so subdues are a no-no, and when I try and 
+emulate the production setup via ./bin/production.wsgi I get Apache errors about bad user deploy, 
+who I see is the user on lined running OH. I will be at a real computer in about an hour so I will likely 
+be asking for help then!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg979">msg979 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-04.19:04:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>You asked for "thoughts", and I think: let's start by using the django-mediawiki and django-phpbb 
+authentication that already exists and deploy it.
+
+It'd be super great to have this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg972">msg972 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-04.02:50:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oh, and now that I chack, someone has already replied =)
+
+They suggest creating a JSON web service in Django for the various actions we
+require, such as login, session verification and logout (a bit more than what I
+had suggested at the end of the discussion below), or better, to redirect to
+Django to perform login and logout.
+
+I had been speculating on all of the above, but now with outside confirmation
+^_^ these are my thoughts:
+
+For both MediaWiki and Roundup, replace any of their login pages/boxes with
+links to the main OpenHatch login page, supplying 'next=' arguments on the URL.
+OpenHatch then logs them in and redirects them back to whence they came.
+Similarly for logouts. This can be done no matter how we implement the Django
+side of things.
+
+(This would mean that <a href="https://openhatch.org/bugs/issue72">https://openhatch.org/bugs/issue72</a> would be a blocker on
+this; while FWIR MediaWiki URLS always have underscores instead of spaces,
+Roundup ones can have spaces in the arguments and the issue indicates it may
+affect some special characters.)
+
+Then, every page in both MediaWiki and Roundup would need some sort of session
+verification to see if Django is logged in (i.e. they are either logged in from
+elsewhere or have just been returned, and they haven't logged out elsewhere),
+and if so or not then update its own session. This session verification is what
+would either be a MySQL query or a JSON request, and this is where I'm not sure
+of the best path.
+
+Thoughts?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg969">msg969 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-04.00:18:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Following from the discussion below, I posted a question on StackOverflow:
+<a href="http://stackoverflow.com/questions/4892898/central-login-for-django-mediawiki-and-roundup-without-compromising-user-data">http://stackoverflow.com/questions/4892898/central-login-for-django-mediawiki-and-roundup-without-compromising-user-data</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg968">msg968 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-04.00:16:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Asheesh and I had a discussion about this:
+<a href="http://irclogs.jackgrigg.com/irc.freenode.net/openhatch/2011-02-03#i_2527837">http://irclogs.jackgrigg.com/irc.freenode.net/openhatch/2011-02-03#i_2527837</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg966">msg966 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-04.00:15:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Integrating Django and Mediawiki authentication:
+<a href="https://openhatch.org/bugs/issue265">https://openhatch.org/bugs/issue265</a>
+
+Integrating Django and Roundup authentication:
+<a href="https://openhatch.org/bugs/issue23">https://openhatch.org/bugs/issue23</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg963">msg963 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-04.00:08:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This bug tracks the creation of a central login system for the various
+components of OpenHatch - Django, MediaWiki and Roundup at present (possibly a
+forum later?).</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-02-26&nbsp;00:47:37</td><td>pythonian4000</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg1171">msg1171</a></td></tr>
+<tr><td>2011-02-26&nbsp;00:46:47</td><td>pythonian4000</td><td>set</td><td>superseder:
+  - <a href="issue23">Integrate Django and Roundup authentication</a>, <a href="issue72">next= doesn't survive OpenID logins</a>, <a href="issue265">Integrate Django and MediaWiki authentication</a><br />messages:
+  + <a href="msg1170">msg1170</a></td></tr>
+<tr><td>2011-02-16&nbsp;11:53:20</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1082">msg1082</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone5">0.11.02</a></td></tr>
+<tr><td>2011-02-16&nbsp;10:17:00</td><td>pythonian4000</td><td>set</td><td>superseder:
+  + <a href="issue23">Integrate Django and Roundup authentication</a>, <a href="issue265">Integrate Django and MediaWiki authentication</a></td></tr>
+<tr><td>2011-02-16&nbsp;10:16:49</td><td>pythonian4000</td><td>set</td><td>superseder:
+  + <a href="issue72">next= doesn't survive OpenID logins</a>, - <a href="issue23">Integrate Django and Roundup authentication</a>, <a href="issue265">Integrate Django and MediaWiki authentication</a></td></tr>
+<tr><td>2011-02-16&nbsp;10:15:54</td><td>pythonian4000</td><td>set</td><td>superseder:
+  + <a href="issue23">Integrate Django and Roundup authentication</a>, <a href="issue265">Integrate Django and MediaWiki authentication</a><br />messages:
+  + <a href="msg1077">msg1077</a></td></tr>
+<tr><td>2011-02-13&nbsp;08:14:03</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1054">msg1054</a></td></tr>
+<tr><td>2011-02-04&nbsp;19:50:18</td><td>pythonian4000</td><td>set</td><td>assignedto: <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg980">msg980</a></td></tr>
+<tr><td>2011-02-04&nbsp;19:04:29</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg979">msg979</a></td></tr>
+<tr><td>2011-02-04&nbsp;02:50:25</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg972">msg972</a></td></tr>
+<tr><td>2011-02-04&nbsp;00:18:11</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg969">msg969</a></td></tr>
+<tr><td>2011-02-04&nbsp;00:16:50</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg968">msg968</a></td></tr>
+<tr><td>2011-02-04&nbsp;00:15:10</td><td>pythonian4000</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg966">msg966</a></td></tr>
+<tr><td>2011-02-04&nbsp;00:08:04</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

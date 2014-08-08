@@ -1,0 +1,347 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 321: Let users browsing the volunteer opportunity finder remove projects - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue321
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue321">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue321">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Let users browsing the volunteer opportunity finder remove projects</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Kimkim, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>Kimkim</td>
+ <th>Keywords</th>
+ <td>
+  css, usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-02-27.03:48:32</b> by <b>paulproteus</b>, last changed <b>2011-11-10.00:01:00</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2632">msg2632 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-10.00:00:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi kimkim,
+
+Are you still interested in working on this? If so, I'm happy to help!
+
+Also, I have to adjust the milestone for this since it missed 0.11.10.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2157">msg2157 (view)</a></th>
+   <th>Author: Kimkim</th>
+   <th>Date: 2011-07-03.15:39:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If all of the results are hidde, can't I just say something like: "All the results are hidden, click here to 
+display all projects"?
+
+The biggest issue for me isn't the javascript, but that the image title won't show on development 
+server. So I have no way to select the projects. Figuring out this has taken me a while, and is not 
+bitesize. 
+Just worked around that problem, and I will continue to fix the bug after I get some work stuff 
+done.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2141">msg2141 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-03.02:02:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I don't think this is quite "bitesize". I think doing it in JavaScript runs 
+the risk of having zero results to show (because you've excluded all the 
+projects that would show up), so you'll need to do at least *something* 
+server-side too, I think.
+
+This a good bug for a new-ish contributor, but not the kind of thing someone 
+should do *first*. Maybe third (or later).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2030">msg2030 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-05.02:29:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Wow, that's a really good way to do it. I like that. Then you don't even 
+have to be logged in for it to work.
+
+We should just make sure that the feature doesn't show up for people 
+without JS, since I don't want clutter the UI for people with JS disabled 
+and show those people links that don't work.
+
+It's fine for the site to have features that work better with JS enabled.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1927">msg1927 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-28.22:48:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This could be done with CSS and jquery cookies, just a suggestion.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1191">msg1191 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-27.03:48:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>When I'm browsing, it would be nice to click (X) and remove a project I don't
+want to see bugs from.
+
+(from user feedback)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-11-10&nbsp;00:01:00</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2632">msg2632</a><br />milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-08-06&nbsp;21:09:31</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone10">0.11.07</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-07-03&nbsp;15:39:30</td><td>Kimkim</td><td>set</td><td>messages:
+  + <a href="msg2157">msg2157</a></td></tr>
+<tr><td>2011-07-03&nbsp;02:02:26</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2141">msg2141</a><br />keyword:
+  - <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:44:06</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-06-08&nbsp;08:14:18</td><td>Kimkim</td><td>set</td><td>assignedto: <a href="user166">Kimkim</a><br />nosy:
+  + <a href="user166">Kimkim</a></td></tr>
+<tr><td>2011-06-05&nbsp;02:29:09</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2030">msg2030</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:48:21</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1927">msg1927</a><br />keyword:
+  + <a href="keyword1">bitesize</a>, <a href="keyword6">css</a>, <a href="keyword7">usability</a><br />milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-04-30&nbsp;23:53:36</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-02-27&nbsp;03:48:32</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

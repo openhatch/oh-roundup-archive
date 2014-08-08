@@ -1,0 +1,379 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 40: Closed bugs should not be listed - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue40
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue40">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue40">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Closed bugs should not be listed</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mark, gameguy43, jdm, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-03-15.02:23:38</b> by <b>jdm</b>, last changed <b>2010-06-01.20:26:14</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg231">msg231 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-01.20:26:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have just *radically* simplified the bug import code. The result is that we
+*reliably* refresh all our bugs every 24 hours.
+
+<a href="http://openhatch.org/+meta/">http://openhatch.org/+meta/</a> shows zero stale bugs! So I'll close this ticket.
+
+Thanks, all!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg222">msg222 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-05-27.09:06:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi all! This bug sucks.
+
+I made a status page for bug imports (as well as profile imports). That's at:
+<a href="http://openhatch.org/+meta/">http://openhatch.org/+meta/</a>
+
+You can check it out, and you'll find that more than half of our bugs are stale.
+
+I think that once we reliably fix the staleness problem, we can close this bug.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg172">msg172 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-04-28.03:04:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Golly -- I think the updater must not be running. We've had a bunch of problems 
+with our queue runner lately; I will be investigating that shortly.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg171">msg171 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-04-27.20:19:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I am not sure this is entirely solved.  My recommended bugs list this one. The
+status of the issue on the python bug tracker is closed, as of 2 days ago. Maybe
+I am missing something and the updater isn't running that often?
+
+<a href="http://bugs.python.org/issue8319">http://bugs.python.org/issue8319</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg125">msg125 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-25.19:22:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Fixed! (And wrote a test for this.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg86">msg86 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-15.21:37:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Er, please ignore the sentence "Can you give us the search term..." in my 
+previous comment.
+
+Those responsible for leaving that sentence in have been sacked.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg85">msg85 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-15.21:36:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Heck yes. We'll fix that lickety split.
+
+I can reproduce this from within our Django/Python code, so no need to give me a 
+URL to reproduce it with. Something that should always return the empty list:
+
+&gt;&gt;&gt; Bug.open_ones.filter(status='CLOSED')
+
+yet it actually returns thirty-five bugs!
+
+Can you give us the search term that you used to find the bug, and which bug it 
+is that was closed?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg73">msg73 (view)</a></th>
+   <th>Author: jdm</th>
+   <th>Date: 2010-03-15.02:23:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I went looking at the kernel bug list, and found bugs with the status CLOSED.  
+This is not an ideal use case for someone looking to help out, I think.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-06-01&nbsp;20:26:14</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg231">msg231</a></td></tr>
+<tr><td>2010-05-27&nbsp;09:06:15</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg222">msg222</a></td></tr>
+<tr><td>2010-04-28&nbsp;03:04:21</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user29">Mark</a><br />messages:
+  + <a href="msg172">msg172</a></td></tr>
+<tr><td>2010-04-27&nbsp;20:19:06</td><td>Mark</td><td>set</td><td>status: resolved -> unread<br />messages:
+  + <a href="msg171">msg171</a></td></tr>
+<tr><td>2010-03-25&nbsp;19:22:47</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg125">msg125</a></td></tr>
+<tr><td>2010-03-15&nbsp;21:37:24</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg86">msg86</a></td></tr>
+<tr><td>2010-03-15&nbsp;21:36:59</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user3">paulproteus</a>, <a href="user6">gameguy43</a><br />messages:
+  + <a href="msg85">msg85</a></td></tr>
+<tr><td>2010-03-15&nbsp;02:23:38</td><td>jdm</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

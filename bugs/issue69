@@ -1,0 +1,346 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 69: ability to order projects on personal page - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue69
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue69">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue69">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">ability to order projects on personal page</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  rafpaf, willkahngreene
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-04-17.17:58:30</b> by <b>willkahngreene</b>, last changed <b>2010-07-07.20:39:43</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg329">msg329 (view)</a></th>
+   <th>Author: willkahngreene</th>
+   <th>Date: 2010-06-30.21:45:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just checked it out and I think it looks AWESOME!  w00t!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg326">msg326 (view)</a></th>
+   <th>Author: rafpaf</th>
+   <th>Date: 2010-06-30.21:07:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The "Save this ordering" button now appears at the bottom of the list, which is
+also the bottom of the page. There's no visible "Save all projects" button while
+you're re-ordering projects.
+
+Zolv'd.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg308">msg308 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-30.16:15:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Let's decide what to do with this concern, if anything, rafpaf. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg167">msg167 (view)</a></th>
+   <th>Author: willkahngreene</th>
+   <th>Date: 2010-04-20.14:05:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>That works great!
+
+One minor thing is that I had a tiny bit of trouble with the ui.  There's a
+"save all projects" button in the lower right hand corner.  So I think the page
+is "button = action" oriented.  But to save the order, you have to click on a
+link above the list of projects.
+
+So when I finished moving projects around, I went to click on the "save all
+projects" button, which didn't do anything because it was disabled.  Then I had
+to read everything on the screen to figure out what to do next.
+
+Thought I would mention it.  &lt;disclaimer&gt;I'm just one data point and I don't do
+ui design, but if others have similar issues it might be worth looking
+into.&lt;/disclaimer&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg166">msg166 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-04-20.13:57:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>You can now! Try it:
+
+<a href="https://openhatch.org/+portfolio/editor/">https://openhatch.org/+portfolio/editor/</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg159">msg159 (view)</a></th>
+   <th>Author: willkahngreene</th>
+   <th>Date: 2010-04-17.17:58:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've got a bunch of projects in my openhatch account.  There are a handful of
+them that I'm currently working on and the rest I've worked on in the past, but
+I'm not working on them now (and some of them I probably won't work on again).
+
+It'd be nice to be able to order the projects listed either:
+
+1. completely--I get to move them around and specify the order they show up on
+the page, or
+2. in two groups: active and unactive
+
+The use case is this: if I was able to order the projects, then whoever looked
+at my page would see the "important" projects at the top.  If I had a lot of
+projects (like Joey Hess), then someone wouldn't have to skim through all the
+projects to get a feel for what I'm working on.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-07-07&nbsp;20:39:43</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2010-06-30&nbsp;21:45:18</td><td>willkahngreene</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg329">msg329</a></td></tr>
+<tr><td>2010-06-30&nbsp;21:07:05</td><td>rafpaf</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg326">msg326</a></td></tr>
+<tr><td>2010-06-30&nbsp;16:15:05</td><td>paulproteus</td><td>set</td><td>priority: wish -> urgent<br />nosy:
+  + <a href="user5">rafpaf</a><br />messages:
+  + <a href="msg308">msg308</a></td></tr>
+<tr><td>2010-04-20&nbsp;14:05:05</td><td>willkahngreene</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg167">msg167</a></td></tr>
+<tr><td>2010-04-20&nbsp;13:57:16</td><td>paulproteus</td><td>set</td><td>status: unread -> resolved<br />messages:
+  + <a href="msg166">msg166</a></td></tr>
+<tr><td>2010-04-17&nbsp;17:58:30</td><td>willkahngreene</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

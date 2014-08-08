@@ -1,0 +1,334 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 211: Document creating new missions - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue211
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue211">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue211">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Document creating new missions</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mark, doherty, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  documentation
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-08.21:51:01</b> by <b>doherty</b>, last changed <b>2012-05-09.22:03:39</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3203">msg3203 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-09.22:03:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>From my end, I think this should wait until we stabilize the new way to write 
+training missions.
+
+Luckily Nathan has been making progress on that, and hopefully that might land at 
+this weekend's sprint. Moving to 'later' for now (...sadly).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2970">msg2970 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2012-02-08.23:27:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Asheesh, what's the status of this?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2642">msg2642 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-10.00:15:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We are bad at doing this in time. Anyway, it is not yet done.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg857">msg857 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-29.22:01:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oops, we didn't quite schedule this in time. Let's hopefully do it in Feb.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg764">msg764 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-01-23.21:35:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Devel list has been sent a proposal message about getting a 
+collab meeting together about this.
+
+Time to be doodled about (doodle.com) 
+<a href="http://www.doodle.com/bmr63yd28a47s98u">http://www.doodle.com/bmr63yd28a47s98u</a>
+
+Meeting place:
+<a href="http://piratepad.net/TT559P9OyO">http://piratepad.net/TT559P9OyO</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg701">msg701 (view)</a></th>
+   <th>Author: doherty</th>
+   <th>Date: 2011-01-08.21:51:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>To facilitate adding new missions to openhatch, we should document how they work 
+better.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-05-09&nbsp;22:03:39</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3203">msg3203</a><br />milestone: <a href="milestone15">0.12.02</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2012-02-08&nbsp;23:27:28</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg2970">msg2970</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2011-11-10&nbsp;00:15:52</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2642">msg2642</a><br />milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-10-01&nbsp;06:55:14</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone11">0.11.09</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-09-05&nbsp;22:22:29</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone11">0.11.09</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:48:45</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:57:11</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-01&nbsp;23:01:45</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-05-01&nbsp;23:01:37</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-02-08&nbsp;03:10:35</td><td>Mark</td><td>set</td><td>nosy:
+  + <a href="user29">Mark</a></td></tr>
+<tr><td>2011-01-29&nbsp;22:01:07</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg857">msg857</a><br />milestone: <a href="milestone4">0.11.01</a> -> (no value)</td></tr>
+<tr><td>2011-01-23&nbsp;21:35:30</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg764">msg764</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:53:03</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:51:01</td><td>doherty</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

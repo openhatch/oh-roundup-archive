@@ -1,0 +1,347 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 155: OpenHatch README fails on buildout -- needs special installation of distribute - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue155
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue155">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue155">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">OpenHatch README fails on buildout -- needs special installation of distribute</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-09-29.21:03:36</b> by <b>aldeka</b>, last changed <b>2011-02-02.22:32:53</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg956">msg956 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-02.22:32:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I added "python-setuptools" to the README's list of things you must install.
+This should take care of this for us.
+
+The upstream bug is still a problem for them.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg490">msg490 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-07.13:36:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I reported the issue to the buildout developers:
+
+<a href="https://bugs.launchpad.net/zc.buildout/+bug/656303">https://bugs.launchpad.net/zc.buildout/+bug/656303</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg489">msg489 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-06.20:06:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I tried to ask the distutils special interest group by email what the right
+answer here is. The email list doesn't seem to want to let me on it, though.
+Asking on IRC... hopefully we'll get to the bottom of this soon.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg477">msg477 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2010-09-30.07:36:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I guess in order to address this we could just change the README to include the
+extra install instruction, but I don't know how universal the problem is, or if
+there's a way to fix this on the buildout side of things.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg475">msg475 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2010-09-29.21:03:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Error while following README instructions on Ubuntu 10.04 LTS:
+
+#
+<a href="mailto:karen@laesa">karen@laesa</a>:~/Code/milestone-a$ python2.6 bootstrap.py
+#
+/bin/buildout
+#
+Getting distribution for 'distribute'.
+#
+Before install bootstrap.
+#
+Scanning installed packages
+#
+Setuptools installation detected at /usr/lib/python2.6/dist-packages
+#
+Non-egg installation
+#
+Removing elements out of the way...
+#
+Already patched.
+#
+/usr/lib/python2.6/dist-packages/setuptools.egg-info already patched.
+#
+After install bootstrap.
+#
+Creating /usr/local/lib/python2.6/dist-packages/setuptools-0.6c11-py2.6.egg-info
+#
+error: /usr/local/lib/python2.6/dist-packages/setuptools-0.6c11-py2.6.egg-info:
+Permission denied
+#
+An error occurred when trying to install distribute 0.6.14. Look above this
+message for any errors that were output by easy_install.
+#
+While:
+#
+  Bootstrapping.
+#
+  Getting distribution for 'distribute'.
+#
+Error: Couldn't install: distribute 0.6.14
+
+A regular easy-install of 'distribute' doesn't fix the problem, either. You need:
+
+sudo easy_install distribute==0.6.14</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-02-02&nbsp;22:32:53</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg956">msg956</a></td></tr>
+<tr><td>2010-10-07&nbsp;13:36:04</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg490">msg490</a></td></tr>
+<tr><td>2010-10-06&nbsp;20:06:36</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg489">msg489</a></td></tr>
+<tr><td>2010-09-30&nbsp;07:36:04</td><td>aldeka</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg477">msg477</a></td></tr>
+<tr><td>2010-09-29&nbsp;21:03:36</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

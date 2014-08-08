@@ -1,0 +1,644 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 337: openhatch.org/source-code-etc/ should link prominently to the wiki "Getting started" page - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue337
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue337">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue337">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">openhatch.org/source-code-etc/ should link prominently to the wiki "Getting started" page</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jessica, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-03-14.14:43:39</b> by <b>paulproteus</b>, last changed <b>2011-04-23.23:51:53</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file230/0001-Add-html-file-to-use.patch">0001-Add-html-file-to-use.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-04-22.00:02:50</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file231/0001-Small-Parker-mugshot.patch">0001-Small-Parker-mugshot.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-04-22.00:26:37</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1718">msg1718 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-23.23:51:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Bam.
+
+I added a redirect and "trashed' the /source-code-etc/ page.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1710">msg1710 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-23.21:01:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Asheesh said he'd update the links to About_Openhatch sitewide in the weekly IRC 
+meeting.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1696">msg1696 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-22.14:17:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Pushed! Now you can add them to the wiki as required.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1695">msg1695 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-22.13:45:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm happy with these. I just need push access to Gitorious to deploy them!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1687">msg1687 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-22.02:36:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>About Page is at openhatch.org/wiki/About_Openhatch</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1685">msg1685 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-22.02:33:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The About Page is moved to the wiki.
+
+Just need to remove it from the blog &amp; point all references to it to the wiki 
+instead.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1684">msg1684 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-22.00:26:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Smaller Parker mugshot to use on the wiki About page.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1683">msg1683 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-22.00:02:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Now that pythonian4000 has added the HTMLets extension - A new directory and a new 
+html file for the wiki can go into /static/wiki/htmlets
+
+Here is the patch that creates the form we will use for the button on the wiki.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1677">msg1677 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-21.20:24:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>To make things clear - the big green button is the "I Wanna Help" Openhatch one 
+that submits POST data to openhatch.
+
+I think I will still need to install the mediawiki extension: http://
+<a href="http://www.mediawiki.org/wiki/Extension:HTMLets">www.mediawiki.org/wiki/Extension:HTMLets</a>
+
+I've also found a bug that paulproteus setup to merge the source-code-etc page 
+and the about page into openhatch's code.
+
+Since we are doing all this on the wiki - it makes sense to move the /about/ 
+page there too, so I've closed the other issue.
+
+I hope everyone is ok with that?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1674">msg1674 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-21.18:43:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Looks fine. palhmbs has the possibility of the big green button which would be 
+nice. We can always update as we go since it'll be all wiki-fied.
+
+If people are clicking the text "source code, etc" they're probably looking to code 
+so the getting started page is great for those types. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1670">msg1670 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-21.14:58:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Just curious: what's the status of this? Maybe we should figure out that out on 
+IRC.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1620">msg1620 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-19.14:32:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Sure. I used the new stuff to get started so it sounds like I'd be a good tester. 
+:)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1617">msg1617 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-19.04:37:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey Jessica,
+
+Would you be interested in reading through the old source-code-etc/ page and
+deciding with Paul if the wiki page needs changes to be as useful as the old page?
+
+If you're happy with that, then I'm quite happy saying that you are the person
+who must review this, not me!
+
+Assigning to you for now, hoping you agree.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1600">msg1600 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-18.06:01:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have made changes to the blog page "source-code-etc" - it needs paulproteus to 
+review.
+
+I'd love to add the button to the wiki - I'd also love to change the template on 
+the blog so that the source-code-etc page isn't part of the menu 
+
+And it looks like I'll need SSH or FTP access to do either.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1597">msg1597 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-18.02:17:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok - I've moved some of Source-code-etc over and
+changed the original blog page as draft, so normal viewers can't find it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1453">msg1453 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-09.21:32:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It was decided that we should just move this page + maybe some other pages off 
+the Wordpress blog to the Wiki - 
+
+I'm in the process of doing so, now that paulproteus gave me admin access to the 
+blog.
+
+I'm working on what to dump and what to move at a Piratepad ---
+<a href="http://piratepad.net/7gJE0iCNfg">http://piratepad.net/7gJE0iCNfg</a>
+
+For now I'll move what isn't on the Wiki already - those with wiki access can 
+update all the mistakes, then I'll just unpublish those wordpress pages - so 
+that the old content can still be accessed by admins.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1393">msg1393 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-30.08:19:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think it is possible that I could fix this for 0.11.03.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1303">msg1303 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-19.21:01:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I will fix this this week.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1259">msg1259 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-14.14:43:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If you go to <a href="http://openhatch.org/source-code-etc/">http://openhatch.org/source-code-etc/</a> you see:
+
+* A big giant "Green button"
+
+* A bunch of links.
+
+<a href="http://openhatch.org/wiki/Getting_started_with_the_OpenHatch_code">http://openhatch.org/wiki/Getting_started_with_the_OpenHatch_code</a> is the most
+useful page you can find, but it's hard to find.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-23&nbsp;23:51:53</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg1718">msg1718</a></td></tr>
+<tr><td>2011-04-23&nbsp;21:01:10</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user96">jessica</a> -> <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg1710">msg1710</a></td></tr>
+<tr><td>2011-04-22&nbsp;14:17:04</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1696">msg1696</a></td></tr>
+<tr><td>2011-04-22&nbsp;13:45:52</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1695">msg1695</a></td></tr>
+<tr><td>2011-04-22&nbsp;02:36:23</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1687">msg1687</a></td></tr>
+<tr><td>2011-04-22&nbsp;02:33:37</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1685">msg1685</a></td></tr>
+<tr><td>2011-04-22&nbsp;00:26:37</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file231">0001-Small-Parker-mugshot.patch</a><br />messages:
+  + <a href="msg1684">msg1684</a></td></tr>
+<tr><td>2011-04-22&nbsp;00:02:50</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file230">0001-Add-html-file-to-use.patch</a></td></tr>
+<tr><td>2011-04-22&nbsp;00:02:37</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file229">.0001-Add-html-file-to-use.patch.swp</a></td></tr>
+<tr><td>2011-04-22&nbsp;00:02:25</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file229">.0001-Add-html-file-to-use.patch.swp</a><br />messages:
+  + <a href="msg1683">msg1683</a></td></tr>
+<tr><td>2011-04-21&nbsp;21:09:41</td><td>palhmbs</td><td>set</td><td>status: need-review -> in-progress</td></tr>
+<tr><td>2011-04-21&nbsp;20:24:23</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1677">msg1677</a></td></tr>
+<tr><td>2011-04-21&nbsp;18:43:41</td><td>jessica</td><td>set</td><td>messages:
+  + <a href="msg1674">msg1674</a></td></tr>
+<tr><td>2011-04-21&nbsp;14:58:56</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1670">msg1670</a></td></tr>
+<tr><td>2011-04-19&nbsp;14:32:41</td><td>jessica</td><td>set</td><td>messages:
+  + <a href="msg1620">msg1620</a></td></tr>
+<tr><td>2011-04-19&nbsp;04:37:28</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a> -> <a href="user96">jessica</a><br />messages:
+  + <a href="msg1617">msg1617</a><br />nosy:
+  + <a href="user96">jessica</a></td></tr>
+<tr><td>2011-04-18&nbsp;06:01:21</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1600">msg1600</a></td></tr>
+<tr><td>2011-04-18&nbsp;02:17:29</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg1597">msg1597</a></td></tr>
+<tr><td>2011-04-11&nbsp;05:13:15</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-09&nbsp;21:32:15</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1453">msg1453</a></td></tr>
+<tr><td>2011-03-30&nbsp;08:19:47</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-03-30&nbsp;08:19:38</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1393">msg1393</a><br />nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-03-26&nbsp;21:12:15</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> (no value)<br />milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-03-19&nbsp;21:01:52</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg1303">msg1303</a></td></tr>
+<tr><td>2011-03-14&nbsp;14:43:39</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

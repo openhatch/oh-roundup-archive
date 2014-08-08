@@ -1,0 +1,421 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 197: It should be easy to find the /about/ page - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue197
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue197">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue197">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">It should be easy to find the /about/ page</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, ktarnowski, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>ktarnowski</td>
+ <th>Keywords</th>
+ <td>
+  needs-decision
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-03.15:53:22</b> by <b>paulproteus</b>, last changed <b>2011-01-31.13:55:57</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file124/0001-Added-About-OpenHatch.org-box-on-landing-page-for-fi.patch">0001-Added-About-OpenHatch.org-box-on-landing-page-for-fi.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-01-30.21:07:32</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file125/0001-Resized-OpenHatch-news-box-on-the-landing-page-to-fi.patch">0001-Resized-OpenHatch-news-box-on-the-landing-page-to-fi.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-01-30.21:08:43</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg887">msg887 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-31.13:55:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm marking this as resolved, but if further discussion comes up on [Devel] then
+by all means we can improve things again.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg882">msg882 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-31.08:03:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for the feedback!
+
+Re. quotes around HTML attribute values - they are optional according to the new 
+HTML (HTML5 according to W3) spec. I just wanted to save 2 bytes! ;-)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg881">msg881 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-31.06:53:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Regarding the OpenHatch.org about box, on the landing page:
+
+First of all, thanks for adding that box and doing a good starting job on the
+text. I just edited it for a while, and came up with something I'm going to
+deploy. I want to make sure that it's something people are happy with, so I'm
+going to email Devel to see what people think. I've already deployed it, though.
+
+Some feedback on the patch:
+
+* Please use quotes around HTML attribute values.
+
+For the second patch, it applied great, and it made good sense to me.
+
+(Karen, if you have thoughts on the front page CSS changes to
+<a href="http://openhatch.org/">http://openhatch.org/</a> (namely, when you're not logged-in -- the blog and OH
+activity are about the same width) by all means say so here and/or file other
+bugs. I wanted to CC: you on this update to this ticket, but for now I'm marking
+it as resolved.)
+
+It's super great to have these patches. They're deployed!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg873">msg873 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-30.21:08:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Resized "OpenHatch News" box to fit half of the page (landing &amp; not logged in).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg872">msg872 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-30.21:07:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Added "About OpenHatch.org" box on the landing page for first-time visitors.
+
+Text in the box and its style are subject to change.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg792">msg792 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-25.16:32:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The dot have broken the link. Here's the valid one: <a href="http://awesomescreenshot.com/01d6g4y4e">http://awesomescreenshot.com/01d6g4y4e</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg791">msg791 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-25.16:27:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Done some design work with Firebug. Have a look at 
+<a href="http://awesomescreenshot.com/01d6g4y4e.">http://awesomescreenshot.com/01d6g4y4e.</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg674">msg674 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-03.15:53:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right now, it is too hard to find the /about/ page -- and people tend to need to
+read the /about/ page before they understand the website.
+
+Next step: Comment on this ticket with suggestions for changes in the places we
+put links, and/or submit a patch that make your suggestions a reality.
+
+The navigation links can be found by running 'git grep "report a bug"'.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-01-31&nbsp;13:55:57</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg887">msg887</a></td></tr>
+<tr><td>2011-01-31&nbsp;08:03:12</td><td>ktarnowski</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg882">msg882</a></td></tr>
+<tr><td>2011-01-31&nbsp;06:53:56</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />nosy:
+  + <a href="user4">aldeka</a><br />messages:
+  + <a href="msg881">msg881</a></td></tr>
+<tr><td>2011-01-30&nbsp;21:08:43</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file125">0001-Resized-OpenHatch-news-box-on-the-landing-page-to-fi.patch</a><br />messages:
+  + <a href="msg873">msg873</a></td></tr>
+<tr><td>2011-01-30&nbsp;21:07:32</td><td>ktarnowski</td><td>set</td><td>status: chatting -> need-review<br />assignedto: <a href="user52">ktarnowski</a><br />messages:
+  + <a href="msg872">msg872</a><br />files:
+  + <a href="file124">0001-Added-About-OpenHatch.org-box-on-landing-page-for-fi.patch</a><br />nosy:
+  + <a href="user52">ktarnowski</a></td></tr>
+<tr><td>2011-01-25&nbsp;16:32:47</td><td>ktarnowski</td><td>set</td><td>messages:
+  + <a href="msg792">msg792</a></td></tr>
+<tr><td>2011-01-25&nbsp;16:27:42</td><td>ktarnowski</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg791">msg791</a></td></tr>
+<tr><td>2011-01-03&nbsp;15:53:22</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

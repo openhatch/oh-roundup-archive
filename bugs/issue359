@@ -1,0 +1,459 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 359: Upgrade openhatch to use Django 1.2.5. - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue359
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue359">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue359">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Upgrade openhatch to use Django 1.2.5.</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.03</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>palhmbs</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-04-03.08:30:03</b> by <b>palhmbs</b>, last changed <b>2011-04-14.04:35:49</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file204/0001-Upgrade-Django-recipes-to-use-Django-1.2.5.patch">0001-Upgrade-Django-recipes-to-use-Django-1.2.5.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-04-11.06:02:00</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1499">msg1499 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-14.04:35:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is done.
+
+It left a few broken tests in its wake, but nothing totally totally fatal, I think.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1462">msg1462 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-11.06:02:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Another FAIL...
+
+  File "/media/0fad1c38-da9c-46e6-9352-5419b42cf26a/scripts/palhmbs-oh-mainline/
+eggs/xapian_haystack-1.1.5beta-py2.6.egg/xapian_backend.py", line 799, in 
+_database
+    raise InvalidIndexError(u'Unable to open index at %s' % 
+settings.HAYSTACK_XAPIAN_PATH)
+InvalidIndexError: Unable to open index at /media/0fad1c38-
+da9c-46e6-9352-5419b42cf26a/scripts/palhmbs-oh-mainline/mysite/indexes
+
+======================================================================
+FAIL: test_unicode_strings_get_cached (mysite.base.tests.GeocoderCanCache)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/media/0fad1c38-da9c-46e6-9352-5419b42cf26a/scripts/palhmbs-oh-mainline/
+mysite/base/tests.py", line 197, in test_unicode_strings_get_cached
+    raise AssertionError, "Geocoded location in json was not cached; it now 
+equals " + json
+AssertionError: Geocoded location in json was not cached; it now equals {"key": 
+"if caching works we should never get this value", "is_inaccessible": false}
+
+----------------------------------------------------------------------
+Ran 186 tests in 1843.906s
+FAILED (failures=1, errors=8)
+
+I don't know, maybe we should just push it out there.
+So here is a patch that changes the relevant lines in buildout.cfg.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1423">msg1423 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-04.10:14:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It failed...
+
+  File "/media/0fad1c38-da9c-46e6-9352-5419b42cf26a/scripts/
+palhmbs-oh-mainline/eggs/xapian_haystack-1.1.5beta-py2.6.egg/
+xapian_backend.py", line 355, in search
+    database = self._database()
+  File "/media/0fad1c38-da9c-46e6-9352-5419b42cf26a/scripts/
+palhmbs-oh-mainline/eggs/xapian_haystack-1.1.5beta-py2.6.egg/
+xapian_backend.py", line 799, in _database
+    raise InvalidIndexError(u'Unable to open index at %s' % 
+settings.HAYSTACK_XAPIAN_PATH)
+InvalidIndexError: Unable to open index at /media/0fad1c38-
+da9c-46e6-9352-5419b42cf26a/scripts/palhmbs-oh-mainline/mysite/
+indexes
+
+======================================================================
+FAIL: test_unicode_strings_get_cached 
+(mysite.base.tests.GeocoderCanCache)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/media/0fad1c38-da9c-46e6-9352-5419b42cf26a/scripts/
+palhmbs-oh-mainline/mysite/base/tests.py", line 197, in 
+test_unicode_strings_get_cached
+    raise AssertionError, "Geocoded location in json was not 
+cached; it now equals " + json
+AssertionError: Geocoded location in json was not cached; it 
+now equals {"key": "if caching works we should never get this 
+value", "is_inaccessible": false}
+
+----------------------------------------------------------------------
+Ran 186 tests in 1860.388s
+
+FAILED (failures=1, errors=8)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1419">msg1419 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-04.04:49:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Great -- how did they go? (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1418">msg1418 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-03.21:49:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Installed and test are now running, thanks.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1415">msg1415 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-03.20:19:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think that you need to install the 'svnadmin' program. Can you get that
+installed, and try again?
+
+You should be able to reproduce the problem whether or not you are on Django 1.2.5.
+
+(It'd be good to fix README to match this.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1409">msg1409 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-03.09:22:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've started a test following the instructions at <a href="http://openhatch.org/wiki/">http://openhatch.org/wiki/</a>
+Automated_testing
+I got a error straight off - 
+
+  File "/media/0fad1c38-da9c-46e6-9352-5419b42cf26a/scripts/palhmbs-oh-mainline/
+mysite/testrunner.py", line 43, in override_settings_for_testing
+    '--root', settings.SVN_REPO_PATH])
+  File "/usr/lib/python2.6/subprocess.py", line 483, in check_call
+    retcode = call(*popenargs, **kwargs)
+  File "/usr/lib/python2.6/subprocess.py", line 470, in call
+    return Popen(*popenargs, **kwargs).wait()
+  File "/usr/lib/python2.6/subprocess.py", line 623, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.6/subprocess.py", line 1141, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+
+Any ideas?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1408">msg1408 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-03.08:30:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>As per our meeting this week (<a href="https://openhatch.org/meeting-irc-logs/">https://openhatch.org/meeting-irc-logs/</a>
+weekly/2011-04-02.log.html) --
+20:57:51 &lt;paulproteus&gt; palhmbs: Once you upgrade to Django 1.2.5, if the test 
+suite passes fine, and the web app works fine, we should do that across the 
+board -- submit a patch.
+20:58:08 &lt;paulproteus&gt; If the tests don't all pass, then we need to figure out 
+what's broken in Django 1.2.5 and fix it.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-14&nbsp;04:35:49</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg1499">msg1499</a></td></tr>
+<tr><td>2011-04-11&nbsp;06:02:01</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file204">0001-Upgrade-Django-recipes-to-use-Django-1.2.5.patch</a><br />messages:
+  + <a href="msg1462">msg1462</a></td></tr>
+<tr><td>2011-04-04&nbsp;10:14:19</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1423">msg1423</a></td></tr>
+<tr><td>2011-04-04&nbsp;04:49:53</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1419">msg1419</a></td></tr>
+<tr><td>2011-04-03&nbsp;21:49:00</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1418">msg1418</a></td></tr>
+<tr><td>2011-04-03&nbsp;20:20:00</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1415">msg1415</a></td></tr>
+<tr><td>2011-04-03&nbsp;09:22:22</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1409">msg1409</a></td></tr>
+<tr><td>2011-04-03&nbsp;08:30:03</td><td>palhmbs</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

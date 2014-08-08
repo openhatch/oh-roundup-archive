@@ -1,0 +1,507 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 59: Profile import from bitbucket - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue59
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue59">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue59">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Profile import from bitbucket</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mark, bboissin, paulproteus, rafpaf
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>Mark</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-03-30.20:09:11</b> by <b>paulproteus</b>, last changed <b>2010-05-13.20:08:55</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file16/0011-Added-live-test-for-bitbucket-import.patch">0011-Added-live-test-for-bitbucket-import.patch</a>
+  </td>
+  <td>
+   <span>Mark</span>,
+   <span>2010-05-12.16:53:06</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file14/bitbucket_import.tar">bitbucket_import.tar</a>
+  </td>
+  <td>
+   <span>Mark</span>,
+   <span>2010-05-11.15:54:13</span>
+  </td>
+  <td>application/x-tar</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg194">msg194 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-05-13.20:08:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I added a few small changes, merged this to master, and deployed it.
+
+Yay! Thanks Mark! Your willingness to live by the tests made this super easy for 
+me.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg191">msg191 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-12.16:53:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Live test complete and uploaded.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg189">msg189 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-11.15:54:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Issues with test resolved. No errors or failures now. Updated patch file
+included. I still have the *live* test to write, however I'm having trouble with
+my connection and can't seem to run the existing test first.  Once that is
+resolved, I will update with those test.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg188">msg188 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-05-11.14:30:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Excerpts from Mark Freeman's message of Tue May 11 12:22:24 +0000 2010:
+&gt; 
+&gt; Mark Freeman &lt;<a href="mailto:mark@timewasted.net">mark@timewasted.net</a>&gt; added the comment:
+&gt; 
+&gt; I must have missed this problem yesterday, but the test errors (not fails). I
+&gt; don't think the test itself is necessarily the issue, and I don't think it is in
+&gt; the code that does the import. I think the problem is in
+&gt; _test_data_source_via_emulated_bgtask, in mysite/profile/tests.py
+&gt; 
+&gt; On this line.
+&gt; portfolio_entries = PortfolioEntry.objects.filter(project__name='MO     CK
+&gt; ccHost')
+&gt; 
+&gt; The error returned here: <a href="http://pastebin.com/RXcVY8gg">http://pastebin.com/RXcVY8gg</a>
+&gt; 
+&gt; I *think* this is because project "Mock ccHost" doesn't exist and isn't being
+&gt; returned by the query, but it blows up. It seems the method is explicitly
+&gt; checking to make sure it doesn't exist.  Should that check be placed within a
+&gt; try/except or something to suppress the expected error? 
+&gt; 
+&gt; I may be way off base on what I think the issue is, but if someone wouldn't mind
+&gt; taking a look, that would be great.
+
+I think the problem is that you're not saving a PortfolioEntry in your Bitbucket
+importer.
+
+Read the Github import source and see if that clears things up?
+
+(I haven't re-read your patch lately, though.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg187">msg187 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-11.12:22:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I must have missed this problem yesterday, but the test errors (not fails). I
+don't think the test itself is necessarily the issue, and I don't think it is in
+the code that does the import. I think the problem is in
+_test_data_source_via_emulated_bgtask, in mysite/profile/tests.py
+
+On this line.
+portfolio_entries = PortfolioEntry.objects.filter(project__name='MO     CK ccHost')
+
+The error returned here: <a href="http://pastebin.com/RXcVY8gg">http://pastebin.com/RXcVY8gg</a>
+
+I *think* this is because project "Mock ccHost" doesn't exist and isn't being
+returned by the query, but it blows up. It seems the method is explicitly
+checking to make sure it doesn't exist.  Should that check be placed within a
+try/except or something to suppress the expected error? 
+
+I may be way off base on what I think the issue is, but if someone wouldn't mind
+taking a look, that would be great.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg185">msg185 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-10.17:55:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Test all pass and importer seems to work. Issues with descriptions being set
+resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg182">msg182 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-05-08.23:25:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>These patches look great!
+
+Mark (timewasted), we planned to chat online Sunday evening (8 PM Eastern, as I
+recall) about how one could write a test for them. I'll hold off on pushing the
+patches into master until we have that conversation.
+
+Also, you gzip'd the tar file twice, but no big deal.
+
+This totally rocks.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg179">msg179 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-07.19:19:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Previous file was bad. Uploading a new one.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg178">msg178 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-07.19:16:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Attached are three patches. I added a new module for actually connecting to and
+returning the profile results. It is pretty sparse, but I figured we could use
+it to also include the methods for pulling bug tracker items and such in the
+future.  I have also included the changes to mysite/profile/models.py and
+mysite/profile/tasks/__init__.py.
+
+There seems to be one bug that I can't see what the problem is (not sure how to
+debug things in the running server instance). The project description isn't
+getting picked up, but does appear to be in the data returned from the json call.
+
+I'll be working on the test.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg136">msg136 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-30.20:09:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We should support bitbucket as well as github.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-05-13&nbsp;20:08:55</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg194">msg194</a></td></tr>
+<tr><td>2010-05-12&nbsp;17:21:57</td><td>Mark</td><td>set</td><td>status: testing -> chatting</td></tr>
+<tr><td>2010-05-12&nbsp;16:53:07</td><td>Mark</td><td>set</td><td>files:
+  + <a href="file16">0011-Added-live-test-for-bitbucket-import.patch</a><br />messages:
+  + <a href="msg191">msg191</a></td></tr>
+<tr><td>2010-05-11&nbsp;15:54:26</td><td>Mark</td><td>set</td><td>files:
+  - <a href="file12">bitbucket.tar</a></td></tr>
+<tr><td>2010-05-11&nbsp;15:54:13</td><td>Mark</td><td>set</td><td>files:
+  + <a href="file14">bitbucket_import.tar</a><br />messages:
+  + <a href="msg189">msg189</a></td></tr>
+<tr><td>2010-05-11&nbsp;14:30:27</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg188">msg188</a></td></tr>
+<tr><td>2010-05-11&nbsp;12:22:24</td><td>Mark</td><td>set</td><td>messages:
+  + <a href="msg187">msg187</a></td></tr>
+<tr><td>2010-05-10&nbsp;17:58:00</td><td>Mark</td><td>set</td><td>status: in-progress -> testing</td></tr>
+<tr><td>2010-05-10&nbsp;17:56:40</td><td>Mark</td><td>set</td><td>files:
+  - <a href="file11">bitbucket_patches.tar.gz</a></td></tr>
+<tr><td>2010-05-10&nbsp;17:55:15</td><td>Mark</td><td>set</td><td>files:
+  + <a href="file12">bitbucket.tar</a><br />messages:
+  + <a href="msg185">msg185</a></td></tr>
+<tr><td>2010-05-08&nbsp;23:25:07</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user5">rafpaf</a><br />messages:
+  + <a href="msg182">msg182</a></td></tr>
+<tr><td>2010-05-07&nbsp;19:19:08</td><td>Mark</td><td>set</td><td>files:
+  + <a href="file11">bitbucket_patches.tar.gz</a><br />messages:
+  + <a href="msg179">msg179</a></td></tr>
+<tr><td>2010-05-07&nbsp;19:18:43</td><td>Mark</td><td>set</td><td>files:
+  - <a href="file10">bitbucket_patches.tar.gz</a></td></tr>
+<tr><td>2010-05-07&nbsp;19:16:04</td><td>Mark</td><td>set</td><td>files:
+  + <a href="file10">bitbucket_patches.tar.gz</a><br />messages:
+  + <a href="msg178">msg178</a></td></tr>
+<tr><td>2010-04-28&nbsp;19:12:31</td><td>Mark</td><td>set</td><td>status: unread -> in-progress</td></tr>
+<tr><td>2010-04-28&nbsp;18:39:41</td><td>Mark</td><td>set</td><td>nosy:
+  + <a href="user29">Mark</a><br />assignedto: <a href="user29">Mark</a></td></tr>
+<tr><td>2010-03-30&nbsp;20:15:49</td><td>bboissin</td><td>set</td><td>nosy:
+  + <a href="user18">bboissin</a></td></tr>
+<tr><td>2010-03-30&nbsp;20:09:11</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

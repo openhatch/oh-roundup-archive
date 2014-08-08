@@ -1,0 +1,335 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 188: Move profile import code to Twisted: Bitbucket - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue188
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue188">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue188">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Move profile import code to Twisted: Bitbucket</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.10.12</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jesstess, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-11-27.21:38:49</b> by <b>paulproteus</b>, last changed <b>2010-12-21.22:12:11</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg667">msg667 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-21.22:12:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've pushed the Twisted-based profile import code to Gitorious, and deployed it.
+
+The old code had tests for the 404 scenario from Bitbucket. I would like the new
+code to test that! But at least we handle it now, which is good enough.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg660">msg660 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-18.21:57:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>See my comment.
+
+Is it worth it to switch to Trial for running our tests? Would that work
+straightforwardly with the Django test suite? Yargle.
+
+Now I'm probably rambling off-topic.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg658">msg658 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-18.21:43:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have this on origin (Gitorious) as origin/bitbucket_twist
+
+I don't want to ship it until we test the error cases that we used to test for.
+In particular, we don't test what we do in case of the remote HTTP servers
+giving us various error codes.
+
+I guess the thing to do is have a different fakeGetPage that sends a Twisted
+HTTP error down the errback chain.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg656">msg656 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-18.00:44:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is mostly done in a local branch. I'm running the test suite to make sure
+there are no regressions, and will then push.
+
+Note: We still need to test for the error conditions that the previous code used
+to handle. You can see these tests in mysite.customs.tests.OnlineBitbucket</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg654">msg654 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-16.03:04:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oh, the Twisted migration. Not quite done yet, but Bitbucket really should be easy.
+
+Let's tackle this specific one next, in 0.10.12.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg608">msg608 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-27.21:38:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The goal should be to ditch customs/bitbucket.py I think and move any remaining
+functionality into customs/profile_importers.py</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-12-21&nbsp;22:12:11</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg667">msg667</a></td></tr>
+<tr><td>2010-12-18&nbsp;21:57:42</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a><br />messages:
+  + <a href="msg660">msg660</a></td></tr>
+<tr><td>2010-12-18&nbsp;21:43:55</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg658">msg658</a></td></tr>
+<tr><td>2010-12-18&nbsp;00:44:34</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg656">msg656</a></td></tr>
+<tr><td>2010-12-16&nbsp;03:04:32</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg654">msg654</a><br />milestone: <a href="milestone2">0.10.11</a> -> <a href="milestone3">0.10.12</a></td></tr>
+<tr><td>2010-11-27&nbsp;21:38:49</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

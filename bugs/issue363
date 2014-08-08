@@ -1,0 +1,521 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 363: Migrate Trac bug importer to Twisted - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue363
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue363">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue363">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Migrate Trac bug importer to Twisted</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.03</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-04-05.14:01:40</b> by <b>pythonian4000</b>, last changed <b>2011-04-14.04:41:41</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file199/importer_async_architecture.png">importer_async_architecture.png</a>
+  </td>
+  <td>
+   <span>pythonian4000</span>,
+   <span>2011-04-05.14:01:39</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1492">msg1492 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-14.04:15:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Okay! I did a longer patch review on IRC, and there are some code cleanup-type
+issues remaining, but this is totally good enough to land.
+
+(It sets the stage for async-ifying the other bug tracker import code, which
+will make everything so flippin' sweet.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1491">msg1491 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-14.00:50:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Fixes for the various errors and failures that I somehow missed in all the rebasing.
+
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=c9e14c65c66fa3ce3a33747d674ccc1daea88504">http://git.jackgrigg.com/openhatch/patch/?id=c9e14c65c66fa3ce3a33747d674ccc1daea88504</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=4de9ad9c0f915d946f0a8c7d4c4f3bfbf3be4d01">http://git.jackgrigg.com/openhatch/patch/?id=4de9ad9c0f915d946f0a8c7d4c4f3bfbf3be4d01</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1488">msg1488 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-13.17:48:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Done! Finally! The patch series is here:
+<a href="http://git.jackgrigg.com/openhatch/log/?h=twisted-importer">http://git.jackgrigg.com/openhatch/log/?h=twisted-importer</a>
+
+Relevant patches in-order are:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=65cea831f50fe631487dce367d47e2cb8d22806e">http://git.jackgrigg.com/openhatch/patch/?id=65cea831f50fe631487dce367d47e2cb8d22806e</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=f069643a694b8f2734cd5f15a047bff527edfea2">http://git.jackgrigg.com/openhatch/patch/?id=f069643a694b8f2734cd5f15a047bff527edfea2</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=ec9e6cedb2ce0c3deda246a65dda998d4b9d3267">http://git.jackgrigg.com/openhatch/patch/?id=ec9e6cedb2ce0c3deda246a65dda998d4b9d3267</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=b3e9592169646a6f5069915acc9ad5737040f1cb">http://git.jackgrigg.com/openhatch/patch/?id=b3e9592169646a6f5069915acc9ad5737040f1cb</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=d32319699edf0437fd828eaedbaf7574fa18802c">http://git.jackgrigg.com/openhatch/patch/?id=d32319699edf0437fd828eaedbaf7574fa18802c</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=24a53cfd7f2e35f5cc3114fa3c59f16eefb98b1c">http://git.jackgrigg.com/openhatch/patch/?id=24a53cfd7f2e35f5cc3114fa3c59f16eefb98b1c</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=251c1d426caba1ca308ef4efe037f04066e9b60d">http://git.jackgrigg.com/openhatch/patch/?id=251c1d426caba1ca308ef4efe037f04066e9b60d</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=753ef202048c93c6963c3938b0a307d1d8ad412e">http://git.jackgrigg.com/openhatch/patch/?id=753ef202048c93c6963c3938b0a307d1d8ad412e</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1482">msg1482 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-13.02:53:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>You waxed enthusiastic on #openhatch earlier today about how this was all
+finally working. Is there a fully-working version?
+
+If not, I will take this work and diagnose any remaining issues tomorrow, and
+hopefully push it and deploy it, if I can figure out what's going wrong!
+
+If there is a fully working version, then just submit that. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1478">msg1478 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-12.01:26:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>After wrestling with South for many hours, I finally have 8 patches that should
+enable asynchronous bug importing. Trouble is, it doesn't work: the last patch,
+where the actual async code is, seems perfectly fine. But when running
+"./bin/mysite customs_twist" (after sticking heaps of print statements in to
+check where it was up to) it seems that none of the tracker-type-defined
+callbacks or errbacks are being executed, i.e.:
+
+in push_urls_onto_reactor, the following callbacks get called:
+d.addCallback(callback, c_args)  &lt;- NO
+d.addErrback(errback, e_args) &lt;- NO
+d.addBoth(self.remove_url_from_deferred_list, url) &lt;- yes
+d.addBoth(self.push_urls_onto_reactor) &lt;- yes
+d.addBoth(self.rm.decrement_deferred_count) &lt;- yes
+
+and it also correctly sees when there are no more URLs left to fetch, but
+self.deferred_for_end.callback()
+never seems to actually get called.
+
+And I'm tired, so I'm leaving it at this for now. Thoughts?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1465">msg1465 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-11.16:32:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>re:
+<a href="http://git.jackgrigg.com/openhatch/commit/?h=twisted-importer&amp;id=ff91915d51c131a7b29750414b752f9477656763">http://git.jackgrigg.com/openhatch/commit/?h=twisted-importer&amp;id=ff91915d51c131a7b29750414b752f9477656763</a>
+-- you don't necessarily have to use Trial if you test manually passing a 404 to
+the errback.
+
+Also, the FakeGetPage thing I created lets us test Twisted-y stuff without using
+Trial.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1464">msg1464 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-11.09:16:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So...
+
+I'm trying, but I don't know if I'll have this completely ready by the deadline.
+I do have 5 patches that are self-contained band ready on
+<a href="http://git.jackgrigg.com/openhatch/?h=twisted-importer">http://git.jackgrigg.com/openhatch/?h=twisted-importer</a>
+(from "Added django-model-utils to buildout." to "Enabled managing the
+TracTracker and TracURL models via web interface."). Note that these need to be
+applied on top of the work from <a href="issue328">issue328</a> and <a href="issue317">issue317</a> (because all three have
+South migrations, which have a certain "order" about them ~_~). You can leave
+out the patch migrating the Trac tests across if you want, as that is
+self-contained and will currently fail. I'll keep updating here and on IRC as I
+get closer to completion.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1456">msg1456 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-10.02:51:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Status update.
+
+Completed:
+* copied the existing Trac tests over for the async code and modified as needed.
+* modified customs.models, adding some abstract parent models and getters.
+* added the TracTracker and TracUrl models.
+
+Done (not necessarily completely right):
+* written customs.bugimporters.base
+* drastically rewritten customs.bugtrackers.trac as customs.bugimporters.trac
+
+Still left:
+* Modify Asheesh's self-refreshing Bug code to integrate it into the
+asynchronous importer.
+* Write update_trackers() and update_bugs() in
+management.commands.customs_twist, and integrate these into the reactor.
+* Other stuff I'll think of.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1444">msg1444 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-09.15:24:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Changing status to in-progress because I think we've reviewed the design, at
+this point.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1431">msg1431 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-05.22:39:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Adding requirement for Bugs to know how to update themselves as a blocker.
+
+See <a href="http://piratepad.net/async-bug-importer">http://piratepad.net/async-bug-importer</a> for planning relevant to this issue.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1424">msg1424 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-05.14:01:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is tracked in <a href="issue260">issue260</a>.
+
+Attached is a possible architecture for the Trac importer, which I think is
+general enough to then abstract to other importers as well. The process_queries,
+process_bugs and check_deferred functions would be required by the base tracker
+class, and implemented in the tracker type's class e.g. Trac. Functions and
+callbacks below that would be tracker type-specific. update_trackers and
+update_bugs would then cover all tracker types.
+
+I need feedback on this, as this is my first attempt at writing asynchronous
+software ^_^</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-14&nbsp;04:41:41</td><td>paulproteus</td><td>unlink</td><td><a href="issue260">issue260 blockers</a></td></tr>
+<tr><td>2011-04-14&nbsp;04:41:41</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved</td></tr>
+<tr><td>2011-04-14&nbsp;04:15:21</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1492">msg1492</a></td></tr>
+<tr><td>2011-04-14&nbsp;00:50:47</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1491">msg1491</a></td></tr>
+<tr><td>2011-04-13&nbsp;17:48:28</td><td>pythonian4000</td><td>set</td><td>messages:
+  - <a href="msg1489">msg1489</a></td></tr>
+<tr><td>2011-04-13&nbsp;17:48:08</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1489">msg1489</a></td></tr>
+<tr><td>2011-04-13&nbsp;17:48:05</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg1488">msg1488</a></td></tr>
+<tr><td>2011-04-13&nbsp;02:54:11</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting</td></tr>
+<tr><td>2011-04-13&nbsp;02:53:46</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1482">msg1482</a></td></tr>
+<tr><td>2011-04-12&nbsp;01:26:05</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1478">msg1478</a></td></tr>
+<tr><td>2011-04-11&nbsp;16:32:35</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1465">msg1465</a></td></tr>
+<tr><td>2011-04-11&nbsp;09:16:42</td><td>pythonian4000</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg1464">msg1464</a></td></tr>
+<tr><td>2011-04-10&nbsp;02:51:23</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1456">msg1456</a></td></tr>
+<tr><td>2011-04-09&nbsp;15:24:43</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1444">msg1444</a></td></tr>
+<tr><td>2011-04-09&nbsp;06:49:57</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue368">Bug objects should know how to refresh themselves</a></td></tr>
+<tr><td>2011-04-05&nbsp;22:39:37</td><td>pythonian4000</td><td>set</td><td>blockers:
+  + <a href="issue368">Bug objects should know how to refresh themselves</a><br />messages:
+  + <a href="msg1431">msg1431</a></td></tr>
+<tr><td>2011-04-05&nbsp;14:06:05</td><td>pythonian4000</td><td>set</td><td>assignedto: <a href="user34">pythonian4000</a></td></tr>
+<tr><td>2011-04-05&nbsp;14:04:54</td><td>pythonian4000</td><td>link</td><td><a href="issue260">issue260 blockers</a></td></tr>
+<tr><td>2011-04-05&nbsp;14:01:41</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

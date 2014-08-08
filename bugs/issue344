@@ -1,0 +1,1379 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 344: Use Google Maps over SSL for our People page. - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue344
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue344">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue344">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Use Google Maps over SSL for our People page.</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  palhmbs, paulproteus, pythonian4000, viv
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>viv</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-03-19.20:47:40</b> by <b>palhmbs</b>, last changed <b>2011-04-30.22:20:31</b> by <b>palhmbs</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file208/0001-Fixed-issue-344-2">0001-Fixed-issue-344-2</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-04-14.07:42:57</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file242/0001-fixed-search-page-with-google-map-using-SSL.patch">0001-fixed-search-page-with-google-map-using-SSL.patch</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-04-23.23:10:10</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file207/search_people.html">search_people.html</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-04-14.07:42:18</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file167/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-03-24.05:59:08</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file168/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-03-24.06:08:59</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file169/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-03-24.13:17:37</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file170/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-03-25.13:25:41</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file171/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-03-25.23:35:23</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file173/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-03-25.23:40:17</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file176/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-03-26.00:51:55</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file200/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-04-07.12:54:38</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file209/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-04-14.07:46:20</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file251/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-04-25.06:23:05</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file253/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-04-27.07:27:54</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1753">msg1753 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-04-27.07:27:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Asheesh,
+
+I have assigned to it to myself.
+
+Thanks,
+
+VIvek
+
+On Mon, Apr 25, 2011 at 3:36 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Eek, it does seem someone else has taken <a href="issue240">issue240</a>.
+&gt;
+&gt; Is <a href="http://openhatch.org/bugs/issue310">http://openhatch.org/bugs/issue310</a> something you're willing to try? We
+&gt; were talking about it at PyCon. It requires a substantial amount of Python
+&gt; hacking, so you might need some help, but it would actually be a huge help
+&gt; to have that resolved. I'm committed to having the OpenHatch team (me, if
+&gt; necessary) help you with resolving it, including answering Python
+&gt; questions as they arise.
+&gt;
+&gt; ----------
+&gt; status: resolved -&gt; chatting
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue344">https://openhatch.org/bugs/issue344</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1744">msg1744 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-25.22:36:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Eek, it does seem someone else has taken <a href="issue240">issue240</a>.
+
+Is <a href="http://openhatch.org/bugs/issue310">http://openhatch.org/bugs/issue310</a> something you're willing to try? We 
+were talking about it at PyCon. It requires a substantial amount of Python 
+hacking, so you might need some help, but it would actually be a huge help 
+to have that resolved. I'm committed to having the OpenHatch team (me, if 
+necessary) help you with resolving it, including answering Python 
+questions as they arise.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1735">msg1735 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-04-25.06:23:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks.. I will be looking forward for fixing <a href="issue240">issue240</a>.
+
+On Sun, Apr 24, 2011 at 12:00 AM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; This works great. You are a saint for being patient for a month.
+&gt;
+&gt; One thing I would change: the commit log message could be more descriptive
+&gt; about
+&gt; what you changed, and why you changed it.
+&gt;
+&gt; If you're looking for some more Python-esque, ORM-esque stuff to do, you
+&gt; might
+&gt; possibly like <a href="https://openhatch.org/bugs/issue240">https://openhatch.org/bugs/issue240</a> . It would be a big help
+&gt; toward helping other contributors get a more solid development environment.
+&gt;
+&gt; Let's talk about that there. For now, I'll just mark this as:
+&gt;
+&gt; resolved!
+&gt;
+&gt; ----------
+&gt; status: need-review -&gt; resolved
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue344">https://openhatch.org/bugs/issue344</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1723">msg1723 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-24.07:00:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This works great. You are a saint for being patient for a month.
+
+One thing I would change: the commit log message could be more descriptive about
+what you changed, and why you changed it.
+
+If you're looking for some more Python-esque, ORM-esque stuff to do, you might
+possibly like <a href="https://openhatch.org/bugs/issue240">https://openhatch.org/bugs/issue240</a> . It would be a big help
+toward helping other contributors get a more solid development environment.
+
+Let's talk about that there. For now, I'll just mark this as:
+
+resolved!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1717">msg1717 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-04-23.23:18:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have submitted patch for <a href="http://openhatch.org/bugs/issue344">http://openhatch.org/bugs/issue344</a> and ready for review.
+
+"I hearby allow OpenHatch and anyone affiliated with OpenHatch to use any work
+I have provided them, and license it under the Affero GPL, version 3,
+or in the future any GPL-compatible license they choose.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1716">msg1716 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-04-23.23:10:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Please find patch for search.html page</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1614">msg1614 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-19.04:12:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Vivek, one more thing: You didn't adjust all the references to Google Maps. I
+believe there is still one (in a template called search_people.html) that needs
+to change to the SSL version.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1613">msg1613 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-19.04:07:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Vivek,
+
+First, let me apologize for taking so long to review this! I'm aiming for a lag
+between 1 hour and 2 days; 4-5 days is too long.
+
+Can you send an email to Devel indicating that you're okay with AGPLv3? (-:
+
+We did update
+<a href="http://openhatch.org/wiki/How_we_handle_patches#Permit_us_to_share_your_work:">http://openhatch.org/wiki/How_we_handle_patches#Permit_us_to_share_your_work:</a> so
+that it's a clearer part of the process, as per your suggestions on Devel.
+
+I would like it if you could change the git configuration on the machine where
+you're generating the patch file. Take a look at your patch file -- it says your
+email address is @localhost.localdomain.
+
+Take a look at step 1 of <a href="http://help.github.com/git-email-settings/">http://help.github.com/git-email-settings/</a> where they
+set the name and email address. (That's the only step you need to follow from
+that page.)
+
+In terms of content, the patch looks good to me. Honestly, I have tried for days
+to test this locally, and I've given up. You must have the patience of an angel
+to let your server run forever, loading up the /people/ page. Once you do the
+above things, I'll just deploy it, since I think it should work just fine.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1504">msg1504 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-04-14.07:46:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Asheesh,
+
+I have uploaded the files.. for review.. unfortunately.. I couldnt create a
+patch for one file so I uploaded the whole file..
+
+Thanks,
+
+Vivek
+
+On Wed, Apr 13, 2011 at 9:26 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Hey Vivek,
+&gt;
+&gt; Did you get around to figuring out how to create a patch? If not, we are
+&gt; happy
+&gt; to help you. Sign onto IRC and chat with us.
+&gt;
+&gt; It'd be great to have this be part of the site.
+&gt;
+&gt; ----------
+&gt; milestone: 0.11.03 -&gt; later
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue344">https://openhatch.org/bugs/issue344</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1496">msg1496 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-14.04:26:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey Vivek,
+
+Did you get around to figuring out how to create a patch? If not, we are happy
+to help you. Sign onto IRC and chat with us.
+
+It'd be great to have this be part of the site.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1436">msg1436 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-08.04:24:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi there! That's thrilling.
+
+So now you have to pull the patch out of your local repository and submit it as
+a git format-patch file.
+
+<a href="http://openhatch.org/wiki/How_we_handle_patches">http://openhatch.org/wiki/How_we_handle_patches</a> says more about the general
+process, and
+<a href="http://openhatch.org/wiki/How_to_generate_patches_with_git_format-patch">http://openhatch.org/wiki/How_to_generate_patches_with_git_format-patch</a> tries to
+explain the process for creating a patch file with "git format-patch".
+
+Give them a read-through, and see if you can attach a patch to this bug!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1434">msg1434 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-04-07.12:54:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>fixed and committed...
+
+On Fri, Mar 25, 2011 at 5:51 PM, Vivek Shrivastava &lt;<a href="mailto:vivshrivastava@gmail.com">vivshrivastava@gmail.com</a>
+&gt; wrote:
+
+&gt; yeah i tried it on lenny and squeeze.... I will try on squeeze only...
+&gt;
+&gt;
+&gt; On Fri, Mar 25, 2011 at 4:42 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;wrote:
+&gt;
+&gt;&gt;
+&gt;&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;&gt;
+&gt;&gt; You shouldn't need to compile Python 2.6 yourself -- Debian squeeze ships
+&gt;&gt; python2.6 as a package. Can you try installing it from packages? (Are you
+&gt;&gt; sure
+&gt;&gt; you're on Debian squeeze?)
+&gt;&gt;
+&gt;&gt; __________________________________________
+&gt;&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt;&gt; &lt;<a href="https://openhatch.org/bugs/issue344">https://openhatch.org/bugs/issue344</a>&gt;
+&gt;&gt; __________________________________________
+&gt;&gt;
+&gt;
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1351">msg1351 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-03-26.00:51:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>yeah i tried it on lenny and squeeze.... I will try on squeeze only...
+
+On Fri, Mar 25, 2011 at 4:42 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; You shouldn't need to compile Python 2.6 yourself -- Debian squeeze ships
+&gt; python2.6 as a package. Can you try installing it from packages? (Are you
+&gt; sure
+&gt; you're on Debian squeeze?)
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue344">https://openhatch.org/bugs/issue344</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1349">msg1349 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-25.23:42:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>You shouldn't need to compile Python 2.6 yourself -- Debian squeeze ships
+python2.6 as a package. Can you try installing it from packages? (Are you sure
+you're on Debian squeeze?)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1347">msg1347 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-03-25.23:40:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>One more addon is that when you compile python2.6 manually.. make sure you
+have some openssl library installed.. or you need to recompile python2.6
+after installing openssl library...
+
+I will run the next build with non root user...
+
+On Fri, Mar 25, 2011 at 4:36 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; No problem. Let me know when you have a Debian squeeze (6.0) VM ready.
+&gt;
+&gt; Also: do please try to run the openhatch code as a non-root user. It makes
+&gt; me
+&gt; feel more relaxed to know that it's not running as root. (-:
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue344">https://openhatch.org/bugs/issue344</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1344">msg1344 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-25.23:36:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>No problem. Let me know when you have a Debian squeeze (6.0) VM ready.
+
+Also: do please try to run the openhatch code as a non-root user. It makes me
+feel more relaxed to know that it's not running as root. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1343">msg1343 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-03-25.23:35:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks very much for fixing this...
+
+On Fri, Mar 25, 2011 at 4:14 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Vivek,
+&gt;
+&gt; I can reproduce the problem you had. So can paulhomebus (palhmbs on IRC).
+&gt;
+&gt; I'm working on a fix for it. You should stick to Debian squeeze. Get that
+&gt; installed again, and soon I will push a fixed buildout file that actually
+&gt; works.
+&gt;
+&gt; I deeply apologize for forcing you to flail about, in a situation where you
+&gt; do
+&gt; not know the right fix for your problems. In fact, they are problems with
+&gt; our
+&gt; dependency list, and I'm working on fixing that now.
+&gt;
+&gt; -- Asheesh.
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue344">https://openhatch.org/bugs/issue344</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1342">msg1342 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-25.23:14:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Vivek,
+
+I can reproduce the problem you had. So can paulhomebus (palhmbs on IRC).
+
+I'm working on a fix for it. You should stick to Debian squeeze. Get that
+installed again, and soon I will push a fixed buildout file that actually works.
+
+I deeply apologize for forcing you to flail about, in a situation where you do
+not know the right fix for your problems. In fact, they are problems with our
+dependency list, and I'm working on fixing that now.
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1341">msg1341 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-03-25.13:25:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>well..i think stars not aligned for me... I initially thought "South" is
+some person or something..without realizing that the document is referring
+to the migration tool...so i have experimented with various debian versions
+from EC2 and getting different errors..but for now.. I have lost  the
+previous error details... .. I am sure.. it will ultimately work me....one
+of the error that can be improved in the document is that apt-get couldnt
+find python2.6-dev version... i had to compile 2.6 manually.. with zlib
+options..we should update the document if it is the case...
+
+On Fri, Mar 25, 2011 at 4:06 AM, Jack Grigg &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Jack Grigg &lt;<a href="mailto:me@jackgrigg.com">me@jackgrigg.com</a>&gt; added the comment:
+&gt;
+&gt; Viv, could you pastebin (<a href="http://pastebin.com/">http://pastebin.com/</a>) the
+&gt; output of the migration command? So that we can see
+&gt; what error you are getting.
+&gt;
+&gt; I have a feeling that the error will be something to
+&gt; do with an index name being too long, as that has
+&gt; recently affected several people including myself
+&gt; (though the reason is unknown, as it was fine for a
+&gt; long time). If so then it is reasonably easy to fix.
+&gt;
+&gt; Also, the script that the README refers to is in the
+&gt; error message that South outputs, just above the stack
+&gt; trace - where it says something like "You MAY be able
+&gt; to recover by executing the following:".
+&gt;
+&gt; ----------
+&gt; nosy: +pythonian4000
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue344">https://openhatch.org/bugs/issue344</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1339">msg1339 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-25.11:06:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Viv, could you pastebin (<a href="http://pastebin.com/">http://pastebin.com/</a>) the 
+output of the migration command? So that we can see 
+what error you are getting.
+
+I have a feeling that the error will be something to 
+do with an index name being too long, as that has 
+recently affected several people including myself 
+(though the reason is unknown, as it was fine for a 
+long time). If so then it is reasonably easy to fix.
+
+Also, the script that the README refers to is in the 
+error message that South outputs, just above the stack 
+trace - where it says something like "You MAY be able 
+to recover by executing the following:".</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1337">msg1337 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-03-24.13:17:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>ok.. we past that error.. now I am getting error in migration and document
+says "Sometimes the migrations don't work, and South will give you a MySQL
+script so you can fix things.".. where do i get that script...
+
+Thanks,
+
+Vivek
+
+On Wed, Mar 23, 2011 at 11:12 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; a) Honestly, do please switch to doing this as a user that is not root. It
+&gt; just scares me when you do buildout as root.
+&gt;
+&gt; b) sudo apt-get install python-mechanize
+&gt;
+&gt; It looks like the problem has to do with how the downloader is getting the
+&gt; "mechanize" package.
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue344">https://openhatch.org/bugs/issue344</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1334">msg1334 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-24.06:12:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>a) Honestly, do please switch to doing this as a user that is not root. It 
+just scares me when you do buildout as root.
+
+b) sudo apt-get install python-mechanize
+
+It looks like the problem has to do with how the downloader is getting the 
+"mechanize" package.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1333">msg1333 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-03-24.06:08:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>yup.. I tried rebuilding multiple times...
+
+On Wed, Mar 23, 2011 at 10:57 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; On Wed, 23 Mar 2011, Vivek Shrivastava wrote:
+&gt;
+&gt; &gt; I am getting this error in the buildup process...any suggestions?
+&gt;
+&gt; Wow. That is a terrible error.
+&gt;
+&gt; If you re-run buildout, do you still get that?
+&gt;
+&gt; I'm sorry that the buildout process has sucked for you....
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue344">https://openhatch.org/bugs/issue344</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1332">msg1332 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-03-24.05:59:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I am getting this error in the buildup process...any suggestions?
+
+An internal error occurred due to a bug in either zc.buildout or in a
+recipe being used:
+Traceback (most recent call last):
+  File
+"/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/buildout.py",
+line 1805, in main
+    getattr(buildout, command)(args)
+  File
+"/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/buildout.py",
+line 584, in insta        ll
+    installed_files = self[part]._call(recipe.install)
+  File
+"/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/buildout.py",
+line 1297, in _cal        l
+    return f()
+  File
+"/root/openhatch/oh-mainline/eggs/djangorecipe-0.20-py2.6.egg/djangorecipe/recipe.py",
+line 211, in instal        l
+    requirements, ws = self.egg.working_set(['djangorecipe'])
+  File
+"/root/openhatch/oh-mainline/eggs/zc.recipe.egg-1.3.2-py2.6.egg/zc/recipe/egg/egg.py",
+line 101, in workin        g_set
+    **kw)
+  File
+"/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/easy_install.py",
+line 1090, in         install
+    return installer.install(specs, working_set)
+  File
+"/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/easy_install.py",
+line 896, in i        nstall
+    for dist in self._get_dist(requirement, ws, self._always_unzip):
+  File
+"/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/easy_install.py",
+line 742, in _        get_dist
+    dist = self._fetch(avail, tmp, self._download_cache)
+  File
+"/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/easy_install.py",
+line 705, in _        fetch
+    new_location = self._index.download(dist.location, tmp)
+  File "/usr/lib/python2.6/dist-packages/setuptools/package_index.py", line
+401, in download
+    found = self._download_url(scheme.group(1), spec, tmpdir)
+  File "/usr/lib/python2.6/dist-packages/setuptools/package_index.py", line
+648, in _download_url
+    return self._attempt_download(url, filename)
+  File "/usr/lib/python2.6/dist-packages/setuptools/package_index.py", line
+657, in _attempt_download
+    headers = self._download_to(url, filename)
+  File "/usr/lib/python2.6/dist-packages/setuptools/package_index.py", line
+569, in _download_to
+    size = int(headers["Content-Length"])
+ValueError: invalid literal for int() with base 10: '382727, 382727'
+
+<a href="mailto:root@ip-10-122-177-5">root@ip-10-122-177-5</a>:~/openhatch/oh-mainline# cat /etc/issue
+Debian GNU/Linux 6.0 \n \l
+
+On Wed, Mar 23, 2011 at 2:45 PM, palhmbs &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; palhmbs &lt;<a href="mailto:paulbakulich@gmail.com">paulbakulich@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; Bump.
+&gt;
+&gt; Are you still on track to fix this for us Viv?
+&gt;
+&gt; Less than a week to get this issue resolved for the milestone.
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue344">https://openhatch.org/bugs/issue344</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1331">msg1331 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-24.05:57:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On Wed, 23 Mar 2011, Vivek Shrivastava wrote:
+
+&gt; I am getting this error in the buildup process...any suggestions?
+
+Wow. That is a terrible error.
+
+If you re-run buildout, do you still get that?
+
+I'm sorry that the buildout process has sucked for you....</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1326">msg1326 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-23.21:45:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Bump.
+
+Are you still on track to fix this for us Viv?
+
+Less than a week to get this issue resolved for the milestone.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1294">msg1294 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-19.20:52:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>All of us should receive email.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1293">msg1293 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-19.20:47:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>paulproteus said in devlist: 
+
+These pages need changing:
+
+ * mysite/account/templates/account/set_location.html
+ * mysite/profile/templates/profile/search_people.html
+
+I think that if we use SSL for all visitors, whether or not they are accessing 
+OpenHatch over SSL, that would be fine.
+
+First person to submit a patch to this earns my everlasting love.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-30&nbsp;22:20:31</td><td>palhmbs</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2011-04-27&nbsp;07:27:55</td><td>viv</td><td>set</td><td>files:
+  + <a href="file253">unnamed</a><br />status: resolved -> chatting<br />messages:
+  + <a href="msg1753">msg1753</a></td></tr>
+<tr><td>2011-04-27&nbsp;06:06:46</td><td>palhmbs</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2011-04-25&nbsp;22:36:07</td><td>paulproteus</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg1744">msg1744</a></td></tr>
+<tr><td>2011-04-25&nbsp;17:22:39</td><td>pythonian4000</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2011-04-25&nbsp;06:23:06</td><td>viv</td><td>set</td><td>files:
+  + <a href="file251">unnamed</a><br />status: resolved -> chatting<br />messages:
+  + <a href="msg1735">msg1735</a></td></tr>
+<tr><td>2011-04-24&nbsp;07:00:41</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1723">msg1723</a></td></tr>
+<tr><td>2011-04-23&nbsp;23:18:26</td><td>viv</td><td>set</td><td>messages:
+  + <a href="msg1717">msg1717</a></td></tr>
+<tr><td>2011-04-23&nbsp;23:10:22</td><td>viv</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-04-23&nbsp;23:10:11</td><td>viv</td><td>set</td><td>files:
+  + <a href="file242">0001-fixed-search-page-with-google-map-using-SSL.patch</a><br />messages:
+  + <a href="msg1716">msg1716</a></td></tr>
+<tr><td>2011-04-19&nbsp;04:12:54</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1614">msg1614</a></td></tr>
+<tr><td>2011-04-19&nbsp;04:11:36</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress</td></tr>
+<tr><td>2011-04-19&nbsp;04:07:22</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1613">msg1613</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-14&nbsp;07:46:20</td><td>viv</td><td>set</td><td>files:
+  + <a href="file209">unnamed</a><br />messages:
+  + <a href="msg1504">msg1504</a></td></tr>
+<tr><td>2011-04-14&nbsp;07:44:14</td><td>viv</td><td>set</td><td>status: chatting -> need-review</td></tr>
+<tr><td>2011-04-14&nbsp;07:42:57</td><td>viv</td><td>set</td><td>files:
+  + <a href="file208">0001-Fixed-issue-344-2</a></td></tr>
+<tr><td>2011-04-14&nbsp;07:42:18</td><td>viv</td><td>set</td><td>files:
+  + <a href="file207">search_people.html</a></td></tr>
+<tr><td>2011-04-14&nbsp;04:26:42</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1496">msg1496</a><br />milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-04-08&nbsp;04:24:38</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1436">msg1436</a></td></tr>
+<tr><td>2011-04-07&nbsp;12:54:40</td><td>viv</td><td>set</td><td>files:
+  + <a href="file200">unnamed</a><br />messages:
+  + <a href="msg1434">msg1434</a></td></tr>
+<tr><td>2011-03-26&nbsp;00:51:55</td><td>viv</td><td>set</td><td>files:
+  + <a href="file176">unnamed</a><br />messages:
+  + <a href="msg1351">msg1351</a></td></tr>
+<tr><td>2011-03-25&nbsp;23:42:44</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1349">msg1349</a></td></tr>
+<tr><td>2011-03-25&nbsp;23:40:17</td><td>viv</td><td>set</td><td>files:
+  + <a href="file173">unnamed</a><br />messages:
+  + <a href="msg1347">msg1347</a></td></tr>
+<tr><td>2011-03-25&nbsp;23:36:46</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1344">msg1344</a></td></tr>
+<tr><td>2011-03-25&nbsp;23:35:23</td><td>viv</td><td>set</td><td>files:
+  + <a href="file171">unnamed</a><br />messages:
+  + <a href="msg1343">msg1343</a></td></tr>
+<tr><td>2011-03-25&nbsp;23:14:45</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1342">msg1342</a></td></tr>
+<tr><td>2011-03-25&nbsp;13:25:41</td><td>viv</td><td>set</td><td>files:
+  + <a href="file170">unnamed</a><br />messages:
+  + <a href="msg1341">msg1341</a></td></tr>
+<tr><td>2011-03-25&nbsp;11:06:14</td><td>pythonian4000</td><td>set</td><td>nosy:
+  + <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg1339">msg1339</a></td></tr>
+<tr><td>2011-03-24&nbsp;13:17:37</td><td>viv</td><td>set</td><td>files:
+  + <a href="file169">unnamed</a><br />messages:
+  + <a href="msg1337">msg1337</a></td></tr>
+<tr><td>2011-03-24&nbsp;06:12:06</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1334">msg1334</a></td></tr>
+<tr><td>2011-03-24&nbsp;06:09:00</td><td>viv</td><td>set</td><td>files:
+  + <a href="file168">unnamed</a><br />messages:
+  + <a href="msg1333">msg1333</a></td></tr>
+<tr><td>2011-03-24&nbsp;05:59:08</td><td>viv</td><td>set</td><td>files:
+  + <a href="file167">unnamed</a><br />messages:
+  + <a href="msg1332">msg1332</a></td></tr>
+<tr><td>2011-03-24&nbsp;05:57:39</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1331">msg1331</a></td></tr>
+<tr><td>2011-03-23&nbsp;21:45:46</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1326">msg1326</a></td></tr>
+<tr><td>2011-03-19&nbsp;20:52:57</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1294">msg1294</a></td></tr>
+<tr><td>2011-03-19&nbsp;20:49:54</td><td>viv</td><td>set</td><td>assignedto: <a href="user79">viv</a><br />nosy:
+  + <a href="user79">viv</a></td></tr>
+<tr><td>2011-03-19&nbsp;20:48:05</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting</td></tr>
+<tr><td>2011-03-19&nbsp;20:47:40</td><td>palhmbs</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

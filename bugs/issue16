@@ -1,0 +1,536 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 16: sign in with wordpress openid doesn't work - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue16
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue16">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue16">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">sign in with wordpress openid doesn't work</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  gameguy43, paulproteus, voltagex
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2009-09-11.00:32:48</b> by <b>gameguy43</b>, last changed <b>2010-03-16.00:18:46</b> by <b>voltagex</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file3/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>gameguy43</span>,
+   <span>2010-03-15.02:13:52</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg93">msg93 (view)</a></th>
+   <th>Author: voltagex</th>
+   <th>Date: 2010-03-16.00:18:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Setting back to resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg91">msg91 (view)</a></th>
+   <th>Author: voltagex</th>
+   <th>Date: 2010-03-16.00:14:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The only thing I can add is be wary of adding site-specific hacks - they're
+going to add up because of the number of different ways OpenID providers (fail
+to) implement OpenID properly. I'll see if I can get in contact with
+Wordpress.com to see if they'll make their gateway a little more robust.
+
+Thanks for the fix Gameguy.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg88">msg88 (view)</a></th>
+   <th>Author: gameguy43</th>
+   <th>Date: 2010-03-15.22:21:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>voltagex: added you to the Nosy list for this bug.
+
+I think we've got it fixed what say you?:
+<a href="https://openhatch.org/account/login/">https://openhatch.org/account/login/</a>
+
+Thanks for all your help!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg87">msg87 (view)</a></th>
+   <th>Author: gameguy43</th>
+   <th>Date: 2010-03-15.22:19:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>voltagex: thanks for your help!
+I think we've squashed this bug. We now ask for a wordpress.com /subdomain/, and
+I've made a couple gui tweaks to make this more apparent.
+
+Does this work for you now?:
+<a href="https://openhatch.org/account/login/">https://openhatch.org/account/login/</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg75">msg75 (view)</a></th>
+   <th>Author: voltagex</th>
+   <th>Date: 2010-03-15.07:08:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The problem is most likely on Wordpress' end. 
+When I signed up for an *account* at Wordpress and then tried to use it as an
+OpenID, I got the same error as described.
+
+*This is correct, as you don't own the identity until you sign up for a *blog* *
+
+Your Wordpress ID is then subdomain.wordpress.com</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg72">msg72 (view)</a></th>
+   <th>Author: gameguy43</th>
+   <th>Date: 2010-03-15.02:13:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Cool, we'll take a look at this soon--probably tomorrow.
+
+Thanks Adam!
+
+On Sun, Mar 14, 2010 at 10:02 PM, Adam Baxter &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Adam Baxter added the comment:
+&gt;
+&gt; I can confirm this.
+&gt; 1. Sign up/sign in to Wordpress.com
+&gt; 2. Enter yourusername.wordpress.com as your openID on
+&gt; <a href="https://openhatch.org/openid/signin">https://openhatch.org/openid/signin</a>
+&gt;
+&gt;
+&gt; URL I get redirected to is
+&gt; wordpress.com/?openidserver=1&amp;*snipped for security*
+&gt; Error is:
+&gt; "You do not own this identity".
+&gt;
+&gt; I suspect the OpenHatch OpenID login isn't passing the correct parameters
+&gt; to the
+&gt; WordPress provider, however I can't confirm this right now.
+&gt;
+&gt; ----------
+&gt; priority: bug -&gt; urgent
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue16">https://openhatch.org/bugs/issue16</a>&gt;
+&gt; __________________________________________
+&gt;
+</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg71">msg71 (view)</a></th>
+   <th>Author: voltagex</th>
+   <th>Date: 2010-03-15.02:02:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I can confirm this.
+1. Sign up/sign in to Wordpress.com
+2. Enter yourusername.wordpress.com as your openID on
+<a href="https://openhatch.org/openid/signin">https://openhatch.org/openid/signin</a>
+
+
+URL I get redirected to is
+wordpress.com/?openidserver=1&amp;*snipped for security*
+Error is:
+"You do not own this identity".
+
+I suspect the OpenHatch OpenID login isn't passing the correct parameters to the
+WordPress provider, however I can't confirm this right now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg70">msg70 (view)</a></th>
+   <th>Author: voltagex</th>
+   <th>Date: 2010-03-15.01:49:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Just for reference.
+<a href="http://en.support.wordpress.com/settings/openid/#where-can-i-use-my-openid">http://en.support.wordpress.com/settings/openid/#where-can-i-use-my-openid</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg29">msg29 (view)</a></th>
+   <th>Author: rafpaf</th>
+   <th>Date: 2009-11-24.16:59:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm having trouble reproducing this. Do you think the problem remains?
+
+--Raffi.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg23">msg23 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2009-11-24.00:33:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well, golly. That's a drag. We'll see if we can reproduce it and fix it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg21">msg21 (view)</a></th>
+   <th>Author: gameguy43</th>
+   <th>Date: 2009-11-20.05:33:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>fwiw, just tried this again.  same issue.  this time, i started off signed out
+of wordpress.com.  i tried to log in using my wordpress.com username, and i was
+sent to a wordpress.com page which told me to sign in at wordpress.com.  i did.
+ then i went back to openhatch and entered the same username which i had just
+used to sign at wordpress.com.  again i found myself on a wordpress.com page
+which simply said "You do not own that identity."</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg15">msg15 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2009-09-11.00:51:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Are you currently logged-in to WordPress.com with a different username maybe?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg14">msg14 (view)</a></th>
+   <th>Author: gameguy43</th>
+   <th>Date: 2009-09-11.00:32:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>under "Please click your account provider" in the openid tab o the login box on
+the front page, i click the wordpress icon. it asks for my wordpress.com
+username.  i enter gameguy43, which is the correct response.  i get a page that
+reads:
+
+WordPress.com
+You do not own that identity.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-03-16&nbsp;00:18:46</td><td>voltagex</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg93">msg93</a></td></tr>
+<tr><td>2010-03-16&nbsp;00:14:34</td><td>voltagex</td><td>set</td><td>priority: urgent -> bug<br />messages:
+  + <a href="msg91">msg91</a></td></tr>
+<tr><td>2010-03-15&nbsp;22:21:53</td><td>gameguy43</td><td>set</td><td>status: resolved -> chatting<br />nosy:
+  + <a href="user14">voltagex</a><br />messages:
+  + <a href="msg88">msg88</a></td></tr>
+<tr><td>2010-03-15&nbsp;22:19:33</td><td>gameguy43</td><td>set</td><td>status: testing -> resolved<br />messages:
+  + <a href="msg87">msg87</a></td></tr>
+<tr><td>2010-03-15&nbsp;07:08:15</td><td>voltagex</td><td>set</td><td>status: chatting -> testing<br />messages:
+  + <a href="msg75">msg75</a></td></tr>
+<tr><td>2010-03-15&nbsp;02:13:52</td><td>gameguy43</td><td>set</td><td>files:
+  + <a href="file3">unnamed</a><br />messages:
+  + <a href="msg72">msg72</a></td></tr>
+<tr><td>2010-03-15&nbsp;02:02:08</td><td>voltagex</td><td>set</td><td>priority: bug -> urgent<br />messages:
+  + <a href="msg71">msg71</a></td></tr>
+<tr><td>2010-03-15&nbsp;01:49:33</td><td>voltagex</td><td>set</td><td>messages:
+  + <a href="msg70">msg70</a></td></tr>
+<tr><td>2009-11-24&nbsp;16:59:53</td><td>rafpaf</td><td>set</td><td>messages:
+  + <a href="msg29">msg29</a></td></tr>
+<tr><td>2009-11-24&nbsp;00:33:28</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg23">msg23</a></td></tr>
+<tr><td>2009-11-20&nbsp;05:33:31</td><td>gameguy43</td><td>set</td><td>messages:
+  + <a href="msg21">msg21</a></td></tr>
+<tr><td>2009-09-11&nbsp;00:51:48</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg15">msg15</a></td></tr>
+<tr><td>2009-09-11&nbsp;00:32:48</td><td>gameguy43</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

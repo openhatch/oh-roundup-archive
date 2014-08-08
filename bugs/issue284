@@ -1,0 +1,886 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 284: Send notifications *daily* rather than *weekly* upon someone clicking, "I want to help" - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue284
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue284">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue284">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Send notifications *daily* rather than *weekly* upon someone clicking, "I want to help"</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  abelian, becdot, egor83, jesstess, palhmbs, paulproteus, tsousa
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>becdot</td>
+ <th>Keywords</th>
+ <td>
+  bitesize, this-would-rock
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-02-12.21:54:03</b> by <b>paulproteus</b>, last changed <b>2012-10-26.15:52:34</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file523/0001-Changes-weekly_emails-to-daily_emails-all-over-hopef.patch">0001-Changes-weekly_emails-to-daily_emails-all-over-hopef.patch</a>
+  </td>
+  <td>
+   <span>becdot</span>,
+   <span>2012-10-23.21:40:41</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file524/0002-Migrates-updated-email_me_daily_re_projects-field.patch">0002-Migrates-updated-email_me_daily_re_projects-field.patch</a>
+  </td>
+  <td>
+   <span>becdot</span>,
+   <span>2012-10-23.21:41:17</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file201/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>abelian</span>,
+   <span>2011-04-08.03:05:21</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file411/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>BernardoPires</span>,
+   <span>2011-10-01.06:56:40</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3471">msg3471 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-10-26.15:52:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I ran the following on the deployment:
+
+  Person.objects.all().values_list('email_me_re_projects', flat=True)
+
+and it showed me that there are some true values, and some false values, 
+suggesting that people's preferences have been properly retained.
+
+Thanks!! Marking as resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3470">msg3470 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-10-26.15:19:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>In <a href="https://github.com/openhatch/oh-">https://github.com/openhatch/oh-</a>
+mainline/commit/fafd636947b6be2365674fbe7bd21cf4d7041403 + 
+<a href="https://github.com/openhatch/oh-mainline/pull/80">https://github.com/openhatch/oh-mainline/pull/80</a> this is resolved.
+
+Thanks, becdot, for iterating on these changes and making them great! Deploying 
+now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3468">msg3468 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-10-24.22:08:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Correction: there was a problem with my development environment. The tests all 
+*do* pass, as of origin/master at the moment; additionally, with your changes, 
+they also all pass. Sorry for the confusion.
+
+(Another advantage of Github pull requests is that a bot will automatically run 
+the test suite, and its environment is reliably correct.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3467">msg3467 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-10-24.21:15:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Wow, becdot, these changes are comprehensive!
+
+I have a few bits of feedback. First, general; then, specific.
+
+General feedback:
+
+* Overall, the quality of your changes is outstanding.
+
+* You did a great, comprehensive job of looking for all relevant references to 'weekly' in the 
+code and adjusting them.
+
+* Great job writing a migration; this is essential, so thank you for taking care of it.
+
+* Considering all the above, I can see that this is the longest patch ever for a so-called 
+"bitesize" task. So, thank you for tackling an issue like that!
+
+* You mentioned having an empty set of Projects in your local database. The two ways around that 
+are, assuming you can run the site and view a development instance via 'python manage.py 
+runserver', (1) create a new project in your personal profile on your account on your 
+development instance or (2) use 'python manage.py shell_plus' to get a Django/Python shell, then 
+call Project.create_dummy() (defined in mysite/search/models.py). That will create a project 
+object you can check out on the web. (A variant of this is to create a new Project object like: 
+Project.objects.create(name='sample').)
+
+* If you want, you could submit a pull request on Github. It will probably be easier to do the 
+review that way -- it's easier on Github than here, and it's easy on Github to comment on 
+individual lines.
+
+* It's always great if you can pop into #openhatch and ask any questions you have as you work 
+through bugs.
+
+* The 0001 patch is really long. Possibly, you could split up the changes there into lots of 
+separate commits; then, git format-patch would export each commit as a separate patch file.
+
+Is it a good idea to split it up? Usually I'm all for more commits, but in this case, I'm on the 
+fence about this. On one hand, in favor of splitting it into pieces, it's hard to review as-is 
+because it is so long. On the other hand, many of the changes are dependent on each other. If 
+you wanted to split it up, here are some segments that seem to be that they could be separate. 
+(1) Rename the daily_email__list_of_people.html template and related templates, fixing up the 
+corresponding view function. (2) Make the rest of the changes in 0001. (3) Create your 
+migration, like you do in 0002.
+
+For now, I'd say, the separation is fine as-is, but in the future, I'd warn the reviewer in the 
+patch submission that it touches a lot of files, and give a rationale; for example, "This 
+touches a lot of files because the 'weekly' assumption shows up a lot of places."
+
+Oh, actually, as I write out that rationale, I realize another way to make more, easier-to-read 
+commits: First, do a a commit (or maybe a few small commits) to remove references to how often 
+the email gets sent from a lot of places. (To name two examples of this to illustrate the point, 
+changing mysite.base.views.test_weekly_email_re_projects to 
+mysite.base.views.test_email_re_projects and simply removing "weekly" from comments, rather than 
+changing it to "daily".) These commits can stand on their own; they're code cleanups, and the 
+tests will all pass unmodified (except for maybe truly trivial changes for the filename). (In 
+general, if you rename a file *and* modify it, it's harder to review; it's way easier to do a 
+rename of a file first, and then a change in a later commit, because then git can detect the 
+rename and show that to me, the reviewer.) Then, in a separate commit, now that the word 
+'weekly' or constants like ONE_WEEK only appear where needed, you would change the logic and/or 
+move code around. That would be a small, surgical change probably; very easy to review.
+
+(The fact that you have to change all these variable names and filenames just to make a small, 
+surgical change is actually an indication of poor code quality in the OpenHatch codebase. I'm to 
+blame for those choices, so please excuse my naivety in 2010.)
+
+Wow, that all came out more long-winded than I thought. I hope it makes sense; I'm quite 
+available on IRC (which I'm faster at) to chat more.
+
+Again, the extraction into smaller commits isn't necessarily a show-stopper.
+
+Specific feedback:
+
+* In the migration, you delete the old column and create the new column, but that means any 
+existing preferences will get deleted. It's better to have three (!) migrations: one to create 
+the new column, another to copy the data, and a third to delete the old column. More info here: 
+<a href="http://south.readthedocs.org/en/latest/tutorial/part3.html#data-migrations">http://south.readthedocs.org/en/latest/tutorial/part3.html#data-migrations</a>
+
+* git warns me about "whitespace errors" in send_daily_emails.py -- on a few lines, there are ' 
+' (space) characters at the end of the line, and git doesn't like that. It's just a warning, and 
+it's okay to ignore it, but it's helpful to clean those up. Since your changes involve a rename, 
+it's best to do the rename in a separate commit from changing this sort of whitespace issue. 
+(You could even fix those whitespace problems in a commit *before* the rename commit.) The 
+reason git warns about this is that if two files disagree about end-of-line space characters, it 
+can prevent git from cleanly merging changes sometimes. (That, the spaces just don't do 
+anything, so might as well get rid of them.) (It's easy for me to see them when I do 'git diff -
+-color'.)
+
+* You add a "TODO" question in the test suite: "Do we need to set seven_days_ago to yesterday 
+since emails are now sent daily?" My answer is that yes, we need to test the new functionality. 
+Make sure all the constants are adjusted for the new functionality. Luckily, you do test the new 
+functionality below.
+
+Other things that occur to me as I read this code:
+
+* The push_to_end_of_list() function in send_daily_emails.py is a pretty silly function. But I'm 
+to blame for that. What was I thinking?
+
+* We (the authors of this code in 2010) shouldn't have put _weekly_ into all those variable 
+names and filenames.
+
+* It seems that the automated tests in the "profile" app already fail, before your changes. 
+That's on us, the maintainers, not on you. I'll see if I can fix that shortly, because normally 
+I would ask you to make sure that the test suite passes with your changes, but if it doesn't 
+pass now, figuring out if the failures are from your code or from our old code is a lot to ask.
+
+Conclusion:
+
+Right now, before I can merge these patches, I'd need a fixed migration that retained the old 
+data. If you want to do the code cleanup above and make more commits that replace 0001, that'd 
+be fine too (though it's okay if not). Additionally, we should come to a decision about the TODO 
+item and remove the TODO note, one way or the other.
+
+Sorry it took me a day to get to reviewing it. I will review follow ups faster, and also shorter 
+patches I can always review faster. If you need clarification or help with any of the points 
+above, just let me know. (IRC is usually faster, but responses here are fine too.)
+
+Thank you for submitting these changes! I'm looking forward to seeing them in a mergeable state, 
+and then deploying them!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3466">msg3466 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-10-23.23:38:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi, there! I'll review this shortly. It might take me until tomorrow to 
+get to it.
+
+Thank you for submitting it!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3465">msg3465 (view)</a></th>
+   <th>Author: becdot</th>
+   <th>Date: 2012-10-23.21:41:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Attached is the migration patch</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3464">msg3464 (view)</a></th>
+   <th>Author: becdot</th>
+   <th>Date: 2012-10-23.21:40:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I changed the emails to send daily (no more than once every 24 hours), changed the variable 
+email_me_weekly_re_projects to email_me_daily_re_projects, and updated the tests and 
+documentation.  I also created a new database migration in mysite/profile to reflect the changed 
+variable name -- please let me know if this was not the correct step to take.
+
+All tests pass, and although I wasn't sure how to check manually for the change in the Projects 
+page (due to the empty database), the change is reflected on 
+openhatch.org/account/settings/contact-info/ (email me daily about activity in my projects).
+
+Please let me know whether any changes need to be made.
+
+Thanks!
+
+Becca</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3463">msg3463 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2012-10-22.22:31:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>becdot: that would be great! I've gone ahead and assigned it to you.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3462">msg3462 (view)</a></th>
+   <th>Author: becdot</th>
+   <th>Date: 2012-10-22.22:28:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It looks like this bug hasn't been touched in a while.  Would I be able to take a stab at it?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3143">msg3143 (view)</a></th>
+   <th>Author: tsousa</th>
+   <th>Date: 2012-03-18.08:51:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I will take this bug.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2913">msg2913 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-01-27.19:21:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi BernardnoPires and others,
+
+As a mini-update, we've adjusted the development setup so that buildout isn't
+needed at all.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2574">msg2574 (view)</a></th>
+   <th>Author: BernardoPires</th>
+   <th>Date: 2011-10-01.06:56:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Asheesh,
+
+thank you for your e-mail. As I got stuck on the buildout process I removed
+myself from the bug. As of now I don't have much time to take a look with
+it, but really, thanks for the heads up. When I have some spare time again
+I'll try to build it out, and when it works I'll search for a new bug to try
+to fix. :)
+
+Cheers,
+
+2011/9/30 Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Hi Bernardo!
+&gt;
+&gt; Are you still interested in this? It's been a bit; sorry we didn't get back
+&gt; to you.
+&gt;
+&gt; In the time since you first commented on this bug, we've made some
+&gt; improvements
+&gt; to the buildout process, in case you got stuck there!
+&gt;
+&gt; Let us know how you're progressing and if you're stuck anyway. You can
+&gt; always
+&gt; join us on #openhatch and chat with us, too!
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue284">https://openhatch.org/bugs/issue284</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2552">msg2552 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-30.21:46:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Bernardo!
+
+Are you still interested in this? It's been a bit; sorry we didn't get back to you.
+
+In the time since you first commented on this bug, we've made some improvements
+to the buildout process, in case you got stuck there!
+
+Let us know how you're progressing and if you're stuck anyway. You can always
+join us on #openhatch and chat with us, too!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2228">msg2228 (view)</a></th>
+   <th>Author: BernardoPires</th>
+   <th>Date: 2011-07-19.09:52:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello, I just wanted to say I want to try out helping an open source project and 
+this bitesized bug seems cool to begin with. I do have previous experience with 
+Django so hopefully I can sort this out quickly! Cheers</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2147">msg2147 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-03.03:07:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I do think this is bitesized. It probably requires writing some high-quality 
+English text and a little (probably very little) Python code.
+
+To tackle this, here is what you'd do:
+
+* Read mysite/profile/management/commands/profile_daily_tasks.py
+* Read mysite/profile/management/commands/send_weekly_emails.py
+
+One thing you should know: On the server, we just run the profile_daily_tasks 
+management command. It runs daily, and if it has been long enough, it runs the 
+weekly email sending.
+
+You should, at that point, understand how the weekly notifications get sent.
+
+(If not, just ask us on #openhatch .)
+
+Then you'll need to change it so that they run daily. Any set of changes that you 
+make to achieve that are fine; I'm not super picky about the implementation. (For 
+example, you might remove the send_weekly_emails management command and make its 
+body part of the profile_daily_tasks file. Actually, that seems good; then make 
+the daily notification sending be a method on the Command class in that file.)
+
+Make sure to update the test suite, too.
+
+Then, submit a patch!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1916">msg1916 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-28.22:08:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Setting this as un-assigned, somebody else might like to get this deployed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1824">msg1824 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-05-04.14:05:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>As a project contact, I'd also love to see notifications daily.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1435">msg1435 (view)</a></th>
+   <th>Author: abelian</th>
+   <th>Date: 2011-04-08.03:05:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Asheesh,
+
+Thanks for the check-in. Right now I'm busy with my day job. If this is an
+urgent bug, I'm happy to relinquish it to someone else.
+
+Best
+Joshua
+
+On Thu, Mar 31, 2011 at 1:48 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; New submission from Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt;:
+&gt;
+&gt; Hey ablian,
+&gt;
+&gt; Let me know how this is progressing for you! Recently people have reported
+&gt; problems getting buildout to work properly, so I want to make sure things
+&gt; are
+&gt; going well for you.
+&gt;
+&gt; If you have questions about how to find the relevant code, and how it all
+&gt; runs,
+&gt; then I can also answer those -- either ask on this bug, or on the [Devel]
+&gt; list,
+&gt; or on the #openhatch IRC channel.
+&gt;
+&gt; ----------
+&gt; status: unread -&gt; chatting
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue284">https://openhatch.org/bugs/issue284</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1399">msg1399 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-31.05:48:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey ablian,
+
+Let me know how this is progressing for you! Recently people have reported
+problems getting buildout to work properly, so I want to make sure things are
+going well for you.
+
+If you have questions about how to find the relevant code, and how it all runs,
+then I can also answer those -- either ask on this bug, or on the [Devel] list,
+or on the #openhatch IRC channel.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-10-26&nbsp;15:52:34</td><td>paulproteus</td><td>set</td><td>status: resolved<br />messages:
+  + <a href="msg3471">msg3471</a></td></tr>
+<tr><td>2012-10-26&nbsp;15:19:49</td><td>paulproteus</td><td>set</td><td>status: chatting -> (no value)<br />messages:
+  + <a href="msg3470">msg3470</a></td></tr>
+<tr><td>2012-10-24&nbsp;22:08:33</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3468">msg3468</a></td></tr>
+<tr><td>2012-10-24&nbsp;21:15:34</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting</td></tr>
+<tr><td>2012-10-24&nbsp;21:15:28</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3467">msg3467</a></td></tr>
+<tr><td>2012-10-24&nbsp;05:41:19</td><td>BernardoPires</td><td>set</td><td>nosy:
+  - <a href="user212">BernardoPires</a></td></tr>
+<tr><td>2012-10-23&nbsp;23:38:09</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3466">msg3466</a></td></tr>
+<tr><td>2012-10-23&nbsp;21:41:17</td><td>becdot</td><td>set</td><td>files:
+  + <a href="file524">0002-Migrates-updated-email_me_daily_re_projects-field.patch</a><br />messages:
+  + <a href="msg3465">msg3465</a></td></tr>
+<tr><td>2012-10-23&nbsp;21:40:45</td><td>becdot</td><td>set</td><td>status: in-progress -> need-review<br />files:
+  + <a href="file523">0001-Changes-weekly_emails-to-daily_emails-all-over-hopef.patch</a><br />messages:
+  + <a href="msg3464">msg3464</a></td></tr>
+<tr><td>2012-10-22&nbsp;22:31:27</td><td>jesstess</td><td>set</td><td>status: chatting -> in-progress<br />assignedto: <a href="user327">tsousa</a> -> <a href="user469">becdot</a><br />messages:
+  + <a href="msg3463">msg3463</a><br />nosy:
+  + <a href="user469">becdot</a></td></tr>
+<tr><td>2012-10-22&nbsp;22:28:39</td><td>becdot</td><td>set</td><td>messages:
+  + <a href="msg3462">msg3462</a></td></tr>
+<tr><td>2012-03-18&nbsp;08:51:16</td><td>tsousa</td><td>set</td><td>assignedto: <a href="user327">tsousa</a><br />messages:
+  + <a href="msg3143">msg3143</a><br />nosy:
+  + <a href="user327">tsousa</a></td></tr>
+<tr><td>2012-01-27&nbsp;19:21:12</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2913">msg2913</a></td></tr>
+<tr><td>2011-10-01&nbsp;06:56:40</td><td>BernardoPires</td><td>set</td><td>files:
+  + <a href="file411">unnamed</a><br />messages:
+  + <a href="msg2574">msg2574</a></td></tr>
+<tr><td>2011-09-30&nbsp;21:46:38</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2552">msg2552</a></td></tr>
+<tr><td>2011-08-01&nbsp;11:04:18</td><td>BernardoPires</td><td>set</td><td>assignedto: <a href="user212">BernardoPires</a> -> (no value)</td></tr>
+<tr><td>2011-07-19&nbsp;09:52:12</td><td>BernardoPires</td><td>set</td><td>assignedto: <a href="user212">BernardoPires</a><br />messages:
+  + <a href="msg2228">msg2228</a><br />nosy:
+  + <a href="user212">BernardoPires</a></td></tr>
+<tr><td>2011-07-06&nbsp;21:20:40</td><td>egor83</td><td>set</td><td>nosy:
+  + <a href="user136">egor83</a></td></tr>
+<tr><td>2011-07-03&nbsp;03:07:59</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2147">msg2147</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:25:58</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:08:13</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user90">abelian</a> -> (no value)<br />messages:
+  + <a href="msg1916">msg1916</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:07:09</td><td>palhmbs</td><td>set</td><td>keyword:
+  + <a href="keyword12">this-would-rock</a><br />milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-04&nbsp;14:05:15</td><td>jessica</td><td>set</td><td>messages:
+  + <a href="msg1824">msg1824</a></td></tr>
+<tr><td>2011-04-30&nbsp;23:52:34</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-08&nbsp;03:05:21</td><td>abelian</td><td>set</td><td>files:
+  + <a href="file201">unnamed</a><br />messages:
+  + <a href="msg1435">msg1435</a></td></tr>
+<tr><td>2011-03-31&nbsp;05:48:22</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1399">msg1399</a></td></tr>
+<tr><td>2011-03-28&nbsp;07:07:27</td><td>abelian</td><td>set</td><td>assignedto: <a href="user90">abelian</a><br />nosy:
+  + <a href="user90">abelian</a></td></tr>
+<tr><td>2011-03-23&nbsp;23:09:06</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-03-14&nbsp;15:38:17</td><td>jesstess</td><td>set</td><td>keyword:
+  + <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2011-02-19&nbsp;21:53:10</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone5">0.11.02</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-02-12&nbsp;21:54:03</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,324 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 73: Hacking OpenHatch wiki page references incorrect location of LookAtOneFedoraBug - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue73
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue73">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue73">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Hacking OpenHatch wiki page references incorrect location of LookAtOneFedoraBug</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mark, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>Mark</td>
+ <th>Keywords</th>
+ <td>
+  bitesize, documentation
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-04-28.14:20:01</b> by <b>Mark</b>, last changed <b>2010-05-13.20:18:12</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg197">msg197 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-05-13.20:18:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Resolved!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg184">msg184 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-09.13:01:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've updated the page to reflect the correct paths. I wasn't sure which status
+to choose, so I went with done-cbb.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg183">msg183 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-09.12:50:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm on it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg181">msg181 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-05-08.22:17:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Next step: Either you fix the wiki page at
+<a href="https://openhatch.org/wiki/Hacking_OpenHatch">https://openhatch.org/wiki/Hacking_OpenHatch</a> , or I do it.
+
+How about you do it?
+
+If you don't by (say) Wednesday I'll take a look.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg175">msg175 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-04-28.18:34:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yup!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg174">msg174 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-04-28.14:20:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The Hacking OpenHatch wiki page currently refences
+mysite/search/tasks/__init__.py as the location for viewing an implementation
+example of a tracker task. In particular LookAtOneFedoraBug. It appears the
+LookAtOneFedoraBug class was moved to mysite/search/tasks/bugzilla_instances.py.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-05-13&nbsp;20:18:12</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg197">msg197</a></td></tr>
+<tr><td>2010-05-12&nbsp;17:21:49</td><td>Mark</td><td>set</td><td>status: done-cbb -> chatting</td></tr>
+<tr><td>2010-05-09&nbsp;13:01:07</td><td>Mark</td><td>set</td><td>status: chatting -> done-cbb<br />messages:
+  + <a href="msg184">msg184</a></td></tr>
+<tr><td>2010-05-09&nbsp;12:50:02</td><td>Mark</td><td>set</td><td>assignedto: <a href="user29">Mark</a><br />messages:
+  + <a href="msg183">msg183</a></td></tr>
+<tr><td>2010-05-08&nbsp;22:17:46</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg181">msg181</a></td></tr>
+<tr><td>2010-04-28&nbsp;18:35:00</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg175">msg175</a><br />keyword:
+  + <a href="keyword1">bitesize</a>, <a href="keyword2">documentation</a></td></tr>
+<tr><td>2010-04-28&nbsp;14:20:01</td><td>Mark</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

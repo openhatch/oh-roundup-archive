@@ -1,0 +1,410 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 348: "create new" bug page says all fields are required - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue348
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue348">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue348">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">"create new" bug page says all fields are required</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  JasonWoof, grumler, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>grumler</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-03-24.11:57:02</b> by <b>JasonWoof</b>, last changed <b>2011-04-17.19:42:57</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file211/0001-Use-bold-print-only-for-required-fields.patch">0001-Use-bold-print-only-for-required-fields.patch</a>
+  </td>
+  <td>
+   <span>grumler</span>,
+   <span>2011-04-16.12:51:50</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file206/th.required-in-roundup.css.patch">th.required-in-roundup.css.patch</a>
+  </td>
+  <td>
+   <span>grumler</span>,
+   <span>2011-04-14.07:00:27</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1585">msg1585 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-17.19:42:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yay, grumler emailed [Devel] about licensing. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1547">msg1547 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-16.19:29:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It was only when I read the patch file that I truly understood what this bug was
+about.
+
+Now I truly understand, and it's deployed -- and wow, it makes a world of a
+difference.
+
+grumler, can you please email <a href="mailto:devel@lists.openhatch.org">devel@lists.openhatch.org</a> saying that you're okay
+with your work being under the Affero GPL, version 3. If you're willing, it is
+preferable that you say 'the Affero GPL, version 3 or later, at your option'.
+
+You can sign up for the list at <a href="http://lists.openhatch.org/mailman/listinfo/devel">http://lists.openhatch.org/mailman/listinfo/devel</a> .
+
+(I accidentally deployed it before getting your licensing sign-off, but I hope
+that you will still send us that note. It's important! I'm marking this as
+in-progress until you send us the note.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1538">msg1538 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-16.16:09:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Would someone be willing to review this for grumler?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1534">msg1534 (view)</a></th>
+   <th>Author: grumler</th>
+   <th>Date: 2011-04-16.12:51:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well I think I found out how to use git format-patch now. At least I got something 
+that doesn't look too bad in my opinion. I'm happy about your feedback though.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1505">msg1505 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-14.07:59:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Awesome, I have tested this in Firebug and it looks great!
+
+The next step would be to get it into the OpenHatch source. We store most of our
+CSS files (not the wiki's one so far) in the main repository for
+version-tracking purposes. So the best way to go forward would be for you to
+clone a local copy of the OpenHatch source, make your change there and then
+submit a patch using "git format-patch".
+
+The CSS files are kept in mysite/static/css. You can find steps on how to get an
+OpenHatch clone set up at
+<a href="https://openhatch.org/wiki/Getting_started_with_the_OpenHatch_code">https://openhatch.org/wiki/Getting_started_with_the_OpenHatch_code</a> and if you
+have any questions or problems, feel free to ask here or on IRC.
+
+Also, it's great to have another new patch contributor =)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1503">msg1503 (view)</a></th>
+   <th>Author: grumler</th>
+   <th>Date: 2011-04-14.07:00:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I made a minor change to the roundup.css file and it should work now. The html 
+already provides the "required" class in the important &lt;th&gt;s, this just wasn't used 
+in the css. So here is my patch (it's my very first one so please tell me if there 
+is something that should be done differently).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1336">msg1336 (view)</a></th>
+   <th>Author: JasonWoof</th>
+   <th>Date: 2011-03-24.11:57:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>on this page: <a href="https://openhatch.org/bugs/issue?@template=item">https://openhatch.org/bugs/issue?@template=item</a>
+
+at the bottom it says "Note: 	highlighted	 fields are required." (with the 
+word "highlighted" in bold. All field have bold captions, just like the word 
+"highlighted". So I can't tell which fields are actually required.
+
+I'm running chromium 10 on debian unstable.
+
+Thank you,   - Jason</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-17&nbsp;19:42:57</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg1585">msg1585</a></td></tr>
+<tr><td>2011-04-16&nbsp;19:30:00</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1547">msg1547</a></td></tr>
+<tr><td>2011-04-16&nbsp;16:09:25</td><td>paulproteus</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg1538">msg1538</a></td></tr>
+<tr><td>2011-04-16&nbsp;12:51:50</td><td>grumler</td><td>set</td><td>files:
+  + <a href="file211">0001-Use-bold-print-only-for-required-fields.patch</a><br />messages:
+  + <a href="msg1534">msg1534</a></td></tr>
+<tr><td>2011-04-14&nbsp;07:59:35</td><td>pythonian4000</td><td>set</td><td>assignedto: <a href="user102">grumler</a><br />messages:
+  + <a href="msg1505">msg1505</a><br />nosy:
+  + <a href="user102">grumler</a><br />milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-14&nbsp;07:00:27</td><td>grumler</td><td>set</td><td>files:
+  + <a href="file206">th.required-in-roundup.css.patch</a><br />status: unread -> chatting<br />messages:
+  + <a href="msg1503">msg1503</a></td></tr>
+<tr><td>2011-03-24&nbsp;11:57:02</td><td>JasonWoof</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

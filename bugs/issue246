@@ -1,0 +1,413 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 246: TRACKING: The projects page is not very useful, and is also very slow - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue246
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue246">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue246">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">TRACKING: The projects page is not very useful, and is also very slow</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, palhmbs, paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  needs-decision
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-29.23:30:21</b> by <b>paulproteus</b>, last changed <b>2013-08-26.19:17:20</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3829">msg3829 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-08-26.19:17:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>In March, Karen said she wanted to close this, but seemed to mark it as need-
+review. I'm hereby marking it resolved.
+
+To do that, I've un-marked the "Waiting on" bugs.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3101">msg3101 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2012-03-13.19:50:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The projects page is gone and is now part of /search/, though /search/ needs 
+updating to reflect this / include project-specific functionality. That latter 
+should be its own bug; closing this one.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1919">msg1919 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-28.22:19:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Add some more nosies, just for consistency.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1918">msg1918 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-28.22:18:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Adding some more project related bugs.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1766">msg1766 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-30.20:39:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Making it clear this is a tracking bug.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1223">msg1223 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-01.21:22:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Shifting tracked bugs to blockers, where they belong.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1080">msg1080 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-16.11:46:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Adding tracked bugs to Superseders</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg991">msg991 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-05.22:03:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We're discussing this at <a href="http://openhatch.org/wiki/Big_picture_%28Feb_2011%29">http://openhatch.org/wiki/Big_picture_%28Feb_2011%29</a>
+
+We'll have a more synchronous chat</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg914">msg914 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-01.05:03:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I see this as being a tracker bug for several smaller ones. There are already a
+few such bugs in the tracker, so I'm linking them here.
+
+<a href="https://openhatch.org/bugs/issue92">https://openhatch.org/bugs/issue92</a> - Filter projects by language
+<a href="https://openhatch.org/bugs/issue38">https://openhatch.org/bugs/issue38</a> - "Project Graveyard" function
+<a href="https://openhatch.org/bugs/issue67">https://openhatch.org/bugs/issue67</a> - project naming (possibly)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg864">msg864 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-29.23:30:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Some thoughts:
+
+* If we used served it out in smaller chunks by using pagination
+&lt;<a href="http://docs.djangoproject.com/en/1.1/topics/pagination/">http://docs.djangoproject.com/en/1.1/topics/pagination/</a>&gt; then it might be faster.
+
+* We should probably think through what we want the page to be useful for, so
+that we can make it more useful.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-08-26&nbsp;19:17:20</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />blockers:
+  - <a href="issue38">"Project Graveyard" function</a>, <a href="issue67">project naming</a>, <a href="issue92">Filter projects by language</a>, <a href="issue206">Remove BuildHelper tab completely</a>, <a href="issue423">Project reordering in portfolio editor should use display names</a><br />messages:
+  + <a href="msg3829">msg3829</a></td></tr>
+<tr><td>2012-03-13&nbsp;19:50:03</td><td>aldeka</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg3101">msg3101</a></td></tr>
+<tr><td>2011-07-07&nbsp;20:22:58</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue205">Project pages get tabs, woo</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:23:14</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-06-01&nbsp;22:43:07</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue399">Outdated link on project page</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:27:21</td><td>palhmbs</td><td>set</td><td>blockers:
+  + <a href="issue423">Project reordering in portfolio editor should use display names</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:19:43</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user4">aldeka</a>, <a href="user34">pythonian4000</a>, <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1919">msg1919</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:18:47</td><td>palhmbs</td><td>set</td><td>blockers:
+  + <a href="issue205">Project pages get tabs, woo</a>, <a href="issue206">Remove BuildHelper tab completely</a>, <a href="issue399">Outdated link on project page</a><br />messages:
+  + <a href="msg1918">msg1918</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:22:53</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-04-30&nbsp;23:59:11</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-30&nbsp;20:39:17</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1766">msg1766</a><br />title: The projects page is not very useful, and is also very slow -> TRACKING: The projects page is not very useful, and is also very slow</td></tr>
+<tr><td>2011-03-01&nbsp;21:22:11</td><td>pythonian4000</td><td>set</td><td>blockers:
+  + <a href="issue38">"Project Graveyard" function</a>, <a href="issue67">project naming</a>, <a href="issue92">Filter projects by language</a><br />superseder:
+  - <a href="issue38">"Project Graveyard" function</a>, <a href="issue67">project naming</a>, <a href="issue92">Filter projects by language</a><br />messages:
+  + <a href="msg1223">msg1223</a></td></tr>
+<tr><td>2011-02-16&nbsp;11:46:10</td><td>pythonian4000</td><td>set</td><td>superseder:
+  + <a href="issue38">"Project Graveyard" function</a>, <a href="issue67">project naming</a>, <a href="issue92">Filter projects by language</a><br />messages:
+  + <a href="msg1080">msg1080</a></td></tr>
+<tr><td>2011-02-05&nbsp;22:03:48</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg991">msg991</a></td></tr>
+<tr><td>2011-02-01&nbsp;05:03:22</td><td>pythonian4000</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg914">msg914</a></td></tr>
+<tr><td>2011-01-29&nbsp;23:30:21</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,802 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 361: Style OH MediaWiki to make it more openhatchy - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue361
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue361">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue361">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Style OH MediaWiki to make it more openhatchy</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jessica, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>palhmbs</td>
+ <th>Keywords</th>
+ <td>
+  usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-04-03.10:17:56</b> by <b>palhmbs</b>, last changed <b>2011-04-23.18:09:28</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file223/0001-New-WIKI-CSS-Overrides.patch">0001-New-WIKI-CSS-Overrides.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-04-20.18:55:03</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file237/Fix-Footer-for-wiki.patch">Fix-Footer-for-wiki.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-04-22.08:28:10</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file198/main.diff">main.diff</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-04-03.10:25:35</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file220/oh_wiki_screenie.jpg">oh_wiki_screenie.jpg</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-04-20.07:57:36</span>
+  </td>
+  <td>image/jpeg</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1707">msg1707 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-23.18:09:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This appears to be deployed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1698">msg1698 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-22.17:57:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Looks good to me!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1697">msg1697 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-22.17:50:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm happy with this. The 15% margin keeps the footer within the one page, and
+looks much better. And the whitespace changes bring them in line with the rest
+of the file. Deployed. Anything else to do here?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1692">msg1692 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-22.08:28:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Fixed - b!
+I also _hopefully_ fixed the tabs and spaces and whitespaces weirdness.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1691">msg1691 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-22.08:16:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I need to fix the footer - doesn't work on small screens.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1666">msg1666 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-21.14:52:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Some thoughts:
+
+1) Use PNGs for screenshots. You'll get higher quality and smaller files.
+
+2) You introduce some whitespace weirdnesses -- in particular, you end a line 
+with a " " (space) character, and you mix tabs and space. This is a CSS file, 
+not a Python file, so it's not *critical*, but in the future try to stick to 
+just spaces.
+
+3) I'm shipping this.
+
+4) Wow, the wiki sure does look more OpenHatch now!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1653">msg1653 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-20.18:58:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>True. +1 for me then. Can always tweak. Definitely an improvement enough to make it 
+look more integrated in the site :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1652">msg1652 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.18:54:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've changed the orange &amp; the background &amp; a small issue with overlap on top-
+left personal navigation items that I unintentionally introduced last patch.
+
+I'm going with the Wiki Red - #BA0000 for missing pages - I know that purple 
+clashes (and paulproteus definitely doesn't want it).
+
+This patch is a full patch creating it's own file - mysite/static/css/
+wiki_overides.css
+
+I think we should just get this deployed on the wiki, then everybody can make 
+their own suggestions or improvements.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1651">msg1651 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-20.15:54:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I went by the screen image since I don't think patching my OH will work well cause I 
+don't have wiki and a patch doesn't work well with that stylish addon thingie ;) I 
+did put in a few of the colors using Firebug though. I think it's still too light. 
+Light orange for links but the main site uses a reddish orange (#FF6D3D). Why not 
+just use that? Was it too light for all those links?
+
+I really like, as I said last night, the hatch background. Big improvement :) Why 
+#f9f9f9 as fallback color and not main site's #ffffff? Maybe the main site and wiki 
+should fall back to a pale blue (like eafcfe)? (so we keep similar color scheme if 
+the image doesn't load)
+
+I dig the rounded edges. Very hip. 
+
+Uncreated pages are red so that would be too close with the #FF6D3D color so I'm not 
+sure there. I like red cause it's normal wiki "this doesn't exist" but it's pretty 
+close to the reddish orange of main links on main site. Maybe it's time for your 
+purple. ;) Or 8F2400? 
+
+This overall is definitely an improvement from the default wiki look. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1647">msg1647 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.08:24:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, this is last, I promise. - Just a small change to the location of the top-left 
+personal navigation items.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1646">msg1646 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.08:11:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Patch file updated.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1645">msg1645 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.07:57:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, this IS my final revision.
+
+@-moz-document domain("openhatch.org") {
+ body {
+	background: #f9f9f9 url('<a href="http://openhatch.org/static/images/motif-">http://openhatch.org/static/images/motif-</a>
+eee.png') repeat !important; 
+        color: black !important;
+ 	margin: 0 !important;
+ 	padding: 0 !important; }
+ a { 	color: #eb7f04 !important; }
+ a.new {   color: #BA0000 !important; }
+.pBody, #content, .ca-nstab-main { border-top-left-radius: 8px; border-top-right-
+radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;  
+border-width: 4px !important; border-color: #e4e4e4 !important; }
+.selected { border-top-left-radius: 8px; border-top-right-radius: 8px; border-
+width: 4px !important; border-color: #e4e4e4 !important; }
+h1, h2, h3, h4, h5, h6 { border-bottom-color: #e4e4e4 !important; }
+#footer { border-width: 2px !important; border-top-left-radius: 8px; border-top-
+right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 
+8px; border-left-style: solid !important; border-right-style: solid !important; 
+border-left-color: #e4e4e4 !important; border-right-color: #e4e4e4 !important; 
+border-bottom-color: #e4e4e4 !important; border-top-color: #e4e4e4 !important; 
+width: 80% !important; margin-left: 230px !important; }
+#footer div img { padding-top: 8px !important; }
+}
+
+Screenie attached.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1644">msg1644 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.07:35:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, I've done some more work on this.
+
+@-moz-document domain("openhatch.org") {
+body {
+	background: #f9f9f9 url('<a href="http://openhatch.org/static/images/motif-">http://openhatch.org/static/images/motif-</a>
+eee.png') repeat !important; 
+        color: black !important;
+ 	margin: 0 !important;
+ 	padding: 0 !important; }
+ a { 	color: #eb7f04 !important; }
+ a.new {   color: #BA0000 !important; }
+.pBody, #content, .ca-nstab-main, .selected { border-width: 2px !important; 
+border-color: #70b347 !important; }
+h1, h2, h3, h4, h5, h6 { border-bottom-color: #70b347 !important; }
+#footer { border-width: 2px !important; border-left-style: solid !important; 
+border-right-style: solid !important; border-left-color: #70b347 !important; 
+border-right-color: #70b347 !important; border-bottom-color: #70b347 !important; 
+border-top-color: #70b347 !important; width: 80% !important; margin-left: 230px !
+important; }
+#footer div img { padding-top: 8px !important; }
+}
+
+Jessica, I hope you like it - If in-fact you do, then I have attached a patch 
+file for paulproteus to deploy.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1637">msg1637 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-20.06:19:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Jessica, can you be the reviewer for this? I think the policy should be:
+
+"If Jessica thinks it's an improvement, we ship it."</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1626">msg1626 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.00:05:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, I'm gonna include my Firefox userstyles here:
+
+@-moz-document domain("openhatch.org") { 
+ body {
+	background: #f9f9f9 url('<a href="http://openhatch.org/static/images/motif-eee.png">http://openhatch.org/static/images/motif-eee.png</a>')
+repeat !important; 
+        color: black !important;
+ 	margin: 0 !important;
+ 	padding: 0 !important; }
+ a { 	color: #eb7f04 !important; }
+ a.new {   color: #BA0000 !important; }
+ a.external { color: #3366BB !important; }
+ a:visited { color: #800080 !important; }
+}
+
+Please, would you test whether these overrides are ok.
+If so, I'll go ahead a make a patch that creates that new file
+(main-overide.css) in oh-mainlines static CSS files.
+
+Paul</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1553">msg1553 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-16.19:52:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Asheesh,
+
+Sure, I can do that, hopefully today before I forget.
+
+Paul
+
+On 17/04/2011, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Hi Paul! Here's my thoughts:
+&gt;
+&gt; I think what we should do is put this in a separate file that lives within
+&gt; the
+&gt; main OpenHatch repository. Maybe you can just add a five-line CSS file that
+&gt; contains just the overrides we use. Then we can configure the wiki to
+&gt; @import
+&gt; that file, and future changes can be done as git format-patch files.
+&gt;
+&gt; I think these changes are good, but it's a little odd that visited links are
+&gt; purple for me, and that external links aren't orange. Maybe visited links
+&gt; can be
+&gt; the blue color of external links right now, and external links can become
+&gt; orange.
+&gt;
+&gt; I'd be open to more feedback from other people as to what makes sense; but
+&gt; also,
+&gt; I'm fine with this being mostly a do-ocracy. Mostly I want to move these
+&gt; changes
+&gt; into git format-patch land. So can you re-do this as a git commit that
+&gt; creates a
+&gt; new file?
+&gt;
+&gt; ----------
+&gt; keyword: +usability
+&gt; milestone:  -&gt; 0.11.04
+&gt; status: need-review -&gt; in-progress
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue361">https://openhatch.org/bugs/issue361</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1550">msg1550 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-16.19:39:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Paul! Here's my thoughts:
+
+I think what we should do is put this in a separate file that lives within the
+main OpenHatch repository. Maybe you can just add a five-line CSS file that
+contains just the overrides we use. Then we can configure the wiki to @import
+that file, and future changes can be done as git format-patch files.
+
+I think these changes are good, but it's a little odd that visited links are
+purple for me, and that external links aren't orange. Maybe visited links can be
+the blue color of external links right now, and external links can become orange.
+
+I'd be open to more feedback from other people as to what makes sense; but also,
+I'm fine with this being mostly a do-ocracy. Mostly I want to move these changes
+into git format-patch land. So can you re-do this as a git commit that creates a
+new file?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1414">msg1414 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-03.10:25:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This unified diff patch changes the background and the color of the a href links 
+to orange and also makes the font bigger.
+
+I reckon this makes the wiki alot more openhatchy.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1413">msg1413 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-03.10:17:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Looks like the main.css is the file to change.
+
+I think including the hatch background &amp; making the links all orange would be a 
+start.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-23&nbsp;18:09:28</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1707">msg1707</a></td></tr>
+<tr><td>2011-04-22&nbsp;17:57:11</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1698">msg1698</a></td></tr>
+<tr><td>2011-04-22&nbsp;17:50:23</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1697">msg1697</a></td></tr>
+<tr><td>2011-04-22&nbsp;08:29:45</td><td>palhmbs</td><td>set</td><td>status: reopened -> need-review</td></tr>
+<tr><td>2011-04-22&nbsp;08:28:11</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file237">Fix-Footer-for-wiki.patch</a><br />messages:
+  + <a href="msg1692">msg1692</a></td></tr>
+<tr><td>2011-04-22&nbsp;08:16:39</td><td>palhmbs</td><td>set</td><td>status: resolved -> reopened<br />messages:
+  + <a href="msg1691">msg1691</a></td></tr>
+<tr><td>2011-04-21&nbsp;14:52:45</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1666">msg1666</a></td></tr>
+<tr><td>2011-04-20&nbsp;18:58:24</td><td>jessica</td><td>set</td><td>messages:
+  + <a href="msg1653">msg1653</a></td></tr>
+<tr><td>2011-04-20&nbsp;18:55:03</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file223">0001-New-WIKI-CSS-Overrides.patch</a></td></tr>
+<tr><td>2011-04-20&nbsp;18:54:50</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file222">0001-Slight-change-to-CSS-for-Wiki.patch</a></td></tr>
+<tr><td>2011-04-20&nbsp;18:54:44</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file221">0001-New-WIKI-CSS-Overrides.patch</a></td></tr>
+<tr><td>2011-04-20&nbsp;18:54:24</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1652">msg1652</a></td></tr>
+<tr><td>2011-04-20&nbsp;15:54:30</td><td>jessica</td><td>set</td><td>messages:
+  + <a href="msg1651">msg1651</a></td></tr>
+<tr><td>2011-04-20&nbsp;08:24:34</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file222">0001-Slight-change-to-CSS-for-Wiki.patch</a><br />messages:
+  + <a href="msg1647">msg1647</a></td></tr>
+<tr><td>2011-04-20&nbsp;08:11:55</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1646">msg1646</a></td></tr>
+<tr><td>2011-04-20&nbsp;08:11:06</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file221">0001-New-WIKI-CSS-Overrides.patch</a></td></tr>
+<tr><td>2011-04-20&nbsp;08:07:31</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file219">0001-New-WIKI-CSS-Overrides.patch</a></td></tr>
+<tr><td>2011-04-20&nbsp;07:57:36</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file220">oh_wiki_screenie.jpg</a><br />messages:
+  + <a href="msg1645">msg1645</a></td></tr>
+<tr><td>2011-04-20&nbsp;07:35:54</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file219">0001-New-WIKI-CSS-Overrides.patch</a><br />messages:
+  + <a href="msg1644">msg1644</a></td></tr>
+<tr><td>2011-04-20&nbsp;06:19:58</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user96">jessica</a><br />messages:
+  + <a href="msg1637">msg1637</a></td></tr>
+<tr><td>2011-04-20&nbsp;00:05:42</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1626">msg1626</a></td></tr>
+<tr><td>2011-04-20&nbsp;00:01:55</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg1625">msg1625</a></td></tr>
+<tr><td>2011-04-19&nbsp;23:58:57</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-04-19&nbsp;23:58:43</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1625">msg1625</a></td></tr>
+<tr><td>2011-04-16&nbsp;19:52:09</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1553">msg1553</a></td></tr>
+<tr><td>2011-04-16&nbsp;19:39:54</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1550">msg1550</a><br />keyword:
+  + <a href="keyword7">usability</a><br />milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-03&nbsp;10:25:50</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-review<br />assignedto: <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-04-03&nbsp;10:25:35</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file198">main.diff</a><br />status: unread -> chatting<br />messages:
+  + <a href="msg1414">msg1414</a></td></tr>
+<tr><td>2011-04-03&nbsp;10:17:56</td><td>palhmbs</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

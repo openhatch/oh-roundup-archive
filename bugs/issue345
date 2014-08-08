@@ -1,0 +1,478 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 345: Add debug_toolbar to buildout - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue345
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue345">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue345">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Add debug_toolbar to buildout</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.03</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>palhmbs</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-03-21.19:10:51</b> by <b>palhmbs</b>, last changed <b>2011-04-09.20:22:31</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file192/0001-Added-django-debug-toolbar-back-into.patch">0001-Added-django-debug-toolbar-back-into.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-03-28.09:50:04</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1449">msg1449 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-09.20:22:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is totally done now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1422">msg1422 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-04.05:00:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I added a version of this to buildout, and pushed it.
+
+If Hudson likes it, I'll deploy.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1389">msg1389 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-28.09:50:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok this is it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1362">msg1362 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-26.19:57:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Two points of feedback:
+
+1. After applying this patch, ./bin/buildout fails.
+
+Paul, maybe you have a system-wide install of the debug toolbar Python package?
+If so, remove that so that you can simulate what it's like for other people who
+don't have that.
+
+2. It doesn't actually exclude itself if DEBUG is False, but that is okay
+because the middleware itself excludes itself when DEBUG is False.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1317">msg1317 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-21.22:29:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Decided to leave deployment_settings.py alone, and only load debug_toolbar when
+DEBUG = True.
+
+Hopefully this resolves the issue, please review patch.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1316">msg1316 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-21.21:20:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, on further Googling I found an example of filtering for production.
+<a href="https://bitbucket.org/stephenmcd/mezzanine/src/cd189938f144/mezzanine/utils/conf.py">https://bitbucket.org/stephenmcd/mezzanine/src/cd189938f144/mezzanine/utils/conf.py</a>
+
+Will try to implement this method.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1315">msg1315 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-21.21:13:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've looked into this, and if I check whether the INSTALLED_APPS dict contains
+debug_toolbar - then remove it.
+
+Is that the best way to do this?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1314">msg1314 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-21.20:17:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>In order to enable the debug toolbar, you'll have to make changes to 
+INSTALLED_APPS and other settings, right?
+
+Make those changes, too, and then make sure they don't show up in 
+deployment_settings.py by writing some code to filter out the changes.
+
+I'm happy to advise on any of that that you need help with.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1313">msg1313 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-21.19:38:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>After discussing things and creating a patch to change setup.py, 
+it was decided to only add debug_toolbar to buildout.cfg.
+
+Attached is the patch for review.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1312">msg1312 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-21.19:10:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I published a wiki about adding debug_toolbar to Openhatch for development use
+here.... <a href="http://openhatch.org/wiki/Enabling_the_debug_toolbar">http://openhatch.org/wiki/Enabling_the_debug_toolbar</a>
+
+paulproteus suggested...
+1. I think you should make the debug toolbar part of the site's buildout stuff.
+2. I guess we should disable it on the deployment.
+
+I'm in the process of adding it oh-mainline/setup.py</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-09&nbsp;20:22:31</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1449">msg1449</a></td></tr>
+<tr><td>2011-04-04&nbsp;05:00:31</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1422">msg1422</a></td></tr>
+<tr><td>2011-04-02&nbsp;20:48:27</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file165">0001-I-added-debug_toolbar-to-buildout.cfg.patch</a></td></tr>
+<tr><td>2011-04-02&nbsp;20:48:22</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file182">0001-Added-new-dependency-debug_toolbar-to.patch</a></td></tr>
+<tr><td>2011-03-28&nbsp;09:50:04</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file192">0001-Added-django-debug-toolbar-back-into.patch</a><br />messages:
+  + <a href="msg1389">msg1389</a></td></tr>
+<tr><td>2011-03-28&nbsp;09:19:55</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg1388">msg1388</a></td></tr>
+<tr><td>2011-03-28&nbsp;09:19:47</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file191">0001-Added-django-debug-toolbar-back-into.patch</a></td></tr>
+<tr><td>2011-03-28&nbsp;07:52:21</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-03-28&nbsp;07:51:59</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file191">0001-Added-django-debug-toolbar-back-into.patch</a><br />messages:
+  + <a href="msg1388">msg1388</a></td></tr>
+<tr><td>2011-03-28&nbsp;06:37:46</td><td>palhmbs</td><td>set</td><td>status: need-review -> in-progress</td></tr>
+<tr><td>2011-03-28&nbsp;03:05:50</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file187">0001-Added-django-debug-toolbar-back-in.patch</a></td></tr>
+<tr><td>2011-03-28&nbsp;02:55:25</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg1375">msg1375</a></td></tr>
+<tr><td>2011-03-28&nbsp;02:54:44</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg1385">msg1385</a></td></tr>
+<tr><td>2011-03-28&nbsp;01:41:36</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file187">0001-Added-django-debug-toolbar-back-in.patch</a><br />messages:
+  + <a href="msg1385">msg1385</a></td></tr>
+<tr><td>2011-03-26&nbsp;22:38:40</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file182">0001-Added-new-dependency-debug_toolbar-to.patch</a><br />messages:
+  + <a href="msg1375">msg1375</a></td></tr>
+<tr><td>2011-03-26&nbsp;22:37:39</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg1374">msg1374</a></td></tr>
+<tr><td>2011-03-26&nbsp;22:37:18</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file181">0001-Added-new-dependency-debug_toolbar-to.patch</a></td></tr>
+<tr><td>2011-03-26&nbsp;22:37:14</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file166">0001-Added-new-dependency-debug_toolbar-to.patch</a></td></tr>
+<tr><td>2011-03-26&nbsp;22:36:03</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file181">0001-Added-new-dependency-debug_toolbar-to.patch</a><br />messages:
+  + <a href="msg1374">msg1374</a></td></tr>
+<tr><td>2011-03-26&nbsp;19:57:03</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1362">msg1362</a></td></tr>
+<tr><td>2011-03-25&nbsp;11:07:27</td><td>pythonian4000</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-03-21&nbsp;22:29:04</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file166">0001-Added-new-dependency-debug_toolbar-to.patch</a><br />messages:
+  + <a href="msg1317">msg1317</a></td></tr>
+<tr><td>2011-03-21&nbsp;21:20:52</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1316">msg1316</a></td></tr>
+<tr><td>2011-03-21&nbsp;21:13:46</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1315">msg1315</a></td></tr>
+<tr><td>2011-03-21&nbsp;20:17:23</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1314">msg1314</a></td></tr>
+<tr><td>2011-03-21&nbsp;19:38:42</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file165">0001-I-added-debug_toolbar-to-buildout.cfg.patch</a><br />messages:
+  + <a href="msg1313">msg1313</a></td></tr>
+<tr><td>2011-03-21&nbsp;19:10:51</td><td>palhmbs</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

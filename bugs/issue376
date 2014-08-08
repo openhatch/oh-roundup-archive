@@ -1,0 +1,345 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 376: Migration 0021 from customs fails on live site - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue376
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue376">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue376">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Migration 0021 from customs fails on live site</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-04-14.04:33:50</b> by <b>paulproteus</b>, last changed <b>2011-04-15.00:20:41</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1526">msg1526 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-15.00:20:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is deployed, although I added a patch on top that broke /customs/.
+
+Oops-ish.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1506">msg1506 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-14.09:03:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Fixed - I must have not changed the tracker fields on the BugzillaQueryModel and
+GoogleQueryModel models to point at the correct models when I created that data
+migration.
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=21ab35d838d704bc456774090bb6447d47960e54">http://git.jackgrigg.com/openhatch/patch/?id=21ab35d838d704bc456774090bb6447d47960e54</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1497">msg1497 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-14.04:33:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It fails for me locally, too:
+
+Error in migration: customs:0021_copy_tracker_model_data_across
+Traceback (most recent call last):
+  File "./bin/production", line 80, in &lt;module&gt;
+    djangorecipe.manage.main('mysite.deployment_settings')
+  File
+"/home/deploy/milestone-a.buildout/eggs/djangorecipe-0.20-py2.6.egg/djangorecipe/manage.py",
+line 16, in main
+    management.execute_manager(mod)
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/core/management/__init__.py",
+line 438, in execute_manager
+    utility.execute()
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/core/management/__init__.py",
+line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/core/management/base.py",
+line 191, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/core/management/base.py",
+line 220, in execute
+    output = self.handle(*args, **options)
+  File
+"/home/deploy/milestone-a.buildout/eggs/South-0.7.3.1-py2.6.egg/south/management/commands/migrate.py",
+line 107, in handle
+    ignore_ghosts = ignore_ghosts,
+  File
+"/home/deploy/milestone-a.buildout/eggs/South-0.7.3.1-py2.6.egg/south/migration/__init__.py",
+line 191, in migrate_app
+    success = migrator.migrate_many(target, workplan, database)
+  File
+"/home/deploy/milestone-a.buildout/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 222, in migrate_many
+    result = migrator.__class__.migrate_many(migrator, target, migrations, database)
+  File
+"/home/deploy/milestone-a.buildout/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 293, in migrate_many
+    result = self.migrate(migration, database)
+  File
+"/home/deploy/milestone-a.buildout/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 126, in migrate
+    result = self.run(migration)
+  File
+"/home/deploy/milestone-a.buildout/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 100, in run
+    return self.run_migration(migration)
+  File
+"/home/deploy/milestone-a.buildout/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 81, in run_migration
+    migration_function()
+  File
+"/home/deploy/milestone-a.buildout/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 57, in &lt;lambda&gt;
+    return (lambda: direction(orm))
+  File
+"/home/deploy/milestone-a.buildout/mysite/customs/migrations/0021_copy_tracker_model_data_across.py",
+line 59, in forwards
+    tracker = gtm,
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/manager.py", line
+138, in create
+    return self.get_query_set().create(**kwargs)
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/query.py",
+line 356, in create
+    obj = self.model(**kwargs)
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/base.py",
+line 350, in __init__
+    setattr(self, field.name, rel_obj)
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/db/models/fields/related.py",
+line 329, in __set__
+    self.field.name, self.field.rel.to._meta.object_name))
+ValueError: Cannot assign "&lt;GoogleTrackerModel: GoogleTrackerModel object&gt;":
+"GoogleQueryModel.tracker" must be a "GoogleTracker" instance.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-15&nbsp;00:20:41</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1526">msg1526</a></td></tr>
+<tr><td>2011-04-14&nbsp;09:03:36</td><td>pythonian4000</td><td>set</td><td>status: unread -> need-review<br />assignedto: <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg1506">msg1506</a></td></tr>
+<tr><td>2011-04-14&nbsp;04:33:50</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

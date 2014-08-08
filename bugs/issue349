@@ -1,0 +1,349 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 349: Specify version numbers of our dependencies in buildout.cfg, so that buildout is "repeatable" - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue349
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue349">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue349">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Specify version numbers of our dependencies in buildout.cfg, so that buildout is "repeatable"</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.06</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  TravisB, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>TravisB</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-03-25.23:37:08</b> by <b>paulproteus</b>, last changed <b>2011-06-19.23:48:57</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file354/0001-Fix-issue-349.-Add-version-info-to-all-packages-unde.patch">0001-Fix-issue-349.-Add-version-info-to-all-packages-unde.patch</a>
+  </td>
+  <td>
+   <span>TravisB</span>,
+   <span>2011-06-19.20:25:13</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2086">msg2086 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-19.23:48:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This looks great. I've pushed it to origin/master.
+
+TravisB, in the future, try to write commit log messages that comply with
+<a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html</a>
+
+We're going to, as time goes on, want to try upgrading things in here to have
+higher version numbers and see what breaks. For now, this is excellent.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2082">msg2082 (view)</a></th>
+   <th>Author: TravisB</th>
+   <th>Date: 2011-06-19.20:25:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Submitted fixed patch.  Weird that happened!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2080">msg2080 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-19.06:19:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>TravisB, it looks like there is one small oopsy... 
+At least when I ran buildout I got an error:
+Getting distribution for 'Twisted==11.0.0'.
+Error: Couldn't find a distribution for 'Twisted==11.0.0'.
+
+I think it ought to be.. Twisted = 10.2.0 instead.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2079">msg2079 (view)</a></th>
+   <th>Author: TravisB</th>
+   <th>Date: 2011-06-18.22:02:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Submitted fix where we only specificy versions for:
+     1) packages already listed under eggs in bin/buildout.cfg
+     2) not supplied by the user (what we request for in the readme)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1345">msg1345 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-25.23:37:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It would be really nice if our buildout.cfg specified the version numbers of all
+the Python packages the site depends on.
+
+<a href="http://maurits.vanrees.org/weblog/archive/2008/01/easily-creating-repeatable-buildouts">http://maurits.vanrees.org/weblog/archive/2008/01/easily-creating-repeatable-buildouts</a>
+is a good tutorial on doing that.
+
+This is "bitesize", probably, if you're interested in learning about Python
+packaging and the "buildout" tool.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-06-19&nbsp;23:48:57</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2086">msg2086</a></td></tr>
+<tr><td>2011-06-19&nbsp;20:25:40</td><td>TravisB</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-06-19&nbsp;20:25:14</td><td>TravisB</td><td>set</td><td>files:
+  + <a href="file354">0001-Fix-issue-349.-Add-version-info-to-all-packages-unde.patch</a><br />messages:
+  + <a href="msg2082">msg2082</a></td></tr>
+<tr><td>2011-06-19&nbsp;20:24:49</td><td>TravisB</td><td>set</td><td>files:
+  - <a href="file352">0001-Fix-issue-349.-Add-version-info-to-all-packages-unde.patch</a></td></tr>
+<tr><td>2011-06-19&nbsp;06:19:49</td><td>palhmbs</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2080">msg2080</a></td></tr>
+<tr><td>2011-06-18&nbsp;22:02:57</td><td>TravisB</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file352">0001-Fix-issue-349.-Add-version-info-to-all-packages-unde.patch</a><br />messages:
+  + <a href="msg2079">msg2079</a></td></tr>
+<tr><td>2011-06-18&nbsp;20:29:17</td><td>TravisB</td><td>set</td><td>assignedto: <a href="user51">TravisB</a><br />nosy:
+  + <a href="user51">TravisB</a></td></tr>
+<tr><td>2011-05-29&nbsp;01:38:03</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting</td></tr>
+<tr><td>2011-05-29&nbsp;01:37:54</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a><br />milestone: <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-03-25&nbsp;23:37:08</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

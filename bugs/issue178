@@ -1,0 +1,475 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 178: Add a progress bar somewhere tracking the current milestone's progress - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue178
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue178">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue178">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Add a progress bar somewhere tracking the current milestone's progress</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.10.11</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-11-16.11:05:05</b> by <b>pythonian4000</b>, last changed <b>2010-11-22.05:35:32</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg590">msg590 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-22.05:35:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>[18:39:10] &lt;pythonian4000&gt; paulproteus, ping re: progress bar - I have updated
+it to use CSS and a definition list instead of a table - better?
+[18:40:33] &lt;paulproteus&gt; pythonian4000: I think the olive color is kind of ugly,
+though... I do like the CSSification!
+[18:40:50] &lt;paulproteus&gt; I wonder about using either the blue or green from the
+OpenHatch logo.
+[18:58:26] --&gt; ian_brasil_ (~<a href="mailto:ian_brasi@187.90.152.142">ian_brasi@187.90.152.142</a>) has joined #openhatch
+[19:47:57] &lt;pythonian4000&gt; paulproteus, do you know what the color codes for the
+OH logo are?
+[20:03:51] &lt;variable&gt; pythonian4000, there is a HTML5 progress element
+[20:04:16] &lt;variable&gt; why do you need a DL ?
+[20:05:07] &lt;pythonian4000&gt; DL?
+[20:05:36] &lt;pythonian4000&gt; Oh, to create the layout. Also means that if CSS is
+disabled then no information is lost.
+[20:17:37] &lt;variable&gt; pythonian4000, even with a progress element?
+[20:17:54] &lt;pythonian4000&gt; I didn't know about the progress element.
+[20:17:58] -*- pythonian4000 Googles...
+[20:42:31] &lt;paulproteus&gt; pythonian4000: yo
+[20:42:41] &lt;paulproteus&gt; re: color: I would just open up the GIMP and extract
+'em from the image.
+[20:47:22] &lt;pythonian4000&gt; paulproteus, I used colorzilla instead =) Could you
+have a LOOK NOW?
+[20:47:32] &lt;pythonian4000&gt; Argh, caps lock...
+[20:47:41] &lt;paulproteus&gt; OKAY I CAN ONE SEC
+[20:47:50] &lt;paulproteus&gt; (-:
+[20:48:04] &lt;paulproteus&gt; That is aweeeeeeeeeeeeesome!
+[20:48:20] &lt;paulproteus&gt; My only complaint is that it's not clear the blue is
+work we have to do.
+[20:48:46] &lt;paulproteus&gt; The green looks AWESOME.
+[20:49:10] &lt;paulproteus&gt; I would say that either the blue could become totally
+white; or the blue could become paler; or there could be a text-align: center;
+section in the middle that says, "45% done" or something
+[20:49:26] &lt;paulproteus&gt; What do you think?
+[20:50:03] &lt;paulproteus&gt; back in a bit; gotta do some dishes.
+[21:14:06] &lt;pythonian4000&gt; paulproteus, I have removed the blue for now, is that
+better? I will try work out a colour code for a lighter version of the blue as
+well...
+[21:30:14] &lt;paulproteus&gt; pythonian4000: I think that without the blue, it's
+quite clear what's going on!
+[21:30:27] -*- paulproteus smiles warmly at the re-use of logo colors.
+[21:31:11] &lt;pythonian4000&gt; I can put text in them if you want.
+[21:31:21] &lt;pythonian4000&gt; (Just by un-hiding the text in CSS)
+[21:31:56] &lt;pythonian4000&gt; The idea is that if you turn off CSS you still get
+the same information. (e.g. in Firefox View -&gt; Page Style -&gt; No Style)
+[21:41:19] &lt;paulproteus&gt; Yeah! I really like the DL strategy.
+[21:43:21] &lt;paulproteus&gt; I want to try disabling the display: none;, but I'm
+trying to figure out how to do that.
+[21:43:27] &lt;paulproteus&gt; (To see if that makes it easier to understand.)
+[21:44:12] &lt;paulproteus&gt; Hah, it's text-indent, not a display: attribute.
+[21:44:59] &lt;paulproteus&gt; I think if it said "40% done" "60% to go" and you could
+see the text, that would be best.
+[21:45:06] &lt;paulproteus&gt; Then we could even put the blue back.
+[21:45:50] &lt;paulproteus&gt; I "have to" go out to Grendel's to meet some friends
+now. |:
+[21:48:58] &lt;paulproteus&gt; Locally I added text-align: center;
+[21:49:25] &lt;paulproteus&gt; to the "40%" and "60%" values' CSS properties.
+[21:49:40] &lt;paulproteus&gt; Presumably if the percentage is low, that'll look
+weird, though.
+[23:53:12] &lt;pythonian4000&gt; paulproteus, made some changes - now there is text in
+each side of the progress bar if the side is at 10% or greater.
+[23:53:49] &lt;paulproteus&gt; That looks gorgeous.
+[23:54:16] &lt;paulproteus&gt; It makes me want to mark your ticket as closed just to
+bump up the percentage done!
+[00:07:17] &lt;pythonian4000&gt; paulproteus, well if you think it's good then close it!
+[00:07:17] &lt;paulproteus&gt; pythonian4000: I'm happy if you're happy. You say the
+word, and I'll mark it as resolved.
+[00:09:28] &lt;paulproteus&gt; D
+[00:09:28] &lt;paulproteus&gt; D'oh
+[00:09:38] &lt;paulproteus&gt; Yargh.
+[00:10:39] &lt;paulproteus&gt; Load storms.
+[00:13:00] &lt;pythonian4000&gt; paulproteus, I did notice an odd bug - all the
+query-related links in the sidebar ("Show All" etc.) have "&amp;milestone=2" added
+to the end of the URL, and since my code looks for the "milestone" URL parameter
+you end up with an unneeded progress bar.
+[00:13:23] &lt;paulproteus&gt; Because milestone=2 ?
+[00:13:33] &lt;paulproteus&gt; Which milestone is 2, anyway?
+[00:13:35] &lt;paulproteus&gt; Is that the null value?
+[00:13:49] &lt;pythonian4000&gt; (Must be something to do with how the links are
+generated, as from any other page those links don't have "&amp;milestone=2" on them.
+[00:13:49] &lt;pythonian4000&gt; )
+[00:13:53] &lt;paulproteus&gt; (If so, hard-code the Python to ignore that value as
+meaning that the milestone is set?)
+[00:14:02] &lt;pythonian4000&gt; (That means that clicking the link again gets rid of
+the bar.)
+[00:14:47] &lt;pythonian4000&gt; 0.10.11
+[00:14:54] &lt;pythonian4000&gt; has id=2
+[00:15:06] &lt;pythonian4000&gt; later has id=1, 0.10.12 has id=3
+[00:15:09] &lt;paulproteus&gt; So I guess instead you should check that
+filter=milestone is set
+[00:15:18] &lt;paulproteus&gt; Even if filter=status,milestone
+[00:15:21] &lt;paulproteus&gt; That's okay, too.
+[00:16:12] &lt;pythonian4000&gt; What I did is surround all my new code with
+&lt;tal:block tal:condition="request/form/milestone | nothing"&gt;
+[00:17:01] &lt;pythonian4000&gt; "request/form/milestone" is the "milestone" URL
+parameter and throws an error if it isn't there, which then picks the "| nothing"
+[00:19:38] &lt;paulproteus&gt;
+<a href="http://www.zugod.org/archives/one-approach-to-managing-users-in-plone/person_folder_listing">http://www.zugod.org/archives/one-approach-to-managing-users-in-plone/person_folder_listing</a>
+suggests you can jam arbitrary Python code in there, maybe.
+[00:19:53] &lt;paulproteus&gt;                     &lt;span tal:condition="python:
+memberinfo['hometitle'] is not '' and memberinfo['homedepartment'] is not ''"&gt;
+[00:19:54] &lt;pythonian4000&gt; You can.
+[00:20:03] &lt;pythonian4000&gt; python
+[00:20:05] &lt;pythonian4000&gt; :
+[00:20:16] &lt;pythonian4000&gt; &lt;anything you want ^_^&gt;
+[00:20:32] &lt;paulproteus&gt; Can you check the value of ('milestone' in 'filter') ?
+[00:20:41] &lt;paulproteus&gt; I have a hope that that would be adequate and precise.
+[00:23:27] &lt;paulproteus&gt; What do you think?
+[00:26:20] &lt;pythonian4000&gt; paulproteus, combed through the Roundup docs again
+and discovered that the filters are available through request.filter.
+[00:26:50] &lt;pythonian4000&gt; Previously I was looking in request.form, which was a
+FieldStorage containing a list of MiniFieldStorages - not nice for parsing ~_~
+[00:26:56] &lt;paulproteus&gt; eep!
+[00:27:19] &lt;pythonian4000&gt; So tal:condition="python:'milestone' in
+request.filter" works!
+[00:27:22] &lt;pythonian4000&gt; Yay!
+[00:27:29] &lt;paulproteus&gt; Seems fixed!
+[00:27:32] &lt;paulproteus&gt; Dude, nice.
+[00:27:34] -*- paulproteus gives pythonian4000 a high five
+[00:27:55] &lt;pythonian4000&gt; With this knowledge, I may be able to simplify
+another line...
+[00:28:08] &lt;pythonian4000&gt; (Trying to get the value of the milestone filter
+parameter)
+[00:28:37] &lt;pythonian4000&gt; (Though I was able to get it quite nicely using list
+comprehension from the request.form mentioned above...)
+[00:30:10] &lt;pythonian4000&gt; Hmm, actually I will stick with what I have -
+request.filterspecs has the milestone id not the milestone name.
+[00:31:15] &lt;pythonian4000&gt; paulproteus, I'm happy so if you are then close the bug!
+[00:33:16] &lt;paulproteus&gt; pythonian4000: Looks good to me. You commit it on
+roundup, and I'll close the bug!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg587">msg587 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-11-21.23:32:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I found this progress bar implemented entirely in CSS (i.e. no JavaScript):
+
+<a href="http://www.fiveminuteargument.com/progress-bar">http://www.fiveminuteargument.com/progress-bar</a>
+
+I have implemented it on the tracker. Is this better? Any suggestions?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg585">msg585 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-21.18:56:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So first of all:
+
+wowwweeeeeeeeee this is totally awesome!!!!!!!!!!
+
+I discovered it by accident when looking at the milestone list.
+
+The table-based one is good. If you want to step up your game, you could do it
+with CSS, where the "width" represents the percent completion. Some relevant
+resources:
+
+<a href="http://skunkworks.ivanvanderbyl.com/">http://skunkworks.ivanvanderbyl.com/</a>
+
+<a href="http://jqueryui.com/demos/progressbar/">http://jqueryui.com/demos/progressbar/</a>
+
+<a href="https://github.com/ivanvanderbyl/ui-progress-bar">https://github.com/ivanvanderbyl/ui-progress-bar</a>
+
+<a href="http://ashung.deviantart.com/art/CSS-Progress-Bar-122803902">http://ashung.deviantart.com/art/CSS-Progress-Bar-122803902</a>
+
+If you feel like creating an image like the one on
+<a href="http://pupungbp.erastica.com/css/creating-progress-bar-with-css/">http://pupungbp.erastica.com/css/creating-progress-bar-with-css/</a> , it appears to
+be a simple use of the gradient tool in e.g. GIMP.
+
+So, here are my thoughts:
+
+* I'm quite happy with this as it is! If you are, too, just say so and mark it
+resolved.
+
+* If you want, you can decide that you want to re-do it in CSS. If so, you can
+either create a background image, or not. If so, reply saying your new plan.
+
+(-: !</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg584">msg584 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-11-21.10:59:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well, it seems that this isn't outside Roundup's capabilities after all! I have
+created an auto-generated progress bar out of a table - feedback?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg558">msg558 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-11-16.11:05:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>From IRC:
+
+&lt;paulproteus&gt; It would be nice to have a progress bar, too, but maybe that's
+more than Roundup can do easily?
+&lt;pythonian4000&gt; A progress bar is outside Roundup's capabilities as far as I know.
+&lt;pythonian4000&gt; It wouldn't be too hard though to take searches of all bugs for
+a milestone and all resolved bugs for a milestone and use the CSVs to generate
+our own bar somewhere...
+&lt;paulproteus&gt; I agree!
+
+So this would just be something somewhere that is just a ratio bar of number of
+resolved bugs to total number of bugs for a particular milestone. Maybe there is
+some way of triggering it to be regenerated each time a bug related to the
+milestone is changed using Roundup detectors, which would enable the bar to be
+always up-to-date. Otherwise a timed rebuild could be done using CSV exports of
+the bugs.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-11-22&nbsp;05:35:32</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg590">msg590</a></td></tr>
+<tr><td>2010-11-22&nbsp;04:54:50</td><td>pythonian4000</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-11-22&nbsp;04:54:31</td><td>pythonian4000</td><td>set</td><td>milestone: <a href="milestone2">0.10.11</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2010-11-21&nbsp;23:32:15</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg587">msg587</a></td></tr>
+<tr><td>2010-11-21&nbsp;18:56:42</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg585">msg585</a></td></tr>
+<tr><td>2010-11-21&nbsp;10:59:55</td><td>pythonian4000</td><td>set</td><td>status: unread -> need-review<br />assignedto: <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg584">msg584</a><br />milestone: <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-11-16&nbsp;11:05:05</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

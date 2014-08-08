@@ -1,0 +1,1047 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 134: Map is too slow to be useful - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue134
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue134">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue134">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Map is too slow to be useful</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.05</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  nelson, palhmbs, paulproteus, zathras
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  performance
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-09-07.17:27:54</b> by <b>paulproteus</b>, last changed <b>2011-06-01.02:02:34</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file82/geocode_openhatch.tar.bz2">geocode_openhatch.tar.bz2</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2010-10-09.18:01:28</span>
+  </td>
+  <td>application/bzip2</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file93/geocoder.php">geocoder.php</a>
+  </td>
+  <td>
+   <span>zathras</span>,
+   <span>2010-11-15.21:01:27</span>
+  </td>
+  <td>application/x-php</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file92/open_python_geodecoder.tgz">open_python_geodecoder.tgz</a>
+  </td>
+  <td>
+   <span>zathras</span>,
+   <span>2010-11-15.21:00:39</span>
+  </td>
+  <td>application/x-compressed-tar</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file99/open_python_geodecoders.tgz">open_python_geodecoders.tgz</a>
+  </td>
+  <td>
+   <span>zathras</span>,
+   <span>2010-11-24.22:34:31</span>
+  </td>
+  <td>application/x-compressed-tar</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1978">msg1978 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-01.02:02:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The OpenHatch map is:
+
+* Now a LOT simpler, in terms of implementation -- look at map-v2.js in the
+OpenHatch source code
+
+* Uses OpenLayers, not Google Maps
+
+* A BAJILLION times faster, thanks basically entirely to Christopher Schmidt who
+showed me the way.
+
+I am marking this resolved. The new map comes with a lot of bugs, and I haven't
+filed them all, but oh my god this is so exciting.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1909">msg1909 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-28.01:08:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Advice from IRC:
+
+&lt;crschmidt&gt; paulproteus: The permance sucking happens because you're trying to 
+put 5000 DOM elements into a single container.
+
+Also, crschmidt put <a href="http://openhatchbrowsertest.appspot.com/">http://openhatchbrowsertest.appspot.com/</a> together as a demo 
+of how it can work.
+
+<a href="https://github.com/crschmidt/openhatchbrowser">https://github.com/crschmidt/openhatchbrowser</a> has source.
+
+I can try to implement this shortly.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1475">msg1475 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-11.23:21:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Moving this to 11.05 milestone since it's unlikely to get into the 'very short' 
+April milestone.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1410">msg1410 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-03.09:57:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Marking this as deferred as it was agreed in todays meeting --
+Ref: <a href="https://openhatch.org/meeting-irc-logs/weekly/2011-04-02.log.html">https://openhatch.org/meeting-irc-logs/weekly/2011-04-02.log.html</a>
+
+I think we should wait on zathraz's database patch ( <a href="https://openhatch.org/bugs/">https://openhatch.org/bugs/</a>
+<a href="issue175">issue175</a> ) and land these both together.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1302">msg1302 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-19.21:01:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I will work on this during the week.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1128">msg1128 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-02-19.22:08:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Need help with modifying the database to have the field for persons longitude &amp; 
+latitude. This field will need to be updated at user creation / when they change 
+their location. - We will use this field for a mysql query that then can be used 
+with the python cluster code.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1122">msg1122 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-02-19.20:09:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Found a python implemented clusterer here... 
+<a href="http://forum.mapaplace.com/discussion/3/server-side-marker-clustering-python-">http://forum.mapaplace.com/discussion/3/server-side-marker-clustering-python-</a>
+source-code/</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg604">msg604 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-11-24.22:34:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>library of functions in python
+configurable to use a geocoder API and service of choice
+various services and APIs supported
+not all data in the locationDisplayname name field is compatible with all
+coders/APIs
+test is incuded in the script. Script is independent of OH code but functions
+should be easy to link into OH code</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg554">msg554 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-11-15.21:22:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>PHP code attached and PHP code as pasted in msg are identical.
+Would have prefered to remove the code but I have no idea how to do that. Sorry.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg553">msg553 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-11-15.21:01:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>PHP based XML open geodecoder, used as initial proof of concept</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg552">msg552 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-11-15.21:00:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>added open (free) non-Google geodecoder
+needs further testing</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg539">msg539 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-11-13.21:47:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Text export of piratepad discussion on the subject between Zathras, PaulProteus
+and Pythonian4000 ;
+
+
+ 
+<a href="issue134">Issue 134</a>: Map is too slow to be useful 
+<a href="https://openhatch.org/bugs/issue134">https://openhatch.org/bugs/issue134</a> 
+ 
+Additional remark: current implementation uses non-foss data (google maps) while
+excellent foss sw and data is available: openstreetmap + openlayers 
+ 
+Constraints: 
+* mapping sw usually uses javascript with some code around it. As Openhatch is
+implemented fully in Python it is desirable to let the additional code be in
+python. 
+Note: PaulProteus is willing to let the additional code be in another language
+under certain conditions 
+* used techniques sw must be available on the openhatch server and should be
+easy to deploy on people wanting to run their own openhatch server without
+generating a loot of extra support/problems 
+ 
+There can be numerous reasons why the current implementation is slow. On IRC
+there has been some discussion on this some time ago. 
+Re-implementing the map might speed things up but the main problems are likely
+the way the map is created and presented. 
+* a location of a person (if available and public) must be transformed from an
+address/place/state/country etc to coordinates (longitude/latitude). This
+process is called geocoding. Currently this is done for every entry (person) in
+the database during mapcreation. Storing these coordinates in the DB would
+improve speed. 
+* markers. All Markers are positioned on the map in one go. This takes time when
+generating the map. But mainly displaying and updating (moving/changing view is
+very slow. Better woul be to just display only relevant markers and those who
+can actually be seen (not located behind an other marker etc). Relevant would
+be: display only those people interested or skilled in X in a distance of Y
+around me. 
+ 
+Possible implementations 
+- ODOPOI : <a href="http://wiki.openstreetmap.org/wiki/Odopoi">http://wiki.openstreetmap.org/wiki/Odopoi</a> 
+  Pros: 
+  * seems to do exactly what we need at first glance 
+  * uses openstreetmap data 
+  Cons: 
+  * project is run by a single person (student) 
+  * project is in beta stage 
+  * has a dependencies list which might be troublesome (check with paulproteus):
+<a href="https://github.com/tcort/odopoi/blob/master/INSTALL">https://github.com/tcort/odopoi/blob/master/INSTALL</a> 
+  * requires an extra database 
+  * is written in php, not python 
+- .... ?
+  open for alternatives with dynamic marker management
+
+If we stick to using Google Maps, it should be "easy" to use a marker manager.
+
+Looking for such things for OpenLayers...
+<a href="http://drupal.org/node/622720">http://drupal.org/node/622720</a>
+
+"There is clustering, but this will not improve performance per-say as it  still
+needs to load all the features to cluster.  There is also the  BBox strategy as
+well."
+
+If OpenLayers really has marker clustering built in, then that's enough I think!
+
+OL is a universal display layer. Using Gmaps or OSM is not an issue at that point
+
+<a href="http://dev.openlayers.org/releases/OpenLayers-2.7/doc/apidocs/files/OpenLayers/Strategy/Cluster-js.html">http://dev.openlayers.org/releases/OpenLayers-2.7/doc/apidocs/files/OpenLayers/Strategy/Cluster-js.html</a>
+<a href="http://trac.osgeo.org/openlayers/browser/trunk/openlayers/examples/strategy-bbox.html">http://trac.osgeo.org/openlayers/browser/trunk/openlayers/examples/strategy-bbox.html</a>
+<a href="http://trac.osgeo.org/openlayers/browser/trunk/openlayers/examples/strategy-cluster-threshold.html">http://trac.osgeo.org/openlayers/browser/trunk/openlayers/examples/strategy-cluster-threshold.html</a>
+
+I think strategy-cluster is what we need.
+Check the ODOPOI sample site ( map of canada). It's quite fast
+    Neat; /me reads
+    Wow, that is awesome. Super fast.
+    Can we maybe look at how they're using OpenStreetMap, javascript wise? If we
+just use ODOPOI, we'd lose some features of the people browsing interface
+(unless we re-wrote them in PHP, I guess?)
+        /me reads the code
+        This is smart:
+        // Remove markers that aren't within the bounds of the visible part of
+the map at the current zoom level
+        // Keep markers that are within the bounds of the visible part of the
+map at the current zoom level
+        Add to that: some code so that overlapping markers are handled....
+        
+
+If we have a rewrite of his code it would "map" our needs. Would require however
+quite some code.
+Advantages:
+better "mapping" of needs
+can be done in Python
+fixes the need for an extra DB
+Cons:
+it's in Python (I am not really good at that)
+needs a lot of coding and testing
+will need more maintenance as it's our own code
+
+
+
+I think the next steps are to just try reimplementing the map we have using
+OpenStreetMap.
+
+I think I'm learning a lot just by reading this JavaScript of ODOPOI.
+
+It would be pretty easy to write some Python that generated the same sort of
+output as their PHP code. And then we could basically use the same JavaScript,
+which somehow is really pretty simple.
+
+Zathras: How's your Javascript? Decent enough?
+I am ok in Java and PHP. JS is so-so
+but I do not mind writing it
+python would be cool too, but not really fast as I will need to learn another
+language
+not that that is so difficult but things are quicker if you are more accustomed
+to it already
+Nah, that's not a problem. About 2/3 of the languages I know are self-taught on
+the job ^_^ (Perl was... interesting...)
+same here....
+
+I see, okay!
+
+I think that there are two major paths forward.
+
+1. Try adding a MarkerManager to Google Maps version.
+    Pro: Release soon.
+    Con: the code will still suck.
+
+1.5. Rewrite *and* use a marker manager, like Fluster
+&lt;<a href="http://blog.fusonic.net/2009/12/clustering-for-google-maps-v3-with-fluster2/">http://blog.fusonic.net/2009/12/clustering-for-google-maps-v3-with-fluster2/</a>&gt;
+
+2. Switch to OpenStreetMap, and follow the same strategies from JavaScript as
+ODOPOI uses.
+
+    I like this option a *lot*. I like the idea of rewriting 
+    I think sooner or later you will want to rewrite anyway. Beter do it earlier
+in the process
+    +1
+    Plus then we can ditch using Google. Google Maps is hip but non-free, and
+let's be free(dom) where we can be. (-:
+    
+    BTW, we could ask the ODOPOI person to write down the important tips he/she
+used to make that map fast. Maybe send that person an email?
+        It seems that the big thing is that the ODOPOI map doesn't show all
+markers at once. If you're zoomed-out, it shows just one item, even though if
+you were to zoom in you would see more than one.
+            The downside of this strategy is you don't get a sense of the
+density of people.
+                With e.g.
+<a href="http://blog.fusonic.net/2009/12/clustering-for-google-maps-v3-with-fluster2/">http://blog.fusonic.net/2009/12/clustering-for-google-maps-v3-with-fluster2/</a> you
+do get a nice visual sense.
+
+So if we go down route (2), what are the next steps or milestones? For one, I
+have to fix the data import bug that Zathras ran into.
+BTW. I have a huge lag on this page and also the chatbox is gone
+
+10 weeks ago I had some email exchange with him. I can copy/paste here?
+
+Sure
+
+
+
+Full View
+Re: q: odopoi
+...
+From:
+Thomas Cort linuxgeek __A-T--- gmail.com
+...
+Add to ContactsTo:Me
+&gt; 1. Your project is written in PHP. The project with a GoogleMap
+&gt; (<a href="http://www.openhatch.org">www.openhatch.org</a>) is written in Python. The main developers would like as
+&gt; little "alien" code as possible. Am I right in the assumption that most PHP code
+&gt; is related to getting data (download) and extracting data?
+
+No. A shell script gets the data, a C program extracts the data, and 2
+short PHP scripts do some database cleanups.
+
+Most of the PHP code is used to serve the map and provide an API for
+the Javascript to query the database for marker information.
+
+&gt; 2. Am I right in thinking this is not needed for our project as we do not need
+&gt; OSM markers and have our own.
+
+For a pure python solution you'd need to rewrite some of the PHP code,
+but there isn't much code and it doesn't do anything fancy.
+
+&gt; 3. If we want to use out own markers we would need a script to geocode location,
+&gt; insert longitude/latitude in odopoi DB. Can you give any details on what should
+&gt; be into taken consideration when doing this?
+
+The only thing that you need to worry about is the minimum zoom level
+that you want each marker to be visible at. In utl/zoom-calc.php,
+there is code that precomputes the minimum zoom level for each marker
+in the database such that no markers overlap.
+
+&gt; 4. I should write a script to keep odopoi DB and our DB in sync. Any hints on
+&gt; what the constraints would be?
+
+I don't know your DB so I don't know how to answer that.
+
+&gt; 5. POI functionality: marker should display info or have an other effect. How is
+&gt; this taken care of? I see some XML with descriptions. How is this handled? Can
+&gt; it be adapted and extended? Can external code be used for this?
+
+My demo at <a href="http://opendatamap.ca">http://opendatamap.ca</a> has this functionality. It's pretty
+easy to change the appearance/functionality with some Javascript.
+
+-Thomas
+
+
+
+Right-o. So I guess the most important thing is the util/zoom-calc.php, which is
+what chooses *which* markers to show at the various zoom levels. That means that
+if we rewrite that, we can choose what to show. For example, a circle with a
+number inside! (For now, we should stick to the original behavior, in my
+opinion, so that we can ship it sooner rather than later.)
+
+Good to hear that Thomas thinks it would be pretty easy to rewrite in Python.
+
+Back to your milestone sum up:
+- fix db importer: would be nice, but at present I have a db table with like
+3000+ people in it
+probably a lot with no public data, but I hope some usefull stuff too. SO a DB
+fix is probably not the highest prio
+    okay, good to know
+- analyse ODOPOI and see how it works, maybe do a little experiment with it
+- look at current implementation in OH
+- start coding. Could be tricky due to lack of serious python skills but there
+is only one way to find out :P (-:
+
+    yeah! from reading the JavaScript, it seems that their *biggest* difference
+is that they do *way* more work on the server.
+
+Hope this was/is a bit informative and a way forward
+
+Yeah! (-:
+
+I've also definitely learned something about ODOPOI and how they make the web
+app fast (simple -- don't do much in JS).
+ JS is slow 
+there is even such a thing as server sided JS. Quite kinky
+Never dared to do anything with it
+
+The less you do on the client the less you run into browser compatability issues
+too.....
+
+BTW I have have done some coding for geocoding:
+Should be easy to adapt to OH
+
+#!/usr/bin/php5
+&lt;?php
+  $nl="\n\r";
+
+  // connect to database
+  $db_host = "localhost";
+  $db_name = "oh_milestone_a";
+  $db_user = "oh_milestone_a";
+  $db_pwd  = "ahmaC0Th" ;
+
+  $dbConnection = mysql_pconnect($db_host, $db_user, $db_pwd);
+  if ( !mysql_ping($dbConnection) ) {
+    // when timed out reconnect
+    $dbConnection = mysql_pconnect($db_host, $db_user, $db_pwd);
+  }
+  
+  $dbStatus = mysql_select_db($db_name, $dbConnection);
+  if (!$dbStatus) {
+    die ('Unable to select requisted database: '.mysql_error().$nl);
+  }
+  
+  // table  : profile_person
+  // fields : id        interested_in_working_on        gotten_name_from_ohloh 
+user_id         last_polled     show_email 
+     photo   photo_thumbnail         location_display_name  
+dont_guess_my_location  location_confirmed      bio     homepage
+_url    contact_blurb   photo_thumbnail_30px_wide       expand_next_steps      
+photo_thumbnail_20px_wide       email_me_weekly_re_projects 
+  $query=sprintf("SELECT * FROM profile_person");
+  $resultset = mysql_query($query);
+  if (!$resultset) {
+    die ('Invalid query: '.mysql_error().$nl);
+  }
+
+  // create KML/XML document
+  while ($row = mysql_fetch_assoc($resultset)) {
+    $userID=$row['user_id'];
+    printf($nl."user_id               : ".$userID.$nl);
+    $locationDisplayname = $row['location_display_name'];
+
+//for testing purposes
+$locationDisplayname = "Philadelphia, PA, United States";
+
+    printf("location_display_name : ".$locationDisplayname.$nl);
+    $locationConfirmed = $row['location_confirmed'];
+/*
+    printf("location_confirmed: ".$locationConfirmed.
+"(".strlen($locationConfirmed).")".$nl);
+    if ( strlen(trim($locationConfirmed)) &gt; 0 ) {
+      $normalizedLocation=str_replace(" ", "+", $locationConfirmed);
+    }
+    else {
+      $normalizedLocation=str_replace(" ", "+", $locationDisplayname);
+    }
+*/
+    $normalizedLocation=str_replace(" ", "+", $locationDisplayname);
+    
+    printf("Normalized location   : ".$normalizedLocation.$nl);
+    if (strlen($normalizedLocation) == 0 ){
+      die ('No location specified for used_id='.$userID.$nl);
+    }
+
+    // provider : <a href="http://www.gisgraphy.com/">http://www.gisgraphy.com/</a>
+    $doc = new DOMDocument();
+    $doc-&gt;formatOutput = true;
+   
+$geoURL="<a href="http://services.gisgraphy.com/fulltext/fulltextsearch?q=">http://services.gisgraphy.com/fulltext/fulltextsearch?q=</a>".$normalizedLocation."&amp;placetype=&amp;country=&amp;lang=&amp;format=XML&amp;style=FULL&amp;indent=true&amp;from=1&amp;to=2";
+    printf("Geo URL               : ".$geoURL.$nl);
+    $doc-&gt;load($geoURL);
+
+    $xpath = new DOMXpath($doc);
+    $elements = $xpath-&gt;query("/response/result/doc/double");
+/*    
+    foreach ($elements as $elem) {
+      printf("Node: ".$elem-&gt;nodeName);
+      $tagname = $elem-&gt;localName;
+      printf(" ".$tagname." ");
+      printf(" = ");
+      printf(($elem-&gt;nodeValue).$nl);
+    }
+*/
+    $lat=$elements-&gt;item(2)-&gt;nodeValue;
+    $lng=$elements-&gt;item(3)-&gt;nodeValue;
+
+    printf("Latitude              : ".$lat.$nl);
+    printf("Longitude             : ".$lng.$nl);
+
+  }
+  
+  mysql_free_result($resultset);
+  
+  // <a href="http://www.zipcodeworld.com/samples/distance.php.html">http://www.zipcodeworld.com/samples/distance.php.html</a>
+  //
+<a href="http://snipplr.com/view/40956/use-google-maps-api-to-get-latitude-and-longitude/">http://snipplr.com/view/40956/use-google-maps-api-to-get-latitude-and-longitude/</a>
+  // 
+?&gt;
+
+Advantage: does use a free service</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg515">msg515 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2010-10-14.04:11:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>BTW - there a 1033 users in the test database - only 998 actually display on the 
+map - usernames start from testuser1 --- password is the same for all: testuser1</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg508">msg508 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2010-10-12.06:15:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Talked to crschmidt - He recommends sticking with the Fluster2 implementation.
+Still happy to try to hack this solution out.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg507">msg507 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-12.05:44:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We could see if OpenStreetMap + OpenLayers has a decently fast solution for this
+sort of thing.
+
+Next step on that: join #openlayers and ping crschmidt (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg504">msg504 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-10.04:16:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Nice, Paul!
+
+Some collected thoughts:
+
+* If you have more than one file to attach, but not a whole lot of files, it's
+easier for me if you upload them separately. Your tar.bz2 is okay, though, just
+saying for the future.
+
+* <a href="http://sourceforge.net/projects/fluster/">http://sourceforge.net/projects/fluster/</a> is the map clustering thing I'd want
+to try deploying.
+<a href="http://blog.fusonic.net/2009/12/clustering-for-google-maps-v3-with-fluster2/">http://blog.fusonic.net/2009/12/clustering-for-google-maps-v3-with-fluster2/</a> is
+an article about it.
+
+* A KML file alone, I think, won't solve the problem we're having, which is too
+many markers on the map at once.
+<a href="http://blog.fusonic.net/2009/12/fluster2-011-with-significant-performance-improvements/">http://blog.fusonic.net/2009/12/fluster2-011-with-significant-performance-improvements/</a>
+discusses that problem.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg503">msg503 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2010-10-09.18:01:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I got around to getting a test database working.
+
+It highlights locally why why the current openhatch.org/
+people/ is so slow...
+
+Including all files attached for your perusal,
+1. a couple are base scripts that I used to generate the 
+database.
+2. the other couple are the actual databases that I generated.
+
+I'll start work on figuring out how to get your site to 
+generate a KML file every time somebody is
+added.
+
+IMO - This is the best solution.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg498">msg498 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-08.22:10:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think this would be a quick fix, really.
+
+<a href="http://www.mail-archive.com/google-maps-js-api-v3@googlegroups.com/msg05553.html">http://www.mail-archive.com/google-maps-js-api-v3@googlegroups.com/msg05553.html</a>
+is a discussion started by Raffi (== dithyramble) to figure out what we can do.
+
+One difficulty is that if you're not Asheesh, you don't have access to all the
+Person objects in our database. (Locations are stored inside the Person.) That
+means that your local install won't have a lot of markers, so it'd be hard to
+reproduce the performance problem.
+
+You could help with the data export bug if you want to address that -- see
+<a href="http://openhatch.org/bugs/issue156">http://openhatch.org/bugs/issue156</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg420">msg420 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-09-07.17:27:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Try going to <a href="https://openhatch.org/people/?center=India">https://openhatch.org/people/?center=India</a> and browsing around,
+zooming in and out. It's "too slow to be effective", as rindolf put it on IRC.
+
+Come to #openhatch on IRC and talk about it with us if you want to help fix it.
+We could use the help!</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-06-01&nbsp;02:02:34</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg1978">msg1978</a></td></tr>
+<tr><td>2011-05-28&nbsp;01:15:20</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> (no value)</td></tr>
+<tr><td>2011-05-28&nbsp;01:08:40</td><td>paulproteus</td><td>set</td><td>status: deferred -> chatting<br />messages:
+  + <a href="msg1909">msg1909</a></td></tr>
+<tr><td>2011-04-11&nbsp;23:21:26</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-11&nbsp;23:21:20</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1475">msg1475</a><br />milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-03&nbsp;09:57:36</td><td>palhmbs</td><td>set</td><td>status: in-progress -> deferred<br />messages:
+  + <a href="msg1410">msg1410</a></td></tr>
+<tr><td>2011-03-19&nbsp;21:01:36</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a> -> <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg1302">msg1302</a></td></tr>
+<tr><td>2011-02-19&nbsp;22:11:38</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-02-19&nbsp;22:08:08</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user40">zathras</a> -> <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1128">msg1128</a></td></tr>
+<tr><td>2011-02-19&nbsp;20:09:59</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1122">msg1122</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:23:20</td><td>zathras</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a> -> <a href="user40">zathras</a><br />nosy:
+  + <a href="user40">zathras</a></td></tr>
+<tr><td>2010-11-24&nbsp;22:34:31</td><td>zathras</td><td>set</td><td>files:
+  + <a href="file99">open_python_geodecoders.tgz</a><br />messages:
+  + <a href="msg604">msg604</a></td></tr>
+<tr><td>2010-11-15&nbsp;21:22:40</td><td>zathras</td><td>set</td><td>messages:
+  + <a href="msg554">msg554</a></td></tr>
+<tr><td>2010-11-15&nbsp;21:01:27</td><td>zathras</td><td>set</td><td>files:
+  + <a href="file93">geocoder.php</a><br />messages:
+  + <a href="msg553">msg553</a></td></tr>
+<tr><td>2010-11-15&nbsp;21:00:39</td><td>zathras</td><td>set</td><td>files:
+  + <a href="file92">open_python_geodecoder.tgz</a><br />messages:
+  + <a href="msg552">msg552</a></td></tr>
+<tr><td>2010-11-13&nbsp;21:47:53</td><td>zathras</td><td>set</td><td>messages:
+  + <a href="msg539">msg539</a></td></tr>
+<tr><td>2010-10-14&nbsp;04:11:32</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg515">msg515</a></td></tr>
+<tr><td>2010-10-12&nbsp;06:15:15</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg508">msg508</a></td></tr>
+<tr><td>2010-10-12&nbsp;05:44:28</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg507">msg507</a></td></tr>
+<tr><td>2010-10-12&nbsp;04:07:13</td><td>nelson</td><td>set</td><td>nosy:
+  + <a href="user43">nelson</a></td></tr>
+<tr><td>2010-10-10&nbsp;04:16:36</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg504">msg504</a></td></tr>
+<tr><td>2010-10-09&nbsp;18:01:29</td><td>palhmbs</td><td>set</td><td>status: chatting -> in-progress<br />assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg503">msg503</a><br />files:
+  + <a href="file82">geocode_openhatch.tar.bz2</a><br />nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2010-10-08&nbsp;22:10:48</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg498">msg498</a></td></tr>
+<tr><td>2010-09-07&nbsp;17:27:54</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

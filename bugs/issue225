@@ -1,0 +1,466 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 225: Launchpad bug importer fails on 4-byte utf8 characters - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue225
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue225">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue225">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Launchpad bug importer fails on 4-byte utf8 characters</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-24.19:46:29</b> by <b>pythonian4000</b>, last changed <b>2011-01-28.20:57:56</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg840">msg840 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-28.20:57:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>As an update to the story:
+
+I failed to notice that this ticket *does* contain a patch that writes a test.
+Thank goodness.
+
+That's pushed to origin/master. Pardon my sloppiness in failing to notice that
+earlier!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg829">msg829 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-28.16:19:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Okay, I'm shipping this. But if this causes an exception, then you're going to
+have to write a test for it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg823">msg823 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-28.10:09:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Eh, couldn't be bothered waiting and temporarily commented out the Launchpad
+freshness check =P Patch functions perfectly, so here it is:
+
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=c69d5a9bad4a4efce16e4a136779a06554872535">http://git.jackgrigg.com/openhatch/patch/?id=c69d5a9bad4a4efce16e4a136779a06554872535</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg821">msg821 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-28.05:52:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have a patch ready that makes the test pass, but I will wait until I have
+checked the importer tomorrow before posting it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg820">msg820 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-28.03:14:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hmm, that is strange... I haven't even started fixing this yet and the Launchpad
+importer runs fine. I will have to check the code, but maybe the Bug's
+"last_polled" field is being correctly updated while the description failed, and
+so even though it failed the later runs think it is fresh. I will implement a
+fix anyway but will try the Launchpad importer again tomorrow before
+implementing it to see what's up...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg817">msg817 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-28.00:10:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here is a patch for a test that checks the Launchpad data dict method removes
+any 4-byte UTF8 (it currently fails):
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=ae2eff1aa9d53d4dd0679966f7f0275b91361e3c">http://git.jackgrigg.com/openhatch/patch/?id=ae2eff1aa9d53d4dd0679966f7f0275b91361e3c</a>
+
+See here for discussion on the bug:
+<a href="http://irclogs.jackgrigg.com/irc.freenode.net/openhatch/2011-01-27#i_2521699A">http://irclogs.jackgrigg.com/irc.freenode.net/openhatch/2011-01-27#i_2521699A</a>
+
+As per the end of the discussion, I will write a base helper that takes an
+arbitrary dict and sterilizes it of any 4-byte UTF8 it can find, and I'll run it
+over the launchpad data dict.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg783">msg783 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-24.19:46:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>2011-01-24 14:09:59,465 refresh_one_launchpad_bug:197 INFO     Checking on
+<a href="https://bugs.launchpad.net/bugs/657268...">https://bugs.launchpad.net/bugs/657268...</a>
+2011-01-24 14:09:59,467 refresh_one_launchpad_bug:211 INFO     Refreshing
+<a href="https://bugs.launchpad.net/bugs/657268.">https://bugs.launchpad.net/bugs/657268.</a>
+Traceback (most recent call last):
+  File "./bin/mysite", line 81, in &lt;module&gt;
+    djangorecipe.manage.main('mysite.settings')
+  File
+"/home/jack/git/public/openhatch/eggs/djangorecipe-0.20-py2.6.egg/djangorecipe/manage.py",
+line 16, in main
+    management.execute_manager(mod)
+  File
+"/home/jack/git/public/openhatch/parts/sqlite_mysite/django/core/management/__init__.py",
+line 362, in execute_manager
+    utility.execute()
+  File
+"/home/jack/git/public/openhatch/parts/sqlite_mysite/django/core/management/__init__.py",
+line 303, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File
+"/home/jack/git/public/openhatch/parts/sqlite_mysite/django/core/management/base.py",
+line 195, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File
+"/home/jack/git/public/openhatch/parts/sqlite_mysite/django/core/management/base.py",
+line 222, in execute
+    output = self.handle(*args, **options)
+  File
+"/home/jack/git/public/openhatch/mysite/customs/management/commands/customs_daily_tasks.py",
+line 194, in handle
+    self.update_launchpad_hosted_projects()
+  File
+"/home/jack/git/public/openhatch/mysite/customs/management/commands/customs_daily_tasks.py",
+line 160, in update_launchpad_hosted_projects
+   
+mysite.customs.bugtrackers.launchpad.refresh_bugs_from_all_indexed_launchpad_projects()
+  File
+"/home/jack/git/public/openhatch/mysite/customs/bugtrackers/launchpad.py", line
+166, in refresh_bugs_from_all_indexed_launchpad_projects
+    openhatch_project_name)
+  File
+"/home/jack/git/public/openhatch/eggs/celery-1.0.5-py2.6.egg/celery/task/base.py",
+line 208, in __call__
+    return self.run(*args, **kwargs)
+  File
+"/home/jack/git/public/openhatch/eggs/celery-1.0.5-py2.6.egg/celery/decorators.py",
+line 52, in run
+    return fun(*args, **kwargs)
+  File
+"/home/jack/git/public/openhatch/mysite/customs/bugtrackers/launchpad.py", line
+182, in import_bugs_from_one_project
+    openhatch_project_name=openhatch_project_name)
+  File
+"/home/jack/git/public/openhatch/eggs/celery-1.0.5-py2.6.egg/celery/task/base.py",
+line 208, in __call__
+    return self.run(*args, **kwargs)
+  File
+"/home/jack/git/public/openhatch/eggs/celery-1.0.5-py2.6.egg/celery/decorators.py",
+line 52, in run
+    return fun(*args, **kwargs)
+  File
+"/home/jack/git/public/openhatch/mysite/customs/bugtrackers/launchpad.py", line
+236, in refresh_one_launchpad_bug
+    bug.save()
+  File
+"/home/jack/git/public/openhatch/parts/sqlite_mysite/django/db/models/base.py",
+line 431, in save
+    self.save_base(force_insert=force_insert, force_update=force_update)
+  File
+"/home/jack/git/public/openhatch/parts/sqlite_mysite/django/db/models/base.py",
+line 495, in save_base
+    rows = manager.filter(pk=pk_val)._update(values)
+  File
+"/home/jack/git/public/openhatch/parts/sqlite_mysite/django/db/models/query.py",
+line 448, in _update
+    return query.execute_sql(None)
+  File
+"/home/jack/git/public/openhatch/parts/sqlite_mysite/django/db/models/sql/subqueries.py",
+line 124, in execute_sql
+    cursor = super(UpdateQuery, self).execute_sql(result_type)
+  File
+"/home/jack/git/public/openhatch/parts/sqlite_mysite/django/db/models/sql/query.py",
+line 2347, in execute_sql
+    cursor.execute(sql, params)
+  File
+"/home/jack/git/public/openhatch/parts/sqlite_mysite/django/db/backends/util.py", line
+19, in execute
+    return self.cursor.execute(sql, params)
+  File
+"/home/jack/git/public/openhatch/parts/sqlite_mysite/django/db/backends/mysql/base.py",
+line 84, in execute
+    return self.cursor.execute(query, args)
+  File
+"/home/jack/git/public/openhatch/eggs/MySQL_python-1.2.3-py2.6-linux-x86_64.egg/MySQLdb/cursors.py",
+line 176, in execute
+    if not self._defer_warnings: self._warning_check()
+  File
+"/home/jack/git/public/openhatch/eggs/MySQL_python-1.2.3-py2.6-linux-x86_64.egg/MySQLdb/cursors.py",
+line 92, in _warning_check
+    warn(w[-1], self.Warning, 3)
+_mysql_exceptions.Warning: Incorrect string value: '\xF0\x90\x91\x91\xF0\x90...'
+for column 'description' at row 1
+
+Looking at the Launchpad page in question, it is a bug about Gnome crashing on
+wide (4-byte) utf8 characters, and it gives three character examples which
+correspond to these six hex characters.
+
+This is annoying.
+
+We need to add support into... somewhere... for 4-byte utf8 characters, either
+by allowing their storage or culling them from any message they are contained in.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-01-28&nbsp;20:57:56</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2011-01-28&nbsp;20:57:52</td><td>paulproteus</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg840">msg840</a></td></tr>
+<tr><td>2011-01-28&nbsp;16:19:19</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg829">msg829</a></td></tr>
+<tr><td>2011-01-28&nbsp;10:09:23</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg823">msg823</a></td></tr>
+<tr><td>2011-01-28&nbsp;05:52:35</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg821">msg821</a></td></tr>
+<tr><td>2011-01-28&nbsp;03:14:15</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg820">msg820</a></td></tr>
+<tr><td>2011-01-28&nbsp;00:10:24</td><td>pythonian4000</td><td>set</td><td>status: unread -> need-review<br />assignedto: <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg817">msg817</a></td></tr>
+<tr><td>2011-01-24&nbsp;19:46:58</td><td>pythonian4000</td><td>set</td><td>milestone: <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2011-01-24&nbsp;19:46:29</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

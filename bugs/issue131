@@ -1,0 +1,387 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 131: answers on project page don't allow for paragraph breaks - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue131
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue131">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue131">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">answers on project page don't allow for paragraph breaks</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.10.11</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jesstess, willkahngreene
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>jesstess</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-08-26.22:31:17</b> by <b>willkahngreene</b>, last changed <b>2010-12-09.23:54:11</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file104/issue131.tar.gz">issue131.tar.gz</a>
+  </td>
+  <td>
+   <span>jesstess</span>,
+   <span>2010-12-09.02:34:04</span>
+  </td>
+  <td>application/x-compressed</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file106/issue131_test_sans_customs.txt">issue131_test_sans_customs.txt</a>
+  </td>
+  <td>
+   <span>jesstess</span>,
+   <span>2010-12-09.02:35:02</span>
+  </td>
+  <td>text/plain</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file105/issue131_test_search.txt">issue131_test_search.txt</a>
+  </td>
+  <td>
+   <span>jesstess</span>,
+   <span>2010-12-09.02:34:50</span>
+  </td>
+  <td>text/plain</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg627">msg627 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-09.23:54:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey Jess,
+
+Some feedback on these patches:
+
+* 0001 is great. Thank you for looking into this bug. You chose to use
+'linebreaks' rather than 'linebreaksbr'. Elsewhere we use 'linebreaksbr' but
+actually I like your way better. For that reason I've switched our other uses to
+the 'linebreaks' filter.
+
+* When applying 0002, git gives me an error about "whitespace errors". Some of
+your lines end in a space character. Nerdy people all over the Internet seem to
+dislike this, but I don't really understand why. I'm glad that you fixed them in
+0003. I fixed a few more that were lingering in comments.
+
+So -- cleanup patches are welcome. There isn't a code style document. I haven't
+given code style a great deal of explicit thought; the nicest thing would be if
+we can just adopt someone else's code style document (-:
+
+---
+
+As for the test failures... yes, um, eeek. Those are known issues in the sense
+that I know about them, but we should really fix those failing tests, as they're
+decreasing the usefulness of the test suite!
+
+--
+
+I'm marking this as resolved -- I just checked Will's profile, and it does the
+spacing properly!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg625">msg625 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2010-12-09.02:42:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've attached a patch addressing the missing paragraph breaks, plus a test. Two
+other commits clean up unused imports and variables and remove trailing
+whitespace. (paulproteus: if you'd prefer that I not do this cosmetic clean-up,
+or if I'm not keeping with style guidelines OpenHatch has, please let me know --
+I didn't see a style document on the wiki)
+
+As an aside, after following the README instructions I seem to have an
+environment in which many tests fail. I've attached the output from
+test_sans_customs and the search tests as examples, in case that's useful. I did
+verify that no new tests failed after adding these commits.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg413">msg413 (view)</a></th>
+   <th>Author: willkahngreene</th>
+   <th>Date: 2010-08-26.22:31:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just created a new answer on the Miro project page here:
+
+   <a href="http://openhatch.org/+projects/Miro">http://openhatch.org/+projects/Miro</a>
+
+The answer was this:
+
+"""
+Miro is built by a community of people doing a variety of activities: using
+Miro, bug triage, testing, translating, documenting and development.
+
+
+First thing to do is read through this page to see whether we have needs that
+match your skills and inclinations.
+
+Second thing to do is to reach out and say hi.  We hang out on IRC on
+#miro-hackers on freenode.net.
+
+Additionally, we have a develop mailing list.  Details of the mailing list are
+at <a href="http://mailman.pculture.org/listinfo/develop">http://mailman.pculture.org/listinfo/develop</a> .
+
+If you want to reach out to an individual rather than a public forum, feel free
+to email me directly.
+"""
+
+The answer shows up as one big paragraph rather than several small paragraphs. 
+Looks like other answers I've written up have paragraphs, so this seems like a bug.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-12-09&nbsp;23:54:11</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved</td></tr>
+<tr><td>2010-12-09&nbsp;23:54:04</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg627">msg627</a><br />milestone: <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-12-09&nbsp;02:42:23</td><td>jesstess</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg625">msg625</a></td></tr>
+<tr><td>2010-12-09&nbsp;02:35:03</td><td>jesstess</td><td>set</td><td>files:
+  + <a href="file106">issue131_test_sans_customs.txt</a></td></tr>
+<tr><td>2010-12-09&nbsp;02:34:50</td><td>jesstess</td><td>set</td><td>files:
+  + <a href="file105">issue131_test_search.txt</a></td></tr>
+<tr><td>2010-12-09&nbsp;02:34:04</td><td>jesstess</td><td>set</td><td>files:
+  + <a href="file104">issue131.tar.gz</a></td></tr>
+<tr><td>2010-12-07&nbsp;04:34:21</td><td>jesstess</td><td>set</td><td>status: unread -> in-progress</td></tr>
+<tr><td>2010-12-07&nbsp;04:34:14</td><td>jesstess</td><td>set</td><td>assignedto: <a href="user12">jesstess</a></td></tr>
+<tr><td>2010-11-27&nbsp;21:55:07</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2010-08-26&nbsp;22:31:17</td><td>willkahngreene</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

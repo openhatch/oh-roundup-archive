@@ -1,0 +1,516 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 179: Refactor existing missions code to use a pagestate class - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue179
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue179">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue179">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Refactor existing missions code to use a pagestate class</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.10.12</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jesstess, paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-11-17.21:48:30</b> by <b>paulproteus</b>, last changed <b>2010-12-19.16:38:48</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg665">msg665 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-19.16:38:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Some thoughts:
+
+Sweet, the tests all pass!
+
+I try to avoid "*" imports in our codebase, but I think that it makes sense
+here. If we do, we should use __all__ in mysite.missions.base.views to limit
+what we import to only what we need.
+
+I also see now that the POST handlers would be nicer at the end of the file,
+since the GET handlers are referred-to by them.
+
+I see now that we're calling out to super() just to pass in the mission name
+("Tar"), so we should probably just make that an attribute of the
+TarMissionPageState class. Then we could skip the __init__() method in the
+subclasses.
+
+Having said all that, this is good! Thanks for picking up, and I've marked this
+as resolved. Pushed and deployed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg664">msg664 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-12-19.11:11:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right, I have fixed the errors I was getting in the missions tests andd moved to
+using super(). Here are the four commits you want (the first is the commit from
+earlier, just rebased so different hash):
+
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=ed804be240d5d71923f7f86cecd46100547c60c1">http://git.jackgrigg.com/openhatch/patch/?id=ed804be240d5d71923f7f86cecd46100547c60c1</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=d7b8fa860059be6b5c14e1dcecf5963f7193f141">http://git.jackgrigg.com/openhatch/patch/?id=d7b8fa860059be6b5c14e1dcecf5963f7193f141</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=5804d586b87d654a7121236d431983001afae4e2">http://git.jackgrigg.com/openhatch/patch/?id=5804d586b87d654a7121236d431983001afae4e2</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=0d934cca9a0c3c9a951a26cf62a1ef6095b4c9de">http://git.jackgrigg.com/openhatch/patch/?id=0d934cca9a0c3c9a951a26cf62a1ef6095b4c9de</a>
+
+This covers (I think) everything Asheesh mentions up to a pre-reset world. Thoughts?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg663">msg663 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-12-19.09:42:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>QUOTE:
+"
+There are these variables like diffsingle_success. They're intended to pass some
+state about the mission down into the template. In the case of
+diffsingle_sucess, I think it means that the single-file diff mission page
+should tell the user that the mission was *just* completed. You set that to
+False and never give it a value, making the template variable not very useful.
+"
+
+This was actually the cause of some of the test failures, and was due to me
+accidentally reversing the order in which data was set. Those default=False
+statements were as you had them, but then you updated the data from a passed-in
+array. In my code, the passed-in array is updated by the underlying
+MissionPageState class and then overwritten by the default values ~_~
+
+My fix for this is to set the default data values in the same functions where
+the tests for the non-defaultness of the keys are... Gramatically the last
+sentence fails but I think overall it makes sense =)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg657">msg657 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-18.21:35:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Mission pages, like the "Create a tarball" mission, always have some basic state
+that's just part of them being a mission.
+
+If we can simplify the Django view function that generates that view, we can
+make it easier to create new ones.
+
+Jack has a patch in his repository (but sadly it fails some tests) (and he's on
+vacation) that does that.
+
+Next steps:
+
+* Apply his patch to your local repository
+* Fix everything until the tests work
+
+(or change existing behavior and tests)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg650">msg650 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-16.00:04:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Sadly we didn't get this done during 0.10.11. It would be great to have this
+done for 0.10.12.
+
+Jack's patch on the ticket is a good start.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg631">msg631 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-10.22:42:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Jack's going on a trip, so assigning to nobody!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg592">msg592 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-22.23:08:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey Jack!
+
+A few thoughts:
+
+On superclass constructors: You should use super(). See
+<a href="http://stackoverflow.com/questions/904036/chain-calling-parent-constructors-in-python">http://stackoverflow.com/questions/904036/chain-calling-parent-constructors-in-python</a>
+
+There are these variables like diffsingle_success. They're intended to pass some
+state about the mission down into the template. In the case of
+diffsingle_sucess, I think it means that the single-file diff mission page
+should tell the user that the mission was *just* completed. You set that to
+False and never give it a value, making the template variable not very useful.
+
+One fix is to change your code so that you fill that variable with whatever
+value I used to.
+
+Oh, and a whole bunch of missions tests fail. (-:
+
+But generally, this is totally along the lines of what I was looking for. So I'd
+say you're getting there!
+
+---
+
+And now, some rambling notes about the way the code is organized:
+
+As for the diffsingle_success variable and friends: There are a few variables
+that indicate that you *just* completed the mission step on this very page load,
+and another set that indicate that the mission step is completed in general.
+This is the way we modeled things before we thought about "reset"ing a mission
+to uncompleted state. It's probably best for this first patch to respect the
+thinking of a pre-reset world.
+
+A follow-up patch would be really great that makes these things even simpler.
+Things like diffsuccess_done should somehow be abstract over
+MissionStepCompletion objects; maybe we shouldn't this state into the template,
+but instead the view should declare the MissionStepCompletion name that this
+page refers to, and then some generic code in the template can alternate between
+(a) showing the user the input form and (b) showing the user the happy success
+message.
+
+I hope that made some sense. Those are my notes for a refactoring that you're
+not necessarily undertaking at this moment, so we can keep discussing that part.
+The test failures -- *that*'s urgent!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg591">msg591 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-11-22.11:38:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here is a commit for the first (well, second ^_^) part of the bug - all missions
+now use a subclass of a generic MissionPageTemplate:
+
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=14f31b99860c340c59c41b3266f440695471ac5d">http://git.jackgrigg.com/openhatch/patch/?id=14f31b99860c340c59c41b3266f440695471ac5d</a>
+
+Is this what you were thinking of?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg577">msg577 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-20.21:39:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>In
+<a href="http://gitorious.org/openhatch/oh-mainline/commit/4fa7ad70e4edeef99b4f2c7bb3e96871422f0074">http://gitorious.org/openhatch/oh-mainline/commit/4fa7ad70e4edeef99b4f2c7bb3e96871422f0074</a>
+I re-organized the Subversion training mission code so that the views send their
+information to a PageState class, which then generates the dictionary that we
+pass to the template.
+
+It would be great to:
+
+* Change the other missions' templates so that they use the new, simpler
+mission_main_body block
+
+* Change the other missions' views.py so that they use a similar state handling
+class
+
+* Change the SvnMissionPageState to be a subclass of some master, state-handling
+class.
+
+This way, when we want to write a new mission, it will be simpler. (-:
+
+(Jack, I made you nosy 'cause I secretly hope you might take this on.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg561">msg561 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-17.21:48:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is the first step on the path to having a coherent Mission HOWTO.
+
+The missions have a good test suite, so this is actually a good first task for
+someone.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-12-19&nbsp;16:38:48</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved</td></tr>
+<tr><td>2010-12-19&nbsp;16:38:41</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg665">msg665</a></td></tr>
+<tr><td>2010-12-19&nbsp;11:11:29</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-review<br />assignedto: <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg664">msg664</a></td></tr>
+<tr><td>2010-12-19&nbsp;09:42:55</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg663">msg663</a></td></tr>
+<tr><td>2010-12-18&nbsp;21:35:39</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg657">msg657</a><br />title: Refactor existing missions code -> Refactor existing missions code to use a pagestate class</td></tr>
+<tr><td>2010-12-18&nbsp;21:32:07</td><td>paulproteus</td><td>set</td><td>title: Go through existing missions, figure out why they are coded the way they are, and make them more like each other -> Refactor existing missions code</td></tr>
+<tr><td>2010-12-16&nbsp;00:04:33</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg650">msg650</a><br />milestone: <a href="milestone2">0.10.11</a> -> <a href="milestone3">0.10.12</a></td></tr>
+<tr><td>2010-12-10&nbsp;22:42:17</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user34">pythonian4000</a> -> (no value)<br />messages:
+  + <a href="msg631">msg631</a></td></tr>
+<tr><td>2010-11-27&nbsp;21:52:48</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2010-11-22&nbsp;23:08:47</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting<br />messages:
+  + <a href="msg592">msg592</a></td></tr>
+<tr><td>2010-11-22&nbsp;22:11:53</td><td>pythonian4000</td><td>set</td><td>assignedto: <a href="user34">pythonian4000</a></td></tr>
+<tr><td>2010-11-22&nbsp;21:24:36</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-review</td></tr>
+<tr><td>2010-11-22&nbsp;11:38:28</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg591">msg591</a></td></tr>
+<tr><td>2010-11-20&nbsp;21:39:14</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg577">msg577</a><br />milestone: <a href="milestone3">0.10.12</a> -> <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-11-17&nbsp;21:48:30</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

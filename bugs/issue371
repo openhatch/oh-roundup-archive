@@ -1,0 +1,377 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 371: Rename project_name to tracker_name in customs.* - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue371
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue371">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue371">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Rename project_name to tracker_name in customs.*</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.03</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-04-10.15:50:55</b> by <b>pythonian4000</b>, last changed <b>2011-04-13.03:12:28</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1484">msg1484 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-13.03:12:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Actually, I just fixed this and pushed.
+
+Hudson will be unhappy with the OhlohIconTests because ohloh.net is down.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1483">msg1483 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-13.02:57:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://linode2.openhatch.org:8080/job/Test%20the%20%22customs%22%20app/132/testReport/">http://linode2.openhatch.org:8080/job/Test%20the%20%22customs%22%20app/132/testReport/</a>
+says Hudson is not happy. If you ask me to, I can look into that rather than you.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1480">msg1480 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-13.02:50:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This looks great. Pushing to Hudson; once it's satisfied, I'll deploy a bunch of
+your changes!
+
+Marking 'resolved' because it's on origin/master, and on track for deployment.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1477">msg1477 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-12.01:12:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Erk, I missed changing the /customs/ URL matches in urls.py. Final amended patch:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=348d5698ef6b194397b40c17d0626c5de2ea5d8c">http://git.jackgrigg.com/openhatch/patch/?id=348d5698ef6b194397b40c17d0626c5de2ea5d8c</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1469">msg1469 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-11.17:14:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Erk, the patch was combined with help-text changes in the twisted-importer
+branch, so I ended up just editing the commit in a rebase. Amended patch:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=ddbd42695fd0e5456f88bf4b1a97e8c5eec59d64">http://git.jackgrigg.com/openhatch/patch/?id=ddbd42695fd0e5456f88bf4b1a97e8c5eec59d64</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1467">msg1467 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-11.16:37:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This looks good. Can you also submit the patch that changes the help_text?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1461">msg1461 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-10.19:10:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Whoops again, I missed some bits. This is the correct one, promise!
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=35f06925b916a42f154e4434ced9a85d87400e3f">http://git.jackgrigg.com/openhatch/patch/?id=35f06925b916a42f154e4434ced9a85d87400e3f</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1460">msg1460 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-10.17:38:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Whoops, I forgot to include a migration. Here is the fixed patch:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=c9f31c7098fba7e833237c694f1a7fb75ada4495">http://git.jackgrigg.com/openhatch/patch/?id=c9f31c7098fba7e833237c694f1a7fb75ada4495</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1458">msg1458 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-10.15:50:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a case of bad and confusing terminology, which I am attempting to clear
+up between this and the asynchronous importer (Project vs. Tracker vs.
+Importer). Fixed here:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=518e45853a5bd72dc118b2320263a47545cc4bf4">http://git.jackgrigg.com/openhatch/patch/?id=518e45853a5bd72dc118b2320263a47545cc4bf4</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-13&nbsp;03:12:28</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg1484">msg1484</a></td></tr>
+<tr><td>2011-04-13&nbsp;02:57:56</td><td>paulproteus</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg1483">msg1483</a></td></tr>
+<tr><td>2011-04-13&nbsp;02:50:30</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1480">msg1480</a></td></tr>
+<tr><td>2011-04-12&nbsp;01:12:50</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1477">msg1477</a></td></tr>
+<tr><td>2011-04-11&nbsp;17:14:33</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1469">msg1469</a></td></tr>
+<tr><td>2011-04-11&nbsp;16:37:20</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1467">msg1467</a></td></tr>
+<tr><td>2011-04-10&nbsp;19:10:01</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1461">msg1461</a></td></tr>
+<tr><td>2011-04-10&nbsp;17:38:22</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1460">msg1460</a></td></tr>
+<tr><td>2011-04-10&nbsp;15:50:56</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

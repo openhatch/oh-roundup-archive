@@ -1,0 +1,442 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 72: next= doesn't survive OpenID logins - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue72
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue72">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue72">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">next= doesn't survive OpenID logins</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.02</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mark, paulproteus, trisk
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  javascript
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-04-25.01:23:19</b> by <b>trisk</b>, last changed <b>2011-02-12.20:07:21</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1025">msg1025 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-12.20:07:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It was only a problem if you were already logged in. I think JavaScript was a
+red herring.
+
+Now, if you are logged in,
+<a href="http://openhatch.org/account/login/?next=/wiki/Main_Page">http://openhatch.org/account/login/?next=/wiki/Main_Page</a> sends you straight to
+<a href="http://openhatch.org/wiki/Main_Page">http://openhatch.org/wiki/Main_Page</a> with a HTTP 302 redirect. Yay!
+
+Resolved, I think. If someone finds a case where this is still a problem, then
+by all means</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg995">msg995 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-05.22:27:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>&lt;pythonian4000&gt; <a href="http://openhatch.org/account/login/?next=/wiki/Main_Page">http://openhatch.org/account/login/?next=/wiki/Main_Page</a>
+&lt;paulproteus&gt; er, it ate it.
+&lt;paulproteus&gt; lame.
+&lt;pythonian4000&gt; Hmm, that actually worked. Derr.
+&lt;paulproteus&gt; It ate it for me, but maybe 'cause I'm logged in.
+&lt;pythonian4000&gt; Did yours not work?
+&lt;paulproteus&gt; I adjusted the link actually
+&lt;paulproteus&gt; I used
+<a href="https://openhatch.org/account/login/?next=http://openhatch.org/wiki/Main_Page">https://openhatch.org/account/login/?next=http://openhatch.org/wiki/Main_Page</a>
+and <a href="http://openhatch.org/account/login/?next=http://openhatch.org/wiki/Main_Page">http://openhatch.org/account/login/?next=http://openhatch.org/wiki/Main_Page</a>
+&lt;paulproteus&gt; Those failed
+&lt;paulproteus&gt; And <a href="http://openhatch.org/account/login/?next=/wiki/Main_Page">http://openhatch.org/account/login/?next=/wiki/Main_Page</a> ate
+it also for me.
+&lt;paulproteus&gt; I'll leave these notes in <a href="issue72">issue72</a> and debug this week.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg994">msg994 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-05.22:23:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a blocker for <a href="https://openhatch.org/bugs/issue264">https://openhatch.org/bugs/issue264</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg319">msg319 (view)</a></th>
+   <th>Author: rafpaf</th>
+   <th>Date: 2010-06-30.20:20:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The problem is only on http:// not https://!!!
+
+Proposed next steps.
+* we wrote the post handler for openid login. let's read that carefully
+* always put people on https for login</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg239">msg239 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-06-10.12:40:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>OK, I've looked at this a bit more and definitely think the issue is in the
+javascript for the login links. next|urlencode is set on the links every where,
+but something in the js must be leaving the spaces, which kills the url. If the
+url contains no spaces or special characters, it works fine.
+
+This is another example of one where the %20 is getting stripped.
+
+<a href="http://openhatch.org/account/login/?next=/%2Bprojedit/digikam%20image%20plugins">http://openhatch.org/account/login/?next=/%2Bprojedit/digikam%20image%20plugins</a>
+
+Looks like we need a js person to take a look.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg205">msg205 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-16.21:38:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've looked at this and all of the redirect code seems to be handled by django
+itself, unless I am missing something. The settings.LOGIN_REDIRECT_URL only
+comes into play (which is currently set to "/") if a 'next' isn't specified, or
+if the url settings doesn't look for a different redirect_field_name. 
+
+Here's the interesting thing, if I try it with this URL, it appears to work fine. 
+
+<a href="http://openhatch.org/account/login/?next=/%2bprojects/pyLilyDTK">http://openhatch.org/account/login/?next=/%2bprojects/pyLilyDTK</a>
+
+I noticed that the %20 (the space in the project name) is getting lost when the
+link is created to log in via Google, OpenId, etc.  If the project name doesn't
+contain the space, the redirect is fine. For some reason, I don't seem to be
+able to find the view that is generating those links. Any hints from someone
+familiar with that portion of the code? Note, I am not a javascript guy, if that
+is what is producing the link. It sounds like I need to learn a little. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg201">msg201 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-13.22:14:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I would be glad to.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg200">msg200 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-05-13.20:58:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I don't know if this is a bug in JavaScript, or instead in Python code that 
+handles this.
+
+Mark (timewasted), if you feel like giving this a look, that would rule.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg173">msg173 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-04-28.03:04:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Wow, it is broken. That's weird -- I thought I fixed that a few weeks ago.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg170">msg170 (view)</a></th>
+   <th>Author: trisk</th>
+   <th>Date: 2010-04-25.01:23:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Logging in through OpenID at
+<a href="http://openhatch.org/account/login/?next=/%2Bprojedit/OpenSolaris%20OS/Net">http://openhatch.org/account/login/?next=/%2Bprojedit/OpenSolaris%20OS/Net</a>
+redirects me to <a href="http://openhatch.org/">http://openhatch.org/</a> instead of the expected target.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-02-26&nbsp;00:46:47</td><td>pythonian4000</td><td>unlink</td><td><a href="issue264">issue264 superseder</a></td></tr>
+<tr><td>2011-02-16&nbsp;10:16:49</td><td>pythonian4000</td><td>link</td><td><a href="issue264">issue264 superseder</a></td></tr>
+<tr><td>2011-02-12&nbsp;20:07:21</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg1025">msg1025</a></td></tr>
+<tr><td>2011-02-05&nbsp;22:28:11</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a></td></tr>
+<tr><td>2011-02-05&nbsp;22:27:42</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg995">msg995</a></td></tr>
+<tr><td>2011-02-05&nbsp;22:23:23</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg994">msg994</a></td></tr>
+<tr><td>2011-02-05&nbsp;22:22:57</td><td>pythonian4000</td><td>set</td><td>milestone: <a href="milestone5">0.11.02</a></td></tr>
+<tr><td>2010-06-30&nbsp;20:20:22</td><td>rafpaf</td><td>set</td><td>messages:
+  + <a href="msg319">msg319</a></td></tr>
+<tr><td>2010-06-15&nbsp;23:45:41</td><td>Mark</td><td>set</td><td>assignedto: <a href="user29">Mark</a> -> (no value)</td></tr>
+<tr><td>2010-06-10&nbsp;12:40:51</td><td>Mark</td><td>set</td><td>messages:
+  + <a href="msg239">msg239</a></td></tr>
+<tr><td>2010-05-16&nbsp;21:38:57</td><td>Mark</td><td>set</td><td>nosy:
+  + <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg205">msg205</a></td></tr>
+<tr><td>2010-05-13&nbsp;22:14:33</td><td>Mark</td><td>set</td><td>assignedto: <a href="user29">Mark</a><br />messages:
+  + <a href="msg201">msg201</a></td></tr>
+<tr><td>2010-05-13&nbsp;20:58:25</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user29">Mark</a><br />messages:
+  + <a href="msg200">msg200</a><br />keyword:
+  + <a href="keyword3">javascript</a></td></tr>
+<tr><td>2010-04-28&nbsp;03:04:36</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg173">msg173</a></td></tr>
+<tr><td>2010-04-25&nbsp;19:30:57</td><td>trisk</td><td>set</td><td>title: text= doesn't survive OpenID logins -> next= doesn't survive OpenID logins</td></tr>
+<tr><td>2010-04-25&nbsp;01:23:19</td><td>trisk</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,759 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 343: Dev sites should serve out robots rules that prevents them from being spidered - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue343
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue343">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue343">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Dev sites should serve out robots rules that prevents them from being spidered</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Lorthirk, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-03-16.22:59:17</b> by <b>paulproteus</b>, last changed <b>2011-04-27.17:31:38</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file226/0001-Added-ROBOTS_NO_FOLLOW.patch">0001-Added-ROBOTS_NO_FOLLOW.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-04-20.21:12:04</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file255/0001-Added-robots.txt-management-created-new-restrictive-.patch">0001-Added-robots.txt-management-created-new-restrictive-.patch</a>
+  </td>
+  <td>
+   <span>Lorthirk</span>,
+   <span>2011-04-27.17:04:01</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1757">msg1757 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-27.17:31:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Er, Lorthirk, you're right; the robots.txt you include totally does work
+properly. I was mistaken.
+
+Pushed and deployed!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1756">msg1756 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-27.17:16:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Some remaining caveats:
+* The robots.txt we serve out from dev sites should be the 2-line "Block
+everything" robots
+* Minor minor style thing: Usually we write "# words" rather than "#words"
+i.e. we put a space in there.
+The first one is important to succeeding at the goal of the ticket.
+That's all I have for you! Otherwise it looks good, and the commit log message
+is quite reasonable.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1755">msg1755 (view)</a></th>
+   <th>Author: Lorthirk</th>
+   <th>Date: 2011-04-27.16:59:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I tried again with the patches. Hope it's ok now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1749">msg1749 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-27.00:43:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Lorthirk,
+
+These patches look good, except for one thing: They're not in "git format-patch"
+form. You have to make a local commit, including a commit log message, and then
+create a patch file from that.
+<a href="http://openhatch.org/wiki/How_to_generate_patches_with_git_format-patch">http://openhatch.org/wiki/How_to_generate_patches_with_git_format-patch</a> has some
+instructions, but it should be as easy as:
+
+* Make the commit
+* git format-patch origin/master
+
+We like commits that are in that form because they let you leave a log message
+that explains what you did, and also we can celebrate that you are the author of
+the commit.
+
+Sorry I took a few days to get back to you about this!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1715">msg1715 (view)</a></th>
+   <th>Author: Lorthirk</th>
+   <th>Date: 2011-04-23.22:06:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>New restrictive robots.txt created under mysite/base/templates, and reverted the 
+old one to mysite/static</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1713">msg1713 (view)</a></th>
+   <th>Author: Lorthirk</th>
+   <th>Date: 2011-04-23.21:43:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Removed the unnecessary comment. Are you sure about the missing robots.txt though? 
+I see it in mysite/base/templates directory...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1706">msg1706 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-23.17:42:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Some feedback:
+
+* If you comment something out of urls.py, just delete it instead. That 
+way future people who read what the code aren't distracted by abandoned 
+ideas.
+
+* direct_to_template looks good.
+
+* You didn't 'git add' the robots.txt file.
+
+The patch itself looks good, but it's missing the robots.txt file, so 
+it can't quite work yet. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1704">msg1704 (view)</a></th>
+   <th>Author: Lorthirk</th>
+   <th>Date: 2011-04-23.17:29:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, I moved robots.txt to templates folder. Patch is attached (I used PyCharm's Git 
+patching, so if it's wrong please tell me and I'll use the method described in the 
+wiki).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1702">msg1702 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-23.16:48:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I would say, it's okay to have the robots.txt in the templates directory. 
+The redirect strikes me as a little odd.
+
+We should rename the static/robots.txt into static/production_robots.txt, 
+and then I will adjust the rewrite rules on the server.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1701">msg1701 (view)</a></th>
+   <th>Author: Lorthirk</th>
+   <th>Date: 2011-04-23.16:44:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm going through the issue. I have only one question: according to 
+<a href="http://fredericiana.com/2010/06/09/three-ways-to-add-a-robots-txt-to-your-django-">http://fredericiana.com/2010/06/09/three-ways-to-add-a-robots-txt-to-your-django-</a>
+project method 2, I should add a rule in urls.py to do a direct_to_template on 
+robots.txt HTTP request. The problem is that robots.txt is not actually in the 
+mysite/base/templates folder, but it's in mysite/static, so redirect_to_template 
+won't find it. Currently I have two solutions:
+
+1- move robots.txt to mysite/base/templates, but I honestly don't like it: 
+templates folder should hold just templates :)
+
+2- use redirect_to instead of direct_to_template. It works this way, but if I 
+manually look for <a href="http://localhost:8000/robots.txt">http://localhost:8000/robots.txt</a> I get redirected to 
+<a href="http://localhost:8000/static/robots.txt.">http://localhost:8000/static/robots.txt.</a> Is this a problem? Will bots find the 
+file anyway?
+
+Of course, other solutions are more than welcome.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1681">msg1681 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-21.21:45:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, because of feedback here and on IRC....
+
+I found this - <a href="http://fredericiana.com/2010/06/09/three-ways-to-add-a-robots-txt-">http://fredericiana.com/2010/06/09/three-ways-to-add-a-robots-txt-</a>
+to-your-django-project/
+
+And everyone agrees that step 2 is the one I should follow.
+
+I'm not sure that creating a wiki to run through adding the robots.txt is 
+needed...
+
+I'll will mentor Lorthirk in adding this sometime soon I hope.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1665">msg1665 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-21.14:38:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>To clarify the whitespace issue: When I look at the patch, I see there's a 
+comment that's modified -- "Where should the user be sent if she clicks 
+'logout'?"
+
+Since that comment whitespace change isn't related to the rest of the commit, 
+it should be in a separate patch, if at all.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1664">msg1664 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-21.14:37:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is almost correct: Two bits of feedback:
+
+1) You seem to have performed a whitespace change in mysite/base/decorators.py
+
+2) You should do 'from django.conf import settings'. See also 
+<a href="http://docs.djangoproject.com/en/1.2/topics/settings/">http://docs.djangoproject.com/en/1.2/topics/settings/</a> "Using settings in Python 
+code"
+
+3) (Optional) I would choose a different name, like PERMIT_ROBOTS. I like when 
+configuration variables are positive, rather than negative, so I don't end up 
+confused
+
+It looks quite good as-is.
+
+I admit, thinking this through right now, that we could probably make it work 
+by just adding a new URL to the Django app:
+
+/robots.txt
+
+and make that just serve up a very restrictive (noindex, etc.) robots.txt.
+
+Then on the deployment, I can personally configure the site to pass that 
+through to a different robots.txt.
+
+I'm a little unhappy mentioning that because it makes it sound like the work 
+you did can be redone in a WAY simpler way, which would imply that you wasted 
+time on doing it the hard way. Especially since the bug here was about doing it 
+the hard way, and now here I am swooping in at the last minute with a new, 
+simpler design. I'd take a patch that did it either way; if you want to keep 
+doing it the settings.py way, then follow the feedback above!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1657">msg1657 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.21:12:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So here it is - Files affected are: 
+ mysite/settings.py
+ mysite/deployment_settings.py
+ mysite/base/decorators.py
+ and test for True or False in
+ mysite/base/templates/base/base.html
+
+Hopefully this resolves it, please review.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1649">msg1649 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.11:37:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I discussed this with pythonian4000 and if we are right and the 
+production_settings.py replaces  settings.py when the code is deployed, all I 
+need to do is put the GLOBAL variable into production_settings.py to turn the 
+meta robot's no follow code back off.
+
+I'll add this to the patch tomorrow.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1629">msg1629 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.01:00:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Since I got stuck on this I'm setting this back to unassigned.
+Please somebody squash this bug.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1392">msg1392 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-28.22:05:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Added ROBOTS_NO_FOLLOW = True to mysite/settings.py
+With help from Jack I have pulled in the data from mysite.settings to the 
+decorator.py 
+And tested it in base.html 
+
+How might I test to disable it when it's turned off in deployment_settings.py ?
+Paul</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1365">msg1365 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-26.20:25:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Imagine for now that you had to add that &lt;META&gt; tag to all pages. Then you would
+edit mysite/base/templates/base/base.html to add it.
+
+You'll have to surround it with some kind of "if", like, "{% if no_robots %}"
+
+You'll also have to set a variable in settings.py that controls it (set it to
+True in settings.py and set it to False in deployment_settings.py).
+
+Probably this is best done with a template tag, so that you can look at the
+settings object.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1329">msg1329 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-23.22:43:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'll just grab this, looks like something I ought to be able to do.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1281">msg1281 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-16.22:59:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right now, developer instances of the OpenHatch code show up on Google.
+
+We can change that by optionally adding:
+
+&lt;META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"&gt;
+
+to the HTML we generate.
+
+See <a href="http://www.robotstxt.org/meta.html">http://www.robotstxt.org/meta.html</a> for more information.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-27&nbsp;17:31:38</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg1757">msg1757</a></td></tr>
+<tr><td>2011-04-27&nbsp;17:16:50</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1756">msg1756</a></td></tr>
+<tr><td>2011-04-27&nbsp;17:04:01</td><td>Lorthirk</td><td>set</td><td>files:
+  + <a href="file255">0001-Added-robots.txt-management-created-new-restrictive-.patch</a></td></tr>
+<tr><td>2011-04-27&nbsp;17:02:18</td><td>Lorthirk</td><td>set</td><td>files:
+  - <a href="file254">0001-Added-robots.txt-management-created-new-restrictive-.patch</a></td></tr>
+<tr><td>2011-04-27&nbsp;16:59:18</td><td>Lorthirk</td><td>set</td><td>status: in-progress -> need-review<br />assignedto: <a href="user95">Lorthirk</a> -> <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg1755">msg1755</a><br />files:
+  + <a href="file254">0001-Added-robots.txt-management-created-new-restrictive-.patch</a></td></tr>
+<tr><td>2011-04-27&nbsp;16:58:40</td><td>Lorthirk</td><td>set</td><td>files:
+  - <a href="file240">Removed_unnecessary_comment_in_urls_py_in_robots_txt_rule.patch</a></td></tr>
+<tr><td>2011-04-27&nbsp;16:58:37</td><td>Lorthirk</td><td>set</td><td>files:
+  - <a href="file241">Created_new_robots.txt_and_reverted_old_one.patch</a></td></tr>
+<tr><td>2011-04-27&nbsp;16:58:33</td><td>Lorthirk</td><td>set</td><td>files:
+  - <a href="file238">Added_robots_txt_management.patch</a></td></tr>
+<tr><td>2011-04-27&nbsp;00:43:59</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1749">msg1749</a></td></tr>
+<tr><td>2011-04-25&nbsp;21:45:35</td><td>Lorthirk</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-04-25&nbsp;21:45:14</td><td>Lorthirk</td><td>set</td><td>title: Create a settings.py option that controls robots availability -> Dev sites should serve out robots rules that prevents them from being spidered</td></tr>
+<tr><td>2011-04-23&nbsp;22:06:06</td><td>Lorthirk</td><td>set</td><td>files:
+  + <a href="file241">Created_new_robots.txt_and_reverted_old_one.patch</a><br />messages:
+  + <a href="msg1715">msg1715</a></td></tr>
+<tr><td>2011-04-23&nbsp;21:43:54</td><td>Lorthirk</td><td>set</td><td>files:
+  + <a href="file240">Removed_unnecessary_comment_in_urls_py_in_robots_txt_rule.patch</a><br />messages:
+  + <a href="msg1713">msg1713</a></td></tr>
+<tr><td>2011-04-23&nbsp;17:42:06</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1706">msg1706</a></td></tr>
+<tr><td>2011-04-23&nbsp;17:29:52</td><td>Lorthirk</td><td>set</td><td>files:
+  + <a href="file238">Added_robots_txt_management.patch</a><br />messages:
+  + <a href="msg1704">msg1704</a></td></tr>
+<tr><td>2011-04-23&nbsp;16:48:57</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1702">msg1702</a></td></tr>
+<tr><td>2011-04-23&nbsp;16:44:43</td><td>Lorthirk</td><td>set</td><td>messages:
+  + <a href="msg1701">msg1701</a></td></tr>
+<tr><td>2011-04-21&nbsp;21:47:37</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a> -> <a href="user95">Lorthirk</a><br />nosy:
+  + <a href="user95">Lorthirk</a></td></tr>
+<tr><td>2011-04-21&nbsp;21:45:43</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1681">msg1681</a></td></tr>
+<tr><td>2011-04-21&nbsp;14:38:59</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1665">msg1665</a></td></tr>
+<tr><td>2011-04-21&nbsp;14:37:47</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1664">msg1664</a></td></tr>
+<tr><td>2011-04-20&nbsp;21:54:13</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file194">0001-Added-ROBOTS_NO_FOLLOW-to-mysite-settings.py.patch</a></td></tr>
+<tr><td>2011-04-20&nbsp;21:12:04</td><td>palhmbs</td><td>set</td><td>status: deferred -> need-review<br />files:
+  + <a href="file226">0001-Added-ROBOTS_NO_FOLLOW.patch</a><br />messages:
+  + <a href="msg1657">msg1657</a></td></tr>
+<tr><td>2011-04-20&nbsp;11:37:57</td><td>palhmbs</td><td>set</td><td>priority: wish -> feature<br />assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1649">msg1649</a></td></tr>
+<tr><td>2011-04-20&nbsp;01:00:47</td><td>palhmbs</td><td>set</td><td>status: in-progress -> deferred</td></tr>
+<tr><td>2011-04-20&nbsp;01:00:19</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a> -> (no value)<br />messages:
+  + <a href="msg1629">msg1629</a><br />milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-03-28&nbsp;22:05:16</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file194">0001-Added-ROBOTS_NO_FOLLOW-to-mysite-settings.py.patch</a><br />messages:
+  + <a href="msg1392">msg1392</a></td></tr>
+<tr><td>2011-03-28&nbsp;22:02:07</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file193">0002-Added-ROBOTS_NO_FOLLOW-to-mysite-settings.py.patch</a></td></tr>
+<tr><td>2011-03-28&nbsp;22:02:01</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg1391">msg1391</a></td></tr>
+<tr><td>2011-03-28&nbsp;10:44:07</td><td>palhmbs</td><td>set</td><td>status: chatting -> in-progress<br />files:
+  + <a href="file193">0002-Added-ROBOTS_NO_FOLLOW-to-mysite-settings.py.patch</a><br />messages:
+  + <a href="msg1391">msg1391</a></td></tr>
+<tr><td>2011-03-26&nbsp;20:25:08</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1365">msg1365</a></td></tr>
+<tr><td>2011-03-23&nbsp;22:43:31</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1329">msg1329</a><br />nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-03-16&nbsp;22:59:17</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

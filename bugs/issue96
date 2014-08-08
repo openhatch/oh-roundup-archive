@@ -1,0 +1,377 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 96: tar mission tweaks catch-all - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue96
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue96">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue96">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">tar mission tweaks catch-all</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, stump, willkahngreene
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>stump</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-06-12.18:27:49</b> by <b>willkahngreene</b>, last changed <b>2010-08-23.20:00:01</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg409">msg409 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-08-23.20:00:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've made them bullets, and I also added hints for what specifically to type.
+
+Resolved!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg307">msg307 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-30.16:10:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>John, what do you think?
+
+Setting to "urgent" because I think we should handle this soon. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg293">msg293 (view)</a></th>
+   <th>Author: willkahngreene</th>
+   <th>Date: 2010-06-27.23:55:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It looks good.
+
+Point 5 doesn't seem to be addressed at all.  I just flubbed the tarball
+creation mission because the requirements are hard to parse in paragraph form
+and I didn't read it carefully enough.
+
+I'd change the requirements paragraph for the tarball extraction part to be this:
+
+"""
+Your mission is to:
+
+* download the tarball
+* unpack it
+* find and upload the ghello-0.4/ghello.c file
+
+Note that the tarball is following the conventions mentioned above by using a
+wrapper directory.
+"""
+
+The requirements paragraph for the tarball creation part should be:
+
+"""
+Your mission is to:
+
+* create a myproject-0.1 directory
+* download the files above and place them in the directory
+* in the parent directory, create a gzipped tarball of the myproject-0.1
+directory called myproject-0.1.tar.gz
+* upload your tarball
+"""
+
+That's much easier to parse.
+
+Out of curiosity, are there reasons for keeping the requirements in paragraph
+form?  Is it better in some way that I'm not thinking of?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg288">msg288 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-27.23:12:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Good points, Will!
+
+Will, would you go back to <a href="http://openhatch.org/missions/">http://openhatch.org/missions/</a> and tell us what tasks 
+remain? John Stumpo (stump) just made a bunch of changes to the Tar mission.
+
+For example, we did add a link to Wikipedia.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg242">msg242 (view)</a></th>
+   <th>Author: willkahngreene</th>
+   <th>Date: 2010-06-12.18:27:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a catch-all for things I noticed (some of which should get fixed) with
+the tar mission:
+
+1. (nit) The first sentence "The tar program creates and unpacks archives called
+tarballs" should probably be "The tar program creates, unpacks, and manipulates
+archives called tarballs".
+
+2. The tar command needs more explanation.  Seems like this page is possibly
+telling people about tar who have never used tar before.  I think this could be
+fixed with examples of usage.
+
+3. If a user is interested in more information, he/she would need links to more
+information.  A link to the wikipedia page would be great.  Links to other tar
+documentation would also be great.
+
+4. People learn in different ways, so it might be a good idea to additionally
+link to a screencast on tar usage.  I hoped that FOSSCasts
+(<a href="http://fosscasts.com/">http://fosscasts.com/</a>) would have an episode on tar, but there isn't one.  It'd
+be cool to ping John about creating one or alternatively find someone else who's
+good at doing screencasts that are well produced, well scripted, and to the
+point to do one.  Asheesh mentioned getting a user-contributed one.  That'd work
+as long as it was good.
+
+5. I'd break up the mission paragraphs into bullet points--one for each
+requirement.  It's easier to parse and more likely a user will fulfill all the
+requirements.
+
+6. What happens if the user doesn't have tar on his/her system?  For example,
+Windows doesn't come with tar.  Is it outside the scope of these missions to
+explain how to install tar?  This is kind of a big topic, so I'm not sure what
+the right answer is.
+
+7. If the user completes the mission and returns to the mission page, there
+should be a message at the top of the page saying the user has completed the
+mission and telling the user that he/she can do it again if he/she likes (or
+something like that).
+
+8. A second part to this mission (or second mission) would be to have the user
+download a tarball, extract the files, and upload a README file from the tarball.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-08-23&nbsp;20:00:01</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg409">msg409</a></td></tr>
+<tr><td>2010-06-30&nbsp;16:10:06</td><td>paulproteus</td><td>set</td><td>priority: bug -> urgent<br />assignedto: <a href="user19">stump</a><br />messages:
+  + <a href="msg307">msg307</a></td></tr>
+<tr><td>2010-06-27&nbsp;23:55:08</td><td>willkahngreene</td><td>set</td><td>messages:
+  + <a href="msg293">msg293</a></td></tr>
+<tr><td>2010-06-27&nbsp;23:12:09</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user3">paulproteus</a>, <a href="user19">stump</a><br />messages:
+  + <a href="msg288">msg288</a></td></tr>
+<tr><td>2010-06-12&nbsp;18:27:49</td><td>willkahngreene</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

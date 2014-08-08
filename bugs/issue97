@@ -1,0 +1,636 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 97: Trac bug tracker issues: Some trackers don't have a timeline - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue97
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue97">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue97">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Trac bug tracker issues: Some trackers don't have a timeline</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-06-16.08:41:01</b> by <b>pythonian4000</b>, last changed <b>2011-01-26.14:25:36</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg803">msg803 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-26.14:25:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>That looks great.
+
+The code makes lots of sense. It's well-commented, which is great, and the
+commit log message is clear.
+
+We should really get in the habit of writing tests for these things, but I'm
+okay with delaying that until the async-ification of bug tracker import.
+
+Pushed to master!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg798">msg798 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-26.07:33:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here is my first go at this. It successfully grabs datetimes for old Trac
+trackers via RSS feeds. The only one I haven't enabled is Django; it has so many
+bugs that the RSS feed is huge, and for some reason Django generates the entire
+thing before serving it, unlike the other ones I tested, meaning that the
+feedparser times out and says that there are no updates. Once it has been
+updated once then Django would be fine, using RSS like the others, but I don't
+know if I can justify writing an HTML scraper just for the initial import. Maybe
+if other trackers have the same issue...
+
+Anyway, link!
+
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=eb44ba3c200cab26e894a094d019b5ce580d89d7">http://git.jackgrigg.com/openhatch/patch/?id=eb44ba3c200cab26e894a094d019b5ce580d89d7</a>
+
+Just to record it here, an improvement I would like to make is to grab all the
+info from the timeline rather than the individual bugs' RSS feeds as well. On
+the Django tracker at least, you can show all bug updates on the timeline, not
+just "created", "closed" and "reopened". This would speed up things greatly and
+reduce network load; however there is no way to determine this programmatically.
+I guess it would end up being an optional flag like old_trac is in this patch.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg715">msg715 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-08.22:33:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'll chuck myself on this. I'll try and separate out the code written and
+databases createds so that we only need invoke it for old Trac trackers (e.g.
+with a boolean flag in setup).
+
+I'm away until the 17th of January, so will start after then.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg710">msg710 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-08.22:13:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>At this point, I'm willing to go with "Grab a lot more data from the bug tracker".
+
+I owe it to mizmo to import her issues from the Fedora Design Team bug tracker,
+and fedorahosted.org shows no sign of upgrading Trac.
+
+Leaving un-assigned for now, in case someone else wants to give it a shot.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg415">msg415 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-08-28.04:29:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This would require one hell of a hack, and we would either only get ballpark
+figures or grab a lot more data from the tracker.
+
+The problem is that the only two sources of data we have for Trac bugs are its
+webpage and its CSV file, and there are no CSV entries for the Opened or Last
+Modified datetimes. In the newer Trac versions there are links to the timeline
+on the bug's webpage, and these require the exact datetime in the link URL,
+which is what we grab. Without that URL information, we only have the text to go
+on i.e. "7 months ago", which is useless.
+
+I can think of two hacks. First one would be to pull datetime data directly from
+the project's timeline. This would give complete and correct data for the Opened
+and Last Modified datetimes, but I have no idea how this would work and it would
+likely be quite network-intensive. The other hack would be to have the bug
+default to the current time when saving the bug. This would only work for the
+Opened datetime, and it would sometimes be wrong e.g. when pulling all the bugs
+for the first time - but new bugs would have Opened datetimes within the
+frequency of importer runs i.e. within 24 hours.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg414">msg414 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-08-28.02:49:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The next step is to test our Trac importing code against a 0.10.x bug tracker
+and come up with enough hacks to be satisfied with how well it works.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg408">msg408 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-08-17.21:34:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'll email the SSSD Trac admin listed on the wiki.
+
+If upgrading is easy, great! If not, we'll just write some more code. :D</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg361">msg361 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-07-12.18:38:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Deployed!
+
+For the timeline/bug data thing, do you want to write those emails to Trac 
+admins, or do you want me to? (Is there a way we can use e.g. CSV export to work 
+around the missing data? If so, then we can avoid sending emails.)
+
+Once we resolve that, we can close this once and for all.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg352">msg352 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-07-07.13:03:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think this is where we are at:
+
+Bug timeline: As far as I can see we just have to wait for the trackers in
+question to upgrade their version of Trac. Maybe fire off an email to them?
+Otherwise done.
+
+as_appears_in_distribution: Now that Trac and Bugzilla both have
+extrack_tracker_specific_information methods, we just set this parameter in
+there. The supplied patch has a commit which does this. So done.
+
+Project name vs. component: This has been sorted in the code, either by the bug
+project format string or in some cases overloading the generate_bug_project_name
+method. So done.
+
+OLPC naming: I've looked through the component names again for OLPC, and with
+as_appears_in_distribution now set for OLPC I think these are okay. The supplied
+patch has a commit which sets the bug project name format string and enables
+OLPC bug importing. So done.
+
+Note that this patch needs to be applied AFTER the patch that moves all the bug
+import code to customs.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg344">msg344 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-07-06.14:39:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Jack, I'm kind of confused. What's the next step for this bug? (Is there one?)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg302">msg302 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-29.14:00:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>re: bug timeline: Yeah, I think you're right now.
+
+re: as_appears_in_distribution: That makes sense!
+
+re: project name vs. component: I like this, good thinking!
+
+For the OLPC/Sugar things, "*-activity" is really the project name, so I think
+that it's okay to keep those as the project name in OpenHatch.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg266">msg266 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-06-19.12:53:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Re: Lack of bug timeline:
+That's not the case. Take <a href="https://fedorahosted.org/sssd/">https://fedorahosted.org/sssd/</a> for instance - it has a
+timeline, but it doesn't have hyperlinks. And the .csv format doesn't include
+"Opened" and "Last modified" information. I did notice though that the above
+fedorahosted tracker is using Trac version 0.10.5, whereas most of the trackers
+from memory were using a 0.11 variant. There are only three trackers at present
+with this problem - two are on the fedorahosted tracker and the other is Django
+which doesn't display version information for Trac. My guess is it IS related to
+Trac version, but without more examples of this issue I can't be certain.
+
+Re: Project name vs. Component:
+Following the discussion on IRC, I am adding an extra method to generate the
+bug's project name. Rather than overloading it for every Class though, I am
+passing in a format string in the Class __init__ which the method then uses to
+create the name. The format string is of the form "{component} in {project}",
+with "{component}" and "{project}" being replaced as expected. I figured this
+allowed the most flexibility in how the end name is given.
+
+Re: as_appears_in_distribution:
+Should there be an option to set this for the Trac bugs? For example, it would
+make sense to me for this to be the case with Sugar Labs and OLPC. I was
+thinking maybe a boolean flag, and if it was True then set
+as_appears_in_distribution to self.project_name (not the generated
+bug_project_name).
+
+The main issue I have with naming is the untidiness of just using the component.
+Case in point - for OLPC, it would make sense too use the component name; but
+while some have names which should really be used alone ("glibc", "cerebro",
+"olpc-games"), there are some ones which don't make as much sense out of context
+(all of the "*-activity" components), and then some which should not be used on
+their own as a project name EVER ("display", "kernel", "library"). Thoughts? Ideas?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg263">msg263 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-19.05:38:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>re: lack of bug timeline: Whoa, weird. Maybe it's because those projects have 
+the timeline disabled. We can probably get that data by looking at the .csv 
+export Trac offers for each bug -- have you tried that?
+
+re: projects not having the same fields: I think it's user-selected.
+
+re: project name vs. component: Some bug trackers (like Sugar Labs's bug 
+tracker) really track one project per component. But others (like Tahoe-LAFS) 
+make this configurable. So really it should be an option to the Trac bug 
+importing class.
+
+re: as_appears_in_distribution: We set this if we import a bug from Fedora or 
+Ubuntu where the *project* is really e.g. xserver-xorg. So it's a bug in the X 
+server, as the X server appears in Fedora. In that case, we put "Fedora" in that 
+column. Feel free to write some documentation in the search/models.py so that 
+this is clearer...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg253">msg253 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-06-16.11:58:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Unless anyone else has suggestions for the third point below, I'm going with this:
+
+&lt;paulproteus&gt; [14:12] It seems the Trac importer for Tahoe-LAFS isn't importing
+things right.
+&lt;paulproteus&gt; [14:12] In particular, the project name should be "Tahoe-LAFS" but
+instead it's pulling the project name from something like the Trac "component"
+
+So I'm just going to change the Trac bug importer to use the project name rather
+than the component name.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg252">msg252 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-06-16.08:41:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a list of issues that I encountered with the Trac bug trackers. I have
+tried a workaround for some, and have disabled the bug tracker for others.
+
+* Some trackers don't have a hyperlink to the bug timeline for their 'Opened'
+and 'Last modified' fields (e.g. Django). The hyperlink normally present has the
+exact date needed as part of the &lt;a&gt; tag, and without it we cannot determine
+these dates (since the user-displayed text only is accurate to within months or
+years for longer bugs). This means that those trackers break the Trac bug data
+importer, and have to be disabled. I am unsure if this is a user-selected or
+Trac version-related issue. If it is user-related, possibly drop the tracker
+admin an email politely asking why they choose to not have a bug timeline. If
+related to the Trac version, possibly drop the tracker admin an email politely
+asking if they could update their version of Trac.
+
+* Some trackers don't have as much information on the bug tickets as others e.g.
+Angband doesn't have the 'priority' field (though it does have a 'ticket' field
+which seems similar-ish). Again, not sure if this is user-selected or related to
+the version of Trac they are using. This doesn't seem too major to me at
+present, since if this is resolved later on the bug data will be updated anyway.
+
+* I noticed that the project name for the bugs is set to the name of the
+component it is part of. While this is true, I have found several projects that
+don't have very "useful" component names. I also saw that there is a bug data
+field called 'as_appears_in_distribution' - what is the current purpose of this?
+Would it be useful to set this to the name of the overriding project the
+component belongs to?
+
+I will add more things as I find them.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-01-26&nbsp;14:25:36</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg803">msg803</a></td></tr>
+<tr><td>2011-01-26&nbsp;07:33:38</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg798">msg798</a></td></tr>
+<tr><td>2011-01-08&nbsp;22:33:51</td><td>pythonian4000</td><td>set</td><td>assignedto: <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg715">msg715</a></td></tr>
+<tr><td>2011-01-08&nbsp;22:13:13</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg710">msg710</a><br />milestone: <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2010-08-28&nbsp;04:29:18</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg415">msg415</a></td></tr>
+<tr><td>2010-08-28&nbsp;02:49:45</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg414">msg414</a></td></tr>
+<tr><td>2010-08-28&nbsp;02:49:20</td><td>paulproteus</td><td>set</td><td>files:
+  - <a href="file54">set_as_appears_in_distribution_and_fix_OLPC_naming.patch</a></td></tr>
+<tr><td>2010-08-17&nbsp;21:34:21</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg408">msg408</a></td></tr>
+<tr><td>2010-07-12&nbsp;18:38:37</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg361">msg361</a><br />title: Trac bug tracker issues -> Trac bug tracker issues: Some trackers don't have a timeline</td></tr>
+<tr><td>2010-07-07&nbsp;13:03:47</td><td>pythonian4000</td><td>set</td><td>files:
+  + <a href="file54">set_as_appears_in_distribution_and_fix_OLPC_naming.patch</a><br />messages:
+  + <a href="msg352">msg352</a></td></tr>
+<tr><td>2010-07-06&nbsp;14:39:51</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg344">msg344</a></td></tr>
+<tr><td>2010-06-29&nbsp;14:00:47</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg302">msg302</a></td></tr>
+<tr><td>2010-06-19&nbsp;12:53:35</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg266">msg266</a></td></tr>
+<tr><td>2010-06-19&nbsp;05:38:19</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg263">msg263</a></td></tr>
+<tr><td>2010-06-16&nbsp;11:58:47</td><td>pythonian4000</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg253">msg253</a></td></tr>
+<tr><td>2010-06-16&nbsp;08:41:01</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

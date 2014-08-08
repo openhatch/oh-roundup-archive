@@ -1,0 +1,575 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 128: diff mission gives "will not apply correctly" when I think the diff is fine - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue128
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue128">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue128">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">diff mission gives "will not apply correctly" when I think the diff is fine</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, grantbow, paulproteus, stump
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-08-03.05:52:09</b> by <b>paulproteus</b>, last changed <b>2013-11-24.06:55:21</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file66/broken-diff.diff">broken-diff.diff</a>
+  </td>
+  <td>
+   <span>paulproteus</span>,
+   <span>2010-08-03.05:52:09</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3976">msg3976 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-11-24.06:55:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We've changed the actual diff mission so it's less confusing. That resolves this 
+bug. Thanks to all who helped with that, and to e.g. grantbow for pointing out 
+the confusing nature of the previous mission</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3267">msg3267 (view)</a></th>
+   <th>Author: grantbow</th>
+   <th>Date: 2012-05-24.05:17:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Simply saying "it works for me" means we have to go deeper to find the problem, 
+even if the problem is "just the user." The point of missions is to teach, 
+helping users. If it fails despite all reasonable attempts something needs to be 
+improved somewhere. Please provide logs or instructions with code so I can try to 
+reproduce it on another instance.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3262">msg3262 (view)</a></th>
+   <th>Author: grantbow</th>
+   <th>Date: 2012-05-22.03:46:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I tried it again and it didn't work with and without the blank line.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3244">msg3244 (view)</a></th>
+   <th>Author: grantbow</th>
+   <th>Date: 2012-05-15.21:13:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I did it with and without the blank line.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3243">msg3243 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-15.21:00:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Grant, the problem with your submission is that you didn't "remember the 
+blank line", in "Take this sentence, and copy it underneath itself 
+(remember the blank line!)."
+
+But the deeper problem is that we don't give you enough hints to succeed. 
+The point of this training mission is *not* to teach people to be 
+sticklers about whitespace; that should come later, if at all. (-:
+
+Grant, your idea of showing a diff between the submitted data and what we 
+consider the correct data is a good one. It deserves a separate bug to be 
+filed.
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3242">msg3242 (view)</a></th>
+   <th>Author: grantbow</th>
+   <th>Date: 2012-05-15.20:54:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I am feeling very, very frustrated. Is this the same problem as the svn mission?
+
+What is submitted should be diffed against the correct answer after a couple
+tries, don't you think?
+
+error message: The file resulting from patching does not have the correct contents.
+
+What I am pasting that fails:
+
+--- diffsingle.txt	2012-05-15 13:47:14.056719074 -0700
++++ diffsingle-modified.txt	2012-05-15 13:49:21.285534685 -0700
+@@ -1,3 +1,6 @@
++Move this sentence to at the start of the file, ensuring that it
++starts on the first line (remember about the blank lines!).
++
+ This mission is to have you make modifications to a file and submit a
+ diff of them. The changes may seem a bit silly, but they will cause the
+ diff to contain examples of different types of changes - additions,
+@@ -19,15 +22,10 @@
+ 
+ Read this sentence, and leave it alone.
+ 
+-Nod your head enthusiastically, and then remove this paragraph
+-(being careful to keep just one blank line between the surrounding paragraphs).
+-
++Take this sentence, and copy it underneath itself (remember the blank line!).
+ Take this sentence, and copy it underneath itself (remember the blank line!).
+ 
+-Move this sentence to at the start of the file, ensuring that it
+-starts on the first line (remember about the blank lines!).
+-
+-There is a typo in this sentence, which oyu should fix.
++There is a typo in this sentence, which you should fix.
+ 
+ Finally, save your changes in your editor and make a unified diff
+ of your changes with the diff command. (If you're not sure how,</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2771">msg2771 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-04.20:16:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The problem here, fwiw, is that aldeka moved (rather than copied) step 6.
+
+I think we should change the mission so that fewer people make these sorts of
+mistakes, but that's a separate bug.
+
+Marking as resolved again for now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2770">msg2770 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-12-04.20:12:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Diff mission is failing. I suspect it's because of the name of my modified file. In any case, it's 
+another data point.
+
+--- diffsingle.txt	2011-12-04 12:03:38.000000000 -0800
++++ diffsingle2.txt	2011-12-04 12:04:51.000000000 -0800
+@@ -3,26 +3,23 @@
+ diff to contain examples of different types of changes - additions,
+ deletions, and changes. Here is what we want you to do to this file:
+ 
++  0.  Make an exact copy of this step and place it before #1; change the
++      copy's step number to be 0.
++
+   1.  Keep an unmodified copy of this file handy; you'll need it to
+       make the diff once you're finished.
+ 
++  5.  Move this step so it comes between #1 and #2. (Again, don't
++      renumber the steps.)
++
+   2.  Try to keep the formatting intact, as the result file will be
+       compared character-for-character. There is exactly one blank line
+       between each paragraph and bullet point, and all indentation is
+       done with spaces. There is never trailing whitespace.
+ 
+-  3.  Delete this step (and the blank line below it). (Don't renumber the
+-      ones below it.)
+-
+   4.  Leave this step the way it is.
+ 
+-  5.  Move this step so it comes between #1 and #2. (Again, don't
+-      renumber the steps.)
+-
+-  6.  Make an exact copy of this step and place it before #1; change the
+-      copy's step number to be 0.
+-
+-  7.  There is a typo in this step, which oyu should fix.
++  7.  There is a typo in this step, which you should fix.
+ 
+   8.  Save the changes and make a unified diff of your changes using the
+       diff command. Submit the diff on the page from which you obtained</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg816">msg816 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-27.23:11:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well, I tried it with GNU patch and our patch library from Python, and with
+Luke's patch, it actually does *not* apply properly.
+
+So I'm going to close this as "resolved". If someone can come up with a good
+test case, we can have a new bug.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg763">msg763 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-23.20:12:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>quietly deassigning from myself, for now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg707">msg707 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-08.22:04:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Either this is a bug, or not.
+
+Within 0.11.01, let's fix it or close the bug.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg394">msg394 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-08-03.12:48:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>When I submit the exact diff that is supplied (Ctl+A, Ctl+C, Ctl+V), I get the
+following error:
+
+"The file resulting from patching does not have the correct contents."
+
+When I move the added step 0 to the correct place in the diff then it passes. So
+I don't see any problem here.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg392">msg392 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-08-03.05:52:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The attached .diff file is what lfaraone submitted as the answer to 
+<a href="http://openhatch.org/missions/diffpatch/diffsingle">http://openhatch.org/missions/diffpatch/diffsingle</a>
+
+Alas, it told him, "The patch will not apply correctly to the original file."
+
+But I watched him make it! It seemed fine.
+
+(I know that he did the step 0 insertion wrong, but I don't think that's the 
+problem. If it is, then the problem is "simply" the error message.)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-11-24&nbsp;06:55:21</td><td>paulproteus</td><td>set</td><td>status: reopened -> resolved<br />messages:
+  + <a href="msg3976">msg3976</a></td></tr>
+<tr><td>2012-05-24&nbsp;05:17:18</td><td>grantbow</td><td>set</td><td>messages:
+  + <a href="msg3267">msg3267</a></td></tr>
+<tr><td>2012-05-22&nbsp;03:46:43</td><td>grantbow</td><td>set</td><td>messages:
+  + <a href="msg3262">msg3262</a></td></tr>
+<tr><td>2012-05-15&nbsp;21:13:19</td><td>grantbow</td><td>set</td><td>messages:
+  + <a href="msg3244">msg3244</a></td></tr>
+<tr><td>2012-05-15&nbsp;21:12:43</td><td>grantbow</td><td>set</td><td>nosy:
+  + <a href="user447">grantbow</a></td></tr>
+<tr><td>2012-05-15&nbsp;21:00:02</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3243">msg3243</a></td></tr>
+<tr><td>2012-05-15&nbsp;20:54:20</td><td>grantbow</td><td>set</td><td>status: resolved -> reopened<br />messages:
+  + <a href="msg3242">msg3242</a></td></tr>
+<tr><td>2011-12-04&nbsp;20:16:44</td><td>paulproteus</td><td>set</td><td>status: reopened -> resolved<br />messages:
+  + <a href="msg2771">msg2771</a></td></tr>
+<tr><td>2011-12-04&nbsp;20:12:05</td><td>aldeka</td><td>set</td><td>status: resolved -> reopened<br />messages:
+  + <a href="msg2770">msg2770</a></td></tr>
+<tr><td>2011-01-27&nbsp;23:11:10</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg816">msg816</a></td></tr>
+<tr><td>2011-01-23&nbsp;20:12:19</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> <a href="userNone"></a><br />messages:
+  + <a href="msg763">msg763</a></td></tr>
+<tr><td>2011-01-08&nbsp;22:04:39</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg707">msg707</a><br />milestone: <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2010-10-22&nbsp;06:19:56</td><td>aldeka</td><td>set</td><td>nosy:
+  + <a href="user4">aldeka</a></td></tr>
+<tr><td>2010-08-03&nbsp;12:48:59</td><td>pythonian4000</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg394">msg394</a></td></tr>
+<tr><td>2010-08-03&nbsp;05:52:09</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

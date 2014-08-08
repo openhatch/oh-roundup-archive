@@ -1,0 +1,633 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 136: Login righthand navigation is misleading - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue136
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue136">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue136">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Login righthand navigation is misleading</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, florapdx, jessica, palhmbs, paulproteus, rafpaf
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  needs-decision, usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-09-08.14:58:15</b> by <b>rafpaf</b>, last changed <b>2013-08-03.02:10:51</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file252/login_mockup.png">login_mockup.png</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-04-25.21:38:28</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3767">msg3767 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-08-03.02:10:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Goodness. I do not remember what this bug is about. Adding Flora -- can you give 
+this a read-through and write what you think?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1942">msg1942 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-29.03:50:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Sorry, defintely not bitesize anymore!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1748">msg1748 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-26.02:34:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've had a chat with paulproteus on IRC, and it's awesome to 
+get feedback on issues with him there! bd
+
+So, what we have decided is:
+
+1. We'd love a login drop-down from the main openhatch login 
+link...
+<a href="http://uxmovement.com/forms/dropdown-login-boxes-for-faster-">http://uxmovement.com/forms/dropdown-login-boxes-for-faster-</a>
+login
+
+2. That we should have a off-site login page that will contain 
+exactly the same content like...
+<a href="http://gawker.zendesk.com/access/unauthenticated?return_to=http">http://gawker.zendesk.com/access/unauthenticated?return_to=http</a>
+%3A%2F%2Fgawker.zendesk.com%2Flogin
+
+3. Dropdowns are ugly and less comfortable than buttons &amp; tabs.
+
+4. Sign-up and login pages are exactly the same, so merge 
+them. - 
+        a. If you have an account already then you have the 
+option to add / merge that new login type with a your current 
+openhatch account.
+        b. If you don't have an account already then using 
+whatever login type will create a new openhatch account.
+        c. Things to validate duplicate users should be 
+location or username, and you can't login using another login 
+type that has been already been used with an existing account. 
+(need more suggestions...)
+
+so I will get a couple of mockups together...
+A) for on-site drop-down login 
+B) For off-site (Roundup &amp; wiki)
+
+And I think we can still do a cool throbber to show whilst 
+sign up / login happens - something spunky, that shows that 
+how OpenHatch is so awesome.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1745">msg1745 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-25.23:43:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I like this - it is self-contained and not specific to any part of OpenHatch, so
+the central login system makes a bit more sense.
+
+Also, it should have a "Cancel" or "Back" button/link that returns you from
+whence you came.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1741">msg1741 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-25.21:38:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>More like this - (see attached screenshot).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1740">msg1740 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-25.21:19:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Like this? <a href="http://www.vimeo.com/log_in">http://www.vimeo.com/log_in</a>
+
+Or <a href="https://www.facebook.com/">https://www.facebook.com/</a> (when not logged in)?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1739">msg1739 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-25.20:32:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Can we agree on getting rid of all site navigation?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1736">msg1736 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-25.18:11:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Started a diagram:
+<a href="https://cacoo.com/diagrams/YVZ6b3aXKkbQdQz1">https://cacoo.com/diagrams/YVZ6b3aXKkbQdQz1</a>
+
+Anyone can edit, probably. Maybe. My first time using cacoo other than as an 
+observer :)
+
+Spunk could also just be when you click "log in" in the upper right that it drops 
+down a username/password field or openid link / click here to login with Google.
+
+Or even replacing login top right with [username] [password] [Login] and when 
+logged in it's the usual profile name (username) and Logout .
+
+Since cartoons are on most of the other pages, we should probably continue that 
+brand. A cheater way would be to use the top of /people/ ? And creating an account 
+is adding you to the "people" and logging in is done by "people" so might fit :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1659">msg1659 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.23:41:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>bump - does nobody want to discuss this further?
+If not should we get a mockup/s done?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1325">msg1325 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-23.21:11:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've been thinking, for a start I think "Relatedly" is a terrible word to use.
+How bout "Login with", "Login types" or "Login Methods"  ??
+
+Center the login to the middle of the screen, instead of just using 1/3 of the 
+screenspace eg: "Login with a password".
+Put all the "Login Methods" in a top menu / dropdown.
+
+Also, we should move "What is OpenID? &amp; "Forgot your password?" out of 
+"Relatedly". 
+
+Let's make this login screen spunky....
+Create a extraneous links free login page (getting rid of site navigation header 
+and footer stuff), with no hatch background - Just have the openhatch logo then 
+when logging in maybe a processing cartoon / gif (aldeka) ?
+
+Looking forward to comments.
+Paul</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1320">msg1320 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-22.01:20:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It would be totally great if you would think this through.
+
+I have made no progress on this bug because I havne't thought about what a 
+good solution would be. If you think of one and submit a patch, that would 
+rock my world.
+
+(It probably isn't that hard / doesn't require that much thinking. I'm 
+just a scatter-brain.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1319">msg1319 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-22.01:03:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'd like to try this - if you think it's not too hard / much bother.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1301">msg1301 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-19.21:00:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm not currently working on this. Someone else can grab it!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg502">msg502 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-09.04:58:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Erm, yargh, now there are too many links in the sidebar.
+
+I'm going to stop working on this for now and be confused.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg501">msg501 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-09.04:38:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Now I understand.
+
+A reasonable resolution of this bug is to put *all* account-related pages into
+that right-hand-side box.
+
+I'll do that right now, why the heck not.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg425">msg425 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-09-15.22:14:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg422">msg422 (view)</a></th>
+   <th>Author: rafpaf</th>
+   <th>Date: 2010-09-08.14:58:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a low-priority UI bug, imho. Go to <a href="http://openhatch.org/account/login/">http://openhatch.org/account/login/</a> 
+and click "login with a password". Now click "login with OpenID".
+
+When you click on these links, the bolded link at the top of the "Relatedly" 
+section changes. This aspect of the UI accidentally matches a traditional design 
+pattern: "vertical list of links, one link bolded". In this pattern the bold 
+link indicates the currently selected page. (We use this pattern in the account 
+settings pages.) The login pages seem to be mimicking this pattern and in so 
+doing mislead me.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-08-03&nbsp;02:10:51</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user680">florapdx</a><br />messages:
+  + <a href="msg3767">msg3767</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:23:36</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-05-29&nbsp;03:50:52</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1942">msg1942</a><br />keyword:
+  - <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:20:08</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-04-30&nbsp;22:38:50</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-26&nbsp;02:34:49</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1748">msg1748</a></td></tr>
+<tr><td>2011-04-25&nbsp;23:43:56</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1745">msg1745</a></td></tr>
+<tr><td>2011-04-25&nbsp;21:38:28</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file252">login_mockup.png</a><br />messages:
+  + <a href="msg1741">msg1741</a></td></tr>
+<tr><td>2011-04-25&nbsp;21:19:05</td><td>jessica</td><td>set</td><td>messages:
+  + <a href="msg1740">msg1740</a></td></tr>
+<tr><td>2011-04-25&nbsp;20:32:38</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1739">msg1739</a></td></tr>
+<tr><td>2011-04-25&nbsp;18:11:19</td><td>jessica</td><td>set</td><td>assignedto: <a href="user96">jessica</a> -> <a href="userNone"></a><br />messages:
+  + <a href="msg1736">msg1736</a></td></tr>
+<tr><td>2011-04-25&nbsp;17:31:27</td><td>jessica</td><td>set</td><td>assignedto: <a href="user96">jessica</a><br />nosy:
+  + <a href="user96">jessica</a></td></tr>
+<tr><td>2011-04-20&nbsp;23:41:03</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1659">msg1659</a></td></tr>
+<tr><td>2011-03-26&nbsp;20:38:43</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a> -> (no value)<br />nosy:
+  + <a href="user4">aldeka</a><br />milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-03-23&nbsp;21:11:34</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1325">msg1325</a></td></tr>
+<tr><td>2011-03-22&nbsp;01:20:31</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1320">msg1320</a></td></tr>
+<tr><td>2011-03-22&nbsp;01:03:17</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1319">msg1319</a></td></tr>
+<tr><td>2011-03-19&nbsp;21:00:16</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> (no value)<br />messages:
+  + <a href="msg1301">msg1301</a></td></tr>
+<tr><td>2010-10-09&nbsp;04:58:56</td><td>paulproteus</td><td>set</td><td>keyword:
+  + <a href="keyword9">needs-decision</a></td></tr>
+<tr><td>2010-10-09&nbsp;04:58:38</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg502">msg502</a></td></tr>
+<tr><td>2010-10-09&nbsp;04:38:48</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg501">msg501</a><br />keyword:
+  + <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2010-09-15&nbsp;22:14:35</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg425">msg425</a><br />keyword:
+  + <a href="keyword7">usability</a></td></tr>
+<tr><td>2010-09-08&nbsp;14:58:15</td><td>rafpaf</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

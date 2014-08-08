@@ -1,0 +1,332 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 42: no left-side user-list when searching near location - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue42
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue42">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue42">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">no left-side user-list when searching near location</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  gameguy43, greg, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-03-15.20:59:05</b> by <b>greg</b>, last changed <b>2010-03-16.20:05:37</b> by <b>greg</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg97">msg97 (view)</a></th>
+   <th>Author: greg</th>
+   <th>Date: 2010-03-16.20:05:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oh hey, look at that, it is fixed!
+
+Thanks Asheesh!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg96">msg96 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-16.19:35:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Actually, I could eventually reproduce it in Firefox 3.5.
+
+Greg -- it should now be fixed. If you agree, mark this as resolved!
+
+To test, try going to <a href="https://openhatch.org/people/?q=&amp;center=ann+arbor%2C+MI">https://openhatch.org/people/?q=&amp;center=ann+arbor%2C+MI</a>
+
+I admit, it's kind of slow. It'd be nice to fix that.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg95">msg95 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-16.15:32:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I can reproduce this in Fx 3.6, but not 3.5. "Interesting."</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg84">msg84 (view)</a></th>
+   <th>Author: greg</th>
+   <th>Date: 2010-03-15.21:22:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Sorry to disappoint, but I'm using Fx 3.6 (specifically 3.6+nobinonly-0ubuntu6
+in Ubuntu Lucid).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg82">msg82 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-15.21:13:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think this is a Chromium-only issue. Are you using Chromium?
+
+(I see it there, too, but not in Firefox.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg81">msg81 (view)</a></th>
+   <th>Author: greg</th>
+   <th>Date: 2010-03-15.20:59:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>eg: <a href="https://openhatch.org/people/?q=&amp;center=ann+arbor%2C+MI">https://openhatch.org/people/?q=&amp;center=ann+arbor%2C+MI</a>
+
+Any location I tried works (Washington DC, and Minneapolis)
+
+If I also input a term (eg: python) and the city, it is the same result (ie:
+broken).
+eg: <a href="https://openhatch.org/people/?q=python&amp;center=washington%2C+dc">https://openhatch.org/people/?q=python&amp;center=washington%2C+dc</a>
+
+Can I use "eg" again, eg: eg?</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-03-16&nbsp;20:05:37</td><td>greg</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg97">msg97</a></td></tr>
+<tr><td>2010-03-16&nbsp;19:35:15</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg96">msg96</a></td></tr>
+<tr><td>2010-03-16&nbsp;15:32:03</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg95">msg95</a></td></tr>
+<tr><td>2010-03-15&nbsp;21:22:14</td><td>greg</td><td>set</td><td>messages:
+  + <a href="msg84">msg84</a></td></tr>
+<tr><td>2010-03-15&nbsp;21:13:33</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user3">paulproteus</a>, <a href="user6">gameguy43</a><br />messages:
+  + <a href="msg82">msg82</a></td></tr>
+<tr><td>2010-03-15&nbsp;20:59:05</td><td>greg</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

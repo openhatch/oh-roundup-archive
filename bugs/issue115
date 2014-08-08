@@ -1,0 +1,509 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 115: For diff mission, catch the situation where the diff is created in reverse. If so, warn the user. - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue115
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue115">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue115">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">For diff mission, catch the situation where the diff is created in reverse. If so, warn the user.</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.10.11</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jesstess, paulproteus, stump
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>jesstess</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-07-13.19:25:53</b> by <b>paulproteus</b>, last changed <b>2010-11-27.06:06:03</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file95/issue115.patch">issue115.patch</a>
+  </td>
+  <td>
+   <span>jesstess</span>,
+   <span>2010-11-23.02:33:38</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file96/issue115.patch">issue115.patch</a>
+  </td>
+  <td>
+   <span>jesstess</span>,
+   <span>2010-11-23.02:40:56</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file97/issue115.patch2">issue115.patch2</a>
+  </td>
+  <td>
+   <span>jesstess</span>,
+   <span>2010-11-24.01:15:12</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg605">msg605 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-27.06:05:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just merged and deployed this. Jess, thanks a bundle for doing this!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg603">msg603 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-24.15:28:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oops!
+
+I will let it through and then merge and push this!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg602">msg602 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2010-11-24.15:21:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Asheesh,
+
+I did that last night -- the auto-response was that it was being held in
+moderation. I can subscribe to the list and resubmit if necessary.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg601">msg601 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-24.15:12:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This looks great -- I will apply it to origin/master as soon as you email
+<a href="mailto:devel@lists.openhatch.org">devel@lists.openhatch.org</a> with the licensing statement.
+
+As per <a href="http://openhatch.org/wiki/How_we_handle_patches">http://openhatch.org/wiki/How_we_handle_patches</a> : Please email
+<a href="mailto:devel@lists.openhatch.org">devel@lists.openhatch.org</a> saying that you're okay with your work being under
+AGPLv3. If you're willing, it'd be nice if you say 'the Affero GPL, version 3 or
+later, at your option'.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg598">msg598 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2010-11-24.01:15:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Uploading a new patch using the preferred "git format-patch" format.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg597">msg597 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-23.15:38:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>(Jess, I'm assigning this to just to reflect the current state. If you decide
+you'd rather it not be assigned to you, let me know and/or change the value on
+the ticket.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg596">msg596 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-23.14:00:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Jess! This looks great. Here's some feedback:
+
+It's amazing that the test suite has a make_flipped_patch function and that we
+weren't using it yet. Thanks for picking up on that and using it, rather than
+writing a new one!
+
+The patch totally works, and passes your test. It also has quite reasonable style!
+
+For me to commit and push this, here is what I need from you:
+
+Optional, but preferred: You do a local commit with git, and give the commit a
+log message. Then re-export the patch with "git format-patch origin/master", and
+upload it to the tracker.
+
+Required: As per <a href="http://openhatch.org/wiki/How_we_handle_patches">http://openhatch.org/wiki/How_we_handle_patches</a> : Please email
+<a href="mailto:devel@lists.openhatch.org">devel@lists.openhatch.org</a> saying that you're okay with your work being under
+AGPLv3. If you're willing, it'd be nice if you say 'the Affero GPL, version 3 or
+later, at your option'.
+
+Then I'll push and deploy this!
+
+(That does mean you'll basically have to join the OpenHatch Devel list. At
+least, briefly.)
+
+(-:
+
+Again, thanks!
+
+P.S. I tried to delete the first of the patches you uploaded to keep the ticket
+clean, but Roundup gave me an error.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg595">msg595 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2010-11-23.02:40:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I don't think I can edit/remove uploaded patches. Maybe this submission with the
+same name will clobber the other one. (It uses the assert_(foo in bar) idiom
+that the rest of the file uses to compensate for there being no assertIn in
+unittest before Python 2.7)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg594">msg594 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2010-11-23.02:33:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The diff adds a special message and unit tests for the backward diff case.
+
+Tested against the mission test suite and by submitting a backwards diff to a
+local instance of the diffsingle mission.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg576">msg576 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-20.21:37:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It should be pretty easy to add a test for this.
+
+Take a look at "def test_do_mission_incorrectly" in
+mysite/missions/diffpatch/tests.py</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg362">msg362 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-07-13.19:25:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If you upload the diff in reverse, it would be nice to see that that's the error 
+you made!</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-11-27&nbsp;06:06:03</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved</td></tr>
+<tr><td>2010-11-27&nbsp;06:05:52</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg605">msg605</a></td></tr>
+<tr><td>2010-11-24&nbsp;15:28:08</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg603">msg603</a></td></tr>
+<tr><td>2010-11-24&nbsp;15:21:31</td><td>jesstess</td><td>set</td><td>messages:
+  + <a href="msg602">msg602</a></td></tr>
+<tr><td>2010-11-24&nbsp;15:12:56</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg601">msg601</a></td></tr>
+<tr><td>2010-11-24&nbsp;01:15:13</td><td>jesstess</td><td>set</td><td>files:
+  + <a href="file97">issue115.patch2</a><br />messages:
+  + <a href="msg598">msg598</a></td></tr>
+<tr><td>2010-11-23&nbsp;15:38:24</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user12">jesstess</a><br />messages:
+  + <a href="msg597">msg597</a></td></tr>
+<tr><td>2010-11-23&nbsp;14:00:35</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg596">msg596</a></td></tr>
+<tr><td>2010-11-23&nbsp;02:40:56</td><td>jesstess</td><td>set</td><td>files:
+  + <a href="file96">issue115.patch</a><br />messages:
+  + <a href="msg595">msg595</a></td></tr>
+<tr><td>2010-11-23&nbsp;02:33:38</td><td>jesstess</td><td>set</td><td>status: chatting -> need-review<br />nosy:
+  + <a href="user12">jesstess</a><br />messages:
+  + <a href="msg594">msg594</a><br />files:
+  + <a href="file95">issue115.patch</a></td></tr>
+<tr><td>2010-11-20&nbsp;21:37:04</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg576">msg576</a></td></tr>
+<tr><td>2010-11-20&nbsp;21:32:27</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-07-13&nbsp;19:25:53</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

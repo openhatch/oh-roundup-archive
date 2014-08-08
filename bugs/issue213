@@ -1,0 +1,410 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 213: Decide what to do about Google Maps SSL warnings on openhatch.org/people/ - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue213
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue213">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue213">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Decide what to do about Google Maps SSL warnings on openhatch.org/people/</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jesstess, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-08.21:52:24</b> by <b>paulproteus</b>, last changed <b>2011-03-24.18:53:45</b> by <b>palhmbs</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1328">msg1328 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-23.21:50:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Marking this resolved since Google has made SSL Maps API free.
+
+There is a new issue to deal with implementing that. - See <a href="issue344">issue344</a>.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg814">msg814 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-27.22:51:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well, this ticket says to "decide". So, to proceed, we can either:
+
+* Decide to do nothing, and leave the warning. That's probably bad.
+
+* Pay $10K. (not happening, unless someone else really wants to spend it on this)
+
+* Decide to proxy the tiles. (This is more reasonable than it sounds; for one
+thing, we're only at 10% of our monthly bandwidth usage.) I think this is what
+we should go with, for now.
+
+* Decide to, for all people search pages, redirect the user to an http-based
+version of OpenHatch.  (That would be such a depressing choice, in terms of user
+security and privacy.)
+
+So let's decide to proxy the tiles. Next step is to figure out how that'll work.
+That'll be a separate ticket.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg723">msg723 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-09.07:02:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://lists.osgeo.org/pipermail/openlayers-users/2010-January/015776.html">http://lists.osgeo.org/pipermail/openlayers-users/2010-January/015776.html</a> is an
+example of someone else running into the same problem a year ago.
+
+Not terribly useful, but nice to know we're not alone.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg722">msg722 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-09.06:48:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just changed the map template to &lt;script src&gt; the Google Maps javascript from
+an OpenHatch URL (an SSL one, if you go to <a href="https://openhatch.org/people/">https://openhatch.org/people/</a>), which
+then redirects to the non-SSL Google Maps javascript.
+
+Also, the main Google Maps javascript file just loads in another non-SSL Google
+javascript file. 
+
+Chromium still shows https crossed-out, and Firefox doesn't show the nice blue
+domain that indicates it's happy with the SSL setup, so I conclude that
+redirects can't help.
+
+Reverse proxies can't really help either -- once the browser grabs the initial
+javascript over HTTPS, it will then load a non-HTTPS javascript file. And I also
+haven't found any information on getting Google Maps to load tiles from our
+server, rather than theirs.
+
+So, um, I guess HTTPS and the Google Maps API are quite at odds.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg721">msg721 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-09.06:31:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>One further note:
+
+<a href="https://gunnicom.wordpress.com/2010/10/14/redirect-from-https-to-http-works-for-tiles-from-openlayers/">https://gunnicom.wordpress.com/2010/10/14/redirect-from-https-to-http-works-for-tiles-from-openlayers/</a>
+indicates that we might be able to get away with using a redirect, rather than
+actually proxying.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg717">msg717 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-09.05:20:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well, the only official way we can the Google Maps API over SSL is to pay Google
+ten thousand dollars:
+<a href="http://googleenterprise.blogspot.com/2008/09/httpssecuregooglemaps.html">http://googleenterprise.blogspot.com/2008/09/httpssecuregooglemaps.html</a>
+
+We would have to serve the tiles ourselves, as well as the Google JavaScript. We
+could use a reverse proxy to achieve that.
+
+If we were a 501(c)3, we could request a free Premier key for Google Maps. It
+would take 3 months for Google to contact us about it.
+
+<a href="https://services.google.com/fb/forms/premiergrantapplication/">https://services.google.com/fb/forms/premiergrantapplication/</a> is the link to that.
+
+Well, what now? I was hoping this would be easy, but I guess it's not!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg716">msg716 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-01-08.23:06:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It looks like the home page is fine, but <a href="https://openhatch.org/people/">https://openhatch.org/people/</a> does have this issue -- the 
+Google maps API queries are over HTTP.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg703">msg703 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-08.21:52:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Luke Faraone had this to say:
+
+&lt;lfaraone&gt; paulproteus: hai!
+&lt;lfaraone&gt; paulproteus: fyi, on openhatch, my browser is giving SSL warnings
+because there are mixes of SSL and non-ssl content
+
+If you load up <a href="https://openhatch.org/">https://openhatch.org/</a> in Firefox, and use Firebug to look at the
+"Net" tab to see what pages we load, it should be all SSL ones. According to
+Luke, it's not all SSL stuff -- that's the bug.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-03-24&nbsp;18:53:45</td><td>palhmbs</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2011-03-23&nbsp;21:50:19</td><td>palhmbs</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg1328">msg1328</a></td></tr>
+<tr><td>2011-01-27&nbsp;22:51:29</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg814">msg814</a></td></tr>
+<tr><td>2011-01-09&nbsp;07:02:24</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg723">msg723</a></td></tr>
+<tr><td>2011-01-09&nbsp;06:48:48</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg722">msg722</a></td></tr>
+<tr><td>2011-01-09&nbsp;06:31:01</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg721">msg721</a></td></tr>
+<tr><td>2011-01-09&nbsp;05:20:42</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg717">msg717</a><br />keyword:
+  - <a href="keyword1">bitesize</a><br />title: Find out why some browsers give SSL warnings on https://openhatch.org/ -> Decide what to do about Google Maps SSL warnings on openhatch.org/people/</td></tr>
+<tr><td>2011-01-08&nbsp;23:06:45</td><td>jesstess</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user12">jesstess</a><br />messages:
+  + <a href="msg716">msg716</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:52:24</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

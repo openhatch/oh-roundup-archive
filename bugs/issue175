@@ -1,0 +1,503 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 175: Move geocoded location data into the Person model out of a cache - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue175
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue175">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue175">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Move geocoded location data into the Person model out of a cache</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.12</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  palhmbs, paulproteus, zathras
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-11-14.20:09:09</b> by <b>zathras</b>, last changed <b>2012-02-08.00:58:10</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2942">msg2942 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-08.00:58:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is finally done, and deployed.
+
+Zathras, it turns out that making these changes cleanly was quite difficult even
+for me. Thanks for all of your patience.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2810">msg2810 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-13.21:46:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This turns out to be a rather complex changeset, now that I am trying it.
+
+It is a code cleanup goal for 0.11.12.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1804">msg1804 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-01.22:54:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We haven't heard from Zathras for awhile - It's probably best if we allow other 
+contributors to get this done.
+
+Marked: "un-assigned"</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1454">msg1454 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-09.22:00:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey Zathras,
+
+I think we should release the 0.11.03 release on April 10, as planned. If you
+can get this ready by then, great, and put it back in the milestone when you
+have it going.
+
+If not, that's okay, just update this as you make more progress.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1369">msg1369 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-26.21:12:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey there,
+
+How is this going? I'm setting it as "Assigned to" you.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1242">msg1242 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-12.21:41:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Next step: Finish this (-:
+
+Zathras, do you have an update? I think we want to land this and the map
+improvements within the next week, so that we can spend the following week on
+the map JavaScript itself.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1210">msg1210 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-01.06:22:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is getting there, says zathras. Targeting for 0.11.03.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1016">msg1016 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-10.16:12:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Just adjusting assignee and keywords.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg998">msg998 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-06.04:40:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey zathras,
+
+I fixed up your migrations to the point where they run. I emailed them back to you.
+
+Let me know what the right next step is. I've fixed up your migrations so that
+they run without error. What I would like to do is now return to the normal
+patch review process, if you're still willing.
+
+I think that this bug is more important than the IRC issue, so I would love to
+work with you on closing this first you're interested!
+
+I replied with your patches by private email, but note: I will not do that
+again. It's too easy for me to lose patches unless you leave them on the bug
+tracker. Maybe you can stick to that going forward?
+
+If so, then I will give you more feedback on this ticket.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg989">msg989 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-05.21:41:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The current state of this is that zathras emailed some patches to me, and I
+promised to review/fix them, but I haven't yet.
+
+So I'm leaving this note on the bug tracker so it's easier for me to track this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg649">msg649 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-16.00:03:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Marking as "later" for now. Zathras has been active on IRC lately, so hopefully
+we can see this done sometime soon!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg619">msg619 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-04.21:49:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On the Dec 4 meeting, Zathras mentioned he could try doing this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg542">msg542 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-14.21:07:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This will be fairly easy! It seems like I need to write a few bits of documentation:
+
+* How we use migrations (and how to add one)
+
+...maybe other things, but I'll start there.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg540">msg540 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-11-14.20:09:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Trivial to add fields, adapt creation script and to write an updatescript (alter
+table). However not so trivial to have an idea what will do this to present code
+hence this request.
+db fields will be used for higher performance map display.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-02-08&nbsp;00:58:10</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg2942">msg2942</a><br />title: Move Location into a separate table, out of the Person model -> Move geocoded location data into the Person model out of a cache</td></tr>
+<tr><td>2011-12-13&nbsp;21:46:09</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2810">msg2810</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone14">0.11.12</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:28:36</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:23:59</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-01&nbsp;22:54:28</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user40">zathras</a> -> (no value)<br />messages:
+  + <a href="msg1804">msg1804</a><br />milestone: <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-09&nbsp;22:00:44</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1454">msg1454</a><br />milestone: <a href="milestone6">0.11.03</a> -> (no value)</td></tr>
+<tr><td>2011-03-26&nbsp;21:12:06</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user40">zathras</a><br />messages:
+  + <a href="msg1369">msg1369</a></td></tr>
+<tr><td>2011-03-12&nbsp;21:41:16</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1242">msg1242</a></td></tr>
+<tr><td>2011-03-01&nbsp;06:22:51</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1210">msg1210</a><br />milestone: <a href="milestone5">0.11.02</a> -> <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-02-19&nbsp;22:25:42</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-02-10&nbsp;16:12:12</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> (no value)<br />messages:
+  + <a href="msg1016">msg1016</a><br />keyword:
+  - <a href="keyword2">documentation</a></td></tr>
+<tr><td>2011-02-06&nbsp;04:40:53</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting<br />priority: urgent -> bug<br />messages:
+  + <a href="msg998">msg998</a><br />title: add fields to profile_person: location_latitude &amp; location_longitude -> Move Location into a separate table, out of the Person model</td></tr>
+<tr><td>2011-02-05&nbsp;22:21:51</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone5">0.11.02</a></td></tr>
+<tr><td>2011-02-05&nbsp;21:41:33</td><td>paulproteus</td><td>set</td><td>status: chatting -> need-review<br />assignedto: <a href="user40">zathras</a> -> <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg989">msg989</a></td></tr>
+<tr><td>2010-12-16&nbsp;00:03:59</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg649">msg649</a><br />milestone: <a href="milestone2">0.10.11</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2010-12-04&nbsp;21:49:01</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> <a href="user40">zathras</a><br />messages:
+  + <a href="msg619">msg619</a></td></tr>
+<tr><td>2010-11-16&nbsp;03:24:42</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-11-14&nbsp;21:07:34</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a></td></tr>
+<tr><td>2010-11-14&nbsp;21:07:25</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg542">msg542</a><br />keyword:
+  + <a href="keyword2">documentation</a>, - <a href="keyword9">needs-decision</a></td></tr>
+<tr><td>2010-11-14&nbsp;20:09:09</td><td>zathras</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

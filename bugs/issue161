@@ -1,0 +1,452 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 161: Project should have a ForeignKey that points at the TrackerModel its bugs are imported from - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue161
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue161">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue161">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Project should have a ForeignKey that points at the TrackerModel its bugs are imported from</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-10-08.22:14:43</b> by <b>paulproteus</b>, last changed <b>2011-05-01.08:06:54</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1783">msg1783 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-01.08:06:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The Bug now has these GenericForeignKeys, and there is where it makes the most 
+sense. Marking as 'resolved'.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1479">msg1479 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-12.01:42:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>As I discovered while implementing the asynchronous Bug importer, this would
+need to be implemented using a GenericForeignKey from the Content Types
+framework. Basically, the three lines for the tracker_type, tracker_id and
+tracker lines could be directly copied from Bug to Project.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1459">msg1459 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-10.16:39:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Part of the original issue here stems from a terminology issue that is being
+fixed in <a href="issue371">issue371</a>. However, as per the discussion below, it would certainly be
+useful to have a link between a tracker that we import from, and the projects
+that it tracks bugs for.
+
+IRC discussion:
+21:51 paulproteus      jmaister: re: <a href="http://cl.ly/2s25290F452N0i0N223s">http://cl.ly/2s25290F452N0i0N223s</a> -- I
+would also love a link you can go to that just lists the bug trackers (if any)
+for your project
+21:51 paulproteus      Then the sidebar at <a href="http://openhatch.org/+project/Amarok">http://openhatch.org/+project/Amarok</a>
+(for example) would link there
+21:51 paulproteus      It could even say, "No bug trackers listed for this
+project. Do you want to add one?"
+21:52 jmaister         That makes perfect sense
+21:52 pythonian4000    paulproteus, that would probably directly tying a project
+to the tracker(s) that supply bugs for it.
+21:53 pythonian4000    s/probably/require
+21:53 paulproteus      Well, the tracker should have (IMHO) a ForeignKey to a
+project, yeah.
+21:53 jmaister         isn't that a good thing?
+21:53 pythonian4000    paulproteus, I would say the other way around.
+21:53 paulproteus      That's good enough for the simple case, and we can worry
+about the non-simple case later.
+21:53 paulproteus      pythonian4000: Right, of course -- the other way
+21:54 pythonian4000    It is much more likely that a tracker supply multiple
+projects than a project have multiple trackers.
+21:54 jmaister         It could even be a limitation, not being able to add
+trackers for nonexisting projects
+21:54 pythonian4000    jmaister, when we add trackers at present for
+non-existing projects, it auto-creates them.
+21:54 jmaister         right
+21:55 pythonian4000    E.g. if a tracker ties bugs to project names based on the
+"component" field, and a bug appears under a new component, a new project is
+created.
+21:55 pythonian4000    (This is governed by the bug_project_name_format field.)
+21:55 jmaister         Auto complete for project name would be cool though.
+Makes people sure they spell the project right
+21:56 pythonian4000    jmaister, see <a href="issue161">issue 161</a> as well.
+21:56 sufjan           04Bug <a href="https://openhatch.org/bugs/issue161">https://openhatch.org/bugs/issue161</a> - title: In
+mysite/customs/models.py we use "project_name" when instead we should ForeignKey
+to a Project, creator: paulproteus, assignedto: pythonian4000, milestone:
+0.11.03, status: chatting
+21:56 paulproteus      jmaister: I think the common user experience should be
+that they come from the project page, fwiw, at which point it's already filled in
+21:56 jmaister         paulproteus: You rock at making sense today!
+21:56 pythonian4000    +1 jmaister
+21:56 jmaister         (for all I know you probably always do)
+21:56 paulproteus      Yay a good day.
+21:58 jmaister         Ok, so the /customs/ is for specially interested people.
+It's the edit/add page and implementation with project page that should have
+focus. Right?
+21:58 pythonian4000    I agree. The whole reason I started this implementation
+was to make it easier for people to add new trackers and edit existing ones.
+21:59 jmaister         So do we need /customs/ at all? Can't we just directly
+implement this with the project?
+21:59 paulproteus      foxfirefey: <a href="http://foxfirefey.dreamwidth.org/272059.html">http://foxfirefey.dreamwidth.org/272059.html</a>
+is totally good.
+21:59 foxfirefey       Aw, kitten.
+22:00 foxfirefey       He is a good kitten.
+22:02 pythonian4000    jmaister, I put it in /customs/ originally because of the
+way the codebase was layed out.
+22:03 pythonian4000    I.e. /search/ is implemented in mysite.search, /people/
+is implemented in mysite.profile, /+projects/ is implemented in mysite.project etc.
+22:03 paulproteus      I would suggest /+bugtrackers/ for a URL prefix
+22:04 pythonian4000    s/bugtrackers/bugimporters/I'm correcting terminology
+during asyncification
+22:05 paulproteus      pythonian4000: For the user, though, seems like they're
+adding a bug tracker, no?
+22:06 pythonian4000    True...
+22:06 pythonian4000    Yes, that is true.
+22:06 * pythonian4000  is happy with that.
+22:08 jmaister         Sorry for being ambigous (?) but what I meant was: Can
+the bugtrackers be a subimplementation of a project, or is it so that a tracker
+can belong to several projects?
+22:09 jmaister         *ambiguous
+22:09 pythonian4000    jmaister, a tracker can belong to several projects.
+22:09 jmaister         Engrish is hard
+22:09 jmaister         well, that settles it
+22:09 paulproteus      &lt;jmaister&gt; i quit
+22:09 pythonian4000    E.g. KDE or Gnome bug trackers, which services many
+Products or Components.
+22:10 jmaister         paulproteus: :P
+22:11 pythonian4000    Or OLPC and Sugar trackers, which are OSs and so their
+various components are separated out into separate projects.
+22:11 pythonian4000    ^ On ones like those, <a href="issue328">issue 328</a> will be useful.
+22:11 sufjan           04Bug <a href="https://openhatch.org/bugs/issue328">https://openhatch.org/bugs/issue328</a> - title:
+Projects should have separate URL/identifying and display names, creator:
+pythonian4000, assignedto: pythonian4000, milestone: 0.11.03, status: chatting
+22:12 paulproteus      Since we're talking about me whipping up the backend in a
+day, I would be okay with "for now" only handling single-bug-tracker projects.
+22:12 pythonian4000    So that the horribly non-descript in-tracker names can be
+kept for the URLs and something else can be displayed.
+22:12 paulproteus      (FWIW)
+22:12 paulproteus      It's important to design the beautiful dream, too, so by
+all means I think this conversation is good.
+22:14 pythonian4000    FWIW the only one that properly works is Google, which is
+by definition one-tracker-per-project.
+22:14 paulproteus      But for now, I think that we can just add a note in the
+UI saying "If this is for &gt;1 project, then, uh, add a note on this wiki page"
+22:14 pythonian4000    Trac is unimplemented (but as it is the first importer I
+am asyncing that will change very soon) and Bugzilla is... well, Bugzilla =D
+22:15 pythonian4000    paulproteus, eventually I would hope that the following
+would happen:
+22:16 pythonian4000    * several projects exist that happen to have the same
+tracker (and by chance have the exact same name as in the tracker ^_^)
+22:16 pythonian4000    * one project uses this new link to add the tracker,
+adding queries that cover the other projects as well.
+22:17 pythonian4000    * The importer ties new Bugs for the other projects to
+those projects correctly (as is the case currently as long as naming is correct)
+22:17 pythonian4000    * Something ties the tracker to the other existing
+projects, so their "Add your bug tracker" links now change to point at the same
+bug tracker that the first project added.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg500">msg500 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-08.22:46:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>&lt;pythonian4000&gt; paulproteus, I disagree. What about e.g. Sugar where the project
+name is not what is used for the bug (bug_project_name_format defines what
+Project will be used)
+&lt;paulproteus&gt; doing that column lengthening now
+&lt;paulproteus&gt; pythonian4000: oh...
+&lt;paulproteus&gt; Then it's a "Bug tracker name".
+&lt;paulproteus&gt; Except when it's not, yargle.
+&lt;paulproteus&gt; I think we should "for now" only support bug trackers that *do*
+foreignkey to a project, in the web interface.
+&lt;paulproteus&gt; I know that means we don't get to move GNOME Love in, for example,
+but really one-project-per-bug-tracker is the common case.
+&lt;pythonian4000&gt; So that's only ones that have {project} under
+bug_project_name_format
+&lt;paulproteus&gt; Once we focus that way, we can also simplify the form, and then we
+can have a different, more complex form for the multiproject case.
+-*- paulproteus nods
+&lt;paulproteus&gt; One easy way to do that is to actually have both be stored in the
+same table.
+&lt;paulproteus&gt; Since the object supports both.
+&lt;paulproteus&gt; Oh, in which case you need project_name... well make it
+bug_tracker_name, then, and create a ForeignKey(Project) that can be null...
+&lt;paulproteus&gt; And for single-project bug trackers, we auto-generate the
+bug_tracker_name
+&lt;paulproteus&gt; (see *this* is code review -- should have given it to you earlier :P)
+&lt;paulproteus&gt; But it only makes sense as I imagine actually using it, like you
+are now
+&lt;pythonian4000&gt; Well I
+&lt;pythonian4000&gt; 've looked through bugtrackers/bugzilla.py and there is actually
+only a few trackers that use the project name as the bug_project_name
+&lt;paulproteus&gt; Hmm. I guess that's because most Bugzilla projects are complex.
+&lt;paulproteus&gt; Like, "you wouldn't set up Bugzilla if you had only one project
+because Bugzilla is such a bear"
+&lt;pythonian4000&gt; quite a few use {component} or {product}, and there are also
+ones that have their own special methods for determinig what the name is (which
+I was originally going to leave as special cases)
+&lt;paulproteus&gt; Hmm... I see what you mean.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg499">msg499 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-10-08.22:14:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>In e.g. class BugzillaTracker, we have an attribute called "project_name".
+
+It'd be nicer if we could make these ForeignKey to a Project object.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-05-01&nbsp;08:06:54</td><td>paulproteus</td><td>unlink</td><td><a href="issue334">issue334 blockers</a></td></tr>
+<tr><td>2011-05-01&nbsp;08:06:54</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg1783">msg1783</a></td></tr>
+<tr><td>2011-04-14&nbsp;04:37:40</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-12&nbsp;01:42:53</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1479">msg1479</a></td></tr>
+<tr><td>2011-04-10&nbsp;16:39:09</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1459">msg1459</a><br />title: In mysite/customs/models.py we use "project_name" when instead we should ForeignKey to a Project -> Project should have a ForeignKey that points at the TrackerModel its bugs are imported from</td></tr>
+<tr><td>2011-03-12&nbsp;22:27:05</td><td>pythonian4000</td><td>link</td><td><a href="issue334">issue334 blockers</a></td></tr>
+<tr><td>2011-03-12&nbsp;21:54:39</td><td>paulproteus</td><td>set</td><td>keyword:
+  - <a href="keyword1">bitesize</a><br />milestone: <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2010-10-08&nbsp;22:46:12</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg500">msg500</a></td></tr>
+<tr><td>2010-10-08&nbsp;22:14:43</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

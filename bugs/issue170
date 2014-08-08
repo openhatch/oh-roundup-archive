@@ -1,0 +1,435 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 170: Move the missions code around so that each mission is in its own directory - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue170
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue170">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue170">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Move the missions code around so that each mission is in its own directory</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.10.11</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000, stump
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-11-13.19:39:47</b> by <b>paulproteus</b>, last changed <b>2010-11-17.21:49:27</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg562">msg562 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-17.21:49:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The patch doesn't pass all the missions tests. It fails because of a partial
+rename for SvnDiffMission into DiffMission.
+
+I added a commit on top of that.
+
+It looks good. Committed and pushed to origin/master.
+
+The next thing we should do is to clean these up so there's a consistent coding
+style used in the missions. But that's a separate ticket. (<a href="issue179">issue179</a>)
+
+Thanks, Jack!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg560">msg560 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-11-16.23:04:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Renaming is done. Here are the relevant patches:
+
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=a5da7e069fbef5f9e19a20179ff0a437880ca218">http://git.jackgrigg.com/openhatch/patch/?id=a5da7e069fbef5f9e19a20179ff0a437880ca218</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=507b21ec4dba24e63d7db07f94ed8c64e4624f32">http://git.jackgrigg.com/openhatch/patch/?id=507b21ec4dba24e63d7db07f94ed8c64e4624f32</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg551">msg551 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-11-15.20:00:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I did think this myself actually! I will go through and do some renaming.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg549">msg549 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-15.14:58:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>There's a little bit of ugliness left here. For example, the tar mission's views
+still contain "tar_" in the function names, even though it's quite obvious that
+they're tar-related because they're in a module named "tar". Same goes for the
+templates; they start with "tar_" even though they're in a "tar" directory.
+
+Still, it's really great that you've done this much clean-up. I think that the
+simplicity you're creating will really help us write a clear "Write your own
+mission HOWTO". Also, sorry that I wasn't on IRC when you were trying to find me!
+
+I've merged what you have, and pushed it to Gitorious. (I used cherry-pick so I
+got linear history; you might want to rebase against Gitorious's origin/master.)
+
+What do you think about doing the remaining template and view name changes?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg548">msg548 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-11-15.11:16:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>All done. See the following patches:
+
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=3488dc63ca25e0aff8c172ed222cf8fc666fc815">http://git.jackgrigg.com/openhatch/patch/?id=3488dc63ca25e0aff8c172ed222cf8fc666fc815</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=79d86ca8a2cb5f978cb30f290e244c53abbdaac6">http://git.jackgrigg.com/openhatch/patch/?id=79d86ca8a2cb5f978cb30f290e244c53abbdaac6</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=473ec3813c65697495a7c5407864764f503dcf29">http://git.jackgrigg.com/openhatch/patch/?id=473ec3813c65697495a7c5407864764f503dcf29</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg547">msg547 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-11-15.02:38:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I agree with both your suggestions - templates should be in missions for
+organizational niceties, and I think that using fully-namespaced names should
+speed things up a bit as Django won't be loading the views.py files for *every*
+mission, just the one it needs. I will do those next.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg545">msg545 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-15.01:07:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have some more feedback on this. I like what you've done, and I've pushed it.
+Can you take it a little further?
+
+I removed your missions/base/forms.py file, since it did not have any extra
+content beyond what Django provides.
+
+I think that it would be nice if mysite/missions/views.py were empty, and we
+used fully-namespaced names in mysite/urls.py for each module's views. Then
+'mysite/missions/views.py' would only contain the landing page with information
+about missions.
+
+I also think that we should move the mission-specific templates into their own
+directory.
+
+What do you think? (And thanks for tackling this so far)!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg541">msg541 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-11-14.20:13:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Finished moving the missions code around, and ran the missions tests
+successfully on the result.
+
+Patch is at
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=6851a669cff147291db02da232aab1270b1da164">http://git.jackgrigg.com/openhatch/patch/?id=6851a669cff147291db02da232aab1270b1da164</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg532">msg532 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-13.19:39:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>&lt;pythonian4000&gt; I have had a brief look through the missions code. Howw feasible
+would it be to move sections in views.py, controllers.py etc. into their own files?
+&lt;paulproteuss&gt; mllerustad, Right, exactly. I agree!
+&lt;paulproteuss&gt; pythonian4000, One thing I was thinking was, one directory per
+mission.
+&lt;pythonian4000&gt; (i.e. under "views" dir, and have views.py do some including magic)
+&lt;paulproteuss&gt; Then "views.py" can just be a list of:
+&lt;paulproteuss&gt; from svn_mission.views import *
+&lt;paulproteuss&gt; from diff_patch_mission.views import *
+&lt;paulproteuss&gt; And that way, each mission is nice and self-contained.
+&lt;pythonian4000&gt; that does make more sense than views.svn_missions etc.
+&lt;paulproteuss&gt; er, oops
+&lt;paulproteuss&gt; er, un-oops
+&lt;pythonian4000&gt; =)
+&lt;paulproteuss&gt; Yeah, I think that makes the most sense.
+&lt;paulproteuss&gt; It requires some upheaval and moving stuff around in the codebase.
+&lt;pythonian4000&gt; But that's just copy-paste, right?
+&lt;paulproteuss&gt; Basically.
+&lt;paulproteuss&gt; I would really like someone else to take that on. I don't think
+it'll be that hard, and I think that once they're separated out like that, it'll
+be easy for that person to begin writing the HOWTO, too.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-11-17&nbsp;21:49:27</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg562">msg562</a></td></tr>
+<tr><td>2010-11-16&nbsp;23:04:12</td><td>pythonian4000</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg560">msg560</a></td></tr>
+<tr><td>2010-11-16&nbsp;02:20:47</td><td>pythonian4000</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-11-16&nbsp;02:18:47</td><td>pythonian4000</td><td>set</td><td>milestone: <a href="milestone1">later</a></td></tr>
+<tr><td>2010-11-15&nbsp;20:00:06</td><td>pythonian4000</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg551">msg551</a></td></tr>
+<tr><td>2010-11-15&nbsp;14:58:54</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg549">msg549</a></td></tr>
+<tr><td>2010-11-15&nbsp;11:16:21</td><td>pythonian4000</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg548">msg548</a></td></tr>
+<tr><td>2010-11-15&nbsp;02:38:32</td><td>pythonian4000</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg547">msg547</a></td></tr>
+<tr><td>2010-11-15&nbsp;01:07:35</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg545">msg545</a></td></tr>
+<tr><td>2010-11-14&nbsp;20:13:35</td><td>pythonian4000</td><td>set</td><td>status: unread -> need-review<br />messages:
+  + <a href="msg541">msg541</a></td></tr>
+<tr><td>2010-11-13&nbsp;19:39:47</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

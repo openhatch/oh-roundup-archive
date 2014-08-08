@@ -1,0 +1,486 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 331: Every night, if /+meta/ shows some error conditions, email the Monitoring list - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue331
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue331">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue331">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Every night, if /+meta/ shows some error conditions, email the Monitoring list</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.03</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jesstess, nacarino, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>nacarino</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-03-12.22:07:16</b> by <b>paulproteus</b>, last changed <b>2011-03-30.22:00:41</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file158/0002-Committed-a-simple-test-to-check-the-meta-data-gener.patch">0002-Committed-a-simple-test-to-check-the-meta-data-gener.patch</a>
+  </td>
+  <td>
+   <span>nacarino</span>,
+   <span>2011-03-15.20:00:33</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1396">msg1396 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-30.22:00:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>With jesstess's help on the Nagios configuration, this is fixed.
+
+It is totally emailing us. Further bugs will have to be filed to adjust it so we
+don't get emailed all the frickin' time!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1275">msg1275 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-15.20:01:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Looks good! I merged all these patches.
+
+There seems to be some problem with the Nagios configuration so that it's still
+"unknown" -- Jessica, can you take a look at that?
+
+I'm looking at <a href="http://linode2.openhatch.org/cgi-bin/nagios3/status.cgi?host=all">http://linode2.openhatch.org/cgi-bin/nagios3/status.cgi?host=all</a>
+and secretly a little disappointed 'cause I don't know why it's not sending us
+email!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1274">msg1274 (view)</a></th>
+   <th>Author: nacarino</th>
+   <th>Date: 2011-03-15.19:56:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've added the simple test and the fix for the meta_data 0 division.
+
+Cheers.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1271">msg1271 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-15.19:07:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>(Adding you as the person this bug is "assigned to")</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1270">msg1270 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-15.19:06:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This looks good!
+
+Please:
+
+ git fetch origin
+ git rebase origin/master
+
+because this is now live!
+
+I'm setting it up in Nagios now...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1269">msg1269 (view)</a></th>
+   <th>Author: nacarino</th>
+   <th>Date: 2011-03-15.18:57:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This adds the nagios management command. The meta check is used with -m.
+
+Cheers.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1267">msg1267 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-15.16:51:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://piratepad.net/plan">http://piratepad.net/plan</a> has the plan for the rest.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1264">msg1264 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-14.20:20:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This looks good. Check out <a href="http://openhatch.org/wiki/How_we_handle_patches">http://openhatch.org/wiki/How_we_handle_patches</a>
+
+Some next steps:
+
+1. Please email <a href="mailto:devel@lists.openhatch.org">devel@lists.openhatch.org</a> saying that you're okay with your work
+being under AGPLv3. If you're willing, it'd be nice if you say 'the Affero GPL,
+version 3 or later, at your option'.
+
+2. There are some minor style changes I would make, but actually you don't have
+to worry about them; I can take care of them just after I push.
+
+!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1247">msg1247 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-12.22:07:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a good bug for a (technical) newcomer to work on.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1246">msg1246 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-12.22:07:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right now, there are some bad things going on with regard to DataImportAttempts:
+
+<a href="https://openhatch.org/+meta/">https://openhatch.org/+meta/</a>
+
+But I didn't know, 'cause I don't get notifications for that page.
+
+To achieve this bug:
+
+1. Modify the Django view that generates the /+meta/ page so that it's easy for
+a script to figure out if there is an error condition
+
+2. Add code to the profile_daily_tasks that run the above code, and if there is
+an error, sends an email to monitoring @ lists.openhatch.org
+
+3. (Write tests for the above.)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-03-30&nbsp;22:00:41</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg1396">msg1396</a></td></tr>
+<tr><td>2011-03-15&nbsp;20:01:50</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a><br />messages:
+  + <a href="msg1275">msg1275</a></td></tr>
+<tr><td>2011-03-15&nbsp;20:00:33</td><td>nacarino</td><td>set</td><td>files:
+  + <a href="file158">0002-Committed-a-simple-test-to-check-the-meta-data-gener.patch</a></td></tr>
+<tr><td>2011-03-15&nbsp;19:59:13</td><td>paulproteus</td><td>set</td><td>files:
+  - <a href="file157">0003-Committed-a-simple-test-to-check-the-meta-data-gener.patch</a></td></tr>
+<tr><td>2011-03-15&nbsp;19:59:07</td><td>paulproteus</td><td>set</td><td>files:
+  - <a href="file155">0002-I-ve-added-the-directories-to-add-management-command.patch</a></td></tr>
+<tr><td>2011-03-15&nbsp;19:59:01</td><td>paulproteus</td><td>set</td><td>files:
+  - <a href="file154">0002-I-ve-refactored-the-meta-function-to-be-able-to-obta.patch</a></td></tr>
+<tr><td>2011-03-15&nbsp;19:56:48</td><td>nacarino</td><td>set</td><td>files:
+  + <a href="file157">0003-Committed-a-simple-test-to-check-the-meta-data-gener.patch</a><br />messages:
+  + <a href="msg1274">msg1274</a></td></tr>
+<tr><td>2011-03-15&nbsp;19:56:26</td><td>nacarino</td><td>set</td><td>messages:
+  - <a href="msg1272">msg1272</a></td></tr>
+<tr><td>2011-03-15&nbsp;19:56:16</td><td>nacarino</td><td>set</td><td>files:
+  - <a href="file156">0003-Committed-a-simple-test-to-check-the-meta-data-gener.patch</a></td></tr>
+<tr><td>2011-03-15&nbsp;19:50:10</td><td>nacarino</td><td>set</td><td>files:
+  + <a href="file156">0003-Committed-a-simple-test-to-check-the-meta-data-gener.patch</a><br />messages:
+  + <a href="msg1272">msg1272</a></td></tr>
+<tr><td>2011-03-15&nbsp;19:07:23</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user75">nacarino</a><br />messages:
+  + <a href="msg1271">msg1271</a><br />nosy:
+  + <a href="user75">nacarino</a></td></tr>
+<tr><td>2011-03-15&nbsp;19:06:59</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1270">msg1270</a></td></tr>
+<tr><td>2011-03-15&nbsp;18:57:18</td><td>nacarino</td><td>set</td><td>files:
+  + <a href="file155">0002-I-ve-added-the-directories-to-add-management-command.patch</a><br />messages:
+  + <a href="msg1269">msg1269</a></td></tr>
+<tr><td>2011-03-15&nbsp;16:51:55</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1267">msg1267</a></td></tr>
+<tr><td>2011-03-15&nbsp;16:44:50</td><td>nacarino</td><td>set</td><td>files:
+  + <a href="file154">0002-I-ve-refactored-the-meta-function-to-be-able-to-obta.patch</a></td></tr>
+<tr><td>2011-03-15&nbsp;16:44:06</td><td>nacarino</td><td>set</td><td>files:
+  - <a href="file153">0002-I-ve-refactored-the-meta-function-to-be-able-to-obta.patch</a></td></tr>
+<tr><td>2011-03-15&nbsp;16:19:11</td><td>nacarino</td><td>set</td><td>files:
+  + <a href="file153">0002-I-ve-refactored-the-meta-function-to-be-able-to-obta.patch</a></td></tr>
+<tr><td>2011-03-15&nbsp;16:17:13</td><td>nacarino</td><td>set</td><td>files:
+  - <a href="file152">0003-Made-a-function-to-return-the-error-codes-required-b.patch</a></td></tr>
+<tr><td>2011-03-15&nbsp;16:17:10</td><td>nacarino</td><td>set</td><td>files:
+  - <a href="file151">0002-Small-modification-to-make-the-meta-data-dictionary-.patch</a></td></tr>
+<tr><td>2011-03-14&nbsp;22:24:01</td><td>nacarino</td><td>set</td><td>files:
+  + <a href="file152">0003-Made-a-function-to-return-the-error-codes-required-b.patch</a></td></tr>
+<tr><td>2011-03-14&nbsp;20:20:21</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1264">msg1264</a></td></tr>
+<tr><td>2011-03-14&nbsp;20:15:37</td><td>nacarino</td><td>set</td><td>files:
+  + <a href="file151">0002-Small-modification-to-make-the-meta-data-dictionary-.patch</a></td></tr>
+<tr><td>2011-03-12&nbsp;22:07:31</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1247">msg1247</a><br />keyword:
+  + <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2011-03-12&nbsp;22:07:16</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

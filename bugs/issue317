@@ -1,0 +1,388 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 317: sufjan can't log into MediaWiki - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue317
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue317">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue317">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">sufjan can't log into MediaWiki</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-02-26.01:03:52</b> by <b>pythonian4000</b>, last changed <b>2012-06-24.01:25:38</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3294">msg3294 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-06-24.01:25:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yay! (Also maybe that would be a good time to document it some more.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3293">msg3293 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2012-06-23.02:10:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I've got my plate full for the next couple of weeks, but after that I
+can probably pop in and have a fiddle.
+
+Cheers
+Jack
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <a href="http://enigmail.mozdev.org/">http://enigmail.mozdev.org/</a>
+
+iQEcBAEBAgAGBQJP5SV+AAoJEI3j92WSe+b31E8H/3UcGd15xxG+NWwVQYPghDhp
+hnpFBQ2imD0FpzA6itBTPuSOh/Gz7MgUVxMF7O88ocCHDx5RxkuepSBIVkyz31iH
+jTmh08+m1azk5/bYk538AZrUixFiulrr/fioF783TcfKqJR/J1FXUe7GAfMQqsFv
+Fpz8EqYy12BbsMAQ/omeaFDAWxE7V2Cjdqo/PbHb8DPWJrAqlOHKpJoIM0w2Z+HD
+otoBCHSyXLuD7PjHnA1eXiOMQC8lwJCkXfCcqIyaHFm6Lao3oYMQkcuzjWnuN24m
+j1B6hZCXLIja/WENUz3j10vJM4R5VJnWiTq+6blwrVifPMoROwBl3o5Rgw41M+8=
+=i6WJ
+-----END PGP SIGNATURE-----</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3292">msg3292 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-06-23.01:46:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Good news and bad news.
+
+The good news is, we diagnosed the 'badtoken' problem. In fact, it's fixed
+through a hack to AuthDjango, as discussed on OH-Dev!
+
+The bad news is I have no idea what is going wrong now because I can't quite
+understand MeetBot's configuration.
+
+I'm bumping the priority of this down for now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1561">msg1561 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-16.20:53:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Deassigning myself due to lack of time. Anyone is free to grab it; if they need
+to patch the AuthDjango plugin then do so and I'll happily commit patches to the
+repo once reviewed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1366">msg1366 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-26.20:55:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Bumping (again).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1233">msg1233 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-09.23:11:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hmm, this seems at face value unrelated to the central login system - the site
+login works fine (now that I have enabled password login for sufjan) but the
+actual API edit call returns:
+
+APIError(u'badtoken', u'Invalid token', None)
+
+It is possible that something in the API is being unintentionally affected by
+the AuthDjango plugin. I'll have to dig deeper...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1189">msg1189 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-26.22:16:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Bumping.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1174">msg1174 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-26.01:03:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Since the central login system was implemented, sufjan has been unable to log
+into MediaWiki. This is sad, and causes the MeetBot plugin to fail.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-06-24&nbsp;01:25:38</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3294">msg3294</a></td></tr>
+<tr><td>2012-06-23&nbsp;02:11:02</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg3293">msg3293</a></td></tr>
+<tr><td>2012-06-23&nbsp;01:46:32</td><td>paulproteus</td><td>set</td><td>priority: urgent -> wish<br />messages:
+  + <a href="msg3292">msg3292</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:12:02</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:16:17</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-04-30&nbsp;22:38:40</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-16&nbsp;20:53:40</td><td>pythonian4000</td><td>set</td><td>assignedto: <a href="user34">pythonian4000</a> -> <a href="userNone"></a><br />messages:
+  + <a href="msg1561">msg1561</a></td></tr>
+<tr><td>2011-03-26&nbsp;20:55:10</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1366">msg1366</a><br />milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-03-09&nbsp;23:11:13</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1233">msg1233</a></td></tr>
+<tr><td>2011-02-26&nbsp;22:16:38</td><td>pythonian4000</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1189">msg1189</a><br />milestone: <a href="milestone5">0.11.02</a> -> <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-02-26&nbsp;20:24:55</td><td>pythonian4000</td><td>set</td><td>milestone: <a href="milestone5">0.11.02</a></td></tr>
+<tr><td>2011-02-26&nbsp;01:03:52</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

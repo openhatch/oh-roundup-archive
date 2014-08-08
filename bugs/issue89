@@ -1,0 +1,322 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 89: Ditch haystack and rewrite people search code to use MySQL queries - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue89
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue89">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue89">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Ditch haystack and rewrite people search code to use MySQL queries</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.11</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mark, palhmbs, paulproteus, rafpaf, stump
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-05-27.09:14:29</b> by <b>paulproteus</b>, last changed <b>2011-11-24.19:43:28</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2741">msg2741 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-24.19:43:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>With Haystack+Xapian, I could never disable what I call "tokenizing".
+
+With SOLR, we manually modified the XML that Haystack generates for SOLR.
+
+But I just went through and removed our use of Haystack, which closes this bug.
+It also makes our people-search system *way* easier to debug, which thrills me.
+
+Marking as resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1258">msg1258 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-14.02:22:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So, actually, I chatted with a Haystack developer, and it seems that we should
+just make faceting work. I can get on that!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1253">msg1253 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-12.22:20:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think the core issue here is that "Asheesh doesn't trust SOLR", which can be
+fixed by switching the search backend we use. In fact, I think we did that.
+
+Next step: I should take a look and see what the current state it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg776">msg776 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-01-24.10:29:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This bug just showed up in my "Recommended bugs" list as one I should contribute
+to, so I will ^_^
+
+Given that this is no longer urgent (as per previous message), I am deferring
+this bug to later.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg234">msg234 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-03.17:01:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is no longer urgent, because we now are keeping the index up-to-date.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-11-24&nbsp;19:43:29</td><td>paulproteus</td><td>unlink</td><td><a href="issue450">issue450 blockers</a></td></tr>
+<tr><td>2011-11-24&nbsp;19:43:28</td><td>paulproteus</td><td>set</td><td>status: deferred -> resolved<br />assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2741">msg2741</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone13">0.11.11</a></td></tr>
+<tr><td>2011-07-03&nbsp;03:29:17</td><td>paulproteus</td><td>link</td><td><a href="issue450">issue450 blockers</a></td></tr>
+<tr><td>2011-07-03&nbsp;02:12:58</td><td>paulproteus</td><td>set</td><td>messages:
+  - <a href="msg225">msg225</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:36:24</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-05-28&nbsp;23:07:31</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-01&nbsp;00:27:26</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-03-26&nbsp;20:53:28</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-03-21&nbsp;08:17:34</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-03-14&nbsp;02:22:20</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1258">msg1258</a></td></tr>
+<tr><td>2011-03-12&nbsp;22:20:41</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1253">msg1253</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-01-24&nbsp;10:29:17</td><td>pythonian4000</td><td>set</td><td>status: chatting -> deferred<br />messages:
+  + <a href="msg776">msg776</a><br />milestone: <a href="milestone1">later</a></td></tr>
+<tr><td>2010-06-03&nbsp;17:01:36</td><td>paulproteus</td><td>set</td><td>priority: urgent -> feature<br />messages:
+  + <a href="msg234">msg234</a></td></tr>
+<tr><td>2010-05-27&nbsp;09:14:29</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

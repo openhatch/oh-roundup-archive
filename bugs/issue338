@@ -1,0 +1,469 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 338: Mailman list page should not ask you for a password - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue338
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue338">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue338">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Mailman list page should not ask you for a password</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.03</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-03-14.15:18:14</b> by <b>paulproteus</b>, last changed <b>2011-04-09.17:12:24</b> by <b>pythonian4000</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1448">msg1448 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-09.17:12:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>That is true, so even though users may wonder about the login form, they don't
+need another password to sign up and then when the one appears in their email
+sense would be made.
+
+So I'm now happy as it is. Resolved!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1447">msg1447 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-09.16:40:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So I kind of agree re: the login form
+
+You do get a password by email, though, so maybe that's okay?
+
+If the login form should be changed, and this is livable UI, file a separate bug
+so we can feel good about this for 0.11.03 (-: (and mark as resolved)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1446">msg1446 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-09.16:17:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>As per last message, ball is in your court ^_^</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1440">msg1440 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-08.22:09:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Sorry, I meant to do this earlier. Looks great! One quibble though - the login
+form below now doesn't make quite as much sense, since there is no mention of a
+password at signup. I'm not sure how I would change the text there though to
+improve it, without it becoming overly verbose and awkward. Suggestions? If you
+think that I'm talking madness and it's fine then that's okay, just tell me and
+I'll be happy and resolve this ^_^</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1437">msg1437 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-08.04:25:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Psst, Jack, please review.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1421">msg1421 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-04.04:55:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Done -- <a href="http://lists.openhatch.org/mailman/listinfo/devel">http://lists.openhatch.org/mailman/listinfo/devel</a>
+
+Take a look. I think it's better now, and it can be marked as resolved.
+
+Marking as needs-review for the sake of it (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1404">msg1404 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-02.20:56:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Next step: Asheesh uses HTML comments to remove the password fields.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1290">msg1290 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-18.16:46:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey! So there isn't an SSH account for Mailman right now, but I can work on
+giving you access.
+
+The easy way that I was originally thinking was to modify the Mailman signup
+page's HTML -- just remove the comment form stuff, and/or add custom CSS to hide
+it from the user. Then we don't prompt them for a password.
+
+Mailman will email them a password for mailman, and that's that.
+
+We could also Django-auth-ify it. That would be intriguing.
+
+Either way, next step is giving you access. Therefore I'll assign it to me.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1280">msg1280 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-16.11:06:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've looked at the sections of the Mailman code referenced in the message below,
+and there is a nice system for authenticating against a different database (like
+pretty much every system has) via replacing the default
+Mailman/OldStyleMemberships.py. However, as with MediaWiki and Roundup, this
+only affects the authentication back-end, not the fact that we allow
+authentication via OpenID or username/password on Django; hence I foresee some
+interface and authentication process hacking, since Mailman doesn't seem to have
+any sort of plugin interface.
+
+Asheesh, is there an SSH account for Mailman like there is for the bug tracker,
+wiki, sufjan etc. that I could get access to?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1279">msg1279 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-16.09:57:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>For reference purposes:
+
+<a href="http://osdir.com/ml/mailman-users/2010-05/msg00221.html">http://osdir.com/ml/mailman-users/2010-05/msg00221.html</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1278">msg1278 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-16.09:55:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This sounds like a job for.... MR CENTRAL-LOGIN MAN!!!!!
+
+Ahem.
+
+I'll do some research and see what I can come up with in terms of Django
+integration.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1260">msg1260 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-14.15:18:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If you:
+
+* Go to <a href="http://lists.openhatch.org/">http://lists.openhatch.org/</a>
+* Click on Devel
+* Think about signing up,
+
+what will happen is you will say, "Grah. Another password."</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-09&nbsp;17:12:24</td><td>pythonian4000</td><td>set</td><td>status: chatting -> resolved<br />assignedto: <a href="user34">pythonian4000</a> -> <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg1448">msg1448</a></td></tr>
+<tr><td>2011-04-09&nbsp;16:40:46</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg1447">msg1447</a></td></tr>
+<tr><td>2011-04-09&nbsp;16:17:15</td><td>pythonian4000</td><td>set</td><td>assignedto: <a href="user34">pythonian4000</a> -> <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg1446">msg1446</a></td></tr>
+<tr><td>2011-04-09&nbsp;10:58:41</td><td>pythonian4000</td><td>set</td><td>status: need-review -> chatting</td></tr>
+<tr><td>2011-04-08&nbsp;22:09:57</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1440">msg1440</a></td></tr>
+<tr><td>2011-04-08&nbsp;04:25:13</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg1437">msg1437</a></td></tr>
+<tr><td>2011-04-04&nbsp;04:55:49</td><td>paulproteus</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg1421">msg1421</a></td></tr>
+<tr><td>2011-04-02&nbsp;20:56:27</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1404">msg1404</a></td></tr>
+<tr><td>2011-03-18&nbsp;16:46:58</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg1290">msg1290</a></td></tr>
+<tr><td>2011-03-16&nbsp;11:06:21</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1280">msg1280</a></td></tr>
+<tr><td>2011-03-16&nbsp;09:58:11</td><td>pythonian4000</td><td>set</td><td>nosy:
+  + <a href="user34">pythonian4000</a></td></tr>
+<tr><td>2011-03-16&nbsp;09:57:56</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1279">msg1279</a></td></tr>
+<tr><td>2011-03-16&nbsp;09:55:46</td><td>pythonian4000</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1278">msg1278</a></td></tr>
+<tr><td>2011-03-14&nbsp;15:18:14</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

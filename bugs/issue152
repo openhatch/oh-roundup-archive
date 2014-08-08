@@ -1,0 +1,346 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 152: reinstall error on solr - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue152
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue152">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue152">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">reinstall error on solr</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, zathras
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-09-27.18:13:04</b> by <b>zathras</b>, last changed <b>2010-09-27.21:44:34</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg472">msg472 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-09-27.21:44:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks! I pushed the fix to origin/master.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg471">msg471 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-09-27.21:36:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Add: ignore-existing = true
+to Stanza: [download_solr]
+in file: buildout.cfg
+(like suggested by the error report)
+this fixes the error</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg470">msg470 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-09-27.18:13:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>wks:/home/system/www2/openhatch.org/milestone-a# git pull
+remote: Counting objects: 87, done.
+remote: Compressing objects: 100% (62/62), done.
+remote: Total 63 (delta 49), reused 0 (delta 0)
+Unpacking objects: 100% (63/63), done.
+From git://code.openhatch.org/milestone-a
+ * [new branch]      django12   -&gt; origin/django12
+   de08078..880128d  master     -&gt; origin/master
+Updating de08078..880128d
+Fast-forward
+ mysite/profile/models.py      |    5 ++-
+ mysite/static/css/roundup.css |   86 +++++++++++++++++++++++++++++++++++++++++
+ mysite/static/robots.txt      |    3 +
+ 3 files changed, 93 insertions(+), 1 deletions(-)
+ create mode 100644 mysite/static/css/roundup.css
+wks:/home/system/www2/openhatch.org/milestone-a# git show
+1e3afc271468c9843a19a49ee702ad81c8af8d4d
+commit 1e3afc271468c9843a19a49ee702ad81c8af8d4d
+Author: Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt;
+Date:   Mon Sep 27 10:46:36 2010 -0400
+
+    Change create_dummy so that it does not overflow the username field
+    
+    Before this commit, one would get a data truncation warning for the username
+column.
+
+diff --git a/mysite/profile/models.py b/mysite/profile/models.py
+index ffa1644..edeca87 100644
+--- a/mysite/profile/models.py
++++ b/mysite/profile/models.py
+@@ -114,7 +114,10 @@ class Person(models.Model):
+     @staticmethod
+     def create_dummy(first_name="", email=None, **kwargs):
+ 
+-        username = uuid.uuid4().hex
++        # Generate a random string to use as a username. Keep it short
++        # so that it doesn't overflow the username field!
++        username = uuid.uuid4().hex[:16]
++
+         if email is None:
+             email = "<a href="mailto:%s@example.com">%s@example.com</a>" % username
+         user = User(username=username, first_name=first_name, email=email)
+wks:/home/system/www2/openhatch.org/milestone-a# less README.mkd 
+wks:/home/system/www2/openhatch.org/milestone-a# python2.6 bootstrap.py
+install_dir /tmp/tmpHuBQPJ
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/buildout'.
+wks:/home/system/www2/openhatch.org/milestone-a# bin/buildout 
+Develop: '/home/system/www2/openhatch.org/milestone-a/.'
+install_dir /home/system/www2/openhatch.org/milestone-a/develop-eggs/tmplumwm7build
+Uninstalling download_geocoding_db.
+Uninstalling download_solr.
+Uninstalling sqlite_mysite.
+Uninstalling production.
+Uninstalling mysite.
+Uninstalling scripts.
+Installing scripts.
+Generated interpreter '/home/system/www2/openhatch.org/milestone-a/bin/python'.
+Installing mysite.
+install_dir /home/system/www2/openhatch.org/milestone-a/develop-eggs/tmp93bEjTbuild
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/mysite'.
+Generated script
+'/home/system/www2/openhatch.org/milestone-a/bin/test_sans_customs'.
+Installing production.
+install_dir /home/system/www2/openhatch.org/milestone-a/develop-eggs/tmpdYWcjdbuild
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/production'.
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/test_production'.
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/production.wsgi'.
+Installing sqlite_mysite.
+install_dir /home/system/www2/openhatch.org/milestone-a/develop-eggs/tmpziGaLWbuild
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/sqlite_mysite'.
+Installing download_solr.
+download_solr: Extracting package to
+/home/system/www2/openhatch.org/milestone-a/parts/download_solr
+download_solr: Target
+/home/system/www2/openhatch.org/milestone-a/parts/download_solr/example already
+exists. Either remove it or set ``ignore-existing = true`` in your buildout.cfg
+to ignore existing files and directories.
+While:
+  Installing download_solr.
+Error: File or directory already exists.
+wks:/home/system/www2/openhatch.org/milestone-a#</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-09-27&nbsp;21:44:34</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2010-09-27&nbsp;21:44:29</td><td>paulproteus</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg472">msg472</a></td></tr>
+<tr><td>2010-09-27&nbsp;21:36:40</td><td>zathras</td><td>set</td><td>status: unread -> resolved<br />messages:
+  + <a href="msg471">msg471</a></td></tr>
+<tr><td>2010-09-27&nbsp;18:13:04</td><td>zathras</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

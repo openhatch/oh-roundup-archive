@@ -1,0 +1,404 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 104: Invalid Ohloh link in user profile - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue104
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue104">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue104">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Invalid Ohloh link in user profile</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.10.11</td>
+ <th class="required">Priority</th>
+ <td>critical</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  ebrahim, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-06-24.22:19:16</b> by <b>ebrahim</b>, last changed <b>2010-12-14.15:58:14</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg644">msg644 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-14.15:58:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>(-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg636">msg636 (view)</a></th>
+   <th>Author: ebrahim</th>
+   <th>Date: 2010-12-13.20:17:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>And thank you for doing the actual work. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg635">msg635 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-13.14:38:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I looked at your profile, and the nightly cleanup job did in fact remove the
+broken link.
+
+So I'm marking this as resolved. ebrahim, thank you for reporting it!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg632">msg632 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-11.00:46:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm happy to report that I have fixed this in the "master" branch, and that
+tonight when the nightly jobs run, we should go through and remove all our
+broken links.
+
+*Finally*!
+
+I'll check your profile in 24 hours, and if it's fixed, then I'll mark this as
+resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg618">msg618 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-04.21:47:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is in progress. I keep starting this but keep getting bogged down by
+problems I run into.
+
+The most important thing is that we don't generate external links that 404!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg593">msg593 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-23.00:54:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is targeted for the 0.10.11 (November, 2010) milestone because it's a
+really bad bug that we should fix.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg318">msg318 (view)</a></th>
+   <th>Author: rafpaf</th>
+   <th>Date: 2010-06-30.19:58:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Asheesh plans to do the revision described tomorrow (July 1).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg311">msg311 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-30.16:25:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well, this is urgent.
+
+I guess we should revert a recent change -- we used to generate links that were 
+dumber. Now we "smartly" generate links, but incorrectly, it seems.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg281">msg281 (view)</a></th>
+   <th>Author: ebrahim</th>
+   <th>Date: 2010-06-24.22:21:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The link is
+<a href="https://www.ohloh.net/p/kde%20pim%20(work%20branch)/contributors/46520938457549">https://www.ohloh.net/p/kde%20pim%20(work%20branch)/contributors/46520938457549</a>
+(to be logged in history of this issue tracker!)
+Maybe the strange project name, which contains spaces and parenthesis, has
+caused some problem.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg280">msg280 (view)</a></th>
+   <th>Author: ebrahim</th>
+   <th>Date: 2010-06-24.22:19:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>See Ohloh link for KDE PIM-related entry in my profile:
+<a href="http://openhatch.org/people/ebrahim/">http://openhatch.org/people/ebrahim/</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-12-14&nbsp;15:58:14</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg644">msg644</a></td></tr>
+<tr><td>2010-12-13&nbsp;20:17:35</td><td>ebrahim</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg636">msg636</a></td></tr>
+<tr><td>2010-12-13&nbsp;14:38:42</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg635">msg635</a></td></tr>
+<tr><td>2010-12-11&nbsp;00:46:16</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg632">msg632</a></td></tr>
+<tr><td>2010-12-04&nbsp;21:47:39</td><td>paulproteus</td><td>set</td><td>status: chatting -> in-progress<br />messages:
+  + <a href="msg618">msg618</a></td></tr>
+<tr><td>2010-11-23&nbsp;00:54:24</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg593">msg593</a></td></tr>
+<tr><td>2010-11-20&nbsp;22:03:53</td><td>pythonian4000</td><td>set</td><td>milestone: <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-06-30&nbsp;19:58:04</td><td>rafpaf</td><td>set</td><td>priority: urgent -> critical<br />messages:
+  + <a href="msg318">msg318</a></td></tr>
+<tr><td>2010-06-30&nbsp;16:25:53</td><td>paulproteus</td><td>set</td><td>priority: bug -> urgent<br />messages:
+  + <a href="msg311">msg311</a></td></tr>
+<tr><td>2010-06-24&nbsp;22:21:38</td><td>ebrahim</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg281">msg281</a></td></tr>
+<tr><td>2010-06-24&nbsp;22:19:44</td><td>ebrahim</td><td>set</td><td>title: Invalid Ohloh link -> Invalid Ohloh link in user profile</td></tr>
+<tr><td>2010-06-24&nbsp;22:19:16</td><td>ebrahim</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,398 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 23: Integrate Django and Roundup authentication - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue23
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue23">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue23">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Integrate Django and Roundup authentication</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.02</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  csetlow, paulproteus, pythonian4000, rafpaf, till
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2009-12-10.00:34:01</b> by <b>csetlow</b>, last changed <b>2011-02-26.00:45:43</b> by <b>pythonian4000</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1169">msg1169 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-26.00:45:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well, Roundup and Django logins are now integrated!
+
+For some reason though, while on my personal server logouts worked perfectly,
+they don't here - the logout action successfully deletes the
+sessionprofile_sessionprofile entry causing it (and MediaWiki) to log out, but
+for some reason it doesn't delete the django_session entry which leaves the main
+site logged in, so if you navigate back there and then back to the tracker, the
+tracker is logged in again. This is, however, a separate issue
+(<a href="https://openhatch.org/bugs/issue314">https://openhatch.org/bugs/issue314</a>)
+
+So, done!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1081">msg1081 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-16.11:50:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've taken the permanent banner down for now as we have identified the problem
+users and will sort them out individually (but not removed it from the Roundup
+code in case it is required again).
+
+I'm also setting this to 0.11.02 as I *think* I can get it done by then, but we
+will see...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg982">msg982 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-05.03:21:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Permanent banner up!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg981">msg981 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-04.19:54:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>When I next get to a computer I am going to stick up a permanent banner here on Roundup informing 
+people that we are moving to a central login system and so to go and change their username if 
+needed to be exactly the same as their OpenHatch username. The Roundup integration is a while 
+away, so I figure it's a good idea to get in early with everyone.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg964">msg964 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-04.00:09:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This issue is being tracked in <a href="https://openhatch.org/bugs/issue264">https://openhatch.org/bugs/issue264</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg434">msg434 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-09-17.15:53:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Actually, it seems I haven't done any work on this in a while. I'd love help.
+Find me on #openhatch and I can give you the skinny.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg418">msg418 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-09-04.22:01:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://openhatch.org/wiki/Authentication_integration">http://openhatch.org/wiki/Authentication_integration</a> explains how we're going to
+work on passing user data between Roundup, the wiki, the forum, and the main site.
+
+I'm going to handle this for the new app I'm setting up right now, the forum,
+and then move forward and tackle the wiki and Roundup.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg48">msg48 (view)</a></th>
+   <th>Author: rafpaf</th>
+   <th>Date: 2009-12-10.23:19:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Quite true, and that's bad. We've made a note in Pivotal Tracker about this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg43">msg43 (view)</a></th>
+   <th>Author: csetlow</th>
+   <th>Date: 2009-12-10.00:34:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well, that kind of sums it up.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-02-26&nbsp;00:46:47</td><td>pythonian4000</td><td>unlink</td><td><a href="issue264">issue264 superseder</a></td></tr>
+<tr><td>2011-02-26&nbsp;00:45:43</td><td>pythonian4000</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg1169">msg1169</a></td></tr>
+<tr><td>2011-02-16&nbsp;11:50:59</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1081">msg1081</a><br />milestone: <a href="milestone5">0.11.02</a></td></tr>
+<tr><td>2011-02-16&nbsp;10:17:00</td><td>pythonian4000</td><td>link</td><td><a href="issue264">issue264 superseder</a></td></tr>
+<tr><td>2011-02-16&nbsp;10:16:49</td><td>pythonian4000</td><td>unlink</td><td><a href="issue264">issue264 superseder</a></td></tr>
+<tr><td>2011-02-16&nbsp;10:15:54</td><td>pythonian4000</td><td>link</td><td><a href="issue264">issue264 superseder</a></td></tr>
+<tr><td>2011-02-05&nbsp;03:21:40</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg982">msg982</a></td></tr>
+<tr><td>2011-02-04&nbsp;19:54:09</td><td>pythonian4000</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg981">msg981</a></td></tr>
+<tr><td>2011-02-04&nbsp;00:11:24</td><td>pythonian4000</td><td>set</td><td>title: Roundup doesn't care that I'm signed into OpenHatch -> Integrate Django and Roundup authentication</td></tr>
+<tr><td>2011-02-04&nbsp;00:10:05</td><td>pythonian4000</td><td>set</td><td>nosy:
+  + <a href="user34">pythonian4000</a></td></tr>
+<tr><td>2011-02-04&nbsp;00:09:51</td><td>pythonian4000</td><td>set</td><td>priority: wish -> feature<br />messages:
+  + <a href="msg964">msg964</a></td></tr>
+<tr><td>2010-09-17&nbsp;15:53:03</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg434">msg434</a></td></tr>
+<tr><td>2010-09-04&nbsp;22:01:26</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg418">msg418</a><br />assignedto: <a href="user5">rafpaf</a> -> <a href="user3">paulproteus</a></td></tr>
+<tr><td>2010-06-30&nbsp;21:03:49</td><td>rafpaf</td><td>set</td><td>priority: bug -> wish</td></tr>
+<tr><td>2010-02-12&nbsp;12:00:26</td><td>till</td><td>set</td><td>nosy:
+  + <a href="user11">till</a></td></tr>
+<tr><td>2009-12-10&nbsp;23:19:23</td><td>rafpaf</td><td>set</td><td>priority: feature -> bug<br />status: unread -> chatting<br />messages:
+  + <a href="msg48">msg48</a><br />nosy:
+  + <a href="user5">rafpaf</a><br />assignedto: <a href="user5">rafpaf</a></td></tr>
+<tr><td>2009-12-10&nbsp;00:34:01</td><td>csetlow</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

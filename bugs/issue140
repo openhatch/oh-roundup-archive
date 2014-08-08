@@ -1,0 +1,372 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 140: mysql warning during Person.create_dummy - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue140
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue140">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue140">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">mysql warning during Person.create_dummy</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, zathras
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  transparency
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-09-17.14:05:27</b> by <b>zathras</b>, last changed <b>2010-09-27.14:49:04</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file72/my.cnf">my.cnf</a>
+  </td>
+  <td>
+   <span>zathras</span>,
+   <span>2010-09-17.16:36:11</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg469">msg469 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-09-27.14:49:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I fixed this in origin/master and pushed the commit. Zathras, please do a "git
+pull" or equivalent.
+
+If you want read what the problem was, run:
+
+$ git show 1e3afc271468c9843a19a49ee702ad81c8af8d4d</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg467">msg467 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-09-25.20:49:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>in previous install a dummy person was created but the error was there. Now the
+error occurs but no dummy is created.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg466">msg466 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-09-25.17:42:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>sorry, issue is still there.
+2010-09-25 07:48:59,539 refresh_one_launchpad_bug:194 INFO     Refreshing
+<a href="https://bugs.launchpad.net/bugs/634308.">https://bugs.launchpad.net/bugs/634308.</a>
+ _mysql_exceptions.Warning: Data truncated for column 'title' at row 1</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg459">msg459 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-09-23.02:14:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Great to hear!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg457">msg457 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-09-22.22:50:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>on a fresh install this no longer happens</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg456">msg456 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-09-22.19:31:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi! I will try to look into this soon.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg432">msg432 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-09-17.14:05:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>_mysql_exceptions.Warning: Incorrect string value: '\xC4\xB1temo...' for column
+'submitter_realname' at row 1
+DB was filled beyond the first session. But error is similar so it seems
+last line before error: 2010-09-16 21:07:42,649 refresh_one_launchpad_bug:194
+INFO     Refreshing <a href="https://bugs.launchpad.net/bugs/593089.">https://bugs.launchpad.net/bugs/593089.</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-09-27&nbsp;14:49:05</td><td>paulproteus</td><td>set</td><td>status: reopened -> resolved<br />messages:
+  + <a href="msg469">msg469</a></td></tr>
+<tr><td>2010-09-27&nbsp;03:35:01</td><td>paulproteus</td><td>set</td><td>title: mysql error when importing/fetching bugs/issues -> mysql warning during Person.create_dummy</td></tr>
+<tr><td>2010-09-25&nbsp;20:49:19</td><td>zathras</td><td>set</td><td>messages:
+  + <a href="msg467">msg467</a></td></tr>
+<tr><td>2010-09-25&nbsp;17:42:15</td><td>zathras</td><td>set</td><td>status: resolved -> reopened<br />messages:
+  + <a href="msg466">msg466</a></td></tr>
+<tr><td>2010-09-23&nbsp;09:41:17</td><td>zathras</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2010-09-23&nbsp;02:14:34</td><td>paulproteus</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg459">msg459</a></td></tr>
+<tr><td>2010-09-22&nbsp;22:50:40</td><td>zathras</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg457">msg457</a></td></tr>
+<tr><td>2010-09-22&nbsp;19:31:30</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg456">msg456</a><br />keyword:
+  + <a href="keyword8">transparency</a></td></tr>
+<tr><td>2010-09-17&nbsp;16:36:12</td><td>zathras</td><td>set</td><td>files:
+  + <a href="file72">my.cnf</a></td></tr>
+<tr><td>2010-09-17&nbsp;14:05:27</td><td>zathras</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

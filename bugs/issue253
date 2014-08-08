@@ -1,0 +1,434 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 253: Create a comprehensible workflow page that explains to new OpenHatch contributors how to work with us through git - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue253
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue253">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue253">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Create a comprehensible workflow page that explains to new OpenHatch contributors how to work with us through git</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>in-progress</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, jesstess, jl, palhmbs, paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-31.06:50:53</b> by <b>paulproteus</b>, last changed <b>2011-07-02.20:25:12</b> by <b>palhmbs</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1904">msg1904 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-27.16:55:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The way I see it, for now, is that our
+<a href="http://openhatch.org/wiki/How_we_handle_patches">http://openhatch.org/wiki/How_we_handle_patches</a> has become something of a wall
+of text.
+
+<a href="https://github.com/diaspora/diaspora/wiki/Git-Workflow">https://github.com/diaspora/diaspora/wiki/Git-Workflow</a> and its "Quick dos and
+don'ts" make me feel much more welcome.
+
+I think that the *content* on our version is great; I think that as it's grown,
+it needs a little reorganization to retain its welcoming-ness. For now, then,
+I'll mark this as in-progress. I can try to make these changes myself sometime,
+but I hope that this ticket also now contains enough information for anyone else
+to make them.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1899">msg1899 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-26.23:06:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If this is still an issue let's fix it.
+
+I'm pretty happy with the <a href="http://openhatch.org/wiki/How_we_handle_patches">http://openhatch.org/wiki/How_we_handle_patches</a>
+page.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1887">msg1887 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-22.19:47:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I guess I was thinking of a bigger git workflow page with this ticket. (I 
+filed it before I first saw the impressive 
+<a href="https://github.com/diaspora/diaspora/wiki/Git-Workflow">https://github.com/diaspora/diaspora/wiki/Git-Workflow</a> page.)
+
+So if you want, we can close this as resolved and file a new ticket about 
+a workflow page. I think it makes more sense to just rename this ticket, 
+but I'm okay either way.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1885">msg1885 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-05-22.19:39:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Searching the wiki, "git pull" isn't mentioned anywhere in the Hacking OpenHatch pages, so I'm not 
+sure what's supposed to be updated. I added some content/links to 
+<a href="http://openhatch.org/wiki/How_we_handle_patches#While_creating_a_patch_series:">http://openhatch.org/wiki/How_we_handle_patches#While_creating_a_patch_series:</a> on the related 
+idea of rebasing your local commit series onto master.
+
+Asheesh, is there more that you wanted to see on this ticket? I think a whole new git workflow page 
+should get its own ticket.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1495">msg1495 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-14.04:25:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>For now, kicking this to "later" since it's not done yet.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1373">msg1373 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-26.21:15:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Jess, you said on IRC today that you'd be interested in working on this. I'm
+assigning it to you for now, and keeping it in the milestone.
+
+If you decide you don't want to work on it soon, please de-assign it from
+yourself so someone else can pick it up.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1291">msg1291 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-03-19.20:34:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>jl: I'm willing to take a crack at this this weekend if you don't think you'll get to it soon. What do you 
+think?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1268">msg1268 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-15.18:55:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This bug doesn't really say *where* the documentation should be updated, or what
+page should be updated.
+
+I'd say the changes should be somewhere on the wiki, in the "Hacking_OpenHatch"
+category. jl, if you want more thoughts about where, do ask in this bug.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1251">msg1251 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-12.22:15:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think that it would be wise for us to write a version of
+<a href="https://github.com/diaspora/diaspora/wiki/Git-Workflow">https://github.com/diaspora/diaspora/wiki/Git-Workflow</a> -- this page is totally
+great.
+
+It'd be great to see a new contributor put this together.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg880">msg880 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-31.06:50:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>There is a way to make "git pull" do a rebase, not a merge (by default).
+
+That would be better for us. We should document that so that we don't have
+contributors accidentally doing local merges, and then end up in the sorry
+situation of having a local merge commit when they really wanted a linear history.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-07-02&nbsp;20:25:12</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:17:59</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:17:51</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-05-27&nbsp;16:55:17</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1904">msg1904</a></td></tr>
+<tr><td>2011-05-26&nbsp;23:06:57</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg1899">msg1899</a></td></tr>
+<tr><td>2011-05-23&nbsp;00:53:00</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting<br />priority: urgent -> bug<br />title: Make the OpenHatch documentation point out the way to make "git pull" not do a merge -> Create a comprehensible workflow page that explains to new OpenHatch contributors how to work with us through git</td></tr>
+<tr><td>2011-05-22&nbsp;19:47:34</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1887">msg1887</a></td></tr>
+<tr><td>2011-05-22&nbsp;19:39:46</td><td>jesstess</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg1885">msg1885</a></td></tr>
+<tr><td>2011-05-01&nbsp;00:21:29</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user12">jesstess</a> -> <a href="userNone"></a></td></tr>
+<tr><td>2011-05-01&nbsp;00:21:09</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-14&nbsp;04:25:15</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1495">msg1495</a><br />milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-03-26&nbsp;21:15:37</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user12">jesstess</a><br />messages:
+  + <a href="msg1373">msg1373</a></td></tr>
+<tr><td>2011-03-24&nbsp;16:59:08</td><td>jl</td><td>set</td><td>assignedto: <a href="user70">jl</a> -> (no value)</td></tr>
+<tr><td>2011-03-19&nbsp;20:34:34</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a><br />messages:
+  + <a href="msg1291">msg1291</a></td></tr>
+<tr><td>2011-03-15&nbsp;18:55:54</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1268">msg1268</a></td></tr>
+<tr><td>2011-03-13&nbsp;15:26:38</td><td>jl</td><td>set</td><td>assignedto: <a href="user70">jl</a><br />nosy:
+  + <a href="user70">jl</a></td></tr>
+<tr><td>2011-03-12&nbsp;22:15:29</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1251">msg1251</a><br />milestone: <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-01-31&nbsp;06:50:53</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

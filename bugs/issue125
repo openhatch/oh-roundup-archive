@@ -1,0 +1,692 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 125: Imagery for mission can emulate status bar - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue125
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue125">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue125">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Imagery for mission can emulate status bar</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.06</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>palhmbs</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-08-03.05:15:21</b> by <b>paulproteus</b>, last changed <b>2011-06-06.22:50:50</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file325/0001-Imagery-mission-progress2.patch">0001-Imagery-mission-progress2.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-06-05.08:19:15</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file324/0001-Progress-images3.patch">0001-Progress-images3.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-06-05.08:18:29</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file312/screenie-with-light-tick.jpg">screenie-with-light-tick.jpg</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-06-01.20:09:26</span>
+  </td>
+  <td>image/jpeg</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file311/screenie-with-step-%23.jpg">screenie-with-step-#.jpg</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-06-01.19:09:17</span>
+  </td>
+  <td>image/jpeg</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file310/screenie-without-step-%23.jpg">screenie-without-step-#.jpg</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-06-01.19:05:06</span>
+  </td>
+  <td>image/jpeg</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2055">msg2055 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-06.22:50:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We do already have this tick-mark (AKA check-mark) I just realized, while
+reviewing the portfolio editor patch:
+<a href="https://openhatch.org/static/images/icons/publish.png">https://openhatch.org/static/images/icons/publish.png</a>
+
+I would would suggest making the missions use that, too. Having said that, I do
+not mind the check-mark that you're using.
+
+And the code changes are good, too. Pushing + deploying!
+
+(Wow, that looks so good live.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2034">msg2034 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-05.08:18:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The tick.png now comes from...
+<a href="http://www.openclipart.org/detail/17056">http://www.openclipart.org/detail/17056</a>
+
+I added another small change to base.css to center the text onto the tick image.
+
+Please review!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2014">msg2014 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-03.12:13:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It looks like the person wants people to ask permission every time they 
+use it.
+
+For us, the image should be under an AGPLv3 compatible license. You can 
+ask the author about that, but if not, I would suggest looking in the 
+Crystal Icon set, the Oxygen icon set, or the openclipart.org website for 
+an image that's available for user under a license where you don't have to 
+ask permission.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2011">msg2011 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-03.07:29:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, I've found the webpage....
+
+<a href="http://www.cryer.co.uk/resources/javascript/html5_fun_with_bullets.htm">http://www.cryer.co.uk/resources/javascript/html5_fun_with_bullets.htm</a>
+and the legalities...
+<a href="http://www.cryer.co.uk/site_policies.htm">http://www.cryer.co.uk/site_policies.htm</a>
+
+I guess I/we now have to contact the owner of this image?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2007">msg2007 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-02.13:12:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oh, that's beautiful! I love the light/dark tick marks!
+
+Sadly, I can't accept these patches for now for two reasons:
+
+* You have to find the origin of the tick.png file and cite it, so that we know
+we're not distributing copyrighted material without permission.
+
+* The CSS changes you made refer to (for example)
+<a href="http://openhatch.org/static/images/tick.png">http://openhatch.org/static/images/tick.png</a> -- instead, just refer to
+/static/images/tick.png so that people's dev servers don't pull in things from
+the main site.
+
+This is going to be so awesome. I really love the look of
+<a href="https://openhatch.org/bugs/file312/screenie-with-light-tick.jpg">https://openhatch.org/bugs/file312/screenie-with-light-tick.jpg</a> !
+
+In the future, maybe we'll try to automate generating these &lt;li&gt; tags -- they're
+getting a little complex. But that's a story for another day.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1989">msg1989 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-01.20:22:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>New patch that displays a light tick in brackets {√} when a mission step isn't
+finished and a dark tick when completed to show the mission progress.
+
+Please review!!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1963">msg1963 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-31.06:24:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>As I'm not sure about the Step 1 / 2 question I'm gonna supply 2 patches, one that has got the Step 
+words in it and one that does not. If you think it's worth using "Steps" use this patch.... 0001-Imagery-
+with-steps.patch --- if not use 0001-Imagery-without-steps.patch</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1962">msg1962 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-31.03:52:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Progress images - patch with other CSS and suggested changes to follow.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1956">msg1956 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-30.04:27:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>(also aldeka your thoughts would be nice)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1954">msg1954 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-30.04:25:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Wow, so this is pretty good! Thoughts:
+
+* Don't use &lt;br /&gt; -- set the style of the h3 to have "clear: both;" in it
+(preferably using a CSS selector + css rule)
+
+* Try to avoid what git calls "whitespace errors" -- ' ' characters as the last
+one on a line
+
+* Don't use so much inline style for checked vs. not checked. use CSS classes
+
+* Add the binary files (gif, in your case) in a separate commit so you can
+explain where they came from
+
+* Use PNGs, not GIF; GIF is old and lame (-;
+
+* Is adding the "Step 1" "Step 2" thing an improvement? Honest question; I'm too
+tired to try it right now</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1953">msg1953 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-29.21:31:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here is a patch that should be worthy - bd
+Moving this to current milestone, so we can deploy it in if at all possible.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1932">msg1932 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-28.23:10:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'll work on getting this done.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1892">msg1892 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-23.17:06:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think that Paul's recent patch with checkboxes (tick marks) might work for this. 
+Paul?
+
+(de-assigning aldeka for now, since there's been no activity recently)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg646">msg646 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-16.00:02:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Marking as "later" for now!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg579">msg579 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-20.21:47:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This depends on <a href="issue179">issue179</a> being done with a week left in the milestone, I think.
+
+I think this would be great. Karen said she'd draw something, too (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg387">msg387 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-08-03.05:15:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://openhatch.org/missions/tar/upload">http://openhatch.org/missions/tar/upload</a>
+
+* About this mission
+* Unpacking tarballs
+* Creating tarballs
+* Hints
+
+We had been thinking about adding little icons next to each of these.
+
+Some thoughts:
+
+* The icons, even the info one, could change color when you have completed them 
+* Some decorations on the icons could visually emulate a progress bar, creating 
+the oft-dreamed-of visualized "path to completion"</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-06-06&nbsp;22:50:50</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2055">msg2055</a></td></tr>
+<tr><td>2011-06-05&nbsp;08:19:22</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-06-05&nbsp;08:19:15</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file325">0001-Imagery-mission-progress2.patch</a></td></tr>
+<tr><td>2011-06-05&nbsp;08:18:30</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file324">0001-Progress-images3.patch</a><br />messages:
+  + <a href="msg2034">msg2034</a></td></tr>
+<tr><td>2011-06-05&nbsp;07:17:54</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file314">0001-Imagery-mission-progress.patch</a></td></tr>
+<tr><td>2011-06-05&nbsp;07:13:34</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file315">0001-Progress-images2.patch</a></td></tr>
+<tr><td>2011-06-03&nbsp;12:13:11</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2014">msg2014</a></td></tr>
+<tr><td>2011-06-03&nbsp;07:29:44</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg2011">msg2011</a></td></tr>
+<tr><td>2011-06-02&nbsp;13:12:37</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2007">msg2007</a><br />milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-06-01&nbsp;20:36:32</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file315">0001-Progress-images2.patch</a></td></tr>
+<tr><td>2011-06-01&nbsp;20:36:21</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file314">0001-Imagery-mission-progress.patch</a></td></tr>
+<tr><td>2011-06-01&nbsp;20:36:05</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file313">0001-Imagery-mission-progres.patch</a></td></tr>
+<tr><td>2011-06-01&nbsp;20:35:20</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file300">0001-Imagery-with-steps.patch</a></td></tr>
+<tr><td>2011-06-01&nbsp;20:35:16</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file301">0001-Imagery-without-steps.patch</a></td></tr>
+<tr><td>2011-06-01&nbsp;20:24:05</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file299">0001-Progress-images.patch</a></td></tr>
+<tr><td>2011-06-01&nbsp;20:23:52</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file296">0001-Checkboxes-git-progress.patch</a></td></tr>
+<tr><td>2011-06-01&nbsp;20:22:57</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file313">0001-Imagery-mission-progres.patch</a><br />messages:
+  + <a href="msg1989">msg1989</a></td></tr>
+<tr><td>2011-06-01&nbsp;20:09:27</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file312">screenie-with-light-tick.jpg</a></td></tr>
+<tr><td>2011-06-01&nbsp;19:09:17</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file311">screenie-with-step-#.jpg</a></td></tr>
+<tr><td>2011-06-01&nbsp;19:05:06</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file310">screenie-without-step-#.jpg</a></td></tr>
+<tr><td>2011-05-31&nbsp;06:25:22</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-05-31&nbsp;06:25:10</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file301">0001-Imagery-without-steps.patch</a></td></tr>
+<tr><td>2011-05-31&nbsp;06:24:45</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file300">0001-Imagery-with-steps.patch</a><br />messages:
+  + <a href="msg1963">msg1963</a></td></tr>
+<tr><td>2011-05-31&nbsp;03:52:42</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file299">0001-Progress-images.patch</a><br />messages:
+  + <a href="msg1962">msg1962</a></td></tr>
+<tr><td>2011-05-30&nbsp;04:27:54</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1956">msg1956</a></td></tr>
+<tr><td>2011-05-30&nbsp;04:25:33</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1954">msg1954</a></td></tr>
+<tr><td>2011-05-29&nbsp;23:15:53</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-05-29&nbsp;21:31:16</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file296">0001-Checkboxes-git-progress.patch</a><br />messages:
+  + <a href="msg1953">msg1953</a><br />milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-05-28&nbsp;23:10:01</td><td>palhmbs</td><td>set</td><td>status: chatting -> in-progress<br />assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1932">msg1932</a><br />milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-23&nbsp;17:06:39</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user4">aldeka</a> -> (no value)<br />messages:
+  + <a href="msg1892">msg1892</a><br />nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-05-01&nbsp;00:02:13</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-01-22&nbsp;21:36:50</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone4">0.11.01</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:26:21</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2010-12-16&nbsp;00:02:50</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg646">msg646</a><br />milestone: <a href="milestone2">0.10.11</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2010-11-21&nbsp;18:57:48</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> <a href="user4">aldeka</a></td></tr>
+<tr><td>2010-11-20&nbsp;21:47:00</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg579">msg579</a></td></tr>
+<tr><td>2010-11-20&nbsp;21:40:59</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone3">0.10.12</a> -> <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-11-20&nbsp;21:32:34</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone3">0.10.12</a></td></tr>
+<tr><td>2010-08-03&nbsp;05:15:21</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

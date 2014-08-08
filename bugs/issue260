@@ -1,0 +1,490 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 260: Migrate all bug importers to Twisted - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue260
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue260">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue260">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Migrate all bug importers to Twisted</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.11</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-02-02.01:57:51</b> by <b>pythonian4000</b>, last changed <b>2011-12-06.00:16:53</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2798">msg2798 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-06.00:16:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The old-style Launchpad importer is disabled, so close-enough. I guess I will
+take this moment to mark those bugs as looks_closed for now, so that they do not
+show up in the web interface.
+
+<a href="issue367">issue367</a> can live on in its separate life.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2695">msg2695 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-14.02:21:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a release goal for 0.11.11, I'm happy to say.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1432">msg1432 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-05.22:41:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>See <a href="http://piratepad.net/async-bug-importer">http://piratepad.net/async-bug-importer</a> for planning of the architecture and
+layout of the asynchronous importer.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1429">msg1429 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-05.14:04:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm splitting this up into one issue for each importer.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1340">msg1340 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-25.12:04:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hmm, this is harder than I thought... I'm just going 
+to ad-lib some thoughts on this here.
+
+The Twistedification of the DIAs works nicely because 
+you have the following flow:
+- User creates DIAs manually.
+- This also creates a watch file.
+- Watcher sees watch file and wakes up twist command.
+- Twist command grabs URLs for each DIA.
+- Twist command grabs data from each URL and passes it 
+to the handler.
+- When all URLs for a DIA have been grabbed, the DIA 
+is marked as finished.
+
+This works nicely because each DIA corresponds to a 
+single query, even though one query can have multiple 
+URLs). As such, you have a single "layer" of classes 
+interacting with the Twisted reactor.
+
+(Asheesh, as you wrote this code, feel free to correct 
+my understanding!)
+
+In the bug importer case, things are more complex: a 
+particular tracker may have several query URLs that it 
+wants monitored. Unlike the DIA case, these query URLs 
+are not necessarily related, so you would either need 
+a one-to-many TQA (Tracker Query Attempt) model or you 
+would need one TQA per URL.
+
+Then, for some query URLs you have fetched all the bug 
+data in one go (e.g. Bugzilla or Google Issues) so you 
+are now ready to pass it on to be divided and put into 
+Bugs. But in other cases, you now only have a list of 
+bugs to get, and so you now need to create a whole lot 
+more URLs to be grabbed.
+
+The main problem I am trying to work out is tying a 
+particular URL or TQA to a particular class. In the 
+DIA case a hard-coded dict of two-letter codes is used 
+to identify the source of a DIA. But for the bug 
+importer, while the tracker types available won't 
+change often, the actual individual trackers will, and 
+each individual tracker ends up with its own class sub-
+classed from one of the generic tracker types. In 
+addition, if we want to be able to add individual 
+trackers via a web interface then these classes are 
+generated on-the-fly, so we can't just use the 
+class "path" (e.g. 
+mysite.customs.bugtrackers.google.MelangeGoogleTracker)
+.
+
+I'm not sure whether it would be better to have an 
+individual TQA for a project (so trying to attack 
+multiple distinct URLs to it) or an individual TQA for 
+a Bug (so one URL for each TQA). The latter would 
+possibly also work for updating the bugs we have 
+stored that are not in the tracker queries any longer.
+
+Another part is actually generating the TQAs in the 
+first place. I was thinking maybe having a command run 
+hourly, that would check some timestamp for each 
+class, and create the initial TQAs (the ones grabbing 
+the lists of bugs, or all bug data for a query URL), 
+and then create the watchfile that the twist command 
+is triggered from. In the case of the auto-generated 
+classes, the Timestamp could be tied to a string in 
+the model that stores the data for generating the 
+class.
+
+This command could also run a Django query grabbing 
+all stale Bugs and creating TQAs for them, though this 
+would require some way of identifying the source of 
+the Bug; currently the Bugs are fetched inside the 
+relevant individual tracker class by looking for the 
+individual tracker's base URL in the Bug's canonical 
+URL, but here the Bugs would be fetched first and then 
+the correct individual tracker class would need to be 
+fetched. This could *possibly* be done by a reverse 
+lookup of the one above, but is it possible to search 
+through a set of strings looking for the one that is 
+present inside a particular string?
+
+I'm sure there was more, but I'll add it later when I 
+remember what it was.
+
+&lt;/braindump&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1288">msg1288 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-17.20:01:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Gonna have a crack at this during my flight to Belgium.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1254">msg1254 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-12.22:22:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It would be really nice to get this done in 0.11.03!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg948">msg948 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-02.02:18:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="https://openhatch.org/bugs/issue132">https://openhatch.org/bugs/issue132</a> is not about Twisted but it will be resolved
+once both the Trac and Roundup importers are migrated.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg947">msg947 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-02.01:57:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a tracking bug following the progress of getting all the current bug
+importers migrated to importing bugs asynchronously via Twisted.
+
+&lt;thinking&gt;
+In all likelihood the customs_daily_tasks management script will be integrated
+into customs_twisted so both profile imports and bug imports are handled by the
+one Twisted reactor; both of them rely on network calls and it makes sense to
+manage all out network imports in one place.
+&lt;/thinking&gt;</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-12-06&nbsp;00:16:53</td><td>paulproteus</td><td>unlink</td><td><a href="issue334">issue334 blockers</a></td></tr>
+<tr><td>2011-12-06&nbsp;00:16:53</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />blockers:
+  - <a href="issue367">Migrate Launchpad bug importer to Twisted</a><br />messages:
+  + <a href="msg2798">msg2798</a></td></tr>
+<tr><td>2011-12-01&nbsp;20:52:06</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue380">Migrate Trac bug importer special cases to Twisted</a></td></tr>
+<tr><td>2011-12-01&nbsp;20:51:24</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue132">Bring the Trac and Roundup bug importers in line with each other</a></td></tr>
+<tr><td>2011-11-14&nbsp;02:21:37</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2695">msg2695</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone13">0.11.11</a></td></tr>
+<tr><td>2011-11-10&nbsp;00:43:40</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue386">Ensure that Bugzilla bug importer special cases can be migrated to Twisted</a></td></tr>
+<tr><td>2011-04-20&nbsp;06:31:56</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue364">Migrate Roundup bug importer to Twisted</a></td></tr>
+<tr><td>2011-04-17&nbsp;06:18:38</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue365">Migrate Bugzilla bug importer to Twisted</a></td></tr>
+<tr><td>2011-04-17&nbsp;05:36:10</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue366">Migrate Google bug importer to Twisted</a></td></tr>
+<tr><td>2011-04-16&nbsp;11:28:30</td><td>pythonian4000</td><td>set</td><td>blockers:
+  + <a href="issue386">Ensure that Bugzilla bug importer special cases can be migrated to Twisted</a></td></tr>
+<tr><td>2011-04-15&nbsp;19:33:35</td><td>pythonian4000</td><td>set</td><td>blockers:
+  + <a href="issue380">Migrate Trac bug importer special cases to Twisted</a></td></tr>
+<tr><td>2011-04-14&nbsp;04:41:41</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue363">Migrate Trac bug importer to Twisted</a></td></tr>
+<tr><td>2011-04-09&nbsp;06:49:57</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue368">Bug objects should know how to refresh themselves</a></td></tr>
+<tr><td>2011-04-05&nbsp;22:41:27</td><td>pythonian4000</td><td>set</td><td>blockers:
+  + <a href="issue368">Bug objects should know how to refresh themselves</a></td></tr>
+<tr><td>2011-04-05&nbsp;22:41:06</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1432">msg1432</a></td></tr>
+<tr><td>2011-04-05&nbsp;14:05:56</td><td>pythonian4000</td><td>set</td><td>milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-04-05&nbsp;14:04:54</td><td>pythonian4000</td><td>set</td><td>blockers:
+  + <a href="issue363">Migrate Trac bug importer to Twisted</a>, <a href="issue364">Migrate Roundup bug importer to Twisted</a>, <a href="issue365">Migrate Bugzilla bug importer to Twisted</a>, <a href="issue366">Migrate Google bug importer to Twisted</a>, <a href="issue367">Migrate Launchpad bug importer to Twisted</a><br />messages:
+  + <a href="msg1429">msg1429</a></td></tr>
+<tr><td>2011-03-25&nbsp;12:04:43</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1340">msg1340</a></td></tr>
+<tr><td>2011-03-17&nbsp;20:01:40</td><td>pythonian4000</td><td>set</td><td>assignedto: <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg1288">msg1288</a></td></tr>
+<tr><td>2011-03-12&nbsp;22:27:52</td><td>pythonian4000</td><td>link</td><td><a href="issue334">issue334 blockers</a></td></tr>
+<tr><td>2011-03-12&nbsp;22:22:16</td><td>pythonian4000</td><td>set</td><td>blockers:
+  + <a href="issue132">Bring the Trac and Roundup bug importers in line with each other</a><br />messages:
+  + <a href="msg1254">msg1254</a><br />milestone: <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-02-02&nbsp;02:19:00</td><td>pythonian4000</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg948">msg948</a></td></tr>
+<tr><td>2011-02-02&nbsp;01:57:51</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,547 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 347: confusing wording of [other] contributors total on profile page - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue347
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue347">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue347">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">confusing wording of [other] contributors total on profile page</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.06</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  JasonWoof, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>palhmbs</td>
+ <th>Keywords</th>
+ <td>
+  bitesize, usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-03-24.11:53:02</b> by <b>JasonWoof</b>, last changed <b>2011-06-19.22:21:36</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file337/0001-fix-ambiguous-wording3.patch">0001-fix-ambiguous-wording3.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-06-06.23:03:19</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file348/0001-fix-contrib3.patch">0001-fix-contrib3.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-06-11.22:57:17</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2084">msg2084 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-19.22:21:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks, Paul, for the further UI cleanup here!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2070">msg2070 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-11.22:41:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I didn't like it when 5 contributors are only in a project it shows 1-4 (of 4).
+
+So I've fixed it so that it will only ever show 1-4 (of 5) when there is more
+than 5 total contributors, otherwise it'll just show Other Contributors (4):
+
+Please review!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2056">msg2056 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-06.23:07:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Paul,
+
+Your most recent patch is great! I moved the parentheses around in one case; see
+<a href="http://gitorious.org/openhatch/oh-mainline/commit/f857ef6c076da1d57e4f7a3fe8aeb0429bcbf4a8">http://gitorious.org/openhatch/oh-mainline/commit/f857ef6c076da1d57e4f7a3fe8aeb0429bcbf4a8</a>
+
+Deployed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2050">msg2050 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-06.03:28:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>With some help from JasonWoof, I've decided that it's probably easiest to just
+subtract the user from the contributor_count.
+
+Although I'd love to include the person in the results for egotistical desires,
+it does seem pointless to do so when the person has created the project because
+they have contributed to it.
+
+This patch (0001-fixed-confusing-wording2.patch) implements a filter to subtract
+1 from contributor_count - it is in the 
+mysite/profile/templatetags/profile_extras.py file.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2049">msg2049 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-06.00:58:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>There are now 2 patches, cause I figured I might double my chances to pass the
+review!!
+
+The 0001-fixed-confusing-wording.patch just does as JasonWoof suggests, without
+including the word total anywhere.
+
+The 0001-fix-amibiguous-wording2.patch doesn't include the user in the total
+when it's less than 4.
+
+This probably isn't ideal, as we should just change the backend code to remove
+the user from the total.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2047">msg2047 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-06.00:11:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, done!
+
+I put in some if statements for the less than 4 and greater than 4 options.
+
+I believe that if we did decide to remove the user from the contributor total it
+would be done with the functions in...  mysite/search/models.py and
+mysite/profile/templatetags/profile_extras.py</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2005">msg2005 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-02.13:05:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is getting somewhere, but I don't think it's at the perfect point yet.
+
+When I go to <a href="http://openhatch.org/people/paulproteus/">http://openhatch.org/people/paulproteus/</a> , I see one project with a
+total of 2 people. Just 1 is shown, because the other person is me. It says "2
+total", which is confusing.
+
+I think that so far, I like JasonWoof's suggested changes the most. paulhmbs,
+would you be willing to implement things that way instead?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2000">msg2000 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-02.00:51:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Should we just change ( # total) to ( # ) - If so, then try this patch out.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1771">msg1771 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-30.23:05:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This just didn't happen this milestone, let's make sure it does in 11.05!!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1569">msg1569 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-16.21:48:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a confusing user interface issue, which is the topic of 0.11.04.
+
+It would be great to see this resolved in April.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1335">msg1335 (view)</a></th>
+   <th>Author: JasonWoof</th>
+   <th>Date: 2011-03-24.11:53:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On my profile page: <a href="http://openhatch.org/people/JasonWoof/">http://openhatch.org/people/JasonWoof/</a> by each project it 
+says 
+something like "Other contributors (3 total):" then shows two people. I see the 
+ambiguity, but to me it looks like it's saying that there are 3 (total) other 
+contributors, where in fact there are three including me (not all other.)
+
+I suggest changing the wording so it is more clear.
+
+For projects with more than 4 contributors, headline "Contributors 1-4 of 25:" 
+and 
+the link read "show all".
+
+For projects with 4 or less: headline "Contributors:" link "show on map".
+
+I'm undecided about whether (in the case of &gt;4 contributors) if the logged in 
+user 
+should be filtered out. Pros: it shows more info that the user doesn't know 
+(showing 4 instead of 3 others.) Cons: but I like seeing my head next to projects 
+I 
+care about.
+
+Thanks for thinking about this, and hopefully tweaking the site.
+
+You guys are awesome. Fantastic site, making the world a better place, and very 
+friendly and helpful responses on IRC even when I bring something that should 
+have 
+gone directly into a bug report.
+
+Take care,    - Jason</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-06-19&nbsp;22:21:36</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2084">msg2084</a></td></tr>
+<tr><td>2011-06-11&nbsp;22:57:17</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file348">0001-fix-contrib3.patch</a></td></tr>
+<tr><td>2011-06-11&nbsp;22:56:56</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file347">0001-fix-contrib2.patch</a></td></tr>
+<tr><td>2011-06-11&nbsp;22:48:09</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file347">0001-fix-contrib2.patch</a></td></tr>
+<tr><td>2011-06-11&nbsp;22:47:57</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file346">0001-fix-contrib2.patch</a></td></tr>
+<tr><td>2011-06-11&nbsp;22:41:27</td><td>palhmbs</td><td>set</td><td>status: resolved -> need-review<br />files:
+  + <a href="file346">0001-fix-contrib2.patch</a><br />messages:
+  + <a href="msg2070">msg2070</a></td></tr>
+<tr><td>2011-06-06&nbsp;23:07:54</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2056">msg2056</a></td></tr>
+<tr><td>2011-06-06&nbsp;23:03:19</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file337">0001-fix-ambiguous-wording3.patch</a></td></tr>
+<tr><td>2011-06-06&nbsp;23:00:58</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file332">0001-fix-ambiguous-wording2.patch</a></td></tr>
+<tr><td>2011-06-06&nbsp;23:00:51</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file333">0001-fixed-confusing-wording.patch</a></td></tr>
+<tr><td>2011-06-06&nbsp;23:00:16</td><td>paulproteus</td><td>set</td><td>files:
+  - <a href="file335">0001-fixed-confusing-wording2.patch</a></td></tr>
+<tr><td>2011-06-06&nbsp;03:32:58</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file335">0001-fixed-confusing-wording2.patch</a></td></tr>
+<tr><td>2011-06-06&nbsp;03:31:18</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file334">0001-fixed-confusing-wording2.patch</a></td></tr>
+<tr><td>2011-06-06&nbsp;03:28:37</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg2050">msg2050</a></td></tr>
+<tr><td>2011-06-06&nbsp;03:24:43</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file334">0001-fixed-confusing-wording2.patch</a></td></tr>
+<tr><td>2011-06-06&nbsp;00:58:15</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg2049">msg2049</a></td></tr>
+<tr><td>2011-06-06&nbsp;00:54:34</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file333">0001-fixed-confusing-wording.patch</a></td></tr>
+<tr><td>2011-06-06&nbsp;00:54:21</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file332">0001-fix-ambiguous-wording2.patch</a></td></tr>
+<tr><td>2011-06-06&nbsp;00:24:19</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file331">0001-Fix-ambiguous-wording.patch</a></td></tr>
+<tr><td>2011-06-06&nbsp;00:12:26</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file316">0001-fixed-confusing-wording.patch</a></td></tr>
+<tr><td>2011-06-06&nbsp;00:12:08</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-06-06&nbsp;00:11:58</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file331">0001-Fix-ambiguous-wording.patch</a><br />messages:
+  + <a href="msg2047">msg2047</a></td></tr>
+<tr><td>2011-06-02&nbsp;13:05:35</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2005">msg2005</a></td></tr>
+<tr><td>2011-06-02&nbsp;00:51:42</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-review</td></tr>
+<tr><td>2011-06-02&nbsp;00:51:33</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file316">0001-fixed-confusing-wording.patch</a><br />assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg2000">msg2000</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:54:08</td><td>palhmbs</td><td>set</td><td>keyword:
+  + <a href="keyword1">bitesize</a>, <a href="keyword7">usability</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:53:47</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-04-30&nbsp;23:05:36</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1771">msg1771</a><br />milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-16&nbsp;21:48:15</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1569">msg1569</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-03-24&nbsp;11:53:02</td><td>JasonWoof</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,703 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 281: Make (non-logged-in) landing page 'modal' for each major type of contributor - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue281
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue281">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue281">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Make (non-logged-in) landing page 'modal' for each major type of contributor</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.02</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, jesstess, ktarnowski, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>aldeka</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-02-12.21:33:05</b> by <b>aldeka</b>, last changed <b>2011-03-01.06:19:47</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file148/new-landing-page.patch">new-landing-page.patch</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-02-27.06:37:09</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file150/new-landing-page.patch">new-landing-page.patch</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-03-01.02:31:18</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file142/tab-mockup-1.png">tab-mockup-1.png</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-02-19.08:15:58</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file143/tab-mockup-2.png">tab-mockup-2.png</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-02-19.08:16:07</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file144/tab-mockup-3.png">tab-mockup-3.png</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-02-19.08:58:49</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1207">msg1207 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-01.06:19:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is shipped. Egad.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1206">msg1206 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-03-01.02:31:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Updated patch, attached!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1204">msg1204 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-28.05:21:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Karen, you asked: what can wait for next month?
+
+I'd say this one is something I'd really want to see:
+
+* On the "Attract contributors..." side, I would suggest adding a box labeled:
+"Create a profile to talk about your involvement" and linking somewhere. Where
+to link? If you want to link to a sample profile, someone like willkg's profile
+would be good.
+
+* You wrote "volunteer opportunities finder" but in e.g.
+<a href="https://openhatch.org/about/">https://openhatch.org/about/</a> we call it "volunteer opportunity finder".
+
+The rest, if you agree, file bugs and target them not 0.11.02 and that's fine by me!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1203">msg1203 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-28.01:10:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>re: exposing brokenness, yeah, that's part of why I decided to *just* do the
+unlogged-in version for this milestone. If I'd done the logged-in one, I
+would've wanted to include e.g. "X new people said they want to help with Y
+project!" with a link to where you're supposed to contact them. Which doesn't
+exist yet. :P
+
+Which (if any) of the things you mentioned are blockers on this getting added,
+and which can wait until next month?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1201">msg1201 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-27.22:09:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Wow, there's a lot of changes here. Some detailed feedback:
+
+ktarnowski, do you want to take a look in terms of spacing?
+
+Re-organizing the page this way exposes some of the problems with the site.
+Maybe we can focus next month on "performance and basic improvements"...? Who knows.
+
+Some things that came to mind:
+
+* You point to the somewhat useless /+projects/ page. I guess that's the best
+place to point, but maaan, that sure exposes the flaws with that page. You
+should keep it that way, and we should fix /+projects/. (I kind of wonder if you
+should link to a sample project page instead... but which one? Probably not
+OpenHatch because that would be confusing.)
+
+On the "Attract contributors..." side, I would suggest adding a box labeled:
+"Create a profile to talk about your involvement" and linking somewhere. Where
+to link? If you want to link to a sample profile, someone like willkg's profile
+would be good.
+
+There's some sense in which the text could use some sprucing up to really
+suggest activity. Maybe linking to examples would help with that, but I don't
+want to clutter everything up.
+
+I wish that "Tell people who have clicked your project's 'I want to help' button
+how they can contribute" could link to the projects that the person actually
+works on. But I guess the user is not logged in yet.
+
+You wrote "volunteer opportunities finder" but in e.g.
+<a href="https://openhatch.org/about/">https://openhatch.org/about/</a> we call it "volunteer opportunity finder".
+
+It looks really really good, as per the mockup. Also I really like how you
+explain what bitesize means in "bitesize (easy)" on the "Contribute to..." view.
+
+running low on power</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1195">msg1195 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-27.06:47:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Changing scope of the bug, so we can say we fulfill it. :D</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1194">msg1194 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-27.06:37:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>patch for the new non-logged-in landing page</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1139">msg1139 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-21.12:33:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have a couple of suggestions regarding the design's:
+
+* [ALL] Adding vertical space between elements should improve the general look 
+and feel of the site. In particular between top navigation bar and OH tagline, OH 
+tagline and tab widget, tab caption and its contents.
+
+* [ALL] I think that the tabbed widget would look better with small border/rim 
+around it, like 'Recent activity' or 'OpenHatch news' boxes. Right now it
+s too bright.
+
+* [ALL] Additionally to the above, adding small border/rim around the active tab 
+itself might look really nice. Applying rounded corners might help as well.
+
+* [MOCKUP-3] Adding some padding (yo!) between section header and border-bottom 
+might look better. Try changing the color of the border-bottom to something from 
+#888 - #eee.
+
+* [MOCKUP-3] Recommended people section. Try to organize entries as follows:
+  
+         Width: ~50%   Some padding (&gt;20px?)             The rest
+              |              |               /--------------/
+  /-----------------------\/---\/-----------------------\
+  [Avatar] [Name] [Surname]     [Projects]
+           [Nickname]           [Tags]
+           [City]
+           [Country]
+
+In general, I like the way in which the design is heading. Good job!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1119">msg1119 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-19.08:58:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>logged-in front page, contributor tab</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1118">msg1118 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-19.08:15:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Mockups for the un-logged-in front page</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1084">msg1084 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-16.19:08:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Are you okay with iterating on this once every two-ish months? I think it makes
+sense to focus the current design work on exposing the currently-good
+functionality. I also think it's okay to not try really hard to expose the profile.
+
+I think that the "Make your first contribution" and "Make your nth contribution"
+are the same right now; even non-newbies could use training missions in e.g.
+version control tools they don't know. Maybe call that heading "Make a
+contribution to open source".
+
+I think that "Attract contributors to your project" feels pretty fleshed-out, too.
+
+I would be okay with skipping the "Help out" section for now, since it's kind of
+weak. That's what I mean by iterating -- one day, maybe we'll have features that
+make sense to fill up a section. But I actually do think that if we show people
+how to help join/drive the OpenHatch project itself, then we'd have enough meat
+there to justify a section. I think it would be a useful section, too. Plus we
+can link people to the Events list.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1045">msg1045 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-12.22:56:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I guess 'Help others' could be subsumed under 'Attract contributors to your
+project', though the implicit idea that people would be only interested in
+mentoring so as to get people to work on their favored project seems a little
+mercenary (if common).
+
+'Profile' could be left out if the workflow for the rest of the site made it
+eminently clear that bothering to fill the profile out makes using the rest of
+the features possible/easier...
+
+Anyway, I'd like to get this schema mostly hammered out before doing
+mockups/actual redesigning... Seems like the more sensible order to do things.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1044">msg1044 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-12.22:49:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>To me, it seems like there's more like five segments of needs / activities that
+we could have tabs for:
+
+* Make your first contribution
+** Missions
+** Find a mentor
+** Project page Q&amp;As
+** Volopps
+
+* Make your nth contribution
+** Project page Q&amp;As
+** Volopps
+** Events/organize a local hack session (via /+people/ (someday (?)))
+
+* Attract contributors to your project
+** Add info to your project page
+** 'I wanna help' button
+** Buildhelper (someday)
+** Forums (someday)
+
+* Help others
+** Edit proj pages for projects you contribute to
+** Project forums (someday)
+** Mentoring
+
+* Show off what you've done
+** Profile
+
+The last of these is pretty undeveloped, and some of the others rely rather
+heavily on features that don't exist yet.
+
+Is there any way to combine these under a heading that actually makes sense? If
+we e.g. didn't have the profile listed or linked under any tab, would that be
+okay or terrible?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1027">msg1027 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-12.21:33:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Through tabs at the top, you should be able to switch between these modes at will.
+
+   1. "Make your first contribution" # (though how do we make this inclusive to
+people who *have* contributed before?)
+   2. "Attract contributors to your project"
+   3. "Help make this website better" 
+
+Each mode has information / a dashboard associated with it, e.g. "Attract
+contributors" would have "X new people clicked the 'I wanna help' button! Go
+here to respond..."
+
+Arguably these modes should be thematically consistent between the logged-in and
+not-logged-in versions of the landing page (the former just has personalized
+data e.g. recommended bugs).
+
+Of course, the proposed schema leaves out some things that are currently
+featured on the home page, mainly "Tell your open source story". Is there a way
+to include that feature in this schema? Or is it not worth featuring?
+
+Also, do we really want to elevate OH dev to that level of prominence?</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-03-01&nbsp;06:19:47</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg1207">msg1207</a></td></tr>
+<tr><td>2011-03-01&nbsp;02:31:19</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file150">new-landing-page.patch</a><br />messages:
+  + <a href="msg1206">msg1206</a></td></tr>
+<tr><td>2011-02-28&nbsp;05:21:59</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting</td></tr>
+<tr><td>2011-02-28&nbsp;05:21:54</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1204">msg1204</a></td></tr>
+<tr><td>2011-02-28&nbsp;01:10:39</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg1203">msg1203</a></td></tr>
+<tr><td>2011-02-27&nbsp;22:09:04</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1201">msg1201</a></td></tr>
+<tr><td>2011-02-27&nbsp;06:47:57</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg1195">msg1195</a><br />title: Make (logged-in) landing page 'modal' for each major type of contributor -> Make (non-logged-in) landing page 'modal' for each major type of contributor</td></tr>
+<tr><td>2011-02-27&nbsp;06:37:09</td><td>aldeka</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file148">new-landing-page.patch</a><br />messages:
+  + <a href="msg1194">msg1194</a></td></tr>
+<tr><td>2011-02-27&nbsp;04:24:39</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2011-02-21&nbsp;12:33:01</td><td>ktarnowski</td><td>set</td><td>messages:
+  + <a href="msg1139">msg1139</a></td></tr>
+<tr><td>2011-02-19&nbsp;08:58:50</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file144">tab-mockup-3.png</a><br />messages:
+  + <a href="msg1119">msg1119</a></td></tr>
+<tr><td>2011-02-19&nbsp;08:16:08</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file143">tab-mockup-2.png</a></td></tr>
+<tr><td>2011-02-19&nbsp;08:15:58</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file142">tab-mockup-1.png</a><br />messages:
+  + <a href="msg1118">msg1118</a></td></tr>
+<tr><td>2011-02-16&nbsp;19:08:28</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1084">msg1084</a></td></tr>
+<tr><td>2011-02-12&nbsp;22:56:11</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg1045">msg1045</a></td></tr>
+<tr><td>2011-02-12&nbsp;22:49:12</td><td>aldeka</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1044">msg1044</a></td></tr>
+<tr><td>2011-02-12&nbsp;22:20:52</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user4">aldeka</a></td></tr>
+<tr><td>2011-02-12&nbsp;22:17:13</td><td>aldeka</td><td>set</td><td>nosy:
+  + <a href="user52">ktarnowski</a></td></tr>
+<tr><td>2011-02-12&nbsp;21:43:14</td><td>aldeka</td><td>set</td><td>priority: urgent -> feature</td></tr>
+<tr><td>2011-02-12&nbsp;21:33:05</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

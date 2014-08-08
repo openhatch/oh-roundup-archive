@@ -1,0 +1,388 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 49: Contributions Widget: Weird text highlighting - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue49
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue49">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue49">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Contributions Widget: Weird text highlighting</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  greg, palhmbs, rafpaf, stump
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>palhmbs</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-03-17.18:28:39</b> by <b>greg</b>, last changed <b>2011-04-21.14:55:46</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file225/0001-Change-to-CSS-for-widget.patch">0001-Change-to-CSS-for-widget.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-04-20.20:28:05</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file5/widget-2.png">widget-2.png</a>
+  </td>
+  <td>
+   <span>greg</span>,
+   <span>2010-03-17.18:28:39</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1668">msg1668 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-21.14:55:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Your commit introduces some new space characters at the end of lines, which git 
+warns us about. So I'm warning you, in turn.
+
+I'm so glad you fixed this long-standing issue! I'm deploying this immediately.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1656">msg1656 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-20.20:25:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Awesome :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1655">msg1655 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.20:21:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Added !important changes to the CSS for the a:hover and a links of the widget.
+This should solve the problem.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1624">msg1624 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-19.21:02:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Should be easy enough to setup some inline styles to fix this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg143">msg143 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-31.21:06:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Adding stump, in case he wants to play more with widget stuff.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg122">msg122 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-03-25.18:40:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The problem is that Greg's blog's styling for &lt;A&gt; is being applied to our
+widget's links. Raffi, I wonder if you can look at this too?
+
+You might find "reset CSS" files like
+<a href="http://developer.yahoo.com/yui/examples/reset/reset-simple.html">http://developer.yahoo.com/yui/examples/reset/reset-simple.html</a> and
+<a href="http://meyerweb.com/eric/tools/css/reset/">http://meyerweb.com/eric/tools/css/reset/</a> to be relevant.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg103">msg103 (view)</a></th>
+   <th>Author: greg</th>
+   <th>Date: 2010-03-17.18:28:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>See screenshot. This is live on <a href="http://blog.grossmeier.net">http://blog.grossmeier.net</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-21&nbsp;14:55:46</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1668">msg1668</a></td></tr>
+<tr><td>2011-04-20&nbsp;20:28:05</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file225">0001-Change-to-CSS-for-widget.patch</a></td></tr>
+<tr><td>2011-04-20&nbsp;20:27:52</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file224">0001-Change-to-CSS-for-widget.patch</a></td></tr>
+<tr><td>2011-04-20&nbsp;20:25:16</td><td>jessica</td><td>set</td><td>messages:
+  + <a href="msg1656">msg1656</a></td></tr>
+<tr><td>2011-04-20&nbsp;20:21:39</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file224">0001-Change-to-CSS-for-widget.patch</a><br />messages:
+  + <a href="msg1655">msg1655</a><br />milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-19&nbsp;21:02:38</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1624">msg1624</a></td></tr>
+<tr><td>2011-03-23&nbsp;23:11:59</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-03-14&nbsp;15:39:17</td><td>jesstess</td><td>set</td><td>keyword:
+  + <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2010-03-31&nbsp;21:06:05</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user19">stump</a><br />messages:
+  + <a href="msg143">msg143</a></td></tr>
+<tr><td>2010-03-25&nbsp;18:40:25</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user5">rafpaf</a><br />messages:
+  + <a href="msg122">msg122</a></td></tr>
+<tr><td>2010-03-17&nbsp;18:28:39</td><td>greg</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,775 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 282: Decide on user interface for creators/owners responding to (and mark as 'responded to') people who clicked 'I wanna help' - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue282
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue282">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue282">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Decide on user interface for creators/owners responding to (and mark as 'responded to') people who clicked 'I wanna help'</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.07</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  Implement the new IWH handler page
+  
+  <span>
+   <br><span>View:</span>
+     <a href="issue567">567</a>
+  </span>
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, glyph, jessica, jesstess, johnobrien10, palhmbs, paulproteus, pnob32
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  this-would-rock, usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-02-12.21:41:03</b> by <b>aldeka</b>, last changed <b>2011-11-14.01:34:43</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file389/iwh-handler.png">iwh-handler.png</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-08-27.02:52:01</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file205/iwh-mockup.png">iwh-mockup.png</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2011-04-11.23:04:09</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2681">msg2681 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-14.01:34:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The UI design is done, so marking this as resolved.
+
+<a href="issue567">issue567</a> covers the implementation.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2678">msg2678 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-13.23:07:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The design is done, but the implementation remains to be done.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2615">msg2615 (view)</a></th>
+   <th>Author: johnobrien10</th>
+   <th>Date: 2011-11-08.14:53:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Unfortunately, I couldn't get Vagrant working for me. Sorry Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2614">msg2614 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-08.00:58:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi John!
+
+In case you want to try using Vagrant, which lets you run the code in a virtual
+machine:
+
+<a href="https://openhatch.org/wiki/Using_OpenHatch_with_Vagrant">https://openhatch.org/wiki/Using_OpenHatch_with_Vagrant</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2613">msg2613 (view)</a></th>
+   <th>Author: johnobrien10</th>
+   <th>Date: 2011-11-08.00:05:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I will try to do this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2390">msg2390 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-08-27.21:15:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>A couple changes:
+
+'Contacted' people (on load; not when you just clicked the Contact checkmark)
+should look greyed out somehow.
+
+Change the top tab text from "IWH handler" to "Prospective helpers".
+
+If you aren't logged in and a current contributor to this project, the
+"Prospective helpers" tab lists a list of helpers without the contact interface
+(checkbox, remove link, huge email link). Like the current list of IWHelpers in
+the sidebar (which we would remove). At the top, there should be some text
+telling people "If you are a contributor to this project, add it to your profile
+and you will be able to contact these people from this page" or somesuch.
+
+Now I'll go make some feature request bugs for actually implementing this stuff.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2387">msg2387 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-27.06:02:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I am marking this as need-review. Anyone on Devel, feel free to look at
+"iwh-handler.png" and provide feedback.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2386">msg2386 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-08-27.02:52:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yay, a mockup!
+
+Some notes:
+
+By default, people are sorted first by whether or not they've been contacted
+(uncontacted first), then by date. You can also sort purely by date (reverse
+chronological order) or by name (alphabetical).
+
+The person's name and profile picture link to their profile. The email address
+is a mailto: link.
+
+The date is the date that they clicked the 'I wanna help' button. "Wants to
+help" is an optional extra field that the person can fill out, that appears
+after they click the 'I wanna help' button. (UI mockups for that functionality
+forthcoming.)
+
+When a person is checked off as contacted, the project maintainer who checked
+that button is recorded as the person who contacted them.
+
+The "Remove" link removes the person from the list of wannahelpers.
+
+Hopefully that's all reasonably clear!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2270">msg2270 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-08-07.07:19:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://openhatch.org/people/?q=icanhelp:%22OpenHatch%22">http://openhatch.org/people/?q=icanhelp:%22OpenHatch%22</a>
+
+Sigh. What a non-useful web page (for really learning about or contacting anyone, 
+anyway). 
+
+Whenever this gets fixed, we should remember to change the See All &gt;&gt; link in the 
+right-hand list of wannahelpers to change to the wannahelper handler tab instead 
+of taking you to /people/.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1781">msg1781 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-01.07:55:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We got close on this, but not quite. Maybe in the next few days someone can flesh 
+out the project page tab idea, which I think I eventually convinced aldeka of.
+
+Moving to 0.11.05! I'd love to see the design decided.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1700">msg1700 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-04-23.16:43:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Currently, as designed, there is no actual contacting functionality in the IWH
+widget (other than the mailto: links under each person's name, I guess). It's
+actually *really* simple. What 'contact' and 'contacted' are are just a toggle
+so that you (the project lead / outreach guru / whatever) can note to yourself
+(and anyone else in the project) who's been contacted and who you haven't. If
+you scroll, you can see everybody who's ever clicked IWH, but the people who
+haven't been marked as 'contacted' appear first in the list.
+
+I don't especially like the idea of hiding the entirety of IWH on a separate
+project page tab -- seems like that would make it exceptionally easy to ignore
+or forget about, at least until we have an IWH widget for the logged-in
+dashboard. (In which case, we're gonna need a mini version of the UI *anyway*.) 
+
+Also, of the extra features you list, really the only one that this doesn't
+already have is the comma-delimited, email-ready mass list. We could probably
+replace the old 'See all' link at the top of the widget with a link to generate
+that.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1494">msg1494 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-14.04:24:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Seeing this makes me think: "Gosh, that's a lot of functionality in that little
+box."
+
+Some thoughts:
+
+* The Project page could maybe have two modes -- one where you can deal with the
+wannahelpers, and another where you see the questions&amp;answers. It's a lot of UI
+jam-packed into that tiny box.
+
+* What happens when you click "Contact"?
+
+* The box only shows a subset of the wannahelpers. The subset that it shows
+should prioritize people who have not been checked-off as contacted.
+
+* There should be a way to "Clear all" contacted status, so that we can tell
+people, "If you want to reach out to people for a hackathon, you can un-check
+all, and then get all their email addresses."
+
+* There should be a way to list all email addresses of un-contacted
+wannahelpers, separated by a comma, so that you can send one big mass email.
+
+I know that my giving this feedback super-late means we're not going to "Decide"
+on the user interface for this milestone. But I think it's okay that it's taken
+a bit longer if we're going to end up with a higher-quality resulting UI.
+
+If it's not too tiring, let's keep the conversation going.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1474">msg1474 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-11.23:14:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>+1 - I like it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1473">msg1473 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-04-11.23:04:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It is a mockup! (finally) (augh)
+
+It could probably be less ugly, and I decided to leave out the bugtracker adder
+for now, but maybe this gives a sense of how the info could be organized?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1398">msg1398 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-30.22:19:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Karen says a date to hope for this is April 10.
+
+To make this fit within the milestone, I changed the bug's Title to adjust the
+scope down to refer to UI decisions. It'll be good that that's happening
+alongside the release; we can ask people for feedback before implementing it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1237">msg1237 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-03-12.21:23:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Also, let's add the automagical bugtracker adder to the project page 
+(<a href="http://openhatch.org/customs/">http://openhatch.org/customs/</a>). Or at least a link to it!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1236">msg1236 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-03-12.21:18:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>A UI mockup would be good, for what this interface ought to look like / where it 
+should live. Assigning to self, at least for that step.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1211">msg1211 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-01.06:23:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is getting there, I understand, but not totally ready. Targeting for 0.11.03.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1051">msg1051 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-13.03:24:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think jesstess means <a href="issue287">issue287</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1041">msg1041 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-02-12.22:19:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://openhatch.org/bugs/issue282">http://openhatch.org/bugs/issue282</a> is tracking implementing a way for contributors to specify 
+which projects they want notifications for.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1033">msg1033 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-12.21:45:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ideally, this would include a form on OH which the contributor can use to email
+the person back. But, dang, even just having easy access to everybody's email
+address/email forwarder + a way to mark as contacted would be better than what
+we got...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1031">msg1031 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-12.21:41:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Of course, this requires us to identify which contributors consider themselves
+"owners" or what have you...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1029">msg1029 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-12.21:41:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Because, like, lolduh.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-11-14&nbsp;01:34:43</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg2681">msg2681</a></td></tr>
+<tr><td>2011-11-13&nbsp;23:07:30</td><td>paulproteus</td><td>set</td><td>superseder:
+  + <a href="issue567">Implement the new IWH handler page</a><br />messages:
+  + <a href="msg2678">msg2678</a></td></tr>
+<tr><td>2011-11-08&nbsp;14:53:50</td><td>johnobrien10</td><td>set</td><td>assignedto: <a href="user269">johnobrien10</a> -> <a href="userNone"></a><br />messages:
+  + <a href="msg2615">msg2615</a></td></tr>
+<tr><td>2011-11-08&nbsp;00:58:14</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2614">msg2614</a></td></tr>
+<tr><td>2011-11-08&nbsp;00:05:48</td><td>johnobrien10</td><td>set</td><td>status: resolved -> chatting<br />assignedto: <a href="user4">aldeka</a> -> <a href="user269">johnobrien10</a><br />messages:
+  + <a href="msg2613">msg2613</a><br />nosy:
+  + <a href="user269">johnobrien10</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:15:37</td><td>aldeka</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2390">msg2390</a></td></tr>
+<tr><td>2011-08-27&nbsp;06:02:44</td><td>paulproteus</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg2387">msg2387</a></td></tr>
+<tr><td>2011-08-27&nbsp;02:52:02</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file389">iwh-handler.png</a><br />messages:
+  + <a href="msg2386">msg2386</a></td></tr>
+<tr><td>2011-08-07&nbsp;07:55:31</td><td>aldeka</td><td>unlink</td><td><a href="issue330">issue330 blockers</a></td></tr>
+<tr><td>2011-08-07&nbsp;07:46:18</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user4">aldeka</a></td></tr>
+<tr><td>2011-08-07&nbsp;07:19:40</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg2270">msg2270</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:11:17</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-06-11&nbsp;20:53:25</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user4">aldeka</a> -> (no value)</td></tr>
+<tr><td>2011-05-28&nbsp;22:38:35</td><td>palhmbs</td><td>link</td><td><a href="issue330">issue330 blockers</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:05:41</td><td>palhmbs</td><td>set</td><td>keyword:
+  + <a href="keyword7">usability</a>, <a href="keyword12">this-would-rock</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:04:35</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-01&nbsp;07:55:10</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1781">msg1781</a><br />milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-30&nbsp;20:34:21</td><td>jessica</td><td>set</td><td>nosy:
+  + <a href="user96">jessica</a></td></tr>
+<tr><td>2011-04-23&nbsp;16:43:54</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg1700">msg1700</a></td></tr>
+<tr><td>2011-04-22&nbsp;02:48:50</td><td>glyph</td><td>set</td><td>nosy:
+  + <a href="user117">glyph</a></td></tr>
+<tr><td>2011-04-14&nbsp;04:24:26</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1494">msg1494</a><br />milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-11&nbsp;23:14:33</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1474">msg1474</a></td></tr>
+<tr><td>2011-04-11&nbsp;23:04:09</td><td>aldeka</td><td>set</td><td>status: chatting -> in-progress<br />files:
+  + <a href="file205">iwh-mockup.png</a><br />messages:
+  + <a href="msg1473">msg1473</a></td></tr>
+<tr><td>2011-03-30&nbsp;22:19:03</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1398">msg1398</a><br />title: Project creators/owners can respond to (and mark as 'responded to') people who clicked 'I wanna help' -> Decide on user interface for creators/owners responding to (and mark as 'responded to') people who clicked 'I wanna help'</td></tr>
+<tr><td>2011-03-26&nbsp;21:29:48</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-03-26&nbsp;19:03:10</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-03-21&nbsp;08:20:23</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-03-12&nbsp;21:23:51</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg1237">msg1237</a></td></tr>
+<tr><td>2011-03-12&nbsp;21:18:16</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user59">pnob32</a> -> <a href="user4">aldeka</a><br />messages:
+  + <a href="msg1236">msg1236</a></td></tr>
+<tr><td>2011-03-01&nbsp;06:23:22</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1211">msg1211</a><br />milestone: <a href="milestone5">0.11.02</a> -> <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-02-19&nbsp;22:24:14</td><td>pnob32</td><td>set</td><td>assignedto: <a href="user59">pnob32</a><br />nosy:
+  + <a href="user59">pnob32</a></td></tr>
+<tr><td>2011-02-13&nbsp;03:24:35</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1051">msg1051</a></td></tr>
+<tr><td>2011-02-12&nbsp;22:19:46</td><td>jesstess</td><td>set</td><td>messages:
+  + <a href="msg1041">msg1041</a></td></tr>
+<tr><td>2011-02-12&nbsp;21:45:03</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg1033">msg1033</a></td></tr>
+<tr><td>2011-02-12&nbsp;21:41:53</td><td>aldeka</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2011-02-12&nbsp;21:41:35</td><td>aldeka</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1031">msg1031</a></td></tr>
+<tr><td>2011-02-12&nbsp;21:41:03</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

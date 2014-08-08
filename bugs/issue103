@@ -1,0 +1,345 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 103: No Explanation of Up/Down Arrows Beside Chatter Items - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue103
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue103">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue103">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">No Explanation of Up/Down Arrows Beside Chatter Items</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  mac9416
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-06-21.23:24:56</b> by <b>mac9416</b>, last changed <b>2010-07-15.15:47:20</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg365">msg365 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-07-15.15:47:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think that I like how "vote up" and "vote down" are imperatives. For now I 
+think we'll keep them that way.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg332">msg332 (view)</a></th>
+   <th>Author: mac9416</th>
+   <th>Date: 2010-06-30.22:59:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi, Raphael,
+
+That's better. Perhaps the text "good answer" and "bad answer" would be more
+descriptive, but that's of course up to y'all.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg317">msg317 (view)</a></th>
+   <th>Author: rafpaf</th>
+   <th>Date: 2010-06-30.19:47:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>mac9416, what do you think?
+<a href="http://openhatch.org/+projects/OpenHatch">http://openhatch.org/+projects/OpenHatch</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg306">msg306 (view)</a></th>
+   <th>Author: rafpaf</th>
+   <th>Date: 2010-06-30.16:08:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Let's add some tipsys.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg285">msg285 (view)</a></th>
+   <th>Author: mac9416</th>
+   <th>Date: 2010-06-25.23:38:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi, paulprotus,
+
+That makes sense. Like I say, probably most people figure that out immediately,
+but a little clarification would be helpful for dummies like me.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg279">msg279 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-06-24.18:05:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi mac9416! Thanks for filing this bug.
+
+They're for up-voting particularly good answers, or particularly bad ones. This 
+way, if people see that their answer has been down-voted, they can think about 
+rephrasing it to make it better.
+
+We'll try to make that clearer.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg273">msg273 (view)</a></th>
+   <th>Author: mac9416</th>
+   <th>Date: 2010-06-21.23:24:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Beside each item in a project's Chatter area are an up and down arrow. Perhaps
+to most people, their purpose is quite obvious. But I don't really understand
+what they are for. A tooltip for each image would be very helpful.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-07-15&nbsp;15:47:20</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg365">msg365</a></td></tr>
+<tr><td>2010-06-30&nbsp;22:59:19</td><td>mac9416</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg332">msg332</a></td></tr>
+<tr><td>2010-06-30&nbsp;19:47:34</td><td>rafpaf</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg317">msg317</a></td></tr>
+<tr><td>2010-06-30&nbsp;16:08:47</td><td>rafpaf</td><td>set</td><td>messages:
+  + <a href="msg306">msg306</a></td></tr>
+<tr><td>2010-06-25&nbsp;23:38:01</td><td>mac9416</td><td>set</td><td>messages:
+  + <a href="msg285">msg285</a></td></tr>
+<tr><td>2010-06-24&nbsp;18:05:53</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg279">msg279</a></td></tr>
+<tr><td>2010-06-21&nbsp;23:24:56</td><td>mac9416</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

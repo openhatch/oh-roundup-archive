@@ -1,0 +1,314 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 64: import project descriptions when importing from Ohloh - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue64
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue64">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue64">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">import project descriptions when importing from Ohloh</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mark, keturn, paulproteus, rafpaf
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-03-31.02:51:24</b> by <b>keturn</b>, last changed <b>2010-05-16.21:44:52</b> by <b>Mark</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg206">msg206 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-16.21:44:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Taking myself off being the assigned person, for the next two weeks. If someone
+else can look at it sooner, great. I won't be able to do much over the next few
+days as I prepare to leave for a couple of weeks.  
+
+I've looked at this briefly, but nothing I've done seems to get the actual call
+to ohloh.get_contribution_info_by_ohloh_username to pick up the description.
+Trying to pick up project_data['description'] gives a key error and picking up
+c_f.get('description', '') gives the defaulted empty string, even on projects
+with a description.  I also noticed some of the customs test were failing after
+the most recent pull. No idea if that is a python 2.6 issue (local to my
+machine) or something else.
+
+I'll dig into it deeper when I get back from vacation, of no one else has
+handled it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg193">msg193 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-05-13.19:24:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oh my God, you rock.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg192">msg192 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2010-05-13.12:17:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'll take this one.  It looks like the Ohloh API provides a description tag.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg165">msg165 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-04-20.13:55:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>That's a good idea, where by "good" I mean "seriously duh good".
+
+We already do that for Github imports, but not for Ohloh imports, I believe. 
+We'll get on that.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg141">msg141 (view)</a></th>
+   <th>Author: keturn</th>
+   <th>Date: 2010-03-31.02:51:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>When openhatch imports a project, I don't want to have to manually describe it 
+again if that information is available somewhere else.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-05-16&nbsp;21:44:52</td><td>Mark</td><td>set</td><td>assignedto: <a href="user29">Mark</a> -> <a href="userNone"></a><br />messages:
+  + <a href="msg206">msg206</a></td></tr>
+<tr><td>2010-05-13&nbsp;19:24:21</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg193">msg193</a></td></tr>
+<tr><td>2010-05-13&nbsp;12:17:28</td><td>Mark</td><td>set</td><td>nosy:
+  + <a href="user29">Mark</a><br />messages:
+  + <a href="msg192">msg192</a><br />assignedto: <a href="user29">Mark</a></td></tr>
+<tr><td>2010-04-20&nbsp;13:55:27</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user3">paulproteus</a>, <a href="user5">rafpaf</a><br />messages:
+  + <a href="msg165">msg165</a><br />title: import project descriptions -> import project descriptions when importing from Ohloh</td></tr>
+<tr><td>2010-03-31&nbsp;02:51:24</td><td>keturn</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,447 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 328: Projects should have separate URL/identifying and display names - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue328
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue328">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue328">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Projects should have separate URL/identifying and display names</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.03</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>pythonian4000</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-03-02.12:29:54</b> by <b>pythonian4000</b>, last changed <b>2011-04-13.02:51:18</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1481">msg1481 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-13.02:51:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yup, Hudson loved it. Will deploy along with some other changes shortly.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1476">msg1476 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-12.01:10:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think Hudson was happy. Can you confirm?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1472">msg1472 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-11.21:41:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Pushed; will deploy pending Hudson being happy!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1471">msg1471 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-11.21:31:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hudson failed; here is a patch to fix it.
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=3861719983f685f6ac88df0dfc1a6078aa7c40da">http://git.jackgrigg.com/openhatch/patch/?id=3861719983f685f6ac88df0dfc1a6078aa7c40da</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1470">msg1470 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-11.20:27:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Pushed; awaiting Hudson's results.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1468">msg1468 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-11.17:11:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Done. New patch links in place of the old ones (because I was rebasing):
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=76a5924a1475681651e254012a15ef115c509ce9">http://git.jackgrigg.com/openhatch/patch/?id=76a5924a1475681651e254012a15ef115c509ce9</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=a3980ca23a27b42d80dec69031bd53cb4b5c48be">http://git.jackgrigg.com/openhatch/patch/?id=a3980ca23a27b42d80dec69031bd53cb4b5c48be</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1466">msg1466 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-11.16:36:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The first patch should have a data migration. See
+<a href="http://south.aeracode.org/docs/tutorial/part3.html">http://south.aeracode.org/docs/tutorial/part3.html</a> and read the section
+beginning, "Now, the second migration is more interesting".
+
+You should copy over the trivial project save logic into the migration:
+
+for project in orm.Project.objects.all():
+   if not project.display_name:
+       project.display_name = project.other_field
+       project.save()
+(as a rough sketch)
+
+Other than that, these look good. They took me a while to understand.
+
+The /search/ stuff in views.py and controllers.py looks okay to me; that's just
+user-facing stuff.
+
+If the test pass once you resubmit, I'll push and deploy.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1457">msg1457 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-10.15:46:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Done:
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=d2054956f629e321a0748def548304b47532b752">http://git.jackgrigg.com/openhatch/patch/?id=d2054956f629e321a0748def548304b47532b752</a>
+<a href="http://git.jackgrigg.com/openhatch/patch/?id=992b36627a3465615811ef3ca6967d47a86fb5e9">http://git.jackgrigg.com/openhatch/patch/?id=992b36627a3465615811ef3ca6967d47a86fb5e9</a>
+
+After applying the first patch, run the following in "./bin/mysite shell_plus":
+
+for project in Project.objects.all()
+    project.save()
+
+That will set the display_name field for all Projects to be the same as the name
+field rather than blank, so that when the second patch is applied /search/
+doesn't fail because every project has the same display_name of ''.
+
+Also, see my comments in the second patch. I am not sure if this is a problem or
+not - in some ways it seems better, and in others worse. But I really don't know
+the search code, so I am really placed to say much.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1289">msg1289 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-17.20:08:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'll get this done alongside <a href="issue260">issue260</a>.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1224">msg1224 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-03-02.12:29:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>&lt;paulproteus&gt; pythonian4000: I'll do the first rename if you file a bug pointing
+out that projects probably need a "URL name" and a "Display name"
+* paulproteus does 'em both right now
+&lt;pythonian4000&gt; Alrighty
+&lt;paulproteus&gt; Done on my end!
+&lt;pythonian4000&gt; paulproteus, should the project URL still use the project name?
+&lt;paulproteus&gt; I would think it should use a simplified version, just like what
+ohloh.net does.
+&lt;paulproteus&gt; Like a WordPress blog post, projects should have a "slug"
+(URL-safe name) and a "title" (long, flowery thing)
+&lt;paulproteus&gt; e.g. "debian" and "Debian GNU/Linux"
+&lt;paulproteus&gt; That's what I'm thinkinkg
+&lt;pythonian4000&gt; Well the way OpenHatch handles URLs, pretty much anything is
+URL-safe, like unescaped spaces
+&lt;paulproteus&gt; It's true, but for e.g. copy-pasting. Well it's just one idea; we
+can discuss it later (-:
+&lt;paulproteus&gt; The reason, though, is that when we import projects from far away,
+we're not consistent about if we use the URL-name or the project name, from the
+remote service.
+&lt;paulproteus&gt; Plus re-titling projects, this way, could be done without breaking
+URLs, so we could make it part of the project edit interface.
+&lt;paulproteus&gt; +projedit/
+&lt;pythonian4000&gt; So the current Project name becomes the URL name and Display
+name will be what appears in strings (and can maybe default to the same as the
+URL one)
+&lt;paulproteus&gt; Yeah, I think that's the best way to do it.
+&lt;pythonian4000&gt; We will just need to make sure it integrates properly with the
+bug importing stuff - since the projects currently use names rather than Foreign
+keys to link, they will need to be checked.
+&lt;pythonian4000&gt; cf. <a href="issue161">issue161</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-13&nbsp;02:51:18</td><td>paulproteus</td><td>unlink</td><td><a href="issue334">issue334 blockers</a></td></tr>
+<tr><td>2011-04-13&nbsp;02:51:18</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1481">msg1481</a></td></tr>
+<tr><td>2011-04-12&nbsp;01:10:17</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1476">msg1476</a></td></tr>
+<tr><td>2011-04-11&nbsp;21:41:45</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1472">msg1472</a></td></tr>
+<tr><td>2011-04-11&nbsp;21:31:34</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg1471">msg1471</a></td></tr>
+<tr><td>2011-04-11&nbsp;20:27:05</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1470">msg1470</a></td></tr>
+<tr><td>2011-04-11&nbsp;17:11:48</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg1468">msg1468</a></td></tr>
+<tr><td>2011-04-11&nbsp;16:36:19</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting<br />messages:
+  + <a href="msg1466">msg1466</a></td></tr>
+<tr><td>2011-04-10&nbsp;15:46:02</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg1457">msg1457</a></td></tr>
+<tr><td>2011-03-17&nbsp;20:08:51</td><td>pythonian4000</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg1289">msg1289</a></td></tr>
+<tr><td>2011-03-16&nbsp;19:59:47</td><td>pythonian4000</td><td>set</td><td>milestone: <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-03-12&nbsp;22:27:05</td><td>pythonian4000</td><td>link</td><td><a href="issue334">issue334 blockers</a></td></tr>
+<tr><td>2011-03-02&nbsp;12:29:54</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

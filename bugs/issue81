@@ -1,0 +1,319 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 81: ambassadors and notifications - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue81
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue81">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue81">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">ambassadors and notifications</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, rafpaf
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-05-17.22:34:54</b> by <b>paulproteus</b>, last changed <b>2014-05-27.17:22:50</b> by <b>shauna</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4360">msg4360 (view)</a></th>
+   <th>Author: shauna</th>
+   <th>Date: 2014-05-27.17:22:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>What's the status of this?  A discussion on IRC suggests this functionality would 
+be useful.  (See <a href="http://irclogs.jackgrigg.com/irc.freenode.net/openhatch/2014-05-">http://irclogs.jackgrigg.com/irc.freenode.net/openhatch/2014-05-</a>
+27#i_3366800)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg235">msg235 (view)</a></th>
+   <th>Author: willkahngreene</th>
+   <th>Date: 2010-06-03.20:17:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Changing this bug with Asheesh's permission to expand it a bit.
+
+This bug now covers creating a new class of people called "ambassadors".  A user
+can flag themselves as an ambassador for a project.  If they are marked as such,
+they will be notified whenever a user clicks on the big green button for that
+project.  Notification will be done by email.  The email will contain a message
+about why the email was sent, a link to un-ambassador, a link to the OpenHatch
+site where an email address for the user can be found, and perhaps some
+suggestions on what to do with this information.
+
+Changes that need to happen:
+
+1. On <a href="https://openhatch.org/+portfolio/editor/,">https://openhatch.org/+portfolio/editor/,</a> the user will be able to click a
+checkbox labeled, "I'm an ambassador for this project!".  Clicking on this
+checkbox and saving the project information makes this user an ambassador for
+that project.  There should be some help text available telling the user what it
+means to be an ambassador.  Either that can be done by linking the word
+"ambassador" or having a ? link or however it is that sort of thing happens on
+OpenHatch.
+
+2. (optional) On <a href="https://openhatch.org/people/willkahngreene/,">https://openhatch.org/people/willkahngreene/,</a> for any projects
+the user is an ambassador for, text along the lines of "I am an ambassador"
+should appear.
+
+(alternative) Add a "I am an ambassador" text to the info column on the left
+side that lists projects the user is an ambassador for.
+
+3. When a user clicks on the big green button, an email is sent to all
+ambassadors for that project along the lines of:
+
+"""
+Hi!
+
+PERSON has expressed an interest in helping out with project XYZ by clicking on
+the big green button.  You can contact PERSON at this link:
+
+&lt;link to profile page&gt;
+
+Contact PERSON and introduce yourself.  Then help PERSON get involved in project
+XYZ.  &lt;insert advice here&gt;
+
+You have elected to be an ambassador for project XYZ and that's why you're
+receiving this email.  If you no longer want to be an ambassador, then
+&lt;instructions here to remove ambassador flag&gt;.
+
+Rock on!
+
+OpenHatch - making FLOSS development rock!
+"""
+
+
+I think that's all that's needed.  I haven't looked at the OH code, so I have no
+idea if this is doable as it stands, or needs some augmentation.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg207">msg207 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-05-17.22:34:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right now, it's not clear on the site if you're "Mentor" for "Python", is that
+the skill or the project? And we don't really say what to do with people who
+want to offer themselves as mentors in a project.
+
+We should solve that.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-05-27&nbsp;17:22:50</td><td>shauna</td><td>set</td><td>messages:
+  + <a href="msg4360">msg4360</a></td></tr>
+<tr><td>2010-06-03&nbsp;20:17:49</td><td>willkahngreene</td><td>set</td><td>messages:
+  + <a href="msg235">msg235</a><br />title: People should be able to mark themselves as "OpenHatch ambassadors" for a project -> ambassadors and notifications</td></tr>
+<tr><td>2010-05-17&nbsp;22:34:54</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

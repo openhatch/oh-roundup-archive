@@ -1,0 +1,507 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 271: Store data on whether a user has completed a mission part at least once - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue271
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue271">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue271">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Store data on whether a user has completed a mission part at least once</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  filipovskii_off, paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>filipovskii_off</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-02-05.22:12:47</b> by <b>pythonian4000</b>, last changed <b>2011-04-25.00:16:34</b> by <b>pythonian4000</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file249/0001-Solves-Issue-271.patch">0001-Solves-Issue-271.patch</a>
+  </td>
+  <td>
+   <span>filipovskii_off</span>,
+   <span>2011-04-24.23:38:09</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file250/0001-Solves-Issue-271.patch">0001-Solves-Issue-271.patch</a>
+  </td>
+  <td>
+   <span>filipovskii_off</span>,
+   <span>2011-04-24.23:59:40</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file246/0001-Solves-Issue-271.tar">0001-Solves-Issue-271.tar</a>
+  </td>
+  <td>
+   <span>filipovskii_off</span>,
+   <span>2011-04-24.21:36:32</span>
+  </td>
+  <td>application/x-tar</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1734">msg1734 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-25.00:16:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This applied fine for me and all tests in missions passed, so deployed! Great
+work! =D</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1733">msg1733 (view)</a></th>
+   <th>Author: filipovskii_off</th>
+   <th>Date: 2011-04-24.23:59:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>there are confusing test names, I've forgotten to change them after changing column 
+name, here is the latest version</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1732">msg1732 (view)</a></th>
+   <th>Author: filipovskii_off</th>
+   <th>Date: 2011-04-24.23:38:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>all done</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1730">msg1730 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-04-24.22:34:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>&lt;pythonian4000&gt; So the existence of the StepCompletion object is proof of it
+having been completed at least once.
+&lt;filipovskii_off&gt; yep
+&lt;pythonian4000&gt; And the value of reseted defines whether it is complete in the
+current iteration.
+&lt;filipovskii_off&gt; exactly
+&lt;pythonian4000&gt; filipovskii_off, that is awesome!
+&lt;filipovskii_off&gt; you're kidding? ))
+
+And for the record, my suggestions:
+
+1. Expand the tuple returned by get_or_create instead of treating it like a list:
+s, _ = StepCompletion.objects.get_or_create(...
+s.reseted = False
+s.save()
+etc.
+
+2. Add a method mission_completed_at_least_once() to actually use this
+functionality.
+
+3. Change the name of the "reseted" field to make it clearer what it actually
+means, e.g. to is_currently_completed (which would then invert all your boolean
+values) and add a comment above it in the model to also explain things.
+
+4. Add a South migration to actually modify the database to have the new model
+field. This one is odd, as the tests still pass without it using
+"./bin/sqlite_mysite". Maybe the flat-file database doesn't need South
+migrations? Or it doesn't care? Either way, a migration is needed for the patch
+to be deployable. See <a href="https://openhatch.org/wiki/Making_schema_changes">https://openhatch.org/wiki/Making_schema_changes</a>
+
+Also, at some point you need to email the mailing list permitting us to share
+your work, as per
+<a href="https://openhatch.org/wiki/How_we_handle_patches#Permit_us_to_share_your_work:">https://openhatch.org/wiki/How_we_handle_patches#Permit_us_to_share_your_work:</a>
+
+Lastly, it is great to have a new contributor! Thanks for the great patch!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1726">msg1726 (view)</a></th>
+   <th>Author: filipovskii_off</th>
+   <th>Date: 2011-04-24.19:45:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'll try to handle this</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1500">msg1500 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-14.04:41:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Moving off to a different, future milestone for now.
+
+If you are a new prospective OpenHatch contributor, and you're willing to dive
+in to a Django codebase (perhaps because you have Django experience), this is a
+good one to take.
+
+It would require:
+
+* Modifying the way we store data so that we store a new column or row that is
+saved, even if you clear a mission to "not yet done" status
+* Writing a test that shows that finishing a missions test showing that we mark
+the mission as having been completed in your new, permanent column/row
+* Writing a test that shows that even if you clear a mission to "not yet done"
+status, the datum remains present
+
+We are standing by on IRC and the [Devel] list, ready to help you with this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1463">msg1463 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-04-11.06:58:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I do not have enough time to close this issue in a reasonable time. De-assigned.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1455">msg1455 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-09.22:01:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey, do you still want this assigned to you?
+
+Just checking. If not, feel free to de-assign it, and we can make it something
+to feed new contributors to get them figuring out Django models and the like.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1182">msg1182 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-26.21:40:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Bumping forward since we're toward the end of Feb and it's not ready yet, and
+it's not urgent for a release targeted at project maintainers.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg992">msg992 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-05.22:12:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If we ever want to add features dependent on a user havinc completed a mission,
+alongside the current ability to reset a mission's state, then we need this.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-25&nbsp;00:16:34</td><td>pythonian4000</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg1734">msg1734</a></td></tr>
+<tr><td>2011-04-24&nbsp;23:59:40</td><td>filipovskii_off</td><td>set</td><td>files:
+  + <a href="file250">0001-Solves-Issue-271.patch</a><br />messages:
+  + <a href="msg1733">msg1733</a></td></tr>
+<tr><td>2011-04-24&nbsp;23:38:09</td><td>filipovskii_off</td><td>set</td><td>files:
+  + <a href="file249">0001-Solves-Issue-271.patch</a><br />messages:
+  + <a href="msg1732">msg1732</a></td></tr>
+<tr><td>2011-04-24&nbsp;23:32:13</td><td>filipovskii_off</td><td>set</td><td>files:
+  - <a href="file248">0001-Solves-Issue-271.patch</a></td></tr>
+<tr><td>2011-04-24&nbsp;23:20:00</td><td>filipovskii_off</td><td>set</td><td>files:
+  + <a href="file248">0001-Solves-Issue-271.patch</a></td></tr>
+<tr><td>2011-04-24&nbsp;23:19:18</td><td>filipovskii_off</td><td>set</td><td>files:
+  - <a href="file247">0001-Solves-Issue-271.patch</a></td></tr>
+<tr><td>2011-04-24&nbsp;23:01:48</td><td>filipovskii_off</td><td>set</td><td>files:
+  + <a href="file247">0001-Solves-Issue-271.patch</a></td></tr>
+<tr><td>2011-04-24&nbsp;22:34:29</td><td>pythonian4000</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1730">msg1730</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-24&nbsp;21:36:32</td><td>filipovskii_off</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file246">0001-Solves-Issue-271.tar</a></td></tr>
+<tr><td>2011-04-24&nbsp;19:45:23</td><td>filipovskii_off</td><td>set</td><td>assignedto: <a href="user114">filipovskii_off</a><br />messages:
+  + <a href="msg1726">msg1726</a><br />nosy:
+  + <a href="user114">filipovskii_off</a></td></tr>
+<tr><td>2011-04-14&nbsp;04:41:14</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1500">msg1500</a><br />keyword:
+  + <a href="keyword1">bitesize</a><br />milestone: <a href="milestone6">0.11.03</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-04-11&nbsp;06:58:08</td><td>ktarnowski</td><td>set</td><td>assignedto: <a href="user52">ktarnowski</a> -> (no value)<br />messages:
+  + <a href="msg1463">msg1463</a><br />nosy:
+  - <a href="user52">ktarnowski</a></td></tr>
+<tr><td>2011-04-09&nbsp;22:01:38</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1455">msg1455</a></td></tr>
+<tr><td>2011-02-26&nbsp;21:40:51</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1182">msg1182</a><br />milestone: <a href="milestone5">0.11.02</a> -> <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-02-16&nbsp;20:47:02</td><td>ktarnowski</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user52">ktarnowski</a><br />nosy:
+  + <a href="user52">ktarnowski</a></td></tr>
+<tr><td>2011-02-05&nbsp;22:12:47</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

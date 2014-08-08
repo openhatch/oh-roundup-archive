@@ -1,0 +1,374 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 320: Write extended version of LAYOUT for the wiki - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue320
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue320">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue320">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Write extended version of LAYOUT for the wiki</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  this-would-rock, transparency
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-02-26.22:07:40</b> by <b>paulproteus</b>, last changed <b>2011-10-01.06:37:59</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2559">msg2559 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-01.06:37:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We're thinking about moving out the different apps into being, more clearly,
+their own thing. I'll move this to later; perhaps never.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1751">msg1751 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-27.01:14:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>a) I think it would be totally sweet if we moved the templates into
+mysite/templates/* rather than mysite/*/templates/*/
+
+b) I guess I don't really understand what you want to change in the LAYOUT file.
+Once I get a sense of your goal, I can help you do it. But then again I think I
+wrote the bug title...
+
+c) I guess this bug is poorly named. Do we just want to move all the templates
+around? I think so. Maybe you should ask on [Devel] to make sure. If we have
+that consensus, someone should retitle this bug and submit a patch.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1693">msg1693 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-22.10:04:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right, I've got this far, which is basically a copy of the wiki...
+
+<a href="http://piratepad.net/openhatch-TEMPLATE-LAYOUT">http://piratepad.net/openhatch-TEMPLATE-LAYOUT</a>
+
+I've added all the templates folders under mysite - and given them sections.
+
+Let's try to get more input so that we can agree to go ahead and move alll the 
+templates to mysite/templates/*blah*</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1680">msg1680 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-21.21:17:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm gonna go ahead and create a wiki page.
+We can always update it when / if the actual structure of the templates changes.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1631">msg1631 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-04-20.01:09:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>What's the cost to benefit ratio in all this?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1187">msg1187 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-02-26.22:12:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Actually, my thought was that the folder structure would reflect the inheritance.
+
+So you'd have mysite/templates/base.html (and a few similarly oft-inherited
+templates like one-column in there), then mysite/templates/missions/base.html,
+then mysite/templates/missions/svn_mission/base.html, etc.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1185">msg1185 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-26.22:07:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If you look for "base/base.html" it's in "base/templates/base/base.html". Why
+all the repetition?
+
+Answer: Django apps.
+
+We could just move all the OpenHatch templates into one big templates directory
+instead. Like
+* mysite/templates/base/base.html
+* mysite/templates/missions/svn_mission/base.html
+
+rather than
+
+* mysite/base/templates/base/base.html
+* mysite/missions/templates/missions/svn_mission/base.html
+
+That would probably make things nicer.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-10-01&nbsp;06:37:59</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2559">msg2559</a><br />milestone: <a href="milestone11">0.11.09</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-09-05&nbsp;21:44:38</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone11">0.11.09</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:28:22</td><td>palhmbs</td><td>set</td><td>status: in-progress -> chatting<br />milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:03:36</td><td>palhmbs</td><td>set</td><td>keyword:
+  + <a href="keyword8">transparency</a>, <a href="keyword12">this-would-rock</a><br />milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-04-30&nbsp;22:26:01</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-04-30&nbsp;22:15:25</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a> -> <a href="userNone"></a></td></tr>
+<tr><td>2011-04-27&nbsp;01:14:00</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1751">msg1751</a></td></tr>
+<tr><td>2011-04-23&nbsp;19:56:32</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-04-22&nbsp;10:04:18</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1693">msg1693</a></td></tr>
+<tr><td>2011-04-21&nbsp;21:17:33</td><td>palhmbs</td><td>set</td><td>status: chatting -> in-progress<br />assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1680">msg1680</a><br />milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-20&nbsp;01:09:11</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1631">msg1631</a></td></tr>
+<tr><td>2011-02-26&nbsp;22:12:48</td><td>aldeka</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1187">msg1187</a></td></tr>
+<tr><td>2011-02-26&nbsp;22:07:40</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

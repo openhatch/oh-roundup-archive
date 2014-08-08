@@ -1,0 +1,357 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 335: Link points incorrectly on homepage for non-logged in users - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue335
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue335">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue335">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Link points incorrectly on homepage for non-logged in users</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.03</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, palhmbs, paulproteus, rafpaf
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>palhmbs</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-03-12.22:48:29</b> by <b>rafpaf</b>, last changed <b>2011-03-21.01:41:28</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file164/0001-335-Fixed-Broken-Landing-Page-Link.patch">0001-335-Fixed-Broken-Landing-Page-Link.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-03-20.19:27:23</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1310">msg1310 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-21.01:41:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey Paul,
+
+Some feedback:
+
+* Please write your commit log message in more "normal" English going forward.
+Try to explain what you did, and then provide a link to the ticket. Take a look
+at "git log" 
+
+* This patch itself is good, and I'm pushing it now.
+
+Deployed!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1309">msg1309 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-20.19:27:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Patch submitted - Please review.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1308">msg1308 (view)</a></th>
+   <th>Author: rafpaf</th>
+   <th>Date: 2011-03-20.14:23:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The broken link is the "I want to help" image. I forgot to mention
+this in my bug report.
+
+Raffi
+
+2011/3/19 palhmbs &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;:
+&gt;
+&gt; palhmbs &lt;<a href="mailto:paulbakulich@gmail.com">paulbakulich@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; rafpaf: Neither me or aldeka can find the bug mentioned here.
+&gt; Setting this to resolved until you can give us more details.
+&gt;
+&gt; ----------
+&gt; status: unread -&gt; resolved
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue335">https://openhatch.org/bugs/issue335</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1305">msg1305 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-03-19.21:40:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>rafpaf: Neither me or aldeka can find the bug mentioned here. 
+Setting this to resolved until you can give us more details.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1256">msg1256 (view)</a></th>
+   <th>Author: rafpaf</th>
+   <th>Date: 2011-03-12.22:48:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The new homepage for non-logged-in users is handsome. I noticed that the top
+left link under the second tab isn't hooked up correctly.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-03-21&nbsp;01:41:28</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg1310">msg1310</a></td></tr>
+<tr><td>2011-03-20&nbsp;19:27:24</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file164">0001-335-Fixed-Broken-Landing-Page-Link.patch</a><br />messages:
+  + <a href="msg1309">msg1309</a></td></tr>
+<tr><td>2011-03-20&nbsp;19:06:41</td><td>palhmbs</td><td>set</td><td>status: chatting -> in-progress</td></tr>
+<tr><td>2011-03-20&nbsp;14:23:46</td><td>rafpaf</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg1308">msg1308</a></td></tr>
+<tr><td>2011-03-19&nbsp;21:40:37</td><td>palhmbs</td><td>set</td><td>status: unread -> resolved<br />messages:
+  + <a href="msg1305">msg1305</a></td></tr>
+<tr><td>2011-03-19&nbsp;21:32:13</td><td>aldeka</td><td>set</td><td>nosy:
+  + <a href="user4">aldeka</a></td></tr>
+<tr><td>2011-03-19&nbsp;20:44:45</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a><br />nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-03-19&nbsp;20:41:43</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone6">0.11.03</a></td></tr>
+<tr><td>2011-03-12&nbsp;22:48:29</td><td>rafpaf</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

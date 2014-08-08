@@ -1,0 +1,428 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 167: snapshot importer crashes with integrity error - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue167
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue167">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue167">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">snapshot importer crashes with integrity error</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, zathras
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-11-12.23:21:15</b> by <b>zathras</b>, last changed <b>2011-01-24.04:06:52</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg771">msg771 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-24.04:06:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just tried it with a 2011-01-20 snapshot, did an import, then imported a
+2011-01-22 snapshot, and it worked fine.
+
+Marking as resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg744">msg744 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-21.20:27:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm testing this right now. It might take a while, but I'm on it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg651">msg651 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-16.00:04:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It would be good to check and resolve this by the end of 0.10.12.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg622">msg622 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-12-06.18:29:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This can be easily verified by anyone. Does not require dev skills. However I am
+not prepared to do so as I do not want to potentially fubar my environment so I
+cannot develop and test code. Better to test on a fresh install
+
+If it cannot be reproduced that way (fresh install, import data, wait a day or
+more, do a new fresh import on top of current db) the bug is a one time hick up.
+Otherwise a serious bug
+
+nice issue for someone who wants to help out but is not really into the project
+or thinks (s)he has limited skills imho
+
+to sum up: Testplan:
+1. install openhatch
+2. test installation
+3. download snapshot
+4. import snapshot
+5. test
+6. wait 1 ormore days
+7. download new(er) snapshot
+8. import snapshot
+if no errors occur like reported previously : bug was an one off hick up: bug
+can be closed
+if error(s) occur : bug is genuine and requires attention by a developer</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg614">msg614 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-04.21:29:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Since we can't reproduce it, the next step is to try to do an import of a
+snapshot on top of your local database.
+
+Maybe that can reproduce it?
+
+Otherwise I think we should close it unless we figure out how to reproduce the
+exception.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg565">msg565 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-18.22:18:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for writing this bug up. You helpfully made it clear which snapshot you
+were loading.
+
+Can you try with a fresh database, and the most recent snapshot? I can't
+reproduce the issue, and I did just try.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg533">msg533 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-13.19:44:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yikes! Will look at this!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg529">msg529 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-11-12.23:21:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>./bin/mysite loaddata ../snapshots/2010-11-12.json 
+/home/system/www2/openhatch.org/oh-mainline/eggs/windmill-1.4-py2.6.egg/windmill/browser/__init__.py:20:
+UserWarning: Module tracext was already imported from None, but
+/usr/lib/pymodules/python2.6 is being added to sys.path
+  from pkg_resources import resource_string
+Installing json fixture '../snapshots/2010-11-12' from absolute path.
+Problem installing fixture '../snapshots/2010-11-12.json': Traceback (most
+recent call last):
+  File
+"/home/system/www2/openhatch.org/oh-mainline/parts/mysite/django/core/management/commands/loaddata.py",
+line 163, in handle
+    obj.save()
+  File
+"/home/system/www2/openhatch.org/oh-mainline/parts/mysite/django/core/serializers/base.py",
+line 163, in save
+    models.Model.save_base(self.object, raw=True)
+  File
+"/home/system/www2/openhatch.org/oh-mainline/parts/mysite/django/db/models/base.py",
+line 495, in save_base
+    rows = manager.filter(pk=pk_val)._update(values)
+  File
+"/home/system/www2/openhatch.org/oh-mainline/parts/mysite/django/db/models/query.py",
+line 448, in _update
+    return query.execute_sql(None)
+  File
+"/home/system/www2/openhatch.org/oh-mainline/parts/mysite/django/db/models/sql/subqueries.py",
+line 124, in execute_sql
+    cursor = super(UpdateQuery, self).execute_sql(result_type)
+  File
+"/home/system/www2/openhatch.org/oh-mainline/parts/mysite/django/db/models/sql/query.py",
+line 2347, in execute_sql
+    cursor.execute(sql, params)
+  File
+"/home/system/www2/openhatch.org/oh-mainline/parts/mysite/django/db/backends/util.py",
+line 19, in execute
+    return self.cursor.execute(sql, params)
+  File
+"/home/system/www2/openhatch.org/oh-mainline/parts/mysite/django/db/backends/mysql/base.py",
+line 84, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib/pymodules/python2.6/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib/pymodules/python2.6/MySQLdb/connections.py", line 35, in
+defaulterrorhandler
+    raise errorclass, errorvalue
+IntegrityError: (1062, "Duplicate entry 'GNOME-Do' for key 'name'")</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-01-24&nbsp;04:06:52</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg771">msg771</a></td></tr>
+<tr><td>2011-01-21&nbsp;20:27:17</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg744">msg744</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:17:31</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone3">0.10.12</a> -> <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2010-12-16&nbsp;00:04:53</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg651">msg651</a><br />milestone: <a href="milestone2">0.10.11</a> -> <a href="milestone3">0.10.12</a></td></tr>
+<tr><td>2010-12-06&nbsp;18:29:07</td><td>zathras</td><td>set</td><td>messages:
+  + <a href="msg622">msg622</a></td></tr>
+<tr><td>2010-12-04&nbsp;21:29:45</td><td>paulproteus</td><td>set</td><td>priority: critical -> bug<br />messages:
+  + <a href="msg614">msg614</a></td></tr>
+<tr><td>2010-11-18&nbsp;22:18:49</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg565">msg565</a></td></tr>
+<tr><td>2010-11-16&nbsp;06:15:00</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-11-13&nbsp;19:44:00</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg533">msg533</a></td></tr>
+<tr><td>2010-11-12&nbsp;23:21:15</td><td>zathras</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,460 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 384: Import projects automatically not importing - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue384
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue384">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue384">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Import projects automatically not importing</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  this-would-rock, usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-04-15.14:05:09</b> by <b>jessica</b>, last changed <b>2011-08-13.20:36:22</b> by <b>aldeka</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file210/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>jessica</span>,
+   <span>2011-04-15.14:35:49</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2308">msg2308 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-08-13.20:36:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>In meeting, we agreed to throw out auto-importing. Changing this to a 'wish'; it's 
+still a cool feature to have, and if Asheesh or somebody decides to fix it in the 
+future, then great. But it's not a priority right now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2262">msg2262 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-08-07.06:31:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Four months later, after how many transitions from celery to rabbitmq to Twisted 
+to whatever the heck we use now, auto-importing *still* doesn't work, ever.
+
+This is totally lame.
+
+Is the auto-import feature something that we even care about anymore? If we do, 
+we should commit to making it a central part of an upcoming milestone (September 
+or October). If not, I'd prefer to get rid of it and instead make the manual 
+experience adder better. Right now it's an embarrassment.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2069">msg2069 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-11.21:11:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Could we background this process, and send email to the user once it's completed?
+
+imo - Searching projects for involvement is a heavy lifting job, so it's best not to make the user wait.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1975">msg1975 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-01.00:41:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Marking this both urgent and a usability problem and bumping to 11.06 milestone.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1865">msg1865 (view)</a></th>
+   <th>Author: chadadavis</th>
+   <th>Date: 2011-05-11.06:49:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm having this issue with my account as well. I tried this with both Firefox 4 
+and Chrome 12, in case there was an issue with the way the parallel tasks run. 
+Both run to 100% and hang there. If you can find something in the logs, I 
+entered my username and email as:
+
+chadadavis
+<a href="mailto:chad.a.davis@gmail.com">chad.a.davis@gmail.com</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1709">msg1709 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-23.20:43:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thank you!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1530">msg1530 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-15.14:35:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Asheesh,
+
+Oh, then I sent you a flurry indeed! I tried a few times thinking it was
+user error. Hey, it happens. :)
+
+Thank you for looking into it.
+
+Jessica
+
+On Fri, Apr 15, 2011 at 10:21 AM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Every time you hit submit, I think I get a flurry of error emails... I
+&gt; thought I
+&gt; fixed the underlying problem that causes these error emails a few months
+&gt; ago,
+&gt; but I guess that's not true.
+&gt;
+&gt; I'll look into them. (-: I should have something to report by the end of
+&gt; the
+&gt; day! Thanks for filing a bug to bring it to my attention!
+&gt;
+&gt; ----------
+&gt; milestone:  -&gt; 0.11.04
+&gt; status: unread -&gt; chatting
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue384">https://openhatch.org/bugs/issue384</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1529">msg1529 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-15.14:21:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Every time you hit submit, I think I get a flurry of error emails... I thought I
+fixed the underlying problem that causes these error emails a few months ago,
+but I guess that's not true.
+
+I'll look into them. (-: I should have something to report by the end of the
+day! Thanks for filing a bug to bring it to my attention!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1528">msg1528 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-15.14:05:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I put in my username for launchpad and github (jledbetter) in 
+<a href="http://openhatch.org/+portfolio/editor/">http://openhatch.org/+portfolio/editor/</a> after clicking "start here" but it's not 
+importing from those places. I should at least get lernanta from github. I also 
+tried the email addresses I've used to sign up for accounts as well as commits. 
+
+<a href="https://github.com/jledbetter">https://github.com/jledbetter</a>
+<a href="https://launchpad.net/~jledbetter">https://launchpad.net/~jledbetter</a>
+
+What am I doing wrong?
+
+Thank you!
+Jessica</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-08-13&nbsp;20:36:22</td><td>aldeka</td><td>set</td><td>priority: critical -> wish<br />messages:
+  + <a href="msg2308">msg2308</a></td></tr>
+<tr><td>2011-08-07&nbsp;06:31:15</td><td>aldeka</td><td>set</td><td>priority: urgent -> critical<br />messages:
+  + <a href="msg2262">msg2262</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:11:02</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-06-12&nbsp;03:25:19</td><td>jessica</td><td>set</td><td>nosy:
+  - <a href="user96">jessica</a></td></tr>
+<tr><td>2011-06-11&nbsp;21:11:15</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg2069">msg2069</a><br />keyword:
+  + <a href="keyword12">this-would-rock</a></td></tr>
+<tr><td>2011-06-01&nbsp;00:41:32</td><td>palhmbs</td><td>set</td><td>priority: bug -> urgent<br />nosy:
+  + <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1975">msg1975</a><br />keyword:
+  + <a href="keyword7">usability</a><br />milestone: <a href="milestone7">0.11.04</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-11&nbsp;06:49:40</td><td>chadadavis</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg1865">msg1865</a></td></tr>
+<tr><td>2011-04-23&nbsp;20:43:38</td><td>jessica</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg1709">msg1709</a></td></tr>
+<tr><td>2011-04-15&nbsp;14:35:49</td><td>jessica</td><td>set</td><td>files:
+  + <a href="file210">unnamed</a><br />messages:
+  + <a href="msg1530">msg1530</a></td></tr>
+<tr><td>2011-04-15&nbsp;14:21:26</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1529">msg1529</a><br />milestone: <a href="milestone7">0.11.04</a></td></tr>
+<tr><td>2011-04-15&nbsp;14:05:09</td><td>jessica</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

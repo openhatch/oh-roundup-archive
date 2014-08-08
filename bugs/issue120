@@ -1,0 +1,303 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 120: SVN mission throws HTTP 500 error - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue120
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue120">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue120">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">SVN mission throws HTTP 500 error</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, pythonian4000, stump
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>stump</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-07-29.05:38:32</b> by <b>pythonian4000</b>, last changed <b>2010-08-23.20:10:10</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg410">msg410 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-08-23.20:10:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey, Jack,
+
+This issue hit a few users on the web, too. We should have fixed it when you
+filed it!
+
+I'm marking this as resolved now that I've deployed a fix for it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg378">msg378 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2010-07-29.05:38:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This error occurs in the second part of the SVN mission. The following section
+passes:
+
+"Index: README
+... Rest of the diff ...
+   -- Mr. Bad
+ "
+
+Notice the space at the very end. If this space is missing then a HTTP 500 is
+thrown. If there are EXTRA spaces more than just one then we get a nice mission
+error saying that "The patch will not apply correctly to the latest revision."
+The 500 also occurs if random junk is submitted (but submitting nothing has a
+nice error).
+
+Asheesh found the following traceback which at first glance seems to cover most
+(if not all) of the problem:
+
+--------------------------------------
+Traceback (most recent call last):
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/core/handlers/base.py
+", line 99, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/contrib/auth/decorato
+rs.py", line 78, in __call__
+    return self.view_func(request, *args, **kwargs)
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/views.py", line 340,
+in svn_diff_submit
+
+controllers.SvnDiffMission.validate_diff_and_commit_if_ok(request.user.username,
+ form.cleaned_data['diff'])
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/controllers.py", line
+321, in validate_diff_and_commit_if_ok
+    the_patch = patch.fromstring(diff)
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/patch.py", line 67,
+in fromstring
+    return Patch( StringIO(s) )
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/patch.py", line 118,
+in __init__
+    self.parse(stream)
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/patch.py", line 323,
+in parse
+    warning("patch file incomplete - %s" % filename)
+
+NameError: global name 'filename' is not defined
+--------------------------------------</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2010-08-23&nbsp;20:10:10</td><td>paulproteus</td><td>set</td><td>status: unread -> resolved<br />messages:
+  + <a href="msg410">msg410</a></td></tr>
+<tr><td>2010-07-29&nbsp;05:38:37</td><td>pythonian4000</td><td>set</td><td>title: SVN mission throwsHTTP 500 error -> SVN mission throws HTTP 500 error</td></tr>
+<tr><td>2010-07-29&nbsp;05:38:32</td><td>pythonian4000</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

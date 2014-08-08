@@ -1,0 +1,401 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 247: When you click a link to a remote bug tracker, we put the remote bug tracker in a frame or some-such that adds context to the tracker - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue247
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue247">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue247">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">When you click a link to a remote bug tracker, we put the remote bug tracker in a frame or some-such that adds context to the tracker</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jesstess, ktarnowski, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>ktarnowski</td>
+ <th>Keywords</th>
+ <td>
+  this-would-rock, transparency, usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-01-29.23:38:58</b> by <b>paulproteus</b>, last changed <b>2011-07-02.20:45:47</b> by <b>palhmbs</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1212">msg1212 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-03-01.06:23:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It's too late for this to ship in February, but it'd be super cool if it shipped
+in March. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1134">msg1134 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-19.22:21:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I *might* make this feature happed ;-)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1130">msg1130 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-19.22:17:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Making a "Wish"; we *might* maaaaybe get it in 0.11.02</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1042">msg1042 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-12.22:20:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It should also give you something to click to say, "I'm going to work on this!"
+
+Much more discussion below. Sorry about all the renaming.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1030">msg1030 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-12.21:41:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm changing the bug title to refer explicitly to a top-framing-type bar.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1018">msg1018 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-11.21:51:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So, the about.com bar is a joking example. Basically, all it does is provide an
+advertisement on top of the site you really want to see:
+<a href="http://netforbeginners.about.com/gi/o.htm?zi=1/XJ&amp;zTi=1&amp;sdn=netforbeginners&amp;cdn=compute&amp;tm=8&amp;f=10&amp;su=p284.9.336.ip_p504.1.336.ip_&amp;tt=2&amp;bt=1&amp;bts=0&amp;zu=http%3A//www.cexx.org/adware.htm">http://netforbeginners.about.com/gi/o.htm?zi=1/XJ&amp;zTi=1&amp;sdn=netforbeginners&amp;cdn=compute&amp;tm=8&amp;f=10&amp;su=p284.9.336.ip_p504.1.336.ip_&amp;tt=2&amp;bt=1&amp;bts=0&amp;zu=http%3A//www.cexx.org/adware.htm</a>
+
+But you could imagine, instead of an ad, a button like, "I want to work on this"
+or "Take me back to the volunteer opportunity finder".</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1010">msg1010 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-08.09:15:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Could you please provide a screenshot of the About.com bar, as I failed to activate 
+one?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg974">msg974 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-04.04:28:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The "about.com" bar is one way to do this.
+
+When we send people out to remote bug trackers, we could wrap it in some
+context. For example, We could ask them their email address, and if we can ask
+them to tell us how it went a week later. We could do that by putting the remote
+bug tracker in a frame, or by making an interstitial page that we take them to
+before we take them to the real bug tracker page.
+
+I like the about.com bar more, because it gives the person room to click around
+and finally say, "I want to work on this," and then at *that* point we can ask
+them for email address, etc.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg865">msg865 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-29.23:38:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>People keep asking this very reasonable question: "Has the OpenHatch website
+connected anyone with a project?"
+
+I seem to recall hearing a pleasant story that meant the answer was "Yes", but
+we should do better at keeping track of this (and then we can use the
+information about when we succeed to drive future changes to the site).
+
+This is a bad "bug" in that it's hard to fix with a single git commit, but it
+should start discussions about new features that could help us resolve this. (So
+we can mark this as resolved once we have some sort of plan.)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-07-02&nbsp;20:45:47</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-05-29&nbsp;01:11:23</td><td>palhmbs</td><td>set</td><td>keyword:
+  + <a href="keyword12">this-would-rock</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:59:39</td><td>palhmbs</td><td>set</td><td>keyword:
+  + <a href="keyword7">usability</a>, <a href="keyword8">transparency</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:59:14</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-01&nbsp;00:20:34</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-03-01&nbsp;06:23:49</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1212">msg1212</a><br />milestone: <a href="milestone5">0.11.02</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-02-19&nbsp;22:21:55</td><td>ktarnowski</td><td>set</td><td>assignedto: <a href="user52">ktarnowski</a><br />messages:
+  + <a href="msg1134">msg1134</a></td></tr>
+<tr><td>2011-02-19&nbsp;22:17:23</td><td>paulproteus</td><td>set</td><td>priority: feature -> wish<br />messages:
+  + <a href="msg1130">msg1130</a></td></tr>
+<tr><td>2011-02-12&nbsp;22:20:13</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1042">msg1042</a><br />title: Bar that follows you, putting remote bug trackers in context -> When you click a link to a remote bug tracker, we put the remote bug tracker in a frame or some-such that adds context to the tracker</td></tr>
+<tr><td>2011-02-12&nbsp;21:41:30</td><td>paulproteus</td><td>set</td><td>priority: critical -> feature<br />nosy:
+  + <a href="user52">ktarnowski</a><br />messages:
+  + <a href="msg1030">msg1030</a><br />title: We have no idea if the website helps anybody -> Bar that follows you, putting remote bug trackers in context</td></tr>
+<tr><td>2011-02-12&nbsp;16:41:40</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2011-02-11&nbsp;21:51:42</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1018">msg1018</a></td></tr>
+<tr><td>2011-02-08&nbsp;09:15:26</td><td>ktarnowski</td><td>set</td><td>messages:
+  + <a href="msg1010">msg1010</a></td></tr>
+<tr><td>2011-02-04&nbsp;04:28:15</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg974">msg974</a></td></tr>
+<tr><td>2011-01-29&nbsp;23:38:58</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,1011 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 124: "Creating tarballs" mission needs a way to reset its state - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue124
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue124">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue124">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">"Creating tarballs" mission needs a way to reset its state</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, ktarnowski, palhmbs, paulproteus, stump
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>ktarnowski</td>
+ <th>Keywords</th>
+ <td>
+  usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-08-03.05:10:30</b> by <b>paulproteus</b>, last changed <b>2011-02-01.18:53:11</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file136/0001-Added-JavaScript-logic-behind-mission-reset.patch">0001-Added-JavaScript-logic-behind-mission-reset.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-02-01.09:33:39</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file128/0001-Added-reset-link-to-the-Creating-tarball-mission-ste.patch">0001-Added-reset-link-to-the-Creating-tarball-mission-ste.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-01-31.11:19:15</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file127/0001-Implemented-simple-mechanism-for-reseting-mission-as.patch">0001-Implemented-simple-mechanism-for-reseting-mission-as.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-01-31.11:16:33</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file129/0001-Implemented-simple-mechanism-for-reseting-mission-as.patch">0001-Implemented-simple-mechanism-for-reseting-mission-as.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-01-31.20:09:54</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file87/0001-Missions-Fix-for-tar-diff-patch.patch">0001-Missions-Fix-for-tar-diff-patch.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2010-10-14.18:44:24</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file137/0002-Implemented-back-end-logic-for-mission-reset-feature.patch">0002-Implemented-back-end-logic-for-mission-reset-feature.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-02-01.09:33:54</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file130/0003-Added-JS-module-to-be-used-on-mission-pages-for-rese.patch">0003-Added-JS-module-to-be-used-on-mission-pages-for-rese.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-01-31.20:21:04</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file138/0003-Updated-templates-to-use-mission-reset-functionality.patch">0003-Updated-templates-to-use-mission-reset-functionality.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-02-01.09:34:08</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file139/0004-Added-unit-tests-for-mission-reset-feature.patch">0004-Added-unit-tests-for-mission-reset-feature.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-02-01.09:34:20</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file131/0004-Adjusted-styles-so-file-upload-error-message-on-miss.patch">0004-Adjusted-styles-so-file-upload-error-message-on-miss.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-01-31.20:21:53</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file140/0005-Fixed-a-typo-in-the-tests.patch">0005-Fixed-a-typo-in-the-tests.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-02-01.12:30:24</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file132/0005-Implemented-logic-behind-mission-state-reset.patch">0005-Implemented-logic-behind-mission-state-reset.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-01-31.20:22:21</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file133/0006-Added-reset-functionality-to-Tar-mission-templates.patch">0006-Added-reset-functionality-to-Tar-mission-templates.patch</a>
+  </td>
+  <td>
+   <span>ktarnowski</span>,
+   <span>2011-01-31.20:22:57</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file90/upload-button.png">upload-button.png</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2010-10-18.06:00:28</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg938">msg938 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-01.18:53:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Sorry this dragged on!
+
+Feedback on patch 1: Looks great -- thanks for moving jQuery out to the HEAD; it
+makes sense in the HEAD. I'm glad you use the new .live() functionality.
+
+On patch 2: Some of your lines end in the " " (space) character. It's tidier for
+merges if you don't do that. Also, it would be better if the test for the "def
+reset()" function came in the same commit.
+
+The rest look good. If I were you, I would have squashed #5 into #4 so the
+history doesn't show the tests failing.
+
+All in all, the patch set looks good! I'm deploying it now...
+
+(It also hints at future work in which we repeat ourselves less with regard to
+MissionStep names. And maybe other missions could use this JSification too. And
+this functionality ought to work if you don't have JS.)
+
+I just tried it, and as the "You have partially completed this mission" faded
+out, I said, "Wow! This is fun."
+
+(-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg934">msg934 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-02-01.12:32:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>With 0005-Fixed-a-typo-in-the-tests.patch applied after the four listed just
+earlier, I believe this satisfies everything paulproteus mentioned.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg933">msg933 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-01.12:30:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This patch fixed a typo in tests -_-.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg930">msg930 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-01.09:35:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Patches should be applied in the following order:
+#. 0001-Added-JavaScript-logic-behind-mission-reset.patch
+#. 0002-Implemented-back-end-logic-for-mission-reset-feature.patch
+#. 0003-Updated-templates-to-use-mission-reset-functionality.patch
+#. 0004-Added-unit-tests-for-mission-reset-feature.patch</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg929">msg929 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-01.09:34:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Fourth patch to apply.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg928">msg928 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-01.09:34:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Third patch to apply.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg927">msg927 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-01.09:33:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Second patch to apply.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg926">msg926 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-02-01.09:33:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>First patch to apply.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg924">msg924 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-02-01.09:05:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think I will go to sleep and review this on Tue, Feb 1; which means it will
+miss the milestone. Sorry!
+
+Also, ktarnowski, I am having trouble identifying which patch files you want me
+to apply+review.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg905">msg905 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-31.20:22:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Modified Tar mission templates to use the new reset functionality.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg904">msg904 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-31.20:22:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Logic behind mission state reset.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg903">msg903 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-31.20:21:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Adjusted styles for error messages displayed for File upload form.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg902">msg902 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-31.20:21:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>JavaScript module for resetting mission state using ajax request.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg901">msg901 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-31.20:09:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>New batch of patch files makes previous one's obsolete.
+
+Application logic behind mission reset.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg889">msg889 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-31.14:10:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Some thoughts:
+
+* When I click on "reset" and it takes me to
+<a href="http://127.0.0.1:8000/missions/tar/reset">http://127.0.0.1:8000/missions/tar/reset</a> , I get a TypeError. You should write a
+test for the reset functionality.
+
+* The reset should require a POST. It modifies the state of the database, so
+it's unsafe to do it with a GET. For a fun read, see
+<a href="http://bitworking.org/news/I_m_sorry__I_can_t_kiss_it_and_make_it_better_">http://bitworking.org/news/I_m_sorry__I_can_t_kiss_it_and_make_it_better_</a>
+
+* I only get the "reset" link at the end of the mission. I think that each step,
+if it is already completed, should offer a "reset" button/link (or, alternately,
+the "Reset" functionality should be moved to the start of the mission, so that
+each mission step's page can link to the reset discussion at the start of the
+mission, where people can decide to erase their state if they want).
+
+As it stands, this is a huge improvement already. I'd push the current version
+if you write a test (and it passes) (and you change it to POST).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg885">msg885 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-31.11:19:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Rearranged "success box" for the sake of consistency.
+
+Added reset link to the "Create tarball" page. Feedback required re. positioning of 
+the link (bottom instead of the top of the page etc.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg884">msg884 (view)</a></th>
+   <th>Author: ktarnowski</th>
+   <th>Date: 2011-01-31.11:16:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Implemented mechanism for resetting mission state (whole or only for chosen steps).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg859">msg859 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-29.22:39:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We miiiiight get to this during the January release. If so, that'd be swell. If
+not, that's life. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg696">msg696 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-08.21:44:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Now that we have unified the state handling for the training missions, this
+should be easy.
+
+The "Creating tarballs" missions should have a button at the top that says,
+"Reset the mission (so you can try it again)", and when you click it, you can
+try the mission again.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg655">msg655 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-16.03:09:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The real problem here is that the tar/diff mission doesn't have the ability to
+reset the mission.
+
+After we do the cleanup in <a href="issue179">issue179</a> we should be able to easily modify it to
+have that. Then we can simplify the UI a lot.
+
+Sadly this will obviate paulhomebus's patches, but it's the way that makes the
+most sense.
+
+So, to work on this, help us tackle <a href="issue179">issue179</a> first! (Or wait for it.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg583">msg583 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-20.22:29:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>[17:23:57] &lt;paulproteus&gt; So (a) I think that the style breakage is new in the patch
+[17:24:15] &lt;paulproteus&gt; (b) the svn mission is clear, in that you can't re-do
+ones you've already done, but you can reset the whole mission to undone state.
+[17:24:35] &lt;pythonian4000&gt; Is that the behaviour that the others should have?
+[17:24:51] &lt;skyfaller&gt; has anyone see palhbs recently?
+[17:24:53] &lt;paulproteus&gt; The svn mission is unique in that there is a strict
+linearity and a great degree of state on our server.
+[17:24:58] &lt;paulproteus&gt; skyfaller: I'm afraid not
+[17:25:07] &lt;skyfaller&gt; erm, palhmbs, but yeah
+[17:25:08] &lt;pythonian4000&gt; Neither
+[17:25:10] &lt;paulproteus&gt; I probably scared him off by not reviewing his patch in
+a timely fashion. Typical.
+[17:25:16] &lt;skyfaller&gt; hahaha, awww
+[17:25:37] &lt;pythonian4000&gt; What, scaring people off or not reviewing patches? ;P
+[17:25:41] &lt;Zathras&gt; paulproteus, well I did :P
+[17:26:01] &lt;paulproteus&gt; pythonian4000: So I think this mission should have a
+big green "success" box, and a button to say, "Want to try again? Reset this
+mission to not-yet-done state"
+[17:26:08] &lt;paulproteus&gt; Except with maybe some more nice-sounding text.
+[17:26:24] &lt;paulproteus&gt; So much for it being "bitesize".
+[17:27:03] &lt;pythonian4000&gt; Yup, and in the case of a linear mission like svn or
+git or maybe IRC, require the steps to be in sequence and have a reset on the
+main page?
+[17:27:17] &lt;paulproteus&gt; Yeah, and preferably the top of the linear missions
+should somehow indicate the linearity.
+[17:27:22] &lt;paulproteus&gt; Or somewhere on them.
+[17:28:11] &lt;paulproteus&gt; Maybe when it says, "You've done this" it can say, "To
+reset this mission, go back to the start of it and click reset"
+[17:28:28] &lt;paulproteus&gt; Like, in the same place as the reset button for
+non-linear ones.
+[17:29:14] &lt;pythonian4000&gt; Yup.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg524">msg524 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2010-10-18.06:00:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The patch gets rid of the upload button (good), but the placement of the upload
+button (prior to success) is funky--see screenshot. Was it like this before? On
+the unpacking tarball half of this mission the upload button appears normally....</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg517">msg517 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2010-10-14.18:44:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I am confident I have this right now! - please review!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg514">msg514 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2010-10-13.23:08:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I swapped some code round to get it to display right. 
+I think I may have broken a div though on one of the .html's.
+
+Here is my very first patch!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg386">msg386 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-08-03.05:10:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On here:
+
+<a href="http://openhatch.org/missions/tar/upload#create-form">http://openhatch.org/missions/tar/upload#create-form</a>
+
+If you did it successfully, you still see the upload button. Totally lame.
+
+Credit to lfaraone for being aweso.me.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-02-01&nbsp;18:53:11</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg938">msg938</a></td></tr>
+<tr><td>2011-02-01&nbsp;12:32:09</td><td>pythonian4000</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg934">msg934</a></td></tr>
+<tr><td>2011-02-01&nbsp;12:30:24</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file140">0005-Fixed-a-typo-in-the-tests.patch</a><br />messages:
+  + <a href="msg933">msg933</a></td></tr>
+<tr><td>2011-02-01&nbsp;09:35:05</td><td>ktarnowski</td><td>set</td><td>messages:
+  + <a href="msg930">msg930</a></td></tr>
+<tr><td>2011-02-01&nbsp;09:34:20</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file139">0004-Added-unit-tests-for-mission-reset-feature.patch</a><br />messages:
+  + <a href="msg929">msg929</a></td></tr>
+<tr><td>2011-02-01&nbsp;09:34:08</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file138">0003-Updated-templates-to-use-mission-reset-functionality.patch</a><br />messages:
+  + <a href="msg928">msg928</a></td></tr>
+<tr><td>2011-02-01&nbsp;09:33:54</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file137">0002-Implemented-back-end-logic-for-mission-reset-feature.patch</a><br />messages:
+  + <a href="msg927">msg927</a></td></tr>
+<tr><td>2011-02-01&nbsp;09:33:39</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file136">0001-Added-JavaScript-logic-behind-mission-reset.patch</a><br />messages:
+  + <a href="msg926">msg926</a></td></tr>
+<tr><td>2011-02-01&nbsp;09:05:13</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg924">msg924</a></td></tr>
+<tr><td>2011-01-31&nbsp;20:22:58</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file133">0006-Added-reset-functionality-to-Tar-mission-templates.patch</a><br />messages:
+  + <a href="msg905">msg905</a></td></tr>
+<tr><td>2011-01-31&nbsp;20:22:21</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file132">0005-Implemented-logic-behind-mission-state-reset.patch</a><br />messages:
+  + <a href="msg904">msg904</a></td></tr>
+<tr><td>2011-01-31&nbsp;20:21:53</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file131">0004-Adjusted-styles-so-file-upload-error-message-on-miss.patch</a><br />messages:
+  + <a href="msg903">msg903</a></td></tr>
+<tr><td>2011-01-31&nbsp;20:21:04</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file130">0003-Added-JS-module-to-be-used-on-mission-pages-for-rese.patch</a><br />messages:
+  + <a href="msg902">msg902</a></td></tr>
+<tr><td>2011-01-31&nbsp;20:09:54</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file129">0001-Implemented-simple-mechanism-for-reseting-mission-as.patch</a><br />messages:
+  + <a href="msg901">msg901</a></td></tr>
+<tr><td>2011-01-31&nbsp;14:10:50</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg889">msg889</a></td></tr>
+<tr><td>2011-01-31&nbsp;11:19:15</td><td>ktarnowski</td><td>set</td><td>files:
+  + <a href="file128">0001-Added-reset-link-to-the-Creating-tarball-mission-ste.patch</a><br />messages:
+  + <a href="msg885">msg885</a></td></tr>
+<tr><td>2011-01-31&nbsp;11:16:33</td><td>ktarnowski</td><td>set</td><td>status: chatting -> in-progress<br />assignedto: <a href="user52">ktarnowski</a><br />messages:
+  + <a href="msg884">msg884</a><br />files:
+  + <a href="file127">0001-Implemented-simple-mechanism-for-reseting-mission-as.patch</a><br />nosy:
+  + <a href="user52">ktarnowski</a></td></tr>
+<tr><td>2011-01-29&nbsp;22:39:53</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg859">msg859</a></td></tr>
+<tr><td>2011-01-08&nbsp;21:44:04</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting<br />title: "Creating tarballs" mission shows big green YOU DID IT! message (good) but still shows upload button (bad) -> "Creating tarballs" mission needs a way to reset its state<br />messages:
+  + <a href="msg696">msg696</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2010-12-16&nbsp;03:09:54</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg655">msg655</a><br />milestone: <a href="milestone2">0.10.11</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2010-11-20&nbsp;22:31:26</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2010-11-20&nbsp;22:29:42</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg583">msg583</a></td></tr>
+<tr><td>2010-11-20&nbsp;22:26:29</td><td>paulproteus</td><td>set</td><td>keyword:
+  - <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2010-11-20&nbsp;21:31:14</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-11-20&nbsp;21:17:10</td><td>aldeka</td><td>set</td><td>keyword:
+  + <a href="keyword7">usability</a></td></tr>
+<tr><td>2010-10-18&nbsp;06:00:29</td><td>aldeka</td><td>set</td><td>files:
+  + <a href="file90">upload-button.png</a><br />messages:
+  + <a href="msg524">msg524</a></td></tr>
+<tr><td>2010-10-18&nbsp;05:15:03</td><td>aldeka</td><td>set</td><td>nosy:
+  + <a href="user4">aldeka</a></td></tr>
+<tr><td>2010-10-14&nbsp;18:44:24</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file87">0001-Missions-Fix-for-tar-diff-patch.patch</a><br />messages:
+  + <a href="msg517">msg517</a></td></tr>
+<tr><td>2010-10-14&nbsp;18:43:26</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file85">0002-Fixed-tar-missions-upload-bug.patch</a></td></tr>
+<tr><td>2010-10-14&nbsp;18:23:28</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file86">0001-Missions-Fix-for-tar-diff-patch.patch</a></td></tr>
+<tr><td>2010-10-14&nbsp;18:23:17</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg516">msg516</a></td></tr>
+<tr><td>2010-10-14&nbsp;18:06:32</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file86">0001-Missions-Fix-for-tar-diff-patch.patch</a><br />messages:
+  + <a href="msg516">msg516</a></td></tr>
+<tr><td>2010-10-13&nbsp;23:08:42</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file85">0002-Fixed-tar-missions-upload-bug.patch</a><br />messages:
+  + <a href="msg514">msg514</a></td></tr>
+<tr><td>2010-10-13&nbsp;23:08:00</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg511">msg511</a></td></tr>
+<tr><td>2010-10-13&nbsp;23:07:48</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg513">msg513</a></td></tr>
+<tr><td>2010-10-13&nbsp;23:07:41</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file83">0001-Fixed-tar-missions-upload-bug.patch</a></td></tr>
+<tr><td>2010-10-13&nbsp;23:07:24</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file84">tar_missions.tar.bz2</a></td></tr>
+<tr><td>2010-10-13&nbsp;20:58:32</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file84">tar_missions.tar.bz2</a><br />messages:
+  + <a href="msg513">msg513</a></td></tr>
+<tr><td>2010-10-12&nbsp;21:11:05</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-review</td></tr>
+<tr><td>2010-10-12&nbsp;20:34:35</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file83">0001-Fixed-tar-missions-upload-bug.patch</a><br />status: unread -> chatting<br />messages:
+  + <a href="msg511">msg511</a></td></tr>
+<tr><td>2010-08-03&nbsp;05:10:30</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

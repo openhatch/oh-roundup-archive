@@ -1,0 +1,406 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 182: git pull + build caused crash on reistall solr - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue182
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue182">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue182">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">git pull + build caused crash on reistall solr</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.01</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, zathras
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2010-11-20.21:14:29</b> by <b>zathras</b>, last changed <b>2011-01-08.21:18:18</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg684">msg684 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-01-08.21:18:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is resolved, as current origin/master no longer even uses SOLR.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg653">msg653 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-12-16.03:04:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a developer setup bug that can confuse contributors. I hope that we can
+fix it in 0.10.12!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg581">msg581 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2010-11-20.21:55:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It's easy to work around this by deleting the directory in question.
+
+I'll try to reproduce and see if there's an easy fix.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg574">msg574 (view)</a></th>
+   <th>Author: zathras</th>
+   <th>Date: 2010-11-20.21:14:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>nexus:/home/system/www2/openhatch.org/milestone-a# git pull
+Updating 880128d..81af1ab
+Fast-forward
+ README.mkd                                         |   18 +-
+ buildout.cfg                                       |    2 +
+ .../0002_timestamp_column_not_auto_add.py          |   32 ++
+ mysite/base/models.py                              |    2 +-
+ mysite/base/templates/base/base.html               |    1 +
+ mysite/customs/bugtrackers/bugzilla.py             |  140 ++++++-
+ mysite/customs/bugtrackers/google.py               |  210 +++-------
+ mysite/customs/bugtrackers/trac.py                 |   10 +-
+ mysite/customs/forms.py                            |   29 ++
+ .../management/commands/customs_daily_tasks.py     |   22 +-
+ .../management/commands/dump_public_user_data.py   |   84 +++-
+ .../migrations/0012_add_bugzilla_tracker_models.py |  100 +++++
+ .../0013_fix_fieldname_in_bugzillaurl.py           |   66 +++
+ .../0014_add_description_to_bugzillaurl.py         |   61 +++
+ .../migrations/0015_add_google_tracker_models.py   |   97 ++++
+ .../migrations/0016_lengthen_bugzilla_url_field.py |   84 ++++
+ mysite/customs/models.py                           |   98 ++++-
+ mysite/customs/templates/customs/add_tracker.html  |   34 ++
+ .../customs/templates/customs/add_tracker_url.html |   38 ++
+ .../customs/templates/customs/delete_tracker.html  |   26 ++
+ .../templates/customs/delete_tracker_url.html      |   27 ++
+ mysite/customs/templates/customs/edit_tracker.html |   48 ++
+ .../templates/customs/edit_tracker_url.html        |   31 ++
+ .../customs/templates/customs/list_trackers.html   |   45 ++
+ mysite/customs/templates/customs/main.html         |   42 ++
+ .../customs/templates/customs/tracker_history.html |   30 ++
+ mysite/customs/tests.py                            |  463 +++++++++++++++++++-
+ mysite/customs/views.py                            |  301 +++++++++++++-
+ .../commands/email_address_from_session_id.py      |   16 +
+ mysite/profile/tests.py                            |    8 +
+ mysite/search/models.py                            |   12 +
+ mysite/settings.py                                 |    4 +-
+ mysite/static/css/project/project.css              |    2 +
+ mysite/static/images/the-logo-sans-text.png        |  Bin 0 -&gt; 43110 bytes
+ mysite/urls.py                                     |   15 +
+ run_importer.sh                                    |    5 +
+ 36 files changed, 1987 insertions(+), 216 deletions(-)
+ create mode 100644 mysite/base/migrations/0002_timestamp_column_not_auto_add.py
+ create mode 100644 mysite/customs/forms.py
+ create mode 100644 mysite/customs/migrations/0012_add_bugzilla_tracker_models.py
+ create mode 100644 mysite/customs/migrations/0013_fix_fieldname_in_bugzillaurl.py
+ create mode 100644 mysite/customs/migrations/0014_add_description_to_bugzillaurl.py
+ create mode 100644 mysite/customs/migrations/0015_add_google_tracker_models.py
+ create mode 100644 mysite/customs/migrations/0016_lengthen_bugzilla_url_field.py
+ create mode 100644 mysite/customs/templates/customs/add_tracker.html
+ create mode 100644 mysite/customs/templates/customs/add_tracker_url.html
+ create mode 100644 mysite/customs/templates/customs/delete_tracker.html
+ create mode 100644 mysite/customs/templates/customs/delete_tracker_url.html
+ create mode 100644 mysite/customs/templates/customs/edit_tracker.html
+ create mode 100644 mysite/customs/templates/customs/edit_tracker_url.html
+ create mode 100644 mysite/customs/templates/customs/list_trackers.html
+ create mode 100644 mysite/customs/templates/customs/main.html
+ create mode 100644 mysite/customs/templates/customs/tracker_history.html
+ create mode 100644
+mysite/profile/management/commands/email_address_from_session_id.py
+ create mode 100644 mysite/static/images/the-logo-sans-text.png
+ create mode 100755 run_importer.sh
+nexus:/home/system/www2/openhatch.org/milestone-a# python2.6 bootstrap.py 
+install_dir /tmp/tmpCveNud
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/buildout'.
+nexus:/home/system/www2/openhatch.org/milestone-a# bin/buildout 
+Develop: '/home/system/www2/openhatch.org/milestone-a/.'
+install_dir /home/system/www2/openhatch.org/milestone-a/develop-eggs/tmpaf3ueCbuild
+Uninstalling gunzip_geocoding_db.
+Uninstalling download_geocoding_db.
+Uninstalling download_solr.
+Uninstalling sqlite_mysite.
+Uninstalling production.
+Uninstalling mysite.
+Uninstalling scripts.
+Installing scripts.
+Generated interpreter '/home/system/www2/openhatch.org/milestone-a/bin/python'.
+Installing mysite.
+install_dir /home/system/www2/openhatch.org/milestone-a/develop-eggs/tmpTiyEzVbuild
+Getting distribution for 'django-reversion==1.2.1'.
+install_dir /home/system/www2/openhatch.org/milestone-a/eggs/tmpVagl_Y
+zip_safe flag not set; analyzing archive contents...
+Got django-reversion 1.2.1.
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/mysite'.
+Generated script
+'/home/system/www2/openhatch.org/milestone-a/bin/test_sans_customs'.
+Installing production.
+install_dir /home/system/www2/openhatch.org/milestone-a/develop-eggs/tmpdjNiVvbuild
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/production'.
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/test_production'.
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/production.wsgi'.
+Installing sqlite_mysite.
+install_dir /home/system/www2/openhatch.org/milestone-a/develop-eggs/tmpTr0hyZbuild
+Generated script '/home/system/www2/openhatch.org/milestone-a/bin/sqlite_mysite'.
+Installing download_solr.
+download_solr: Extracting package to
+/home/system/www2/openhatch.org/milestone-a/parts/download_solr
+download_solr: Ignoring existing target:
+/home/system/www2/openhatch.org/milestone-a/parts/download_solr/example
+While:
+  Installing download_solr.
+
+An internal error occurred due to a bug in either zc.buildout or in a
+recipe being used:
+Traceback (most recent call last):
+  File
+"/home/system/www2/openhatch.org/milestone-a/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/buildout.py",
+line 1805, in main
+    getattr(buildout, command)(args)
+  File
+"/home/system/www2/openhatch.org/milestone-a/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/buildout.py",
+line 584, in install
+    installed_files = self[part]._call(recipe.install)
+  File
+"/home/system/www2/openhatch.org/milestone-a/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/buildout.py",
+line 1297, in _call
+    return f()
+  File
+"/home/system/www2/openhatch.org/milestone-a/eggs/hexagonit.recipe.download-1.4.1-py2.6.egg/hexagonit/recipe/download/__init__.py",
+line 124, in install
+    shutil.move(os.path.join(base, filename), dest)
+  File "/usr/lib/python2.6/shutil.py", line 250, in move
+    raise Error, "Destination path '%s' already exists" % real_dst
+Error: Destination path
+'/home/system/www2/openhatch.org/milestone-a/parts/download_solr/example/example' already
+exists
+nexus:/home/system/www2/openhatch.org/milestone-a#</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-01-08&nbsp;21:18:18</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2011-01-08&nbsp;21:18:13</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg684">msg684</a><br />milestone: <a href="milestone3">0.10.12</a> -> <a href="milestone4">0.11.01</a></td></tr>
+<tr><td>2010-12-16&nbsp;03:04:09</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg653">msg653</a><br />milestone: <a href="milestone2">0.10.11</a> -> <a href="milestone3">0.10.12</a></td></tr>
+<tr><td>2010-11-20&nbsp;21:55:28</td><td>paulproteus</td><td>set</td><td>priority: urgent -> wish<br />status: unread -> chatting<br />messages:
+  + <a href="msg581">msg581</a><br />milestone: <a href="milestone2">0.10.11</a></td></tr>
+<tr><td>2010-11-20&nbsp;21:14:29</td><td>zathras</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->
