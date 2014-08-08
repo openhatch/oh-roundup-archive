@@ -1,0 +1,27 @@
+From d12a9c70f034baa62e2cbbd6bc96448ca85b6322 Mon Sep 17 00:00:00 2001
+From: Nic Hodges <dnhodges@gmail.com>
+Date: Sun, 26 Feb 2012 15:11:41 -0500
+Subject: [PATCH] If user is not logged into the site for the Git Setup
+ mission, gives user the log in link.
+
+---
+ .../missions/templates/missions/git/about_git.html |    3 +++
+ 1 files changed, 3 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/git/about_git.html b/mysite/missions/templates/missions/git/about_git.html
+index 3a9b56e..291935f 100644
+--- a/mysite/missions/templates/missions/git/about_git.html
++++ b/mysite/missions/templates/missions/git/about_git.html
+@@ -84,6 +84,9 @@ git.</p>
+           </div>
+         </form>
+         {% endif %}
++{% else %}
++		<p>Please <a href='{% url oh_login %}
++			?next={% url mysite.missions.git.views.long_description %}'>log in</a>.</p>
+ {% endif %}
+ 
+ {% endblock mission_main_body %}
+-- 
+1.7.7.2
+

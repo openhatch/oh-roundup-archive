@@ -1,0 +1,63 @@
+From ac3b57a1531a3a058aeb28fbe85e5bb2cabbb55e Mon Sep 17 00:00:00 2001
+From: yfm <yfm@terpmail.umd.edu>
+Date: Wed, 14 Dec 2011 17:04:18 -0500
+Subject: [PATCH] Change the checkmarks usage on the /missions/ page from
+ greyed-out check marks to an empty check box
+
+---
+ mysite/static/css/missions/base.css |    2 +-
+ mysite/static/images/no-tick.png    |  Bin 0 -> 1313 bytes
+ 2 files changed, 1 insertions(+), 1 deletions(-)
+ create mode 100644 mysite/static/images/no-tick.png
+
+diff --git a/mysite/static/css/missions/base.css b/mysite/static/css/missions/base.css
+index e6fdedf..ee437b8 100644
+--- a/mysite/static/css/missions/base.css
++++ b/mysite/static/css/missions/base.css
+@@ -47,7 +47,7 @@ body.missions .tick-progress {
+   margin-left: 30px;
+ }
+ body.missions .cross-progress {
+-  list-style-image: url("/static/images/light-tick.png");
++  list-style-image: url("/static/images/no-tick.png");
+   margin-left: 30px;
+ }
+ body.missions .bump-over {
+diff --git a/mysite/static/images/no-tick.png b/mysite/static/images/no-tick.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..6c5c191a5c421e7ee743f0adf603d08edfd0f3ab
+GIT binary patch
+literal 1313
+zcmV++1>X9JP)<h;3K|Lk000e1NJLTq000^Q000mO1^@s62+?n-0009XX+uL$Nkc;*
+zP;zf(X>4Tx0C)j~RNrgUP!#^!Wu36$i#lf!2|j3%Ze&w*L!7p2SGvtw>Nd9_NSmf@
+zT$;ut?S8Na*^6&F#dq-sKKTa>*@JI;k`2ZbVfd_wB24xov!0tYO(#<Wx%a!@`R+L<
+z=j2|X`Egp)6fX}HRZ~yJ!u-VK6yNdzUK~R!{Af*!h89XDM?eqLvU%^b^9~-yY;^8#
+z->d#()tZ$I5%3%!zLYh@BH>w}X<XEF6X4c~@0~F<!p%%`Sf>ODA7?mkV}ap}jU$$3
+zG&Mk)3Bm`(LOM&hKscCb;PVaG&Vdx<Cnl+qE{i;?MN%*2WJR(J_V6EbgYsXnsFdlO
+zt>+MpZJHTQ(R_;DA31$+jOGB<!9QOZy+OF0a9B3uqcwg)%_Oc7CcWqGbZMCFWtx{+
+zDH0_dB)no&t}|?D<_iOfn&#8(^iYzppESQTGg<TF?NF5j>oLXk_De?ey1m!ik&_4G
+zH9n^))_*|$z4!HUisgBd@awc5jn(v9k~&t~+vLrrBg4dZQ9lDnLV}JQWGLW~LJVP=
+zW5lZXOcog;N~F?hbX0k=IMzETla}oqM|jC!4!B+x^;@#I_Tc-T-6hwKycLDTx1-om
+z?X`jFy0R0R8-I0SrK4`)H@W4T8*Qr#2vPou<*`U!Wy(*2QP*`g=8#jD{B;Y@GL-Hm
+zb`n?&x~%YC_$q7)PlXr4m%r4=&fcvN%Ybn#KC7Nn&Bp8{(oE9pWVpYI^+LuN`H(R~
+zTAjWmO`M83^4d@fCkA(d>*nHIFV_d2yUbnT`nd?LE^;G|!WZ>Ld?E0@Grm4ww{M7H
+zr`x{MWb30bTI;*hk-DO>dX$gbC-yy#suLNqvA(f>RtPJ!qGM`Gvvf}Y10`)vm-7Xa
+z?-7Ixe2A_siI1ydSCCID3U8SVUY86>uSnT0use_K1GZDvUFK<Db2;-WaOoTU!|N_L
+zRR&%ez|nIq7oanB<O#5RUM%Ys+aElhw}6p5+heUgZDG2LK31#SbS_&S0lN>Y)t}F*
+z)!pahe+zh{{06Bb3f97*Uorpy0lrB@K~y*qrIkNO!%z^1n_7z%6+ztu2T{>c-9!)^
+zbt_ITcJ8F$D0FgkQe2!JI=Q$hT@_k!>Eb^qD0WapQ9;qh@AsN3aZB5SFZYs{`(56<
+zOA_;aKPE5_(r^sdP_VhEo|qE6z&T{VvsjlzC)hY#K^Zn+-foKOiJ1l^D8d~~T5LGc
+zG850R35_SQ8zXu@m&+xIUxz1HvbZ=WX8jC)p~9qFqD?g8%Tr}(+`|v_T5LFxYNP};
+zn{3wao$d|hSMo|^4=PP(;Y3=pl6=;unm=Y2v)X#uJ4mZbCo-4F^SnOBGoU25(5^{C
+zT61U*L8k=w;RqgK8<HwfKEIPvt*}PJL>;3c;VpQ86FAh0QUQ8`3b_5PRue7P3Julf
+z1HR!E+?FcY033kcqp{GFx4NPUbZ%f5dZZWUPy=N=(?u8svqsn0g@|4n-B3hZjZtp~
+z4X`ih03~bJlteovO=qs_g0X6&6|}mFK*l-KwfE`Yic~bMXqa|vIav@pf{r@x4V)!x
+zfLHO9Y*n6sOZNAIabzQAftzPx4ODkESKSZ`|0XhA)hAw``jX8>^~4lFzZm^$(&4y2
+XG7ygZ#FR<400000NkvXXu0mjfKcH#K
+
+literal 0
+HcmV?d00001
+
+-- 
+1.7.7.3
+

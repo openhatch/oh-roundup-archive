@@ -1,0 +1,22 @@
+--- main.css	2011-04-03 22:16:48.677687841 +1200
++++ main2.css	2011-04-03 22:22:26.538618584 +1200
+@@ -40,8 +40,8 @@
+ */
+ 
+ body {
+-	font: x-small sans-serif;
+-	background: #f9f9f9 url(headbg.jpg) 0 0 no-repeat;
++	font: small sans-serif;
++	background: #f9f9f9 url('http://openhatch.org/static/images/motif-eee.png') repeat;
+ 	color: black;
+ 	margin: 0;
+ 	padding: 0;
+@@ -73,7 +73,7 @@
+ }
+ a {
+ 	text-decoration: none;
+-	color: #002bb8;
++	color: #eb7f04;
+ 	background: none;
+ }
+ a:visited {

@@ -1,0 +1,105 @@
+From e8a3969a60477b0b7e7c66bbea6d5abddb2b4af8 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Sat, 3 Jul 2010 02:14:37 +0000
+Subject: [PATCH 1/2] Fixed 4 of 6 failures in customs.TracBug tests by removing last_polled.
+ Commented that other 2 tests seem unnecessary.
+
+---
+ mysite/customs/tests.py |    6 ++++++
+ 1 files changed, 6 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 9246209..ba8b999 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -698,6 +698,7 @@ class ParseCiaMessage(django.test.TestCase):
+                          expected)
+ 
+ class TracBug(django.test.TestCase):
++    # FIXME: As far as I can tell, this method is defunct
+     def test_eval_in_description(self):
+         four_chars = r'\r\n'
+         self.assertEqual(len(four_chars), 4)
+@@ -706,6 +707,7 @@ class TracBug(django.test.TestCase):
+         self.assertEqual(len(two_chars), 2)
+         self.assertEqual(two_chars, '\r\n')
+ 
++    # FIXME: As far as I can tell, this method is defunct
+     def test_unicodify_in_the_face_of_junk(self):
+         weird_chars = u'\x01'
+         unicoded = mysite.customs.bugtrackers.trac.TracBug.string_un_csv(
+@@ -742,6 +744,7 @@ class TracBug(django.test.TestCase):
+         self.assertEqual(tb.component, 'core')
+ 
+         got = tb.as_data_dict_for_bug_object()
++        del got['last_polled']
+         wanted = {'title': 'Deprecate twisted.persisted.journal',
+                   'description': "This package hasn't been touched in 4 years which either means it's stable or not being used at all. Let's deprecate it (also see #4111).",
+                   'status': 'new',
+@@ -790,6 +793,7 @@ class TracBug(django.test.TestCase):
+             open(cached_html_filename).read(), 'utf-8')
+ 
+         got = tb.as_data_dict_for_bug_object()
++        del got['last_polled']
+         wanted = {'title': 'Deprecate twisted.persisted.journal',
+                   'description': "This package hasn't been touched in 4 years which either means it's stable or not being used at all. Let's deprecate it (also see #4111).",
+                   'status': 'new',
+@@ -838,6 +842,7 @@ class TracBug(django.test.TestCase):
+             open(cached_html_filename).read(), 'utf-8')
+ 
+         got = tb.as_data_dict_for_bug_object()
++        del got['last_polled']
+         wanted = {'title': 'Deprecate twisted.persisted.journal',
+                   'description': "This package hasn't been touched in 4 years which either means it's stable or not being used at all. Let's deprecate it (also see #4111).",
+                   'status': 'new',
+@@ -886,6 +891,7 @@ class TracBug(django.test.TestCase):
+             open(cached_html_filename).read(), 'utf-8')
+ 
+         got = tb.as_data_dict_for_bug_object()
++        del got['last_polled']
+         wanted = {'title': 'Deprecate twisted.persisted.journal',
+                   'description': "This package hasn't been touched in 4 years which either means it's stable or not being used at all. Let's deprecate it (also see #4111).",
+                   'status': 'new',
+-- 
+1.7.1
+
+
+From 43ca4d0208299c35f40585ae095e6bac24ada896 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Sat, 3 Jul 2010 02:49:56 +0000
+Subject: [PATCH 2/2] Modify customs.BugzillaTests test to use newer generator of bug data.
+
+---
+ mysite/customs/tests.py |    9 +++------
+ 1 files changed, 3 insertions(+), 6 deletions(-)
+
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index ba8b999..33c48f0 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -413,7 +413,7 @@ Keywords: Torrent unittest""")
+ 
+ 
+     @mock.patch("mysite.customs.bugtrackers.bugzilla.url2bug_data")
+-    @mock.patch("mysite.search.tasks.bugzilla_instances.MiroBugzilla.get_current_xml_bug_tree")
++    @mock.patch("mysite.search.tasks.bugzilla_instances.MiroBugzilla.generate_current_bug_xml")
+     def test_regrab_miro_bugs_refreshes_older_bugs_even_when_missing_from_csv(self, mock_xml_bug_tree, mock_xml_opener):
+         mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
+             settings.MEDIA_ROOT, 'sample-data', 'miro-2294-2009-08-06.xml')).read())
+@@ -431,11 +431,8 @@ Keywords: Torrent unittest""")
+         bug.project, _ = Project.objects.get_or_create(name='Miro')
+         bug.save()
+ 
+-        # Prepare a fake xml bug list that is empty
+-        mock_xml_bug_tree.return_value = lxml.etree.XML('''\
+-<bugzilla>
+-</bugzilla>
+-''')
++        # Prepare an empty generator
++        mock_xml_bug_tree.return_value = iter([])
+ 
+         # Now, do a crawl and notice that we updated the bug even
+         # though the xml bug list is empty
+-- 
+1.7.1
+

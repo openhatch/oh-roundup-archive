@@ -1,0 +1,14 @@
+<div dir="ltr">I received this crash notification from the backend (via the monitoring-private list), where if you go to <a href="http://openhatch.org/search/?next=not_an_int">openhatch.org/search/?next=not_an_int</a> , the backend crashes trying to turn not_an_int into an integer.<div>
+<br></div><div>Probably, we should catch this error via Python&#39;s exception catching capacity and serve a HTTP redirect to the cleaned-up URL that they intended to request. Probably we would redirect to something that just doesn&#39;t have the ?next= parameter, if it doesn&#39;t parse properly as an integer.</div>
+<div><br></div><div>We should also have a unit test that covers this.</div><div><br></div><div>It a reasonably straightforward fix. The hard part is writing a test and generating the URL to redirect to.</div><div><br><div class="gmail_quote">
+---------- Forwarded message ----------<br>From: <b class="gmail_sendername"></b> <span dir="ltr">&lt;<a href="mailto:mr_website@linode.openhatch.org">mr_website@linode.openhatch.org</a>&gt;</span><br>Date: Mon, Jul 14, 2014 at 4:37 AM<br>
+Subject: [Monitoring-private] [Kaboom@OH] ERROR (EXTERNAL IP): Internal Server Error: /search/<br>To: <a href="mailto:monitoring-private@lists.openhatch.org">monitoring-private@lists.openhatch.org</a><br><br><br>Traceback (most recent call last):<br>
+
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/core/handlers/base.py&quot;, line 109, in get_response<br>
+    response = callback(request, *callback_args, **callback_kwargs)<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/mysite/search/views.py&quot;, line 70, in search_index<br>
+    start = int(request.GET.get(&#39;start&#39;, 1))<br>
+<br>
+ValueError: invalid literal for int() with base 10: &quot;111&#39; or 1=@@version--&quot;<br></div></div></div>

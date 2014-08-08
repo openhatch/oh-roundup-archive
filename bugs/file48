@@ -1,0 +1,857 @@
+From 74ebb56306731a15539a2c9046b809f32829a3f5 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Sat, 3 Jul 2010 09:28:19 +0000
+Subject: [PATCH 1/3] Swap handling KeyError for dictionary.get() with default value of ''.
+
+---
+ mysite/customs/bugtrackers/trac.py |    5 +----
+ 1 files changed, 1 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/trac.py b/mysite/customs/bugtrackers/trac.py
+index 0d3a138..a3e6797 100644
+--- a/mysite/customs/bugtrackers/trac.py
++++ b/mysite/customs/bugtrackers/trac.py
+@@ -152,10 +152,7 @@ class TracBug:
+                'as_appears_in_distribution': '',
+                'last_polled': datetime.datetime.utcnow(),
+                }
+-        try:
+-            ret['importance'] = trac_data['priority']
+-        except KeyError:
+-            ret['importance'] = ''
++        ret['importance'] = trac_data.get('priority', '')
+ 
+         ret['looks_closed'] = (trac_data['status'] == 'closed')
+ 
+-- 
+1.7.1
+
+
+From 14293064fa07f0ef46a844b24ea532031a9b89cd Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Sat, 3 Jul 2010 11:51:11 +0000
+Subject: [PATCH 2/3] Modified Trac importer to have an extract_tracker_specific_data function
+ just like Bugzilla importer. Used it to add checks for documentation bugs
+ to all Trac bug trackers I could find tags etc. for marking documentation.
+
+---
+ mysite/customs/bugtrackers/trac.py    |   12 +-
+ mysite/search/tasks/trac_instances.py |  205 +++++++++++++++++++++++++++++----
+ 2 files changed, 187 insertions(+), 30 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/trac.py b/mysite/customs/bugtrackers/trac.py
+index a3e6797..cc497b2 100644
+--- a/mysite/customs/bugtrackers/trac.py
++++ b/mysite/customs/bugtrackers/trac.py
+@@ -72,7 +72,7 @@ class TracBug:
+                     people.append(person)
+         return people
+ 
+-    def __init__(self, bug_id, BASE_URL, bitesized_keyword):
++    def __init__(self, bug_id, BASE_URL):
+         self._bug_specific_csv_data = None
+         self._bug_html_page = None
+         self._parsed_bug_html_page = None
+@@ -80,7 +80,6 @@ class TracBug:
+         if not BASE_URL.endswith('/'):
+             BASE_URL += '/'
+         self.BASE_URL = BASE_URL
+-        self.bitesized_keyword = bitesized_keyword
+ 
+     @staticmethod
+     def from_url(url):
+@@ -88,8 +87,7 @@ class TracBug:
+         bug_id = int(num)
+         assert ticket == 'ticket'
+         return TracBug(bug_id=bug_id,
+-                       BASE_URL=base + '/',
+-                       bitesized_keyword='') # Unknown in this context (but this method is only ever used to get the bug id)
++                       BASE_URL=base + '/')
+ 
+     def as_bug_specific_url(self):
+         return urlparse.urljoin(self.BASE_URL,
+@@ -133,7 +131,7 @@ class TracBug:
+         s = cgi.escape(s)
+         return s
+ 
+-    def as_data_dict_for_bug_object(self):
++    def as_data_dict_for_bug_object(self, extract_tracker_specific_data):
+         trac_data = self.as_bug_specific_csv_data()
+         html_data = self.get_parsed_bug_html_page()
+ 
+@@ -146,8 +144,6 @@ class TracBug:
+                'submitter_username': trac_data['reporter'],
+                'submitter_realname': '', # can't find this in Trac
+                'canonical_bug_link': self.as_bug_specific_url(),
+-               'good_for_newcomers': (self.bitesized_keyword in trac_data['keywords']),
+-               'bite_size_tag_name': self.bitesized_keyword,
+                'concerns_just_documentation': False,
+                'as_appears_in_distribution': '',
+                'last_polled': datetime.datetime.utcnow(),
+@@ -177,4 +173,6 @@ class TracBug:
+         # FIXME: Need time zone
+         ret['date_reported'] = TracBug.page2date_opened(html_data)
+         ret['last_touched'] = TracBug.page2date_modified(html_data)
++
++        ret = extract_tracker_specific_data(trac_data, ret)
+         return ret
+diff --git a/mysite/search/tasks/trac_instances.py b/mysite/search/tasks/trac_instances.py
+index dae3d66..cad528e 100644
+--- a/mysite/search/tasks/trac_instances.py
++++ b/mysite/search/tasks/trac_instances.py
+@@ -7,10 +7,9 @@ import mysite.customs.bugtrackers.trac
+ class TracBugTracker(object):
+     enabled = False
+ 
+-    def __init__(self, base_url, project_name, bitesized_keyword, bug_project_name_format):
++    def __init__(self, base_url, project_name, bug_project_name_format):
+         self.base_url = base_url
+         self.project_name = project_name
+-        self.bitesized_keyword = bitesized_keyword
+         self.bug_project_name_format = bug_project_name_format
+ 
+     def generate_bug_project_name(self, trac_bug):
+@@ -40,8 +39,7 @@ class TracBugTracker(object):
+     def refresh_one_bug_id(self, bug_id):
+         tb = mysite.customs.bugtrackers.trac.TracBug(
+             bug_id=bug_id,
+-            BASE_URL=self.base_url,
+-            bitesized_keyword=self.bitesized_keyword)
++            BASE_URL=self.base_url)
+         bug_url = tb.as_bug_specific_url()
+     
+         try:
+@@ -58,7 +56,7 @@ class TracBugTracker(object):
+         # Okay, fine, we need to actually refresh it.
+         logging.info("Refreshing bug %d from %s." %
+                      (bug_id, self.project_name))
+-        data = tb.as_data_dict_for_bug_object()
++        data = tb.as_data_dict_for_bug_object(self.extract_tracker_specific_data)
+ 
+         for key in data:
+             value = data[key]
+@@ -81,7 +79,6 @@ class TahoeLafsTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='Tahoe-LAFS',
+                                 base_url='http://tahoe-lafs.org/trac/tahoe-lafs/',
+-                                bitesized_keyword='easy',
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -89,6 +86,17 @@ class TahoeLafsTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://tahoe-lafs.org/trac/tahoe-lafs/query?status=assigned&status=new&status=reopened&max=10000&reporter=~&col=id&col=summary&col=keywords&col=reporter&col=status&col=owner&col=type&col=priority&col=milestone&keywords=~&owner=~&desc=1&order=id&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'easy'
++        ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('docs' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class TwistedTrac(TracBugTracker):
+     enabled = True
+ 
+@@ -96,7 +104,6 @@ class TwistedTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='Twisted',
+                                 base_url='http://twistedmatrix.com/trac/',
+-                                bitesized_keyword='easy',
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -105,6 +112,17 @@ class TwistedTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://twistedmatrix.com/trac/query?status=new&status=assigned&status=reopened&format=csv&keywords=%7Eeasy&order=priority'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'easy'
++        ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('documentation' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class SugarLabsTrac(TracBugTracker):
+     enabled = True
+ 
+@@ -112,7 +130,6 @@ class SugarLabsTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='Sugar Labs',
+                                 base_url='http://bugs.sugarlabs.org/',
+-                                bitesized_keyword='sugar-love',
+                                 bug_project_name_format='{component}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -121,14 +138,24 @@ class SugarLabsTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://bugs.sugarlabs.org/query?status=new&status=assigned&status=reopened&format=csv&keywords=%7Esugar-love&order=priority'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'sugar-love'
++        ret_dict['good_for_newcomers'] = ('sugar-love' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('documentation' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class StatusNetTrac(TracBugTracker):
+-    enabled = True
++    enabled = False # No longer Bugzilla?
+ 
+     def __init__(self):
+         TracBugTracker.__init__(self,
+                                 project_name='StatusNet',
+                                 base_url='http://status.net/trac/',
+-                                bitesized_keyword='easy',
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -144,7 +171,6 @@ class XiphTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='Xiph',
+                                 base_url='http://trac.xiph.org/',
+-                                bitesized_keyword='easy', # Unconfirmed, there were no such bugs at the time
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -153,6 +179,17 @@ class XiphTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'https://trac.xiph.org/query?status=assigned&status=new&status=reopened&order=priority&format=csv&keywords=%7Eeasy'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'easy' # Unconfirmed, there were no such bugs at the time
++        ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        #ret_dict['concerns_just_documentation'] = ('docs' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class OLPCTrac(TracBugTracker):
+     enabled = False # Need to sort out naming for bug projects
+ 
+@@ -160,7 +197,6 @@ class OLPCTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='OLPC',
+                                 base_url='http://dev.laptop.org/',
+-                                bitesized_keyword='easy', # Also uses 'sugar-love'.
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -168,6 +204,17 @@ class OLPCTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://dev.laptop.org/query?status=assigned&status=new&status=reopened&order=priority&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'easy'
++        ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords']) or ('sugar-love' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('doc' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class DjangoTrac(TracBugTracker):
+     enabled = False # Opened' and 'Last modified' fields aren't hyperlinked
+ 
+@@ -175,7 +222,6 @@ class DjangoTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='Django',
+                                 base_url='http://code.djangoproject.com/',
+-                                bitesized_keyword='easy',
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -183,6 +229,18 @@ class DjangoTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://code.djangoproject.com/query?status=new&status=assigned&status=reopened&order=priority&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'easy'
++        ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        # FIXME: No standard. Check which to use, or just look for  all?
++        #ret_dict['concerns_just_documentation'] = ('doc' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class HelenOSTrac(TracBugTracker):
+     enabled = True
+ 
+@@ -190,7 +248,6 @@ class HelenOSTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='HelenOS',
+                                 base_url='http://trac.helenos.org/trac.fcgi/',
+-                                bitesized_keyword='easy', # Unconfirmed, there were no such bugs at the time
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -198,6 +255,17 @@ class HelenOSTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://trac.helenos.org/trac.fcgi/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'easy' # Unconfirmed, there were no such bugs at the time
++        ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords'])
++        # Check whether this is a documentation bug. FIXME: Need better example - doc keyword or component?
++        #ret_dict['concerns_just_documentation'] = ('doc' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class Bcfg2Trac(TracBugTracker):
+     enabled = True
+ 
+@@ -205,7 +273,6 @@ class Bcfg2Trac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='Bcfg2',
+                                 base_url='https://trac.mcs.anl.gov/projects/bcfg2/',
+-                                bitesized_keyword='easy', # Unconfirmed, there were no such bugs at the time
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -213,6 +280,17 @@ class Bcfg2Trac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'https://trac.mcs.anl.gov/projects/bcfg2/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'easy' # Unconfirmed, there were no such bugs at the time
++        ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('bcfg2-doc' in trac_data['component'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class WarFoundryTrac(TracBugTracker):
+     enabled = True
+ 
+@@ -220,7 +298,6 @@ class WarFoundryTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='WarFoundry',
+                                 base_url='http://dev.ibboard.co.uk/projects/warfoundry/',
+-                                bitesized_keyword='papercut',
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -228,6 +305,17 @@ class WarFoundryTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://dev.ibboard.co.uk/projects/warfoundry/query?status=accepted&status=assigned&status=confirmed&status=needinfo&status=needinfo_new&status=new&status=reopened&order=priority&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'papercut'
++        ret_dict['good_for_newcomers'] = ('papercut' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        #ret_dict['concerns_just_documentation'] = ('docs' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class FedoraPythonModulesTrac(TracBugTracker):
+     enabled = False # 'Opened' and 'Last modified' bug fields aren't hyperlinked
+ 
+@@ -235,7 +323,6 @@ class FedoraPythonModulesTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='Fedora Python Modules',
+                                 base_url='https://fedorahosted.org/python-fedora/',
+-                                bitesized_keyword='',
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -243,6 +330,17 @@ class FedoraPythonModulesTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'https://fedorahosted.org/python-fedora/query?status=new&status=assigned&status=reopened&order=priority&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        #ret_dict['bite_size_tag_name'] = 'easy'
++        #ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        #ret_dict['concerns_just_documentation'] = ('doc' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class AngbandTrac(TracBugTracker):
+     enabled = True
+ 
+@@ -250,7 +348,6 @@ class AngbandTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='Angband',
+                                 base_url='http://trac.rephial.org/',
+-                                bitesized_keyword='easy', # Unconfirmed, there were no such bugs at the time
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -258,6 +355,17 @@ class AngbandTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://trac.rephial.org/query?status=assigned&status=confirmed&status=new&status=reopened&order=priority&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'easy' # Unconfirmed, there were no such bugs at the time
++        ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('doc' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class GHCTrac(TracBugTracker):
+     enabled = True
+ 
+@@ -265,7 +373,6 @@ class GHCTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='GHC',
+                                 base_url='http://hackage.haskell.org/trac/ghc/',
+-                                bitesized_keyword='Easy (less than 1 hour)', # FIXME: Does OH support spaces in keywords?
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -273,6 +380,17 @@ class GHCTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://hackage.haskell.org/trac/ghc/query?status=new&status=assigned&status=reopened&group=priority&order=id&desc=1&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'Easy (less than 1 hour)'
++        ret_dict['good_for_newcomers'] = ('Easy (less than 1 hour)' in trac_data['difficulty'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('Documentation' in trac_data['component'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class TracTrac(TracBugTracker):
+     enabled = True
+ 
+@@ -280,7 +398,6 @@ class TracTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='Trac',
+                                 base_url='http://trac.edgewall.org/',
+-                                bitesized_keyword='bitesized',
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -289,6 +406,17 @@ class TracTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://trac.edgewall.org/query?status=!closed&keywords=~bitesized&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'bitesized'
++        ret_dict['good_for_newcomers'] = ('bitesized' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        #ret_dict['concerns_just_documentation'] = ('doc' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class SSSDTrac(TracBugTracker):
+     enabled = False # 'Opened' and 'Last modified' fields aren't hyperlinked
+ 
+@@ -296,7 +424,6 @@ class SSSDTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='SSSD',
+                                 base_url='https://fedorahosted.org/sssd/',
+-                                bitesized_keyword='easy', # They actually use the 'trivial' priority setting
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -304,6 +431,17 @@ class SSSDTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'https://fedorahosted.org/sssd/query?status=new&status=assigned&status=reopened&order=priority&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'trivial'
++        ret_dict['good_for_newcomers'] = ('trivial' in trac_data['priority'])
++        # Check whether this is a documentation bug.
++        #ret_dict['concerns_just_documentation'] = ('doc' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ class I2PTrac(TracBugTracker):
+     enabled = True
+ 
+@@ -311,7 +449,6 @@ class I2PTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='I2P',
+                                 base_url='http://trac.i2p2.de/',
+-                                bitesized_keyword='easy', # Unconfirmed, there were no such bugs at the time
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+@@ -319,6 +456,17 @@ class I2PTrac(TracBugTracker):
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://trac.i2p2.de/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv'))
+ 
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'easy'
++        ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        #ret_dict['concerns_just_documentation'] = ('doc' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ # Copy this generic class to add a new Trac bugtracker
+ # Remember to set 'enabled' to True
+ # Notes:
+@@ -334,10 +482,21 @@ class GenTrac(TracBugTracker):
+         TracBugTracker.__init__(self,
+                                 project_name='',
+                                 base_url='',
+-                                bitesized_keyword='',
+                                 bug_project_name_format='')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+         return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 ''))
++
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = ''
++        ret_dict['good_for_newcomers'] = ('' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+-- 
+1.7.1
+
+
+From 7ade3878a4a6e59dc609a578311bd42b450385bf Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Sat, 3 Jul 2010 12:30:54 +0000
+Subject: [PATCH 3/3] Modified Trac importer to use generators for the current list of bug ids, and
+ added queries for documentation bugs to the few trackers that were only looking
+ at bitesized bugs (and had documentation tags etc.).
+
+---
+ mysite/search/tasks/trac_instances.py |  154 +++++++++++++++++++++------------
+ 1 files changed, 100 insertions(+), 54 deletions(-)
+
+diff --git a/mysite/search/tasks/trac_instances.py b/mysite/search/tasks/trac_instances.py
+index cad528e..f7d7fac 100644
+--- a/mysite/search/tasks/trac_instances.py
++++ b/mysite/search/tasks/trac_instances.py
+@@ -12,6 +12,14 @@ class TracBugTracker(object):
+         self.project_name = project_name
+         self.bug_project_name_format = bug_project_name_format
+ 
++    def generate_bug_ids_from_queries(self, queries):
++        for query_name in queries:
++            query_url = queries[query_name]
++            query_ids = mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++                mysite.customs.bugtrackers.trac.csv_of_bugs(query_url))
++            for bug_id in query_ids:
++                yield bug_id
++
+     def generate_bug_project_name(self, trac_bug):
+         return self.bug_project_name_format.format(project=self.project_name,
+                                                    component=trac_bug.component)
+@@ -22,8 +30,7 @@ class TracBugTracker(object):
+         # First, go through and refresh all the bugs specifically marked
+         # as bugs to look at.
+ 
+-        must_look_at_these = self.generate_list_of_bug_ids_to_look_at()
+-        for bug_id in must_look_at_these:
++        for bug_id in self.generate_list_of_bug_ids_to_look_at():
+             self.refresh_one_bug_id(bug_id)
+ 
+         # Then, refresh them all
+@@ -82,9 +89,11 @@ class TahoeLafsTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'http://tahoe-lafs.org/trac/tahoe-lafs/query?status=assigned&status=new&status=reopened&max=10000&reporter=~&col=id&col=summary&col=keywords&col=reporter&col=status&col=owner&col=type&col=priority&col=milestone&keywords=~&owner=~&desc=1&order=id&format=csv'))
++        queries = {
++                'All bugs':
++                    'http://tahoe-lafs.org/trac/tahoe-lafs/query?status=assigned&status=new&status=reopened&max=10000&reporter=~&col=id&col=summary&col=keywords&col=reporter&col=status&col=owner&col=type&col=priority&col=milestone&keywords=~&owner=~&desc=1&order=id&format=csv',
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -107,10 +116,13 @@ class TwistedTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        # Just index bitesized bugs
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'http://twistedmatrix.com/trac/query?status=new&status=assigned&status=reopened&format=csv&keywords=%7Eeasy&order=priority'))
++        queries = {
++                'Easy bugs':
++                    'http://twistedmatrix.com/trac/query?status=new&status=assigned&status=reopened&format=csv&keywords=%7Eeasy&order=priority',
++                'Documentation bugs':
++                    'http://twistedmatrix.com/trac/query?status=assigned&status=new&status=reopened&format=csv&order=priority&keywords=~documentation'
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -133,10 +145,13 @@ class SugarLabsTrac(TracBugTracker):
+                                 bug_project_name_format='{component}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        # Just index bitesized bugs
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'http://bugs.sugarlabs.org/query?status=new&status=assigned&status=reopened&format=csv&keywords=%7Esugar-love&order=priority'))
++        queries = {
++                'Easy bugs':
++                    'http://bugs.sugarlabs.org/query?status=accepted&status=new&status=assigned&status=reopened&format=csv&keywords=%7Esugar-love&order=priority',
++                'Documentation bugs':
++                    'http://bugs.sugarlabs.org/query?status=accepted&status=assigned&status=new&status=reopened&format=csv&order=priority&keywords=~documentation'
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -174,10 +189,13 @@ class XiphTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        # Only gives a list of bitesized bugs - confirm if devels want all bugs indexed
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'https://trac.xiph.org/query?status=assigned&status=new&status=reopened&order=priority&format=csv&keywords=%7Eeasy'))
++        queries = {
++                'Easy bugs': # Only gives a list of bitesized bugs - confirm if devels want all bugs indexed
++                    'https://trac.xiph.org/query?status=assigned&status=new&status=reopened&order=priority&format=csv&keywords=%7Eeasy',
++                #'Documentation bugs':
++                    #''
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -200,9 +218,11 @@ class OLPCTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'http://dev.laptop.org/query?status=assigned&status=new&status=reopened&order=priority&format=csv'))
++        queries = {
++                'All bugs':
++                    'http://dev.laptop.org/query?status=assigned&status=new&status=reopened&order=priority&format=csv',
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -225,9 +245,11 @@ class DjangoTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'http://code.djangoproject.com/query?status=new&status=assigned&status=reopened&order=priority&format=csv'))
++        queries = {
++                'All bugs':
++                    'http://code.djangoproject.com/query?status=new&status=assigned&status=reopened&order=priority&format=csv',
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -251,9 +273,11 @@ class HelenOSTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'http://trac.helenos.org/trac.fcgi/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv'))
++        queries = {
++                'All bugs':
++                    'http://trac.helenos.org/trac.fcgi/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv',
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -276,9 +300,11 @@ class Bcfg2Trac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'https://trac.mcs.anl.gov/projects/bcfg2/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv'))
++        queries = {
++                'All bugs':
++                    'https://trac.mcs.anl.gov/projects/bcfg2/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv',
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -301,9 +327,11 @@ class WarFoundryTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'http://dev.ibboard.co.uk/projects/warfoundry/query?status=accepted&status=assigned&status=confirmed&status=needinfo&status=needinfo_new&status=new&status=reopened&order=priority&format=csv'))
++        queries = {
++                'All bugs':
++                    'http://dev.ibboard.co.uk/projects/warfoundry/query?status=accepted&status=assigned&status=confirmed&status=needinfo&status=needinfo_new&status=new&status=reopened&order=priority&format=csv',
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -326,9 +354,11 @@ class FedoraPythonModulesTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'https://fedorahosted.org/python-fedora/query?status=new&status=assigned&status=reopened&order=priority&format=csv'))
++        queries = {
++                'All bugs':
++                    'https://fedorahosted.org/python-fedora/query?status=new&status=assigned&status=reopened&order=priority&format=csv',
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -351,9 +381,11 @@ class AngbandTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'http://trac.rephial.org/query?status=assigned&status=confirmed&status=new&status=reopened&order=priority&format=csv'))
++        queries = {
++                'All bugs':
++                    'http://trac.rephial.org/query?status=assigned&status=confirmed&status=new&status=reopened&order=priority&format=csv',
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -376,9 +408,11 @@ class GHCTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'http://hackage.haskell.org/trac/ghc/query?status=new&status=assigned&status=reopened&group=priority&order=id&desc=1&format=csv'))
++        queries = {
++                'All bugs':
++                    'http://hackage.haskell.org/trac/ghc/query?status=new&status=assigned&status=reopened&group=priority&order=id&desc=1&format=csv',
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -401,10 +435,13 @@ class TracTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        # Just index bitesized bugs
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'http://trac.edgewall.org/query?status=!closed&keywords=~bitesized&format=csv'))
++        queries = {
++                'Easy bugs':
++                    'http://trac.edgewall.org/query?status=!closed&keywords=~bitesized&format=csv',
++                #'Documentation bugs':
++                    #''
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -427,9 +464,11 @@ class SSSDTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'https://fedorahosted.org/sssd/query?status=new&status=assigned&status=reopened&order=priority&format=csv'))
++        queries = {
++                'All bugs':
++                    'https://fedorahosted.org/sssd/query?status=new&status=assigned&status=reopened&order=priority&format=csv',
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -452,9 +491,11 @@ class I2PTrac(TracBugTracker):
+                                 bug_project_name_format='{project}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                'http://trac.i2p2.de/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv'))
++        queries = {
++                'All bugs':
++                    'http://trac.i2p2.de/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv',
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+@@ -485,9 +526,14 @@ class GenTrac(TracBugTracker):
+                                 bug_project_name_format='')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+-        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-            mysite.customs.bugtrackers.trac.csv_of_bugs(
+-                ''))
++        # Can replace both entries below with an 'All bugs' query.
++        queries = {
++                'Easy bugs':
++                    '',
++                'Documentation bugs':
++                    ''
++                }
++        return self.generate_bug_ids_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(trac_data, ret_dict):
+-- 
+1.7.1
+

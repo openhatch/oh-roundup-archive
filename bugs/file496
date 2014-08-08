@@ -1,0 +1,604 @@
+From 14bbbdd6278f83b1ce4eb1746cf3b55ce6d02b7e Mon Sep 17 00:00:00 2001
+From: John Morrissey <jwm@horde.net>
+Date: Fri, 16 Mar 2012 18:37:58 -0400
+Subject: [PATCH] github issues importer
+
+Closes: https://openhatch.org/bugs/issue654
+---
+ mysite/customs/core_bugimporters.py                |    7 +
+ mysite/customs/forms.py                            |   20 ++
+ ...add_githubtrackermodel__add_githubquerymodel.py |  291 ++++++++++++++++++++
+ mysite/customs/models.py                           |   38 +++
+ mysite/customs/tests.py                            |  129 +++++++++
+ mysite/static/sample-data/github/issue-list        |    1 +
+ mysite/static/sample-data/github/issue-list-closed |    1 +
+ mysite/static/sample-data/github/issue-show        |    1 +
+ 8 files changed, 488 insertions(+), 0 deletions(-)
+ create mode 100644 mysite/customs/migrations/0033_auto__add_githubtrackermodel__add_githubquerymodel.py
+ create mode 100644 mysite/static/sample-data/github/issue-list
+ create mode 100644 mysite/static/sample-data/github/issue-list-closed
+ create mode 100644 mysite/static/sample-data/github/issue-show
+
+diff --git a/mysite/customs/core_bugimporters.py b/mysite/customs/core_bugimporters.py
+index 18c770f..2524b26 100644
+--- a/mysite/customs/core_bugimporters.py
++++ b/mysite/customs/core_bugimporters.py
+@@ -57,6 +57,13 @@ all_trackers = {
+             'urlmodel': mysite.customs.models.LaunchpadQueryModel,
+             'urlform': None,
+             },
++        'github': {
++            'namestr': 'GitHub',
++            'model': mysite.customs.models.GitHubTrackerModel,
++            'form':  mysite.customs.forms.GitHubTrackerForm,
++            'urlmodel': mysite.customs.models.GitHubQueryModel,
++            'urlform': None,
++            },
+         }
+ 
+ 
+diff --git a/mysite/customs/forms.py b/mysite/customs/forms.py
+index cb76582..31f333a 100644
+--- a/mysite/customs/forms.py
++++ b/mysite/customs/forms.py
+@@ -22,6 +22,7 @@ import mysite.customs.models
+ class TrackerTypesForm(django.forms.Form):
+     TRACKER_TYPES = (
+             ('bugzilla', 'Bugzilla'),
++            ('github', 'GitHub'),
+             ('google', 'Google Code'),
+             ('launchpad', 'Launchpad'),
+             ('roundup', 'Roundup'),
+@@ -91,3 +92,22 @@ class LaunchpadTrackerForm(TrackerFormThatHidesCreatedForProject):
+ 
+         # Return the "upstream" return value
+         return obj
++
++class GitHubTrackerForm(TrackerFormThatHidesCreatedForProject):
++    class Meta:
++        model = mysite.customs.models.GitHubTrackerModel
++
++    def save(self, *args, **kwargs):
++        # Call out to superclass
++        obj = super(GitHubTrackerForm, self).save(*args, **kwargs)
++
++        # Create two QueryModels (one for 'open' bugs, another for 'closed'
++        # bugs), since GitHub's v2 API doesn't let us list all bugs
++        # regardless of status.
++        open_qm, _ = mysite.customs.models.GitHubQueryModel.objects.get_or_create(
++            tracker=obj)
++        closed_qm, _ = mysite.customs.models.GitHubQueryModel.objects.get_or_create(
++            tracker=obj, state='closed')
++
++        # Return the "upstream" return value
++        return obj
+diff --git a/mysite/customs/migrations/0033_auto__add_githubtrackermodel__add_githubquerymodel.py b/mysite/customs/migrations/0033_auto__add_githubtrackermodel__add_githubquerymodel.py
+new file mode 100644
+index 0000000..d5f3c02
+--- /dev/null
++++ b/mysite/customs/migrations/0033_auto__add_githubtrackermodel__add_githubquerymodel.py
+@@ -0,0 +1,291 @@
++# encoding: utf-8
++import datetime
++from south.db import db
++from south.v2 import SchemaMigration
++from django.db import models
++
++class Migration(SchemaMigration):
++
++    def forwards(self, orm):
++        
++        # Adding model 'GitHubTrackerModel'
++        db.create_table('customs_githubtrackermodel', (
++            ('trackermodel_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['customs.TrackerModel'], unique=True, primary_key=True)),
++            ('tracker_name', self.gf('django.db.models.fields.CharField')(unique=True, max_length=200)),
++            ('github_name', self.gf('django.db.models.fields.CharField')(unique=True, max_length=200)),
++            ('github_repo', self.gf('django.db.models.fields.CharField')(unique=True, max_length=200)),
++            ('bitesized_tag', self.gf('django.db.models.fields.CharField')(max_length=50, blank=True)),
++            ('documentation_tag', self.gf('django.db.models.fields.CharField')(max_length=50, blank=True)),
++        ))
++        db.send_create_signal('customs', ['GitHubTrackerModel'])
++
++        # Adding model 'GitHubQueryModel'
++        db.create_table('customs_githubquerymodel', (
++            ('trackerquerymodel_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['customs.TrackerQueryModel'], unique=True, primary_key=True)),
++            ('tracker', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['customs.GitHubTrackerModel'])),
++            ('state', self.gf('django.db.models.fields.CharField')(default='open', max_length=20)),
++        ))
++        db.send_create_signal('customs', ['GitHubQueryModel'])
++
++
++    def backwards(self, orm):
++        
++        # Deleting model 'GitHubTrackerModel'
++        db.delete_table('customs_githubtrackermodel')
++
++        # Deleting model 'GitHubQueryModel'
++        db.delete_table('customs_githubquerymodel')
++
++
++    models = {
++        'auth.group': {
++            'Meta': {'object_name': 'Group'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '80'}),
++            'permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'})
++        },
++        'auth.permission': {
++            'Meta': {'ordering': "('content_type__app_label', 'content_type__model', 'codename')", 'unique_together': "(('content_type', 'codename'),)", 'object_name': 'Permission'},
++            'codename': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
++        },
++        'auth.user': {
++            'Meta': {'object_name': 'User'},
++            'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
++            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'groups': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Group']", 'symmetrical': 'False', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'is_staff': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'is_superuser': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
++            'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
++            'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
++        },
++        'contenttypes.contenttype': {
++            'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
++            'app_label': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
++        },
++        'customs.bugzillaquerymodel': {
++            'Meta': {'object_name': 'BugzillaQueryModel', '_ormbases': ['customs.TrackerQueryModel']},
++            'description': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'query_type': ('django.db.models.fields.CharField', [], {'default': "'xml'", 'max_length': '20'}),
++            'tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.BugzillaTrackerModel']"}),
++            'trackerquerymodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerQueryModel']", 'unique': 'True', 'primary_key': 'True'}),
++            'url': ('django.db.models.fields.URLField', [], {'max_length': '400'})
++        },
++        'customs.bugzillatrackermodel': {
++            'Meta': {'object_name': 'BugzillaTrackerModel', '_ormbases': ['customs.TrackerModel']},
++            'as_appears_in_distribution': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'base_url': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'bitesized_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'bitesized_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'bug_project_name_format': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'documentation_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'documentation_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'query_url_type': ('django.db.models.fields.CharField', [], {'default': "'xml'", 'max_length': '20'}),
++            'tracker_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'trackermodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.githubquerymodel': {
++            'Meta': {'object_name': 'GitHubQueryModel', '_ormbases': ['customs.TrackerQueryModel']},
++            'state': ('django.db.models.fields.CharField', [], {'default': "'open'", 'max_length': '20'}),
++            'tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.GitHubTrackerModel']"}),
++            'trackerquerymodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerQueryModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.githubtrackermodel': {
++            'Meta': {'object_name': 'GitHubTrackerModel', '_ormbases': ['customs.TrackerModel']},
++            'bitesized_tag': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
++            'documentation_tag': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
++            'github_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'github_repo': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'tracker_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'trackermodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.googlequerymodel': {
++            'Meta': {'object_name': 'GoogleQueryModel', '_ormbases': ['customs.TrackerQueryModel']},
++            'description': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'label': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.GoogleTrackerModel']"}),
++            'trackerquerymodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerQueryModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.googletrackermodel': {
++            'Meta': {'object_name': 'GoogleTrackerModel', '_ormbases': ['customs.TrackerModel']},
++            'bitesized_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'bitesized_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'documentation_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'documentation_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'google_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'tracker_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'trackermodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.launchpadquerymodel': {
++            'Meta': {'object_name': 'LaunchpadQueryModel', '_ormbases': ['customs.TrackerQueryModel']},
++            'tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.LaunchpadTrackerModel']"}),
++            'trackerquerymodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerQueryModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.launchpadtrackermodel': {
++            'Meta': {'object_name': 'LaunchpadTrackerModel', '_ormbases': ['customs.TrackerModel']},
++            'bitesized_tag': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
++            'documentation_tag': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
++            'launchpad_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'tracker_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'trackermodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.recentmessagefromcia': {
++            'Meta': {'object_name': 'RecentMessageFromCIA'},
++            'branch': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'committer_identifier': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'message': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'module': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'path': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'project_name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'time_received': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
++            'version': ('django.db.models.fields.CharField', [], {'max_length': '255'})
++        },
++        'customs.roundupquerymodel': {
++            'Meta': {'object_name': 'RoundupQueryModel', '_ormbases': ['customs.TrackerQueryModel']},
++            'description': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.RoundupTrackerModel']"}),
++            'trackerquerymodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerQueryModel']", 'unique': 'True', 'primary_key': 'True'}),
++            'url': ('django.db.models.fields.URLField', [], {'max_length': '400'})
++        },
++        'customs.rounduptrackermodel': {
++            'Meta': {'object_name': 'RoundupTrackerModel', '_ormbases': ['customs.TrackerModel']},
++            'as_appears_in_distribution': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'base_url': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'bitesized_field': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '50', 'blank': 'True'}),
++            'bitesized_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'closed_status': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'documentation_field': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '50', 'blank': 'True'}),
++            'documentation_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'tracker_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'trackermodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.tracbugtimes': {
++            'Meta': {'object_name': 'TracBugTimes'},
++            'canonical_bug_link': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'date_reported': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'last_touched': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'latest_timeline_status': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '15', 'blank': 'True'}),
++            'timeline': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.TracTimeline']"})
++        },
++        'customs.trackermodel': {
++            'Meta': {'object_name': 'TrackerModel'},
++            'created_for_project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']", 'null': 'True'}),
++            'custom_parser': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'max_connections': ('django.db.models.fields.IntegerField', [], {'default': '8', 'blank': 'True'})
++        },
++        'customs.trackerquerymodel': {
++            'Meta': {'object_name': 'TrackerQueryModel'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'})
++        },
++        'customs.tracquerymodel': {
++            'Meta': {'object_name': 'TracQueryModel', '_ormbases': ['customs.TrackerQueryModel']},
++            'description': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.TracTrackerModel']"}),
++            'trackerquerymodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerQueryModel']", 'unique': 'True', 'primary_key': 'True'}),
++            'url': ('django.db.models.fields.URLField', [], {'max_length': '400'})
++        },
++        'customs.tractimeline': {
++            'Meta': {'object_name': 'TracTimeline'},
++            'base_url': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'})
++        },
++        'customs.tractrackermodel': {
++            'Meta': {'object_name': 'TracTrackerModel', '_ormbases': ['customs.TrackerModel']},
++            'as_appears_in_distribution': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'base_url': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'bitesized_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'bitesized_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'bug_project_name_format': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'documentation_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'documentation_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'old_trac': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'tracker_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'trackermodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.webresponse': {
++            'Meta': {'object_name': 'WebResponse'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'response_headers': ('django.db.models.fields.TextField', [], {}),
++            'status': ('django.db.models.fields.IntegerField', [], {}),
++            'text': ('django.db.models.fields.TextField', [], {}),
++            'url': ('django.db.models.fields.TextField', [], {})
++        },
++        'profile.dataimportattempt': {
++            'Meta': {'object_name': 'DataImportAttempt'},
++            'completed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'date_created': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.utcnow'}),
++            'failed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.Person']"}),
++            'query': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'source': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
++            'web_response': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.WebResponse']", 'null': 'True'})
++        },
++        'profile.person': {
++            'Meta': {'object_name': 'Person'},
++            'bio': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'blacklisted_repository_committers': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['profile.RepositoryCommitter']", 'symmetrical': 'False'}),
++            'contact_blurb': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'dont_guess_my_location': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'email_me_weekly_re_projects': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'expand_next_steps': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'gotten_name_from_ohloh': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'homepage_url': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'irc_nick': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'latitude': ('django.db.models.fields.FloatField', [], {'default': '-37.304996199999998'}),
++            'location_confirmed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'location_display_name': ('django.db.models.fields.CharField', [], {'default': "'Inaccessible Island'", 'max_length': '255', 'blank': 'True'}),
++            'longitude': ('django.db.models.fields.FloatField', [], {'default': '-12.6790445'}),
++            'photo': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100'}),
++            'photo_thumbnail': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_20px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_30px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'show_email': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'unique': 'True'})
++        },
++        'profile.repositorycommitter': {
++            'Meta': {'unique_together': "(('project', 'data_import_attempt'),)", 'object_name': 'RepositoryCommitter'},
++            'data_import_attempt': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.DataImportAttempt']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.project': {
++            'Meta': {'object_name': 'Project'},
++            'cached_contributor_count': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_icon_was_fetched_from_ohloh': ('django.db.models.fields.DateTimeField', [], {'default': 'None', 'null': 'True'}),
++            'display_name': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200'}),
++            'homepage': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'icon_for_profile': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_for_search_result': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_raw': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True', 'blank': 'True'}),
++            'icon_smaller_for_badge': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'language': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'logo_contains_name': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'people_who_wanna_help': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'projects_i_wanna_help'", 'symmetrical': 'False', 'to': "orm['profile.Person']"})
++        }
++    }
++
++    complete_apps = ['customs']
+diff --git a/mysite/customs/models.py b/mysite/customs/models.py
+index 4227bcc..7df9f45 100644
+--- a/mysite/customs/models.py
++++ b/mysite/customs/models.py
+@@ -395,3 +395,41 @@ class LaunchpadQueryModel(TrackerQueryModel):
+ 
+ reversion.register(LaunchpadTrackerModel, follow=["launchpadquerymodel_set"])
+ reversion.register(LaunchpadQueryModel)
++
++class GitHubTrackerModel(TrackerModel):
++    '''This model stores the data for individual GitHub repositories'''
++    tracker_name = models.CharField(max_length=200, unique=True,
++        blank=False, null=False,
++        help_text="This is the name that OpenHatch will use to identify the project.")
++    github_name = models.CharField(max_length=200, unique=True,
++        blank=False, null=False,
++        help_text="This is the user or project name on GitHub that owns the project.")
++    github_repo = models.CharField(max_length=200, unique=True,
++        blank=False, null=False,
++        help_text="This is the repository name that GitHub uses to identify the project.")
++    bitesized_tag = models.CharField(max_length=50, blank=True,
++        help_text="This is the value of the GitHub label that indicates a bite-sized bug.")
++    documentation_tag = models.CharField(max_length=50, blank=True,
++        help_text="This is the value of the GitHub label that indicates a documentation bug.")
++
++    all_trackers = models.Manager()
++
++    def __str__(self):
++        return smart_str('%s' % (self.tracker_name))
++
++    def get_base_url(self):
++        return '__impossible_to_use_with_github'
++
++class GitHubQueryModel(TrackerQueryModel):
++    '''This model stores query URLs for GitHubTracker objects.'''
++    tracker = models.ForeignKey(GitHubTrackerModel)
++    state = models.CharField(max_length=20, default='open')
++
++    def get_query_url(self):
++        return 'http://github.com/api/v2/json/issues/list/%s/%s/%s' % (
++            self.tracker.github_name, self.tracker.github_repo,
++            self.state,
++        )
++
++reversion.register(GitHubTrackerModel, follow=["githubquerymodel_set"])
++reversion.register(GitHubQueryModel)
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 1db1745..c8fac32 100755
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -76,6 +76,7 @@ try:
+     from bugimporters.google import GoogleBugImporter, GoogleBugParser
+     from bugimporters.trac import TracBugImporter, TracBugParser
+     from bugimporters.launchpad import LaunchpadBugImporter
++    from bugimporters.github import GitHubBugImporter, GitHubBugParser
+ except ImportError:
+     BugzillaBugImporter = None
+     BugzillaBugParser = None
+@@ -86,6 +87,8 @@ except ImportError:
+     LaunchpadBugImporter = None
+     GoogleBugImporter = None
+     GoogleBugParser = None
++    GitHubBugImporter = None
++    GitHubBugParser = None
+ # }}}
+ 
+ importer_data_transits = {'bug': bug_data_transit, 'trac': trac_data_transit}
+@@ -137,6 +140,9 @@ class FakeGetPage(object):
+         self.url2data['https://api.launchpad.net/1.0/bugs/839461doc'] = open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'launchpad', 'bugs_839461doc')).read()
+         self.url2data['https://api.launchpad.net/1.0/bzr/+bug/839461bite'] = open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'launchpad', 'bugs_task_839461bite')).read()
+         self.url2data['https://api.launchpad.net/1.0/bugs/839461bite'] = open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'launchpad', 'bugs_839461bite')).read()
++        self.url2data['http://github.com/api/v2/json/issues/list/openhatch/misc/open']= open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'github', 'issue-list')).read()
++        self.url2data['http://github.com/api/v2/json/issues/list/openhatch/misc/closed']= open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'github', 'issue-list-closed')).read()
++        self.url2data['http://github.com/api/v2/json/issues/show/openhatch/misc/42']= open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'github', 'issue-show')).read()
+ 
+     """This is a fake version of Twisted.web's getPage() function.
+     It returns a Deferred that is already 'fired', and has the page content
+@@ -1640,6 +1646,129 @@ I don't see for example the solvers module""",
+                   }
+         self.assertEqual(wanted, got)
+ 
++@skipIf(GitHubBugImporter is None, "To run these tests, you must install oh-bugimporters. See ADVANCED_INSTALLATION.mkd for more.")
++class GitHubBugImport(django.test.TestCase):
++    def setUp(self):
++        # Set up the Twisted TrackerModels that will be used here.
++        self.tm = mysite.customs.models.GitHubTrackerModel.all_trackers.create(
++                tracker_name="openhatch's Miscellany",
++                github_name='openhatch',
++                github_repo='misc',
++                bitesized_tag='lowfruit',
++                documentation_tag='docs')
++        self.dm = mock.Mock(name='dm')
++        self.dm.running_deferreds = 0
++        self.im = GitHubBugImporter(
++            self.tm, self.dm, GitHubBugParser, importer_data_transits
++        )
++
++    @mock.patch('twisted.web.client.getPage', fakeGetPage.getPage)
++    def test_process_queries(self):
++        # Make sure we're starting with a clean slate.
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 0)
++
++        query = mysite.customs.models.GitHubQueryModel()
++        query.tracker = self.tm
++        query.state = 'open'
++
++        self.im.process_queries([query])
++
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 1)
++        bug = all_bugs[0]
++        self.assertEqual(bug.canonical_bug_link,
++            'http://github.com/api/v2/json/issues/show/openhatch/misc/42')
++        self.assertEqual(bug.title, 'yo dawg')
++        self.assertEqual(bug.description, 'this issue be all up in ya biz-nass.')
++        self.assertEqual(bug.status, 'open')
++        self.assertEqual(bug.people_involved, 1)
++        self.assertEqual(bug.date_reported,
++            datetime.datetime(2012, 3, 12, 19, 24, 42))
++        self.assertEqual(bug.last_touched,
++            datetime.datetime(2012, 3, 12, 21, 39, 42))
++        self.assertEqual(bug.submitter_username, 'openhatch')
++        self.assertEqual(bug.submitter_realname, '')
++        self.assertEqual(bug.canonical_bug_link,
++            'http://github.com/api/v2/json/issues/show/openhatch/misc/42')
++        self.assertEqual(bug.good_for_newcomers, True)
++        self.assertEqual(bug.bize_size_tag_name, 'lowfruit')
++        self.assertEqual(bug.concerns_just_documentation, False)
++        self.assertFalse(bug.looks_closed)
++
++        # Make sure the new manager finds it.
++        self.assertEqual(Bug.open_ones.all().count(), 1)
++
++    @mock.patch('twisted.web.client.getPage', fakeGetPage.getPage)
++    def test_process_queries_closed(self):
++        # Make sure we're starting with a clean slate.
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 0)
++
++        query = mysite.customs.models.GitHubQueryModel()
++        query.tracker = self.tm
++        query.state = 'closed'
++
++        self.im.process_queries([query])
++
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 1)
++        bug = all_bugs[0]
++        self.assertEqual(bug.canonical_bug_link,
++            'http://github.com/api/v2/json/issues/show/openhatch/misc/42')
++        self.assertEqual(bug.title, 'yo dawg')
++        self.assertEqual(bug.description, 'this issue be all up in ya biz-nass.')
++        self.assertEqual(bug.status, 'closed')
++        self.assertEqual(bug.people_involved, 1)
++        self.assertEqual(bug.date_reported,
++            datetime.datetime(2012, 3, 12, 19, 24, 42))
++        self.assertEqual(bug.last_touched,
++            datetime.datetime(2012, 3, 12, 21, 39, 42))
++        self.assertEqual(bug.submitter_username, 'openhatch')
++        self.assertEqual(bug.submitter_realname, '')
++        self.assertEqual(bug.canonical_bug_link,
++            'http://github.com/api/v2/json/issues/show/openhatch/misc/42')
++        self.assertEqual(bug.good_for_newcomers, True)
++        self.assertEqual(bug.bize_size_tag_name, 'lowfruit')
++        self.assertEqual(bug.concerns_just_documentation, False)
++        self.assertTrue(bug.looks_closed)
++
++    @mock.patch('twisted.web.client.getPage', fakeGetPage.getPage)
++    def test_process_bugs(self):
++        # Make sure we're starting with a clean slate.
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 0)
++
++        self.im.process_bugs((
++            ('http://github.com/api/v2/json/issues/show/openhatch/misc/42', None),
++        ))
++
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 1)
++        bug = all_bugs[0]
++        self.assertEqual(bug.canonical_bug_link,
++            'http://github.com/api/v2/json/issues/show/openhatch/misc/42')
++        self.assertEqual(bug.title, 'yo dawg')
++        self.assertEqual(bug.description, 'this issue be all up in ya biz-nass.')
++        self.assertEqual(bug.status, 'open')
++        self.assertEqual(bug.people_involved, 1)
++        self.assertEqual(bug.date_reported,
++            datetime.datetime(2012, 3, 12, 19, 24, 42))
++        self.assertEqual(bug.last_touched,
++            datetime.datetime(2012, 3, 12, 21, 39, 42))
++        self.assertEqual(bug.submitter_username, 'openhatch')
++        self.assertEqual(bug.submitter_realname, '')
++        self.assertEqual(bug.canonical_bug_link,
++            'http://github.com/api/v2/json/issues/show/openhatch/misc/42')
++        self.assertEqual(bug.looks_closed, False)
++        self.assertEqual(bug.good_for_newcomers, True)
++        self.assertEqual(bug.bize_size_tag_name, 'lowfruit')
++        self.assertEqual(bug.concerns_just_documentation, False)
++        self.assertFalse(bug.looks_closed)
++
++        # Make sure the new manager finds it.
++        self.assertEqual(Bug.open_ones.all().count(), 1)
++
+ @skipIf(mysite.base.depends.lxml.html is None, "To run these tests, you must install lxml. See ADVANCED_INSTALLATION.mkd for more.")
+ class DataExport(django.test.TestCase):
+     def test_snapshot_user_table_without_passwords(self):
+diff --git a/mysite/static/sample-data/github/issue-list b/mysite/static/sample-data/github/issue-list
+new file mode 100644
+index 0000000..5210106
+--- /dev/null
++++ b/mysite/static/sample-data/github/issue-list
+@@ -0,0 +1 @@
++{"issues":[{"gravatar_id":"92480dcf5ce06b0987e01a09689ca2bc","position":1.0,"number":42,"votes":0,"created_at":"2012/03/12 12:24:42 -0700","comments":1,"body":"this issue be all up in ya biz-nass.","title":"yo dawg","updated_at":"2012/03/12 14:39:42 -0700","html_url":"https://github.com/openhatch/tests/issues/42","user":"openhatch","labels":["lowfruit"],"state":"open"}]}
+\ No newline at end of file
+diff --git a/mysite/static/sample-data/github/issue-list-closed b/mysite/static/sample-data/github/issue-list-closed
+new file mode 100644
+index 0000000..ba35709
+--- /dev/null
++++ b/mysite/static/sample-data/github/issue-list-closed
+@@ -0,0 +1 @@
++{"issues":[{"gravatar_id":"92480dcf5ce06b0987e01a09689ca2bc","position":1.0,"number":42,"votes":0,"created_at":"2012/03/12 12:24:42 -0700","comments":1,"body":"this issue be all up in ya biz-nass.","title":"yo dawg","updated_at":"2012/03/12 14:39:42 -0700","html_url":"https://github.com/openhatch/tests/issues/42","user":"openhatch","labels":["lowfruit"],"state":"closed"}]}
+\ No newline at end of file
+diff --git a/mysite/static/sample-data/github/issue-show b/mysite/static/sample-data/github/issue-show
+new file mode 100644
+index 0000000..46407aa
+--- /dev/null
++++ b/mysite/static/sample-data/github/issue-show
+@@ -0,0 +1 @@
++{"issue":{"gravatar_id":"92480dcf5ce06b0987e01a09689ca2bc","position":1.0,"number":42,"votes":0,"created_at":"2012/03/12 12:24:42 -0700","comments":1,"body":"this issue be all up in ya biz-nass.","title":"yo dawg","updated_at":"2012/03/12 14:39:42 -0700","html_url":"https://github.com/openhatch/tests/issues/42","user":"openhatch","labels":["lowfruit"],"state":"open"}}
+-- 
+1.7.2.5
+

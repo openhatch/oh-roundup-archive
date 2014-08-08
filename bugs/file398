@@ -1,0 +1,35 @@
+From 52e9ba7c18bf20ce37d8e214d553412384429f3c Mon Sep 17 00:00:00 2001
+From: Vivek Shrivastava <vivshrivastava@gmail.com>
+Date: Sun, 19 Jun 2011 22:10:34 -0700
+Subject: [PATCH] issue 541 moved main line under blue within the blue background
+
+---
+ mysite/base/templates/base/landing.html |   11 +++++------
+ 1 files changed, 5 insertions(+), 6 deletions(-)
+
+diff --git a/mysite/base/templates/base/landing.html b/mysite/base/templates/base/landing.html
+index d730477..18d1855 100644
+--- a/mysite/base/templates/base/landing.html
++++ b/mysite/base/templates/base/landing.html
+@@ -42,13 +42,12 @@ document.documentElement.className = 'javascript_is_enabled';
+     {# Remember, this page is only shown to non-logged-in users. #}
+     {% cache 60 homepage_content %}
+ 
+-    <p style='color: #333; margin-top: 0; margin-bottom: 10px; text-align: center; font-size: 2em;'>
+-        <strong>OpenHatch</strong> &middot; community tools for free and open source software
+-    </p>
+-
+     <div class="module" id="about-message">
+-      <div class="head"><h3>About OpenHatch.org</h3></div>
+-      <div class="body">
++      <div class="head">
++          <p style='color: #333; margin-top: 0; margin-bottom: 10px; text-align: center; font-size: 2em;'>
++              <strong>OpenHatch</strong> &middot; community tools for free and open source software
++      </div>
++    <div class="body">
+ 	<p>
+ 	  Free, open source software <strong>loses tons of prospective contributors</strong> because it is difficult to learn how and where you can fit in.
+ 	</p>
+-- 
+1.7.2.5
+

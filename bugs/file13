@@ -1,0 +1,108 @@
+From dfe202386c20dc21f9db0b95ba52031eabf0d379 Mon Sep 17 00:00:00 2001
+From: int3 <jezreel@gmail.com>
+Date: Sun, 9 May 2010 19:24:49 +0800
+Subject: [PATCH] Add JSON support for the widget
+
+---
+ mysite/profile/templates/profile/widget.html |    4 ++--
+ mysite/profile/views.py                      |   24 +++++++++++++++++++-----
+ mysite/urls.py                               |    3 +++
+ 3 files changed, 24 insertions(+), 7 deletions(-)
+
+diff --git a/mysite/profile/templates/profile/widget.html b/mysite/profile/templates/profile/widget.html
+index ab15434..b7b7d0c 100644
+--- a/mysite/profile/templates/profile/widget.html
++++ b/mysite/profile/templates/profile/widget.html
+@@ -281,7 +281,7 @@
+         </div>
+         <div class='body'>
+             <ul>
+-            {% for entry in person.get_nonarchived_published_portfolio_entries %}
++            {% for entry in person.0.get_nonarchived_published_portfolio_entries %}
+             {% if forloop.counter0|divisibleby:3 and not forloop.first %}
+                 </div>
+             {% endif %}
+@@ -310,7 +310,7 @@
+             </ul>
+         </div>
+         <div class='foot'>
+-            <a href='{{uri_scheme}}://{{ url_prefix }}{% url mysite.profile.views.display_person_web person.user.username %}'>See my full profile at
++            <a href='{{uri_scheme}}://{{ url_prefix }}{% url mysite.profile.views.display_person_web person.0.user.username %}'>See my full profile at
+                 <img src='{{uri_scheme}}://{{ url_prefix }}{% version '/static/images/logo-for-widget.png' %}' height='55' width='80'/></a>
+         </div>
+     </div>
+diff --git a/mysite/profile/views.py b/mysite/profile/views.py
+index 162f952..0cd0c08 100644
+--- a/mysite/profile/views.py
++++ b/mysite/profile/views.py
+@@ -95,19 +95,19 @@ def get_personal_data(person):
+     # FIXME: Make this more readable.
+     data_dict = {
+             'person': person,
+-            'photo_url': person.get_photo_url_or_default(),
++            'photo_url': person[0].get_photo_url_or_default(),
+             } 
+ 
+-    data_dict['tags'] = tags_dict_for_person(person)
++    data_dict['tags'] = tags_dict_for_person(person[0])
+     data_dict['tags_flat'] = dict(
+         [ (key, ', '.join([k.text for k in data_dict['tags'][key]]))
+           for key in data_dict['tags'] ])
+ 
+     data_dict['has_set_info'] = any(data_dict['tags_flat'].values())
+ 
+-    data_dict['contact_blurb'] = mysite.base.controllers.put_forwarder_in_contact_blurb_if_they_want(person.contact_blurb, person.user)
++    data_dict['contact_blurb'] = mysite.base.controllers.put_forwarder_in_contact_blurb_if_they_want(person[0].contact_blurb, person[0].user)
+ 
+-    data_dict['projects_i_wanna_help'] = person.projects_i_wanna_help.all()
++    data_dict['projects_i_wanna_help'] = person[0].projects_i_wanna_help.all()
+ 
+     return data_dict
+ 
+@@ -129,7 +129,7 @@ def widget_display_undecorated(request, user_to_display__username):
+     """so it can referenced by widget_display_string."""
+     # {{{
+     user = get_object_or_404(User, username=user_to_display__username)
+-    person = get_object_or_404(Person, user=user)
++    person = Person.objects.filter(user=user)
+ 
+     data = get_personal_data(person)
+     data.update(mysite.base.controllers.get_uri_metadata_for_generating_absolute_links(
+@@ -154,6 +154,20 @@ def widget_display_js(request, user_to_display__username):
+                               {'in_string': encoded_for_js},
+                               mimetype='application/javascript')
+ 
++def widget_display_json(request, user_to_display__username):
++    # simplejson can't handle QuerySets, and Django can't handle
++    # anything but QuerySets. This makes them play nicely together.
++    class django_json_encoder(simplejson.JSONEncoder):
++        def default(self, obj):
++            if type(obj).__name__ == 'QuerySet':
++                return simplejson.loads(serializers.serialize('json', obj))
++            return simplejson.JSONEncoder.default(self, obj)
++
++    request, template, data = widget_display_undecorated(request, user_to_display__username)
++    data['projects'] = data['person'][0].get_nonarchived_published_portfolio_entries()
++    json = simplejson.dumps(data, cls=django_json_encoder)
++    return HttpResponse(json, mimetype='application/json')
++
+ # }}}
+ 
+ # Debtags {{{
+diff --git a/mysite/urls.py b/mysite/urls.py
+index 162005a..0a96995 100644
+--- a/mysite/urls.py
++++ b/mysite/urls.py
+@@ -89,6 +89,9 @@ urlpatterns = patterns('',
+         (r'^people/(?P<user_to_display__username>[^/]+)/openhatch-widget.js$',
+                 'mysite.profile.views.widget_display_js'),
+ 
++        (r'^people/(?P<user_to_display__username>[^/]+)/openhatch-widget.json$',
++                'mysite.profile.views.widget_display_json'),
++
+         (r'^people/info/edit/do$',
+             'mysite.profile.views.edit_person_info_do'),
+ 
+-- 
+1.6.0.4
+

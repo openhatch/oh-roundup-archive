@@ -1,0 +1,482 @@
+From 77081e4496ac2692fe4b04601b74991c586e2d61 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Thu, 1 Jul 2010 13:48:03 +0000
+Subject: [PATCH 1/4] Added documentation bug checks to Bugzilla trackers.
+
+---
+ mysite/search/tasks/bugzilla_instances.py |   27 ++++++++++++++++++++++++---
+ 1 files changed, 24 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/search/tasks/bugzilla_instances.py b/mysite/search/tasks/bugzilla_instances.py
+index 68e942e..83b8d64 100644
+--- a/mysite/search/tasks/bugzilla_instances.py
++++ b/mysite/search/tasks/bugzilla_instances.py
+@@ -141,10 +141,9 @@ class KDEBugzilla(BugzillaBugTracker):
+         # Remove 'JJ:' from title if present
+         if ret_dict['title'].startswith("JJ:"):
+             ret_dict['title'] = ret_dict['title'][3:].strip()
+-        # Set 'concerns_just_documentation' if needed
++        # Check whether documentation bug
+         product = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'product')
+-        if product == 'docs':
+-            ret_dict['concerns_just_documentation'] = True
++        ret_dict['concerns_just_documentation'] = (product == 'docs')
+         # Then pass ret_dict back
+         return ret_dict
+ 
+@@ -238,6 +237,9 @@ class MediaWikiBugzilla(BugzillaBugTracker):
+         keywords = map(lambda s: s.strip(),
+                        keywords_text.split(','))
+         ret_dict['good_for_newcomers'] = ('easy' in keywords)
++        # Check whether documentation bug
++        component = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'component')
++        ret_dict['concerns_just_documentation'] = (component == 'Documentation')
+         # Then pass ret_dict back
+         return ret_dict
+ 
+@@ -261,8 +263,12 @@ class GnomeBugzilla(BugzillaBugTracker):
+                                     bug_project_name_format='')
+ 
+     def get_current_xml_bug_tree(self):
++        # Get all bugs that contain any of the keywords 'gnome-love'
++        # or 'documentation'
+         return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+                 'https://bugzilla.gnome.org/buglist.cgi?columnlist=id&keywords=gnome-love&query_format=advanced&resolution=---')
++        # FIXME: Query with documentation keyword causes XML syntax errors
++                #'https://bugzilla.gnome.org/buglist.cgi?columnlist=id&keywords=gnome-love%2Cdocumentation&query_format=advanced&resolution=---')
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -272,6 +278,8 @@ class GnomeBugzilla(BugzillaBugTracker):
+         keywords = map(lambda s: s.strip(),
+                        keywords_text.split(','))
+         ret_dict['good_for_newcomers'] = ('gnome-love' in keywords)
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('documentation' in keywords)
+         # Then pass ret_dict back
+         return ret_dict
+ 
+@@ -375,6 +383,9 @@ class SongbirdBugzilla(BugzillaBugTracker):
+     def extract_tracker_specific_data(xml_data, ret_dict):
+         # Make modifications to ret_dict using provided metadata
+         ret_dict['good_for_newcomers'] = False # 'helpwanted' doesn't just indicate bitesized.
++        # Check whether documentation bug
++        component = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'component')
++        ret_dict['concerns_just_documentation'] = (component == 'Documentation')
+         # Then pass ret_dict back
+         return ret_dict
+ 
+@@ -444,6 +455,9 @@ class RTEMSBugzilla(BugzillaBugTracker):
+     def extract_tracker_specific_data(xml_data, ret_dict):
+         # Make modifications to ret_dict using provided metadata
+         ret_dict['good_for_newcomers'] = False # No bitesized keyword.
++        # Check whether documentation bug
++        component = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'component')
++        ret_dict['concerns_just_documentation'] = (component == 'doc')
+         # Then pass ret_dict back
+         return ret_dict
+ 
+@@ -472,6 +486,13 @@ class XOrgBugzilla(BugzillaBugTracker):
+         keywords = map(lambda s: s.strip(),
+                        keywords_text.split(','))
+         ret_dict['good_for_newcomers'] = ('janitor' in keywords)
++        # Check whether documentation bug
++        component = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'component')
++        documentation_components = [
++                'Docs/other',
++                'Documentation',
++                'Fonts/doc']
++        ret_dict['concerns_just_documentation'] = (component in documentation_components)
+         # Then pass ret_dict back
+         return ret_dict
+ 
+-- 
+1.7.1
+
+
+From ad4f0c1d73b5a0f5bdd6c2d1b5aefca8118d3c22 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Thu, 1 Jul 2010 14:43:33 +0000
+Subject: [PATCH 2/4] Replaced Bugzilla importer bug xml getters with generators.
+
+---
+ mysite/search/tasks/bugzilla_instances.py |  157 +++++++++++++++++++++--------
+ 1 files changed, 113 insertions(+), 44 deletions(-)
+
+diff --git a/mysite/search/tasks/bugzilla_instances.py b/mysite/search/tasks/bugzilla_instances.py
+index 83b8d64..45f77b1 100644
+--- a/mysite/search/tasks/bugzilla_instances.py
++++ b/mysite/search/tasks/bugzilla_instances.py
+@@ -11,6 +11,13 @@ class BugzillaBugTracker(object):
+         self.bug_project_name_format = bug_project_name_format
+         self.bug_id_list_only = bug_id_list_only
+ 
++    def generate_bug_xml_from_queries(self, queries)
++        for query_name in queries:
++            query_url = queries[query_name]
++            query_xml = mysite.customs.bugtrackers.bugzilla.url2bug_data(query_url)
++            for bug_xml in query_xml.xpath('bug'):
++                yield bug_xml
++
+     def generate_bug_project_name(self, bb):
+         return self.bug_project_name_format.format(
+                 project = self.project_name,
+@@ -83,8 +90,7 @@ class BugzillaBugTracker(object):
+                 self.create_or_refresh_one_bugzilla_bug(bb=bb)
+         else:
+             logging.info("[Bugzilla] Fetching XML data for bugs in tracker...")
+-            current_xml_bug_tree = self.get_current_xml_bug_tree()
+-            for bug_data in current_xml_bug_tree.xpath('bug'):
++            for bug_data in self.generate_current_bug_xml():
+                 bb = mysite.customs.bugtrackers.bugzilla.BugzillaBug(
+                         BASE_URL=self.base_url,
+                         bug_data=bug_data)
+@@ -104,9 +110,14 @@ class MiroBugzilla(BugzillaBugTracker):
+                                     project_name='Miro',
+                                     bug_project_name_format='{project}')
+ 
+-    def get_current_xml_bug_tree(self):
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'http://bugzilla.pculture.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&field-1-0-0=bug_status&field-1-1-0=product&field-1-2-0=keywords&keywords=bitesized&product=Miro&query_format=advanced&remaction=&type-1-0-0=anyexact&type-1-1-0=anyexact&type-1-2-0=anywords&value-1-0-0=NEW%2CASSIGNED%2CREOPENED&value-1-1-0=Miro&value-1-2-0=bitesized')
++    def generate_current_bug_xml(self):
++        queries = {
++                'Easy bugs':
++                    'http://bugzilla.pculture.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&field-1-0-0=bug_status&field-1-1-0=product&field-1-2-0=keywords&keywords=bitesized&product=Miro&query_format=advanced&remaction=&type-1-0-0=anyexact&type-1-1-0=anyexact&type-1-2-0=anywords&value-1-0-0=NEW%2CASSIGNED%2CREOPENED&value-1-1-0=Miro&value-1-2-0=bitesized',
++                #'Documentation bugs':
++                    #''
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -129,7 +140,15 @@ class KDEBugzilla(BugzillaBugTracker):
+ 
+     def get_current_xml_bug_tree(self):
+         return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'https://bugs.kde.org/buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&long_desc_type=allwordssubstr&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&keywords_type=allwords&keywords=junior-jobs&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=REOPENED&bug_status=NEEDSINFO&bug_status=VERIFIED&resolution=---&emailtype1=substring&email1=&emailtype2=substring&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=&chfieldto=Now&chfieldvalue=&cmdtype=doit&order=Reuse+same+sort+as+last+time&field0-0-0=noop&type0-0-0=noop&value0-0-0=')
++
++    def generate_current_bug_xml(self):
++        queries = {
++                'Easy bugs':
++                    'https://bugs.kde.org/buglist.cgi?query_format=advanced&keywords=junior-jobs&resolution=---',
++                'Documentation bugs':
++                    'https://bugs.kde.org/buglist.cgi?query_format=advanced&product=docs&resolution=---'
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -225,9 +244,14 @@ class MediaWikiBugzilla(BugzillaBugTracker):
+                                     project_name='MediaWiki',
+                                     bug_project_name_format='')
+ 
+-    def get_current_xml_bug_tree(self):
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'https://bugzilla.wikimedia.org/buglist.cgi?keywords=easy&query_format=advanced&keywords_type=allwords&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_status=VERIFIED&resolution=LATER&resolution=---')
++    def generate_current_bug_xml(self):
++        queries = {
++                'Easy bugs':
++                    'https://bugzilla.wikimedia.org/buglist.cgi?keywords=easy&query_format=advanced&resolution=LATER&resolution=---',
++                'Documentation bugs':
++                    'https://bugzilla.wikimedia.org/buglist.cgi?query_format=advanced&component=Documentation&resolution=---'
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -262,13 +286,17 @@ class GnomeBugzilla(BugzillaBugTracker):
+                                     project_name='Gnome',
+                                     bug_project_name_format='')
+ 
+-    def get_current_xml_bug_tree(self):
++    def generate_current_bug_xml(self):
+         # Get all bugs that contain any of the keywords 'gnome-love'
+         # or 'documentation'
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'https://bugzilla.gnome.org/buglist.cgi?columnlist=id&keywords=gnome-love&query_format=advanced&resolution=---')
+-        # FIXME: Query with documentation keyword causes XML syntax errors
+-                #'https://bugzilla.gnome.org/buglist.cgi?columnlist=id&keywords=gnome-love%2Cdocumentation&query_format=advanced&resolution=---')
++        queries = {
++                'Easy bugs':
++                    'https://bugzilla.gnome.org/buglist.cgi?columnlist=id&keywords=gnome-love&query_format=advanced&resolution=---',
++                # FIXME: Query with documentation keyword causes XML syntax errors
++                #'Documentation bugs':
++                    #'https://bugzilla.gnome.org/buglist.cgi?columnlist=id&keywords=gnome-love%2Cdocumentation&query_format=advanced&resolution=---'
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -300,9 +328,14 @@ class MozillaBugzilla(BugzillaBugTracker):
+                                     project_name='Mozilla',
+                                     bug_project_name_format='')
+ 
+-    def get_current_xml_bug_tree(self):
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'https://bugzilla.mozilla.org/buglist.cgi?resolution=---;status_whiteboard_type=substring;query_format=advanced;status_whiteboard=[good%20first%20bug]')
++    def generate_current_bug_xml(self):
++        queries = {
++                'Easy bugs':
++                    'https://bugzilla.mozilla.org/buglist.cgi?resolution=---;status_whiteboard_type=substring;query_format=advanced;status_whiteboard=[good%20first%20bug]',
++                #'Documentation bugs':
++                    #''
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -372,12 +405,17 @@ class SongbirdBugzilla(BugzillaBugTracker):
+                                     project_name='Songbird',
+                                     bug_project_name_format='{project}')
+ 
+-    def get_current_xml_bug_tree(self):
++    def generate_current_bug_xml(self):
+         # Query below returns nearly 4000 bugs if we try to index everything.
+         # For now, only import bugs with 'helpwanted' tag.
+         # (This tag doesn't equate to 'bitesized'.)
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'http://bugzilla.songbirdnest.com/buglist.cgi?query_format=advanced&resolution=---&keywords=helpwanted')
++        queries = {
++                'Helpwanted bugs':
++                    'http://bugzilla.songbirdnest.com/buglist.cgi?query_format=advanced&resolution=---&keywords=helpwanted',
++                'Documentation bugs':
++                    'http://bugzilla.songbirdnest.com/buglist.cgi?query_format=advanced&component=Documentation&resolution=---'
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -398,9 +436,12 @@ class ApertiumBugzilla(BugzillaBugTracker):
+                                     project_name='Apertium',
+                                     bug_project_name_format='{project}')
+ 
+-    def get_current_xml_bug_tree(self):
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'http://bugs.apertium.org/cgi-bin/bugzilla/buglist.cgi?query_format=advanced&resolution=---')
++    def generate_current_bug_xml(self):
++        queries = {
++                'All bugs':
++                    'http://bugs.apertium.org/cgi-bin/bugzilla/buglist.cgi?query_format=advanced&resolution=---'
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -418,9 +459,14 @@ class MusopenBugzilla(BugzillaBugTracker):
+                                     project_name='Musopen',
+                                     bug_project_name_format='{project}')
+ 
+-    def get_current_xml_bug_tree(self):
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                '')
++    def generate_current_bug_xml(self):
++        queries = {
++                'Easy bugs':
++                    '',
++                'Documentation bugs':
++                    ''
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -447,9 +493,12 @@ class RTEMSBugzilla(BugzillaBugTracker):
+                                     project_name='RTEMS',
+                                     bug_project_name_format='{project}')
+ 
+-    def get_current_xml_bug_tree(self):
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'https://www.rtems.org/bugzilla/buglist.cgi?query_format=advanced&resolution=---')
++    def generate_current_bug_xml(self):
++        queries = {
++                'All bugs':
++                    'https://www.rtems.org/bugzilla/buglist.cgi?query_format=advanced&resolution=---'
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -472,11 +521,16 @@ class XOrgBugzilla(BugzillaBugTracker):
+                                     project_name='XOrg',
+                                     bug_project_name_format='{project}')
+ 
+-    def get_current_xml_bug_tree(self):
++    def generate_current_bug_xml(self):
+         # Query below returns over 2500 bugs if we try to index everything.
+         # For now just index bitesized bugs - keyword filter added to query.
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'https://bugs.freedesktop.org/buglist.cgi?query_format=advanced&keywords=janitor&resolution=---&product=xorg')
++        queries = {
++                'Easy bugs':
++                    'https://bugs.freedesktop.org/buglist.cgi?query_format=advanced&keywords=janitor&resolution=---&product=xorg',
++                'Documentation bugs':
++                    'https://bugs.freedesktop.org/buglist.cgi?query_format=advanced&component=Docs%2Fother&component=Documentation&component=Fonts%2Fdoc&resolution=---&product=xorg'
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -505,9 +559,12 @@ class LocamotionBugzilla(BugzillaBugTracker):
+                                     project_name='Locamotion',
+                                     bug_project_name_format='{product}')
+ 
+-    def get_current_xml_bug_tree(self):
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'http://bugs.locamotion.org/buglist.cgi?query_format=advanced&resolution=---')
++    def generate_current_bug_xml(self):
++        queries = {
++                'All bugs':
++                    'http://bugs.locamotion.org/buglist.cgi?query_format=advanced&resolution=---'
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -525,9 +582,12 @@ class HypertritonBugzilla(BugzillaBugTracker):
+                                     project_name='Hypertriton',
+                                     bug_project_name_format='{product}')
+ 
+-    def get_current_xml_bug_tree(self):
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'https://hypertriton.com/bugzilla/buglist.cgi?query_format=advanced&resolution=---&product=Agar&product=EDAcious&product=FabBSD&product=FreeSG')
++    def generate_current_bug_xml(self):
++        queries = {
++                'All bugs':
++                    'https://hypertriton.com/bugzilla/buglist.cgi?query_format=advanced&resolution=---&product=Agar&product=EDAcious&product=FabBSD&product=FreeSG'
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -545,9 +605,12 @@ class PygameBugzilla(BugzillaBugTracker):
+                                     project_name='pygame',
+                                     bug_project_name_format='{project}')
+ 
+-    def get_current_xml_bug_tree(self):
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                'http://pygame.motherhamster.org/bugzilla/buglist.cgi?query_format=advanced&resolution=---')
++    def generate_current_bug_xml(self):
++        queries = {
++                'All bugs':
++                    'http://pygame.motherhamster.org/bugzilla/buglist.cgi?query_format=advanced&resolution=---'
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+@@ -571,9 +634,15 @@ class GenBugzilla(BugzillaBugTracker):
+                                     project_name='',
+                                     bug_project_name_format='')
+ 
+-    def get_current_xml_bug_tree(self):
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-                '')
++    def generate_current_bug_xml(self):
++        # Can replace both entries below with an 'All bugs' query.
++        queries = {
++                'Easy bugs':
++                    '',
++                'Documentation bugs':
++                    ''
++                }
++        return self.generate_bug_xml_from_queries(queries)
+ 
+     @staticmethod
+     def extract_tracker_specific_data(xml_data, ret_dict):
+-- 
+1.7.1
+
+
+From 8ba9d2cc8b79cdf5e1e0927943642bfb4ea06dbf Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Thu, 1 Jul 2010 14:45:30 +0000
+Subject: [PATCH 3/4] Removed Musopen from Bugzilla importer since it actually uses Purify.
+
+---
+ mysite/search/tasks/bugzilla_instances.py |   34 -----------------------------
+ 1 files changed, 0 insertions(+), 34 deletions(-)
+
+diff --git a/mysite/search/tasks/bugzilla_instances.py b/mysite/search/tasks/bugzilla_instances.py
+index 45f77b1..6c804d3 100644
+--- a/mysite/search/tasks/bugzilla_instances.py
++++ b/mysite/search/tasks/bugzilla_instances.py
+@@ -450,40 +450,6 @@ class ApertiumBugzilla(BugzillaBugTracker):
+         # Then pass ret_dict back
+         return ret_dict
+ 
+-class MusopenBugzilla(BugzillaBugTracker):
+-    enabled = False # FIXME: Haven't found actual bugtracker yet...
+-
+-    def __init__(self):
+-        BugzillaBugTracker.__init__(self,
+-                                    base_url='',
+-                                    project_name='Musopen',
+-                                    bug_project_name_format='{project}')
+-
+-    def generate_current_bug_xml(self):
+-        queries = {
+-                'Easy bugs':
+-                    '',
+-                'Documentation bugs':
+-                    ''
+-                }
+-        return self.generate_bug_xml_from_queries(queries)
+-
+-    @staticmethod
+-    def extract_tracker_specific_data(xml_data, ret_dict):
+-        # Make modifications to ret_dict using provided metadata
+-        # Check for the bitesized keyword
+-        keywords_text = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'keywords')
+-        keywords = map(lambda s: s.strip(),
+-                       keywords_text.split(','))
+-        ret_dict['good_for_newcomers'] = ('' in keywords)
+-        # Then pass ret_dict back
+-        return ret_dict
+-
+-    # The formt string method for generating the project name can be
+-    # overloaded by uncommenting the function below.
+-    #def generate_bug_project_name(self, bb):
+-        #return bug_project_name
+-
+ class RTEMSBugzilla(BugzillaBugTracker):
+     enabled = True
+ 
+-- 
+1.7.1
+
+
+From 2dbb76eb9a677e831d85bc03bf1fbc7d3792b8ec Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Fri, 2 Jul 2010 06:11:46 +0000
+Subject: [PATCH 4/4] Couple of bugs in earlier commit - unremoved code and a missing colon.
+
+---
+ mysite/search/tasks/bugzilla_instances.py |    5 +----
+ 1 files changed, 1 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/search/tasks/bugzilla_instances.py b/mysite/search/tasks/bugzilla_instances.py
+index 6c804d3..d4f0ba3 100644
+--- a/mysite/search/tasks/bugzilla_instances.py
++++ b/mysite/search/tasks/bugzilla_instances.py
+@@ -11,7 +11,7 @@ class BugzillaBugTracker(object):
+         self.bug_project_name_format = bug_project_name_format
+         self.bug_id_list_only = bug_id_list_only
+ 
+-    def generate_bug_xml_from_queries(self, queries)
++    def generate_bug_xml_from_queries(self, queries):
+         for query_name in queries:
+             query_url = queries[query_name]
+             query_xml = mysite.customs.bugtrackers.bugzilla.url2bug_data(query_url)
+@@ -138,9 +138,6 @@ class KDEBugzilla(BugzillaBugTracker):
+                                     project_name='KDE',
+                                     bug_project_name_format='')
+ 
+-    def get_current_xml_bug_tree(self):
+-        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
+-
+     def generate_current_bug_xml(self):
+         queries = {
+                 'Easy bugs':
+-- 
+1.7.1
+

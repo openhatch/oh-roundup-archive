@@ -1,0 +1,73 @@
+From 51b3c91c5b8c3b17adfb00baabe6c19ba50c2649 Mon Sep 17 00:00:00 2001
+From: whit ford <whitneyford88@gmail.com>
+Date: Sun, 26 Feb 2012 17:31:53 -0500
+Subject: [PATCH] Fixed error submission for 'get_diff_form
+
+---
+ mysite/missions/git/views.py |   20 ++++++++++++++++----
+ 1 files changed, 16 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+index f280585..4981089 100644
+--- a/mysite/missions/git/views.py
++++ b/mysite/missions/git/views.py
+@@ -16,6 +16,7 @@
+ 
+ from mysite.missions.base.views import *
+ from mysite.missions.git import controllers, forms
++import logging
+ 
+ 
+ ### POST handlers
+@@ -72,18 +73,27 @@ def long_description_submit(request):
+ 
+ @login_required
+ def diff_submit(request):
++  
+     # Initialize data array and some default values.
+     data = {}
+     data['git_diff_form'] = forms.DiffForm()
+-    data['git_diff_error_message'] = ''
++    data['git_diff_error_message'] = ' '
+     if request.method == 'POST':
++        
+         form = forms.DiffForm(request.POST)
+         if form.is_valid():
+-                if controllers.GitDiffMission.commit_if_ok(request.user.username, form.cleaned_data['diff']):
++            logging.warn("Is Valid?")
++            if controllers.GitDiffMission.commit_if_ok(request.user.username, form.cleaned_data['diff']):
+                     controllers.set_mission_completed(request.user.get_profile(), 'git_diff')
++                    
+                     return HttpResponseRedirect(reverse(diff))
+-                else:
++            else:
+                     data['git_diff_error_message'] = "Unable to commit the patch. Please check your patch and try again "
++                    
++        else:
++            return diff(request, {'git_diff_form': form})            
++            # data['git_diff_error_message'] = 'Please recopy your patch'.
++
+         data['git_diff_form'] = form
+     return diff(request, data)
+ 
+@@ -111,6 +121,7 @@ class GitMissionPageState(MissionPageState):
+ 
+     def as_dict_for_template_context(self):
+         (data, person) = self.get_base_data_dict_and_person()
++
+         if person:
+             repo = controllers.GitRepository(self.request.user.username)
+             data.update({
+@@ -164,7 +175,8 @@ def diff(request, passed_data = None):
+     state.this_mission_page_short_name = 'Creating a patch'
+     state.mission_step_prerequisite = 'git_checkout'
+     data = state.as_dict_for_template_context()
+-    data['git_diff_form'] = forms.DiffForm()
++    if 'git_diff_form' not in data:        
++        data['git_diff_form'] = forms.DiffForm()
+     data['file_for_git_diff'] = 'hello.py'
+     return (request, 'missions/git/diff.html', data)
+ 
+-- 
+1.7.5.4
+

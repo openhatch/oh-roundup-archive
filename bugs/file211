@@ -1,0 +1,31 @@
+From 56a66b6ff0c2c74cd80c31aadf599db791aa0e2d Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Knut=20H=C3=BChne?= <knuthueh@gauss-bs.de>
+Date: Sat, 16 Apr 2011 14:40:41 +0200
+Subject: [PATCH] Use bold print only for required fields
+
+---
+ mysite/static/css/roundup.css |    8 ++++++++
+ 1 files changed, 8 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/static/css/roundup.css b/mysite/static/css/roundup.css
+index f8725b2..7f0c77e 100644
+--- a/mysite/static/css/roundup.css
++++ b/mysite/static/css/roundup.css
+@@ -51,6 +51,14 @@ td.date, th.date {
+ 	white-space: nowrap;
+ }
+ 
++th {
++    font-weight: normal;
++}
++
++th.required {
++    font-weight: bold;
++}
++
+ .sidebar p {
+ 	padding: 3px;
+ 	margin: 5px 0;
+-- 
+1.7.1
+

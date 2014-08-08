@@ -1,0 +1,33 @@
+From f63f0fb485657b7113054b0dd53902cf45f77ad6 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Thu, 26 May 2011 22:55:16 +1200
+Subject: [PATCH] Changed the GitDiffMission controller classmethod
+ def validate_diff_and_commit_if_ok so that it will apply the users patch
+ Resolves: http://openhatch.org/bugs/issue412
+
+---
+ mysite/missions/git/controllers.py |    5 +++--
+ 1 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index 917e2ba..355d2fd 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -52,11 +52,12 @@ class GitDiffMission(object):
+         success_count = diff.find(EXPECTED_DIFF_LINE)
+         repo = GitRepository(username)
+         if success_count != -1:
+-            subprocess.Popen(['git', 'apply', '../../../missions/git/data/hello.patch'], cwd=repo.repo_path)
++	    subprocess.Popen(['git', 'am'], cwd=repo.repo_path, stdin=subprocess.PIPE).communicate(str(diff))
++            #subprocess.Popen(['echo', diff, '|', 'git', 'am'], cwd=repo.repo_path)
+             commit_msg = """Fixed a terrible mistake. Thanks for reporting this %s. 
+                 Come to my house for a dinner party.  
+                 Knock 3 times and give the secret password: Pinky.""" % username
+-            subprocess.Popen(['git', 'commit', '-a', '-m', '"' + commit_msg + '"'], cwd=repo.repo_path)
++            subprocess.Popen(['git', 'commit', '--allow-empty', '-m', '"' + commit_msg + '"'], cwd=repo.repo_path)
+             return True
+         else:
+             return False
+-- 
+1.7.4.1
+

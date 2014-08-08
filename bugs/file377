@@ -1,0 +1,143 @@
+[16:02:35] <paulproteus> #startmeeting
+[16:02:38] <paulproteus> (even without sufjan)
+[16:02:59] <paulproteus> pyrak or pythonian4000afk or aldeka or jesstess (hmm she's about to give a presentation in the same room as me, so probably not) or others, say hi!
+[16:03:29] <paulproteus> iAmerikan, palhmbs, Wraithan, Tordek, you might want to be at this meeting.
+[16:03:35] <aldeka> Hi!
+[16:03:39] <paulproteus> Hi!
+[16:04:16] -*- paulproteus reads the meeting announce
+[16:08:03] <paulproteus> Okay, seems it's the three of us!
+[16:08:09] <paulproteus> I wonder if we can be quick. (-:
+[16:08:32] <timewasted> Busy Saturday I suppose.
+[16:08:41] <paulproteus> #topic Talk about what we are working on and what we want help with
+[16:09:23] <paulproteus> I have quietly fixing bugs in the data import code, actually, earlier today.
+[16:09:38] <paulproteus> I'll submit patches for that soonish.
+[16:09:38] <aldeka> I made y'all a buildhelper! (but I ated it)
+[16:10:15] <paulproteus> https://openhatch.org/+projects/OpenHatch#buildhelper is worth looking at, timewasted
+[16:10:24] <paulproteus> I was going to help aldeka by writing a text serialization format for that.
+[16:10:44] <timewasted> I wrapped up issue 431 (needs review) for documenting how to get started with the OH code.
+[16:10:46] <paulproteus> That way, projects can (maybe/hopefully) keep a .buildhelper file in their repositories, and we'd import that, rather than the project maintainers logging into the site necessarily
+[16:10:51] <paulproteus> Oh, right! Yes, it does need review.
+[16:10:54] <paulproteus> I also reviewed some other patches.
+[16:10:58] <paulproteus> Nice semicolon patch, by the way.
+[16:11:07] <paulproteus> I wanted to review it, but I'm almost the wrong audience.
+[16:11:22] <timewasted> I'm starting work on issue 468 to document APIs we want/need for sharing data.
+[16:11:23] <timewasted> :)
+[16:11:32] <timewasted> too much java on the day job
+[16:11:43] <aldeka> yayPIs!
+[16:11:45] <paulproteus> As I said, I don't know how I let that through in the first place.
+[16:11:49] -*- paulproteus rolls his eyes at aldeka
+[16:12:10] <timewasted> I'll have to check out the builderhelper!
+[16:12:24] <paulproteus> Now's a good time to visit it, at least!
+[16:12:52] <paulproteus> Eventually you might want to read the blog post about it.
+[16:13:04] <paulproteus> aldeka: Do you have good next steps on that?
+[16:13:11] <paulproteus> And/or do you want feedback on something specific?
+[16:13:35] <timewasted> aldeka, nice work!  That looks great!
+[16:13:37] <aldeka> Hm.
+[16:13:48] <aldeka> There were some next steps listed in the [Devel] email I sent...
+[16:13:51] <aldeka> timewasted: Thanks! :)
+[16:13:51] <paulproteus> D'oh.
+[16:14:17] <paulproteus> "Things that need fixing"
+[16:14:19] <paulproteus> Ya
+[16:14:30] <paulproteus> File bugs!
+[16:14:41] <Wraithan> Hi! (was gaming just saw the message)
+[16:14:41] <aldeka> I should file bugs.
+[16:14:53] <paulproteus> Yo Wraithan
+[16:15:16] <aldeka> I guess I'd be curious what features / improvements people were most excited about, to help prioritize them.
+[16:15:18] <paulproteus> In case you want to participate in our weekly meeting, http://lists.openhatch.org/pipermail/devel/2011-July/002166.html
+[16:18:38] <Wraithan> My co-worker is in the hospital and I am covering for him and doing my own work, which means 70+ hour weeks right now. I wont be able to help out on OH for a while. We hope he'll return to work in the next month or so.
+[16:18:57] <paulproteus> Um apparently I have to go run drink
+[16:19:13] <paulproteus> (post-Boston Python Workshop)
+[16:19:49] <paulproteus> Drat.
+[16:20:27] <paulproteus> aldeka: Um um you take over.
+[16:20:40] <paulproteus> timewasted: One thing is that the openhatch.org/people/ map uses an "API"
+[16:20:43] <paulproteus> A JSON dump of our people
+[16:20:45] <aldeka> Wraithan: Eek.
+[16:20:52] <paulproteus> I will comment more on your pad in a few hours
+[16:21:04] <timewasted> thanks. I'll take a look at that for ideas of how it is  done.
+[16:21:10] <paulproteus> No, that "API" sucks.
+[16:21:14] <paulproteus> Look at it for anti-inspiration (-:
+[16:21:15] <paulproteus> Ciao for now!
+[16:21:17] <paulproteus> Sorry!
+[16:21:21] <timewasted> haha.OK
+[16:22:27] <aldeka> timewasted: What you have there mostly looks good to me... project info + involvement info
+[16:22:53] <aldeka> Having an API for the bitesized bug search would be pretty cool too (though if the bugs aren't getting updated, that's a separate issue!)
+[16:23:25] <Wraithan> https://bitbucket.org/jespern/django-piston/wiki/Home -- as far as implementation details go, I recommend using piston if you can.
+[16:23:26] <timewasted> It looks a bit out of date, but an API for it would be great.  maybe even with a keyword search
+[16:23:54] <timewasted> Thanks Wraithan, I'll take a look at that.
+[16:24:15] <aldeka> timewasted: The only thing w. the bug API that I would be worried about is making it so it doesn't completely melt our server if too many people make requests using it.
+[16:24:21] <aldeka> (e.g. do to us what we once did to Ohloh)
+[16:24:39] <timewasted> true.  the site is sometimes slow as it is.
+[16:24:44] <Wraithan> aldeka: overuse is a wondeful problem.
+[16:24:46] <aldeka> But 1.) file that under problems we want to have and 2.) that's probably fairly simply avoided.
+[16:25:16] <aldeka> :)
+[16:25:37] <Wraithan> I haven't looked through deep enough, are you guys making use of things like johnny cache?
+[16:26:07] <aldeka> Wraithan: I know we do some sort of caching. Not that particular one, though.
+[16:26:14] <aldeka> I'm afraid I don't know the details.
+[16:26:25] <aldeka> I think it's a Django built-in thing?
+[16:27:05] <Wraithan> johnny cache is awesome, it is really stupid caching that does overzealous invalidation, but it is a wondeful starting point to get any tables that arent changed very often completely cached.
+[16:28:00] --> nedbat (~nedbat@python/psf/nedbat) has joined #openhatch
+[16:28:34] <aldeka> Hi nedbat!
+[16:28:48] <nedbat> aldeka:  hey!
+[16:29:27] <aldeka> timewasted: Is there anything else specific that you want from us w.r.t. API spec writing?
+[16:30:15] <timewasted> no, that's a good start.  I'll try to take a look at the options and the suggestion of what to do (and what not to do) and see if I can put together some documentation.  Then I'll start filing bugs for the missing features. :)
+[16:30:48] <aldeka> Awesome. :)
+[16:31:26] <aldeka> The next item on the agenda is to discuss any updates to the release plan for this month.
+[16:31:37] <aldeka> I don't know if there are any, though!
+[16:32:02] <timewasted> I just put that on there in case.  I don't have anything special.
+[16:32:23] <aldeka> Cool.
+[16:32:39] <aldeka> Yeah, this early in the month, we usually don't have to have any giant shifts or bug-cuttings.
+[16:33:03] <aldeka> So.
+[16:33:11] <aldeka> What are each of us hoping to work on this next week?
+[16:33:29] <timewasted> The API stuff for me.  that's probably all I will have time for.
+[16:33:58] <aldeka> I plan to file bugs for the various buildhelper improvements. I doubt I will have time to fix (many of) them myself this week, but that's fine.
+[16:34:09] <Wraithan> If you guys are having slowness issues, I'd be willing to sit down with someone and help strategise a way to figure out what is slowing things down
+[16:34:21] <Wraithan> Wouldn't be able to act on it too much myself
+[16:34:37] <aldeka> Wraithan: Cool! We could use a slowness audit, I think.
+[16:34:40] <Wraithan> but I've done this with a number of django sites, so I can try to educate someone else
+[16:34:59] <aldeka> I'm not sure who else on the project knows much about how we currently do things, probably paulproteus, possibly other people.
+[16:35:16] <aldeka> I guess maybe email him / Devel to schedule a meeting?
+[16:36:00] <Wraithan> I'll ping him on here later this weekend when I have more brainpower
+[16:36:05] <aldeka> Sounds good.
+[16:36:14] --> paulprot1us (~paulprote@rose.makesad.us) has joined #openhatch
+[16:36:22] <aldeka> Hi paulprot1us!
+[16:36:22] <paulprot1us> Hi, if yall are still here
+[16:36:30] <aldeka> How goes the drinking?
+[16:36:32] <Wraithan> paulprot1us: yo
+[16:36:43] <paulprot1us> No one came to Mead Hall, but I figured I have to be here if I said I would be
+[16:36:51] <aldeka> paulprot1us: We're talking about what we plan to get done this week.
+[16:36:54] <paulprot1us> On my phone, low bandwidth
+[16:36:55] <aldeka> paulprot1us: Aw!
+[16:37:05] <paulprot1us> This week. /me thinks
+[16:37:21] <paulprot1us> I guess I should finish up the Vagrant setup.
+[16:37:37] <paulprot1us> Right now it only installs the app, not configures mysql
+[16:37:48] <Wraithan> paulprot1us: I'm rather overloaded this week, but if you or someone who knows what you've tried as far as caching and speeding up the site has some time, I can help setup a strategy for finding pain points and speeding it up...
+[16:38:05] <paulprot1us> That would extremely rock
+[16:38:23] <paulprot1us> I have some thoughts but no plan.
+[16:38:28] <Wraithan> I've had to do it on a number of django sites, I can pass along some knowledge
+[16:38:47] <Wraithan> as well as tools that me and my company have written
+[16:38:54] <Wraithan> or modified
+[16:39:16] <paulprot1us> I also want to work with aldeka on a text format for buildhelper and have a working draft of that this week
+[16:39:27] <aldeka> paulprot1us: Sweet.
+[16:39:46] <Wraithan> I should make sure our public copy of django-slow-log is up to date... we found a pretty serious bug in it...
+[16:39:48] <aldeka> paulprot1us: I also said I'd file bugs for all the buildhelper improvements, whether or not I actually complete them.
+[16:40:01] <paulprot1us> bd
+[16:40:51] <paulprot1us> Wraithan: Nice. I have an Apache hack for performance monitoring that we don't really use the data from
+[16:41:04] <Wraithan> p
+[16:41:28] <Wraithan> paulprot1us: this stores in the database, makes it nice and query-able including by view name
+[16:41:30] <Wraithan> :)
+[16:41:39] <paulprot1us> Rock on.
+[16:41:59] <paulprot1us> I am also behind on release notes. I will ship June's this week.
+[16:42:06] <aldeka> Sweet.
+[16:42:26] <Wraithan> still takes work to make it usable data, but a couple quick queries can tell you what pages your server is spending the most time on.
+[16:42:51] <paulprot1us> That would be great
+[16:43:17] <aldeka> Alright, well, I think that's everybody who's in attendance (reporting in on what they plan to do).
+[16:43:23] <paulprot1us> Agreed
+[16:43:56] <aldeka> If people have anything else we all should discuss in the next < 1 min, please speak now or forever hold your peace (for a week)!
+[16:44:09] <timewasted> I'm good.
+[16:44:12] <paulprot1us> Meeting minutes... I quai agreed to send 'em out last week
+[16:44:22] <paulprot1us> So I hereby add that to my queue
+[16:44:30] <paulprot1us> that is all
+[16:44:43] <timewasted> thanks everyone!
+[16:44:44] <aldeka> :)
+[16:44:48] <aldeka> #endmeeting
+

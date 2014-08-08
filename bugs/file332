@@ -1,0 +1,57 @@
+From e10edbdc0bee95e015ab45b26f14d30b3baa270f Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Mon, 6 Jun 2011 12:43:27 +1200
+Subject: [PATCH] Fix ambiguous wording in the contributors project template
+
+In templates/profile/contributors.html I now have the words
+_Other Contributors_ for less than 4 contributors and
+for more than 4 contributors it will display _Contributors 1-4 of:_
+
+Solves: http://openhatch.org/bugs/issue347
+---
+ mysite/profile/templates/profile/contributors.html |   21 +++++++++++++++++--
+ 1 files changed, 18 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/profile/templates/profile/contributors.html b/mysite/profile/templates/profile/contributors.html
+index d359843..e63c9d4 100644
+--- a/mysite/profile/templates/profile/contributors.html
++++ b/mysite/profile/templates/profile/contributors.html
+@@ -22,7 +22,13 @@
+ {% if contributors %}
+ <div class='other-contributors'>
+     {% with project.get_contributors|length as contributor_count %}
+-    <label>Other contributor{{contributor_count|pluralize}} ({{ contributor_count }} total):</label>
++        {% if contributor_count <= 4 %}
++            {% if contributor_count >= 2 %}<label>Other contributors ({%if contributor_count = 4 %}3{% endif %}{% if contributor_count = 3 %}2{% endif %}{% if contributor_count = 2 %}1{% endif %}):</label>{% else %}<label>Other contributor:</label>{% endif %}
++        {% else %}
++            {% if contributor_count >= 5 %}
++            <label>Contributors 1-4 of ({{ contributor_count }}):</label>
++            {% endif %}
++        {% endif %}
+     <ul>
+         {% for person in contributors %}
+         <li>
+@@ -47,9 +53,18 @@
+         </li>
+         {% endfor %}
+     </ul>
+-    <a class='see-all'
++    {% if contributor_count <= 4 %}
++        <a class='see-all'
+             href='{% url mysite.profile.views.people %}?q=project:{{ project.name|urlencode }}'
+-        >See all &raquo;</a>
++        >Show on map &raquo;</a>
++    {% else %}
++        {% if contributor_count >= 5 %}
++        <a class='see-all'
++                href='{% url mysite.profile.views.people %}?q=project:{{ project.name|urlencode }}'
++            >See all &raquo;</a>
++        {% endif %}
++    {% endif %}
++
+     {% endwith %}
+ </div>
+ {% endif %}
+-- 
+1.7.2.5
+

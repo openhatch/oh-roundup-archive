@@ -1,0 +1,3671 @@
+From 0e091a9ca4f02592c2ae4cf6f676f5d64297ce9e Mon Sep 17 00:00:00 2001
+From: Will Kahn-Greene <willg@bluesock.org>
+Date: Sun, 30 Jan 2011 09:24:44 -0500
+Subject: [PATCH] Issue 214: Adds license headers to templates.
+
+---
+ 504.html                                           |   17 +++++++++++++++
+ .../account/templates/account/change_password.html |   19 +++++++++++++++++
+ .../templates/account/edit_contact_info.html       |   18 ++++++++++++++++
+ mysite/account/templates/account/edit_name.html    |   19 +++++++++++++++++
+ mysite/account/templates/account/edit_photo.html   |   20 ++++++++++++++++++
+ .../account/templates/account/invite_someone.html  |   19 +++++++++++++++++
+ mysite/account/templates/account/login.html        |   19 +++++++++++++++++
+ mysite/account/templates/account/login_old.html    |   19 +++++++++++++++++
+ mysite/account/templates/account/login_openid.html |   18 ++++++++++++++++
+ .../templates/account/openid_etc_login.html        |   17 +++++++++++++++
+ .../account/templates/account/password_reset.html  |   19 +++++++++++++++++
+ .../templates/account/password_reset_complete.html |   19 +++++++++++++++++
+ .../templates/account/password_reset_confirm.html  |   19 +++++++++++++++++
+ .../templates/account/password_reset_done.html     |   19 +++++++++++++++++
+ .../templates/account/password_reset_email.html    |   17 +++++++++++++++
+ mysite/account/templates/account/set_location.html |   19 +++++++++++++++++
+ mysite/account/templates/account/settings.html     |   20 +++++++++++++++++-
+ mysite/account/templates/account/settings_tab.html |   19 +++++++++++++++++
+ mysite/account/templates/account/signup.html       |   19 +++++++++++++++++
+ mysite/account/templates/account/widget.html       |   19 +++++++++++++++++
+ mysite/account/templates/authopenid/complete.html  |   19 +++++++++++++++++
+ mysite/account/templates/authopenid/signin.html    |   17 +++++++++++++++
+ mysite/base/templates/404.html                     |   19 +++++++++++++++++
+ mysite/base/templates/500.html                     |   20 ++++++++++++++++++
+ .../templates/audience_specific_landing_page.html  |   18 ++++++++++++++++
+ mysite/base/templates/base/answer-in-feed.html     |   17 +++++++++++++++
+ mysite/base/templates/base/base.html               |   20 ++++++++++++++++++
+ mysite/base/templates/base/feed_widget.html        |   17 +++++++++++++++
+ mysite/base/templates/base/landing.html            |   20 ++++++++++++++++++
+ .../base/landing_page_for_logged_in_users.html     |   18 ++++++++++++++++
+ mysite/base/templates/base/nav.html                |   18 ++++++++++++++++
+ mysite/base/templates/base/one_column.html         |   19 +++++++++++++++++
+ mysite/base/templates/base/two_columns.html        |   19 +++++++++++++++++
+ .../templates/base/two_columns_fat_skinny.html     |   19 +++++++++++++++++
+ mysite/base/templates/base/wannahelp-in-feed.html  |   18 ++++++++++++++++
+ mysite/base/templates/blog_widget.html             |   17 +++++++++++++++
+ .../bug_search_facet_value_in_summary.html         |   18 ++++++++++++++++
+ mysite/base/templates/contributors.html            |   18 ++++++++++++++++
+ mysite/base/templates/expandable_list.html         |   18 ++++++++++++++++
+ mysite/base/templates/facet_option.html            |   18 ++++++++++++++++
+ mysite/base/templates/feed_widget.html             |   17 +++++++++++++++
+ mysite/base/templates/landing_for_documenters.html |   18 ++++++++++++++++
+ mysite/base/templates/landing_for_opp_hunters.html |   18 ++++++++++++++++
+ .../templates/landing_for_project_maintainers.html |   18 ++++++++++++++++
+ mysite/base/templates/meta.html                    |   17 +++++++++++++++
+ mysite/base/templates/mission.html                 |   18 ++++++++++++++++
+ mysite/base/templates/module.html                  |   18 ++++++++++++++++
+ mysite/base/templates/more_facet_options.html      |   18 ++++++++++++++++
+ mysite/base/templates/name.html                    |   18 ++++++++++++++++
+ mysite/base/templates/nextsteps4helpers.html       |   19 +++++++++++++++++
+ mysite/base/templates/opps.html                    |   19 +++++++++++++++++
+ .../base/templates/people_in_project_summary.html  |   18 ++++++++++++++++
+ mysite/base/templates/tag_list.html                |   18 ++++++++++++++++
+ mysite/base/templates/three_columns.html           |   19 +++++++++++++++++
+ mysite/base/templates/unsubscribe.html             |   18 ++++++++++++++++
+ .../templates/weekly_email__list_of_people.html    |   17 +++++++++++++++
+ .../base/templates/weekly_email_re_projects.html   |   17 +++++++++++++++
+ .../migrations/0017_support_old_trac_versions.py   |   16 ++++++++++++++
+ ...18_store_tracbugtimes_latest_timeline_status.py |   16 ++++++++++++++
+ mysite/customs/templates/customs/add_tracker.html  |   18 ++++++++++++++++
+ .../customs/templates/customs/add_tracker_url.html |   18 ++++++++++++++++
+ .../customs/templates/customs/delete_tracker.html  |   18 ++++++++++++++++
+ .../templates/customs/delete_tracker_url.html      |   18 ++++++++++++++++
+ mysite/customs/templates/customs/edit_tracker.html |   18 ++++++++++++++++
+ .../templates/customs/edit_tracker_url.html        |   18 +++++++++++++++-
+ .../customs/templates/customs/list_trackers.html   |   18 ++++++++++++++++
+ mysite/customs/templates/customs/main.html         |   18 ++++++++++++++++
+ .../customs/templates/customs/tracker_history.html |   18 ++++++++++++++++
+ .../templates/missions/diffpatch/about.html        |   18 ++++++++++++++++
+ .../templates/missions/diffpatch/base.html         |   20 +++++++++++++++++-
+ .../templates/missions/diffpatch/diff_patch.html   |   17 +++++++++++++++
+ .../missions/diffpatch/recursive_diff.html         |   18 ++++++++++++++++
+ .../missions/diffpatch/recursive_patch.html        |   18 ++++++++++++++++
+ .../missions/diffpatch/single_file_diff.html       |   18 ++++++++++++++++
+ .../missions/diffpatch/single_file_patch.html      |   18 ++++++++++++++++
+ mysite/missions/templates/missions/main.html       |   19 +++++++++++++++++
+ .../missions/templates/missions/mission_base.html  |   20 ++++++++++++++++++
+ .../missions/templates/missions/mission_info.html  |   18 ++++++++++++++++
+ .../missions/templates/missions/svn/about_svn.html |   18 ++++++++++++++++
+ mysite/missions/templates/missions/svn/base.html   |   20 +++++++++++++++++-
+ .../missions/templates/missions/svn/checkout.html  |   19 +++++++++++++++++
+ mysite/missions/templates/missions/svn/commit.html |   19 +++++++++++++++++
+ mysite/missions/templates/missions/svn/diff.html   |   19 +++++++++++++++++
+ .../missions/templates/missions/svn/main_page.html |   18 ++++++++++++++++
+ mysite/missions/templates/missions/tar/about.html  |   18 ++++++++++++++++
+ mysite/missions/templates/missions/tar/base.html   |   19 ++++++++++++++++-
+ .../missions/templates/missions/tar/creating.html  |   19 ++++++++++++++++-
+ mysite/missions/templates/missions/tar/hints.html  |   19 ++++++++++++++++-
+ .../missions/templates/missions/tar/unpacking.html |   19 ++++++++++++++++-
+ mysite/profile/templates/profile/base_profile.html |   21 ++++++++++++++++++-
+ mysite/profile/templates/profile/contributors.html |   18 ++++++++++++++++
+ mysite/profile/templates/profile/header.html       |   17 +++++++++++++++
+ mysite/profile/templates/profile/importer.html     |   21 ++++++++++++++++++-
+ mysite/profile/templates/profile/info.html         |   18 ++++++++++++++++
+ mysite/profile/templates/profile/info_wrapper.html |   22 +++++++++++++++++++-
+ mysite/profile/templates/profile/main.html         |   22 +++++++++++++++++++-
+ mysite/profile/templates/profile/people-who.html   |   17 +++++++++++++++
+ mysite/profile/templates/profile/people.html       |   21 ++++++++++++++++++-
+ .../templates/profile/person-summary-li.html       |   18 ++++++++++++++++
+ mysite/profile/templates/profile/person_small.html |   17 +++++++++++++++
+ .../profile/portfolio/citation_element.html        |   17 +++++++++++++++
+ .../templates/profile/portfolio/citation_form.html |   17 +++++++++++++++
+ .../profile/portfolio/citation_summary.html        |   17 +++++++++++++++
+ .../profile/portfolio/portfolio_entry_element.html |   19 +++++++++++++++++
+ .../profile/templates/profile/search_people.html   |   22 +++++++++++++++++++-
+ .../profile/templates/profile/suggestion_li.html   |   17 +++++++++++++++
+ mysite/profile/templates/profile/widget-test.html  |   18 ++++++++++++++++
+ mysite/profile/templates/profile/widget.html       |   20 ++++++++++++++++++
+ mysite/project/templates/edit_project.html         |   18 ++++++++++++++++
+ .../templates/project/button_as_widget.html        |   17 +++++++++++++++
+ mysite/project/templates/project/byline.html       |   18 ++++++++++++++++
+ mysite/project/templates/project/forms/bug.html    |   18 ++++++++++++++++
+ .../project/templates/project/forms/paragraph.html |   18 ++++++++++++++++
+ .../templates/project/forms/suggest_questions.html |   18 ++++++++++++++++
+ .../project/templates/project/mentor_summary.html  |   18 ++++++++++++++++
+ .../templates/project/project-list-item.html       |   18 ++++++++++++++++
+ .../templates/project/project-wanna-help-box.html  |   18 ++++++++++++++++
+ mysite/project/templates/project/project.html      |   21 +++++++++++++++++++
+ .../templates/project/project_list_item.html       |   18 ++++++++++++++++
+ mysite/project/templates/project/projects.html     |   19 +++++++++++++++++
+ .../templates/project/suggest_question.html        |   19 +++++++++++++++++
+ .../project/templates/project/voting_controls.html |   17 +++++++++++++++
+ mysite/project/templates/question_text.html        |   18 ++++++++++++++++
+ .../migrations/0059_add_project_homepage_url.py    |   16 ++++++++++++++
+ mysite/search/templates/search/base.html           |   19 +++++++++++++++++
+ mysite/search/templates/search/navigation.html     |   18 ++++++++++++++++
+ mysite/search/templates/search/result.html         |   20 ++++++++++++++++++
+ mysite/search/templates/search/results_widget.html |   18 ++++++++++++++++
+ mysite/search/templates/search/search.html         |   19 +++++++++++++++++
+ 129 files changed, 2359 insertions(+), 14 deletions(-)
+
+diff --git a/504.html b/504.html
+index 34f6c7f..0a662e2 100644
+--- a/504.html
++++ b/504.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ <html> 
+ <head><title>504 Gateway Time-out</title></head> 
+ <body bgcolor="#fff"> 
+diff --git a/mysite/account/templates/account/change_password.html b/mysite/account/templates/account/change_password.html
+index a887807..fbd8677 100644
+--- a/mysite/account/templates/account/change_password.html
++++ b/mysite/account/templates/account/change_password.html
+@@ -1,4 +1,23 @@
+ {% extends 'account/settings_tab.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Change your password - 
+diff --git a/mysite/account/templates/account/edit_contact_info.html b/mysite/account/templates/account/edit_contact_info.html
+index 4514260..1ef11b9 100644
+--- a/mysite/account/templates/account/edit_contact_info.html
++++ b/mysite/account/templates/account/edit_contact_info.html
+@@ -1,4 +1,22 @@
+ {% extends 'account/settings_tab.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Email settings -
+diff --git a/mysite/account/templates/account/edit_name.html b/mysite/account/templates/account/edit_name.html
+index ae1f651..2efda55 100644
+--- a/mysite/account/templates/account/edit_name.html
++++ b/mysite/account/templates/account/edit_name.html
+@@ -1,4 +1,23 @@
+ {% extends 'account/settings_tab.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Change your name - 
+diff --git a/mysite/account/templates/account/edit_photo.html b/mysite/account/templates/account/edit_photo.html
+index f464367..b2a9606 100644
+--- a/mysite/account/templates/account/edit_photo.html
++++ b/mysite/account/templates/account/edit_photo.html
+@@ -1,4 +1,24 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010, 2011 OpenHatch Inc.
++# Copyright (C) 2010 Jessica McKellar
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}Change your photo{% endblock %}
+ 
+diff --git a/mysite/account/templates/account/invite_someone.html b/mysite/account/templates/account/invite_someone.html
+index 3c52ffd..8cb6364 100644
+--- a/mysite/account/templates/account/invite_someone.html
++++ b/mysite/account/templates/account/invite_someone.html
+@@ -1,4 +1,23 @@
+ {% extends 'account/settings_tab.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Tell a friend or enemy
+diff --git a/mysite/account/templates/account/login.html b/mysite/account/templates/account/login.html
+index ae977ef..23e01ca 100644
+--- a/mysite/account/templates/account/login.html
++++ b/mysite/account/templates/account/login.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load base_extras %}
+ 
+ {% block title %}
+diff --git a/mysite/account/templates/account/login_old.html b/mysite/account/templates/account/login_old.html
+index 8ddd0a8..dbb1d93 100644
+--- a/mysite/account/templates/account/login_old.html
++++ b/mysite/account/templates/account/login_old.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Log in 
+diff --git a/mysite/account/templates/account/login_openid.html b/mysite/account/templates/account/login_openid.html
+index e48b928..aabc07b 100644
+--- a/mysite/account/templates/account/login_openid.html
++++ b/mysite/account/templates/account/login_openid.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ <form id="openid_form" name="openid_form"
+     action="{% url user_signin %}" method="post">
+     {% if next and not answers and not request.GET.from_offsite %}
+diff --git a/mysite/account/templates/account/openid_etc_login.html b/mysite/account/templates/account/openid_etc_login.html
+index 695b120..273f3b8 100644
+--- a/mysite/account/templates/account/openid_etc_login.html
++++ b/mysite/account/templates/account/openid_etc_login.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2009 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ 
+ 
+ 
+diff --git a/mysite/account/templates/account/password_reset.html b/mysite/account/templates/account/password_reset.html
+index 591339f..f9aa4c4 100644
+--- a/mysite/account/templates/account/password_reset.html
++++ b/mysite/account/templates/account/password_reset.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load i18n %}
+ 
+ {% block title %}Password reset{% endblock %}
+diff --git a/mysite/account/templates/account/password_reset_complete.html b/mysite/account/templates/account/password_reset_complete.html
+index 885ac0a..38f34d4 100644
+--- a/mysite/account/templates/account/password_reset_complete.html
++++ b/mysite/account/templates/account/password_reset_complete.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load i18n %}
+ 
+ {% block title %}
+diff --git a/mysite/account/templates/account/password_reset_confirm.html b/mysite/account/templates/account/password_reset_confirm.html
+index 66dbc05..4a806cf 100644
+--- a/mysite/account/templates/account/password_reset_confirm.html
++++ b/mysite/account/templates/account/password_reset_confirm.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load i18n %}
+ 
+ {% block title %}Password reset confirmation{% endblock %}
+diff --git a/mysite/account/templates/account/password_reset_done.html b/mysite/account/templates/account/password_reset_done.html
+index 80a0390..7721308 100644
+--- a/mysite/account/templates/account/password_reset_done.html
++++ b/mysite/account/templates/account/password_reset_done.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load i18n %}
+ 
+ {% block title %}Password reset successful{% endblock %}
+diff --git a/mysite/account/templates/account/password_reset_email.html b/mysite/account/templates/account/password_reset_email.html
+index 5ced395..2891ce0 100644
+--- a/mysite/account/templates/account/password_reset_email.html
++++ b/mysite/account/templates/account/password_reset_email.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2009 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load i18n %}{% autoescape off %}
+ {% trans "You're receiving this e-mail because you requested a password reset" %}
+ {% blocktrans %}for your user account at {{ site_name }}{% endblocktrans %}.
+diff --git a/mysite/account/templates/account/set_location.html b/mysite/account/templates/account/set_location.html
+index e7e1423..126d6f4 100644
+--- a/mysite/account/templates/account/set_location.html
++++ b/mysite/account/templates/account/set_location.html
+@@ -1,4 +1,23 @@
+ {% extends 'account/settings_tab.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Put yourself on the map - 
+diff --git a/mysite/account/templates/account/settings.html b/mysite/account/templates/account/settings.html
+index f305167..684e4bf 100644
+--- a/mysite/account/templates/account/settings.html
++++ b/mysite/account/templates/account/settings.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Settings
+@@ -65,4 +84,3 @@ Settings
+     </div>
+ </div>
+ {% endblock main %}
+-
+diff --git a/mysite/account/templates/account/settings_tab.html b/mysite/account/templates/account/settings_tab.html
+index 1d33723..b7cbb9f 100644
+--- a/mysite/account/templates/account/settings_tab.html
++++ b/mysite/account/templates/account/settings_tab.html
+@@ -1,4 +1,23 @@
+ {% extends 'account/settings.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block settings_main %}
+ {% comment %}
+diff --git a/mysite/account/templates/account/signup.html b/mysite/account/templates/account/signup.html
+index 323c01a..67458b4 100644
+--- a/mysite/account/templates/account/signup.html
++++ b/mysite/account/templates/account/signup.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load i18n %}
+ 
+ {% block title %}Sign up{% endblock %}
+diff --git a/mysite/account/templates/account/widget.html b/mysite/account/templates/account/widget.html
+index d06e2d3..99c45d8 100644
+--- a/mysite/account/templates/account/widget.html
++++ b/mysite/account/templates/account/widget.html
+@@ -1,4 +1,23 @@
+ {% extends 'account/settings_tab.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Widgetize yourself -
+diff --git a/mysite/account/templates/authopenid/complete.html b/mysite/account/templates/authopenid/complete.html
+index 7578eca..9f5b848 100644
+--- a/mysite/account/templates/authopenid/complete.html
++++ b/mysite/account/templates/authopenid/complete.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load base_extras %}
+ {% load i18n %}
+ 
+diff --git a/mysite/account/templates/authopenid/signin.html b/mysite/account/templates/authopenid/signin.html
+index 028758b..12b3482 100644
+--- a/mysite/account/templates/authopenid/signin.html
++++ b/mysite/account/templates/authopenid/signin.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2009 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load i18n %}
+ 
+ <form id="openid_form" name="openid_form" action="{% url user_signin %}" method="post">
+diff --git a/mysite/base/templates/404.html b/mysite/base/templates/404.html
+index b9b7cef..24d5038 100644
+--- a/mysite/base/templates/404.html
++++ b/mysite/base/templates/404.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Error 404: Page not found
+diff --git a/mysite/base/templates/500.html b/mysite/base/templates/500.html
+index 0f6f87d..e45328b 100644
+--- a/mysite/base/templates/500.html
++++ b/mysite/base/templates/500.html
+@@ -1,4 +1,24 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++# Copyright (C) 2011 Krzysztof Tarnowski
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load base_extras %}
+ 
+ {% block title %}
+diff --git a/mysite/base/templates/audience_specific_landing_page.html b/mysite/base/templates/audience_specific_landing_page.html
+index 858303c..46dca1e 100644
+--- a/mysite/base/templates/audience_specific_landing_page.html
++++ b/mysite/base/templates/audience_specific_landing_page.html
+@@ -1,4 +1,22 @@
+ {% extends 'base/two_columns_fat_skinny.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block body_class %}{{ block.super }} landing_page{% endblock %}
+ 
+diff --git a/mysite/base/templates/base/answer-in-feed.html b/mysite/base/templates/base/answer-in-feed.html
+index 64dc11b..2e9e1f9 100644
+--- a/mysite/base/templates/base/answer-in-feed.html
++++ b/mysite/base/templates/base/answer-in-feed.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load cache %}
+ {% load base_extras %}
+ {% load profile_extras %}
+diff --git a/mysite/base/templates/base/base.html b/mysite/base/templates/base/base.html
+index 19a1c54..3116802 100644
+--- a/mysite/base/templates/base/base.html
++++ b/mysite/base/templates/base/base.html
+@@ -1,3 +1,23 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009 Karen Rustad
++# Copyright (C) 2009, 2010, 2011 OpenHatch Inc.
++# Copyright (C) 2010 John Stumpo
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load base_extras %}
+ {% load assets %}
+ <!doctype html>
+diff --git a/mysite/base/templates/base/feed_widget.html b/mysite/base/templates/base/feed_widget.html
+index 8c37369..616a17c 100644
+--- a/mysite/base/templates/base/feed_widget.html
++++ b/mysite/base/templates/base/feed_widget.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+     <div class='module' id='recent_activity_feed'>
+         <div class='head'>
+             <h3>Recent activity</h3>
+diff --git a/mysite/base/templates/base/landing.html b/mysite/base/templates/base/landing.html
+index ce28642..a8d488b 100644
+--- a/mysite/base/templates/base/landing.html
++++ b/mysite/base/templates/base/landing.html
+@@ -1,4 +1,24 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009 Karen Rustad
++# Copyright (C) 2009, 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load cache %}
+ {% load base_extras %}
+ {% load profile_extras %}
+diff --git a/mysite/base/templates/base/landing_page_for_logged_in_users.html b/mysite/base/templates/base/landing_page_for_logged_in_users.html
+index 66b67d3..250077b 100644
+--- a/mysite/base/templates/base/landing_page_for_logged_in_users.html
++++ b/mysite/base/templates/base/landing_page_for_logged_in_users.html
+@@ -1,4 +1,22 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load cache %}
+ {% load base_extras %}
+ {% load profile_extras %}
+diff --git a/mysite/base/templates/base/nav.html b/mysite/base/templates/base/nav.html
+index 92c2cd3..32c7230 100644
+--- a/mysite/base/templates/base/nav.html
++++ b/mysite/base/templates/base/nav.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load base_extras %}
+ 
+ <div id='nav'>
+diff --git a/mysite/base/templates/base/one_column.html b/mysite/base/templates/base/one_column.html
+index e935cce..b269b94 100644
+--- a/mysite/base/templates/base/one_column.html
++++ b/mysite/base/templates/base/one_column.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block body_class %}one_column{% endblock body_class %}
+ 
+diff --git a/mysite/base/templates/base/two_columns.html b/mysite/base/templates/base/two_columns.html
+index 3b70b05..a9ec5c7 100644
+--- a/mysite/base/templates/base/two_columns.html
++++ b/mysite/base/templates/base/two_columns.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block body_class %}two_columns{% endblock body_class %}
+ 
+diff --git a/mysite/base/templates/base/two_columns_fat_skinny.html b/mysite/base/templates/base/two_columns_fat_skinny.html
+index 2454327..56caca5 100644
+--- a/mysite/base/templates/base/two_columns_fat_skinny.html
++++ b/mysite/base/templates/base/two_columns_fat_skinny.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block body_class %}{{ block.super }} two_columns{% endblock %}
+ 
+diff --git a/mysite/base/templates/base/wannahelp-in-feed.html b/mysite/base/templates/base/wannahelp-in-feed.html
+index e7c607a..60dd4fe 100644
+--- a/mysite/base/templates/base/wannahelp-in-feed.html
++++ b/mysite/base/templates/base/wannahelp-in-feed.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load cache %}
+ {% load base_extras %}
+ {% load profile_extras %}
+diff --git a/mysite/base/templates/blog_widget.html b/mysite/base/templates/blog_widget.html
+index bdcd765..2069dd9 100644
+--- a/mysite/base/templates/blog_widget.html
++++ b/mysite/base/templates/blog_widget.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load cache %}
+ {% load base_extras %}
+ {% load profile_extras %}
+diff --git a/mysite/base/templates/bug_search_facet_value_in_summary.html b/mysite/base/templates/bug_search_facet_value_in_summary.html
+index 6fa5f39..0e018d8 100644
+--- a/mysite/base/templates/bug_search_facet_value_in_summary.html
++++ b/mysite/base/templates/bug_search_facet_value_in_summary.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load base_extras %}
+ <a rel='tipsy-south' title='Click to remove {{ facet }} filter'
+     href='?{{ facet2any_query_string|at:facet }}'>{{ value }}</a>
+diff --git a/mysite/base/templates/contributors.html b/mysite/base/templates/contributors.html
+index 7af91db..fca2845 100644
+--- a/mysite/base/templates/contributors.html
++++ b/mysite/base/templates/contributors.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+                             {% for person in contributors %}
+                                 {% with person.get_photo_thumbnail_20px_wide_url_or_default as thumbnail_url %}
+                                 <img rel='tipsy-south'
+diff --git a/mysite/base/templates/expandable_list.html b/mysite/base/templates/expandable_list.html
+index d6fb662..e7de98e 100644
+--- a/mysite/base/templates/expandable_list.html
++++ b/mysite/base/templates/expandable_list.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ 
+                     {{ list|slice:':10'|join:", " }}
+                     {% with list|slice:'10:' as hide_these_elements %}
+diff --git a/mysite/base/templates/facet_option.html b/mysite/base/templates/facet_option.html
+index e1e47f3..d0c713d 100644
+--- a/mysite/base/templates/facet_option.html
++++ b/mysite/base/templates/facet_option.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ 
+                                 <li {% if option.is_active %}class='active'{% endif %}>
+                                     <a href='?{{ option.query_string }}'>
+diff --git a/mysite/base/templates/feed_widget.html b/mysite/base/templates/feed_widget.html
+index 8c37369..616a17c 100644
+--- a/mysite/base/templates/feed_widget.html
++++ b/mysite/base/templates/feed_widget.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+     <div class='module' id='recent_activity_feed'>
+         <div class='head'>
+             <h3>Recent activity</h3>
+diff --git a/mysite/base/templates/landing_for_documenters.html b/mysite/base/templates/landing_for_documenters.html
+index a609a28..8e1088d 100644
+--- a/mysite/base/templates/landing_for_documenters.html
++++ b/mysite/base/templates/landing_for_documenters.html
+@@ -1,4 +1,22 @@
+ {% extends 'audience_specific_landing_page.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}Document your open source contributions{% endblock title %}
+ 
+diff --git a/mysite/base/templates/landing_for_opp_hunters.html b/mysite/base/templates/landing_for_opp_hunters.html
+index cba14a6..8d0a30e 100644
+--- a/mysite/base/templates/landing_for_opp_hunters.html
++++ b/mysite/base/templates/landing_for_opp_hunters.html
+@@ -1,4 +1,22 @@
+ {% extends 'audience_specific_landing_page.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}{{ block.super }} Finding something to do{% endblock title %}
+ 
+diff --git a/mysite/base/templates/landing_for_project_maintainers.html b/mysite/base/templates/landing_for_project_maintainers.html
+index ac23d21..54bc64e 100644
+--- a/mysite/base/templates/landing_for_project_maintainers.html
++++ b/mysite/base/templates/landing_for_project_maintainers.html
+@@ -1,4 +1,22 @@
+ {% extends 'audience_specific_landing_page.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block body_id %}#landing_for_project_maintainers{% endblock body_id %}
+ 
+diff --git a/mysite/base/templates/meta.html b/mysite/base/templates/meta.html
+index 295e817..cbed914 100644
+--- a/mysite/base/templates/meta.html
++++ b/mysite/base/templates/meta.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ <h1>Some tables</h1>
+ 
+ 
+diff --git a/mysite/base/templates/mission.html b/mysite/base/templates/mission.html
+index bbe9f00..edeec2a 100644
+--- a/mysite/base/templates/mission.html
++++ b/mysite/base/templates/mission.html
+@@ -1,4 +1,22 @@
+ {% extends 'base/two_columns_fat_skinny.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load cache %}
+ {% load base_extras %}
+ 
+diff --git a/mysite/base/templates/module.html b/mysite/base/templates/module.html
+index 8a12fc8..c7d137e 100644
+--- a/mysite/base/templates/module.html
++++ b/mysite/base/templates/module.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ <div class='module'>
+     <div class='head'>
+         <h3></h3>
+diff --git a/mysite/base/templates/more_facet_options.html b/mysite/base/templates/more_facet_options.html
+index 15656f4..4da370c 100644
+--- a/mysite/base/templates/more_facet_options.html
++++ b/mysite/base/templates/more_facet_options.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ 
+                                 <li class='more_facet_options'>
+                                     <a rel='facebox' href='#{{ facet_name }}s'>
+diff --git a/mysite/base/templates/name.html b/mysite/base/templates/name.html
+index dc1cc8c..4191566 100644
+--- a/mysite/base/templates/name.html
++++ b/mysite/base/templates/name.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load base_extras %}
+ {% spaceless %}
+ {% if user.first_name or user.last_name %}
+diff --git a/mysite/base/templates/nextsteps4helpers.html b/mysite/base/templates/nextsteps4helpers.html
+index cd02287..abb9484 100644
+--- a/mysite/base/templates/nextsteps4helpers.html
++++ b/mysite/base/templates/nextsteps4helpers.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+     Next steps 
+diff --git a/mysite/base/templates/opps.html b/mysite/base/templates/opps.html
+index 8d915f5..208a963 100644
+--- a/mysite/base/templates/opps.html
++++ b/mysite/base/templates/opps.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/three_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% load base_extras %}
+ {% load search %}
+diff --git a/mysite/base/templates/people_in_project_summary.html b/mysite/base/templates/people_in_project_summary.html
+index 9d983e8..ade4a92 100644
+--- a/mysite/base/templates/people_in_project_summary.html
++++ b/mysite/base/templates/people_in_project_summary.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+                             {% for person in people %}
+                                 {% with person.get_photo_thumbnail_20px_wide_url_or_default as thumbnail_url %}
+                                 <img rel='tipsy-south'
+diff --git a/mysite/base/templates/tag_list.html b/mysite/base/templates/tag_list.html
+index b990b89..bc332bc 100644
+--- a/mysite/base/templates/tag_list.html
++++ b/mysite/base/templates/tag_list.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+             <li id='tags-understands'>
+                 <h4>{{ tag_type_heading }}</h4>
+                 <div class='tags'>
+diff --git a/mysite/base/templates/three_columns.html b/mysite/base/templates/three_columns.html
+index f7169a9..1ba2ce1 100644
+--- a/mysite/base/templates/three_columns.html
++++ b/mysite/base/templates/three_columns.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block body_class %}three_columns{% endblock body_class %}
+ 
+diff --git a/mysite/base/templates/unsubscribe.html b/mysite/base/templates/unsubscribe.html
+index ca51850..45018e4 100644
+--- a/mysite/base/templates/unsubscribe.html
++++ b/mysite/base/templates/unsubscribe.html
+@@ -1,4 +1,22 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block main %}
+ 
+diff --git a/mysite/base/templates/weekly_email__list_of_people.html b/mysite/base/templates/weekly_email__list_of_people.html
+index 9e94389..4ce9b9a 100644
+--- a/mysite/base/templates/weekly_email__list_of_people.html
++++ b/mysite/base/templates/weekly_email__list_of_people.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load profile_extras %}
+ 
+                 {% if not rich_text %}
+diff --git a/mysite/base/templates/weekly_email_re_projects.html b/mysite/base/templates/weekly_email_re_projects.html
+index 148c5fe..8a34227 100644
+--- a/mysite/base/templates/weekly_email_re_projects.html
++++ b/mysite/base/templates/weekly_email_re_projects.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load humanize %}
+ <html>
+     <head>
+diff --git a/mysite/customs/migrations/0017_support_old_trac_versions.py b/mysite/customs/migrations/0017_support_old_trac_versions.py
+index 157bd73..7a233c3 100644
+--- a/mysite/customs/migrations/0017_support_old_trac_versions.py
++++ b/mysite/customs/migrations/0017_support_old_trac_versions.py
+@@ -1,3 +1,19 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2011 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
+ 
+ from south.db import db
+ from django.db import models
+diff --git a/mysite/customs/migrations/0018_store_tracbugtimes_latest_timeline_status.py b/mysite/customs/migrations/0018_store_tracbugtimes_latest_timeline_status.py
+index 993acc7..1f5444b 100644
+--- a/mysite/customs/migrations/0018_store_tracbugtimes_latest_timeline_status.py
++++ b/mysite/customs/migrations/0018_store_tracbugtimes_latest_timeline_status.py
+@@ -1,3 +1,19 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2011 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
+ 
+ from south.db import db
+ from django.db import models
+diff --git a/mysite/customs/templates/customs/add_tracker.html b/mysite/customs/templates/customs/add_tracker.html
+index 6ad03ee..88d9605 100644
+--- a/mysite/customs/templates/customs/add_tracker.html
++++ b/mysite/customs/templates/customs/add_tracker.html
+@@ -1,4 +1,22 @@
+ {% extends 'customs/main.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block top_url %}
+ <a href="{% url mysite.customs.views.list_trackers %}">
+diff --git a/mysite/customs/templates/customs/add_tracker_url.html b/mysite/customs/templates/customs/add_tracker_url.html
+index e1f5ea7..fd902fb 100644
+--- a/mysite/customs/templates/customs/add_tracker_url.html
++++ b/mysite/customs/templates/customs/add_tracker_url.html
+@@ -1,4 +1,22 @@
+ {% extends 'customs/main.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block top_url %}
+ <a href="{{ cancel_url }}">
+diff --git a/mysite/customs/templates/customs/delete_tracker.html b/mysite/customs/templates/customs/delete_tracker.html
+index 8d78646..a885fe6 100644
+--- a/mysite/customs/templates/customs/delete_tracker.html
++++ b/mysite/customs/templates/customs/delete_tracker.html
+@@ -1,4 +1,22 @@
+ {% extends 'customs/main.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block heading %}
+ {{ block.super }} - Delete the {{ project_name }} tracker
+diff --git a/mysite/customs/templates/customs/delete_tracker_url.html b/mysite/customs/templates/customs/delete_tracker_url.html
+index cef9372..563767d 100644
+--- a/mysite/customs/templates/customs/delete_tracker_url.html
++++ b/mysite/customs/templates/customs/delete_tracker_url.html
+@@ -1,4 +1,22 @@
+ {% extends 'customs/main.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block heading %}
+ {{ block.super }} - Delete URL from the {{ project_name }} tracker
+diff --git a/mysite/customs/templates/customs/edit_tracker.html b/mysite/customs/templates/customs/edit_tracker.html
+index 150b19a..7e5ab79 100644
+--- a/mysite/customs/templates/customs/edit_tracker.html
++++ b/mysite/customs/templates/customs/edit_tracker.html
+@@ -1,4 +1,22 @@
+ {% extends 'customs/main.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block top_url %}
+ <a href="{% url mysite.customs.views.list_trackers %}">
+diff --git a/mysite/customs/templates/customs/edit_tracker_url.html b/mysite/customs/templates/customs/edit_tracker_url.html
+index a2f5245..1b333e4 100644
+--- a/mysite/customs/templates/customs/edit_tracker_url.html
++++ b/mysite/customs/templates/customs/edit_tracker_url.html
+@@ -1,5 +1,21 @@
+-
+ {% extends 'customs/main.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ 
+ {% block top_url %}
+ <a href="{{ cancel_url }}">
+diff --git a/mysite/customs/templates/customs/list_trackers.html b/mysite/customs/templates/customs/list_trackers.html
+index e54f790..a66edca 100644
+--- a/mysite/customs/templates/customs/list_trackers.html
++++ b/mysite/customs/templates/customs/list_trackers.html
+@@ -1,4 +1,22 @@
+ {% extends 'customs/main.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block form_name %}
+ 'list_trackers'
+diff --git a/mysite/customs/templates/customs/main.html b/mysite/customs/templates/customs/main.html
+index 8bc00ab..f17eec4 100644
+--- a/mysite/customs/templates/customs/main.html
++++ b/mysite/customs/templates/customs/main.html
+@@ -1,4 +1,22 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Customs
+diff --git a/mysite/customs/templates/customs/tracker_history.html b/mysite/customs/templates/customs/tracker_history.html
+index 538336b..4ab1eb3 100644
+--- a/mysite/customs/templates/customs/tracker_history.html
++++ b/mysite/customs/templates/customs/tracker_history.html
+@@ -1,4 +1,22 @@
+ {% extends 'customs/main.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block top_url %}
+ <a href="{% url mysite.customs.views.list_trackers %}">
+diff --git a/mysite/missions/templates/missions/diffpatch/about.html b/mysite/missions/templates/missions/diffpatch/about.html
+index b925a9c..cdf5fff 100644
+--- a/mysite/missions/templates/missions/diffpatch/about.html
++++ b/mysite/missions/templates/missions/diffpatch/about.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/diffpatch/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main %}
+ <div class='submodule fat'>
+diff --git a/mysite/missions/templates/missions/diffpatch/base.html b/mysite/missions/templates/missions/diffpatch/base.html
+index 417d3ff..4cecc5d 100644
+--- a/mysite/missions/templates/missions/diffpatch/base.html
++++ b/mysite/missions/templates/missions/diffpatch/base.html
+@@ -1,4 +1,23 @@
+ {% extends 'missions/mission_base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2011 Krzysztof Tarnowski
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block side_nav_links %}
+ <li id='link-about'>
+@@ -27,4 +46,3 @@
+   </a>
+ </li>
+ {% endblock side_nav_links %}
+-
+diff --git a/mysite/missions/templates/missions/diffpatch/diff_patch.html b/mysite/missions/templates/missions/diffpatch/diff_patch.html
+index c3b0845..f43e3db 100644
+--- a/mysite/missions/templates/missions/diffpatch/diff_patch.html
++++ b/mysite/missions/templates/missions/diffpatch/diff_patch.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+     <h2>Diffing entire directories</h2>
+     <p>Often your changes will involve more than one file, so it makes sense to submit all of those changes in one shot, especially if the changes depend on one another.  The <code>-r</code> option to diff makes it take two directories and compare their contents file-by-file, so you can keep one untouched copy of the project and one copy that you make your modifications to, then diff them with the <code>-r</code> option and get all of your changes in one convenient blob.</p>
+     <p>Here is your mission:</p>
+diff --git a/mysite/missions/templates/missions/diffpatch/recursive_diff.html b/mysite/missions/templates/missions/diffpatch/recursive_diff.html
+index 35126cd..bd1661b 100644
+--- a/mysite/missions/templates/missions/diffpatch/recursive_diff.html
++++ b/mysite/missions/templates/missions/diffpatch/recursive_diff.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/diffpatch/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main %}
+ <div class='submodule fat'>
+diff --git a/mysite/missions/templates/missions/diffpatch/recursive_patch.html b/mysite/missions/templates/missions/diffpatch/recursive_patch.html
+index 4933a96..dac5894 100644
+--- a/mysite/missions/templates/missions/diffpatch/recursive_patch.html
++++ b/mysite/missions/templates/missions/diffpatch/recursive_patch.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/diffpatch/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main %}
+ <div class='submodule fat'>
+diff --git a/mysite/missions/templates/missions/diffpatch/single_file_diff.html b/mysite/missions/templates/missions/diffpatch/single_file_diff.html
+index d973aa7..793b91e 100644
+--- a/mysite/missions/templates/missions/diffpatch/single_file_diff.html
++++ b/mysite/missions/templates/missions/diffpatch/single_file_diff.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/diffpatch/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main %}
+ <div class='submodule fat'>
+diff --git a/mysite/missions/templates/missions/diffpatch/single_file_patch.html b/mysite/missions/templates/missions/diffpatch/single_file_patch.html
+index e110932..9335b2f 100644
+--- a/mysite/missions/templates/missions/diffpatch/single_file_patch.html
++++ b/mysite/missions/templates/missions/diffpatch/single_file_patch.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/diffpatch/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main %}
+ <div class='submodule fat'>
+diff --git a/mysite/missions/templates/missions/main.html b/mysite/missions/templates/missions/main.html
+index 9895b55..85f65a9 100644
+--- a/mysite/missions/templates/missions/main.html
++++ b/mysite/missions/templates/missions/main.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Open source training missions
+diff --git a/mysite/missions/templates/missions/mission_base.html b/mysite/missions/templates/missions/mission_base.html
+index 8995cbb..aeac8af 100644
+--- a/mysite/missions/templates/missions/mission_base.html
++++ b/mysite/missions/templates/missions/mission_base.html
+@@ -1,4 +1,24 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 Jack Grigg
++# Copyright (C) 2010, 2011 OpenHatch Inc.
++# Copyright (C) 2011 Krzysztof Tarnowski
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block body_class %}{{ block.super }} missions{% endblock %}
+ 
+diff --git a/mysite/missions/templates/missions/mission_info.html b/mysite/missions/templates/missions/mission_info.html
+index 155bf76..57ab57e 100644
+--- a/mysite/missions/templates/missions/mission_info.html
++++ b/mysite/missions/templates/missions/mission_info.html
+@@ -1,4 +1,22 @@
+ {% extends 'base/two_columns_fat_skinny.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block main %}
+ <div class="module">
+diff --git a/mysite/missions/templates/missions/svn/about_svn.html b/mysite/missions/templates/missions/svn/about_svn.html
+index ef0a6e6..f5d60eb 100644
+--- a/mysite/missions/templates/missions/svn/about_svn.html
++++ b/mysite/missions/templates/missions/svn/about_svn.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/svn/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main_body %}
+ <p>Most open source projects keep their code in a version control system (<abbr title="version control system">VCS</abbr>).  Subversion is a popular VCS for open source projects.  Subversion is a non-distributed VCS, meaning that there is a single central repository that all users and developers interact with.</p>
+diff --git a/mysite/missions/templates/missions/svn/base.html b/mysite/missions/templates/missions/svn/base.html
+index c8ba209..f51c260 100644
+--- a/mysite/missions/templates/missions/svn/base.html
++++ b/mysite/missions/templates/missions/svn/base.html
+@@ -1,4 +1,23 @@
+ {% extends 'missions/mission_base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block side_nav_links %}
+ <li id='link-main_page'>
+@@ -27,4 +46,3 @@
+   </a>
+ </li>
+ {% endblock side_nav_links %}
+-
+diff --git a/mysite/missions/templates/missions/svn/checkout.html b/mysite/missions/templates/missions/svn/checkout.html
+index 066b63d..67e7ffc 100644
+--- a/mysite/missions/templates/missions/svn/checkout.html
++++ b/mysite/missions/templates/missions/svn/checkout.html
+@@ -1,4 +1,23 @@
+ {% extends 'missions/svn/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main_body %}
+ <p>Your eventual goal is to be able to modify Mr. Bad's plans.</p>
+diff --git a/mysite/missions/templates/missions/svn/commit.html b/mysite/missions/templates/missions/svn/commit.html
+index 94520f5..d78a5f0 100644
+--- a/mysite/missions/templates/missions/svn/commit.html
++++ b/mysite/missions/templates/missions/svn/commit.html
+@@ -1,4 +1,23 @@
+ {% extends 'missions/svn/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block js %}
+ {{ block.super }}
+diff --git a/mysite/missions/templates/missions/svn/diff.html b/mysite/missions/templates/missions/svn/diff.html
+index 6828401..bca3957 100644
+--- a/mysite/missions/templates/missions/svn/diff.html
++++ b/mysite/missions/templates/missions/svn/diff.html
+@@ -1,4 +1,23 @@
+ {% extends 'missions/svn/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_missing_prerequisite_text %}
+ <p>You can't do the diffing step yet. You have to do the
+diff --git a/mysite/missions/templates/missions/svn/main_page.html b/mysite/missions/templates/missions/svn/main_page.html
+index 88378db..d153cc6 100644
+--- a/mysite/missions/templates/missions/svn/main_page.html
++++ b/mysite/missions/templates/missions/svn/main_page.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/svn/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main_body %}
+ <h3>The set-up</h3>
+diff --git a/mysite/missions/templates/missions/tar/about.html b/mysite/missions/templates/missions/tar/about.html
+index f095b82..2c42a78 100644
+--- a/mysite/missions/templates/missions/tar/about.html
++++ b/mysite/missions/templates/missions/tar/about.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/tar/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main %}
+ <div class='submodule fat'>
+diff --git a/mysite/missions/templates/missions/tar/base.html b/mysite/missions/templates/missions/tar/base.html
+index 1cd4696..076e21c 100644
+--- a/mysite/missions/templates/missions/tar/base.html
++++ b/mysite/missions/templates/missions/tar/base.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/mission_base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block side_nav_links %}
+ <li id='link-about'>
+@@ -22,4 +40,3 @@
+   </a>
+ </li>
+ {% endblock side_nav_links %}
+-
+diff --git a/mysite/missions/templates/missions/tar/creating.html b/mysite/missions/templates/missions/tar/creating.html
+index 17f6df2..4bef36c 100644
+--- a/mysite/missions/templates/missions/tar/creating.html
++++ b/mysite/missions/templates/missions/tar/creating.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/tar/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main %}
+ <div class='submodule fat'>
+@@ -62,4 +80,3 @@
+   </div>
+ </div>
+ {% endblock mission_main %}
+-
+diff --git a/mysite/missions/templates/missions/tar/hints.html b/mysite/missions/templates/missions/tar/hints.html
+index c8ea3ec..cc9a7f7 100644
+--- a/mysite/missions/templates/missions/tar/hints.html
++++ b/mysite/missions/templates/missions/tar/hints.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/tar/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main %}
+ <div class='submodule fat'>
+@@ -31,4 +49,3 @@
+   </div>
+ </div>
+ {% endblock mission_main %}
+-
+diff --git a/mysite/missions/templates/missions/tar/unpacking.html b/mysite/missions/templates/missions/tar/unpacking.html
+index 681dcdf..d7b19c9 100644
+--- a/mysite/missions/templates/missions/tar/unpacking.html
++++ b/mysite/missions/templates/missions/tar/unpacking.html
+@@ -1,4 +1,22 @@
+ {% extends 'missions/tar/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block mission_main %}
+ <div class='submodule fat'>
+@@ -47,4 +65,3 @@
+   </div>
+ </div>
+ {% endblock mission_main %}
+-
+diff --git a/mysite/profile/templates/profile/base_profile.html b/mysite/profile/templates/profile/base_profile.html
+index 64fa0df..364bc72 100644
+--- a/mysite/profile/templates/profile/base_profile.html
++++ b/mysite/profile/templates/profile/base_profile.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/two_columns.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% load base_extras %}
+ {% load profile_extras %}
+@@ -257,4 +276,4 @@
+ 
+ {% comment %}
+ vim: set ai et ts=4 sw=4 nu:
+-{% endcomment %}
++{% endcomment %}
+\ No newline at end of file
+diff --git a/mysite/profile/templates/profile/contributors.html b/mysite/profile/templates/profile/contributors.html
+index f179840..7640fb9 100644
+--- a/mysite/profile/templates/profile/contributors.html
++++ b/mysite/profile/templates/profile/contributors.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load profile_extras %}
+ {% load humanize %}
+ 
+diff --git a/mysite/profile/templates/profile/header.html b/mysite/profile/templates/profile/header.html
+index e69de29..0dfb8d1 100644
+--- a/mysite/profile/templates/profile/header.html
++++ b/mysite/profile/templates/profile/header.html
+@@ -0,0 +1,17 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2009 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+diff --git a/mysite/profile/templates/profile/importer.html b/mysite/profile/templates/profile/importer.html
+index 14c3966..ac43c15 100644
+--- a/mysite/profile/templates/profile/importer.html
++++ b/mysite/profile/templates/profile/importer.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Manage projects
+@@ -128,4 +147,4 @@ var want_importer = true;
+ {% block js_tests %}
+ <script type='text/javascript' src='/static/js/tester.js'></script>
+ <script type='text/javascript' src='/static/js/profile/editor/tests.js'></script>
+-{% endblock js_tests %}
++{% endblock js_tests %}
+\ No newline at end of file
+diff --git a/mysite/profile/templates/profile/info.html b/mysite/profile/templates/profile/info.html
+index e69de29..f81fdb0 100644
+--- a/mysite/profile/templates/profile/info.html
++++ b/mysite/profile/templates/profile/info.html
+@@ -0,0 +1,18 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+diff --git a/mysite/profile/templates/profile/info_wrapper.html b/mysite/profile/templates/profile/info_wrapper.html
+index d59f9f7..c3340a1 100644
+--- a/mysite/profile/templates/profile/info_wrapper.html
++++ b/mysite/profile/templates/profile/info_wrapper.html
+@@ -1,4 +1,24 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010, 2011 OpenHatch Inc.
++# Copyright (C) 2010 John Stumpo
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+     Edit your info
+@@ -129,4 +149,4 @@
+                     </form>
+                 </div>      
+             </div> 
+-        {% endblock %}
++        {% endblock %}
+\ No newline at end of file
+diff --git a/mysite/profile/templates/profile/main.html b/mysite/profile/templates/profile/main.html
+index 1395f95..8c9b406 100644
+--- a/mysite/profile/templates/profile/main.html
++++ b/mysite/profile/templates/profile/main.html
+@@ -1,4 +1,24 @@
+ {% extends 'profile/base_profile.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009 Karen Rustad
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ {{ person.get_full_name_or_username }}
+@@ -85,4 +105,4 @@
+     <script type='text/javascript'>
+         $(ShowMoreProjects.init);
+     </script>
+-{% endblock js %}
++{% endblock js %}
+\ No newline at end of file
+diff --git a/mysite/profile/templates/profile/people-who.html b/mysite/profile/templates/profile/people-who.html
+index c7aeb87..d2d145e 100644
+--- a/mysite/profile/templates/profile/people-who.html
++++ b/mysite/profile/templates/profile/people-who.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2009 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ <ul>
+ {% for person in people_search_results %}
+ <li>
+diff --git a/mysite/profile/templates/profile/people.html b/mysite/profile/templates/profile/people.html
+index 2c5b5ef..2ba1f1a 100644
+--- a/mysite/profile/templates/profile/people.html
++++ b/mysite/profile/templates/profile/people.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load base_extras %}
+ 
+ {% block title %}
+@@ -21,4 +40,4 @@ People
+     </div>
+ </div>
+ 
+-{% endblock main %}
++{% endblock main %}
+\ No newline at end of file
+diff --git a/mysite/profile/templates/profile/person-summary-li.html b/mysite/profile/templates/profile/person-summary-li.html
+index 0e2e247..81ae6d4 100644
+--- a/mysite/profile/templates/profile/person-summary-li.html
++++ b/mysite/profile/templates/profile/person-summary-li.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load profile_extras %}
+ {% load base_extras %}
+ {% load cache %}
+diff --git a/mysite/profile/templates/profile/person_small.html b/mysite/profile/templates/profile/person_small.html
+index 7349c55..0c8bbe3 100644
+--- a/mysite/profile/templates/profile/person_small.html
++++ b/mysite/profile/templates/profile/person_small.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2009 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+         <li class='person_small'>
+             <a href='{{ person.profile_url }}'>
+                 <img src='{{ person.get_photo_thumbnail_url_or_default }}' />
+diff --git a/mysite/profile/templates/profile/portfolio/citation_element.html b/mysite/profile/templates/profile/portfolio/citation_element.html
+index cea02d9..0699d49 100644
+--- a/mysite/profile/templates/profile/portfolio/citation_element.html
++++ b/mysite/profile/templates/profile/portfolio/citation_element.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ <li {% if edit_mode %} class='unpublished'{% endif %}>
+ {% if edit_mode %}
+ <div class='actions'>
+diff --git a/mysite/profile/templates/profile/portfolio/citation_form.html b/mysite/profile/templates/profile/portfolio/citation_form.html
+index 66cbab7..4538574 100644
+--- a/mysite/profile/templates/profile/portfolio/citation_form.html
++++ b/mysite/profile/templates/profile/portfolio/citation_form.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2009 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ <li>
+ <form class='add_a_record' method='POST'
+     action='{% url mysite.profile.views.add_citation_manually_do %}'>
+diff --git a/mysite/profile/templates/profile/portfolio/citation_summary.html b/mysite/profile/templates/profile/portfolio/citation_summary.html
+index 8863bcd..e3a0182 100644
+--- a/mysite/profile/templates/profile/portfolio/citation_summary.html
++++ b/mysite/profile/templates/profile/portfolio/citation_summary.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2009 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% if citation.get_url_or_guess %}
+ <a href='{{ citation.get_url_or_guess }}'>{{ citation.summary }}</a>
+ {% else %}
+diff --git a/mysite/profile/templates/profile/portfolio/portfolio_entry_element.html b/mysite/profile/templates/profile/portfolio/portfolio_entry_element.html
+index 55d209b..a9589d4 100644
+--- a/mysite/profile/templates/profile/portfolio/portfolio_entry_element.html
++++ b/mysite/profile/templates/profile/portfolio/portfolio_entry_element.html
+@@ -1,3 +1,22 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++# Copyright (C) 2010 Jessica McKellar
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load profile_extras %}
+ {% load base_extras %}
+ <div
+diff --git a/mysite/profile/templates/profile/search_people.html b/mysite/profile/templates/profile/search_people.html
+index 2797929..72c36a7 100644
+--- a/mysite/profile/templates/profile/search_people.html
++++ b/mysite/profile/templates/profile/search_people.html
+@@ -1,4 +1,24 @@
+ {% extends 'profile/people.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009 Karen Rustad
++# Copyright (C) 2009, 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load cache %}
+ {% load base_extras %}
+ 
+@@ -349,4 +369,4 @@ People Search
+     Firebug <http://getfirebug.com>.
+ {% endcomment %}
+ <script type='text/javascript' src="/static/js/profile/map-tests.js"></script>
+-{% endblock js_tests %}
++{% endblock js_tests %}
+\ No newline at end of file
+diff --git a/mysite/profile/templates/profile/suggestion_li.html b/mysite/profile/templates/profile/suggestion_li.html
+index ef17b89..9773a9e 100644
+--- a/mysite/profile/templates/profile/suggestion_li.html
++++ b/mysite/profile/templates/profile/suggestion_li.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+                         <li>
+                             <a href='?q={{ suggestion.query_prefix|urlencode }}{{ thing|urlencode }}'>
+                                 <span class="this_part_gets_underlined">{{ thing }}</span><small> {%comment%}(8){%endcomment%}</small></a>
+diff --git a/mysite/profile/templates/profile/widget-test.html b/mysite/profile/templates/profile/widget-test.html
+index fbd7065..9adfd39 100644
+--- a/mysite/profile/templates/profile/widget-test.html
++++ b/mysite/profile/templates/profile/widget-test.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2009 Karen Rustad
++# Copyright (C) 2009 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ Asheesh's blog
+ 
+ {% include 'profile/widget.html' %}
+diff --git a/mysite/profile/templates/profile/widget.html b/mysite/profile/templates/profile/widget.html
+index ab15434..5942b7c 100644
+--- a/mysite/profile/templates/profile/widget.html
++++ b/mysite/profile/templates/profile/widget.html
+@@ -1,3 +1,23 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009 Karen Rustad
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++# Copyright (C) 2010 John Stumpo
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load profile_extras %}
+ {% load base_extras %}
+ <style type='text/css'>
+diff --git a/mysite/project/templates/edit_project.html b/mysite/project/templates/edit_project.html
+index a876f86..cde206a 100644
+--- a/mysite/project/templates/edit_project.html
++++ b/mysite/project/templates/edit_project.html
+@@ -1,4 +1,22 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load base_extras %}
+ 
+ {% block title %}
+diff --git a/mysite/project/templates/project/button_as_widget.html b/mysite/project/templates/project/button_as_widget.html
+index 9443a68..7aad1de 100644
+--- a/mysite/project/templates/project/button_as_widget.html
++++ b/mysite/project/templates/project/button_as_widget.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load assets %}{% load base_extras %}<form method="POST" action="{{uri_scheme}}://{{ url_prefix }}/+do/project.views.wanna_help_do">
+     <input type="hidden" name="from_offsite" value="True" />
+     <input type="hidden" value="{{project.id}}" name="project"/>
+diff --git a/mysite/project/templates/project/byline.html b/mysite/project/templates/project/byline.html
+index e4a2665..7510b12 100644
+--- a/mysite/project/templates/project/byline.html
++++ b/mysite/project/templates/project/byline.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load base_extras %}
+ <small style='color: #888;'>&nbsp;&nbsp;&nbsp;&mdash;
+   <a style='font-weight: bold;' href='{{ answer.author.get_profile.profile_url }}'>
+diff --git a/mysite/project/templates/project/forms/bug.html b/mysite/project/templates/project/forms/bug.html
+index 5b72639..77fbf7b 100644
+--- a/mysite/project/templates/project/forms/bug.html
++++ b/mysite/project/templates/project/forms/bug.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ <form
+     {% if edit_form %}
+     id="edit_form_{{answer.pk}}"
+diff --git a/mysite/project/templates/project/forms/paragraph.html b/mysite/project/templates/project/forms/paragraph.html
+index 7cdb0bc..6ba1466 100644
+--- a/mysite/project/templates/project/forms/paragraph.html
++++ b/mysite/project/templates/project/forms/paragraph.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ <form
+     {% if edit_form %} id="edit_form_{{answer.pk}}" {% endif %}
+     class="answer_question{% if edit_form %} is_edit_form active{% endif %}" 
+diff --git a/mysite/project/templates/project/forms/suggest_questions.html b/mysite/project/templates/project/forms/suggest_questions.html
+index 081c0e6..52c07bf 100644
+--- a/mysite/project/templates/project/forms/suggest_questions.html
++++ b/mysite/project/templates/project/forms/suggest_questions.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ <form id="suggest_question" class="suggest_question" name='suggest_question'
+         method='post' action='{% url mysite.project.views.suggest_question_do%}'>
+         <input type="hidden" name="project__pk"
+diff --git a/mysite/project/templates/project/mentor_summary.html b/mysite/project/templates/project/mentor_summary.html
+index ae74e88..c48208f 100644
+--- a/mysite/project/templates/project/mentor_summary.html
++++ b/mysite/project/templates/project/mentor_summary.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% if mentors %}
+           <p>
+               There {{ mentors|length|pluralize:"is,are" }}
+diff --git a/mysite/project/templates/project/project-list-item.html b/mysite/project/templates/project/project-list-item.html
+index 29280f1..5804952 100644
+--- a/mysite/project/templates/project/project-list-item.html
++++ b/mysite/project/templates/project/project-list-item.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load profile_extras %}
+             <li
+             {% if forloop.counter0|divisibleby:"4" %}
+diff --git a/mysite/project/templates/project/project-wanna-help-box.html b/mysite/project/templates/project/project-wanna-help-box.html
+index 9cb725a..b59e80e 100644
+--- a/mysite/project/templates/project/project-wanna-help-box.html
++++ b/mysite/project/templates/project/project-wanna-help-box.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% with project.people_who_wanna_help.all as helpers %}
+     <div class='head'>
+         <h3>People who want to help <span style='font-weight: normal;'>({% firstof helpers|length "none listed yet" %})</span></h3>
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 70bf9fb..80321ef 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -1,4 +1,25 @@
+ {% extends 'base/two_columns.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2011 Jack Grigg
++# Copyright (C) 2009, 2010, 2011 OpenHatch Inc.
++# Copyright (C) 2010 Jessica McKellar
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load profile_extras %}
+ {% load base_extras %}
+ 
+diff --git a/mysite/project/templates/project/project_list_item.html b/mysite/project/templates/project/project_list_item.html
+index 29280f1..5804952 100644
+--- a/mysite/project/templates/project/project_list_item.html
++++ b/mysite/project/templates/project/project_list_item.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load profile_extras %}
+             <li
+             {% if forloop.counter0|divisibleby:"4" %}
+diff --git a/mysite/project/templates/project/projects.html b/mysite/project/templates/project/projects.html
+index f117117..1f67945 100644
+--- a/mysite/project/templates/project/projects.html
++++ b/mysite/project/templates/project/projects.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ {% load cache %}
+ 
+ {% block title %}
+diff --git a/mysite/project/templates/project/suggest_question.html b/mysite/project/templates/project/suggest_question.html
+index ac50e27..1c3c269 100644
+--- a/mysite/project/templates/project/suggest_question.html
++++ b/mysite/project/templates/project/suggest_question.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/one_column.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block title %}
+ Help make the project discussion page better
+diff --git a/mysite/project/templates/project/voting_controls.html b/mysite/project/templates/project/voting_controls.html
+index 52f3939..3ef69ee 100644
+--- a/mysite/project/templates/project/voting_controls.html
++++ b/mysite/project/templates/project/voting_controls.html
+@@ -1,3 +1,20 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load voting_tags %}
+ {% votes_by_user user on link_list as vote_dict %}
+ {% scores_for_objects link_list as score_dict %}
+diff --git a/mysite/project/templates/question_text.html b/mysite/project/templates/question_text.html
+index b60cde5..fa8064e 100644
+--- a/mysite/project/templates/question_text.html
++++ b/mysite/project/templates/question_text.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% ifequal question.key_string 'where_to_start' %}
+     <span>I'd like to participate{% if mention_project_name %} in
+             <strong>{{ project.name }}</strong>{% endif %}. How do I begin?</span>
+diff --git a/mysite/search/migrations/0059_add_project_homepage_url.py b/mysite/search/migrations/0059_add_project_homepage_url.py
+index 12e175c..950eadd 100644
+--- a/mysite/search/migrations/0059_add_project_homepage_url.py
++++ b/mysite/search/migrations/0059_add_project_homepage_url.py
+@@ -1,3 +1,19 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2011 Jack Grigg
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
+ 
+ from south.db import db
+ from django.db import models
+diff --git a/mysite/search/templates/search/base.html b/mysite/search/templates/search/base.html
+index 989d461..c29ca78 100644
+--- a/mysite/search/templates/search/base.html
++++ b/mysite/search/templates/search/base.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% block body_id %}search{% endblock %}
+ 
+diff --git a/mysite/search/templates/search/navigation.html b/mysite/search/templates/search/navigation.html
+index 9a90f6f..9cc88d1 100644
+--- a/mysite/search/templates/search/navigation.html
++++ b/mysite/search/templates/search/navigation.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+     {% if show_prev_page_link or show_next_page_link %}
+ 
+         <span class='navigation'>
+diff --git a/mysite/search/templates/search/result.html b/mysite/search/templates/search/result.html
+index e89f808..3769f9d 100644
+--- a/mysite/search/templates/search/result.html
++++ b/mysite/search/templates/search/result.html
+@@ -1,3 +1,23 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2011 Jack Grigg
++# Copyright (C) 2009, 2010, 2011 OpenHatch Inc.
++# Copyright (C) 2009 Karen Rustad
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load search %}
+ {% load base_extras %}
+ {% load profile_extras %}
+diff --git a/mysite/search/templates/search/results_widget.html b/mysite/search/templates/search/results_widget.html
+index 578cf18..65c8aef 100644
+--- a/mysite/search/templates/search/results_widget.html
++++ b/mysite/search/templates/search/results_widget.html
+@@ -1,3 +1,21 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
+ {% load search %}
+ {% load base_extras %}
+ 
+diff --git a/mysite/search/templates/search/search.html b/mysite/search/templates/search/search.html
+index 4a3e2ae..ddd7a53 100644
+--- a/mysite/search/templates/search/search.html
++++ b/mysite/search/templates/search/search.html
+@@ -1,4 +1,23 @@
+ {% extends 'base/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Parker Phinney
++# Copyright (C) 2009, 2010, 2011 OpenHatch Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
+ 
+ {% load search %}
+ {% load cache %}
+-- 
+1.7.1
+

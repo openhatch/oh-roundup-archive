@@ -1,0 +1,31 @@
+From 73186195ec7a12601ae30690c95c4697be195701 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Sat, 19 Jun 2010 05:48:22 +0000
+Subject: [PATCH] Put into README a bit about the profile importer still using the Celery daemon.
+
+---
+ README.mkd |    8 ++++++++
+ 1 files changed, 8 insertions(+), 0 deletions(-)
+
+diff --git a/README.mkd b/README.mkd
+index 2825236..c3a9976 100644
+--- a/README.mkd
++++ b/README.mkd
+@@ -95,6 +95,14 @@ For non-vimmers, that will delete the string ' = ' when it appears at the beginn
+ 
+ Then remove those trailing square brackets. You may need to replace South's strange, Pythonesque code for dates, with proper MySQL code.
+ 
++## To make the profile importer work ##
++
++Profile importing is done using the Celery daemon. Run it using the following command:
++
++    bin/mysite celeryd -c 8
++
++As with the main server, it is a good idea to run this in a separate tab or inside a GNU screen session, rather than in the background.
++
+ ## To make the bug importer work ##
+ 
+ At present, there is no inbuilt automation of bug importing (celeryd was causing too many problems). Run the following command to start a bug import:
+-- 
+1.7.1
+

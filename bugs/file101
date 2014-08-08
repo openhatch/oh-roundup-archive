@@ -1,0 +1,78 @@
+Environment:
+
+Request Method: POST
+Request URL: http://localhost:8000/account/edit/photo/do
+Django Version: 1.1.2
+Python Version: 2.6.6
+Installed Applications:
+['ghettoq',
+ 'django.contrib.auth',
+ 'django.contrib.contenttypes',
+ 'django.contrib.humanize',
+ 'django.contrib.sessions',
+ 'django.contrib.sites',
+ 'django.contrib.webdesign',
+ 'django.contrib.admin',
+ 'registration',
+ 'django_authopenid',
+ 'django_extensions',
+ 'windmill',
+ 'south',
+ 'django_assets',
+ 'celery',
+ 'invitation',
+ 'mysite.search',
+ 'mysite.profile',
+ 'mysite.customs',
+ 'mysite.account',
+ 'mysite.base',
+ 'mysite.project',
+ 'mysite.senseknocker',
+ 'mysite.missions',
+ 'haystack',
+ 'voting',
+ 'reversion']
+Installed Middleware:
+('mysite.base.middleware.DetectLogin',
+ 'django.middleware.common.CommonMiddleware',
+ 'staticgenerator.middleware.StaticGeneratorMiddleware',
+ 'django.contrib.sessions.middleware.SessionMiddleware',
+ 'django.contrib.auth.middleware.AuthenticationMiddleware',
+ 'django_authopenid.middleware.OpenIDMiddleware',
+ 'mysite.base.middleware.LocationMiddleware',
+ 'mysite.base.middleware.HandleWannaHelpQueue',
+ 'django.middleware.transaction.TransactionMiddleware')
+
+
+Traceback:
+File "/home/jesstess/dev/oh-mainline/parts/mysite/django/core/handlers/base.py" in get_response
+  99.                     response = callback(request, *callback_args, **callback_kwargs)
+File "/home/jesstess/dev/oh-mainline/parts/mysite/django/contrib/auth/decorators.py" in __call__
+  78.             return self.view_func(request, *args, **kwargs)
+File "/home/jesstess/dev/oh-mainline/mysite/account/views.py" in edit_photo_do
+  85.     if form.is_valid():
+File "/home/jesstess/dev/oh-mainline/parts/mysite/django/forms/forms.py" in is_valid
+  119.         return self.is_bound and not bool(self.errors)
+File "/home/jesstess/dev/oh-mainline/parts/mysite/django/forms/forms.py" in _get_errors
+  110.             self.full_clean()
+File "/home/jesstess/dev/oh-mainline/parts/mysite/django/forms/forms.py" in full_clean
+  242.                     value = getattr(self, 'clean_%s' % name)()
+File "/home/jesstess/dev/oh-mainline/mysite/account/forms.py" in clean_photo
+  94.         w, h = get_image_dimensions(data_fd)
+File "/home/jesstess/dev/oh-mainline/parts/mysite/django/core/files/images.py" in get_image_dimensions
+  53.             p.feed(data)
+File "/usr/lib/python2.6/dist-packages/PIL/ImageFile.py" in feed
+  406.                     im = Image.open(fp)
+File "/usr/lib/python2.6/dist-packages/PIL/Image.py" in open
+  1970.                 return factory(fp, filename)
+File "/usr/lib/python2.6/dist-packages/PIL/ImageFile.py" in __init__
+  92.             self._open()
+File "/usr/lib/python2.6/dist-packages/PIL/PngImagePlugin.py" in _open
+  341.                 s = self.png.call(cid, pos, len)
+File "/usr/lib/python2.6/dist-packages/PIL/PngImagePlugin.py" in call
+  117.         return getattr(self, "chunk_" + cid)(pos, len)
+File "/usr/lib/python2.6/dist-packages/PIL/PngImagePlugin.py" in chunk_zTXt
+  300.         zlib.decompress(v[1:])
+
+Exception Type: error at /account/edit/photo/do
+Exception Value: Error -5 while decompressing data: incomplete or truncated stream

@@ -1,0 +1,124 @@
+From a319bb83aea7448c7ac49d13bd5065997286dc85 Mon Sep 17 00:00:00 2001
+From: Jason Michalski <armooo@armooo.net>
+Date: Wed, 28 Dec 2011 16:50:13 -0500
+Subject: [PATCH 1/2] Fix test handle_query_csv takes encoded input
+
+---
+ mysite/customs/tests.py |    3 +--
+ 1 files changed, 1 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 7e70d90..7ce455f 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -1241,8 +1241,7 @@ class TracBugImporterTests(django.test.TestCase):
+         self.im.bug_ids = []
+         # Pass in a query CSV.
+         cached_csv_filename = os.path.join(settings.MEDIA_ROOT, 'sample-data', 'twisted-trac-query-easy-bugs-on-2011-04-13.csv')
+-        self.im.handle_query_csv(unicode(
+-            open(cached_csv_filename).read(), 'utf-8'))
++        self.im.handle_query_csv(open(cached_csv_filename).read())
+         # Check the extracted bugs.
+         self.assertEqual(len(self.im.bug_ids), 18)
+ 
+-- 
+1.7.5.4
+
+
+From 3fba9567e8d45a2d439dcb6d92f45e743743ff3a Mon Sep 17 00:00:00 2001
+From: Jason Michalski <armooo@armooo.net>
+Date: Wed, 28 Dec 2011 17:48:42 -0500
+Subject: [PATCH 2/2] Add support for bitsized trac bugs by priority.
+
+---
+ mysite/customs/models.py |    1 +
+ mysite/customs/tests.py  |   54 ++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 55 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/customs/models.py b/mysite/customs/models.py
+index c1f9e65..9371043 100644
+--- a/mysite/customs/models.py
++++ b/mysite/customs/models.py
+@@ -269,6 +269,7 @@ class TracTrackerModel(TrackerModel):
+             help_text="Any string here will be used verbatim as the project name for each bug aside from the keys '{tracker_name}' and '{component}', which are replaced with the tracker's name from above and the relevant data from each individual bug respectively.")
+     BITESIZED_TYPES = (
+             ('keywords', 'Keyword'),
++            ('priority', 'Priority'),
+             )
+     bitesized_type = models.CharField(max_length=10, choices=BITESIZED_TYPES, blank=True)
+     bitesized_text = models.CharField(max_length=200, blank=True, default='',
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 7ce455f..cc2567c 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -1012,6 +1012,13 @@ class TracBugParser(django.test.TestCase):
+                 bitesized_type='keywords',
+                 bitesized_text='bitesized',
+                 documentation_type='')
++        self.tm3 = mysite.customs.models.TracTrackerModel.all_trackers.create(
++                tracker_name='Tracpriority',
++                base_url='http://trac.edgewall.org/priority',
++                bug_project_name_format='{tracker_name}',
++                bitesized_type='priority',
++                bitesized_text='trivial',
++                documentation_type='')
+ 
+     def test_create_bug_object_data_dict_more_recent(self):
+         tbp = mysite.customs.bugimporters.trac.TracBugParser(
+@@ -1106,6 +1113,53 @@ class TracBugParser(django.test.TestCase):
+                   }
+         self.assertEqual(wanted, got)
+ 
++    def test_create_bug_object_data_dict_priority_bitesized(self):
++        self.maxDiff = None
++        tbp = mysite.customs.bugimporters.trac.TracBugParser(
++            bug_url='http://twistedmatrix.com/trac/ticket/4298')
++        tbp.bug_csv = {
++            'branch': '',
++            'branch_author': '',
++            'cc': 'thijs_ exarkun',
++            'component': 'core',
++            'description': "This package hasn't been touched in 4 years which either means it's stable or not being used at all. Let's deprecate it (also see #4111).",
++            'id': '4298',
++            'keywords': 'easy',
++            'launchpad_bug': '',
++            'milestone': '',
++            'owner': 'djfroofy',
++            'priority': 'trivial',
++            'reporter': 'thijs',
++            'resolution': '',
++            'status': 'new',
++            'summary': 'Deprecate twisted.persisted.journal',
++            'type': 'task'}
++        cached_html_filename = os.path.join(settings.MEDIA_ROOT, 'sample-data', 'twisted-trac-4298.html')
++        tbp.set_bug_html_data(unicode(
++            open(cached_html_filename).read(), 'utf-8'))
++
++        got = tbp.get_parsed_data_dict(self.tm3)
++        del got['last_polled']
++        wanted = {'title': 'Deprecate twisted.persisted.journal',
++                  'description': u"This package hasn't been touched in 4 years which either means it's stable or not being used at all. Let's deprecate it (also see #4111).",
++                  'status': 'new',
++                  'importance': 'trivial',
++                  'people_involved': 5,
++                  # FIXME: Need time zone
++                  'date_reported': datetime.datetime(2010, 2, 22, 19, 46, 30),
++                  'last_touched': datetime.datetime(2010, 2, 24, 0, 8, 47),
++                  'looks_closed': False,
++                  'submitter_username': 'thijs',
++                  'submitter_realname': '',
++                  'canonical_bug_link': 'http://twistedmatrix.com/trac/ticket/4298',
++                  'good_for_newcomers': True,
++                  'looks_closed': False,
++                  'bite_size_tag_name': 'trivial',
++                  'concerns_just_documentation': False,
++                  'as_appears_in_distribution': '',
++                  }
++        self.assertEqual(wanted, got)
++
+     def test_create_bug_that_lacks_modified_date(self):
+         tbp = mysite.customs.bugimporters.trac.TracBugParser(
+             bug_url='http://twistedmatrix.com/trac/ticket/4298')
+-- 
+1.7.5.4
+

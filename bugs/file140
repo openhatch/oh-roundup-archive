@@ -1,0 +1,25 @@
+From 436241e0f8790546ebac3e1509b6ee62f1541496 Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Tue, 1 Feb 2011 13:28:56 +0100
+Subject: [PATCH] Fixed a typo in the tests.
+
+---
+ mysite/missions/tar/tests.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/tar/tests.py b/mysite/missions/tar/tests.py
+index 5a8746a..8331876 100644
+--- a/mysite/missions/tar/tests.py
++++ b/mysite/missions/tar/tests.py
+@@ -161,7 +161,7 @@ class MissionPageStateTests(TwillTests):
+         StepCompletion(person=paulproteus, step=Step.objects.get(name='tar')).save()
+         StepCompletion(person=paulproteus, step=Step.objects.get(name='tar_extract')).save()
+         
+-        response = self.client.post(reverse(views.reset), {'mission_steps': 'tar,tar_extract' })
++        response = self.client.post(reverse(views.reset), {'mission_parts': 'tar,tar_extract' })
+         self.assert_('Operation successful' in response.content)
+         self.assertEqual(len(StepCompletion.objects.filter(step__name='tar', person=paulproteus)), 0)
+         self.assertEqual(len(StepCompletion.objects.filter(step__name='tar_extract', person=paulproteus)), 0)                  
+-- 
+1.7.3.5
+

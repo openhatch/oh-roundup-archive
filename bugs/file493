@@ -1,0 +1,42 @@
+From 03ea50e4b665c2b5b3d8d21cdcd750d652ee4db5 Mon Sep 17 00:00:00 2001
+From: Walker Hale IV <walker.hale.iv@gmail.com>
+Date: Wed, 14 Mar 2012 13:47:52 -0700
+Subject: [PATCH] Replace now broken LoginWinOpenID test with
+ ProfileGetsCreatedWhenUserIsCreated
+
+---
+ mysite/account/tests.py |   16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/mysite/account/tests.py b/mysite/account/tests.py
+index 01b6b0a..c09d669 100644
+--- a/mysite/account/tests.py
++++ b/mysite/account/tests.py
+@@ -62,15 +62,17 @@ class Login(TwillTests):
+         tc.find('log in')
+     # }}}
+ 
+-class LoginWithOpenID(TwillTests):
+-    #{{{
+-    fixtures = ['user-paulproteus']
+-    def test_login_creates_user_profile(self):
++class ProfileGetsCreatedWhenUserIsCreated(TwillTests):
++    """django-authopenid only creates User objects, but we need Person objects
++    in all such cases. Test that creating a User will automatically create
++    a Person in our project."""
++    def test_login_creates_person_profile(self):
++        # Create a user object
++        u = User.objects.create(username='paulproteus')
++        u.save()
+         # Even though we didn't add the person-paulproteus
+         # fixture, a Person object is created.
+-        self.assert_(list(
+-            Person.objects.filter(user__username='paulproteus')))
+-    #}}}
++        self.assert_(list(Person.objects.filter(user__username='paulproteus')))
+ 
+ class Signup(TwillTests):
+     """ Tests for signup without invite code. """
+-- 
+1.7.9.2
+

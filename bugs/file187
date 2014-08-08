@@ -1,0 +1,72 @@
+From be8b619340020ad47fd19623d20ef7edff279040 Mon Sep 17 00:00:00 2001
+From: paulhomebus <paulhomebus@gmail.com>
+Date: Mon, 28 Mar 2011 01:26:58 +1300
+Subject: [PATCH] Added django-debug-toolbar back in
+ changed: mysite/settings.py - buildout.cfg & setup.py
+
+---
+ buildout.cfg       |    1 +
+ mysite/settings.py |   12 +++++++++---
+ setup.py           |    1 +
+ 3 files changed, 11 insertions(+), 3 deletions(-)
+
+diff --git a/buildout.cfg b/buildout.cfg
+index ac0a4fa..93acf99 100644
+--- a/buildout.cfg
++++ b/buildout.cfg
+@@ -38,6 +38,7 @@ eggs =
+     staticgenerator
+     python-launchpad-bugs
+     html2text
++    django-debug-toolbar>=0.8.4
+     coverage
+     pylint
+     unittest-xml-reporting
+diff --git a/mysite/settings.py b/mysite/settings.py
+index 5d1959e..671c444 100644
+--- a/mysite/settings.py
++++ b/mysite/settings.py
+@@ -106,8 +106,6 @@ MIDDLEWARE_CLASSES = (
+     'mysite.base.middleware.LocationMiddleware',
+     'mysite.base.middleware.HandleWannaHelpQueue',
+     'django.middleware.transaction.TransactionMiddleware',
+-    # Django debug toolbar
+-    #'debug_toolbar.middleware.DebugToolbarMiddleware',
+ )
+ 
+ ROOT_URLCONF = 'mysite.urls'
+@@ -161,10 +159,18 @@ INSTALLED_APPS = (
+     'haystack',
+     'voting',
+     'reversion',
+-    #'debug_toolbar',
+     'sessionprofile',
+ )
+ 
++if DEBUG = True:
++    INSTALLED_APPS += (
++    'debug_toolbar',
++    )
++    MIDDLEWARE_CLASSES += (
++    # Django debug toolbar
++    'debug_toolbar.middleware.DebugToolbarMiddleware',
++    )
++
+ # testrunner allows us to control which testrunner to use
+ TEST_RUNNER = 'mysite.testrunner.run'
+ 
+diff --git a/setup.py b/setup.py
+index 7fd744e..76ca6d6 100644
+--- a/setup.py
++++ b/setup.py
+@@ -63,6 +63,7 @@ setup(
+                         'python-otp',
+                         'python-launchpad-bugs',
+                         'html2text',
++                        'django-debug-toolbar==0.8.4',
+                         'lockfile>=0.9', # as of this writing, pypi only has version 0.8
+                         'python-openid==2.2.5', # as of this writing, upstream has an HTML file where a tar.gz should be
+                         'sessionprofile==1.0',
+-- 
+1.7.1
+

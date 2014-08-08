@@ -1,0 +1,170 @@
+diff --git a/mysite/.git-hooks/clone_and_test.sh b/mysite/.git-hooks/clone_and_test.sh
+old mode 100755
+new mode 100644
+diff --git a/mysite/account/templates/authopenid/associate_email.txt b/mysite/account/templates/authopenid/associate_email.txt
+index 735ee2d..4e2b6c1 100644
+--- a/mysite/account/templates/authopenid/associate_email.txt
++++ b/mysite/account/templates/authopenid/associate_email.txt
+@@ -4,7 +4,7 @@ We're an online community of contributors to free and open source software.
+ 
+ Be sure to check out our tools:
+ 
+-Start a profile to keep track of (and show off) your FOSS contributions:
++Start a profile to keep track of (and show off) your FLOSS contributions:
+ <http://openhatch.org/+portfolio/editor>
+ 
+ Search across open source land for the bug with your name on it: <http://openhatch.org/search/>
+diff --git a/mysite/celeryd b/mysite/celeryd
+old mode 100755
+new mode 100644
+diff --git a/mysite/deploy.fcgi b/mysite/deploy.fcgi
+old mode 100755
+new mode 100644
+diff --git a/mysite/missions/templates/missions/diffpatch/single_file_patch.html b/mysite/missions/templates/missions/diffpatch/single_file_patch.html
+index 34de9d0..2f050dc 100644
+--- a/mysite/missions/templates/missions/diffpatch/single_file_patch.html
++++ b/mysite/missions/templates/missions/diffpatch/single_file_patch.html
+@@ -25,7 +25,9 @@
+   </div>
+   <div class="body">
+     <p><a href="{% url mysite.missions.diffpatch.views.patchsingle_get_original_file %}">Here is a file</a> that contains a piece of code that could be implemented in a much better way.  Let's say that this file is part of a project you are working on, and somebody has come along, noticed the piece of code that could be improved, and <a href="{% url mysite.missions.diffpatch.views.patchsingle_get_patch %}">gave you a patch with the improved code</a>.</p>
+-    <p>In order to review the changes, you'll need to apply the patch to the file using the patch program, and your mission is to do that.</p>
++    <p>In order to review the changes, you'll need to apply the patch to the file using the patch program, and your mission is to do that.</p><p>Hint:</p><p>  One way to accomplish this is by running a command like  "patch -p0 < patch_file" from the 
++command line, in the directory containing both patch_file and the original file. This command says "use the patch program to apply the diff in patch_file to a file in the current 
++directory". You can read more about the patch program in its <a href="http://linux.die.net/man/1/patch">"man page"</a> or type "man patch" in terminal.  </p>
+ 
+     <form method="post" enctype="multipart/form-data" action="{% url mysite.missions.diffpatch.views.patchsingle_submit %}#patchsingle-form">{% csrf_token %}
+       <div class="form-row file-upload-row">
+diff --git a/mysite/ms b/mysite/ms
+old mode 100755
+new mode 100644
+diff --git a/mysite/mt b/mysite/mt
+old mode 100755
+new mode 100644
+diff --git a/mysite/profile/templates/profile/widget.html b/mysite/profile/templates/profile/widget.html
+index 311cf16..886efd1 100644
+--- a/mysite/profile/templates/profile/widget.html
++++ b/mysite/profile/templates/profile/widget.html
+@@ -305,7 +305,7 @@
+ <div id='openhatch-widget'>
+     <div class='module'>
+         <div class='head'>
+-            <h3>My <abbr title='Free and Open Source Software'>FOSS</abbr> contributions</h3>
++            <h3>My <abbr title='Free and Open Source Software'>FLOSS</abbr> contributions</h3>
+         </div>
+         <div class='body'>
+             <ul>
+diff --git a/mysite/runserver b/mysite/runserver
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/add_webkit_border_radii.sh b/mysite/scripts/add_webkit_border_radii.sh
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/delete-branches-merged-into-HEAD b/mysite/scripts/delete-branches-merged-into-HEAD
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/deploy b/mysite/scripts/deploy
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/fetch_db b/mysite/scripts/fetch_db
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/fetch_profile_icons b/mysite/scripts/fetch_profile_icons
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/fetch_project_icons b/mysite/scripts/fetch_project_icons
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/get_data_and_images b/mysite/scripts/get_data_and_images
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/git-deliver b/mysite/scripts/git-deliver
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/git-home b/mysite/scripts/git-home
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/oh_mysql b/mysite/scripts/oh_mysql
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/oh_mysqldump b/mysite/scripts/oh_mysqldump
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/remove_numbers_from_locations.py b/mysite/scripts/remove_numbers_from_locations.py
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/run_profile_importer.sh b/mysite/scripts/run_profile_importer.sh
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/run_with_lock.sh b/mysite/scripts/run_with_lock.sh
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/snapshot_then_push.sh b/mysite/scripts/snapshot_then_push.sh
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/take-ownership-of-repo b/mysite/scripts/take-ownership-of-repo
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/test_all_apps_except_customs b/mysite/scripts/test_all_apps_except_customs
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/test_all_apps_except_customs_sqlite b/mysite/scripts/test_all_apps_except_customs_sqlite
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/test_all_apps_sqlite b/mysite/scripts/test_all_apps_sqlite
+old mode 100755
+new mode 100644
+diff --git a/mysite/scripts/vhost_effort.py b/mysite/scripts/vhost_effort.py
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/css/base/jquery.jgrowl.css b/mysite/static/css/base/jquery.jgrowl.css
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/fonts/GraublauWeb.otf b/mysite/static/fonts/GraublauWeb.otf
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/fonts/GraublauWebBold.otf b/mysite/static/fonts/GraublauWebBold.otf
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/images/Parker.jpg b/mysite/static/images/Parker.jpg
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/images/base/landing/feed-icon-14x14.png b/mysite/static/images/base/landing/feed-icon-14x14.png
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/images/base/landing/feed-icon-28x28.png b/mysite/static/images/base/landing/feed-icon-28x28.png
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/images/facebox/closelabel.gif b/mysite/static/images/facebox/closelabel.gif
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/images/facebox/loading.gif b/mysite/static/images/facebox/loading.gif
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/images/icons/do.png b/mysite/static/images/icons/do.png
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/images/icons/feed-icon-14x14.png b/mysite/static/images/icons/feed-icon-14x14.png
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/images/icons/feed-icon-28x28.png b/mysite/static/images/icons/feed-icon-28x28.png
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/images/info/Raphael Krut-Landau.jpg b/mysite/static/images/info/Raphael Krut-Landau.jpg
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/images/people-search.xcf b/mysite/static/images/people-search.xcf
+index 68441cb..6c8c170 100644
+Binary files a/mysite/static/images/people-search.xcf and b/mysite/static/images/people-search.xcf differ
+diff --git a/mysite/static/images/profile-photos/shrink b/mysite/static/images/profile-photos/shrink
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/images/projects.png b/mysite/static/images/projects.png
+old mode 100755
+new mode 100644
+diff --git a/mysite/static/js/jquery.jgrowl.js b/mysite/static/js/jquery.jgrowl.js
+old mode 100755
+new mode 100644
+diff --git a/run_importer.sh b/run_importer.sh
+old mode 100755
+new mode 100644

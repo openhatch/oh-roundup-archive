@@ -1,0 +1,855 @@
+From 5391dee43a4b61be23a12b0ebc0756414217d44a Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Mon, 21 Jun 2010 06:12:55 +0000
+Subject: [PATCH 1/4] Removed old unused imports from bugzilla_instances
+
+---
+ mysite/search/tasks/bugzilla_instances.py |    4 +---
+ 1 files changed, 1 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/search/tasks/bugzilla_instances.py b/mysite/search/tasks/bugzilla_instances.py
+index 6136668..59dc9a2 100644
+--- a/mysite/search/tasks/bugzilla_instances.py
++++ b/mysite/search/tasks/bugzilla_instances.py
+@@ -1,9 +1,7 @@
+ import datetime
+ import logging
++
+ import mysite.search.models
+-import mysite.customs.models
+-from celery.task import Task
+-from celery.registry import tasks
+ 
+ def look_at_one_fedora_bug(bug_id):
+     logging.info("Was asked to look at bug %d in Fedora" % bug_id)
+-- 
+1.7.1
+
+
+From 7ebea8d0519c3081348eaa42de708c66a6ef6e0d Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Fri, 25 Jun 2010 13:09:19 +0000
+Subject: [PATCH 2/4] Code for the new format Bugzilla importer in the style of Trac and Roundup
+
+---
+ mysite/customs/bugtrackers/bugzilla.py             |  148 ++++++++
+ .../management/commands/search_daily_tasks.py      |   18 +
+ mysite/search/tasks/bugzilla_instances.py          |  384 ++++++++++++++++++++
+ 3 files changed, 550 insertions(+), 0 deletions(-)
+ create mode 100644 mysite/customs/bugtrackers/bugzilla.py
+
+diff --git a/mysite/customs/bugtrackers/bugzilla.py b/mysite/customs/bugtrackers/bugzilla.py
+new file mode 100644
+index 0000000..fd6c062
+--- /dev/null
++++ b/mysite/customs/bugtrackers/bugzilla.py
+@@ -0,0 +1,148 @@
++import csv
++import datetime
++
++import lxml.etree
++
++import mysite.base.helpers
++from mysite.base.decorators import cached_property
++import mysite.customs.ohloh
++
++def find_ctype_xml_form_number(forms):
++    for n, form in enumerate(forms):
++        try:
++            value = form.get_value('ctype')
++            if value == 'xml':
++                return n
++        except:
++            pass
++    raise ValueError, "Could not find the right form."
++
++def url2bug_data(url):
++    # If we are looking at a single bug then get the XML link
++    if url.find('show_bug.cgi?id=') >= 0:
++        b = mysite.customs.ohloh.mechanize_get(
++                url + '&ctype=xml')
++    else:
++        # We are looking at a page of bugs.
++
++        # Get the page of bugs
++        b = mysite.customs.ohloh.mechanize_get(url)
++
++        # Find the one form with ctype XML
++        ctype_xml_form_no = find_ctype_xml_form_number(b.forms())
++
++        # Click ze button
++        b.select_form(nr=ctype_xml_form_no)
++        b.submit()
++
++    # Get a bunch of XML back
++    bug_data = lxml.etree.XML(b.response().read())
++
++    # Return bunch of XML
++    return bug_data
++
++def tracker_bug2bug_ids(tracker_bug_url):
++    b = mysite.customs.ohloh.mechanize_get(tracker_bug_url)
++    xml = lxml.etree.XML(b.response().read())
++    depends = xml.findall('bug/dependson')
++    depends_bug_ids = [int(depend.text) for depend in depends]
++    return depends_bug_ids
++
++def get_tag_text_from_xml(xml_doc, tag_name, index = 0):
++    """Given an object representing <bug><tag>text</tag></bug>,
++    and tag_name = 'tag', returns 'text'."""
++    tags = xml_doc.xpath(tag_name)
++    try:
++        return tags[index].text
++    except IndexError:
++        return ''
++    assert False, "You should not get here."
++
++class BugzillaBug:
++    @staticmethod
++    def from_url(url):
++        base, ending = url.rsplit('/', 1)
++        show_bug, num = ending.rsplit('=', 1)
++        bug_id = int(num)
++        assert show_bug == 'show_bug.cgi?id'
++        return BugzillaBug(bug_id=bug_id,
++                           BASE_URL=base + '/')
++
++    def __init__(self, BASE_URL, bug_id=None, bug_data=None):
++        self._bug_specific_xml_data = bug_data
++        # If bug_id is not provided, try to extract it from bug_data
++        if bug_id is None:
++            if self._bug_specific_xml_data is not None:
++                self.bug_id = self._bug_id_from_bug_data()
++            else:
++                raise ValueError("bug_id must not be None if bug_data is None")
++        else:
++            self.bug_id = int(bug_id)
++        if not BASE_URL.endswith('/'):
++            BASE_URL += '/'
++        self.BASE_URL = BASE_URL
++
++    def _bug_id_from_bug_data(self):
++        return int(get_tag_text_from_xml(self.get_bug_xml_data(), 'bug_id'))
++
++    @staticmethod
++    def _who_tag_to_username_and_realname(who_tag):
++        username = who_tag.text
++        realname = who_tag.attrib.get('name', '')
++        return username, realname
++
++    @cached_property
++    def product(self):
++        return get_tag_text_from_xml(self.get_bug_xml_data(), 'product')
++
++    @cached_property
++    def component(self):
++        return get_tag_text_from_xml(self.get_bug_xml_data(), 'component')
++
++    def as_bug_specific_url(self):
++        return self.BASE_URL + 'show_bug.cgi?id=%d' % self.bug_id
++
++    def get_bug_xml_data(self):
++        # BugzillaBug object could have been created with or without data.
++        # So if no bug data in object, fill first before returning.
++        if self._bug_specific_xml_data is None:
++            self._bug_specific_xml_data = url2bug_data(self.as_bug_specific_url()).xpath('bug')[0]
++        return self._bug_specific_xml_data
++
++    @staticmethod
++    def bugzilla_count_people_involved(xml_doc):
++        """Strategy: Create a set of all the listed text values
++        inside a <who ...>(text)</who> tag
++        Return the length of said set."""
++        everyone = [tag.text for tag in xml_doc.xpath('.//who')]
++        return len(set(everyone))
++
++    @staticmethod
++    def bugzilla_date_to_datetime(date_string):
++        return mysite.base.helpers.string2naive_datetime(date_string)
++
++    def as_data_dict_for_bug_object(self, extract_tracker_specific_data):
++        xml_data = self.get_bug_xml_data()
++
++        date_reported_text = get_tag_text_from_xml(xml_data, 'creation_ts')
++        last_touched_text = get_tag_text_from_xml(xml_data, 'delta_ts')
++        u, r = self._who_tag_to_username_and_realname(xml_data.xpath('.//reporter')[0])
++        status = get_tag_text_from_xml(xml_data, 'bug_status')
++        looks_closed = status in ('RESOLVED', 'WONTFIX', 'CLOSED', 'ASSIGNED')
++
++        ret_dict = {
++            'title': get_tag_text_from_xml(xml_data, 'short_desc'),
++            'description': (get_tag_text_from_xml(xml_data, 'long_desc/thetext') or
++                           '(Empty description)'),
++            'status': status,
++            'importance': get_tag_text_from_xml(xml_data, 'bug_severity'),
++            'people_involved': self.bugzilla_count_people_involved(xml_data),
++            'date_reported': self.bugzilla_date_to_datetime(date_reported_text),
++            'last_touched': self.bugzilla_date_to_datetime(last_touched_text),
++            'submitter_username': u,
++            'submitter_realname': r,
++            'canonical_bug_link': self.as_bug_specific_url(),
++            'looks_closed': looks_closed
++            }
++        ret_dict = extract_tracker_specific_data(xml_data, ret_dict)
++        return ret_dict
+diff --git a/mysite/search/management/commands/search_daily_tasks.py b/mysite/search/management/commands/search_daily_tasks.py
+index ca8fd4c..5eb8b97 100644
+--- a/mysite/search/management/commands/search_daily_tasks.py
++++ b/mysite/search/management/commands/search_daily_tasks.py
+@@ -115,6 +115,23 @@ class Command(BaseCommand):
+             instantiated = thing()
+             instantiated.update()
+ 
++    def find_and_update_enabled_bugzilla_instances(self):
++        enabled_bugzilla_instances = []
++
++        ### First, the "find" step
++        for thing_name in dir(mysite.search.tasks.bugzilla_instances):
++            thing = getattr(mysite.search.tasks.bugzilla_instances,
++                            thing_name)
++            if hasattr(thing, 'enabled'):
++                if getattr(thing, 'enabled'):
++                    enabled_bugzilla_instances.append(thing)
++
++        ### Okay, now update!
++        for thing in enabled_bugzilla_instances:
++            logging.info("[Bugzilla] About to update %s" % thing)
++            instantiated = thing()
++            instantiated.update()
++
+     def update_launchpad_hosted_projects(self):
+         ### For Launchpad:
+         # First, we ask the projects' bug trackers if there are new bugs we should know about
+@@ -131,5 +148,6 @@ class Command(BaseCommand):
+         self.find_and_update_enabled_trac_instances()
+         self.find_and_update_enabled_roundup_trackers()
+         self.update_bugzilla_trackers()
++        #self.find_and_update_enabled_bugzilla_instances()
+         
+ 
+diff --git a/mysite/search/tasks/bugzilla_instances.py b/mysite/search/tasks/bugzilla_instances.py
+index 59dc9a2..ea06540 100644
+--- a/mysite/search/tasks/bugzilla_instances.py
++++ b/mysite/search/tasks/bugzilla_instances.py
+@@ -2,6 +2,7 @@ import datetime
+ import logging
+ 
+ import mysite.search.models
++import mysite.customs.bugtrackers.bugzilla
+ 
+ def look_at_one_fedora_bug(bug_id):
+     logging.info("Was asked to look at bug %d in Fedora" % bug_id)
+@@ -54,3 +55,386 @@ def refresh_all_fedora_fit_and_finish_bugs():
+             BUG_URL_PREFIX=mysite.customs.bugtrackers.fedora_fitfinish.BUG_URL_PREFIX)
+         look_at_one_fedora_bug(bug_id=bug_id)
+ 
++class BugzillaBugTracker(object):
++    def __init__(self, base_url, project_name, bug_project_name_format, bug_id_list_only=False):
++        self.base_url = base_url
++        self.project_name = project_name
++        self.bug_project_name_format = bug_project_name_format
++        self.bug_id_list_only = bug_id_list_only
++
++    def generate_bug_project_name(self, bb):
++        return self.bug_project_name_format.format(
++                project = self.project_name,
++                component = bb.component)
++
++    def create_or_refresh_one_bugzilla_bug(self, bb):
++        bug_id = bb.bug_id
++        bug_url = bb.as_bug_specific_url()
++
++        try:
++            bug = mysite.search.models.Bug.all_bugs.get(
++                    canonical_bug_link=bug_url)
++            # Found an existing bug. Does it need refreshing?
++            if bug.data_is_more_fresh_than_one_day():
++                logging.info("[Bugzilla] Bug %d from %s is fresh. Doing nothing!" % (bug_id, self.project_name))
++                return False # sweet
++        except mysite.search.models.Bug.DoesNotExist:
++            # This is a new bug
++            bug = mysite.search.models.Bug(canonical_bug_link = bug_url)
++
++        # Looks like we have some refreshing to do.
++        logging.info("[Bugzilla] Refreshing bug %d from %s." % (bug_id, self.project_name))
++        # Get the dictionary of data to put into the bug. The function for
++        # obtaining tracker-specific data is passed in.
++        data = bb.as_data_dict_for_bug_object(self.extract_tracker_specific_data)
++
++        # Fill that bug!
++        for key in data:
++            value = data[key]
++            setattr(bug, key, value)
++
++        # Find or create the project for the bug and save it
++        bug_project_name = self.generate_bug_project_name(bb)
++        if bug_project_name == '':
++            raise ValueError("Can't have bug_project_name as ''")
++        project_from_name, _ = mysite.search.models.Project.objects.get_or_create(name=bug_project_name)
++        if bug.project_id != project_from_name.id:
++            bug.project = project_from_name
++        bug.last_polled = datetime.datetime.utcnow()
++        bug.save()
++        logging.info("[Bugzilla] Finished with %d from %s." % (bug_id, self.project_name))
++        return True
++
++    def refresh_all_bugs(self):
++        for bug in mysite.search.models.Bug.all_bugs.filter(
++                canonical_bug_link__contains=self.base_url):
++            bb = mysite.customs.bugtrackers.bugzilla.BugzillaBug.from_url(
++                    bug.canonical_bug_link)
++            self.create_or_refresh_one_bugzilla_bug(bb=bb)
++
++    def update(self):
++        logging.info("[Bugzilla] Started refreshing all %s bugs" % self.project_name)
++
++        # First, go through and create or refresh all the bugs that
++        # we are configured to track. This will add new bugs and
++        # update current ones. Bugzilla doesn't return a nice
++        # CSV list of bug ids, but instead gives an entire XML tree
++        # of bug data for the bugs matching the query. To save on
++        # network traffic, the bug data will be passed to the refresher.
++        if self.bug_id_list_only:
++            # If we have a tracking bug, then we can't get an xml tree
++            # of bug data. Instead we have to use the bug ids pulled
++            # from the dependencies of the tracking bug.
++            current_bug_id_list = self.get_current_bug_id_list()
++            for bug_id in current_bug_id_list:
++                bb = mysite.customs.bugtrackers.bugzilla.BugzillaBug(
++                        BASE_URL=self.base_url,
++                        bug_id=bug_id)
++                self.create_or_refresh_one_bugzilla_bug(bb=bb)
++        else:
++            logging.info("[Bugzilla] Fetching XML data for bugs in tracker...")
++            current_xml_bug_tree = self.get_current_xml_bug_tree()
++            for bug_data in current_xml_bug_tree.xpath('bug'):
++                bb = mysite.customs.bugtrackers.bugzilla.BugzillaBug(
++                        BASE_URL=self.base_url,
++                        bug_data=bug_data)
++                self.create_or_refresh_one_bugzilla_bug(bb=bb)
++
++        # Then refresh all the bugs we have from this tracker. This
++        # should skip over all the bugs except the ones that didn't
++        # appear in the above query. Usually this is closed bugs.
++        self.refresh_all_bugs()
++
++class MiroBugzilla(BugzillaBugTracker):
++    enabled = True
++
++    def __init__(self):
++        BugzillaBugTracker.__init__(self,
++                                    base_url='http://bugzilla.pculture.org/',
++                                    project_name='Miro',
++                                    bug_project_name_format='{project}')
++
++    def get_current_xml_bug_tree(self):
++        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
++                'http://bugzilla.pculture.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&field-1-0-0=bug_status&field-1-1-0=product&field-1-2-0=keywords&keywords=bitesized&product=Miro&query_format=advanced&remaction=&type-1-0-0=anyexact&type-1-1-0=anyexact&type-1-2-0=anywords&value-1-0-0=NEW%2CASSIGNED%2CREOPENED&value-1-1-0=Miro&value-1-2-0=bitesized')
++
++    @staticmethod
++    def extract_tracker_specific_data(xml_data, ret_dict):
++        # Make modifications to ret_dict using provided xml data
++        keywords_text = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'keywords')
++        keywords = map(lambda s: s.strip(),
++                       keywords_text.split(','))
++        ret_dict['good_for_newcomers'] = ('bitesized' in keywords)
++        # Then pass ret_dict back
++        return ret_dict
++
++class KDEBugzilla(BugzillaBugTracker):
++    enabled = True
++
++    def __init__(self):
++        BugzillaBugTracker.__init__(self,
++                                    base_url='https://bugs.kde.org/',
++                                    project_name='KDE',
++                                    bug_project_name_format='')
++
++    def get_current_xml_bug_tree(self):
++        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
++                'https://bugs.kde.org/buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&long_desc_type=allwordssubstr&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&keywords_type=allwords&keywords=junior-jobs&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=REOPENED&bug_status=NEEDSINFO&bug_status=VERIFIED&resolution=---&emailtype1=substring&email1=&emailtype2=substring&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=&chfieldto=Now&chfieldvalue=&cmdtype=doit&order=Reuse+same+sort+as+last+time&field0-0-0=noop&type0-0-0=noop&value0-0-0=')
++
++    @staticmethod
++    def extract_tracker_specific_data(xml_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        keywords_text = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'keywords')
++        keywords = map(lambda s: s.strip(),
++                       keywords_text.split(','))
++        ret_dict['good_for_newcomers'] = ('junior-jobs' in keywords)
++        # Remove 'JJ:' from title if present
++        if ret_dict['title'].startswith("JJ:"):
++            ret_dict['title'] = ret_dict['title'][3:].strip()
++        # Set 'concerns_just_documentation' if needed
++        product = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'product')
++        if product == 'docs':
++            ret_dict['concerns_just_documentation'] = True
++        # Then pass ret_dict back
++        return ret_dict
++
++    def generate_bug_project_name(self, bb):
++        product = bb.product
++        reasonable_products = set([
++            'Akonadi',
++            'Phonon'
++            'kmail',
++            'Rocs',
++            'akregator',
++            'amarok',
++            'ark',
++            'cervisia',
++            'k3b',
++            'kappfinder',
++            'kbabel',
++            'kdeprint',
++            'kdesktop',
++            'kfile',
++            'kfourinline',
++            'khotkeys',
++            'kio',
++            'kmail',
++            'kmplot',
++            'koffice',
++            'kompare',
++            'konqueror',
++            'kopete',
++            'kpat',
++            'kphotoalbum',
++            'krita',
++            'ksmserver',
++            'kspread',
++            'ksysguard',
++            'ktimetracker',
++            'kwin',
++            'kword',
++            'marble',
++            'okular',
++            'plasma',
++            'printer-applet',
++            'rsibreak',
++            'step',
++            'systemsettings',
++            'kdelibs',
++            'kcontrol',
++            'korganizer',
++            'kipiplugins',
++            'Phonon',
++            'dolphin',
++            'umbrello']
++            )
++        products_to_be_renamed = {
++            'digikamimageplugins': 'digikam image plugins',
++            'Network Management': 'KDE Network Management',
++            'telepathy': 'telepathy for KDE',
++            'docs': 'KDE documentation',
++            }
++        component = bb.component
++        things = (product, component)
++
++        if product in reasonable_products:
++            bug_project_name = product
++        else:
++            if product in products_to_be_renamed:
++                bug_project_name = products_to_be_renamed[product]
++            else:
++                logging.info("Guessing on KDE subproject name. Found %s" %  repr(things))
++                bug_project_name = product
++        return bug_project_name
++
++class MediaWikiBugzilla(BugzillaBugTracker):
++    enabled = True
++
++    def __init__(self):
++        BugzillaBugTracker.__init__(self,
++                                    base_url='https://bugzilla.wikimedia.org/',
++                                    project_name='MediaWiki',
++                                    bug_project_name_format='')
++
++    def get_current_xml_bug_tree(self):
++        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
++                'https://bugzilla.wikimedia.org/buglist.cgi?keywords=easy&query_format=advanced&keywords_type=allwords&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_status=VERIFIED&resolution=LATER&resolution=---')
++
++    @staticmethod
++    def extract_tracker_specific_data(xml_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        keywords_text = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'keywords')
++        keywords = map(lambda s: s.strip(),
++                       keywords_text.split(','))
++        ret_dict['good_for_newcomers'] = ('easy' in keywords)
++        # Then pass ret_dict back
++        return ret_dict
++
++    def generate_bug_project_name(self, bb):
++        product = bb.product
++        if product == 'MediaWiki extensions':
++            bug_project_name = bb.component
++            if bug_project_name in ('FCKeditor', 'Gadgets'):
++                bug_project_name += ' for MediaWiki'
++        else:
++            bug_project_name = product
++        return bug_project_name
++
++class GnomeBugzilla(BugzillaBugTracker):
++    enabled = True
++
++    def __init__(self):
++        BugzillaBugTracker.__init__(self,
++                                    base_url='https://bugzilla.gnome.org/',
++                                    project_name='Gnome',
++                                    bug_project_name_format='')
++
++    def get_current_xml_bug_tree(self):
++        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
++                'https://bugzilla.gnome.org/buglist.cgi?columnlist=id&keywords=gnome-love&query_format=advanced&resolution=---')
++
++    @staticmethod
++    def extract_tracker_specific_data(xml_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        keywords_text = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'keywords')
++        keywords = map(lambda s: s.strip(),
++                       keywords_text.split(','))
++        ret_dict['good_for_newcomers'] = ('gnome-love' in keywords)
++        # Then pass ret_dict back
++        return ret_dict
++
++    def generate_bug_project_name(self, bb):
++        bug_project_name = bb.product
++        gnome2openhatch = {'general': 'GNOME (general)',
++                           'website': 'GNOME (website)'}
++        if bug_project_name in gnome2openhatch:
++            bug_project_name=gnome2openhatch[bug_project_name]
++        return bug_project_name
++
++class MozillaBugzilla(BugzillaBugTracker):
++    enabled = True
++
++    def __init__(self):
++        BugzillaBugTracker.__init__(self,
++                                    base_url='https://bugzilla.mozilla.org/',
++                                    project_name='Mozilla',
++                                    bug_project_name_format='')
++
++    def get_current_xml_bug_tree(self):
++        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
++                'https://bugzilla.mozilla.org/buglist.cgi?resolution=---;status_whiteboard_type=substring;query_format=advanced;status_whiteboard=[good%20first%20bug]')
++
++    @staticmethod
++    def extract_tracker_specific_data(xml_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        whiteboard_text = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'status_whiteboard')
++        ret_dict['good_for_newcomers'] = (whiteboard_text == '[good first bug]')
++        # Then pass ret_dict back
++        return ret_dict
++
++    def generate_bug_project_name(self, bb):
++        ### Special-case the project names we know about
++        mozilla2openhatch = {'Core': 'Mozilla Core',
++                             'Firefox': 'Firefox',
++                             'MailNews Core': 'Mozilla Messaging',
++                             'addons.mozilla.org': 'addons.mozilla.org',
++                             'Thunderbird': 'Thunderbird',
++                             'Testing': 'Mozilla automated testing',
++                             'Directory': 'Mozilla LDAP',
++                             'mozilla.org': 'mozilla.org',
++                             'SeaMonkey': 'SeaMonkey',
++                             'Toolkit': 'Mozilla Toolkit',
++                             'support.mozilla.com': 'support.mozilla.com',
++                             'Camino': 'Camino',
++                             'Calendar': 'Mozilla Calendar',
++                             'Mozilla Localizations': 'Mozilla Localizations',
++                             }
++        if bb.product == 'Other Applications':
++            bug_project_name = 'Mozilla ' + bb.component
++        else:
++            bug_project_name = mozilla2openhatch[bb.product]
++        return bug_project_name
++
++class FedoraBugzilla(BugzillaBugTracker):
++    enabled = True
++
++    def __init__(self):
++        BugzillaBugTracker.__init__(self,
++                                    base_url='https://bugzilla.redhat.com/',
++                                    project_name='Fedora',
++                                    bug_project_name_format='{component}',
++                                    bug_id_list_only=True)
++
++    def get_current_bug_id_list(self):
++        return mysite.customs.bugtrackers.bugzilla.tracker_bug2bug_ids(
++                'https://bugzilla.redhat.com/show_bug.cgi?ctype=xml&id=509829')
++
++    @staticmethod
++    def extract_tracker_specific_data(xml_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        keywords_text = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'keywords')
++        keywords = map(lambda s: s.strip(),
++                       keywords_text.split(','))
++        ret_dict['good_for_newcomers'] = True # Since they are 'fit and finish'
++        # Set the distribution tag
++        ret_dict['as_appears_in_distribution'] = 'Fedora'
++        # Then pass ret_dict back
++        return ret_dict
++
++# The generic class for Bugzilla trackers. Copy it.
++# If the project has a tracker bug for the bugs to be imported,
++# set bug_id_list_only=True in BugzillaBugTracker.__init__ and
++# replace get_current_xml_bug_tree with get_current_bug_id_list
++class GenBugzilla(BugzillaBugTracker):
++    enabled = False
++
++    def __init__(self):
++        BugzillaBugTracker.__init__(self,
++                                    base_url='',
++                                    project_name='',
++                                    bug_project_name_format='')
++
++    def get_current_xml_bug_tree(self):
++        return mysite.customs.bugtrackers.bugzilla.url2bug_data(
++                '')
++
++    @staticmethod
++    def extract_tracker_specific_data(xml_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        keywords_text = mysite.customs.bugtrackers.bugzilla.get_tag_text_from_xml(xml_data, 'keywords')
++        keywords = map(lambda s: s.strip(),
++                       keywords_text.split(','))
++        ret_dict['good_for_newcomers'] = ('' in keywords)
++        # Then pass ret_dict back
++        return ret_dict
++
++    # The format string method for generating the project name can be
++    # overloaded by uncommenting the function below.
++    #def generate_bug_project_name(self, bb):
++        #return bug_project_name
++
+-- 
+1.7.1
+
+
+From d4d9d1bcd2963080f8fc8eab1b91caaadb94dea9 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Fri, 25 Jun 2010 15:21:10 +0000
+Subject: [PATCH 3/4] Cloned Bugzilla TestCase and modified it to test the new format importer.
+
+---
+ mysite/customs/tests.py |  166 +++++++++++++++++++++++++++++++++++++++++++++++
+ 1 files changed, 166 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index d1f44ac..8ac5688 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -439,6 +439,172 @@ Keywords: Torrent unittest""")
+         bug = all_bugs[0]
+         self.assertEqual(bug.people_involved, 5)
+ 
++class BugzillaNewFormatTests(django.test.TestCase):
++    fixtures = ['miro-project']
++    @mock.patch("mysite.customs.bugtrackers.bugzilla.url2bug_data")
++    def test_kde(self, mock_xml_opener):
++        p = Project.create_dummy(name='KDE')
++        mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
++            settings.MEDIA_ROOT, 'sample-data', 'kde-117760-2010-04-09.xml')).read())
++        kde = mysite.search.tasks.bugzilla_instances.KDEBugzilla()
++        kde.update()
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 1)
++        bug = all_bugs[0]
++        self.assertEqual(bug.submitter_username, 'hasso kde org')
++        self.assertEqual(bug.submitter_realname, 'Hasso Tepper')
++
++    @mock.patch("mysite.customs.bugtrackers.bugzilla.url2bug_data")
++    def test_kde_harder_bug(self, mock_xml_opener):
++        p = Project.create_dummy(name='KDE')
++        mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
++            settings.MEDIA_ROOT, 'sample-data', 'kde-182054-2010-04-09.xml')).read())
++        kde = mysite.search.tasks.bugzilla_instances.KDEBugzilla()
++        kde.update()
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 1)
++        bug = all_bugs[0]
++        self.assertEqual(bug.submitter_username, 'jedd progsoc org')
++        self.assertEqual(bug.submitter_realname, '')
++
++    @mock.patch("mysite.customs.bugtrackers.bugzilla.url2bug_data")
++    def test_miro_bug_object(self, mock_xml_opener):
++        # Parse XML document as if we got it from the web
++        mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
++            settings.MEDIA_ROOT, 'sample-data', 'miro-2294-2009-08-06.xml')).read())
++
++        miro = mysite.search.tasks.bugzilla_instances.MiroBugzilla()
++        miro.update()
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 1)
++        bug = all_bugs[0]
++        self.assertEqual(bug.project.name, 'Miro')
++        self.assertEqual(bug.title, "Add test for torrents that use gzip'd urls")
++        self.assertEqual(bug.description, """This broke. We should make sure it doesn't break again.
++Trac ticket id: 2294
++Owner: wguaraldi
++Reporter: nassar
++Keywords: Torrent unittest""")
++        self.assertEqual(bug.status, 'NEW')
++        self.assertEqual(bug.importance, 'normal')
++        self.assertEqual(bug.people_involved, 5)
++        self.assertEqual(bug.date_reported, datetime.datetime(2006, 6, 9, 12, 49))
++        self.assertEqual(bug.last_touched, datetime.datetime(2008, 6, 11, 23, 56, 27))
++        self.assertEqual(bug.submitter_username, 'nassar@pculture.org')
++        self.assertEqual(bug.submitter_realname, 'Nick Nassar')
++        self.assertEqual(bug.canonical_bug_link, 'http://bugzilla.pculture.org/show_bug.cgi?id=2294')
++        self.assert_(bug.good_for_newcomers)
++
++    @mock.patch("mysite.customs.bugtrackers.bugzilla.url2bug_data")
++    def test_full_grab_miro_bugs(self, mock_xml_opener):
++        mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
++            settings.MEDIA_ROOT, 'sample-data', 'miro-2294-2009-08-06.xml')).read())
++
++        miro = mysite.search.tasks.bugzilla_instances.MiroBugzilla()
++        miro.update()
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 1)
++        bug = all_bugs[0]
++        self.assertEqual(bug.canonical_bug_link,
++                         'http://bugzilla.pculture.org/show_bug.cgi?id=2294')
++        self.assertFalse(bug.looks_closed)
++
++        # And the new manager does find it
++        self.assertEqual(Bug.open_ones.all().count(), 1)
++
++
++    @mock.patch("mysite.customs.bugtrackers.bugzilla.url2bug_data")
++    def test_miro_bugzilla_detects_closedness(self, mock_xml_opener):
++        cooked_xml = open(os.path.join(
++            settings.MEDIA_ROOT, 'sample-data',
++            'miro-2294-2009-08-06.xml')).read().replace(
++            'NEW', 'CLOSED')
++        mock_xml_opener.return_value = lxml.etree.XML(cooked_xml)
++
++        miro = mysite.search.tasks.bugzilla_instances.MiroBugzilla()
++        miro.update()
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 1)
++        bug = all_bugs[0]
++        self.assertEqual(bug.canonical_bug_link,
++                         'http://bugzilla.pculture.org/show_bug.cgi?id=2294')
++        self.assert_(bug.looks_closed)
++
++        # And the new manager successfully does NOT find it!
++        self.assertEqual(Bug.open_ones.all().count(), 0)
++
++    @mock.patch("mysite.customs.bugtrackers.bugzilla.url2bug_data")
++    def test_full_grab_resolved_miro_bug(self, mock_xml_opener):
++        mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
++            settings.MEDIA_ROOT, 'sample-data', 'miro-2294-2009-08-06-RESOLVED.xml')).read())
++
++        miro = mysite.search.tasks.bugzilla_instances.MiroBugzilla()
++        miro.update()
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 1)
++        bug = all_bugs[0]
++        self.assertEqual(bug.canonical_bug_link,
++                         'http://bugzilla.pculture.org/show_bug.cgi?id=2294')
++        self.assert_(bug.looks_closed)
++
++    @mock.patch("mysite.customs.bugtrackers.bugzilla.url2bug_data")
++    def test_full_grab_miro_bugs_refreshes_older_bugs(self, mock_xml_opener):
++        mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
++            settings.MEDIA_ROOT, 'sample-data', 'miro-2294-2009-08-06.xml')).read())
++        miro = mysite.search.tasks.bugzilla_instances.MiroBugzilla()
++        miro.update()
++
++        # Pretend there's old data lying around:
++        bug = Bug.all_bugs.get()
++        bug.people_involved = 1
++        bug.save()
++
++        mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
++            settings.MEDIA_ROOT, 'sample-data', 'miro-2294-2009-08-06.xml')).read())
++
++        # Now refresh
++        miro.update()
++
++        # Now verify there is only one bug, and its people_involved is 5
++        bug = Bug.all_bugs.get()
++        self.assertEqual(bug.people_involved, 5)
++
++
++    @mock.patch("mysite.customs.bugtrackers.bugzilla.url2bug_data")
++    @mock.patch("mysite.search.tasks.bugzilla_instances.MiroBugzilla.get_current_xml_bug_tree")
++    def test_regrab_miro_bugs_refreshes_older_bugs_even_when_missing_from_csv(self, mock_xml_bug_tree, mock_xml_opener):
++        mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
++            settings.MEDIA_ROOT, 'sample-data', 'miro-2294-2009-08-06.xml')).read())
++
++        # Situation: Assume there are zero bitesized bugs today.
++        # Desire: We re-get old bugs that don't show up in the xml bug list.
++
++        # Prereq: We have some bug with lame data:
++        bug = Bug()
++        bug.people_involved = 1
++        bug.canonical_bug_link = 'http://bugzilla.pculture.org/show_bug.cgi?id=2294'
++        bug.date_reported = datetime.datetime.now()
++        bug.last_touched = datetime.datetime.now()
++        bug.last_polled = datetime.datetime.now()
++        bug.project, _ = Project.objects.get_or_create(name='Miro')
++        bug.save()
++
++        # Prepare a fake xml bug list that is empty
++        mock_xml_bug_tree.return_value = lxml.etree.XML('''\
++<bugzilla>
++</bugzilla>
++''')
++
++        # Now, do a crawl and notice that we updated the bug even
++        # though the xml bug list is empty
++        
++        miro = mysite.search.tasks.bugzilla_instances.MiroBugzilla()
++        miro.update()
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 1)
++        bug = all_bugs[0]
++        self.assertEqual(bug.people_involved, 5)
++
+ class BlogCrawl(django.test.TestCase):
+     def test_summary2html(self):
+         yo_eacute = mysite.customs.feed.summary2html('Yo &eacute;')
+-- 
+1.7.1
+
+
+From 82b01df15c3769bd5fa34084b4632879e5fc43e7 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Fri, 25 Jun 2010 15:46:08 +0000
+Subject: [PATCH 4/4] Corrected the new Bugzilla TestCase so that artificial Bug objects to be refreshed were actually created stale.
+
+---
+ mysite/customs/tests.py |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 8ac5688..4733cc6 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -557,6 +557,7 @@ Keywords: Torrent unittest""")
+         # Pretend there's old data lying around:
+         bug = Bug.all_bugs.get()
+         bug.people_involved = 1
++        bug.last_polled = datetime.datetime.now() - datetime.timedelta(days = 2)
+         bug.save()
+ 
+         mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
+@@ -585,7 +586,7 @@ Keywords: Torrent unittest""")
+         bug.canonical_bug_link = 'http://bugzilla.pculture.org/show_bug.cgi?id=2294'
+         bug.date_reported = datetime.datetime.now()
+         bug.last_touched = datetime.datetime.now()
+-        bug.last_polled = datetime.datetime.now()
++        bug.last_polled = datetime.datetime.now() - datetime.timedelta(days = 2)
+         bug.project, _ = Project.objects.get_or_create(name='Miro')
+         bug.save()
+ 
+-- 
+1.7.1
+

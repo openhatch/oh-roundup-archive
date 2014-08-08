@@ -1,0 +1,897 @@
+jesstess@aja:~/dev$ git clone git://gitorious.org/openhatch/oh-mainline.git
+The program 'git' is currently not installed.  You can install it by typing:
+sudo apt-get install git
+jesstess@aja:~/dev$ sudo apt-get install git
+[sudo] password for jesstess: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following extra packages will be installed:
+  liberror-perl
+Suggested packages:
+  git-doc git-arch git-cvs git-svn git-email git-daemon-run git-gui gitk gitweb
+The following NEW packages will be installed:
+  git liberror-perl
+0 upgraded, 2 newly installed, 0 to remove and 36 not upgraded.
+Need to get 5,808kB of archives.
+After this operation, 12.1MB of additional disk space will be used.
+Do you want to continue [Y/n]? y
+Get:1 http://us.archive.ubuntu.com/ubuntu/ maverick/main liberror-perl all 0.17-1 [23.8kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ maverick/main git i386 1:1.7.1-1.1 [5,784kB]
+Fetched 5,808kB in 7s (780kB/s)                                                                                                                                                                                 
+Selecting previously deselected package liberror-perl.
+(Reading database ... 125697 files and directories currently installed.)
+Unpacking liberror-perl (from .../liberror-perl_0.17-1_all.deb) ...
+Selecting previously deselected package git.
+Unpacking git (from .../git_1%3a1.7.1-1.1_i386.deb) ...
+Processing triggers for man-db ...
+Setting up liberror-perl (0.17-1) ...
+Setting up git (1:1.7.1-1.1) ...
+jesstess@aja:~/dev$ git clone git://gitorious.org/openhatch/oh-mainline.git
+Initialized empty Git repository in /home/jesstess/dev/oh-mainline/.git/
+remote: Counting objects: 36001, done.
+remote: Compressing objects: 100% (8156/8156), done.
+remote: Total 36001 (delta 26443), reused 35533 (delta 26106)
+Receiving objects: 100% (36001/36001), 44.82 MiB | 1.32 MiB/s, done.
+Resolving deltas: 100% (26443/26443), done.
+jesstess@aja:~/dev$ cd oh-mainline
+jesstess@aja:~/dev/oh-mainline$ sudo apt-get install python2.6-dev python-libxml2 memcached
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+python-libxml2 is already the newest version.
+The following extra packages will be installed:
+  libssl-dev libssl0.9.8 zlib1g-dev
+Suggested packages:
+  libcache-memcached-perl libmemcached
+The following NEW packages will be installed:
+  libssl-dev memcached python2.6-dev zlib1g-dev
+The following packages will be upgraded:
+  libssl0.9.8
+1 upgraded, 4 newly installed, 0 to remove and 35 not upgraded.
+Need to get 7,548kB of archives.
+After this operation, 17.9MB of additional disk space will be used.
+Do you want to continue [Y/n]? y
+Get:1 http://us.archive.ubuntu.com/ubuntu/ maverick-updates/main libssl0.9.8 i386 0.9.8o-1ubuntu4.2 [867kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ maverick/main zlib1g-dev i386 1:1.2.3.4.dfsg-3ubuntu1 [188kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ maverick-updates/main libssl-dev i386 0.9.8o-1ubuntu4.2 [2,019kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ maverick/main memcached i386 1.4.5-1ubuntu1 [72.5kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu/ maverick/main python2.6-dev i386 2.6.6-5ubuntu1 [4,401kB]
+Fetched 7,548kB in 8s (903kB/s)                                                                                                                                                                                 
+Preconfiguring packages ...
+(Reading database ... 126218 files and directories currently installed.)
+Preparing to replace libssl0.9.8 0.9.8o-1ubuntu4.1 (using .../libssl0.9.8_0.9.8o-1ubuntu4.2_i386.deb) ...
+Unpacking replacement libssl0.9.8 ...
+Setting up libssl0.9.8 (0.9.8o-1ubuntu4.2) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Selecting previously deselected package zlib1g-dev.
+(Reading database ... 126218 files and directories currently installed.)
+Unpacking zlib1g-dev (from .../zlib1g-dev_1%3a1.2.3.4.dfsg-3ubuntu1_i386.deb) ...
+Selecting previously deselected package libssl-dev.
+Unpacking libssl-dev (from .../libssl-dev_0.9.8o-1ubuntu4.2_i386.deb) ...
+Selecting previously deselected package memcached.
+Unpacking memcached (from .../memcached_1.4.5-1ubuntu1_i386.deb) ...
+Selecting previously deselected package python2.6-dev.
+Unpacking python2.6-dev (from .../python2.6-dev_2.6.6-5ubuntu1_i386.deb) ...
+Processing triggers for man-db ...
+Processing triggers for ureadahead ...
+Setting up zlib1g-dev (1:1.2.3.4.dfsg-3ubuntu1) ...
+Setting up libssl-dev (0.9.8o-1ubuntu4.2) ...
+Setting up memcached (1.4.5-1ubuntu1) ...
+Starting memcached: memcached.
+Setting up python2.6-dev (2.6.6-5ubuntu1) ...
+jesstess@aja:~/dev/oh-mainline$ sudo /etc/init.d/memcached start
+Starting memcached: memcached is already running.
+memcached.
+jesstess@aja:~/dev/oh-mainline$ python2.6 bootstrap.py
+Traceback (most recent call last):
+  File "bootstrap.py", line 76, in <module>
+    ws.find(pkg_resources.Requirement.parse('setuptools')).location
+AttributeError: 'NoneType' object has no attribute 'location'
+jesstess@aja:~/dev/oh-mainline$ sudo apt-get install python-setuptools
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  python-setuptools
+0 upgraded, 1 newly installed, 0 to remove and 35 not upgraded.
+Need to get 217kB of archives.
+After this operation, 1,065kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ maverick/main python-setuptools all 0.6.14-3ubuntu1 [217kB]
+Fetched 217kB in 0s (245kB/s)            
+Selecting previously deselected package python-setuptools.
+(Reading database ... 127611 files and directories currently installed.)
+Unpacking python-setuptools (from .../python-setuptools_0.6.14-3ubuntu1_all.deb) ...
+Setting up python-setuptools (0.6.14-3ubuntu1) ...
+jesstess@aja:~/dev/oh-mainline$ python2.6 bootstrap.py
+install_dir /tmp/tmp2iAsRq
+Creating directory '/home/jesstess/dev/oh-mainline/bin'.
+Creating directory '/home/jesstess/dev/oh-mainline/parts'.
+Creating directory '/home/jesstess/dev/oh-mainline/eggs'.
+Creating directory '/home/jesstess/dev/oh-mainline/develop-eggs'.
+Generated script '/home/jesstess/dev/oh-mainline/bin/buildout'.
+jesstess@aja:~/dev/oh-mainline$ bin/buildout
+Develop: '/home/jesstess/dev/oh-mainline/.'
+install_dir /home/jesstess/dev/oh-mainline/develop-eggs/tmpx7mK73build
+Getting distribution for 'zc.recipe.egg'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpMUcS4H
+Got zc.recipe.egg 1.3.2.
+Getting distribution for 'djangorecipe'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpGdvfOf
+Got djangorecipe 0.20.
+Getting distribution for 'hexagonit.recipe.download'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpAFDeia
+Got hexagonit.recipe.download 1.4.1.
+Getting distribution for 'plone.recipe.command'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpiqbzy7
+Got plone.recipe.command 1.1.
+Installing scripts.
+Getting distribution for 'python-openid==2.2.5'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpHVVtZA
+warning: no files found matching 'CHANGELOG'
+warning: no files found matching '*.css' under directory 'doc'
+warning: no files found matching '*.html' under directory 'doc'
+zip_safe flag not set; analyzing archive contents...
+Got python-openid 2.2.5.
+Getting distribution for 'lockfile>=0.9'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmppMZKLv
+zip_safe flag not set; analyzing archive contents...
+Got lockfile 0.9.1.
+Getting distribution for 'html2text'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpG8R6Rp
+Got html2text 2.38.
+Getting distribution for 'python-launchpad-bugs'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp81Z9uM
+zip_safe flag not set; analyzing archive contents...
+launchpadbugs.utils: module references __file__
+Got python-launchpad-bugs 0.3.6.
+Download error: [Errno -2] Name or service not known -- Some packages may not be found!
+Getting distribution for 'python-otp'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp4ttoYH
+zip_safe flag not set; analyzing archive contents...
+Got python-otp 1.0.
+Getting distribution for 'staticgenerator==1.4.1.2-openhatch'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpXozObI
+zip_safe flag not set; analyzing archive contents...
+Got staticgenerator 1.4.1.2-openhatch.
+Getting distribution for 'django-voting'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpF_xmmQ
+zip_safe flag not set; analyzing archive contents...
+voting.tests.settings: module references __file__
+Got django-voting 0.1.
+Getting distribution for 'django-registration>0.7'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpNTqCur
+zip_safe flag not set; analyzing archive contents...
+Got django-registration 0.8-alpha-1.
+Getting distribution for 'django-haystack'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmprPKPbx
+zip_safe flag not set; analyzing archive contents...
+haystack.__init__: module references __path__
+haystack.__init__: module MAY be using inspect.stack
+Got django-haystack 1.0.2-final.
+Getting distribution for 'sisynala'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpKKzP9k
+zip_safe flag not set; analyzing archive contents...
+Got sisynala 0.9.19.
+Getting distribution for 'pysolr'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpQdZe4P
+zip_safe flag not set; analyzing archive contents...
+Got pysolr 2.0.13.
+Download error: [Errno -2] Name or service not known -- Some packages may not be found!
+Getting distribution for 'keyring==0.5.0.1'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp52e66f
+zip_safe flag not set; analyzing archive contents...
+keyring.core: module references __path__
+keyring.tests.test_core: module references __file__
+Got keyring 0.5.0.1.
+Getting distribution for 'django-debug-toolbar==0.8.1'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp3mg99i
+Got django-debug-toolbar 0.8.1.
+Getting distribution for 'pygeoip==0.1.3'.
+Got pygeoip 0.1.3.
+Getting distribution for 'python-github2==0.1.1'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpB355Ve
+zip_safe flag not set; analyzing archive contents...
+Got python-github2 0.1.1.
+Getting distribution for 'django-assets==0.2.1'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpjNcNrW
+Sphinx not installed--needed to build documentation
+zip_safe flag not set; analyzing archive contents...
+django_assets.registry: module references __path__
+django_assets.filter.__init__: module references __file__
+django_assets.management.commands.assets: module references __file__
+Got django-assets 0.2.1.
+Getting distribution for 'south==0.6-rc1'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpw07Si_
+zip_safe flag not set; analyzing archive contents...
+south.migration: module references __file__
+south.modelsparser: module MAY be using inspect.getsourcefile
+south.management.commands.startmigration: module references __file__
+south.tests.__init__: module references __file__
+south.tests.logic: module references __file__
+Got South 0.6-rc1.
+Getting distribution for 'celery==1.0.5'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpB2AGhB
+warning: no files found matching 'README.rst'
+no previously-included directories found matching 'tests/*.pyc'
+no previously-included directories found matching 'docs/*.pyc'
+no previously-included directories found matching 'contrib/*.pyc'
+no previously-included directories found matching 'celery/*.pyc'
+no previously-included directories found matching 'bin/*.pyc'
+no previously-included directories found matching 'docs/.build'
+Got celery 1.0.5.
+Getting distribution for 'django-authopenid==1.0.1-openhatch'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpgqMe6g
+warning: no files found matching 'CHANGES.MD'
+Got django-authopenid 1.0.1-openhatch.
+Getting distribution for 'invitation'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpDUwWB5
+install_dir .
+zip_safe flag not set; analyzing archive contents...
+
+Installed /tmp/easy_install-mzDGa3/invitation-1.0/setuptools_hg-0.2-py2.6.egg
+file invitation.py (for module invitation) not found
+file invitation.py (for module invitation) not found
+file invitation.py (for module invitation) not found
+Got invitation 1.0.
+Getting distribution for 'twill==0.9.1-cc'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpunQS4H
+build/bdist.linux-i686/egg/twill/other_packages/_mechanize_dist/_msiecookiejar.py:255: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (sig in ("HASH", "LEAK",
+zip_safe flag not set; analyzing archive contents...
+twill.__init__: module references __file__
+twill.commands: module references __file__
+/home/jesstess/dev/oh-mainline/eggs/tmpunQS4H/twill-0.9.1_cc-py2.6.egg/twill/other_packages/_mechanize_dist/_msiecookiejar.py:255: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (sig in ("HASH", "LEAK",
+/home/jesstess/dev/oh-mainline/eggs/twill-0.9.1_cc-py2.6.egg/twill/other_packages/_mechanize_dist/_msiecookiejar.py:255: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (sig in ("HASH", "LEAK",
+Got twill 0.9.1-cc.
+Getting distribution for 'python-distutils-extra'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpJOOPcR
+zip_safe flag not set; analyzing archive contents...
+DistUtilsExtra.auto: module references __file__
+Got python-distutils-extra 2.9.
+Getting distribution for 'billiard>=0.3.1'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpZ2jKLx
+warning: no files found matching '*' under directory 'tests'
+Got billiard 0.3.1.
+Getting distribution for 'django-picklefield'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp7sSoM1
+zip_safe flag not set; analyzing archive contents...
+Got django-picklefield 0.1.9.
+Getting distribution for 'carrot>=0.10.4'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpvx00h5
+warning: no files found matching 'README.rst'
+Got carrot 0.10.7.
+Getting distribution for 'anyjson'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp8B21hB
+Got anyjson 0.2.5.
+Getting distribution for 'python-dateutil'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpCCm2oN
+Got python-dateutil 1.5.
+Getting distribution for 'importlib'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpGN2jmS
+zip_safe flag not set; analyzing archive contents...
+Got importlib 1.0.2.
+Getting distribution for 'django'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp_pHFek
+warning: no files found matching 'django/dispatch/LICENSE.txt'
+warning: no files found matching '*' under directory 'examples'
+zip_safe flag not set; analyzing archive contents...
+django.template.loaders.app_directories: module references __file__
+django.core.management.__init__: module references __file__
+django.core.management.__init__: module references __path__
+django.core.management.base: module references __path__
+django.core.management.sql: module references __file__
+django.core.management.commands.makemessages: module references __file__
+django.core.management.commands.loaddata: module references __file__
+django.core.management.commands.loaddata: module references __path__
+django.core.servers.basehttp: module references __path__
+django.conf.__init__: module references __file__
+django.conf.project_template.manage: module references __file__
+django.views.i18n: module references __file__
+django.test.simple: module references __file__
+django.test._doctest: module references __file__
+django.test._doctest: module MAY be using inspect.getsourcefile
+django.db.utils: module references __file__
+django.db.models.loading: module references __file__
+django.utils.version: module references __path__
+django.utils.autoreload: module references __file__
+django.utils.module_loading: module references __path__
+django.utils.translation.trans_real: module references __file__
+django.contrib.auth.tests.views: module references __file__
+django.contrib.flatpages.tests.views: module references __file__
+django.contrib.flatpages.tests.csrf: module references __file__
+django.contrib.flatpages.tests.middleware: module references __file__
+django.contrib.gis.gdal.tests.test_ds: module references __file__
+django.contrib.gis.tests.geogapp.tests: module references __file__
+django.contrib.gis.tests.geo3d.tests: module references __file__
+django.contrib.gis.tests.layermap.tests: module references __file__
+django.contrib.admindocs.views: module references __file__
+
+
+Got Django 1.2.3.
+Getting distribution for 'elementtree'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpHh4XUx
+zip_safe flag not set; analyzing archive contents...
+Got elementtree 1.2.7-20070827-preview.
+Getting distribution for 'wsgi-intercept'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpTp0u1N
+zip_safe flag not set; analyzing archive contents...
+wsgi_intercept.mechanoid_intercept.wsgi_browser: module references __file__
+Got wsgi-intercept 0.4.
+Getting distribution for 'lazr.authentication'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpd33CqS
+Got lazr.authentication 0.1.2.
+Getting distribution for 'amqplib>=0.6'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp7IHagD
+zip_safe flag not set; analyzing archive contents...
+Got amqplib 0.6.1.
+Generated interpreter '/home/jesstess/dev/oh-mainline/bin/python'.
+Installing mysite.
+mysite: Downloading Django from: http://www.djangoproject.com/download/1.1.2/tarball/
+install_dir /home/jesstess/dev/oh-mainline/develop-eggs/tmpGSxdJnbuild
+Getting distribution for 'ipython'.
+Got ipython 0.10.1.
+Getting distribution for 'python-memcached'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmptMcdly
+zip_safe flag not set; analyzing archive contents...
+Got python-memcached 1.45.
+Getting distribution for 'BeautifulSoup'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp1d55XB
+zip_safe flag not set; analyzing archive contents...
+/usr/lib/python2.6/dist-packages/setuptools/command/bdist_egg.py:427: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
+  symbols = dict.fromkeys(iter_symbols(code))
+Got BeautifulSoup 3.2.0.
+Getting distribution for 'mechanize'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpsurmCh
+Got mechanize 0.2.4.
+Getting distribution for 'lxml'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpYJ38X0
+Building lxml version 2.3.beta1.
+NOTE: Trying to build without Cython, pre-generated 'src/lxml/lxml.etree.c' needs to be available.
+ERROR: /bin/sh: xslt-config: not found
+
+** make sure the development packages of libxml2 and libxslt are installed **
+
+Using build configuration of libxslt 
+In file included from src/lxml/lxml.etree.c:203:
+src/lxml/etree_defs.h:9: fatal error: libxml/xmlversion.h: No such file or directory
+compilation terminated.
+error: Setup script exited with error: command 'gcc' failed with exit status 1
+An error occurred when trying to install lxml 2.3beta1. Look above this message for any errors that were output by easy_install.
+While:
+  Installing mysite.
+  Getting distribution for 'lxml'.
+Error: Couldn't install: lxml 2.3beta1
+jesstess@aja:~/dev/oh-mainline$ sudo apt-get install libxml2-dev libxslt-dev
+[sudo] password for jesstess: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Note, selecting 'libxslt1-dev' instead of 'libxslt-dev'
+The following NEW packages will be installed:
+  libxml2-dev libxslt1-dev
+0 upgraded, 2 newly installed, 0 to remove and 35 not upgraded.
+Need to get 1,372kB of archives.
+After this operation, 4,719kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ maverick-updates/main libxml2-dev i386 2.7.7.dfsg-4ubuntu0.1 [753kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ maverick/main libxslt1-dev i386 1.1.26-6 [619kB]
+Fetched 1,372kB in 2s (564kB/s)     
+Selecting previously deselected package libxml2-dev.
+(Reading database ... 127789 files and directories currently installed.)
+Unpacking libxml2-dev (from .../libxml2-dev_2.7.7.dfsg-4ubuntu0.1_i386.deb) ...
+Selecting previously deselected package libxslt1-dev.
+Unpacking libxslt1-dev (from .../libxslt1-dev_1.1.26-6_i386.deb) ...
+Processing triggers for man-db ...
+Processing triggers for doc-base ...
+Processing 1 added doc-base file(s)...
+Registering documents with scrollkeeper...
+Setting up libxml2-dev (2.7.7.dfsg-4ubuntu0.1) ...
+Setting up libxslt1-dev (1.1.26-6) ...
+jesstess@aja:~/dev/oh-mainline$ bin/buildout
+Develop: '/home/jesstess/dev/oh-mainline/.'
+install_dir /home/jesstess/dev/oh-mainline/develop-eggs/tmphWHElEbuild
+Updating scripts.
+Installing mysite.
+install_dir /home/jesstess/dev/oh-mainline/develop-eggs/tmpoardVJbuild
+Getting distribution for 'lxml'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpyhjPlo
+Building lxml version 2.3.beta1.
+NOTE: Trying to build without Cython, pre-generated 'src/lxml/lxml.etree.c' needs to be available.
+Using build configuration of libxslt 1.1.26
+Building against libxml2/libxslt in the following directory: /usr/lib
+Got lxml 2.3beta1.
+Getting distribution for 'decorator==3.1.2'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpyKbbth
+warning: no previously-included files found matching 'Makefile'
+Got decorator 3.1.2.
+Getting distribution for 'MySQL-python'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp2Q1bkf
+sh: mysql_config: not found
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python2.6/dist-packages/setuptools/command/easy_install.py", line 1903, in main
+    with_ei_usage(lambda:
+  File "/usr/lib/python2.6/dist-packages/setuptools/command/easy_install.py", line 1884, in with_ei_usage
+    return f()
+  File "/usr/lib/python2.6/dist-packages/setuptools/command/easy_install.py", line 1907, in <lambda>
+    distclass=DistributionWithoutHelpCommands, **kw
+  File "/usr/lib/python2.6/distutils/core.py", line 152, in setup
+    dist.run_commands()
+  File "/usr/lib/python2.6/distutils/dist.py", line 975, in run_commands
+    self.run_command(cmd)
+  File "/usr/lib/python2.6/distutils/dist.py", line 995, in run_command
+    cmd_obj.run()
+  File "/usr/lib/python2.6/dist-packages/setuptools/command/easy_install.py", line 361, in run
+    self.easy_install(spec, not self.no_deps)
+  File "/usr/lib/python2.6/dist-packages/setuptools/command/easy_install.py", line 581, in easy_install
+    return self.install_item(None, spec, tmpdir, deps, True)
+  File "/usr/lib/python2.6/dist-packages/setuptools/command/easy_install.py", line 631, in install_item
+    dists = self.install_eggs(spec, download, tmpdir)
+  File "/usr/lib/python2.6/dist-packages/setuptools/command/easy_install.py", line 821, in install_eggs
+    return self.build_and_install(setup_script, setup_base)
+  File "/usr/lib/python2.6/dist-packages/setuptools/command/easy_install.py", line 1098, in build_and_install
+    self.run_setup(setup_script, setup_base, args)
+  File "/usr/lib/python2.6/dist-packages/setuptools/command/easy_install.py", line 1087, in run_setup
+    run_setup(setup_script, args)
+  File "/usr/lib/python2.6/dist-packages/setuptools/sandbox.py", line 29, in run_setup
+    lambda: execfile(
+  File "/usr/lib/python2.6/dist-packages/setuptools/sandbox.py", line 70, in run
+    return func()
+  File "/usr/lib/python2.6/dist-packages/setuptools/sandbox.py", line 31, in <lambda>
+    {'__file__':setup_script, '__name__':'__main__'}
+  File "setup.py", line 15, in <module>
+    dependency_path = 'http://linode.openhatch.org/~paulproteus/'
+  File "/tmp/easy_install-Sb1nVH/MySQL-python-1.2.3/setup_posix.py", line 43, in get_config
+  File "/tmp/easy_install-Sb1nVH/MySQL-python-1.2.3/setup_posix.py", line 24, in mysql_config
+EnvironmentError: mysql_config not found
+An error occurred when trying to install MySQL-python 1.2.3. Look above this message for any errors that were output by easy_install.
+While:
+  Installing mysite.
+  Getting distribution for 'MySQL-python'.
+Error: Couldn't install: MySQL-python 1.2.3
+jesstess@aja:~/dev/oh-mainline$ sudo apt-get install python-mysqldb
+[sudo] password for jesstess: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following extra packages will be installed:
+  libmysqlclient16 mysql-common
+Suggested packages:
+  mysql-server-5.1 mysql-server python-mysqldb-dbg
+The following NEW packages will be installed:
+  libmysqlclient16 mysql-common python-mysqldb
+0 upgraded, 3 newly installed, 0 to remove and 35 not upgraded.
+Need to get 2,022kB of archives.
+After this operation, 4,600kB of additional disk space will be used.
+Do you want to continue [Y/n]? y
+Get:1 http://us.archive.ubuntu.com/ubuntu/ maverick-updates/main mysql-common all 5.1.49-1ubuntu8.1 [64.2kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ maverick-updates/main libmysqlclient16 i386 5.1.49-1ubuntu8.1 [1,881kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ maverick/main python-mysqldb i386 1.2.2-10build1 [76.6kB]
+Fetched 2,022kB in 2s (860kB/s)        
+Selecting previously deselected package mysql-common.
+(Reading database ... 128001 files and directories currently installed.)
+Unpacking mysql-common (from .../mysql-common_5.1.49-1ubuntu8.1_all.deb) ...
+Selecting previously deselected package libmysqlclient16.
+Unpacking libmysqlclient16 (from .../libmysqlclient16_5.1.49-1ubuntu8.1_i386.deb) ...
+Selecting previously deselected package python-mysqldb.
+Unpacking python-mysqldb (from .../python-mysqldb_1.2.2-10build1_i386.deb) ...
+Setting up mysql-common (5.1.49-1ubuntu8.1) ...
+Setting up libmysqlclient16 (5.1.49-1ubuntu8.1) ...
+Setting up python-mysqldb (1.2.2-10build1) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Processing triggers for python-support ...
+jesstess@aja:~/dev/oh-mainline$ bin/buildout
+Develop: '/home/jesstess/dev/oh-mainline/.'
+install_dir /home/jesstess/dev/oh-mainline/develop-eggs/tmpVSFYiFbuild
+Updating scripts.
+Installing mysite.
+install_dir /home/jesstess/dev/oh-mainline/develop-eggs/tmpmzHRUybuild
+Getting distribution for 'pytz'.
+Got pytz 2010o.
+Getting distribution for 'django-extensions'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpDZ4X5d
+zip_safe flag not set; analyzing archive contents...
+django_extensions.management.utils: module references __file__
+django_extensions.management.commands.runserver_plus: module references __path__
+django_extensions.management.commands.create_command: module references __path__
+django_extensions.management.commands.create_app: module references __path__
+django_extensions.management.commands.create_jobs: module references __file__
+django_extensions.management.commands.create_jobs: module references __path__
+django_extensions.management.commands.runprofileserver: module references __path__
+django_extensions.management.commands.show_templatetags: module MAY be using inspect.getabsfile
+django_extensions.management.commands.syncdata: module references __file__
+Got django-extensions 0.5.
+Getting distribution for 'windmill'.
+Got windmill 1.4.
+Getting distribution for 'south==0.6.2'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpAVzzsW
+zip_safe flag not set; analyzing archive contents...
+south.migration: module references __file__
+south.modelsparser: module MAY be using inspect.getsource
+south.management.commands.startmigration: module references __file__
+south.tests.__init__: module references __file__
+south.tests.logger: module references __file__
+Got South 0.6.2.
+Download error: [Errno -2] Name or service not known -- Some packages may not be found!
+Download error: [Errno -2] Name or service not known -- Some packages may not be found!
+Download error: [Errno -2] Name or service not known -- Some packages may not be found!
+Download error: [Errno -2] Name or service not known -- Some packages may not be found!
+Download error: [Errno -2] Name or service not known -- Some packages may not be found!
+Download error: [Errno -2] Name or service not known -- Some packages may not be found!
+Getting distribution for 'typecheck'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpjX5hMV
+zip_safe flag not set; analyzing archive contents...
+Got typecheck 0.3.5.
+Getting distribution for 'odict'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpzDFn79
+build/bdist.linux-i686/egg/odict/bench.py:55: SyntaxWarning: name 'root' is assigned to before global declaration
+  global root
+build/bdist.linux-i686/egg/odict/bench.py:65: SyntaxWarning: name 'root' is assigned to before global declaration
+  global root
+/home/jesstess/dev/oh-mainline/eggs/tmpzDFn79/odict-1.3.2-py2.6.egg/odict/bench.py:55: SyntaxWarning: name 'root' is assigned to before global declaration
+  global root
+/home/jesstess/dev/oh-mainline/eggs/tmpzDFn79/odict-1.3.2-py2.6.egg/odict/bench.py:65: SyntaxWarning: name 'root' is assigned to before global declaration
+  global root
+/home/jesstess/dev/oh-mainline/eggs/odict-1.3.2-py2.6.egg/odict/bench.py:55: SyntaxWarning: name 'root' is assigned to before global declaration
+  global root
+/home/jesstess/dev/oh-mainline/eggs/odict-1.3.2-py2.6.egg/odict/bench.py:65: SyntaxWarning: name 'root' is assigned to before global declaration
+  global root
+/home/jesstess/dev/oh-mainline/eggs/odict-1.3.2-py2.6.egg/odict/bench.py:55: SyntaxWarning: name 'root' is assigned to before global declaration
+  global root
+/home/jesstess/dev/oh-mainline/eggs/odict-1.3.2-py2.6.egg/odict/bench.py:65: SyntaxWarning: name 'root' is assigned to before global declaration
+  global root
+Got odict 1.3.2.
+Getting distribution for 'mock'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpdrPnVz
+zip_safe flag not set; analyzing archive contents...
+Got mock 0.7.0b4.
+Getting distribution for 'feedparser'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpAaonD8
+zip_safe flag not set; analyzing archive contents...
+Got feedparser 4.1.
+Getting distribution for 'ghettoq'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpK3c5LU
+warning: no files found matching '*' under directory 'tests'
+Got ghettoq 0.4.5.
+Getting distribution for 'setproctitle'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpyGoszk
+zip_safe flag not set; analyzing archive contents...
+Got setproctitle 1.1.
+Getting distribution for 'coverage'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpXiJASx
+no previously-included directories found matching 'test'
+Got coverage 3.4.
+Getting distribution for 'pylint'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4
+package init file './test/__init__.py' not found (or not a regular file)
+warning: no files found matching '*.txt2' under directory 'test'
+warning: no files found matching 'noext'
+SyntaxError: ("'continue' not properly in loop", ('build/bdist.linux-i686/egg/pylint/test/input/func_continue_not_in_loop.py', 8, None, 'continue\n'))
+
+SyntaxError: ('keyword argument repeated', ('build/bdist.linux-i686/egg/pylint/test/input/func_keyword_repeat_py26.py', 8, None, 'function_default_arg(two=5, two=7)\n'))
+
+SyntaxError: ('invalid syntax', ('build/bdist.linux-i686/egg/pylint/test/input/func_syntax_error.py', 1, 9, 'def toto\n'))
+
+SyntaxError: ("'return' outside function", ('build/bdist.linux-i686/egg/pylint/test/input/func_return_outside_func.py', 3, None, 'return\n'))
+
+SyntaxError: ("'return' with argument inside generator",)
+
+SyntaxError: ('from __future__ imports must occur at the beginning of the file', ('build/bdist.linux-i686/egg/pylint/test/input/func___future___import_not_first_stmt.py', 4, None, 'from __future__ import generators\n'))
+
+SyntaxError: ('unknown encoding: IBO-8859-1', ('build/bdist.linux-i686/egg/pylint/test/input/func_unknown_encoding.py', 0, 0, None))
+
+SyntaxError: ("'return' with argument inside generator",)
+
+SyntaxError: ("default 'except:' must be last", ('build/bdist.linux-i686/egg/pylint/test/input/func_w0705.py', 28, None, '__revision__ += 1\n'))
+
+build/bdist.linux-i686/egg/pylint/test/input/func_assert_2uple.py:4: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, 2 == 2), "no error"
+build/bdist.linux-i686/egg/pylint/test/input/func_assert_2uple.py:5: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, 2 == 2) #this should generate a warning
+build/bdist.linux-i686/egg/pylint/test/input/func_assert_2uple.py:7: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, ), "no error"
+build/bdist.linux-i686/egg/pylint/test/input/func_assert_2uple.py:8: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, )
+build/bdist.linux-i686/egg/pylint/test/input/func_assert_2uple.py:9: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, 2 == 2, 3 == 5), "no error"
+build/bdist.linux-i686/egg/pylint/test/input/func_assert_2uple.py:11: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (True,'error msg') #this should generate a warning
+SyntaxError: ("'yield' outside function", ('build/bdist.linux-i686/egg/pylint/test/input/func_yield_outside_func.py', 3, None, 'yield 1\n'))
+
+SyntaxError: ('keyword argument repeated', ('build/bdist.linux-i686/egg/pylint/test/input/func_keyword_repeat_py_26.py', 8, None, 'function_default_arg(two=5, two=7)\n'))
+
+Creating missing __init__.py for pylint.test
+zip_safe flag not set; analyzing archive contents...
+pylint.test.test_func_sample_config: module references __path__
+pylint.test.test_func: module references __file__
+pylint.test.test_similar: module references __file__
+pylint.test.smoketest: module references __file__
+pylint.test.unittest_pyreverse_writer: module references __file__
+pylint.test.unittest_lint: module references __file__
+pylint.test.unittest_checkers_utils: module references __file__
+pylint.test.unittest_checkers_utils: module references __path__
+pylint.test.test_regr: module references __file__
+pylint.test.test_regr: module references __path__
+pylint.test.utils: module references __file__
+pylint.test.input.func_nonregr___file___global: module references __file__
+pylint.checkers.__init__: module references __path__
+SyntaxError: ("'continue' not properly in loop", ('/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_continue_not_in_loop.py', 8, None, 'continue\n'))
+
+SyntaxError: ('keyword argument repeated', ('/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_keyword_repeat_py26.py', 8, None, 'function_default_arg(two=5, two=7)\n'))
+
+SyntaxError: ('invalid syntax', ('/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_syntax_error.py', 1, 9, 'def toto\n'))
+
+SyntaxError: ("'return' outside function", ('/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_return_outside_func.py', 3, None, 'return\n'))
+
+SyntaxError: ("'return' with argument inside generator",)
+
+SyntaxError: ('from __future__ imports must occur at the beginning of the file', ('/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func___future___import_not_first_stmt.py', 4, None, 'from __future__ import generators\n'))
+
+SyntaxError: ('unknown encoding: IBO-8859-1', ('/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_unknown_encoding.py', 0, 0, None))
+
+SyntaxError: ("'return' with argument inside generator",)
+
+SyntaxError: ("default 'except:' must be last", ('/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_w0705.py', 28, None, '__revision__ += 1\n'))
+
+/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:4: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, 2 == 2), "no error"
+/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:5: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, 2 == 2) #this should generate a warning
+/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:7: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, ), "no error"
+/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:8: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, )
+/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:9: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, 2 == 2, 3 == 5), "no error"
+/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:11: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (True,'error msg') #this should generate a warning
+SyntaxError: ("'yield' outside function", ('/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_yield_outside_func.py', 3, None, 'yield 1\n'))
+
+SyntaxError: ('keyword argument repeated', ('/home/jesstess/dev/oh-mainline/eggs/tmpJXRIg4/pylint-0.22.0-py2.6.egg/pylint/test/input/func_keyword_repeat_py_26.py', 8, None, 'function_default_arg(two=5, two=7)\n'))
+
+/home/jesstess/dev/oh-mainline/eggs/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:4: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, 2 == 2), "no error"
+/home/jesstess/dev/oh-mainline/eggs/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:5: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, 2 == 2) #this should generate a warning
+/home/jesstess/dev/oh-mainline/eggs/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:7: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, ), "no error"
+/home/jesstess/dev/oh-mainline/eggs/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:8: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, )
+/home/jesstess/dev/oh-mainline/eggs/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:9: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (1 == 1, 2 == 2, 3 == 5), "no error"
+/home/jesstess/dev/oh-mainline/eggs/pylint-0.22.0-py2.6.egg/pylint/test/input/func_assert_2uple.py:11: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (True,'error msg') #this should generate a warning
+
+Got pylint 0.22.0.
+Getting distribution for 'unittest-xml-reporting'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpxF7OHw
+zip_safe flag not set; analyzing archive contents...
+Got unittest-xml-reporting 1.0.3.
+Getting distribution for 'fabric'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpeOfkyz
+warning: no previously-included files matching '*' found under directory 'docs/_build'
+zip_safe flag not set; analyzing archive contents...
+Got Fabric 0.9.3.
+Getting distribution for 'nose'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp5BtQN5
+no previously-included directories found matching 'doc/.build'
+Got nose 0.11.4.
+Getting distribution for 'gdata'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmp5Tc3XS
+zip_safe flag not set; analyzing archive contents...
+Got gdata 2.0.13.
+Getting distribution for 'django-reversion==1.2.1'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpiXouOy
+zip_safe flag not set; analyzing archive contents...
+Got django-reversion 1.2.1.
+Getting distribution for 'Twisted'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpuB8_YF
+twisted/protocols/_c_urlarg.c: In function ‘unquote’:
+twisted/protocols/_c_urlarg.c:41: warning: ‘tmp’ may be used uninitialized in this function
+twisted/python/_epoll.c: In function ‘__pyx_f_6_epoll_5epoll___dealloc__’:
+twisted/python/_epoll.c:168: warning: label ‘__pyx_L1’ defined but not used
+twisted/python/_epoll.c: In function ‘__pyx_f_6_epoll_5epoll_wait’:
+twisted/python/_epoll.c:432: warning: label ‘__pyx_L7’ defined but not used
+twisted/python/_epoll.c:430: warning: label ‘__pyx_L6’ defined but not used
+twisted/python/_epoll.c: In function ‘__pyx_tp_new_6_epoll_epoll’:
+twisted/python/_epoll.c:508: warning: unused variable ‘p’
+twisted/python/_epoll.c: In function ‘__pyx_tp_dealloc_6_epoll_epoll’:
+twisted/python/_epoll.c:513: warning: unused variable ‘p’
+twisted/python/_epoll.c: In function ‘__pyx_tp_traverse_6_epoll_epoll’:
+twisted/python/_epoll.c:528: warning: unused variable ‘p’
+twisted/python/_epoll.c:527: warning: unused variable ‘e’
+twisted/python/_epoll.c: In function ‘__pyx_tp_clear_6_epoll_epoll’:
+twisted/python/_epoll.c:533: warning: unused variable ‘p’
+twisted/python/_epoll.c: At top level:
+twisted/python/_epoll.c:32: warning: ‘__Pyx_UnpackItem’ declared ‘static’ but never defined
+twisted/python/_epoll.c:33: warning: ‘__Pyx_EndUnpack’ declared ‘static’ but never defined
+twisted/python/_epoll.c:34: warning: ‘__Pyx_PrintItem’ declared ‘static’ but never defined
+twisted/python/_epoll.c:35: warning: ‘__Pyx_PrintNewline’ declared ‘static’ but never defined
+twisted/python/_epoll.c:37: warning: ‘__Pyx_ReRaise’ declared ‘static’ but never defined
+twisted/python/_epoll.c:38: warning: ‘__Pyx_Import’ declared ‘static’ but never defined
+twisted/python/_epoll.c:39: warning: ‘__Pyx_GetExcValue’ declared ‘static’ but never defined
+twisted/python/_epoll.c:40: warning: ‘__Pyx_ArgTypeTest’ declared ‘static’ but never defined
+twisted/python/_epoll.c:41: warning: ‘__Pyx_TypeTest’ declared ‘static’ but never defined
+twisted/python/_epoll.c:42: warning: ‘__Pyx_GetStarArgs’ declared ‘static’ but never defined
+twisted/python/_epoll.c:43: warning: ‘__Pyx_WriteUnraisable’ declared ‘static’ but never defined
+twisted/python/_epoll.c:45: warning: ‘__Pyx_ImportType’ declared ‘static’ but never defined
+twisted/python/_epoll.c:46: warning: ‘__Pyx_SetVtable’ declared ‘static’ but never defined
+twisted/python/_epoll.c:47: warning: ‘__Pyx_GetVtable’ declared ‘static’ but never defined
+twisted/python/_epoll.c:48: warning: ‘__Pyx_CreateClass’ declared ‘static’ but never defined
+twisted/python/_epoll.c:50: warning: ‘__Pyx_InitStrings’ declared ‘static’ but never defined
+twisted/python/_epoll.c:51: warning: ‘__Pyx_InitCApi’ declared ‘static’ but never defined
+twisted/python/_epoll.c:52: warning: ‘__Pyx_ImportModuleCApi’ declared ‘static’ but never defined
+In file included from /usr/include/python2.6/Python.h:8,
+                 from twisted/internet/_sigchld.c:9:
+/usr/include/python2.6/pyconfig.h:1031: warning: "_POSIX_C_SOURCE" redefined
+/usr/include/features.h:213: note: this is the location of the previous definition
+
+Got Twisted 10.1.0.
+Getting distribution for 'paramiko>=1.7.6'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmphh8mS0
+warning: no files found matching '*' under directory 'docs'
+zip_safe flag not set; analyzing archive contents...
+Got paramiko 1.7.6.
+Getting distribution for 'logilab-astng>=0.21.0'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpy3J87F
+package init file './test/__init__.py' not found (or not a regular file)
+Creating missing __init__.py for logilab.astng.test
+zip_safe flag not set; analyzing archive contents...
+logilab.astng.scoped_nodes: module references __file__
+logilab.astng.scoped_nodes: module references __path__
+logilab.astng.manager: module references __file__
+logilab.astng.builder: module references __file__
+logilab.astng.builder: module references __path__
+logilab.astng.test.unittest_builder: module references __file__
+logilab.astng.test.unittest_builder: module references __path__
+logilab.astng.test.unittest_inspector: module references __file__
+logilab.astng.test.unittest_lookup: module references __file__
+logilab.astng.test.unittest_lookup: module references __path__
+logilab.astng.test.unittest_manager: module references __file__
+logilab.astng.test.unittest_scoped_nodes: module references __file__
+logilab.astng.test.unittest_scoped_nodes: module references __path__
+logilab.astng.test.unittest_inference: module references __file__
+logilab.astng.test.unittest_utils: module references __file__
+logilab.astng.test.unittest_nodes: module references __file__
+logilab.astng.test.unittest_regrtest: module references __file__
+Got logilab-astng 0.21.0.
+Getting distribution for 'logilab-common>=0.53.0'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpHkThtT
+package init file './test/__init__.py' not found (or not a regular file)
+warning: no files found matching '*.zip' under directory 'test/data'
+warning: no files found matching '*.py' under directory 'test/input'
+warning: no files found matching '*' under directory 'doc/html'
+Creating missing __init__.py for logilab.common.test
+zip_safe flag not set; analyzing archive contents...
+logilab.common.pytest: module references __file__
+logilab.common.modutils: module references __file__
+logilab.common.debugger: module MAY be using inspect.getsource
+logilab.common.testlib: module references __file__
+logilab.common.testlib: module MAY be using inspect.getinnerframes
+logilab.common.test.unittest_configuration: module references __file__
+logilab.common.test.unittest_modutils: module references __file__
+logilab.common.test.unittest_modutils: module references __path__
+/usr/lib/python2.6/dist-packages/setuptools/command/bdist_egg.py:427: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
+  symbols = dict.fromkeys(iter_symbols(code))
+logilab.common.test.unittest_testlib: module references __file__
+logilab.common.test.unittest_shellutils: module references __file__
+logilab.common.test.unittest_fileutils: module references __file__
+logilab.common.test.unittest_umessage: module references __file__
+logilab.common.test.unittest_changelog: module references __file__
+Got logilab-common 0.53.0.
+Getting distribution for 'unittest2>=0.5.1'.
+install_dir /home/jesstess/dev/oh-mainline/eggs/tmpiHENh8
+zip_safe flag not set; analyzing archive contents...
+unittest2.loader: module references __file__
+unittest2.collector: module references __file__
+unittest2.test.test_discovery: module references __file__
+Got unittest2 0.5.1.
+Generated script '/home/jesstess/dev/oh-mainline/bin/mysite'.
+Generated script '/home/jesstess/dev/oh-mainline/bin/test_sans_customs'.
+Installing production.
+install_dir /home/jesstess/dev/oh-mainline/develop-eggs/tmpYrx0PXbuild
+Generated script '/home/jesstess/dev/oh-mainline/bin/production'.
+Generated script '/home/jesstess/dev/oh-mainline/bin/test_production'.
+Generated script '/home/jesstess/dev/oh-mainline/bin/production.wsgi'.
+Installing sqlite_mysite.
+install_dir /home/jesstess/dev/oh-mainline/develop-eggs/tmphHakLKbuild
+Generated script '/home/jesstess/dev/oh-mainline/bin/sqlite_mysite'.
+Installing download_solr.
+Downloading http://apache.tradebit.com/pub/lucene/solr/1.4.0/apache-solr-1.4.0.tgz
+download_solr: Extracting package to /home/jesstess/dev/oh-mainline/parts/download_solr
+Installing download_geocoding_db.
+Downloading http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+Installing gunzip_geocoding_db.
+gunzip_geocoding_db: Running 'gunzip --to-stdout parts/download_geocoding_db/GeoLiteCity.dat.gz > downloads/GeoLiteCity.dat'
+jesstess@aja:~/dev/oh-mainline$ mysql -uroot -p < mysite/scripts/database_01_create.sql
+The program 'mysql' can be found in the following packages:
+ * mysql-client-core-5.1
+ * mysql-cluster-client-5.1
+Try: sudo apt-get install <selected package>
+jesstess@aja:~/dev/oh-mainline$ sudo apt-get install mysql-client
+[sudo] password for jesstess: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following extra packages will be installed:
+  libdbd-mysql-perl libdbi-perl libnet-daemon-perl libplrpc-perl mysql-client-5.1 mysql-client-core-5.1
+The following NEW packages will be installed:
+  libdbd-mysql-perl libdbi-perl libnet-daemon-perl libplrpc-perl mysql-client mysql-client-5.1 mysql-client-core-5.1
+0 upgraded, 7 newly installed, 0 to remove and 40 not upgraded.
+Need to get 9,276kB of archives.
+After this operation, 23.1MB of additional disk space will be used.
+Do you want to continue [Y/n]? y
+Get:1 http://us.archive.ubuntu.com/ubuntu/ maverick/main libnet-daemon-perl all 0.43-1 [46.9kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ maverick/main libplrpc-perl all 0.2020-2 [36.0kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ maverick/main libdbi-perl i386 1.611-1 [825kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ maverick/main libdbd-mysql-perl i386 4.016-1 [138kB]                                                                                                                 
+Get:5 http://us.archive.ubuntu.com/ubuntu/ maverick-updates/main mysql-client-core-5.1 i386 5.1.49-1ubuntu8.1 [144kB]                                                                                           
+Get:6 http://us.archive.ubuntu.com/ubuntu/ maverick-updates/main mysql-client-5.1 i386 5.1.49-1ubuntu8.1 [8,025kB]                                                                                              
+Get:7 http://us.archive.ubuntu.com/ubuntu/ maverick-updates/main mysql-client all 5.1.49-1ubuntu8.1 [60.7kB]                                                                                                    
+Fetched 9,276kB in 47s (197kB/s)                                                                                                                                                                                
+Selecting previously deselected package libnet-daemon-perl.
+(Reading database ... 128051 files and directories currently installed.)
+Unpacking libnet-daemon-perl (from .../libnet-daemon-perl_0.43-1_all.deb) ...
+Selecting previously deselected package libplrpc-perl.
+Unpacking libplrpc-perl (from .../libplrpc-perl_0.2020-2_all.deb) ...
+Selecting previously deselected package libdbi-perl.
+Unpacking libdbi-perl (from .../libdbi-perl_1.611-1_i386.deb) ...
+Selecting previously deselected package libdbd-mysql-perl.
+Unpacking libdbd-mysql-perl (from .../libdbd-mysql-perl_4.016-1_i386.deb) ...
+Selecting previously deselected package mysql-client-core-5.1.
+Unpacking mysql-client-core-5.1 (from .../mysql-client-core-5.1_5.1.49-1ubuntu8.1_i386.deb) ...
+Selecting previously deselected package mysql-client-5.1.
+Unpacking mysql-client-5.1 (from .../mysql-client-5.1_5.1.49-1ubuntu8.1_i386.deb) ...
+Selecting previously deselected package mysql-client.
+Unpacking mysql-client (from .../mysql-client_5.1.49-1ubuntu8.1_all.deb) ...
+Processing triggers for man-db ...
+Setting up libnet-daemon-perl (0.43-1) ...
+Setting up libplrpc-perl (0.2020-2) ...
+Setting up libdbi-perl (1.611-1) ...
+Setting up libdbd-mysql-perl (4.016-1) ...
+Setting up mysql-client-core-5.1 (5.1.49-1ubuntu8.1) ...
+Setting up mysql-client-5.1 (5.1.49-1ubuntu8.1) ...
+Setting up mysql-client (5.1.49-1ubuntu8.1) ...
+jesstess@aja:~/dev/oh-mainline$ sudo apt-get install mysql-server
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following extra packages will be installed:
+  libhtml-template-perl mysql-server-5.1 mysql-server-core-5.1
+Suggested packages:
+  libipc-sharedcache-perl tinyca mailx
+The following NEW packages will be installed:
+  libhtml-template-perl mysql-server mysql-server-5.1 mysql-server-core-5.1
+0 upgraded, 4 newly installed, 0 to remove and 40 not upgraded.
+Need to get 11.7MB of archives.
+After this operation, 27.1MB of additional disk space will be used.
+Do you want to continue [Y/n]? y
+Get:1 http://us.archive.ubuntu.com/ubuntu/ maverick-updates/main mysql-server-core-5.1 i386 5.1.49-1ubuntu8.1 [4,643kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ maverick-updates/main mysql-server-5.1 i386 5.1.49-1ubuntu8.1 [6,969kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ maverick/main libhtml-template-perl all 2.9-1 [65.8kB]                                                                                                               
+Get:4 http://us.archive.ubuntu.com/ubuntu/ maverick-updates/main mysql-server all 5.1.49-1ubuntu8.1 [60.8kB]                                                                                                    
+Fetched 11.7MB in 14s (783kB/s)                                                                                                                                                                                 
+Preconfiguring packages ...
+Selecting previously deselected package mysql-server-core-5.1.
+(Reading database ... 128312 files and directories currently installed.)
+Unpacking mysql-server-core-5.1 (from .../mysql-server-core-5.1_5.1.49-1ubuntu8.1_i386.deb) ...
+Selecting previously deselected package mysql-server-5.1.
+Unpacking mysql-server-5.1 (from .../mysql-server-5.1_5.1.49-1ubuntu8.1_i386.deb) ...
+Selecting previously deselected package libhtml-template-perl.
+Unpacking libhtml-template-perl (from .../libhtml-template-perl_2.9-1_all.deb) ...
+Selecting previously deselected package mysql-server.
+Unpacking mysql-server (from .../mysql-server_5.1.49-1ubuntu8.1_all.deb) ...
+Processing triggers for man-db ...
+Processing triggers for ureadahead ...
+Setting up mysql-server-core-5.1 (5.1.49-1ubuntu8.1) ...
+Setting up mysql-server-5.1 (5.1.49-1ubuntu8.1) ...
+mysql start/running, process 6088
+Setting up libhtml-template-perl (2.9-1) ...
+Setting up mysql-server (5.1.49-1ubuntu8.1) ...
+jesstess@aja:~/dev/oh-mainline$ mysql -uroot -p < mysite/scripts/database_01_create.sql
+Enter password: 
+jesstess@aja:~/dev/oh-mainline$

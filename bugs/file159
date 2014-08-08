@@ -1,0 +1,33 @@
+diff --git a/openid/yadis/parsehtml.py b/openid/yadis/parsehtml.py
+index 875a089..ba88351 100644
+--- a/openid/yadis/parsehtml.py
++++ b/openid/yadis/parsehtml.py
+@@ -172,7 +172,7 @@ def findHTMLMeta(stream):
+     chunks = []
+ 
+     while 1:
+-        chunk = stream.read(CHUNK_SIZE)
++        chunk = stream.read(CHUNK_SIZE).decode('utf-8')
+         if not chunk:
+             # End of file
+             break
+@@ -182,16 +182,16 @@ def findHTMLMeta(stream):
+             parser.feed(chunk)
+         except HTMLParseError, why:
+             # HTML parse error, so bail
+-            chunks.append(stream.read())
++            chunks.append(stream.read().decode('utf-8'))
+             break
+         except ParseDone, why:
+             uri = why[0]
+             if uri is None:
+                 # Parse finished, but we may need the rest of the file
+-                chunks.append(stream.read())
++                chunks.append(stream.read().decode('utf-8'))
+                 break
+             else:
+                 return uri
+ 
+-    content = ''.join(chunks)
++    content = u''.join(chunks)
+     raise MetaNotFound(content)

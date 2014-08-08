@@ -1,0 +1,25 @@
+From 69faba2d5fcd807475dae2ab13613611da824d15 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Tue, 3 Aug 2010 12:40:37 +0000
+Subject: [PATCH] Simple bug fix for customs_debugger.
+
+---
+ .../management/commands/customs_debugger.py        |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/management/commands/customs_debugger.py b/mysite/customs/management/commands/customs_debugger.py
+index b0fc6d9..ce0f535 100644
+--- a/mysite/customs/management/commands/customs_debugger.py
++++ b/mysite/customs/management/commands/customs_debugger.py
+@@ -24,7 +24,7 @@ class Command(BaseCommand):
+             print "%d - %s" % (count, str(bug))
+         print "There are a total of %d closed Bug objects." % count
+ 
+-    def delete_very_old_bugs(self, days, hours=0):
++    def delete_old_bugs(self, days, hours=0):
+         x_days_ago = (datetime.datetime.now() -
+                         datetime.timedelta(days=days, hours=hours))
+         Bug.all_bugs.filter(last_polled__lt=x_days_ago).delete()
+-- 
+1.7.1
+

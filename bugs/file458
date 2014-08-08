@@ -1,0 +1,53 @@
+From b2d5189fb67940e377ae86fb577ef63ed89365f8 Mon Sep 17 00:00:00 2001
+From: Alexander Langford <nirvashtzero@gmail.com>
+Date: Sat, 28 Jan 2012 16:15:48 -0500
+Subject: [PATCH] Added <code> tags where necessary in the diffpatch mission.
+
+---
+ .../templates/missions/diffpatch/about.html        |    2 +-
+ .../missions/diffpatch/recursive_patch.html        |    2 +-
+ .../missions/diffpatch/single_file_diff.html       |    2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/diffpatch/about.html b/mysite/missions/templates/missions/diffpatch/about.html
+index cdf5fff..50d2e5e 100644
+--- a/mysite/missions/templates/missions/diffpatch/about.html
++++ b/mysite/missions/templates/missions/diffpatch/about.html
+@@ -24,7 +24,7 @@
+     <h3>Using diff and patch</h3>
+   </div>
+   <div class="body">
+-    <p>When you make changes to open source software, you need an efficient way to show other people your changes so your changes can be reviewed or applied.  The diff and patch programs are often used for this purpose.  The diff program analyzes the files you give it and outputs the differences between them in a compact, human-and-machine-readable format, and the patch program reads diff output and uses it to transform a copy of the original files into the modified files.  So to show other people the changes, you can send them diff output, and they can use the patch program to apply your changes to their copy of the files.  When diff output is used in this way, the output itself is often called a patch or a diff.</p>
++    <p>When you make changes to open source software, you need an efficient way to show other people your changes so your changes can be reviewed or applied.  The <code>diff</code> and <code>patch</code> programs are often used for this purpose.  The <code>diff</code> program analyzes the files you give it and outputs the differences between them in a compact, human-and-machine-readable format, and the <code>patch</code> program reads <code>diff</code> output and uses it to transform a copy of the original files into the modified files.  So to show other people the changes, you can send them <code>diff</code> output, and they can use the <code>patch</code> program to apply your changes to their copy of the files.  When <code>diff</code> output is used in this way, the output itself is often called a patch or a diff.</p>
+     <p>This mission consists of four parts: diffing individual files, patching individual files, diffing entire directory hierarchies, and patching entire directory hierarchies.</p>
+ 
+       <p class="next_mission_link">
+diff --git a/mysite/missions/templates/missions/diffpatch/recursive_patch.html b/mysite/missions/templates/missions/diffpatch/recursive_patch.html
+index f799f52..fea26e6 100644
+--- a/mysite/missions/templates/missions/diffpatch/recursive_patch.html
++++ b/mysite/missions/templates/missions/diffpatch/recursive_patch.html
+@@ -24,7 +24,7 @@
+     <h3>Patching entire directories</h3>
+   </div>
+   <div class="body">
+-    <p>Sometimes you might have to apply a patch that affects more than one file.  The patch program can tell what parts of the patch apply to what files by examining the headers, but you might need to help it out by giving the <code>-p</code> option to tell it how many levels of directories to ignore so it finds the correct files to patch.</p>
++    <p>Sometimes you might have to apply a patch that affects more than one file.  The <code>patch</code> program can tell what parts of the patch apply to what files by examining the headers, but you might need to help it out by giving the <code>-p</code> option to tell it how many levels of directories to ignore so it finds the correct files to patch.</p>
+     <p>Here is your mission:</p>
+     <ul class="raquo_bullets">
+       <li>Download <a href="{% url mysite.missions.diffpatch.views.patchrecursive_get_original_tarball %}">this tarball</a> and <a href="{% url mysite.missions.diffpatch.views.patchrecursive_get_patch %}">this patch</a> to the same directory.</li>
+diff --git a/mysite/missions/templates/missions/diffpatch/single_file_diff.html b/mysite/missions/templates/missions/diffpatch/single_file_diff.html
+index 0a34f59..96e6909 100644
+--- a/mysite/missions/templates/missions/diffpatch/single_file_diff.html
++++ b/mysite/missions/templates/missions/diffpatch/single_file_diff.html
+@@ -24,7 +24,7 @@
+     <h3>Diffing individual files</h3>
+   </div>
+   <div class="body">
+-    <p>When you are submitting changes to a project, you will need to run diff to create a patch that you can submit.  Large patches can be stored in files and attached to whatever medium you use to submit the patch, but since this patch will be short, it can be included inline in the message.  So instead of uploading the patch in a file, your mission will be to make your patch and copy and paste it into the box below.</p>
++    <p>When you are submitting changes to a project, you will need to run <code>diff</code> to create a patch that you can submit.  Large patches can be stored in files and attached to whatever medium you use to submit the patch, but since this patch will be short, it can be included inline in the message.  So instead of uploading the patch in a file, your mission will be to make your patch and copy and paste it into the box below.</p>
+     <p>Here's the mission:</p>
+     <ul class="raquo_bullets">
+       <li><a href="{% url mysite.missions.diffpatch.views.diffsingle_get_original_file %}">Download this file.</a></li>
+-- 
+1.7.8.msysgit.0
+

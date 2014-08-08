@@ -1,0 +1,60 @@
+From dd81b372e50c215c6e9d2da8d0aec84e251b5fe5 Mon Sep 17 00:00:00 2001
+From: Jessica Ledbetter <jessica.ledbetter@gmail.com>
+Date: Sun, 17 Apr 2011 20:17:08 -0400
+Subject: [PATCH] Import Image from PIL if cannot just import Image
+
+---
+ mysite/account/tests.py |    6 +++++-
+ mysite/search/models.py |    5 ++++-
+ 2 files changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/account/tests.py b/mysite/account/tests.py
+index 1f5c94c..290ce53 100644
+--- a/mysite/account/tests.py
++++ b/mysite/account/tests.py
+@@ -18,7 +18,6 @@
+ 
+ #{{{ imports
+ import os
+-import Image
+ import mock
+ import tempfile
+ import StringIO
+@@ -37,6 +36,11 @@ from django.test.client import Client
+ from django.core.urlresolvers import reverse
+ 
+ from twill import commands as tc
++
++try: 
++    import Image; 
++except: 
++    from PIL import Image
+ #}}}
+ 
+ class Login(TwillTests):
+diff --git a/mysite/search/models.py b/mysite/search/models.py
+index b81b7df..d806ea8 100644
+--- a/mysite/search/models.py
++++ b/mysite/search/models.py
+@@ -29,7 +29,6 @@ from django.core.cache import cache
+ from django.conf import settings
+ import datetime
+ import StringIO
+-import Image
+ import uuid
+ import urllib
+ from urlparse import urljoin
+@@ -42,6 +41,10 @@ import voting
+ import hashlib
+ import celery.decorators
+ import mysite.customs.ohloh
++try: 
++    import Image; 
++except: 
++    from PIL import Image
+ 
+ class OpenHatchModel(models.Model):
+     created_date = models.DateTimeField(null=True, auto_now_add=True)
+-- 
+1.7.1
+

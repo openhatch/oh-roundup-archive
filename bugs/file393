@@ -1,0 +1,15 @@
+<div>Oh Thanks.. I was kind of fiddling with Django unittests to post a file... I will seek new chalange on this Saturday meeting..</div>
+<div> </div>
+<div>Regards,</div>
+<div> </div>
+<div>Vivek<br><br></div>
+<div class="gmail_quote">On Wed, Aug 31, 2011 at 11:23 AM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br>
+<blockquote style="BORDER-LEFT: #ccc 1px solid; MARGIN: 0px 0px 0px 0.8ex; PADDING-LEFT: 1ex" class="gmail_quote">
+<div class="im"><br>Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:<br><br></div>Hi Vivek,<br><br>I managed to merge this in locally, so you don&#39;t have to freshly rebase it.<br>
+<br>Having said that, it seems that this is already fixed in the current codebase.<br>jesstess fixed the buggy core of the patch.py code, which makes the exception go<br>away. So I won&#39;t push the patch that also wraps that in a try/catch contributed<br>
+by viv.<br><br>Sorry! )-: We should have closed this bug...<br><br>Vivek, I hope you&#39;ll try your hand at another one, or help us work through some<br>architectural changes in the future.<br><br>----------<br>status: in-progress -&gt; resolved<br>
+
+<div>
+<div></div>
+<div class="h5"><br>__________________________________________<br>Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>&lt;<a href="https://openhatch.org/bugs/issue463" target="_blank">https://openhatch.org/bugs/issue463</a>&gt;<br>
+__________________________________________<br></div></div></blockquote></div><br>

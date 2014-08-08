@@ -1,0 +1,36 @@
+From eb7281a7694c35a41227cb37ab2aa6838312cb17 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Fri, 1 Jun 2012 17:00:37 -0700
+Subject: [PATCH] Fix a bug where the recursive patch mission sends you to the
+ wrong place
+
+To reproduce:
+
+* Visit http://openhatch.org/missions/diffpatch/recursive_patch
+  and submit the correct answer (3)
+
+* Notice that you get redirected to somewhere *other* than
+  http://openhatch.org/missions/diffpatch/recursive_patch
+
+(Replace openhatch.org with 127.0.0.1:8000 for local dev
+instances, obviously.)
+---
+ mysite/missions/diffpatch/views.py |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mysite/missions/diffpatch/views.py b/mysite/missions/diffpatch/views.py
+index 1691bcb..529074e 100644
+--- a/mysite/missions/diffpatch/views.py
++++ b/mysite/missions/diffpatch/views.py
+@@ -121,7 +121,7 @@ def patchrecursive_submit(request):
+         form = forms.PatchRecursiveUploadForm(request.POST)
+         if form.is_valid():
+             set_mission_completed(request.user.get_profile(), 'diffpatch_patchrecursive')
+-            return HttpResponseRedirect(reverse(recursive_diff))
++            return HttpResponseRedirect(reverse(recursive_patch))
+         data['patchrecursive_form'] = form
+     return recursive_patch(request, data)
+ 
+-- 
+1.7.10
+

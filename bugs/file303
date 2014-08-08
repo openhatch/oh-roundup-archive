@@ -1,0 +1,35 @@
+From 4583f062a20c207de0fd98e14ca125e893f9f0bb Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Wed, 1 Jun 2011 12:22:16 +1200
+Subject: [PATCH] Make logo on roundup link to site
+ See: http://openhatch.org/bugs/issue402
+
+---
+ html/page.html |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/html/page.html b/html/page.html
+index 50bcafd..155e945 100644
+--- a/html/page.html
++++ b/html/page.html
+@@ -10,7 +10,7 @@
+ <script tal:replace="structure request/base_javascript">
+ </script>
+ <metal:x define-slot="more-javascript" />
+-
++<link rel="stylesheet" type="text/css" href="./style.css">
+ </head>
+ <body class="body">
+ 
+@@ -31,7 +31,7 @@ current_milestone string:7;
+ >
+ 
+ <tr>
+- <td class="page-header-left">&nbsp;</td>
++ <td class="page-header-left"><a class="logo" href="http://openhatch.org/" title="OpenHatch">&nbsp;</a></td>
+  <td class="page-header-top">
+    <div id="body-title">
+      <h2><span metal:define-slot="body_title">body title</span></h2>
+-- 
+1.7.2.5
+

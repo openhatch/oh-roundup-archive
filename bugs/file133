@@ -1,0 +1,113 @@
+From 3feb43fef96791521b6a278aa4b245f0160ce279 Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Mon, 31 Jan 2011 21:06:35 +0100
+Subject: [PATCH 6/6] Added reset functionality to Tar mission templates.
+
+Reset is performed using Ajax post request. Success message fades-out on success.
+---
+ mysite/missions/templates/missions/tar/about.html  |   17 +++++++++++++++-
+ .../missions/templates/missions/tar/creating.html  |   21 ++++++++++++++-----
+ .../missions/templates/missions/tar/unpacking.html |   14 ++++++++++++-
+ 3 files changed, 44 insertions(+), 8 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/tar/about.html b/mysite/missions/templates/missions/tar/about.html
+index 2c42a78..bc483a3 100644
+--- a/mysite/missions/templates/missions/tar/about.html
++++ b/mysite/missions/templates/missions/tar/about.html
+@@ -28,7 +28,22 @@
+       <p>When packaging a project's source code, it is customary to place the files within a directory named after the project with a version number.  This makes creating and unpacking such tarballs convenient, as you only have to name one directory to tar up when creating the tarball, and people who unpack your tarball end up with a self-contained directory that they can easily remove when they are finished using the set of files you gave them.</p>
+ 
+       <p>This mission consists of two parts: unpacking tarballs and creating tarballs.</p>
+-
++      {%if create_done and unpack_done %}
++      <div id="success-msg" class="successmsg">
++        <p><strong>You have successfully completed this mission.</strong></p>
++        <p>You can <a id="mission-reset-btn" href="#" title="Click to reset this part of the mission">reset its state</a> and try again.</p>
++        {% block js %}
++        {{ block.super }}        
++        <script type='text/javascript' src="/static/js/missions/base.js?x"></script>
++        <script type='text/javascript'>
++        if (typeof OH === 'undefined') OH = {};
++        if (typeof OH.Page === 'undefined') OH.Page = {};        
++        OH.Page['post_url'] = '{% url mysite.missions.tar.views.reset %}';
++        OH.Page['mission_parts'] = 'tar,tar_extract';
++        </script>
++        {% endblock %}
++      </div>
++      {% endif %}          
+       <p class="next_mission_link">
+ 	<a href="{% url mysite.missions.tar.views.unpacking %}">Get started with unpacking &raquo;</a></p>
+ 
+diff --git a/mysite/missions/templates/missions/tar/creating.html b/mysite/missions/templates/missions/tar/creating.html
+index 1491578..0e2df3c 100644
+--- a/mysite/missions/templates/missions/tar/creating.html
++++ b/mysite/missions/templates/missions/tar/creating.html
+@@ -61,22 +61,31 @@
+       </form>
+       {% if create_done %}
+       <!-- create status: success -->
+-      <div class="successmsg">
++      <div id="success-msg" class="successmsg">
+         <p><strong>You have successfully completed this part of the mission.</strong></p>
+         {% if create_success %}
+         <p>The file you uploaded passed all of our checks.</p>
++        {% else %}
++        <p>You can <a id="mission-reset-btn" href="#" title="Click to reset this part of the mission">reset this part of the mission</a> and try again.</p>
++        {% block js %}
++        {{ block.super }}        
++        <script type='text/javascript' src="/static/js/missions/base.js?x"></script>
++        <script type='text/javascript'>
++        if (typeof OH === 'undefined') OH = {};
++        if (typeof OH.Page === 'undefined') OH.Page = {};        
++        OH.Page['post_url'] = '{% url mysite.missions.tar.views.reset %}';
++        OH.Page['mission_parts'] = 'tar';
++        </script>
++        {% endblock %}
+         {% endif %}
+       </div>
+       {% else %}
+       <!-- create status: failure -->
+       {% endif %}       
+       {% if create_done and unpack_done %}
+-      <p class="next_mission_link">
+-	Congratulations! You've totally completed the tar mission.
+-	You can <a href="{% url mysite.missions.tar.views.reset %}" title="">try again</a> or go back to the <a href="{% url mysite.missions.base.views.main_page %}">list of missions</a>.</p>
++      <p id="next-mission-link" class="next_mission_link">
++	Congratulations! You've totally completed the tar mission. Want to go <a href="{% url mysite.missions.base.views.main_page %}">back to the list of missions</a>?</p>
+       {% endif %}
+-      
+-
+   </div>
+ </div>
+ {% endblock mission_main %}
+diff --git a/mysite/missions/templates/missions/tar/unpacking.html b/mysite/missions/templates/missions/tar/unpacking.html
+index 950911e..d878970 100644
+--- a/mysite/missions/templates/missions/tar/unpacking.html
++++ b/mysite/missions/templates/missions/tar/unpacking.html
+@@ -52,10 +52,22 @@
+         </div>
+       </form>
+     {% if unpack_done %}
+-      <div class="successmsg">
++      <div id="success-msg" class="successmsg">
+         <p><strong>You have successfully completed this part of the mission.</strong></p>
+         {% if unpack_success %}
+         <p>The file you uploaded has the correct contents.</p>
++        {% else %}
++        <p>You can <a id="mission-reset-btn" href="#" title="Click to reset this part of the mission">reset this part of the mission</a> and try again.</p>
++        {% block js %}
++        {{ block.super }}        
++        <script type='text/javascript' src="/static/js/missions/base.js?x"></script>
++        <script type='text/javascript'>
++        if (typeof OH === 'undefined') OH = {};
++        if (typeof OH.Page === 'undefined') OH.Page = {};        
++        OH.Page['post_url'] = '{% url mysite.missions.tar.views.reset %}';
++        OH.Page['mission_parts'] = 'tar_extract';
++        </script>
++        {% endblock %}
+         {% endif %}
+       </div>
+     {% endif %}
+-- 
+1.7.3.5
+

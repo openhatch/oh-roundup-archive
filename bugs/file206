@@ -1,0 +1,17 @@
+--- roundup-orig.css	2011-01-24 16:09:59.000000000 +0100
++++ roundup.css	2011-04-14 08:50:44.676452000 +0200
+@@ -51,6 +51,14 @@
+ 	white-space: nowrap;
+ }
+ 
++th {
++    font-weight: normal;
++}
++
++th.required {
++    font-weight: bold;
++}
++
+ .sidebar p {
+ 	padding: 3px;
+ 	margin: 5px 0;

@@ -1,0 +1,141 @@
+From 053fd09f51a6027069ca3de01cf5aadcb55da12a Mon Sep 17 00:00:00 2001
+From: Jairo Lopez <jelfn@sislacom.com>
+Date: Thu, 17 Mar 2011 01:31:48 -0430
+Subject: [PATCH 2/2] I've added the management command -w to check for the mailing. I'm not sure if
+ the actual database datetime function is ok, but it should at least be a small
+ stepping stone for it's integration.
+
+I've had to change the tests.py names a little so that all the nagios tests can
+be under one class. I've added the weekly email ones so that there is some sort
+of proof that the thing works.
+
+Anyway, this is a little much and I'm seriously tired and slightly drunk, so I'll
+leave the hard checking to wiser and more sober individuals.
+
+Cheers.
+---
+ mysite/base/management/commands/nagios.py |   31 +++++++++++++++++++++++++++-
+ mysite/base/tests.py                      |   26 ++++++++++++++++++-----
+ 2 files changed, 49 insertions(+), 8 deletions(-)
+
+diff --git a/mysite/base/management/commands/nagios.py b/mysite/base/management/commands/nagios.py
+index d15383b..c1b8640 100644
+--- a/mysite/base/management/commands/nagios.py
++++ b/mysite/base/management/commands/nagios.py
+@@ -1,5 +1,7 @@
+ from django.core.management.base import BaseCommand 
++from mysite.base.models import Timestamp
+ from optparse import make_option
++import datetime
+ import mysite.base.views
+ import sys
+ 
+@@ -7,13 +9,38 @@ class Command(BaseCommand):
+     help = 'Returns the Nagios exit code for objects that are monitored'
+ 
+     option_list = BaseCommand.option_list + (
+-       make_option('-m', '--meta', action='store_true',
+-           dest='meta', default=False, help='Check the meta data.'),
++        make_option('-m', '--meta', action='store_true',
++            dest='meta', default=False, help='Check the meta data.'),
++
++        make_option('-w', '--weekly', action='store_true',
++            dest='weekly', default=False,
++            help='Check whether last email was sent more than 7 days ago.'),
+     )
+ 
+     def handle(self, *args, **options):
+         runmeta = options.get('meta')
++        runweekly = options.get('weekly')
+ 
+         if runmeta:
+             code = mysite.base.views.meta_exit_code()
+             sys.exit(code)
++
++        if runweekly:
++            code = self.send_weekly_exit_code()
++            sys.exit(code)
++
++    @staticmethod
++    def send_weekly_exit_code(covers_things_since=None):
++        if covers_things_since is None:
++            covers_things_since = Timestamp.get_timestamp_for_string("What's the endpoint of the time range of the last email we sent out?")
++
++        covers_things_until = datetime.datetime.utcnow()
++
++        SEVEN_DAYS = datetime.timedelta(days=7)
++
++        if ((covers_things_until - SEVEN_DAYS) < covers_things_since):
++            print "OK - Last email sent less than 7 days ago"
++            return 0 
++        else:
++            print "CRITICAL - Last email sent more than 7 days ago"
++            return 2
+diff --git a/mysite/base/tests.py b/mysite/base/tests.py
+index a0531a9..77bde1c 100644
+--- a/mysite/base/tests.py
++++ b/mysite/base/tests.py
+@@ -45,6 +45,8 @@ import mysite.base.unicode_sanity
+ import mysite.profile.views
+ import mysite.base.views
+ 
++import mysite.base.management.commands.nagios
++
+ def twill_setup():
+     app = AdminMediaHandler(WSGIHandler())
+     twill.add_wsgi_intercept("127.0.0.1", 8080, lambda: app)
+@@ -428,8 +430,8 @@ class TimestampTests(django.test.TestCase):
+ 
+ # Test cases for Nagios integration
+ class NagiosTests(django.test.TestCase):
+-    # Test for OK Nagios return (0)
+-    def test_nagios_return_ok(self):
++    # Test for OK Nagios meta data return (0)
++    def test_nagios_meta_return_ok(self):
+         data = {}
+         data['dia_diagnostics'] = {}
+         data['bug_diagnostics'] = {}
+@@ -442,8 +444,8 @@ class NagiosTests(django.test.TestCase):
+ 
+         self.assertEqual(0, mysite.base.views.meta_exit_code(data))
+ 
+-    # Test for WARNING Nagios return (1)
+-    def test_nagios_return_warning(self):
++    # Test for WARNING Nagios meta data return (1)
++    def test_nagios_meta_return_warning(self):
+         data = {}
+         data['dia_diagnostics'] = {}
+         data['bug_diagnostics'] = {}
+@@ -456,8 +458,8 @@ class NagiosTests(django.test.TestCase):
+ 
+         self.assertEqual(1, mysite.base.views.meta_exit_code(data))
+ 
+-    # Test for CRITICAL Nagios return (2)
+-    def test_nagios_return_critical(self):
++    # Test for CRITICAL Nagios meta data return (2)
++    def test_nagios_meta_return_critical(self):
+         data = {}
+         data['dia_diagnostics'] = {}
+         data['bug_diagnostics'] = {}
+@@ -470,6 +472,18 @@ class NagiosTests(django.test.TestCase):
+ 
+         self.assertEqual(2, mysite.base.views.meta_exit_code(data))
+ 
++    # Test for OK Nagios weekly mail return (0)
++    def test_nagios_weeklymail_return_ok(self):
++        newtime = datetime.datetime.utcnow() - datetime.timedelta(days=4)
++
++        self.assertEqual(0, mysite.base.management.commands.nagios.Command.send_weekly_exit_code(newtime))
++
++    # Test for CRITICAL Nagios weekly mail return (2)
++    def test_nagios_weeklymail_return_critical(self):
++        newtime = datetime.datetime.utcnow() - datetime.timedelta(days=8)
++
++        self.assertEqual(2, mysite.base.management.commands.nagios.Command.send_weekly_exit_code(newtime))
++
+ # Test cases for meta data generation 
+ class MetaDataTests(django.test.TestCase):
+     def test_meta_data_zero_div(self):
+-- 
+1.7.2.3
+

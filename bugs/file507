@@ -1,0 +1,25 @@
+From 3b53c38ff1db1c41c2d78e8589ae6ea8462d81e4 Mon Sep 17 00:00:00 2001
+From: Mark Holmquist <mtraceur@member.fsf.org>
+Date: Sun, 13 May 2012 12:34:15 -0700
+Subject: [PATCH] Fix bug 730
+
+---
+ .../customs/templates/customs/list_trackers.html   |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/templates/customs/list_trackers.html b/mysite/customs/templates/customs/list_trackers.html
+index 6f9c113..5c1875c 100644
+--- a/mysite/customs/templates/customs/list_trackers.html
++++ b/mysite/customs/templates/customs/list_trackers.html
+@@ -37,7 +37,7 @@ value='List Trackers'
+ {% endblock submit_button_attributes %}
+ 
+ {% block content_below_form %}
+-<table>
++<table style="clear: both;">
+     <tr>
+         <th>Project Name</th>
+         <th colspan=2><a href="{% url mysite.customs.views.add_tracker tracker_type %}">Add a tracker</a></th>
+-- 
+1.7.4.1
+

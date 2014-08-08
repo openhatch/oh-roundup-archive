@@ -1,0 +1,164 @@
+From cd8fb1ab1d2df93db569cc271b960bb50a6c3dbf Mon Sep 17 00:00:00 2001
+From: Karen <karen@openhatch.org>
+Date: Thu, 7 Oct 2010 13:36:47 -0700
+Subject: [PATCH 1/3] Edited: Added project dumper and test
+
+---
+ .../management/commands/dump_public_user_data.py   |   31 ++++++++++++++++++--
+ mysite/customs/tests.py                            |   22 +++++++++++++-
+ mysite/profile/tests.py                            |    8 +++++
+ mysite/search/models.py                            |   11 +++++++
+ 4 files changed, 68 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/customs/management/commands/dump_public_user_data.py b/mysite/customs/management/commands/dump_public_user_data.py
+index 8c5cdd5..44a97f4 100644
+--- a/mysite/customs/management/commands/dump_public_user_data.py
++++ b/mysite/customs/management/commands/dump_public_user_data.py
+@@ -1,7 +1,7 @@
+ import logging
+ 
+ from django.contrib.auth.models import User
+-from mysite.search.models import Bug
++from mysite.search.models import Bug, Project
+ import sys
+ import simplejson
+ from django.core.management.base import BaseCommand
+@@ -35,7 +35,7 @@ class Command(BaseCommand):
+             obj['fields'] = fields_that_are_safe_to_export
+         return all
+         
+-    def serialize_all_objects(self, query_set):
++    def serialize_objects_except(self, query_set, blacklisted_columns):
+         obj_serializer = django.core.serializers.get_serializer('python')()
+         all = obj_serializer.serialize(query_set)
+         for obj in all:
+@@ -43,6 +43,23 @@ class Command(BaseCommand):
+             for key in obj['fields']:
+                 value = obj['fields'][key]
+ 
++                if key in blacklisted_columns:
++                    pass # by failing to copy it in, we remove it from the perspective of the dump
++                else:
++                    # copy into the safe dictionary
++                    fields_that_are_safe_to_export[key] = value
++
++            # Now, in obj, replace the fields with a safe version
++            obj['fields'] = fields_that_are_safe_to_export
++        return all
++        
++    def serialize_all_objects(self, query_set):
++        obj_serializer = django.core.serializers.get_serializer('python')()
++        all = obj_serializer.serialize(query_set)
++        for obj in all:
++            fields_that_are_safe_to_export = {}
++            for key in obj['fields']:
++                value = obj['fields'][key]
+                 fields_that_are_safe_to_export[key] = value
+ 
+             # Now, in obj, replace the fields with a safe version
+@@ -71,9 +88,17 @@ class Command(BaseCommand):
+         public_data_from_person_model = []
+         data.extend(public_data_from_person_model)
+         
+-        # exporting Bug data (?)
++        
++        # exporting Project data
++        public_project_data = self.serialize_objects_except(
++            query_set=Project.objects.all(),
++            blacklisted_columns = ['icon_url','icon_raw'])
++        data.extend(public_project_data)
++        
++        # exporting Bug data
+         public_bug_data = self.serialize_all_objects(query_set=Bug.all_bugs.all())
+         data.extend(public_bug_data)
++        
+ 
+         ### anyway, now we stream all this data out using simplejson
+         simplejson.dump(data, output,cls=django.core.serializers.json.DjangoJSONEncoder)
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 3337f48..8af69ea 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -2,7 +2,7 @@
+ # vim: set ai et ts=4 sw=4:
+ 
+ # Imports {{{
+-from mysite.search.models import Project, Bug
++from mysite.search.models import Bug, Project
+ from mysite.profile.models import Person, Tag, TagType
+ import mysite.profile.views
+ from mysite.profile.tests import MockFetchPersonDataFromOhloh
+@@ -1846,6 +1846,26 @@ class DataExport(django.test.TestCase):
+ 		self.assertTrue(Bug.all_bugs.all())
+ 		# testing to see if fire-ant is there
+ 		reincarnated_b = mysite.search.models.Bug.all_bugs.get(title='fire-ant')
++		
++    def test_dump_project(self):
++        fake_stdout = StringIO()
++        # make fake Project
++        proj = Project.create_dummy_no_icon(name="karens-awesome-project")
++        
++        command = mysite.customs.management.commands.dump_public_user_data.Command()
++        command.handle(output=fake_stdout)
++        
++        # now delete fake Project...
++        proj.delete()
++        
++        # let's see if we can reincarnate it!
++        for obj in django.core.serializers.deserialize('json', fake_stdout.getvalue()):
++            obj.save()
++        
++        # test: are there ANY projects?
++        self.assertTrue(Project.objects.all())
++        # test: is our lovely fake project there?
++        reincarnated_proj = mysite.search.models.Project.objects.get(name="karens-awesome-project")
+ 
+ # vim: set nu:
+ 
+diff --git a/mysite/profile/tests.py b/mysite/profile/tests.py
+index 5eb5a38..7b714e9 100644
+--- a/mysite/profile/tests.py
++++ b/mysite/profile/tests.py
+@@ -38,9 +38,17 @@ from django.core.urlresolvers import reverse
+ from django.contrib.auth import authenticate
+ from django.contrib.auth.models import User
+ 
++import pdb
++
+ 
+ def do_nothing(*args, **kwargs):
+     return ''
++    
++class StarlingTests(TwillTests):
++	def test_page(self):
++		url = 'http://openhatch.org/starlings'
++		place = make_twill_url(url)
++		tc.go(place)
+ 
+ class ProfileTests(TwillTests):
+     # {{{
+diff --git a/mysite/search/models.py b/mysite/search/models.py
+index 870279e..24c6d3a 100644
+--- a/mysite/search/models.py
++++ b/mysite/search/models.py
+@@ -84,6 +84,17 @@ class Project(OpenHatchModel):
+         ret = Project(**data)
+         ret.save()
+         return ret
++        
++    @staticmethod
++    def create_dummy_no_icon(**kwargs):
++        now = datetime.datetime.utcnow()
++        data = dict(name=uuid.uuid4().hex,
++                icon_raw='',
++                    language='C')
++        data.update(kwargs)
++        ret = Project(**data)
++        ret.save()
++        return ret
+ 
+     name = models.CharField(max_length=200, unique=True,
+             help_text='<span class="example">This box is for fixing capitalization mistakes. To change the name of this project, email <a style="color: #666;" href="mailto:%s">%s</a>.</span>' % (('hello@openhatch.org',)*2))
+-- 
+1.7.0.4
+

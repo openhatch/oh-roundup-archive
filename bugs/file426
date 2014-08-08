@@ -1,0 +1,65 @@
+# coding=utf-8
+import akismet
+
+TEST_HAMS = [u'''<p>You can start by having a look at our developers quick start guide, which will get you compiling blender and cover the primary information you need to know to get involved <a href="http://wiki.blender.org/index.php/Dev:2.5/Doc/Developers_Quickstart">http://wiki.blender.org/index.php/Dev:2.5/Doc/Developers_Quickstart</a></p>'''.encode('utf-8'),
+             u'''<p>Completely insecure but really I thought that Mako did a good job there'''.encode('utf-8')]
+TEST_SPAMS = [u'''<p><strong><a href="http://www.tiffanyjewelryseller.com/">tiffany jewelry</a></strong><br><strong><a href="http://www.tiffanyjewelryseller.com/">tiffany jewellery</a></strong>﻿Tracking straight down cheap color selection contacts is usually a quest every single regular contact lenses user indulges in certain time or the other. Whether you receive color contacts frequently or simply need cheap lenses for Hallow's eve or another special time, getting the most affordable rates is really a universal dream. <br><br><br><br>Searching for that cheapest clients at eye care dealers who offer contact lenses in completely different colors is a daunting job. <strong><a href="http://www.tiffanyjewelryseller.com/">tiffany jewelry silver</a></strong>Try the online world instead to see the cheapest associates. You'll locate more success looking for cheapest colored contacts here due to their sheer number of retailers on the internet. <br><br><br><br>Reeling With the Cheapest<br><br><br><br>Then again, with the huge number of e-tailers involving color contacts you need to understand how in order to fish out the cheapest rates with regard to color contacts and steer clear of a harmful deal. Here are some tips to aid you. <strong><a href="http://www.tiffanyjewelryseller.com/">buy tiffany jewelery</a></strong>Before you may make any purchase, compare prices in the cheapest tinted contacts because of several lenses suppliers. <br><br><br><br>A single do that's to physically check out different contact lenses e-stores. The majority offer discount rates, especially while in Halloween. Another way is to try the contact contact lenses comparison websites which offers you a good idea of discounts around for different styles. <br><strong><a href="http://www.tiffanyjewelryseller.com/">Tiffany Jewelry Sale</a></strong>Most manufacturers supply the cheapest tinted contacts on their web-site. So hit the home-page and checkout typically the colors that match your Costume. <br><br><br><br>Check out there the bring back policy for your cheap coloring contacts so that you could return these if mandatory. Without this type of policy you might finish up with cheapest contacts you don't even like. <br><strong><a href="http://www.tiffanyjewelryseller.com/tiffany-rings-c-18.html">Tiffany Silver Rings</a></strong><br><br><br><br>Here it becomes recommended that you also check in case your cheap colors contacts come with free delivering. If you need to pay freight for your cheap colors contacts, you might finish up with a Evening trick along with a great story for dinner. ﻿<br>Hypnosis is a light "trance"--a state somewhere between sleeping and waking.  People in a hypnotic trance are typically very focused on one stimulus to the exclusion of others. <strong><a href="http://www.tiffanyjewelryseller.com/tiffany-necklaces-c-22.html">tiffany necklaces</a></strong> People in a hypnotic trance are also somewhat suggestible, although they are by no means unable to control themselves and continue to bear full responsibility for their actions.  <br><br><br><br>There are several ways to induce a hypnotic trance.  Some of the more popular ones include the hypnosis spiral, the use of an object that glitters such as a piece of jewelry or a gold watch, and progressive relaxation. <br><br><br><br>Hypnosis Spiral<br><br><br><br>As the title suggests, a hypnosis spiral is a constantly moving spiral pattern. <strong><a href="http://www.tiffanyjewelryseller.com/tiffany-bangles-c-19.html">discount tiffany bangle</a></strong> Hypnosis spirals are available on many websites dealing with trance induction.  Some of them are available for free download; others must be purchased.  Once you have obtained a hypnosis spiral, induce trance by having your subject keep his or her eyes on it for several minutes.  While the subject is doing this, you can deepen the trance by playing relaxing music or offering suggestions that the subject is becoming sleepy, that his or her limbs and eyelids are becoming heavy, etc. <strong><a href="http://www.tiffanyjewelryseller.com/tiffany-pendants-c-23.html">buy cheap tiffany pendats</a></strong><br><br><br><br>A hypnosis spiral can also be used to test a person's ability to be hypnotized.  Have your would-be subject watch the spiral for thirty seconds.  After that, have your subject look at the palm of his or her hand.  If the subject sees no abnormalities in the spiral or the hand, he or she will probably be quite difficult to hypnotize. <strong><a href="http://www.tiffanyjewelryseller.com/tiffany-earrings-c-17.html">tiffany earrings outlet</a></strong> On the other hand, the subject who sees the spiral start to change colors and sees an increase in size in his or her hand is probably quite suggestible and easy to hypnotize. <br><br><br><br>Bright Objects<br><br><br><br>Another way to induce trance is to hold a bright object, such as a sparkly piece of jewelry, just above the subject's eye level and tell the subject to keep his or her eyes on it.  Eventually, the eyes will become weary and the eyelids will become heavy.  The hypnotist then steps in with suggestions that the subject is feeling sleepy, cannot keep his or her eyes open, etc. <br><br><br><br>Progressive Relaxation<br><br><br><br>A final way to induce hypnotic trance, favored in the psychotherapeutic and medical community, is progressive relaxation.  Speaking in a calm, authoritative voice, the hypnotist instructs the subject to first tense, then relax, every major muscle group starting with the toes.  By the time the hypnotist reaches the muscles in the neck and face, the subject will be in a deep, relaxed trance. <br>. <br><br><a href="https://www.shopbando.com/blog"> Other About Tiffany Cuff Link Sale  blog </a><br><br><a href="http://www.jerryvines.com/blog/"> Tiffany Cuff Link Sale  </a><br><br><a href="http://www.etechmoney.com/my-account/1102-ymccademcki/photos.html"> About </a><a href="http://tiffanyjewelryseller.com">tiffanyjewelryseller.com</a> blog </p>'''.encode('utf-8')]
+
+def check_via_akismet_dot_com(text):
+    KEY='81df25fa4b66'
+    ak = akismet.Akismet(key=KEY, blog_url='http://openhatch.org/')
+    assert ak.verify_key()
+    data = {
+            'user_ip': {}.get('REMOTE_ADDR', '67.247.133.24'),
+            'user_agent': {}.get('HTTP_USER_AGENT', ''),
+            'referrer': {}.get('HTTP_REFERER', ''),
+            'comment_type': 'comment',
+            'comment_author': 'Author',
+    }
+    spammy = ak.comment_check(text, data=data, build_data=False)
+    return spammy
+
+def check_via_typepad_antispam(text):
+    TYPEPAD_KEY='e0005fb890c0ca9f64648f53cac4c41a'
+    ak = akismet.Akismet(key=TYPEPAD_KEY, blog_url='http://openhatch.org/')
+    ak.baseurl= 'api.antispam.typepad.com/1.1/'
+    assert ak.verify_key()
+    data = {
+            'user_ip': {}.get('REMOTE_ADDR', '67.247.133.24'),
+            'user_agent': {}.get('HTTP_USER_AGENT', ''),
+            'referrer': {}.get('HTTP_REFERER', ''),
+            'comment_type': 'comment',
+            'comment_author': 'Author',
+    }
+    spammy = ak.comment_check(text, data=data, build_data=False)
+    return spammy
+
+def main():
+    success = 0
+    failure = 0
+
+    for spam in TEST_SPAMS:
+        if check_via_akismet_dot_com(spam):
+            success += 1
+        else:
+            failure += 1
+        if check_via_typepad_antispam(spam):
+            success += 1
+        else:
+            failure += 1
+
+    for ham in TEST_HAMS:
+        if not check_via_akismet_dot_com(ham):
+            success += 1
+        else:
+            failure += 1
+        if not check_via_typepad_antispam(ham):
+            success += 1
+        else:
+            failure += 1
+
+    print "Successes", success
+    print "Failures", failure
+
+if __name__ == '__main__':
+    main()

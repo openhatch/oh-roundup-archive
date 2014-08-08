@@ -1,0 +1,348 @@
+From 3489b4a427201847c2ea04e4aa32538e88694d6d Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Sun, 5 Sep 2010 13:05:00 +0000
+Subject: [PATCH 1/3] Add more Trac projects to bug importer
+
+---
+ mysite/customs/bugtrackers/trac.py |  232 +++++++++++++++++++++++++++++++++++-
+ 1 files changed, 231 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/trac.py b/mysite/customs/bugtrackers/trac.py
+index 749cf7b..c6c0d82 100644
+--- a/mysite/customs/bugtrackers/trac.py
++++ b/mysite/customs/bugtrackers/trac.py
+@@ -344,7 +344,9 @@ class SugarLabsTrac(TracBugTracker):
+                 'Easy bugs':
+                     'http://bugs.sugarlabs.org/query?status=accepted&status=new&status=assigned&status=reopened&format=csv&keywords=%7Esugar-love&order=priority',
+                 'Documentation bugs':
+-                    'http://bugs.sugarlabs.org/query?status=accepted&status=assigned&status=new&status=reopened&format=csv&order=priority&keywords=~documentation'
++                    'http://bugs.sugarlabs.org/query?status=accepted&status=assigned&status=new&status=reopened&format=csv&order=priority&keywords=~documentation',
++                'Sugar on a Stick bugs':
++                    'http://bugs.sugarlabs.org/query?status=accepted&status=assigned&status=new&status=reopened&format=csv&component=SoaS&order=priority'
+                 }
+         return self.generate_bug_ids_from_queries(queries)
+ 
+@@ -707,6 +709,234 @@ class I2PTrac(TracBugTracker):
+         # Then pass ret_dict back
+         return ret_dict
+ 
++class MonkeyProjectTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Monkey HTTP Daemon',
++                                base_url='http://bugs.monkey-project.com/',
++                                bug_project_name_format='{project}')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Can replace both entries below with an 'All bugs' query.
++        queries = {
++                'All bugs':
++                    'http://bugs.monkey-project.com/query?status=accepted&status=assigned&status=new&status=reopened&format=csv&order=priority'
++                }
++        return self.generate_bug_ids_from_queries(queries)
++
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        #ret_dict['bite_size_tag_name'] = ''
++        #ret_dict['good_for_newcomers'] = ('' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('Documentation' in trac_data['component'])
++        # Then pass ret_dict back
++        return ret_dict
++
++class MapbenderTrac(TracBugTracker):
++    enabled = False # URL non-responsive...
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Mapbender',
++                                base_url='',
++                                bug_project_name_format='')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Can replace both entries below with an 'All bugs' query.
++        queries = {
++                'Easy bugs':
++                    '',
++                'Documentation bugs':
++                    ''
++                }
++        return self.generate_bug_ids_from_queries(queries)
++
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = ''
++        ret_dict['good_for_newcomers'] = ('' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
++class MV3DTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='MV3D',
++                                base_url='http://www.mv3d.com/trac',
++                                bug_project_name_format='{project}')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Can replace both entries below with an 'All bugs' query.
++        queries = {
++                'All bugs':
++                    'http://www.mv3d.com/trac/query?status=assigned&status=new&status=reopened&format=csv&order=priority'
++                }
++        return self.generate_bug_ids_from_queries(queries)
++
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'easy'
++        ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        #ret_dict['concerns_just_documentation'] = ('' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
++class PadreTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Padre',
++                                base_url='http://padre.perlide.org/trac/',
++                                bug_project_name_format='{project}')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Can replace both entries below with an 'All bugs' query.
++        queries = {
++                'All bugs':
++                    'http://padre.perlide.org/trac/query?status=accepted&status=assigned&status=new&status=reopened&format=csv&order=priority'
++                }
++        return self.generate_bug_ids_from_queries(queries)
++
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'trivial'
++        ret_dict['good_for_newcomers'] = ('trivial' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('documentation' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
++class OpenSlideTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='OpenSlide',
++                                base_url='http://openslide.cs.cmu.edu/',
++                                bug_project_name_format='{project}')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Can replace both entries below with an 'All bugs' query.
++        queries = {
++                'All bugs':
++                    'http://openslide.cs.cmu.edu/query?status=assigned&status=new&status=reopened&format=csv&order=priority'
++                }
++        return self.generate_bug_ids_from_queries(queries)
++
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        #ret_dict['bite_size_tag_name'] = ''
++        #ret_dict['good_for_newcomers'] = ('' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        #ret_dict['concerns_just_documentation'] = ('' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
++class EvolvingObjectsTrac(TracBugTracker):
++    enabled = False
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Evolving Objects',
++                                base_url='http://sourceforge.net/apps/trac/eodev',
++                                bug_project_name_format='{project}')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Can replace both entries below with an 'All bugs' query.
++        queries = {
++                'All bugs':
++                    'http://sourceforge.net/apps/trac/eodev/query?status=accepted&status=assigned&status=new&status=reopened&format=csv&order=priority'
++                }
++        return self.generate_bug_ids_from_queries(queries)
++
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'easy'
++        ret_dict['good_for_newcomers'] = ('' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        #ret_dict['concerns_just_documentation'] = ('' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
++class TangoTrac(TracBugTracker):
++    enabled = False # Trac version too low, Opened and Last Modified  dates not hyperlinked. 
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Tango',
++                                base_url='http://dsource.org/projects/tango/',
++                                bug_project_name_format='{project}')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Can replace both entries below with an 'All bugs' query.
++        queries = {
++                'Easy bugs':
++                    'http://dsource.org/projects/tango/query?status=assigned&status=new&status=reopened&owner=community&format=csv&order=priority',
++                'Documentation bugs':
++                    'http://dsource.org/projects/tango/query?status=assigned&status=new&status=reopened&component=Documentation&format=csv&order=priority'
++                }
++        return self.generate_bug_ids_from_queries(queries)
++
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        ret_dict['bite_size_tag_name'] = 'community'
++        ret_dict['good_for_newcomers'] = ('community' in trac_data['owner'])
++        # Check whether this is a documentation bug.
++        ret_dict['concerns_just_documentation'] = ('Documentation' in trac_data['component'])
++        # Then pass ret_dict back
++        return ret_dict
++
++class TheButterflyEffectTrac(TracBugTracker):
++    enabled = False
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='The Butterfly Effect',
++                                base_url='http://sourceforge.net/apps/trac/tbe/',
++                                bug_project_name_format='{project}')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Can replace both entries below with an 'All bugs' query.
++        queries = {
++                'All bugs':
++                    'http://sourceforge.net/apps/trac/tbe/query?status=accepted&status=assigned&status=new&status=reopened&format=csv&order=priority'
++                }
++        return self.generate_bug_ids_from_queries(queries)
++
++    @staticmethod
++    def extract_tracker_specific_data(trac_data, ret_dict):
++        # Make modifications to ret_dict using provided metadata
++        # Check for the bitesized keyword
++        #ret_dict['bite_size_tag_name'] = ''
++        #ret_dict['good_for_newcomers'] = ('' in trac_data['keywords'])
++        # Check whether this is a documentation bug.
++        #ret_dict['concerns_just_documentation'] = ('' in trac_data['keywords'])
++        # Then pass ret_dict back
++        return ret_dict
++
+ # Copy this generic class to add a new Trac bugtracker
+ # Remember to set 'enabled' to True
+ # Notes:
+-- 
+1.7.2.2
+
+
+From d21e696cb24fe0f8b4c8c6a2ceeed84984ea83da Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Sun, 5 Sep 2010 13:17:20 +0000
+Subject: [PATCH 2/3] Added a Google Code project to the bug importer.
+
+---
+ mysite/customs/bugtrackers/google.py |   31 +++++++++++++++++++++++++++++++
+ 1 files changed, 31 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/google.py b/mysite/customs/bugtrackers/google.py
+index 6b2ba12..0786404 100644
+--- a/mysite/customs/bugtrackers/google.py
++++ b/mysite/customs/bugtrackers/google.py
+@@ -468,6 +468,37 @@ class FiftyStateProjectGoogle(GoogleBugTracker):
+         # Then pass ret_dict back
+         return ret_dict
+ 
++class CalagatorGoogle(GoogleBugTracker):
++    enabled = True
++
++    def __init__(self):
++        GoogleBugTracker.__init__(self,
++                                  project_name='Calagator',
++                                  google_name='calagator')
++
++    def generate_current_bug_atom(self):
++        query_data = [
++                {
++                    'max_results': 10000,
++                    'canned_query': 'open',
++                }
++                ]
++        queries = []
++        for kwargs in query_data:
++            queries.append(create_google_query(**kwargs))
++        return self.generate_bug_atom_from_queries(queries)
++
++    @staticmethod
++    def extract_tracker_specific_data(issue, ret_dict):
++        # Make modifications to ret_dict using provided atom data
++        labels = [label.text for label in issue.label]
++        ret_dict['good_for_newcomers'] = ('Simple' in labels)
++        ret_dict['bite_size_tag_name'] = 'Simple'
++        # Check whether documentation bug
++        ret_dict['concerns_just_documentation'] = ('Component-docs' in labels)
++        # Then pass ret_dict back
++        return ret_dict
++
+ # The generic class for Google trackers.
+ class GenGoogle(GoogleBugTracker):
+     enabled = False
+-- 
+1.7.2.2
+
+
+From ef777f622dfe20c773cbbca322f74be4e00bc95d Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Thu, 16 Sep 2010 23:43:44 +0000
+Subject: [PATCH 3/3] Use 'Sugar on a Stick' as the bug project name, not 'SoaS'.
+
+---
+ mysite/customs/bugtrackers/trac.py |    7 +++++++
+ 1 files changed, 7 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/trac.py b/mysite/customs/bugtrackers/trac.py
+index c6c0d82..c0b31dd 100644
+--- a/mysite/customs/bugtrackers/trac.py
++++ b/mysite/customs/bugtrackers/trac.py
+@@ -339,6 +339,13 @@ class SugarLabsTrac(TracBugTracker):
+                                 base_url='http://bugs.sugarlabs.org/',
+                                 bug_project_name_format='{component}')
+ 
++    def generate_bug_project_name(self, trac_bug):
++        if trac_bug.component == 'SoaS':
++            return 'Sugar on a Stick'
++        else:
++            return self.bug_project_name_format.format(project=self.project_name,
++                                                       component=trac_bug.component)
++
+     def generate_list_of_bug_ids_to_look_at(self):
+         queries = {
+                 'Easy bugs':
+-- 
+1.7.2.2
+

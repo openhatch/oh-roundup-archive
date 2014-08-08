@@ -1,0 +1,21 @@
+from PIL import ImageFile
+
+print "first try: feed chunk by chunk"
+try:
+    p = ImageFile.Parser()
+    f = open('gir_major.png', 'rb')
+    while 1:
+        data = f.read(1024)
+        if not data:
+            break
+        p.feed(data)
+except Exception, e:
+    print type(e), str(e)
+
+print "second try: feed the whole file"
+p = ImageFile.Parser()
+f = open('gir_major.png', 'rb')
+data = f.read()
+p.feed(data)
+im = p.close()
+print im

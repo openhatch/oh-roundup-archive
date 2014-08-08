@@ -1,0 +1,55 @@
+From 1608cec24704a2485b6a2c2a6fad6d3c9b880b75 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Thu, 2 Jun 2011 08:32:38 +1200
+Subject: [PATCH] Progress indicator images for the Missions
+  The tick.png image I honestly don't know where I got from,
+  but the light-tick.png image was created using the tick image
+  as a base.
+  See: http://openhatch.org/bugs/issue125
+
+---
+ mysite/static/images/light-tick.png |  Bin 0 -> 439 bytes
+ mysite/static/images/tick.png       |  Bin 0 -> 431 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 mysite/static/images/light-tick.png
+ create mode 100644 mysite/static/images/tick.png
+
+diff --git a/mysite/static/images/light-tick.png b/mysite/static/images/light-tick.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..b8d5ddb41f9d8d7f73ecdb19c6810de37b30c9b5
+GIT binary patch
+literal 439
+zcmeAS@N?(olHy`uVBq!ia0vp^3P3Et!3HGD8EPYe6k~CayA#8@b22Z19JVBHcNd2L
+zAh=-f^2tCE&H|6fVg?3oVGw3ym^DWND9B#o>FdgVn~hP}T)O@8f(oE1=AJH&As)xi
+zPBrv9Vj$ppe*(wi&=oIM)NoY!ZE$L0&N*7UL&)|K&*3cB?RU8ZS&Uen4gBUD+2HX<
+zZCcL%|F-u(I>?6~kg8y1+V5_#Zfl|cql0F#44c@QlVT3;Q2$u@Y1fYxZH+6fR=MOW
+zxr$0^3SD2@^jo64L#4fIr?t$6{t3<;yMiqk`D9mlEfeyQjJUB~S17!dt)ej5`?kyC
+z^aV^|X8Yz(E>wS~{PDQhds|Ny!{=IkPLuAlKH#)qe^(^=`xtY80$%~!9XHVlTbN7>
+za=G(1Nt!RP))hT&A-*h-Ka}AB<N0aVFJ`Pv_UTUEbFSj{oJI>S$vrvC->E-}ymymr
+z-`(cqaIJYyWve>wy_ptf_OD1=DOPoX%bu<s>I<Kh&3w(O?4P$zT&FkqdCm?Nv-%6X
+f=Ewf-|G=ksW|QHruYcwNLzThP)z4*}Q$iB}<X)(K
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/tick.png b/mysite/static/images/tick.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..faadf6f75f9405e6f4719a661bbb34f8923b6b5b
+GIT binary patch
+literal 431
+zcmV;g0Z{&lP)<h;3K|Lk000e1NJLTq001BW000mO1^@s6cL04^00001b5ch_0Itp)
+z=>Px#24YJ`L;(K){{a7>y{D4^000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2ipb#
+z6E!FbHKXhR00A#aL_t(Y$IX>NPQx$|Mc*WqT5+A^6l{>-0No%sQ#lVy!X2o31yCzh
+z8W#Bm<JwIOUGO)tV&~7y|Kkaq;ttpXN5J_zTwGgmPvT7<-2irh1Wa5m?n#8o7uBT-
+znXN^n#K}gAHcF%_xIG$lTANu?RLni;nb!tqgX1_aod+@I@TLk}>3OKC+-#&Cx^qVl
+zz)~?j!pkO+ey#QE9FMcX`vG?+u^{GLm#hd9y#sw#<_Db3S03Z}AbVN*fL`21i(BAc
+zo6kj$eN3V<IO250XyZE?V+ri#*J`%UW!Yow#lMPstjRP=NaTBxn3=oh$I`suG3Sp4
+zZ)T6Pki^sQo8VOlldvt`c{S36=V^asCt*&3ou1dZe?d^9qH+^g%zYNOI(X^7;ZEHD
+Z3!gFG$^$V>q!R!D002ovPDHLkV1ifcv&{ei
+
+literal 0
+HcmV?d00001
+
+-- 
+1.7.2.5
+

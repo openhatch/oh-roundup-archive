@@ -1,0 +1,45 @@
+<div dir="ltr">It would be nice to have just a paste link and go style for submitting trackers: a lot easier and quicker for the project owners. If we start this approach with GitHub it would be nice to have things eventually consistent for the other tracker systems out there. </div>
+
+<div class="gmail_extra"><br><br><div class="gmail_quote">On Thu, Dec 20, 2012 at 12:00 PM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org" target="_blank">bugs@openhatch.org</a>&gt;</span> wrote:<br>
+
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><br>
+New submission from Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt;:<br>
+<br>
+A well-meaning user entered the following information as the information about<br>
+privly-firefox, hoping to get volunteer opportunities crawled by the backend:<br>
+<br>
+* Github name: privly/privly-firefox<br>
+<br>
+* Github repo: <a href="https://github.com/privly/privly-firefox" target="_blank">https://github.com/privly/privly-firefox</a><br>
+<br>
+The right information would have been:<br>
+<br>
+* Github name: privly<br>
+<br>
+* Github repo: privly-firefox<br>
+<br>
+One approach would be that we could validate that &quot;Github name&quot; and &quot;Github<br>
+repo&quot; have no / characters in them.<br>
+<br>
+But, an even better way occurs to me: given that the URL<br>
+&lt;<a href="https://github.com/privly/privly-firefox" target="_blank">https://github.com/privly/privly-firefox</a>&gt; is so easy to enter there, maybe we<br>
+should just ask users to enter that, and then behind the scenes we validate it<br>
+and break it up into its component pieces, but don&#39;t show those component pieces<br>
+to the user.<br>
+<br>
+----------<br>
+messages: 3539<br>
+nosy: paulproteus<br>
+priority: bug<br>
+status: unread<br>
+title: Github tracker form should validate github_name and github_repo<br>
+<br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue799" target="_blank">https://openhatch.org/bugs/issue799</a>&gt;<br>
+__________________________________________<br>
+_______________________________________________<br>
+Devel mailing list<br>
+<a href="mailto:Devel@lists.openhatch.org">Devel@lists.openhatch.org</a><br>
+<a href="http://lists.openhatch.org/mailman/listinfo/devel" target="_blank">http://lists.openhatch.org/mailman/listinfo/devel</a><br>
+</blockquote></div><br></div>

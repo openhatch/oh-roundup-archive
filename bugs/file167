@@ -1,0 +1,26 @@
+I am getting this error in the buildup process...any suggestions?<div><br></div><div><div>An internal error occurred due to a bug in either zc.buildout or in a</div><div>recipe being used:</div><div>Traceback (most recent call last):</div>
+<div>  File &quot;/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/buildout.py&quot;, line 1805, in main</div><div>    getattr(buildout, command)(args)</div><div>  File &quot;/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/buildout.py&quot;, line 584, in insta        ll</div>
+<div>    installed_files = self[part]._call(recipe.install)</div><div>  File &quot;/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/buildout.py&quot;, line 1297, in _cal        l</div><div>    return f()</div>
+<div>  File &quot;/root/openhatch/oh-mainline/eggs/djangorecipe-0.20-py2.6.egg/djangorecipe/recipe.py&quot;, line 211, in instal        l</div><div>    requirements, ws = self.egg.working_set([&#39;djangorecipe&#39;])</div>
+<div>  File &quot;/root/openhatch/oh-mainline/eggs/zc.recipe.egg-1.3.2-py2.6.egg/zc/recipe/egg/egg.py&quot;, line 101, in workin        g_set</div><div>    **kw)</div><div>  File &quot;/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/easy_install.py&quot;, line 1090, in         install</div>
+<div>    return installer.install(specs, working_set)</div><div>  File &quot;/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/easy_install.py&quot;, line 896, in i        nstall</div><div>    for dist in self._get_dist(requirement, ws, self._always_unzip):</div>
+<div>  File &quot;/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/easy_install.py&quot;, line 742, in _        get_dist</div><div>    dist = self._fetch(avail, tmp, self._download_cache)</div><div>
+  File &quot;/root/openhatch/oh-mainline/eggs/zc.buildout-1.5.2-py2.6.egg/zc/buildout/easy_install.py&quot;, line 705, in _        fetch</div><div>    new_location = self._index.download(dist.location, tmp)</div><div>  File &quot;/usr/lib/python2.6/dist-packages/setuptools/package_index.py&quot;, line 401, in download</div>
+<div>    found = self._download_url(scheme.group(1), spec, tmpdir)</div><div>  File &quot;/usr/lib/python2.6/dist-packages/setuptools/package_index.py&quot;, line 648, in _download_url</div><div>    return self._attempt_download(url, filename)</div>
+<div>  File &quot;/usr/lib/python2.6/dist-packages/setuptools/package_index.py&quot;, line 657, in _attempt_download</div><div>    headers = self._download_to(url, filename)</div><div>  File &quot;/usr/lib/python2.6/dist-packages/setuptools/package_index.py&quot;, line 569, in _download_to</div>
+<div>    size = int(headers[&quot;Content-Length&quot;])</div><div>ValueError: invalid literal for int() with base 10: &#39;382727, 382727&#39;</div><div><br></div><div><div>root@ip-10-122-177-5:~/openhatch/oh-mainline# cat /etc/issue</div>
+<div>Debian GNU/Linux 6.0 \n \l</div></div><div><br></div><div><br></div><br><div class="gmail_quote">On Wed, Mar 23, 2011 at 2:45 PM, palhmbs <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;"><br>
+palhmbs &lt;<a href="mailto:paulbakulich@gmail.com">paulbakulich@gmail.com</a>&gt; added the comment:<br>
+<br>
+Bump.<br>
+<br>
+Are you still on track to fix this for us Viv?<br>
+<br>
+Less than a week to get this issue resolved for the milestone.<br>
+<div><div></div><div class="h5"><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue344" target="_blank">https://openhatch.org/bugs/issue344</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br></div>

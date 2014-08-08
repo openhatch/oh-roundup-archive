@@ -1,0 +1,31 @@
+From 8f5acb032cbeb193c0eb2dc2de2d831f1dfec5b0 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Sun, 12 Jun 2011 20:06:23 +1200
+Subject: [PATCH] Create a new redirect in urls.py to projects
+
+For good reasons we need a redirect to mysite.views.projects
+One of them being that on development (localhost)
+servers the landing page is linking to there.
+This patch creates that redirect/link in mysite/urls.py.
+
+Resolves: http://openhatch.org/bugs/issue449
+---
+ mysite/urls.py |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/urls.py b/mysite/urls.py
+index d291e1f..99d4cb0 100644
+--- a/mysite/urls.py
++++ b/mysite/urls.py
+@@ -358,6 +358,8 @@ urlpatterns = patterns('',
+ 
+         (r'^\+projects/', include('mysite.project.urls')),
+ 
++        (r'^\projects/', 'mysite.project.views.projects'),
++
+         (r'^\+project/(?P<project__name>.+)', 'mysite.project.views.redirect_project_to_projects'),
+ 
+         (r'^\+do/project.views.create_project_page_do$',
+-- 
+1.7.2.5
+

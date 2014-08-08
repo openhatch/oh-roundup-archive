@@ -1,0 +1,75 @@
+Hi Asheesh,<div><br></div><div>Actually I initially created this patch using PyCharm and then realized that the patch was not git compatible, So I thought of work on it more and test the patch myself before sending for review/implementation, I communicated the same to Paul also.</div>
+<div>     If you feel the patch is reasonably ok then I wont do more work on that, but the patch is verbatim implementation of pythonian4000 sample implementation, I am already ashamed of not investing enough time to solve it myself and it would be burden on me, if I take any credit for the implementation. All glory to pythonian4000.</div>
+<div>      I will implement the changes you suggested and send the patch by Monday. Please let me know if there is anything else can be enhanced.</div><div><br></div><div>Thanks,</div><div><br></div><div>Vivek</div><div><br>
+</div><div>     </div><div>  <br><br><div class="gmail_quote">On Sat, Jun 4, 2011 at 9:42 PM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">
+<div class="im"><br>
+Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:<br>
+<br>
+</div>Vivek,<br>
+<br>
+This patch looks good at a first glance!<br>
+<br>
+Actually, it looks really really great. I think this is the highest-quality patch<br>
+I have seen for a first or second or third contribution. Here are some of the<br>
+things you did right:<br>
+<br>
+* Extensive commenting<br>
+* A test for the test suite right off the bat<br>
+* Extremely reasonable use of Django signals<br>
+* A completely proper migration<br>
+<br>
+I&#39;m sitting here muttering to myself, &quot;This is truly amazing.&quot; It&#39;s really good<br>
+work.<br>
+<br>
+There are just a few things you should change. The first and most important one<br>
+is the one palhmbs pointed out: You should submit your work as a git format-patch<br>
+file. You should commit locally, then export it to a file.<br>
+<a href="http://openhatch.org/wiki/How_we_handle_patches" target="_blank">http://openhatch.org/wiki/How_we_handle_patches</a> and the git training mission on<br>
+the OpenHatch site explain how to do this.<br>
+<br>
+Code-wise:<br>
+<br>
+* Use logging.debug(), not print<br>
+** (Using &quot;print&quot; in a WSGI context isn&#39;t good. See also<br>
+<a href="http://blog.dscpl.com.au/2009/04/wsgi-and-printing-to-standard-output.html" target="_blank">http://blog.dscpl.com.au/2009/04/wsgi-and-printing-to-standard-output.html</a> )<br>
+<br>
+* Use a space after every comma<br>
+** This is just a style thing, but it makes code more readable. For example, in<br>
+the new get_hit_count_cache_key():<br>
+<br>
+        hit_count_cache_key = &quot;hcc_%s_%s&quot; %<br>
+(hashlib.sha1(hcc_timestamp.__str__()).hexdigest(),hashed_query)<br>
+<br>
+would become<br>
+<br>
+        hit_count_cache_key = &quot;hcc_%s_%s&quot; %<br>
+(hashlib.sha1(hcc_timestamp.__str__()).hexdigest(), hashed_query)<br>
+<br>
+Small change.<br>
+<br>
+* Always use consistent indenting, even for comment lines. Here:<br>
+<br>
++    def get_or_create_cached_hit_count(self):<br>
++       # Get the cache key used to store the hit count.<br>
++        hit_count_cache_key = self.get_hit_count_cache_key()<br>
+<br>
+should be:<br>
+<br>
++    def get_or_create_cached_hit_count(self):<br>
++        # Get the cache key used to store the hit count.<br>
++        hit_count_cache_key = self.get_hit_count_cache_key()<br>
+<br>
+Move that comment one space deeper in.<br>
+<br>
+* You have made the post_bug_save_delete_increment_hit_count_cache_timestamp()<br>
+function be part of the WannaHelperNote class due to indenting it. You should<br>
+undo the indenting so that it&#39;s not part of the class definition.<br>
+<br>
+Fix those, and moreover, resubmit it as a git format-patch file. Thanks for the<br>
+work you&#39;ve done here!<br>
+<div><div></div><div class="h5"><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue310" target="_blank">https://openhatch.org/bugs/issue310</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br></div>

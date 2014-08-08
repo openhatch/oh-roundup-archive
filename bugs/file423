@@ -1,0 +1,39 @@
+From 3f17b1449392b9fcf3dab52803a3e4f2eb6a7eda Mon Sep 17 00:00:00 2001
+From: "Jill A. Johnson" <jillj333@gmail.com>
+Date: Mon, 21 Nov 2011 11:27:01 -0800
+Subject: [PATCH] Fix for issue606
+
+---
+ mysite/customs/bugimporters/bugzilla.py            |    2 +-
+ .../missions/templates/missions/tar/creating.html  |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/customs/bugimporters/bugzilla.py b/mysite/customs/bugimporters/bugzilla.py
+index 7fbb02f..5799d7c 100644
+--- a/mysite/customs/bugimporters/bugzilla.py
++++ b/mysite/customs/bugimporters/bugzilla.py
+@@ -518,7 +518,7 @@ class MediaWikiBugzilla(BugzillaBugParser):
+    def generate_bug_project_name(self, bug_project_name_format, tracker_name):
+         product = self.product
+         reasonable_products = set([
+-# Insert product names for MediaWikiBugzilla here. 
++# Insert product names for MediaWikiBugzilla here. These are it.
+             'CiviCRM',
+             'Cortado'
+             'dbzip2',
+diff --git a/mysite/missions/templates/missions/tar/creating.html b/mysite/missions/templates/missions/tar/creating.html
+index 41de170..ece28cc 100644
+--- a/mysite/missions/templates/missions/tar/creating.html
++++ b/mysite/missions/templates/missions/tar/creating.html
+@@ -39,7 +39,7 @@
+       <ul class="raquo_bullets">
+         <li>create a <code>myproject-0.1</code> directory (<abbr title="mkdir myproject-0.1">hover for hint</abbr>)</li>
+         <li>download the files above and place them in the directory</li>
+-        <li>in the parent directory, create a gzipped tarball of the myproject-0.1 directory (<abbr
++        <li>in the parent directory, create a gzipped tarball of the <code>myproject-0.1</code> directory (<abbr
+                 title="tar zcvf myproject-0.1.tar.gz myproject-0.1">hover for hint</abbr>)</li>
+         <li>upload your tarball</li>
+       </ul>
+-- 
+1.7.5.4
+

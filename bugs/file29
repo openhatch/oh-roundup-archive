@@ -1,0 +1,25 @@
+From 89fc1373121a26940ed33793098d624e4956a24b Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Wed, 16 Jun 2010 21:48:47 +0000
+Subject: [PATCH] Fixed a bug with the Roundup importer where it breaks if the project doesn't exist.
+
+---
+ mysite/customs/bugtrackers/roundup_general.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/roundup_general.py b/mysite/customs/bugtrackers/roundup_general.py
+index d7deb48..ac3e9cc 100644
+--- a/mysite/customs/bugtrackers/roundup_general.py
++++ b/mysite/customs/bugtrackers/roundup_general.py
+@@ -25,7 +25,7 @@ class RoundupTracker(object):
+         assert root_url[-1] == '/'
+         assert root_url[-2] != '/'
+         self.root_url = unicode(root_url)
+-        self.project = mysite.search.models.Project.objects.get(name=project_name)
++        self.project, _ = mysite.search.models.Project.objects.get_or_create(name=project_name)
+ 
+     @staticmethod
+     def roundup_tree2metadata_dict(tree):
+-- 
+1.7.1
+

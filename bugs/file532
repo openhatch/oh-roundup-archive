@@ -1,0 +1,67 @@
+From 3267a853ed53c4a7106cfd10c8fd7c8770e61b63 Mon Sep 17 00:00:00 2001
+From: Rajesh Pradhan <rajeshpradhan@gmail.com>
+Date: Mon, 18 Mar 2013 20:21:00 -0700
+Subject: [PATCH] 'De-list me' button added to the helpers list and the icon
+ is removed from top
+
+---
+ .../project/templates/project/project-wanna-help-box.html   |    8 +++++++-
+ mysite/project/templates/project/project.html               |   11 +++++------
+ 2 files changed, 12 insertions(+), 7 deletions(-)
+
+diff --git a/mysite/project/templates/project/project-wanna-help-box.html b/mysite/project/templates/project/project-wanna-help-box.html
+index 25030c5..38c42f0 100644
+--- a/mysite/project/templates/project/project-wanna-help-box.html
++++ b/mysite/project/templates/project/project-wanna-help-box.html
+@@ -69,11 +69,17 @@
+         <input type='hidden' id='id_mark_contact-project' name='mark_contact-project' value='{{ project.pk }}'>
+ 	</div>
+ 	<div>
+-	  <input type='submit' id='mark_contact-button' value='Save'>
++	  <input type='submit' id='mark_contact-button' style='float: right; margin-right: 10px;' value='Save'>
+ 	</div>
+       </div>
+ 
+     {% endif %}
+     </form>
+ {% endwith %}
++{% if user_wants_to_help %}
++            <form action="{% url mysite.project.views.unlist_self_from_wanna_help_do %}" id='delist_me_as_a_helper' method="POST">
++                <input type='hidden' name='project' value='{{project.id}}'>
++                <input type='submit' style='float: left; margin-left: 10px;' id='delist_helper_button' value='De-list me!' rel='tipsy-south' title='De-list me!'>
++            </form>
++{% endif %}
+ {# vim: set filetype=htmldjango: #}
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 50bd69f..5b34ec5 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -84,12 +84,6 @@ about how you can help {{ project.display_name }}
+                                 Make sure your contact info is up to date</a></li>
+                 </ul>
+             </span>
+-            <form action="{% url mysite.project.views.unlist_self_from_wanna_help_do %}" id='delist_me_as_a_helper' method="POST">
+-                <input type='hidden' name='project' value='{{project.id}}'>
+-                <input type='image'
+-                        src='{% version '/static/images/icons/undo.png' %}'
+-                        id='delist_helper_button' value='x' rel='tipsy-south' title='De-list me'>
+-            </form>
+         </div>
+     </div>
+ 
+@@ -304,7 +298,12 @@ about how you can help {{ project.display_name }}
+             <ul>
+                 <li>
+                     {% if project.cached_contributor_count %}
++<<<<<<< HEAD
++                        <a class='actionlink' href='{% url mysite.profile.views.people %}?q=project:"{{project.name|urlencode}}">See all</a>
++                        <a class='actionlink' href='{% url mysite.profile.views.importer %}?add_project_name={{ project.name|urlencode }}>Add yourself</a>
++=======
+                         <a class='actionlink href='{% url mysite.profile.views.people %}?q=project:"{{project.name|urlencode}}"'>See all</a>
++>>>>>>> 9453ce1851e8ffce52df4e1d21728085b1a84db7
+                     {% endif %}
+                     <a class='actionlink' href='{% url mysite.profile.views.importer %}?add_project_name={{ project.name|urlencode }}'>Add yourself</a>
+                 </li>
+-- 
+1.7.10.4
+

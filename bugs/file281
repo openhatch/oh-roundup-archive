@@ -1,0 +1,32 @@
+From 0e2df9a9ed68c2855e746fdf933860258433ebba Mon Sep 17 00:00:00 2001
+From: 2mas <t.homas.noee@gmail.com>
+Date: Mon, 16 May 2011 01:10:58 -0700
+Subject: [PATCH] 417
+
+---
+ mysite/missions/git/views.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+index e3a7eec..e1a164c 100644
+--- a/mysite/missions/git/views.py
++++ b/mysite/missions/git/views.py
+@@ -86,7 +86,7 @@ def rebase_submit(request):
+             else:
+                 data['git_rebase_error_message'] = "The author's name is incorrect."
+         data['git_rebase_form'] = form
+-    return checkout(request, data)
++    return rebase(request, data)
+ 
+ ### State manager
+ class GitMissionPageState(MissionPageState):
+@@ -154,4 +154,4 @@ def rebase(request, passed_data = None):
+     state.mission_step_prerequisite = 'git_diff'
+     data = state.as_dict_for_template_context()
+     data['git_rebase_form'] = forms.RebaseForm()
+-    return (request, 'missions/git/rebase.html', data)
+\ No newline at end of file
++    return (request, 'missions/git/rebase.html', data)
+-- 
+1.7.2.5
+

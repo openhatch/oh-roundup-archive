@@ -1,0 +1,27 @@
+From 0c314b20e2861fd6d3416b0524f3b86a13354746 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Thu, 2 Jun 2011 12:50:23 +1200
+Subject: [PATCH] Taken a word _total_ out of templates/profile/contributors.html
+ to make it clearer that we don't include the user in the total.
+ Solves: http://openhatch.org/bugs/issue347
+
+---
+ mysite/profile/templates/profile/contributors.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/profile/templates/profile/contributors.html b/mysite/profile/templates/profile/contributors.html
+index d359843..8934618 100644
+--- a/mysite/profile/templates/profile/contributors.html
++++ b/mysite/profile/templates/profile/contributors.html
+@@ -22,7 +22,7 @@
+ {% if contributors %}
+ <div class='other-contributors'>
+     {% with project.get_contributors|length as contributor_count %}
+-    <label>Other contributor{{contributor_count|pluralize}} ({{ contributor_count }} total):</label>
++    <label>Other contributors ({{ contributor_count }}):</label>
+     <ul>
+         {% for person in contributors %}
+         <li>
+-- 
+1.7.2.5
+

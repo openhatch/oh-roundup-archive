@@ -1,0 +1,30 @@
+From 996a6c5b29f2a920df6519860e308325ce7bc0ed Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Wed, 20 Apr 2011 19:32:31 +1200
+Subject: [PATCH] New WIKI CSS Overrides - http://openhatch.org/bugs/issue361
+
+---
+ mysite/static/css/wiki_overides.css |   11 +++++++++++
+ 1 files changed, 11 insertions(+), 0 deletions(-)
+ create mode 100644 mysite/static/css/wiki_overides.css
+
+diff --git a/mysite/static/css/wiki_overides.css b/mysite/static/css/wiki_overides.css
+new file mode 100644
+index 0000000..93b2315
+--- /dev/null
++++ b/mysite/static/css/wiki_overides.css
+@@ -0,0 +1,11 @@
++ body {
++	background: #f9f9f9 url('http://openhatch.org/static/images/motif-eee.png') repeat !important; 
++        color: black !important;
++ 	margin: 0 !important;
++ 	padding: 0 !important; }
++ a { 	color: #eb7f04 !important; }
++ a.new {   color: #BA0000 !important; }
++.pBody, #content, .ca-nstab-main, .selected { border-width: 2px !important; border-color: #70b347 !important; }
++h1, h2, h3, h4, h5, h6 { border-bottom-color: #70b347 !important; }
++#footer { border-width: 2px !important; border-left-style: solid !important; border-right-style: solid !important; border-left-color: #70b347 !important; border-right-color: #70b347 !important; border-bottom-color: #70b347 !important; border-top-color: #70b347 !important; width: 80% !important; margin-left: 230px !important; }
++#footer div img { padding-top: 8px !important; }
+-- 
+1.7.1
+

@@ -1,0 +1,26 @@
+Index: ../oh-mainline/mysite/static/robots.txt
+===================================================================
+--- ../oh-mainline/mysite/static/robots.txt	(revision )
++++ ../oh-mainline/mysite/static/robots.txt	(revision )
+@@ -0,0 +1,7 @@
++User-agent: *
++Disallow: /search/*?*
++
++Disallow: /w/
++Disallow: /wiki/Special:Search
++Disallow: /wiki/Special:Random
++
+Index: ../oh-mainline/mysite/base/templates/robots.txt
+===================================================================
+--- ../oh-mainline/mysite/base/templates/robots.txt	(date 1303594963000)
++++ ../oh-mainline/mysite/base/templates/robots.txt	(revision )
+@@ -1,7 +1,2 @@
+ User-agent: *
+-Disallow: /search/*?*
+-
+-Disallow: /w/
+-Disallow: /wiki/Special:Search
+-Disallow: /wiki/Special:Random
+-
++Disallow: /
+\ No newline at end of file

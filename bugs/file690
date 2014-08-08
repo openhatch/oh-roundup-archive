@@ -1,0 +1,19 @@
+<div dir="ltr"><div class="gmail_default" style="font-family:arial,helvetica,sans-serif">Susan and Asheesh,</div><div class="gmail_default" style="font-family:arial,helvetica,sans-serif"><br></div><div class="gmail_default" style="font-family:arial,helvetica,sans-serif">
+Nicely done :)</div><div class="gmail_default" style="font-family:arial,helvetica,sans-serif"><br></div><div class="gmail_default" style="font-family:arial,helvetica,sans-serif"><br></div></div><div class="gmail_extra"><br>
+<br><div class="gmail_quote">On Thu, Jun 19, 2014 at 12:39 AM, Susan Tan <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org" target="_blank">bugs@openhatch.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+<div class=""><br>
+Susan Tan &lt;<a href="mailto:onceuponatimeforever@gmail.com">onceuponatimeforever@gmail.com</a>&gt; added the comment:<br>
+<br>
+</div>asheesh and I pair programmed at the Workshop Cafe, SF and the result is this merged PR:<br>
+<a href="https://github.com/openhatch/oh-mainline/pull/289" target="_blank">https://github.com/openhatch/oh-mainline/pull/289</a>  OH is now successfully running on Django<br>
+1.4.13. The next step is to upgrade the OH app to Django 1.5. Finally, then I will upgrade the app to<br>
+Django 1.6. Perhaps even up to Django 1.7 if I am feeling very brave.<br>
+<div class="HOEnZb"><div class="h5"><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue931" target="_blank">https://openhatch.org/bugs/issue931</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br><br clear="all"><div><br></div>-- <br><div dir="ltr"><div><div><span style="color:rgb(0,0,255)"><b><font size="4">Carol Willing</font></b><br></span></div><span style="color:rgb(0,0,255)">Developer<br>
+</span></div><span style="color:rgb(0,0,255)">Willing Consulting</span><div><font color="#0000ff"><br></font></div><div><font color="#0000ff">willingc[at]gmail[dot]com<br></font><div><font color="#0000ff">760[dash]214[dash]8385<br>
+</font><br></div></div></div>
+</div>

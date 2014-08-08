@@ -1,0 +1,308 @@
+From fbf8c4ad1d248732d8c5598e227e96565b6527b8 Mon Sep 17 00:00:00 2001
+From: Jule Slootbeek <jslootbeek@gmail.com>
+Date: Sun, 4 Dec 2011 18:08:44 -0500
+Subject: [PATCH 1/3] updated snapshot_public_data to export TrackerModel,
+ TrackerQueryModel and PortfolioEntry added tests
+
+---
+ .../management/commands/snapshot_public_data.py    |   22 ++++-
+ mysite/customs/tests.py                            |   97 +++++++++++++++++++-
+ 2 files changed, 112 insertions(+), 7 deletions(-)
+
+diff --git a/mysite/customs/management/commands/snapshot_public_data.py b/mysite/customs/management/commands/snapshot_public_data.py
+index 9c41233..8007345 100644
+--- a/mysite/customs/management/commands/snapshot_public_data.py
++++ b/mysite/customs/management/commands/snapshot_public_data.py
+@@ -18,8 +18,9 @@ import logging
+ 
+ from django.contrib.auth.models import User
+ from mysite.search.models import Bug, Project
+-from mysite.profile.models import Person, Tag, TagType, Link_Person_Tag
++from mysite.profile.models import Person, Tag, TagType, Link_Person_Tag, PortfolioEntry
+ from mysite.base.models import Timestamp
++from mysite.customs.models import TrackerModel, TrackerQueryModel
+ import sys
+ from django.utils import simplejson
+ from django.core.management.base import BaseCommand
+@@ -52,7 +53,7 @@ class Command(BaseCommand):
+             # Now, in obj, replace the fields with a safe version
+             obj['fields'] = fields_that_are_safe_to_export
+         return all
+-        
++
+     def serialize_objects_except(self, query_set, blacklisted_columns):
+         obj_serializer = django.core.serializers.get_serializer('python')()
+         all = obj_serializer.serialize(query_set)
+@@ -70,7 +71,7 @@ class Command(BaseCommand):
+             # Now, in obj, replace the fields with a safe version
+             obj['fields'] = fields_that_are_safe_to_export
+         return all
+-        
++
+     def serialize_all_objects(self, query_set):
+         obj_serializer = django.core.serializers.get_serializer('python')()
+         all = obj_serializer.serialize(query_set)
+@@ -118,11 +119,11 @@ class Command(BaseCommand):
+             query_set=Project.objects.all(),
+             blacklisted_columns = ['icon_url','icon_raw'])
+         data.extend(public_project_data)
+-        
++
+         # Timestamp data needs export
+         public_timestamp_data = self.serialize_all_objects(query_set=Timestamp.objects.all())
+         data.extend(public_timestamp_data)
+-        
++
+         # exporting Bug data
+         public_bug_data = self.serialize_all_objects(query_set=Bug.all_bugs.all())
+         data.extend(public_bug_data)
+@@ -139,5 +140,16 @@ class Command(BaseCommand):
+         public_persons_tags_links = self.serialize_all_objects(query_set=Link_Person_Tag.objects.all())
+         data.extend(public_persons_tags_links)
+ 
++        #exporting portfolioentry objects
++        public_portfolio_entries = self.serialize_all_objects(query_set=PortfolioEntry.published_ones.all())
++        data.extend(public_portfolio_entries)
++
++        #export TrackerModel objects
++        public_trackermodel_entries = self.serialize_all_objects(query_set=TrackerModel.objects.all())
++        data.extend(public_trackermodel_entries)
++
++        #export TrackerQueryModel objects
++        public_trackerquerymodel_entries = self.serialize_all_objects(query_set=TrackerQueryModel.objects.all())
++        data.extend(public_trackerquerymodel_entries)
+         ### anyway, now we stream all this data out using simplejson
+         simplejson.dump(data, output,cls=django.core.serializers.json.DjangoJSONEncoder)
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 64826d3..35ce411 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -25,7 +25,7 @@
+ from mysite.base.tests import TwillTests
+ from mysite.search.models import Bug, Project
+ from mysite.base.models import Timestamp
+-from mysite.profile.models import Person, Tag, TagType, Link_Person_Tag
++from mysite.profile.models import Person, Tag, TagType, Link_Person_Tag, PortfolioEntry
+ import mysite.profile.views
+ from mysite.customs import ohloh
+ import mysite.customs.views
+@@ -771,7 +771,7 @@ class BlogCrawl(django.test.TestCase):
+                          u'Yo \xe9')
+ 
+ def raise_504(*args, **kwargs):
+-    raise HTTPError(url="http://theurl.com/", code=504, msg="", hdrs="", fp=open("/dev/null")) 
++    raise HTTPError(url="http://theurl.com/", code=504, msg="", hdrs="", fp=open("/dev/null"))
+ mock_browser_open = mock.Mock()
+ mock_browser_open.side_effect = raise_504
+ @skipIf(mysite.base.depends.lxml.html is None, "To run these tests, you must install lxml. See ADVANCED_INSTALLATION.mkd for more.")
+@@ -1896,6 +1896,99 @@ class DataExport(django.test.TestCase):
+         # test: is our lovely fake project there?
+         mysite.search.models.Project.objects.get(name="karens-awesome-project")
+ 
++    def test_snapshot_portfolioentry(self):
++        fake_stdout = StringIO()
++
++        #create Person
++        person = Person.create_dummy()
++        #create Project
++        project = Project.create_dummy()
++        #create PortfolioEntry
++        portfolioentry = PortfolioEntry.objects.create(person=person, project=project, is_published=True)
++
++        #save verification data
++        pe_person = portfolioentry.person
++        pe_project = portfolioentry.project
++
++        #create json
++        command = mysite.customs.management.commands.snapshot_public_data.Command()
++        command.handle(output=fake_stdout)
++
++        #put it back in the database
++        for obj in django.core.serializers.deserialize('json', fake_stdout.getvalue()):
++            obj.save()
++
++        #get PortfolioEntry from re-imported data
++        new_pe = PortfolioEntry.objects.all()[0]
++
++        #verify data
++        self.assertTrue(new_pe.person.user.username, pe_person.user.username)
++        self.assertTrue(new_pe.project.name, pe_project.name)
++        self.assertTrue(new_pe.is_published, True)
++
++    def test_snapshot_trackermodel(self):
++        fake_stdout = StringIO()
++
++        google_tm = mysite.customs.models.GoogleTrackerModel.all_trackers.create(
++                    tracker_name='SymPy',
++                    google_name='sympy',
++                    bitesized_type='label',
++                    bitesized_text='EasyToFix',
++                    documentation_type='label',
++                    documentation_text='Documentation')
++
++        bugzilla_tm = mysite.customs.models.BugzillaTrackerModel.all_trackers.create(
++            tracker_name='KDE Bugzilla',
++            base_url='http://bugs.kde.org/',
++            bug_project_name_format='{tracker_name}',
++            bitesized_type='key',
++            bitesized_text='bitesized',
++            documentation_type='key',
++            custom_parser='bugzilla.KDEBugzilla',
++            )
++
++        roundup_tm = mysite.customs.models.RoundupTrackerModel.all_trackers.create(
++            tracker_name='Mercurial',
++            base_url='http://mercurial.selenic.com/bts/',
++            closed_status='resolved',
++            bitesized_field='Topics',
++            bitesized_text='bitesized',
++            documentation_field='Topics',
++            documentation_text='documentation',
++            )
++
++        trac_tm = mysite.customs.models.TracTrackerModel.all_trackers.create(
++            tracker_name='Twisted',
++            base_url='http://twistedmatrix.com/trac/',
++            bug_project_name_format='{tracker_name}',
++            bitesized_type='keywords',
++            bitesized_text='easy',
++            documentation_type='keywords',
++            documentation_text='documentation')
++
++        google_tqm = mysite.customs.models.GoogleQueryModel.objects.create(tracker=google_tm)
++        bugzilla_tqm = mysite.customs.models.BugzillaQueryModel.objects.create(tracker=bugzilla_tm)
++        roundup_tqm = mysite.customs.models.RoundupQueryModel.objects.create(tracker=roundup_tm)
++        trac_tqm = mysite.customs.models.TracQueryModel.objects.create(tracker=trac_tm)
++
++        #create json
++        command = mysite.customs.management.commands.snapshot_public_data.Command()
++        command.handle(output=fake_stdout)
++
++        #put it back in the database
++        for obj in django.core.serializers.deserialize('json', fake_stdout.getvalue()):
++            obj.save()
++
++        self.assertTrue(mysite.customs.models.TracTrackerModel.objects.count())
++        self.assertTrue(mysite.customs.models.GoogleTrackerModel.objects.count())
++        self.assertTrue(mysite.customs.models.BugzillaTrackerModel.objects.count())
++        self.assertTrue(mysite.customs.models.RoundupTrackerModel.objects.count())
++
++        self.assertTrue(mysite.customs.models.TracQueryModel.objects.count())
++        self.assertTrue(mysite.customs.models.GoogleQueryModel.objects.count())
++        self.assertTrue(mysite.customs.models.BugzillaQueryModel.objects.count())
++        self.assertTrue(mysite.customs.models.RoundupQueryModel.objects.count())
++
+     def test_not_explode_when_user_has_no_person(self):
+         fake_stdout = StringIO()
+         # make a User
+-- 
+1.7.7.1
+
+
+From 3bad3a846e513a68178512e578a044a040bf2ea1 Mon Sep 17 00:00:00 2001
+From: Jule Slootbeek <jslootbeek@gmail.com>
+Date: Sun, 4 Dec 2011 18:17:17 -0500
+Subject: [PATCH 2/3] included exports of inherited trackers and querytrackers
+
+---
+ .../management/commands/snapshot_public_data.py    |   13 ++++++++++---
+ 1 files changed, 10 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/customs/management/commands/snapshot_public_data.py b/mysite/customs/management/commands/snapshot_public_data.py
+index 8007345..1b6d74e 100644
+--- a/mysite/customs/management/commands/snapshot_public_data.py
++++ b/mysite/customs/management/commands/snapshot_public_data.py
+@@ -21,6 +21,8 @@ from mysite.search.models import Bug, Project
+ from mysite.profile.models import Person, Tag, TagType, Link_Person_Tag, PortfolioEntry
+ from mysite.base.models import Timestamp
+ from mysite.customs.models import TrackerModel, TrackerQueryModel
++from mysite.customs.models import GoogleTrackerModel, BugzillaTrackerModel, TracTrackerModel, RoundupTrackerModel
++from mysite.customs.models import GoogleQueryModel, BugzillaQueryModel, TracQueryModel, RoundupQueryModel
+ import sys
+ from django.utils import simplejson
+ from django.core.management.base import BaseCommand
+@@ -148,8 +150,13 @@ class Command(BaseCommand):
+         public_trackermodel_entries = self.serialize_all_objects(query_set=TrackerModel.objects.all())
+         data.extend(public_trackermodel_entries)
+ 
+-        #export TrackerQueryModel objects
+-        public_trackerquerymodel_entries = self.serialize_all_objects(query_set=TrackerQueryModel.objects.all())
+-        data.extend(public_trackerquerymodel_entries)
++        for tracker in TrackerModel, GoogleTrackerModel, BugzillaTrackerModel, RoundupTrackerModel, TracTrackerModel:
++            trackermodel_entries = self.serialize_all_objects(query_set=tracker.objects.all())
++            data.extend(trackermodel_entries)
++
++        for tracker in TrackerQueryModel, GoogleQueryModel, BugzillaQueryModel, RoundupQueryModel, TracQueryModel:
++            trackquerymodel_entries = self.serialize_all_objects(query_set=tracker.objects.all())
++            data.extend(trackquerymodel_entries)
++
+         ### anyway, now we stream all this data out using simplejson
+         simplejson.dump(data, output,cls=django.core.serializers.json.DjangoJSONEncoder)
+-- 
+1.7.7.1
+
+
+From 21e6efd40a9d9c77271738d326a46eec575e5e23 Mon Sep 17 00:00:00 2001
+From: Jule Slootbeek <jslootbeek@gmail.com>
+Date: Sun, 4 Dec 2011 18:45:08 -0500
+Subject: [PATCH 3/3] fixed serialization bug
+
+---
+ .../management/commands/snapshot_public_data.py    |   22 ++++++++++----------
+ mysite/customs/tests.py                            |    7 ++++++
+ 2 files changed, 18 insertions(+), 11 deletions(-)
+
+diff --git a/mysite/customs/management/commands/snapshot_public_data.py b/mysite/customs/management/commands/snapshot_public_data.py
+index 1b6d74e..3ba0cd9 100644
+--- a/mysite/customs/management/commands/snapshot_public_data.py
++++ b/mysite/customs/management/commands/snapshot_public_data.py
+@@ -146,17 +146,17 @@ class Command(BaseCommand):
+         public_portfolio_entries = self.serialize_all_objects(query_set=PortfolioEntry.published_ones.all())
+         data.extend(public_portfolio_entries)
+ 
+-        #export TrackerModel objects
+-        public_trackermodel_entries = self.serialize_all_objects(query_set=TrackerModel.objects.all())
+-        data.extend(public_trackermodel_entries)
+-
+-        for tracker in TrackerModel, GoogleTrackerModel, BugzillaTrackerModel, RoundupTrackerModel, TracTrackerModel:
+-            trackermodel_entries = self.serialize_all_objects(query_set=tracker.objects.all())
+-            data.extend(trackermodel_entries)
+-
+-        for tracker in TrackerQueryModel, GoogleQueryModel, BugzillaQueryModel, RoundupQueryModel, TracQueryModel:
+-            trackquerymodel_entries = self.serialize_all_objects(query_set=tracker.objects.all())
+-            data.extend(trackquerymodel_entries)
++        #export TrackerModel entries
++        trackermodel_entries = self.serialize_all_objects(query_set=TrackerModel.objects.all())
++        data.extend(trackermodel_entries)
++        s_tm_entries = self.serialize_all_objects(query_set=TrackerModel.objects.all().select_subclasses())
++        data.extend(s_tm_entries)
++
++        #export TracerQueryModel
++        trackerquerymodel_entries = self.serialize_all_objects(query_set=TrackerQueryModel.objects.all())
++        data.extend(trackerquerymodel_entries)
++        s_tqm_entries = self.serialize_all_objects(query_set=TrackerQueryModel.objects.all().select_subclasses())
++        data.extend(s_tqm_entries)
+ 
+         ### anyway, now we stream all this data out using simplejson
+         simplejson.dump(data, output,cls=django.core.serializers.json.DjangoJSONEncoder)
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 35ce411..32f4181 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -1975,6 +1975,13 @@ class DataExport(django.test.TestCase):
+         command = mysite.customs.management.commands.snapshot_public_data.Command()
+         command.handle(output=fake_stdout)
+ 
++        #delete data from DB
++        for tqm in google_tqm, bugzilla_tqm, trac_tqm, roundup_tqm:
++            tqm.delete()
++
++        for tm in google_tm, bugzilla_tm, trac_tm, roundup_tm:
++            tm.delete()
++
+         #put it back in the database
+         for obj in django.core.serializers.deserialize('json', fake_stdout.getvalue()):
+             obj.save()
+-- 
+1.7.7.1
+

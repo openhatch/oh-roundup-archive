@@ -1,0 +1,52 @@
+From e81b5767c349812507ce37cc3f4a3d24ba9147fb Mon Sep 17 00:00:00 2001
+From: Jairo Lopez <jelfn@sislacom.com>
+Date: Tue, 15 Mar 2011 14:23:24 -0430
+Subject: [PATCH 2/2] I've added the directories to add management commands to mysite so that the
+ check returns something meaningful to Nagios reading from the meta data
+ information.
+
+I've tried to make it so that any other things that want to be monitored can
+be done from this script.
+
+Cheers.
+---
+ mysite/base/management/commands/nagios.py   |   19 +++++++++++++++++++
+ 1 files changed, 19 insertions(+), 0 deletions(-)
+ create mode 100644 mysite/base/management/__init__.py
+ create mode 100644 mysite/base/management/commands/__init__.py
+ create mode 100644 mysite/base/management/commands/nagios.py
+
+diff --git a/mysite/base/management/__init__.py b/mysite/base/management/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/mysite/base/management/commands/__init__.py b/mysite/base/management/commands/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/mysite/base/management/commands/nagios.py b/mysite/base/management/commands/nagios.py
+new file mode 100644
+index 0000000..d15383b
+--- /dev/null
++++ b/mysite/base/management/commands/nagios.py
+@@ -0,0 +1,19 @@
++from django.core.management.base import BaseCommand 
++from optparse import make_option
++import mysite.base.views
++import sys
++
++class Command(BaseCommand):
++    help = 'Returns the Nagios exit code for objects that are monitored'
++
++    option_list = BaseCommand.option_list + (
++       make_option('-m', '--meta', action='store_true',
++           dest='meta', default=False, help='Check the meta data.'),
++    )
++
++    def handle(self, *args, **options):
++        runmeta = options.get('meta')
++
++        if runmeta:
++            code = mysite.base.views.meta_exit_code()
++            sys.exit(code)
+-- 
+1.7.2.3
+

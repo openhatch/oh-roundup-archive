@@ -1,0 +1,74 @@
+From d471fdae2a48b005616b81d7ca199179ced9c4c3 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Sun, 5 Jun 2011 20:08:02 +1200
+Subject: [PATCH] Progress indicator images for the Missions
+
+The tick.png image I have used from Openclipart.org
+here: http://www.openclipart.org/detail/17056, which I
+modified to have brackets around.
+The light-tick.png image was created by lightening the tick
+in the brackets.
+
+See: http://openhatch.org/bugs/issue125
+---
+ mysite/static/images/light-tick.png |  Bin 0 -> 851 bytes
+ mysite/static/images/tick.png       |  Bin 0 -> 859 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 mysite/static/images/light-tick.png
+ create mode 100644 mysite/static/images/tick.png
+
+diff --git a/mysite/static/images/light-tick.png b/mysite/static/images/light-tick.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..c0c64a89044ee897b325f7b19f3c2c32e7fcff22
+GIT binary patch
+literal 851
+zcmV-Z1FZasP)<h;3K|Lk000e1NJLTq000^Q000mO1^@s62+?n-00001b5ch_0Itp)
+z=>Px#24YJ`L;(K){{a7>y{D4^000SaNLh0L02d(u02d(v5gNi_00007bV*G`2ipb(
+z2O|i%j;aU%00PrVL_t(I%bk@;XcJ)+$A2?PW|Ej_wG|Y#T8e_;rBxBpS_LgFsf|YP
+zpa|+g)RPOM2L(@x=c+{zq!&RD57pKU+Jhn%s$SgMx`INjNwZA0natwltHzjU>mTOy
+zy?MX)zPEhvOA@dH=mkcB0j95KKpYqZ_6eVVXc;g9yaJ8^P5%LE6o4V%1F*cDQ9BR=
+zPE?BIZ@N3wv-tkozFl3{FDk%MAPR&g&*dW9D!>9h1I~0H58w2y_0IR*#B!F^E?Qs#
+zUjP#bPTIIjYUBX+Q~~#%-<BnhyjrbNx-7$X+nUuGYT9lU1uB&TDFTw6D#)d}w#=wj
+zuQ(3=Y`n0?)TNj>N(*1!QqW9brGUKu7ohJ&kL*!BI|Fmn^Dehkn;grXvoy1RYjb$g
+z<h}5<4!8p(+&~vFA6Nri13m&gczMSssq!I5w{NtpX#YCt;nv_SNp{KMV72$6;*qP9
+zvHV~mV|Rv{!iAz(J^|gpL0}0m?go6~%l_5~vSX`3Z&<BS&p!Gxa5b06c3XM<mB;Tt
+z7OeK3RuwszPU_#Y<NArvx{hxpNlQQmFn}Zwa|8Q<*}w(hIM5G_qN5v{en4?4SLf7J
+z9m)BWZQ4X;I510HuXyA@E@PP4c%ci!c~a(f>wv>z_)h_8Srjb>JOu(kJwQvtRyHqf
+z8`j2C2er8NW`<9#n>%l2tLk<IOv55QVLUd{=H<|)uvG?B5BSC4rc38Y2V4U7Q)bS5
+zofu2)kAF`MTZV~gSft}dET1rrV>;g|^ow8k*2@j7BkuOMt<bir!)a}3AJn3`lc|aP
+zSUzhOa$4b%5w)JTZwgmxOu5MCA9Iux87(Xt-d~wz^qyqiw%v-{Y^2T3NF-7TA_0p5
+z50EOC(K`X#Ef!;A@!z2h5y#e@UL#dFW5%s$1;|FxP<ut)M=C|KPptU3Sozb{fOukh
+d#gp?>KLEY`7p}&s4bK1o002ovPDHLkV1mCCeD?qV
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/tick.png b/mysite/static/images/tick.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..55236dc526fb04275414de9428b64642680ab06f
+GIT binary patch
+literal 859
+zcmV-h1El<kP)<h;3K|Lk000e1NJLTq000^Q000mO1^@s62+?n-00001b5ch_0Itp)
+z=>Px#24YJ`L;(K){{a7>y{D4^000SaNLh0L02d(u02d(v5gNi_00007bV*G`2ipb(
+z2O>IXLdwYi00P@dL_t(I%bk@=NK|1I$A9y1UNycZou*9lfu$|NhLVi1O%WBjh=KwM
+zU6etaEOAkbBB*u+Ru%*yv?<ycJys@^RAMDomNPz5(rU)JI^)b-op+m0o2JpUKU}!*
+zoqK-g-1GS0w-mqu;0e$Vw6k=*115n^pho!oOT~a4=mqM5?f(JVBmi%LA)q9g(LO)|
+z8s>{+A+0`|npbeqa>P`r)c~ge7qEBsTp4GZ4n%+vAhs09`U{q=tM*$S5{wnA)S(D4
+z3WNdUtc^OMMlm3|SU~Qv45cPDW%Ej_sd;)lpbmbKo1AUYNL-+bWFU=z$cqK(vvoTQ
+zwwrIqLQ%s|m%G~gQz3~XpYWwi1f>F20U7)kz;ZlInPD~_Dy%SHHt1EkAKFJR&Di|U
+zJsoo~4hmn}fX9Ga4KxE5pd7dhd<7_K%+jmPsuN*n@czJ+iLp7#K@@turmDEYa@~}v
+zHGO>fqjPF#y2;rlhvH%x23mkRU@hQO1A6hu@r|I=g`-*Pa;q$r+2`}D(w&j6;g%VP
+zvo}3Ix4yJu^|`D}jj^wLe0;dg(cpaQb0j3K0Q^7@@BoqucmzBJih#r7eZo|#jf5kS
+z*Xb)V%gd~#htkZ;cFzPAyEbgesm{vK8ov*E!UL~eSEmO8_vG)P#4arYt^v=0lR&Fl
+z6iou&0DFK!px@r?0X(+w*-%}~A9_%>aZTwelQusv<;UalVSDB3n6P_qy1M+4BxNiF
+z3}SG7iE|VHRKW81FMOlk&poZ5YCGHdY_cTdb;;P@Nz%`5>2!1|;+Usj48nIHS$oIC
+zzx`t?d~5N=z}HDo*%*-ITRMZ%H1^qjLwX^<U!XCSaX$Y7c|=Azal`vNvtj3>9>+}7
+zkg2b9_j#KZfGB`GAO)C8W>6v);ai|qEXY4(v>KJE8#Vd`AUl9FVlmrAQzVU~My&Wr
+lvGSLyc5%f#5m(NfegW`x2~B-cZf*bo002ovPDHLkV1i7~gC76@
+
+literal 0
+HcmV?d00001
+
+-- 
+1.7.2.5
+

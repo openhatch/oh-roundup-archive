@@ -1,0 +1,35 @@
+From df7c263712e53c90d499b6871ef1073b0d5b5d4c Mon Sep 17 00:00:00 2001
+From: florapdx <floraworleypdx@gmail.com>
+Date: Tue, 19 Mar 2013 17:41:40 -0700
+Subject: [PATCH 07/10] oops! added updated links to link text for 'find
+ project' and 'add project's bugs'
+
+---
+ mysite/profile/templates/profile/main.html | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/profile/templates/profile/main.html b/mysite/profile/templates/profile/main.html
+index b49fc52..70aaa3f 100644
+--- a/mysite/profile/templates/profile/main.html
++++ b/mysite/profile/templates/profile/main.html
+@@ -93,7 +93,7 @@
+         {% if editable %}
+         <ul>
+             <li>
+-            <a href='{% url mysite.profile.views.portfolio_editor %}'>
++            <a href='{% url mysite.search.views.fetch_bugs %}'>
+                 Find a project &raquo;
+             </a>
+             </li>
+@@ -103,7 +103,7 @@
+             </a>
+             </li>
+             <li>
+-            <a href='{% url mysite.profile.views.portfolio_editor %}'>
++            <a href='{% url mysite.customs.views.list_trackers %}'>
+                 Add project's bugs &raquo;
+             </a>
+             </li>
+-- 
+1.8.1.3
+

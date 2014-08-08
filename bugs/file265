@@ -1,0 +1,79 @@
+From 036b40536d8c5a2ecc1b2f97232cff3a3ec365d5 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Mon, 2 May 2011 01:39:52 -0400
+Subject: [PATCH] Changes to Git mission, so that person's username shows up in the git log
+ See: http://openhatch.org/bugs/issue412
+
+---
+ mysite/missions/git/controllers.py   |    9 +++++----
+ mysite/missions/git/data/hello.patch |    9 ++++-----
+ mysite/missions/git/data/hello.py    |    1 -
+ 3 files changed, 9 insertions(+), 10 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index 917e2ba..d90b8fe 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -40,7 +40,7 @@ class GitRepository(object):
+         file_obj.close()
+ 
+         person = Person.objects.get(user__username=self.username)
+-        
++
+     def exists(self):
+         return os.path.isdir(self.repo_path)
+ 
+@@ -53,10 +53,11 @@ class GitDiffMission(object):
+         repo = GitRepository(username)
+         if success_count != -1:
+             subprocess.Popen(['git', 'apply', '../../../missions/git/data/hello.patch'], cwd=repo.repo_path)
+-            commit_msg = """Fixed a terrible mistake. Thanks for reporting this %s. 
+-                Come to my house for a dinner party.  
++            commit_msg = """Fixed a terrible mistake. Thanks for reporting this %s.
++                Come to my house for a dinner party.
+                 Knock 3 times and give the secret password: Pinky.""" % username
+-            subprocess.Popen(['git', 'commit', '-a', '-m', '"' + commit_msg + '"'], cwd=repo.repo_path)
++            subprocess.Popen(['git', 'commit', '-am', '"' + commit_msg + '"',
++            '--author="' + username + ' <' + username + '@openhatch.org>"'], cwd=repo.repo_path)
+             return True
+         else:
+             return False
+diff --git a/mysite/missions/git/data/hello.patch b/mysite/missions/git/data/hello.patch
+index 33a8628..0d062b3 100644
+--- a/mysite/missions/git/data/hello.patch
++++ b/mysite/missions/git/data/hello.patch
+@@ -1,7 +1,7 @@
+ From be60b4f864c862e353079eea2659f3989e32ddd9 Mon Sep 17 00:00:00 2001
+-From: The Brain <the.brain@pinkyandthebrain.com>
+-Date: Sun, 3 Apr 2011 17:22:00 -0500
+-Subject: [PATCH] Thanks.
++From: username <username@openhatch.org>
++Date: Sun, 2 Apr 2011 17:22:00 -0500
++Subject: [PATCH] Fixed Error in hello.py.
+ 
+ ---
+  hello.py |    2 +-
+@@ -11,10 +11,9 @@ diff --git a/hello.py b/hello.py
+ index 680b306..21dec4d 100644
+ --- a/hello.py
+ +++ b/hello.py
+-@@ -1,4 +1,4 @@
++@@ -1,3 +1,3 @@
+  #! /usr/bin/env python
+  
+- #Author: The Brain
+ -print "Goodbye world!"
+ +print "Hello world!"
+ -- 
+diff --git a/mysite/missions/git/data/hello.py b/mysite/missions/git/data/hello.py
+index 680b306..a14159b 100644
+--- a/mysite/missions/git/data/hello.py
++++ b/mysite/missions/git/data/hello.py
+@@ -1,4 +1,3 @@
+ #! /usr/bin/env python
+ 
+-#Author: The Brain
+ print "Goodbye world!"
+-- 
+1.7.2.5
+

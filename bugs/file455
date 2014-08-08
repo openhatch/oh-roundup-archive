@@ -1,0 +1,25 @@
+From 2b070f5b0cb3fefcf7895dbc2328c8422ebb3660 Mon Sep 17 00:00:00 2001
+From: robut <teh.robut@gmail.com>
+Date: Fri, 20 Jan 2012 13:52:03 -0500
+Subject: [PATCH] added jquery.cookie.js back into the base template
+
+fixed typo in my code (from when I re-added jquery.cookie.js)
+---
+ mysite/base/templates/base/base.html |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/base/templates/base/base.html b/mysite/base/templates/base/base.html
+index 2b4d807..07e23c9 100644
+--- a/mysite/base/templates/base/base.html
++++ b/mysite/base/templates/base/base.html
+@@ -244,6 +244,7 @@
+         <script type='text/javascript' src="{% version '/static/js/jquery.tipsy.js' %}"></script>
+         <script type='text/javascript' src="{% version '/static/js/tipsy-onload.js' %}"></script>
+         <script type='text/javascript' src="{% version '/static/js/jquery.tabs.js' %}"></script>
++        <script type='text/javascript' src="{% version '/static/js/jquery.cookie.js' %}"></script>
+ 
+         {% block js %}
+         {% endblock js %}
+-- 
+1.7.5.4
+

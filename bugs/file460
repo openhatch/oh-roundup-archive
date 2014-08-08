@@ -1,0 +1,20 @@
+<p>If you add the -z flag to the tar command, it calls gzip / gunzip as required.</p>
+<div class="gmail_quote">On 8/02/2012 10:48 AM, &quot;cmbryan&quot; &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:<br type="attribution"><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+<br>
+cmbryan &lt;<a href="mailto:chrismbryan@gmail.com">chrismbryan@gmail.com</a>&gt; added the comment:<br>
+<br>
+Hi again, found a solution by running &#39;gunzip&#39; on the archive, followed by the<br>
+usual tar. Surely this should be included in the hints?<br>
+<br>
+----------<br>
+status: reopened -&gt; need-review<br>
+<br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue632" target="_blank">https://openhatch.org/bugs/issue632</a>&gt;<br>
+__________________________________________<br>
+_______________________________________________<br>
+Devel mailing list<br>
+<a href="mailto:Devel@lists.openhatch.org">Devel@lists.openhatch.org</a><br>
+<a href="http://lists.openhatch.org/mailman/listinfo/devel" target="_blank">http://lists.openhatch.org/mailman/listinfo/devel</a><br>
+</blockquote></div>

@@ -1,0 +1,172 @@
+From 28b0276f657fa42b715f23052508b2354beb96df Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Mon, 30 May 2011 09:27:37 +1200
+Subject: [PATCH] Use checkboxes (tick marks) to show the Git missions progress
+ Solves: http://openhatch.org/bugs/issue125
+
+---
+ .../templates/missions/diffpatch/base.html         |   12 ++++++++----
+ mysite/missions/templates/missions/git/base.html   |    9 ++++++---
+ mysite/missions/templates/missions/svn/base.html   |   20 ++++++++++++--------
+ mysite/missions/templates/missions/tar/base.html   |    6 ++++--
+ mysite/static/images/cross.gif                     |  Bin 0 -> 109 bytes
+ mysite/static/images/tick.gif                      |  Bin 0 -> 139 bytes
+ 6 files changed, 30 insertions(+), 17 deletions(-)
+ create mode 100644 mysite/static/images/cross.gif
+ create mode 100644 mysite/static/images/tick.gif
+
+diff --git a/mysite/missions/templates/missions/diffpatch/base.html b/mysite/missions/templates/missions/diffpatch/base.html
+index 4cecc5d..5eaa0d5 100644
+--- a/mysite/missions/templates/missions/diffpatch/base.html
++++ b/mysite/missions/templates/missions/diffpatch/base.html
+@@ -25,22 +25,26 @@
+     About this mission
+   </a>
+ </li>
+-<li id='link-single_file_patch'>
++<h3>Step 1:</h3><br /> 
++<li id='link-single_file_patch' {% if patchsingle_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.diffpatch.views.single_file_patch %}'>
+     Patching individual files
+   </a>
+ </li>
+-<li id='link-single_file_diff'>
++<h3>Step 2:</h3><br />
++<li id='link-single_file_diff' {% if diffsingle_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.diffpatch.views.single_file_diff %}'>
+     Diffing individual files
+   </a>
+ </li>
+-<li id='link-recursive_diff'>
++<h3>Step 3:</h3><br />
++<li id='link-recursive_diff' {% if diffrecursive_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.diffpatch.views.recursive_diff %}'>
+     Diffing entire directories
+   </a>
+ </li>
+-<li id='link-recursive_patch'>
++<h3>Step 4:</h3><br />
++<li id='link-recursive_patch' {% if patchrecursive_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.diffpatch.views.recursive_patch %}'>
+     Patching entire directories
+   </a>
+diff --git a/mysite/missions/templates/missions/git/base.html b/mysite/missions/templates/missions/git/base.html
+index 5662b40..e1f650d 100644
+--- a/mysite/missions/templates/missions/git/base.html
++++ b/mysite/missions/templates/missions/git/base.html
+@@ -30,17 +30,20 @@
+     About Git
+   </a>
+ </li>
+-<li id='link-checkout'>
++<h3>Step 1:</h3><br />
++<li id='link-checkout' {% if git_checkout_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.git.views.checkout %}'>
+     Cloning a project
+   </a>
+ </li>
+-<li id='link-diff'>
++<h3>Step 2:</h3><br />
++<li id='link-diff' {% if git_diff_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.git.views.diff %}'>
+     Creating a patch
+   </a>
+ </li>
+-<li id='link-rebase'>
++<h3>Step 3:</h3><br />
++<li id='link-rebase' {% if git_rebase_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.git.views.rebase %}'>
+     Rebase and merge
+   </a>
+diff --git a/mysite/missions/templates/missions/svn/base.html b/mysite/missions/templates/missions/svn/base.html
+index 6211980..09404ac 100644
+--- a/mysite/missions/templates/missions/svn/base.html
++++ b/mysite/missions/templates/missions/svn/base.html
+@@ -20,27 +20,31 @@
+ 
+ 
+ {% block side_nav_links %}
+-<li id='link-main_page'>
+-  <a href='{% url mysite.missions.svn.views.main_page %}'>
+-    Mission start page
+-  </a>
+-</li>
+ <li id='link-long_description'>
+   <a href='{% url mysite.missions.svn.views.long_description %}'>
+     About Subversion
+   </a>
+ </li>
+-<li id='link-checkout'>
++<h3>Step 1:</h3><br />
++<li id='link-main_page' {% if repository_exists %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
++  <a href='{% url mysite.missions.svn.views.main_page %}'>
++    Mission start page
++  </a>
++</li>
++<h3>Step 2:</h3><br />
++<li id='link-checkout' {% if svn_checkout_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.svn.views.checkout %}'>
+     Checking out a working copy
+   </a>
+ </li>
+-<li id='link-diff'>
++<h3>Step 3:</h3><br />
++<li id='link-diff' {% if svn_diff_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.svn.views.diff %}'>
+     Diffing your changes
+   </a>
+ </li>
+-<li id='link-commit'>
++<h3>Step 4:</h3><br />
++<li id='link-commit' {% if svn_commit_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.svn.views.commit %}'>
+     Committing your changes
+   </a>
+diff --git a/mysite/missions/templates/missions/tar/base.html b/mysite/missions/templates/missions/tar/base.html
+index 27006f9..4b649fe 100644
+--- a/mysite/missions/templates/missions/tar/base.html
++++ b/mysite/missions/templates/missions/tar/base.html
+@@ -24,12 +24,14 @@
+     About this mission
+   </a>
+ </li>
+-<li id='link-unpacking'>
++<h3>Step 1:</h3><br /> 
++<li id='link-unpacking' {% if create_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %}style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.tar.views.unpacking %}'>
+     Unpacking tarballs
+   </a>
+ </li>
+-<li id='link-creating'>
++<h3>Step 2:</h3><br />
++<li id='link-creating' {% if unpack_done %}style='list-style-image: url("http://openhatch.org/static/images/tick.gif"); margin-left: 30px;'{% else %} style='list-style-image: url("http://openhatch.org/static/images/cross.gif"); margin-left: 30px;'{% endif %}>
+   <a href='{% url mysite.missions.tar.views.creating %}'>
+     Creating tarballs
+   </a>
+diff --git a/mysite/static/images/cross.gif b/mysite/static/images/cross.gif
+new file mode 100644
+index 0000000000000000000000000000000000000000..48628959fb9dd03b67bc15ba571083d90af1e5e1
+GIT binary patch
+literal 109
+zcmZ?wbhEHb6krfwIK;s4|Ns9p#>Nal#>|;OHXJDaWMSlDU}4Z<U|?e4XW(OCU^epD
+zb>|-+gW6(&$qlow$}xUxy(>0H+#~4F%XPgklP30*&9j~UZL7Xf6!)`-BAJFUt`iv;
+FtN{Y|E;RrE
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/tick.gif b/mysite/static/images/tick.gif
+new file mode 100644
+index 0000000000000000000000000000000000000000..2522cea38b461833bc3d753047d4f319573da5b4
+GIT binary patch
+literal 139
+zcmZ?wbhEHb6krfw*v!E2|Ns932M#d&XJ9yE%rFy(7#PwR@Bqc1EQ|~cj0`#;H6Sw>
+zSS$=qc&^_2gK2`M0qb?fRs)$uWi!&Ha)dVUt!2+Eww>4%@MJ|-kLzVle%HlMow@t?
+P&Ye50x;Bbgkii-Nzd$5$
+
+literal 0
+HcmV?d00001
+
+-- 
+1.7.2.5
+

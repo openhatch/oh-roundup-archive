@@ -1,0 +1,27 @@
+From 9db3c761d140dbf1fe8fbdad5c1de520215f92a4 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Sun, 3 Apr 2011 22:09:24 +1200
+Subject: [PATCH] Reduced the padding on .list td .content td to
+ make the search nicer on Roundup - see
+ https://openhatch.org/bugs/issue360
+
+---
+ mysite/static/css/roundup.css |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/static/css/roundup.css b/mysite/static/css/roundup.css
+index f8725b2..d7d5ebe 100644
+--- a/mysite/static/css/roundup.css
++++ b/mysite/static/css/roundup.css
+@@ -31,7 +31,7 @@ a:hover {
+ }
+ 
+ .list td, .content td {
+-	padding: 10px 5px;
++	padding: 0px 5px;
+ 	margin: 0;
+ }
+ 
+-- 
+1.7.2.5
+

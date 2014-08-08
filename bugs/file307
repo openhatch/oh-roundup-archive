@@ -1,0 +1,27 @@
+From c1b26b34b1a800e41ee38472bd27e447ee891e4f Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Wed, 1 Jun 2011 14:48:24 +1200
+Subject: [PATCH] Removed the background url from roundup.css that displayed the logo
+ so that we now use the img src and href link to http://openhatch.org
+ in html/page.html in the oh_roundup git repository.
+ See: http://openhatch.org/bugs/issue402
+
+---
+ mysite/static/css/roundup.css |    1 -
+ 1 files changed, 0 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/static/css/roundup.css b/mysite/static/css/roundup.css
+index 794b632..8afc29b 100644
+--- a/mysite/static/css/roundup.css
++++ b/mysite/static/css/roundup.css
+@@ -90,7 +90,6 @@ th.required {
+ .page-header-left {
+ 	width: 87px;
+ 	height: 60px;
+-	background: url('https://openhatch.org/static/images/the-logo-bluegreen-87px.png') no-repeat;
+ }
+ 
+ p.ok-message {
+-- 
+1.7.2.5
+

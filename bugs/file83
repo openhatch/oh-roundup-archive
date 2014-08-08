@@ -1,0 +1,123 @@
+From e22db4d13656721c662a1415412f9916018658af Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Tue, 12 Oct 2010 22:11:26 +1300
+Subject: [PATCH] Fixed tar missions upload bug
+
+---
+ mysite/base/templates/missions/tar_creating.html  |   31 +++++++++-----------
+ mysite/base/templates/missions/tar_unpacking.html |   25 ++++++-----------
+ 2 files changed, 23 insertions(+), 33 deletions(-)
+
+diff --git a/mysite/base/templates/missions/tar_creating.html b/mysite/base/templates/missions/tar_creating.html
+index 2855f3a..9bcb59c 100644
+--- a/mysite/base/templates/missions/tar_creating.html
++++ b/mysite/base/templates/missions/tar_creating.html
+@@ -25,41 +25,38 @@
+         <li>upload your tarball</li>
+       </ul>
+       <p></p>
+-
+-      <form method="post" enctype="multipart/form-data" action="{% url mysite.missions.views.tar_upload %}#create-form">
+-        <div class="form-row">
+-          <a name="create-form"></a>
+-          After you make the tarball, upload it here:
+-    {% if create_success %}
++	{% if create_success %}
+       <!-- create status: success -->
+-      <div class="successmsg">
+-        <p><strong>You have successfully completed this part of the mission.</strong></p>
+-        <p>The file you uploaded passed all of our checks.</p>
+-      </div>
+-    {% else %}
+-      <!-- create status: failure -->
+-    {% endif %}
++        {% else %}
++    <p>After you make the tarball, upload it here:</p>
++	<form method="post" enctype="multipart/form-data" action="{% url mysite.missions.views.tar_upload %}#create-form">
++        <div class="form-row">
++        <a name="create-form"></a>
++		  <!-- create status: failure -->
++        <input type="submit" value="Upload" style="clear: left;" />
+           {% if what_was_wrong_with_the_tarball %}
+           <ul class="errorlist"><li>{{ what_was_wrong_with_the_tarball }}</li></ul>
+           {% endif %}
+           {{ create_form.tarfile.errors }}
+           <br style="clear: left;" />
+           {{ create_form.tarfile }}
+-          <input type="submit" value="Upload" style="float: none;" />
+           {% if not create_success and create_done %}
+           <br style="clear: left;" />
+           <em>You have already completed this part of the mission.</em>
+           {% endif %}
+         </div>
+-      </form>
++        </form>
++    {% endif %}
+       {% if create_done and unpack_done %}
++       <div class="successmsg">
++        <p><strong>You have successfully completed this part of the mission.</strong></p>
++        <p>The file you uploaded passed all of our checks.</p>
++      </div>
+       <p class="next_mission_link">
+ 	Congratulations! You've totally completed the tar mission.
+ 	Want to go <a href="{% url mysite.missions.views.main_page %}">back to the list of missions</a>?</p>
+       {% endif %}
+-      
+ 
+   </div>
+ </div>
+ {% endblock mission_main %}
+-
+diff --git a/mysite/base/templates/missions/tar_unpacking.html b/mysite/base/templates/missions/tar_unpacking.html
+index fc3d2c9..6aa53e8 100644
+--- a/mysite/base/templates/missions/tar_unpacking.html
++++ b/mysite/base/templates/missions/tar_unpacking.html
+@@ -14,36 +14,29 @@
+             <li>find and upload the <code>{{ file_we_want }}</code> file</li>
+         </ul>
+         <p></p>
++     {% if not unpack_done %}
+       <form method="post" enctype="multipart/form-data" action="{% url mysite.missions.views.tar_extract_mission_upload %}#unpack-form">
++        <p>After you extract that file, upload it here:</p>
+         <div class="form-row">
+           <a name="unpack-form"></a>
+-          After you extract that file, upload it here:
+-    {% if unpack_success %}
+-      <!-- unpack status: success -->
+-    {% else %}
+-      <!-- unpack status: failure -->
+-    {% endif %}
++         {{ unpack_form.extracted_file }}
++          <input type="submit" value="Upload" style="float: none;" />
++      {% endif %}
+           {% if what_was_wrong_with_the_extracted_file %}
+           <ul class="errorlist"><li>{{ what_was_wrong_with_the_extracted_file }}</li></ul>
+           {% endif %}
+           {{ unpack_form.extracted_file.errors }}
+           <br style="clear: left;" />
+-          {{ unpack_form.extracted_file }}
+-          <input type="submit" value="Upload" style="float: none;" />
+         </div>
+       </form>
+-    {% if unpack_done %}
++    {% if unpack_done and unpack_success %}
+       <div class="successmsg">
+         <p><strong>You have successfully completed this part of the mission.</strong></p>
+-        {% if unpack_success %}
+         <p>The file you uploaded has the correct contents.</p>
+-        {% endif %}
+-      </div>
+-    {% endif %}
+-      {% if unpack_done %}
+-      <p class="next_mission_link">
++       <p class="next_mission_link">
+ 	<a href="{% url mysite.missions.views.tar_mission_creating %}">On to creating a tarball &raquo;</a></p>
+-      {% endif %}
++     {% endif %}
++      </div>
+   </div>
+ </div>
+ {% endblock mission_main %}
+-- 
+1.7.0.4
+

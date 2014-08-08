@@ -1,0 +1,26 @@
+From 5dfe4466ec28e11d6ae6fd2fa721ec2137d7bc58 Mon Sep 17 00:00:00 2001
+From: Joel Cain <teh.robut@gmail.com>
+Date: Fri, 13 Jan 2012 15:38:11 -0500
+Subject: [PATCH] Fixed 500 error when requesting http://openhatch.org/missions/svn/commit
+ on live site.
+
+Added template line to commit section
+---
+ mysite/missions/svn/views.py |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/missions/svn/views.py b/mysite/missions/svn/views.py
+index 4381a6c..90d5dad 100644
+--- a/mysite/missions/svn/views.py
++++ b/mysite/missions/svn/views.py
+@@ -142,6 +142,7 @@ class Commit(SvnBaseView):
+     login_required = True
+     this_mission_page_short_name = 'Committing your changes'
+     mission_step_prerequisite = 'svn_diff'
++    template_name = 'missions/svn/commit.html'
+ 
+ @login_required
+ def commit_poll(request):
+-- 
+1.7.3.4
+

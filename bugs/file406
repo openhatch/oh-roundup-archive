@@ -1,0 +1,43 @@
+From 25098a6617a608d66a3b6eea5baba89045875c07 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Sun, 18 Sep 2011 17:09:03 -0400
+Subject: [PATCH] On projects page, save vertical space
+
+This commit makes the navigation link "Projects" display inline, so that
+the project name and the navigation element can appear
+on the same line. This saves easily a full line of
+vertical space.
+---
+ mysite/project/templates/project/project.html |    2 +-
+ mysite/static/css/project/project.css         |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 0ad98b5..417e31f 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -53,7 +53,7 @@ about how you can help {{ project.display_name }}
+         </style>
+     </noscript>
+ 
+-    <h3 class='supertitle'><a href='{% url mysite.project.views.projects %}'>Projects</a></h3>
++    <h3 class='supertitle'><a href='{% url mysite.project.views.projects %}'>&laquo; Projects</a></h3>
+     <h1>{{ project.display_name }}</h1>
+ 
+     <div class='next_steps_for_helpers contains_just_the_head {% if user.get_profile.expand_next_steps %}expanded{% else %}collapsed{% endif %} module' style='background-image: url({% version '/static/images/bg-translucent-green.png' %}); {% if not user_wants_to_help %}display: none;{% endif %}'>
+diff --git a/mysite/static/css/project/project.css b/mysite/static/css/project/project.css
+index 66249f7..25f4a7c 100644
+--- a/mysite/static/css/project/project.css
++++ b/mysite/static/css/project/project.css
+@@ -6,7 +6,7 @@ body#project input[type='submit'] { padding: 2px 8px; display: block; }
+ 
+ 
+ body#project h1 { float: left; margin-top: 10px; }
+-body#project h3.supertitle { font-size: 10pt; margin-top: 20px; display: block; width: 100%;}
++body#project h3.supertitle { font-size: 10pt; margin-top: 20px; display: inline; margin-right: 10px;}
+ body#project .head { width: 100% ! important; }
+ body#project h3 a { color: #555; }
+ body#project #left { width: 60%; margin-right: 20px; }
+-- 
+1.7.5.4
+

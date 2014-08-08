@@ -1,0 +1,18 @@
+ok.. we past that error.. now I am getting error in migration and document says &quot;Sometimes the migrations don&#39;t work, and South will give you a MySQL script so you can fix things.&quot;.. where do i get that script...<div>
+<br></div><div>Thanks,</div><div><br></div><div>Vivek<br><br><div class="gmail_quote">On Wed, Mar 23, 2011 at 11:12 PM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;"><div class="im"><br>
+Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:<br>
+<br>
+</div>a) Honestly, do please switch to doing this as a user that is not root. It<br>
+just scares me when you do buildout as root.<br>
+<br>
+b) sudo apt-get install python-mechanize<br>
+<br>
+It looks like the problem has to do with how the downloader is getting the<br>
+&quot;mechanize&quot; package.<br>
+<div><div></div><div class="h5"><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue344" target="_blank">https://openhatch.org/bugs/issue344</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br></div>

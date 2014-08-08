@@ -1,0 +1,31 @@
+From 8c93b8de300936dd7fb50b412f506dfefe72e46a Mon Sep 17 00:00:00 2001
+From: Walker Hale IV <walker.hale.iv@gmail.com>
+Date: Tue, 13 Mar 2012 17:47:05 -0700
+Subject: [PATCH 4/4] Fix post_save hook for Users to suppress creating
+ Persons inside fixtures.
+
+---
+ mysite/profile/models.py |    7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/profile/models.py b/mysite/profile/models.py
+index 740528a..e9f6792 100644
+--- a/mysite/profile/models.py
++++ b/mysite/profile/models.py
+@@ -474,8 +474,11 @@ class Person(models.Model):
+ 
+     # }}}
+ 
+-def create_profile_when_user_created(instance, created, *args, **kwargs):
+-    if created:
++def create_profile_when_user_created(instance, created, raw, *args, **kwargs):
++    """Post-save hook for Users. raw is populated from kwargs.
++    See Django docs on Signals:
++    https://docs.djangoproject.com/en/dev/ref/signals/#post-save"""
++    if created and not raw:
+         person, p_created = Person.objects.get_or_create(user=instance)
+ 
+ models.signals.post_save.connect(create_profile_when_user_created, User)
+-- 
+1.7.9.2
+

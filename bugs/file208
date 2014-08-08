@@ -1,0 +1,25 @@
+From eb048409fa25b4be9263c7ff96c8c587c8e29cc7 Mon Sep 17 00:00:00 2001
+From: Viv <vivek@Server.localdomain>
+Date: Sun, 3 Apr 2011 07:57:05 -0700
+Subject: [PATCH 1/2] Fixed issue 344
+
+---
+ mysite/account/templates/account/set_location.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/account/templates/account/set_location.html b/mysite/account/templates/account/set_location.html
+index 98624fd..32b3f90 100644
+--- a/mysite/account/templates/account/set_location.html
++++ b/mysite/account/templates/account/set_location.html
+@@ -59,7 +59,7 @@ If you want us to forget your location, empty out the text field and hit save.</
+ {% endblock submodule_body %}
+ 
+ {% block js_in_head %}
+-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
++<script type="text/javascript" src="https://maps-api-ssl.google.com/maps/api/js?sensor=false"></script>
+ {% endblock js_in_head %}
+ 
+ {% block js %}
+-- 
+1.7.2.5
+

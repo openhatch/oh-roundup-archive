@@ -1,0 +1,318 @@
+From ef52bcae0f8a4b4132f5d3775c9ac7d22172c6b5 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Mon, 5 Dec 2011 17:38:36 -0500
+Subject: [PATCH 1/7] String fix: launches => Launchpad.net
+
+---
+ mysite/customs/models.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/models.py b/mysite/customs/models.py
+index 28691b7..ddd4421 100644
+--- a/mysite/customs/models.py
++++ b/mysite/customs/models.py
+@@ -353,7 +353,7 @@ class LaunchpadTrackerModel(TrackerModel):
+             help_text="This is the name that OpenHatch will use to identify the project.")
+     launchpad_name = models.CharField(max_length=200, unique=True,
+                                     blank=False, null=False,
+-            help_text="This is the name that launches uses to identify the project.")
++            help_text="This is the name that Launchpad.net uses to identify the project.")
+ 
+     all_trackers = models.Manager()
+ 
+-- 
+1.7.7.3
+
+
+From d56ef516c35c21e2a07458de6b0276707ed3e15e Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Mon, 5 Dec 2011 17:47:24 -0500
+Subject: [PATCH 2/7] Add Launchpad form and adjust views accordingly
+
+---
+ mysite/customs/bugimporters/__init__.py |    7 +++++++
+ mysite/customs/forms.py                 |    9 +++++++++
+ mysite/customs/views.py                 |    3 ++-
+ 3 files changed, 18 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/bugimporters/__init__.py b/mysite/customs/bugimporters/__init__.py
+index ad57802..fb953fe 100644
+--- a/mysite/customs/bugimporters/__init__.py
++++ b/mysite/customs/bugimporters/__init__.py
+@@ -45,4 +45,11 @@ all_trackers = {
+             'urlmodel': mysite.customs.models.TracQueryModel,
+             'urlform': mysite.customs.forms.TracQueryForm,
+             },
++        'launchpad': {
++        'namestr': 'Launchpad',
++        'model': mysite.customs.models.LaunchpadTrackerModel,
++        'form':  mysite.customs.forms.LaunchpadTrackerForm,
++        'urlmodel': None,
++        'urlform': None,
++        },
+         }
+diff --git a/mysite/customs/forms.py b/mysite/customs/forms.py
+index aaa8788..8b6117a 100644
+--- a/mysite/customs/forms.py
++++ b/mysite/customs/forms.py
+@@ -23,6 +23,7 @@ class TrackerTypesForm(django.forms.Form):
+     TRACKER_TYPES = (
+             ('bugzilla', 'Bugzilla'),
+             ('google', 'Google Code'),
++            ('launchpad', 'Launchpad'),
+             ('roundup', 'Roundup'),
+             ('trac', 'Trac'),
+             )
+@@ -69,3 +70,11 @@ class RoundupQueryForm(django.forms.ModelForm):
+     class Meta:
+         model = mysite.customs.models.RoundupQueryModel
+         exclude = ('tracker', 'last_polled',)
++
++class LaunchpadTrackerForm(TrackerFormThatHidesCreatedForProject):
++    max_connections = django.forms.IntegerField(
++        widget=django.forms.HiddenInput(), initial=8)
++    custom_parser = django.forms.CharField(
++        widget=django.forms.HiddenInput(), required=False)
++    class Meta:
++        model = mysite.customs.models.LaunchpadTrackerModel
+diff --git a/mysite/customs/views.py b/mysite/customs/views.py
+index 0a90515..b477cbd 100644
+--- a/mysite/customs/views.py
++++ b/mysite/customs/views.py
+@@ -118,7 +118,8 @@ def add_tracker_do(request, tracker_type):
+ @login_required
+ def add_tracker_url(request, tracker_type, tracker_name, url_form=None):
+     data = {}
+-    if tracker_type in all_trackers:
++    if tracker_type in all_trackers and (
++        url_form or all_trackers[tracker_type].get('urlform', None)):
+         if url_form is None:
+             try:
+                 tracker_obj = all_trackers[tracker_type]['model'].all_trackers.get(
+-- 
+1.7.7.3
+
+
+From 6c70dfdd4cef297c87a0037183279b003b040fdd Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Mon, 5 Dec 2011 17:52:14 -0500
+Subject: [PATCH 3/7] When editing a Launchpad tracker model, do not crash
+
+---
+ mysite/customs/templates/customs/edit_tracker.html |    2 ++
+ mysite/customs/views.py                            |    7 ++++++-
+ 2 files changed, 8 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/templates/customs/edit_tracker.html b/mysite/customs/templates/customs/edit_tracker.html
+index 66b41de..2e96fe3 100644
+--- a/mysite/customs/templates/customs/edit_tracker.html
++++ b/mysite/customs/templates/customs/edit_tracker.html
+@@ -43,6 +43,7 @@
+ {% endblock form_body %}
+ 
+ {% block content_below_form %}
++{% if tracker_urlmodel %}
+ <table>
+     <tr>
+         <th>Tracker URL</th>
+@@ -58,4 +59,5 @@
+     </tr>
+     {% endfor %}
+ </table>
++    {% endif %}
+ {% endblock content_below_form %}
+diff --git a/mysite/customs/views.py b/mysite/customs/views.py
+index b477cbd..957b114 100644
+--- a/mysite/customs/views.py
++++ b/mysite/customs/views.py
+@@ -182,8 +182,12 @@ def edit_tracker(request, tracker_type, tracker_name, tracker_form=None):
+             if tracker_form is None:
+                 tracker_form = all_trackers[tracker_type]['form'](
+                         instance=tracker_obj, prefix='edit_tracker')
+-            tracker_urls = all_trackers[tracker_type]['urlmodel'].objects.filter(
++            tracker_urlmodel = all_trackers[tracker_type]['urlmodel']
++            if tracker_urlmodel:
++                tracker_urls = tracker_urlmodel.objects.filter(
+                     tracker=tracker_obj)
++            else:
++                tracker_urls = []
+         except all_trackers[tracker_type]['model'].DoesNotExist:
+             return HttpResponseRedirect(reverse(list_trackers) +
+                                         '?notification_id=tracker-existence-fail')
+@@ -191,6 +195,7 @@ def edit_tracker(request, tracker_type, tracker_name, tracker_form=None):
+         data['tracker_type'] = tracker_type
+         data['tracker_form'] = tracker_form
+         data['tracker_urls'] = tracker_urls
++        data['tracker_urlmodel'] = tracker_urlmodel
+         return mysite.base.decorators.as_view(request, 'customs/edit_tracker.html', data, None)
+     else:
+         return HttpResponseRedirect(reverse(list_trackers))
+-- 
+1.7.7.3
+
+
+From 9db63e7ac001e7436fb0896a544ce49452eab130 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Mon, 5 Dec 2011 18:42:16 -0500
+Subject: [PATCH 4/7] Adjust sample data URL to indicate that New is a valid
+ status
+
+---
+ mysite/customs/bugimporters/launchpad.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/bugimporters/launchpad.py b/mysite/customs/bugimporters/launchpad.py
+index dd8a8bd..249745c 100644
+--- a/mysite/customs/bugimporters/launchpad.py
++++ b/mysite/customs/bugimporters/launchpad.py
+@@ -37,7 +37,7 @@ class LaunchpadImporter(BugImporter):
+         self.bug_urls = []
+ 
+     def process_queries(self, queries):
+-        '''https://api.launchpad.net/1.0/bzr?ws.op=searchTasks&status=Incomplete&status=Opinion&status=Confirmed&status=Triaged'''
++        '''https://api.launchpad.net/1.0/bzr?ws.op=searchTasks&status=Incomplete&status=Opinion&status=Confirmed&status=Triaged&status=New'''
+         for query in queries:
+             url = query.get_query_url()
+ 
+-- 
+1.7.7.3
+
+
+From 7f4490ade9a975be153502defe541fdeece97db0 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Mon, 5 Dec 2011 18:58:11 -0500
+Subject: [PATCH 5/7] Adding initial Launchpad test, and data snapshot
+
+---
+ mysite/customs/bugimporters/launchpad.py           |    6 +++-
+ mysite/customs/tests.py                            |   28 ++++++++++++++++++++
+ .../sample-data/launchpad-ffscreencast-bugs.json   |    1 +
+ 3 files changed, 34 insertions(+), 1 deletions(-)
+ create mode 100644 mysite/static/sample-data/launchpad-ffscreencast-bugs.json
+
+diff --git a/mysite/customs/bugimporters/launchpad.py b/mysite/customs/bugimporters/launchpad.py
+index 249745c..9932b7c 100644
+--- a/mysite/customs/bugimporters/launchpad.py
++++ b/mysite/customs/bugimporters/launchpad.py
+@@ -58,8 +58,12 @@ class LaunchpadImporter(BugImporter):
+                 url=url,
+                 callback=self.handle_bug_list)
+             self.push_urls_onto_reactor()
++
++        # The bug data that show up in bug_collection['entries']
++        # is equivalent to what we get back if we asked for the
++        # data on that bug explicitly.
+         for bug in bug_collection['entries']:
+-            self.bug_urls.append(bug['self_link'])
++            self.handle_task_data(bug, bug['self_link'])
+ 
+     def process_bugs(self, bug_list):
+         '''https://api.launchpad.net/1.0/bzr/+bug/77744'''
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 64826d3..73775c2 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -2140,3 +2140,31 @@ class BugzillaTrackerEditingViews(TwillTests):
+                          mysite.customs.models.BugzillaTrackerModel.objects.all().select_subclasses().count())
+         btm = mysite.customs.models.BugzillaTrackerModel.objects.all().select_subclasses().get()
+         self.assertTrue('bugzilla.KDEBugzilla', btm.custom_parser)
++
++class LaunchpadBugImport(django.test.TestCase):
++    def setUp(self):
++        self.tm = mysite.customs.models.LaunchpadTrackerModel.all_trackers.create(
++                tracker_name='ffscreencast',
++                launchpad_name='ffscreencast',
++                )
++        self.im = mysite.customs.bugimporters.launchpad.LaunchpadImporter(self.tm, None)
++
++    def test_get_url_does_not_crash(self):
++        self.assertTrue(self.tm.get_edit_url())
++
++    def test_bug_import(self):
++        # Check the number of Bugs present.
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(len(all_bugs), 0)
++
++        bug_data_string = open(os.path.join(
++                settings.MEDIA_ROOT, 'sample-data', 'launchpad-ffscreencast-bugs.json')).read()
++        print type(bug_data_string)
++        self.im.handle_bug_list(bug_data_string)
++
++        # FIXME: Exercise the importer more...
++
++        # FIXME: Add some more-meaningful tests right here about the quality
++        # of the data we get back.
++        all_bugs = Bug.all_bugs.all()
++        self.assertEqual(1, all_bugs.count())
+diff --git a/mysite/static/sample-data/launchpad-ffscreencast-bugs.json b/mysite/static/sample-data/launchpad-ffscreencast-bugs.json
+new file mode 100644
+index 0000000..7631e58
+--- /dev/null
++++ b/mysite/static/sample-data/launchpad-ffscreencast-bugs.json
+@@ -0,0 +1 @@
++{"total_size": 1, "start": 0, "entries": [{"date_closed": null, "date_assigned": null, "title": "Bug #899820 in ffscreencast: \"ffscreencast fails to record\"", "bug_link": "https://api.launchpad.net/1.0/bugs/899820", "bug_watch_link": null, "milestone_link": null, "http_etag": "\"0cab5fd6d44390728c435441858c8eb91842accf-60bc45ea947b29341c4a0814cb695ea15e18914a\"", "date_left_closed": null, "date_fix_committed": null, "date_fix_released": null, "date_in_progress": null, "resource_type_link": "https://api.launchpad.net/1.0/#bug_task", "status": "New", "bug_target_name": "ffscreencast", "importance": "Undecided", "assignee_link": null, "date_triaged": null, "self_link": "https://api.launchpad.net/1.0/ffscreencast/+bug/899820", "target_link": "https://api.launchpad.net/1.0/ffscreencast", "bug_target_display_name": "ffscreencast", "related_tasks_collection_link": "https://api.launchpad.net/1.0/ffscreencast/+bug/899820/related_tasks", "date_confirmed": null, "date_left_new": null, "web_link": "https://bugs.launchpad.net/ffscreencast/+bug/899820", "owner_link": "https://api.launchpad.net/1.0/~jpickett", "date_created": "2011-12-04T06:55:14.001740+00:00", "date_incomplete": null, "is_complete": false}]}
+\ No newline at end of file
+-- 
+1.7.7.3
+
+
+From aeee63879096cc8ccb46270c63a487dfdbd1408e Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Mon, 5 Dec 2011 18:58:34 -0500
+Subject: [PATCH 6/7] Create helper method that handles JSON data post-parsing
+
+---
+ mysite/customs/bugimporters/launchpad.py |    5 ++++-
+ 1 files changed, 4 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/bugimporters/launchpad.py b/mysite/customs/bugimporters/launchpad.py
+index 9932b7c..9495167 100644
+--- a/mysite/customs/bugimporters/launchpad.py
++++ b/mysite/customs/bugimporters/launchpad.py
+@@ -63,7 +63,7 @@ class LaunchpadImporter(BugImporter):
+         # is equivalent to what we get back if we asked for the
+         # data on that bug explicitly.
+         for bug in bug_collection['entries']:
+-            self.handle_task_data(bug, bug['self_link'])
++            self.handle_task_data_json(bug, bug['self_link'])
+ 
+     def process_bugs(self, bug_list):
+         '''https://api.launchpad.net/1.0/bzr/+bug/77744'''
+@@ -81,6 +81,9 @@ class LaunchpadImporter(BugImporter):
+     def handle_task_data(self, task_data, url):
+         logging.debug('handle_task_data')
+         data = json.loads(task_data)
++        return self.handle_task_data_json(data, url)
++
++    def handle_task_data_json(self, data, url):
+         if data['resource_type_link'] != 'https://api.launchpad.net/1.0/#bug_task':
+             return
+ 
+-- 
+1.7.7.3
+
+
+From 1c0f43437955f704303e257b2204165943784ac7 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Mon, 5 Dec 2011 19:01:07 -0500
+Subject: [PATCH 7/7] Remove unnecessary print
+
+---
+ mysite/customs/tests.py |    1 -
+ 1 files changed, 0 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 73775c2..45b1872 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -2159,7 +2159,6 @@ class LaunchpadBugImport(django.test.TestCase):
+ 
+         bug_data_string = open(os.path.join(
+                 settings.MEDIA_ROOT, 'sample-data', 'launchpad-ffscreencast-bugs.json')).read()
+-        print type(bug_data_string)
+         self.im.handle_bug_list(bug_data_string)
+ 
+         # FIXME: Exercise the importer more...
+-- 
+1.7.7.3
+

@@ -1,0 +1,42 @@
+From 32ddde5a2916bb416e148b827d9c3dc698ee65b6 Mon Sep 17 00:00:00 2001
+From: Karen Rustad <karen.rustad@gmail.com>
+Date: Wed, 15 Feb 2012 16:57:10 -0800
+Subject: [PATCH] fixed the footer not being full-width on the front page
+
+Made bottom menu fixed-positionand a little narrower, so people actually see it.
+---
+ mysite/base/templates/base/base.html |    1 +
+ mysite/static/css/base/base.css      |    4 ++--
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/base/templates/base/base.html b/mysite/base/templates/base/base.html
+index 1361694..164ce48 100644
+--- a/mysite/base/templates/base/base.html
++++ b/mysite/base/templates/base/base.html
+@@ -138,6 +138,7 @@
+                 </div><!-- /#content -->
+                 
+         </div><!-- /#container -->
++        </div>
+         
+         <div id='footer-wrapper'>
+             <div id='footer'>
+diff --git a/mysite/static/css/base/base.css b/mysite/static/css/base/base.css
+index b19dd58..e30fa46 100644
+--- a/mysite/static/css/base/base.css
++++ b/mysite/static/css/base/base.css
+@@ -102,9 +102,9 @@ ul#links { margin-left: 20px; }
+ 
+ #content { width: 960px; padding: 10px 20px; padding-bottom: 30px; clear: both; }
+ 
+-#footer-wrapper { width: 100%; clear: both; left: 0; padding-top: 20px;}
++#footer-wrapper { width: 100%; clear: both; padding-top: 40px;}
+ 
+-#footer { width: 100%; background: #333; box-shadow: 0 0 7px #333; padding: 15px 0px; margin: 0 auto; text-align: right; }
++#footer { width: 100%; position: fixed; bottom: 0; background: #333; box-shadow: 0 0 7px #333; padding: 10px 0px; margin: 0 auto; text-align: right; }
+ 
+ #footer ul { display: inline; list-style-type: none; max-width: 108em; padding: 0 20px; }
+ 
+-- 
+1.7.9
+

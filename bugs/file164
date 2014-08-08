@@ -1,0 +1,25 @@
+From c2df9b2f2be69cd6cee5b56943feddd48118cf00 Mon Sep 17 00:00:00 2001
+From: paulhomebus <paulhomebus@gmail.com>
+Date: Mon, 21 Mar 2011 08:25:36 +1300
+Subject: [PATCH] 335-Fixed-Broken-Landing-Page-Link
+
+---
+ mysite/base/templates/base/landing.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/base/templates/base/landing.html b/mysite/base/templates/base/landing.html
+index 08e157e..33b209d 100644
+--- a/mysite/base/templates/base/landing.html
++++ b/mysite/base/templates/base/landing.html
+@@ -108,7 +108,7 @@ document.documentElement.className = 'javascript_is_enabled';
+                     </div>
+                     
+                     <div class='screenshot'>
+-                        <a href='' class='screenshot_image_wrapper' style='background-image: url({% version '/static/images/screenshots/wanna-help.png' %})'> </a>
++                        <a href='https://openhatch.org/wiki/Contacting_new_contributors' class='screenshot_image_wrapper' style='background-image: url({% version '/static/images/screenshots/wanna-help.png' %})'> </a>
+                         <div class='caption'>
+                             Tell people who have clicked your project's 'I want to help' button <a href="https://openhatch.org/wiki/Contacting_new_contributors">how they can contribute</a>
+                         </div>
+-- 
+1.7.1
+

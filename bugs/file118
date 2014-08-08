@@ -1,0 +1,39 @@
+From 0256005da062cfbea34e18f6135c49058723d950 Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Fri, 28 Jan 2011 18:45:58 +0100
+Subject: [PATCH] Fixed bug in SVN mission which prevented any information, apart from default 'Eeek', being displayed to the user, regardless of mission step chosen. There was an error in template's control statement.
+
+Fixed bug which caused Django app to crash when user selected one of the mission steps that have prerequisities. Import statement was missing in base class for mission views.
+---
+ mysite/missions/base/views.py                      |    1 +
+ .../missions/templates/missions/mission_base.html  |    2 +-
+ 2 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/base/views.py b/mysite/missions/base/views.py
+index abd8bc8..d1e91ae 100644
+--- a/mysite/missions/base/views.py
++++ b/mysite/missions/base/views.py
+@@ -20,6 +20,7 @@
+ 
+ from mysite.base.decorators import view
+ from mysite.missions.models import Step, StepCompletion
++from mysite.missions.base import controllers
+ 
+ from django.http import HttpResponseRedirect, HttpResponse, Http404, HttpResponseNotAllowed
+ from django.core.urlresolvers import reverse
+diff --git a/mysite/missions/templates/missions/mission_base.html b/mysite/missions/templates/missions/mission_base.html
+index 8995cbb..c5e7ddc 100644
+--- a/mysite/missions/templates/missions/mission_base.html
++++ b/mysite/missions/templates/missions/mission_base.html
+@@ -34,7 +34,7 @@
+ 	    <h3>{{ this_mission_page_short_name}}</h3>
+ 	  </div>
+ 	  <div class="body">
+-	    {% if mission_step_prerequisites_passed %}
++	    {% if mission_step_prerequisites_passed == True %}
+ 	    {% block mission_main_body %}
+ 	    Eek, this mission has no body!
+ 	    {% endblock mission_main_body %}
+-- 
+1.7.3.5
+

@@ -1,0 +1,23 @@
+You&#39;re worried a bugfix will fail unit tests? Something in software development has gone horribly, horribly wrong.<br clear="all"><div><br></div>Cheers,<div><br></div><div>Andrew Pennebaker</div><div><a href="http://www.yellosoft.us" target="_blank">www.yellosoft.us</a></div>
+
+
+<br><div class="gmail_quote">On Thu, Sep 1, 2011 at 12:48 AM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">
+
+<div class="im"><br>
+Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:<br>
+<br>
+</div>The reason to wait to push a bug fix is just that I wanted to make sure I didn&#39;t<br>
+break the test suite any worse with this bug fix.<br>
+<br>
+That seems to be the case. This is deployed. Thanks for bringing it to our<br>
+attention!<br>
+<br>
+----------<br>
+assignedto: mcandre -&gt; paulproteus<br>
+status: chatting -&gt; resolved<br>
+<div><div></div><div class="h5"><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue477" target="_blank">https://openhatch.org/bugs/issue477</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br>

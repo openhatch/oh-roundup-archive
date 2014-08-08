@@ -1,0 +1,49 @@
+From ca6f6ed6c9f25cf560eec3bf36a89b46dfc6dd82 Mon Sep 17 00:00:00 2001
+From: Claudio Mezzasalma <cm0901@gmail.com>
+Date: Wed, 27 Apr 2011 18:56:31 +0200
+Subject: [PATCH] Added robots.txt management, created new restrictive robots.txt under mysite/base/templates
+
+---
+ mysite/base/templates/robots.txt |    2 ++
+ mysite/urls.py                   |    8 +++++++-
+ 2 files changed, 9 insertions(+), 1 deletions(-)
+ create mode 100644 mysite/base/templates/robots.txt
+
+diff --git a/mysite/base/templates/robots.txt b/mysite/base/templates/robots.txt
+new file mode 100644
+index 0000000..77470cb
+--- /dev/null
++++ b/mysite/base/templates/robots.txt
+@@ -0,0 +1,2 @@
++User-agent: *
++Disallow: /
+\ No newline at end of file
+diff --git a/mysite/urls.py b/mysite/urls.py
+index f624413..68be030 100644
+--- a/mysite/urls.py
++++ b/mysite/urls.py
+@@ -33,6 +33,9 @@ import mysite.account.forms
+ 
+ from django_authopenid import views as oid_views
+ 
++#used for the robots.txt redirection
++from django.views.generic.simple import direct_to_template
++
+ from voting.views import vote_on_object
+ 
+ import mysite.account.views
+@@ -361,7 +364,10 @@ urlpatterns = patterns('',
+         (r'^edit/name$', lambda x: redirect(to=mysite.account.views.edit_name, permanent=True)),
+ 
+         (r'^\+v/nextsteps4helpers/$', 'mysite.project.views.nextsteps4helpers'),
+-        
++
++        #regex for the robots.txt file, for search engine exclusion
++        (r'^robots\.txt$', direct_to_template, {'template': 'robots.txt', 'mimetype': 'text/plain'}),
++
+         # This dangerous regex is last
+         (r'^people/(?P<user_to_display__username>[^/]+)/$',
+                 'mysite.profile.views.display_person_web'),
+-- 
+1.7.1
+

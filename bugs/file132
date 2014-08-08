@@ -1,0 +1,152 @@
+From f89ef71e581a2194e4932e5314bc8511462d6a17 Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Mon, 31 Jan 2011 21:05:01 +0100
+Subject: [PATCH 5/6] Implemented logic behind mission state reset.
+
+Adjusted variable naming to match feature naming convention (mission step => mission part).
+
+Added tests for the reset functionality.
+---
+ mysite/missions/base/views.py |   17 ++++++++++-------
+ mysite/missions/tar/tests.py  |   26 ++++++++++++++++++++++++++
+ mysite/missions/tar/views.py  |   25 +++++++++++++++----------
+ 3 files changed, 51 insertions(+), 17 deletions(-)
+
+diff --git a/mysite/missions/base/views.py b/mysite/missions/base/views.py
+index a6d61d2..279105e 100644
+--- a/mysite/missions/base/views.py
++++ b/mysite/missions/base/views.py
+@@ -44,7 +44,7 @@ def make_download(content, filename, mimetype='application/octet-stream'):
+ class MissionPageState(object):
+     def __init__(self, request, passed_data, mission_name):
+         self.mission_name = mission_name
+-        self.mission_steps = None
++        self.mission_parts = None
+         self.this_mission_page_short_name = ''
+         self.request = request
+         self.passed_data = passed_data
+@@ -69,17 +69,20 @@ class MissionPageState(object):
+                 data['mission_step_prerequisites_passed'] = True
+         return (data, person)
+     
+-    def reset(self, mission_steps=None):
++    def reset(self, mission_parts=None):
+         ''' Resets whole mission or selected steps.
+         
+         Args:
+-            mission_steps: A list of names for mission steps to reset.
++            mission_parts: A list of names for mission steps to reset.
+         '''
+-        mission_steps = mission_steps and mission_steps or self.mission_steps
+-        profile = self.request.user.get_profile()        
++        mission_parts = mission_parts and mission_parts or self.mission_parts
+         
+-        for step_name in mission_steps:
+-            controllers.unset_mission_completed(profile, step_name)    
++        if mission_parts:
++            profile = self.request.user.get_profile()        
++            
++            for part_name in mission_parts:
++                if part_name in self.mission_parts:
++                    controllers.unset_mission_completed(profile, part_name)    
+ 
+ # This is the /missions/ page.
+ @view
+diff --git a/mysite/missions/tar/tests.py b/mysite/missions/tar/tests.py
+index 3374741..5a8746a 100644
+--- a/mysite/missions/tar/tests.py
++++ b/mysite/missions/tar/tests.py
+@@ -16,6 +16,7 @@
+ # You should have received a copy of the GNU Affero General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
++from mysite.base.tests import TwillTests
+ from mysite.missions.base.tests import *
+ from mysite.missions.tar import views, controllers
+ 
+@@ -139,3 +140,28 @@ class UntarViewTests(TwillTests):
+         paulproteus = Person.objects.get(user__username='paulproteus')
+         self.assertEqual(len(StepCompletion.objects.filter(step__name='tar_extract', person=paulproteus)), 0)
+ 
++class MissionPageStateTests(TwillTests):
++    fixtures = ['person-paulproteus', 'user-paulproteus',]
++    
++    def setUp(self):
++        TwillTests.setUp(self)
++        self.client = self.login_with_client()
++        
++    def test_mission_completion_full_reset(self):
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        StepCompletion(person=paulproteus, step=Step.objects.get(name='tar')).save()
++        
++        response = self.client.post(reverse(views.reset), {'mission_steps': 'tar' })
++        self.assert_('Operation successful' in response.content)
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar', person=paulproteus)), 0)        
++        
++        
++    def test_mission_completion_partial_reset(self):
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        StepCompletion(person=paulproteus, step=Step.objects.get(name='tar')).save()
++        StepCompletion(person=paulproteus, step=Step.objects.get(name='tar_extract')).save()
++        
++        response = self.client.post(reverse(views.reset), {'mission_steps': 'tar,tar_extract' })
++        self.assert_('Operation successful' in response.content)
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar', person=paulproteus)), 0)
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar_extract', person=paulproteus)), 0)                  
+diff --git a/mysite/missions/tar/views.py b/mysite/missions/tar/views.py
+index f52cddd..7e3ec75 100644
+--- a/mysite/missions/tar/views.py
++++ b/mysite/missions/tar/views.py
+@@ -17,7 +17,7 @@
+ # You should have received a copy of the GNU Affero General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-from django.shortcuts import redirect
++from django.http import HttpResponse
+ 
+ from mysite.missions.base.views import *
+ from mysite.missions.tar import forms, controllers
+@@ -27,6 +27,19 @@ from mysite.missions.tar import forms, controllers
+ ### Forms submit to this, and we use these to validate input and/or
+ ### modify the information stored about the user, such as recording
+ ### that a mission was successfully completed.
++def reset(request):
++    ''' Resets the state of the Tar mission '''
++    if request.method == 'POST' and request.POST['mission_parts']:
++        mission_parts = request.POST['mission_parts'].split(',')
++    
++        state = TarMissionPageState(request, None)
++        state.reset(mission_parts)
++        message = 'Operation successful'
++    else:
++        message = 'An error occured'
++    
++    return HttpResponse(message)
++
+ def upload(request):
+     # Initialize data array and some default values.
+     data = {}
+@@ -85,7 +98,7 @@ def extract_mission_upload(request):
+ class TarMissionPageState(MissionPageState):
+     def __init__(self, request, passed_data):
+         super(TarMissionPageState, self).__init__(request, passed_data, 'Tar')
+-        self.mission_names = ['tar', 'tar_extract',]
++        self.mission_parts = ['tar', 'tar_extract',]
+ 
+     def as_dict_for_template_context(self):
+         (data, person) = self.get_base_data_dict_and_person()
+@@ -133,11 +146,3 @@ def hints(request, passed_data={}):
+     state.this_mission_page_short_name = 'Hints'
+     return (request, 'missions/tar/hints.html',
+             state.as_dict_for_template_context())
+-
+-@login_required
+-def reset(request, passed_data={}):
+-    ''' Resets the state of the Tar mission '''
+-    state = TarMissionPageState(request, passed_data)
+-    state.reset()
+-    
+-    return redirect(about)
+-- 
+1.7.3.5
+

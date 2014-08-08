@@ -1,0 +1,57 @@
+From 4738066cf2e6f7d749bf5ce0b9a493724861af74 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Thu, 21 Apr 2011 17:15:37 +1200
+Subject: [PATCH] Updated the README.mkd to include Subversion as a dependency & added more info to the Testing section, and added .patch & .swp files to .gitignore
+
+---
+ .gitignore |    2 ++
+ README.mkd |    8 +++++++-
+ 2 files changed, 9 insertions(+), 1 deletions(-)
+
+diff --git a/.gitignore b/.gitignore
+index 1fed84c..660a1f7 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -4,6 +4,8 @@ mysite/static/images/icons/projects/*
+ mysite/static/images/icons/projects/**
+ *.pyc
+ *.pyo
++*.swp
++*.patch
+ .installed.cfg
+ bin
+ develop-eggs
+diff --git a/README.mkd b/README.mkd
+index 2396386..d0aae39 100644
+--- a/README.mkd
++++ b/README.mkd
+@@ -31,12 +31,14 @@ must install a few using your system package manager.
+ 
+ This is what we do on Debian testing/unstable:
+ 
+-    sudo apt-get install python2.6-dev python-libxml2 memcached python-mysqldb python-setuptools libxml2-dev libxslt-dev mysql-server mysql-client python-xapian python-setuptools python-imaging
++    sudo apt-get install python2.6-dev python-libxml2 memcached python-mysqldb python-setuptools libxml2-dev libxslt-dev mysql-server mysql-client python-xapian python-setuptools python-imaging subversion
+ 
+ Or the equivalent for your system. (It's important that you get Python 2.6 or greater -- some of the OpenHatch code depends on Python 2.6 or higher.)
+ 
+ On some Operating Systems you may not need (or be able) to install all of the above packages, depending on what comes prebuilt with Python as default. If you do find a package for any of the above for your system, you should install it.
+ 
++Subversion is a dependency ONLY if expect to run unit tests. - See the section ## Testing ##
++
+ The other dependencies (like Django) are handled by "buildout", so keep reading patiently and we'll get to that.
+ 
+ ### Caching ###
+@@ -163,6 +165,10 @@ To run the tests in the `customs` app:
+ 
+     bin/mysite test customs
+ 
++For more about tests visit: http://openhatch.org/wiki/Automated_testing
++Also, take a look at hudson (which runs our Automated Tests). It's especially helpful if you are trying to solve an issue 
++that is failing tests on the Openhatch server: http://linode2.openhatch.org:8080/  
++
+ ## To forcibly regenerate scripts in bin/* ##
+ 
+ *Why would we need to do this?*
+-- 
+1.7.1
+

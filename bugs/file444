@@ -1,0 +1,39 @@
+From df35b3dcf10050efe4588f7bcb50ca619f9e141f Mon Sep 17 00:00:00 2001
+From: Jacquie Flemming <jacquelinehfl@gmail.com>
+Date: Tue, 10 Jan 2012 19:59:53 -0500
+Subject: [PATCH] Fixed mis-wording at url missions/git/diff
+
+---
+ mysite/missions/git/views.py                     |    2 +-
+ mysite/missions/templates/missions/git/diff.html |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+index 096fc3e..f280585 100644
+--- a/mysite/missions/git/views.py
++++ b/mysite/missions/git/views.py
+@@ -161,7 +161,7 @@ def checkout(request, passed_data = None):
+ @view
+ def diff(request, passed_data = None):
+     state = GitMissionPageState(request, passed_data)
+-    state.this_mission_page_short_name = 'Diffing your changes'
++    state.this_mission_page_short_name = 'Creating a patch'
+     state.mission_step_prerequisite = 'git_checkout'
+     data = state.as_dict_for_template_context()
+     data['git_diff_form'] = forms.DiffForm()
+diff --git a/mysite/missions/templates/missions/git/diff.html b/mysite/missions/templates/missions/git/diff.html
+index e9662b2..9dd7719 100644
+--- a/mysite/missions/templates/missions/git/diff.html
++++ b/mysite/missions/templates/missions/git/diff.html
+@@ -54,7 +54,7 @@
+     {% endif %}
+     {{ git_diff_form.diff.errors }}
+     <br style="clear: left;" />
+-    <code>git diff</code> output: <br style="clear: left;" />
++    <code>git format-patch</code> output: <br style="clear: left;" />
+     {{ git_diff_form.diff }}
+     <br style="clear: left;" />
+     <input type="submit" value="Submit" style="float: none;" />
+-- 
+1.7.7
+

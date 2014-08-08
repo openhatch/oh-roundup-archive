@@ -1,0 +1,25 @@
+From e7601bed07f2da25e9324b46b2a697f156ffff78 Mon Sep 17 00:00:00 2001
+From: Karen <karen@openhatch.org>
+Date: Thu, 28 Oct 2010 10:53:04 -0700
+Subject: [PATCH 01/10] Fixed a typo in profile-base, doesn't look like it matters, though
+
+---
+ mysite/profile/templates/profile/base_profile.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/profile/templates/profile/base_profile.html b/mysite/profile/templates/profile/base_profile.html
+index 8bb1d4a..ff4efd4 100644
+--- a/mysite/profile/templates/profile/base_profile.html
++++ b/mysite/profile/templates/profile/base_profile.html
+@@ -182,7 +182,7 @@
+             <ul>
+                 <li> <a href="#">My website</a> </li>
+                 <li> <a href="#">My Facebook</a> </li>
+-                <li> <a href="#">indenti.ca</a> </li>
++                <li> <a href="#">identi.ca</a> </li>
+                 <li> <a href="#">openhatch</a> </li>
+             </ul>
+         </div>
+-- 
+1.7.0.4
+

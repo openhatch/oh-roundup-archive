@@ -1,0 +1,4 @@
+28c28
+<     <p>In order to review the changes, you'll need to apply the patch to the file using the patch program, and your mission is to do that.</p>
+---
+>     <p>In order to review the changes, you'll need to apply the patch to the file using the patch program, and your mission is to do that.(Try "patch -p0 < patch_file" from the appropriate directory, where patch_file is the patch file you downloaded)</p>

@@ -1,0 +1,28 @@
+From 507479d4b8a350fb2d17515d5347f90a740072d3 Mon Sep 17 00:00:00 2001
+From: Yogesh Chaudhari <mr.yogesh@gmail.com>
+Date: Mon, 29 Apr 2013 11:38:18 +0530
+Subject: [PATCH] Issue-#854: replace import unittest with from django.utils
+ import unittest
+
+Closes https://openhatch.org/bugs/issue854
+
+---
+ mysite/base/tests.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/base/tests.py b/mysite/base/tests.py
+index f184102..b5e8986 100644
+--- a/mysite/base/tests.py
++++ b/mysite/base/tests.py
+@@ -37,7 +37,7 @@ from django.conf import settings
+ import mock
+ import datetime
+ import logging
+-import unittest
++from django.utils import unittest
+ 
+ import mysite.base.view_helpers
+ import mysite.base.decorators
+-- 
+1.7.9.msysgit.0
+

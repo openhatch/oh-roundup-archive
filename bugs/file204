@@ -1,0 +1,44 @@
+From 9a9402320062048dcabc323c295b612bd449093e Mon Sep 17 00:00:00 2001
+From: palhmbs <palhmbs@589312.no-reply.drupal.org>
+Date: Mon, 11 Apr 2011 18:00:35 +1200
+Subject: [PATCH] Upgrade Django recipes to use Django 1.2.5
+ http://openhatch.org/bugs/issue359
+
+---
+ buildout.cfg |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/buildout.cfg b/buildout.cfg
+index bbee354..58166ea 100644
+--- a/buildout.cfg
++++ b/buildout.cfg
+@@ -66,7 +66,7 @@ initialization =
+ 
+ [production]
+ recipe = djangorecipe
+-version = 1.1.2
++version = 1.2.5
+ eggs = ${buildout:eggs}
+ projectegg = mysite
+ project = mysite
+@@ -77,7 +77,7 @@ wsgi = true
+ 
+ [mysite]
+ recipe = djangorecipe
+-version = 1.1.2
++version = 1.2.5
+ eggs = ${buildout:eggs}
+ projectegg = mysite
+ project = mysite
+@@ -87,7 +87,7 @@ testrunner = test_sans_customs
+ 
+ [sqlite_mysite]
+ recipe = djangorecipe
+-version = 1.1.2
++version = 1.2.5
+ eggs = ${buildout:eggs}
+ projectegg = mysite
+ project = mysite
+-- 
+1.7.1
+

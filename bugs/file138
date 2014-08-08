@@ -1,0 +1,161 @@
+From 81c8581555b0930939f036d9d99c2885f9b5aa85 Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Tue, 1 Feb 2011 10:28:36 +0100
+Subject: [PATCH 3/4] Updated templates to use mission reset functionality.
+
+Reset link is provided on all mission step pages. When whole mission is complete, reset link is provided on About page as well.
+
+Reset is implemented using jQuery.post() ajax request.
+---
+ mysite/missions/templates/missions/tar/about.html  |   17 +++++++-
+ .../missions/templates/missions/tar/creating.html  |   46 +++++++++++--------
+ .../missions/templates/missions/tar/unpacking.html |   14 ++++++-
+ mysite/static/css/missions/base.css                |    1 -
+ 4 files changed, 56 insertions(+), 22 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/tar/about.html b/mysite/missions/templates/missions/tar/about.html
+index 2c42a78..bc483a3 100644
+--- a/mysite/missions/templates/missions/tar/about.html
++++ b/mysite/missions/templates/missions/tar/about.html
+@@ -28,7 +28,22 @@
+       <p>When packaging a project's source code, it is customary to place the files within a directory named after the project with a version number.  This makes creating and unpacking such tarballs convenient, as you only have to name one directory to tar up when creating the tarball, and people who unpack your tarball end up with a self-contained directory that they can easily remove when they are finished using the set of files you gave them.</p>
+ 
+       <p>This mission consists of two parts: unpacking tarballs and creating tarballs.</p>
+-
++      {%if create_done and unpack_done %}
++      <div id="success-msg" class="successmsg">
++        <p><strong>You have successfully completed this mission.</strong></p>
++        <p>You can <a id="mission-reset-btn" href="#" title="Click to reset this part of the mission">reset its state</a> and try again.</p>
++        {% block js %}
++        {{ block.super }}        
++        <script type='text/javascript' src="/static/js/missions/base.js?x"></script>
++        <script type='text/javascript'>
++        if (typeof OH === 'undefined') OH = {};
++        if (typeof OH.Page === 'undefined') OH.Page = {};        
++        OH.Page['post_url'] = '{% url mysite.missions.tar.views.reset %}';
++        OH.Page['mission_parts'] = 'tar,tar_extract';
++        </script>
++        {% endblock %}
++      </div>
++      {% endif %}          
+       <p class="next_mission_link">
+ 	<a href="{% url mysite.missions.tar.views.unpacking %}">Get started with unpacking &raquo;</a></p>
+ 
+diff --git a/mysite/missions/templates/missions/tar/creating.html b/mysite/missions/templates/missions/tar/creating.html
+index 90ec6c5..0e2df3c 100644
+--- a/mysite/missions/templates/missions/tar/creating.html
++++ b/mysite/missions/templates/missions/tar/creating.html
+@@ -2,6 +2,7 @@
+ {% comment %}
+ # This file is part of OpenHatch.
+ # Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2011 Krzysztof Tarnowski (krzysztof.tarnowski@ymail.com)
+ #
+ # This program is free software: you can redistribute it and/or modify
+ # it under the terms of the GNU Affero General Public License as published by
+@@ -48,15 +49,6 @@
+         <div class="form-row file-upload-row">
+           <a name="create-form"></a>
+           After you make the tarball, upload it here:
+-    {% if create_success %}
+-      <!-- create status: success -->
+-      <div class="successmsg">
+-        <p><strong>You have successfully completed this part of the mission.</strong></p>
+-        <p>The file you uploaded passed all of our checks.</p>
+-      </div>
+-    {% else %}
+-      <!-- create status: failure -->
+-    {% endif %}
+           {% if what_was_wrong_with_the_tarball %}
+           <ul class="errorlist"><li>{{ what_was_wrong_with_the_tarball }}</li></ul>
+           {% endif %}
+@@ -64,20 +56,36 @@
+           <div class="file-upload">
+           {{ create_form.tarfile }}
+           <input type="submit" value="Upload" style="float: none;" />
+-          </div>
+-          {% if not create_success and create_done %}
+-          <br style="clear: left;" />
+-          <em>You have already completed this part of the mission.</em>
+-          {% endif %}
++          </div>     
+         </div>
+       </form>
++      {% if create_done %}
++      <!-- create status: success -->
++      <div id="success-msg" class="successmsg">
++        <p><strong>You have successfully completed this part of the mission.</strong></p>
++        {% if create_success %}
++        <p>The file you uploaded passed all of our checks.</p>
++        {% else %}
++        <p>You can <a id="mission-reset-btn" href="#" title="Click to reset this part of the mission">reset this part of the mission</a> and try again.</p>
++        {% block js %}
++        {{ block.super }}        
++        <script type='text/javascript' src="/static/js/missions/base.js?x"></script>
++        <script type='text/javascript'>
++        if (typeof OH === 'undefined') OH = {};
++        if (typeof OH.Page === 'undefined') OH.Page = {};        
++        OH.Page['post_url'] = '{% url mysite.missions.tar.views.reset %}';
++        OH.Page['mission_parts'] = 'tar';
++        </script>
++        {% endblock %}
++        {% endif %}
++      </div>
++      {% else %}
++      <!-- create status: failure -->
++      {% endif %}       
+       {% if create_done and unpack_done %}
+-      <p class="next_mission_link">
+-	Congratulations! You've totally completed the tar mission.
+-	Want to go <a href="{% url mysite.missions.base.views.main_page %}">back to the list of missions</a>?</p>
++      <p id="next-mission-link" class="next_mission_link">
++	Congratulations! You've totally completed the tar mission. Want to go <a href="{% url mysite.missions.base.views.main_page %}">back to the list of missions</a>?</p>
+       {% endif %}
+-      
+-
+   </div>
+ </div>
+ {% endblock mission_main %}
+diff --git a/mysite/missions/templates/missions/tar/unpacking.html b/mysite/missions/templates/missions/tar/unpacking.html
+index 950911e..d878970 100644
+--- a/mysite/missions/templates/missions/tar/unpacking.html
++++ b/mysite/missions/templates/missions/tar/unpacking.html
+@@ -52,10 +52,22 @@
+         </div>
+       </form>
+     {% if unpack_done %}
+-      <div class="successmsg">
++      <div id="success-msg" class="successmsg">
+         <p><strong>You have successfully completed this part of the mission.</strong></p>
+         {% if unpack_success %}
+         <p>The file you uploaded has the correct contents.</p>
++        {% else %}
++        <p>You can <a id="mission-reset-btn" href="#" title="Click to reset this part of the mission">reset this part of the mission</a> and try again.</p>
++        {% block js %}
++        {{ block.super }}        
++        <script type='text/javascript' src="/static/js/missions/base.js?x"></script>
++        <script type='text/javascript'>
++        if (typeof OH === 'undefined') OH = {};
++        if (typeof OH.Page === 'undefined') OH.Page = {};        
++        OH.Page['post_url'] = '{% url mysite.missions.tar.views.reset %}';
++        OH.Page['mission_parts'] = 'tar_extract';
++        </script>
++        {% endblock %}
+         {% endif %}
+       </div>
+     {% endif %}
+diff --git a/mysite/static/css/missions/base.css b/mysite/static/css/missions/base.css
+index 7955b8c..3d3b141 100644
+--- a/mysite/static/css/missions/base.css
++++ b/mysite/static/css/missions/base.css
+@@ -14,7 +14,6 @@ body.missions div.body > * {
+ 
+ body.missions p.next_mission_link {
+     width: 100%;
+-    text-align: right;
+ }
+ 
+ body.missions .file-upload-row {
+-- 
+1.7.3.5
+

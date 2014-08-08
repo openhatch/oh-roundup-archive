@@ -1,0 +1,1491 @@
+From 11e6529442002ad625eaa0a7f9fdf987c6c960f3 Mon Sep 17 00:00:00 2001
+From: Becca Liss <becca.liss@gmail.com>
+Date: Tue, 23 Oct 2012 16:22:50 -0400
+Subject: [PATCH 1/2] Changes weekly_emails to daily_emails all over
+ (hopefully)
+
+---
+ mysite/account/forms.py                            |    2 +-
+ mysite/account/tests.py                            |    4 +-
+ .../templates/daily_email__list_of_people.html     |   82 ++++++++
+ mysite/base/templates/daily_email_re_projects.html |  162 +++++++++++++++
+ mysite/base/templates/unsubscribe.html             |    4 +-
+ .../templates/weekly_email__list_of_people.html    |   82 --------
+ .../base/templates/weekly_email_re_projects.html   |  162 ---------------
+ mysite/base/tests.py                               |   12 +-
+ mysite/base/views.py                               |   10 +-
+ .../management/commands/profile_daily_tasks.py     |    8 +-
+ .../management/commands/send_daily_emails.py       |  213 ++++++++++++++++++++
+ .../management/commands/send_weekly_emails.py      |  213 --------------------
+ mysite/profile/models.py                           |    6 +-
+ mysite/profile/tests.py                            |  106 +++++-----
+ mysite/profile/views.py                            |    2 +-
+ mysite/urls.py                                     |    2 +-
+ 16 files changed, 536 insertions(+), 534 deletions(-)
+ create mode 100644 mysite/base/templates/daily_email__list_of_people.html
+ create mode 100644 mysite/base/templates/daily_email_re_projects.html
+ delete mode 100644 mysite/base/templates/weekly_email__list_of_people.html
+ delete mode 100644 mysite/base/templates/weekly_email_re_projects.html
+ create mode 100644 mysite/profile/management/commands/send_daily_emails.py
+ delete mode 100644 mysite/profile/management/commands/send_weekly_emails.py
+
+diff --git a/mysite/account/forms.py b/mysite/account/forms.py
+index bfc82b7..4328b28 100644
+--- a/mysite/account/forms.py
++++ b/mysite/account/forms.py
+@@ -183,4 +183,4 @@ class SignUpIfYouWantToHelpForm(django.forms.Form):
+ class EmailMeForm(django.forms.ModelForm):
+     class Meta:
+         model = Person
+-        fields = ('email_me_weekly_re_projects',)
++        fields = ('email_me_daily_re_projects',)
+diff --git a/mysite/account/tests.py b/mysite/account/tests.py
+index c09d669..6a740d6 100644
+--- a/mysite/account/tests.py
++++ b/mysite/account/tests.py
+@@ -153,10 +153,10 @@ class EditContactInfo(TwillTests):
+     #{{{
+     fixtures = ['user-paulproteus', 'person-paulproteus']
+     def test_edit_email_address(self):
+-        # Opt out of the weekly emails. This way, the only "checked"
++        # Opt out of the daily emails. This way, the only "checked"
+         # checkbox is the one for if the user's email address gets shown.
+         paulproteus = Person.objects.get()
+-        paulproteus.email_me_weekly_re_projects = False
++        paulproteus.email_me_daily_re_projects = False
+         paulproteus.save()
+ 
+         self.login_with_twill()
+diff --git a/mysite/base/templates/daily_email__list_of_people.html b/mysite/base/templates/daily_email__list_of_people.html
+new file mode 100644
+index 0000000..0c2d63b
+--- /dev/null
++++ b/mysite/base/templates/daily_email__list_of_people.html
+@@ -0,0 +1,82 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++{% load profile_extras %}
++
++                {% if not rich_text %}
++                <ul>
++                {% endif %}
++
++                {% spaceless %}
++                    {% for person in truncated_list_of_people %}
++
++                        {% if rich_text and not forloop.first %}
++                        <span> &middot; </span>
++                        {% endif %}
++
++                        {% ifequal person.user.username recipient.user.username %}
++
++                            {% if not rich_text %} <li> {% endif %}
++                            <span>You</span>
++                            {% if not rich_text %} </li> {% endif %}
++
++                        {% else %}
++
++                            {% if not rich_text %}
++                            <li>
++                            {% endif %}
++
++                            {% with person.user as user %}
++                            {% if rich_text %}
++                            <strong>
++                                <a href='http://openhatch.org{{ person.profile_url }}'>
++                                    {% endif %}
++                                        <span>{% include 'name.html' %}</span>
++                                    {% if rich_text %}
++                                </a>
++                            </strong>
++                            {% endif %}
++
++                            {% if not rich_text %}
++                            &lt;http://openhatch.org{{ person.profile_url }}&gt;
++                            {% endif %}
++
++                            {% endwith %}
++
++                            {% if not rich_text %}
++                            </li>
++                            {% endif %}
++
++                        {% endifequal %}
++                    {% endfor %}
++                {% endspaceless %}
++
++                {% if rich_text %}
++                &middot;
++                {# if you change this url, change the one below #}
++                <a href='http://openhatch.org/people/?q={{ people_search_prefix }}:"{{ project.name|urlencode }}"'>{{ people_count }}&nbsp;total</a>
++                {% else %}
++                <li>
++                {{ people_count }} total
++                &lt;http://openhatch.org/people/?q={{ people_search_prefix }}:{{ project.name|urlencode }}&gt;
++                </li>
++                {% endif %}
++
++                {% if not rich_text %}
++                </ul>
++                {% endif %}
++
+diff --git a/mysite/base/templates/daily_email_re_projects.html b/mysite/base/templates/daily_email_re_projects.html
+new file mode 100644
+index 0000000..cc1eca2
+--- /dev/null
++++ b/mysite/base/templates/daily_email_re_projects.html
+@@ -0,0 +1,162 @@
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch, Inc.
++# Copyright (C) 2011 Jessica McKellar
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++{% load humanize %}
++<html>
++    <head>
++        {% comment %}
++        <style type='text/css'>
++            a { text-decoration: none; }
++            body { font-family: Liberation Sans, Helvetica, Arial; }
++            .username_parenthesized { font-weight: normal; }
++            .parenthesis { font-weight: normal; text-decoration: none; }
++            .space_between_name_and_username { font-weight: normal; text-decoration: none; }
++            .people_type { margin-top: 1em; }
++            li { margin-left: .7em; }
++        </style>
++        {% endcomment %}
++    </head>
++    <body>
++        <p>Hello {% filter force_escape %}{% firstof recipient.user.first_name recipient.user.username %}{% endfilter %},</p>
++
++        <p>I'm a robot from OpenHatch, the open source involvement engine,
++        sending you an email about what's been going on lately in the projects on 
++        {% if rich_text %}
++        <a href='http://openhatch.org{{ recipient.profile_url }}'>
++            your profile</a>.
++        {% else %}
++        your profile &lt;http://openhatch.org{{ recipient.profile_url }}&gt;.
++        {% endif %}
++        Some of our users have asked for a periodic update email with updates on
++        their projects' presence on OpenHatch. I hope you find this useful, and I won't
++        send you more than one email per day. (To unsubscribe, see the
++        footer.) Let the humans know what you think &ndash; just hit reply. </p>
++
++        <p>
++        To add or remove projects, 
++        {% if rich_text %}
++        <a href='http://openhatch.org{% url mysite.profile.views.importer %}'>
++            edit your profile</a>.
++        {% else %}
++        edit your profile:
++        &lt;http://openhatch.org{% url mysite.profile.views.importer %}&gt;.
++        {% endif %}
++        </p>
++
++        <dl>
++            {% for project, ppl_data in project2people %}
++            <dt style='font-weight: bold; margin-top: 1em;'>
++
++            {% if rich_text %}
++            <a href='http://openhatch.org/+projects/{{ project.name|urlencode }}'>
++                {{ project.display_name }}</a>
++            {% else %}
++            ## {{ project.display_name }} ##<br>
++            &lt;http://openhatch.org/+projects/{{ project.name|urlencode }}&gt;
++            {% endif %}
++            </dt>
++
++            <ul>
++                {% with ppl_data.display_these_contributors as truncated_list_of_people %}
++                {% if truncated_list_of_people %}
++                <li style='margin-left: .3em;' class='people_type'>
++                Newly marked contributors:
++                <ul>
++
++                    {% if rich_text %}
++                    <li style='margin-left: .3em;'>
++                    {% endif %}
++
++                    {% with ppl_data.contributor_count as people_count %}
++                    {% with 'project' as people_search_prefix %}
++                    {% include 'daily_email__list_of_people.html' %}
++                    {% endwith %}
++                    {% endwith %}
++
++                    {% if rich_text %}
++                    </li>
++                    {% endif %}
++
++                </ul>
++                </li>
++                {% endif %}
++                {% endwith %}
++
++                {% with ppl_data.display_these_wannahelpers as truncated_list_of_people %}
++                {% if truncated_list_of_people %}
++                <li style='margin-left: .3em;' class='people_type'>
++                People who said they want to help this past week:
++                <ul>
++
++                    {% if rich_text %}
++                    <li style='margin-left: .3em;'>
++                    {% endif %}
++
++                    {% with ppl_data.wannahelper_count as people_count %}
++                    {% with 'icanhelp' as people_search_prefix %}
++                    {% include 'daily_email__list_of_people.html' %}
++                    {% endwith %}
++                    {% endwith %}
++
++                    {% if rich_text %}
++                    </li>
++                    {% endif %}
++
++                </ul>
++                </li>
++                {% endif %}
++                {% endwith %}
++            </ul>
++
++            {% if not rich_text %}
++            <br>
++            {% endif %}
++            {% endfor %}
++        <p>Wondering what to do with these people? We have put together a guide to help you
++        contact these new contributors! We hope you'll find it useful.</p>
++        <dt style='font-weight: bold; margin-top: 1em;'>
++
++        {% if rich_text %}
++        <a href='http://openhatch.org/wiki/Contacting_new_contributors'>
++        Contacting new Contributors</a>
++        {% else %}
++        <br>
++        &lt;http://openhatch.org/wiki/Contacting_new_contributors&gt;
++        {% endif %}
++        </dt>
++        </dl>
++        <br>
++        <p>Yours,</p>
++
++        <p>
++        Mail-Bot<br>
++        (crafted with love by the OpenHatch team)
++        </p>
++
++        <p>
++        ---<br>
++        To stop receiving email like this,
++        {% if rich_text %}
++        <a href='{{ unsubscribe_link }}'>click here</a>.
++        {% else %}
++        click here:
++        &lt;{{ unsubscribe_link }}&gt;.
++        {% endif %}
++        </p>
++    </body>
++</html>
+diff --git a/mysite/base/templates/unsubscribe.html b/mysite/base/templates/unsubscribe.html
+index e63f0e9..84d93dd 100644
+--- a/mysite/base/templates/unsubscribe.html
++++ b/mysite/base/templates/unsubscribe.html
+@@ -32,13 +32,13 @@
+         {% if unsubscribe_this_user %}
+ 
+         <p>
+-{% if unsubscribe_this_user.email_me_weekly_re_projects %}
++{% if unsubscribe_this_user.email_me_daily_re_projects %}
+ Hi
+ {% endif %}
+ {% firstof unsubscribe_this_user.user.first_name unsubscribe_this_user.user.username %},
+ </p>
+ 
+-{% if unsubscribe_this_user.email_me_weekly_re_projects %}
++{% if unsubscribe_this_user.email_me_daily_re_projects %}
+ <p> This page allows you to unsubscribe from periodic emails from OpenHatch about activity in your projects. </p>
+ 
+ <form method='POST' action='{% url mysite.profile.views.unsubscribe_do %}'>{% csrf_token %}
+diff --git a/mysite/base/templates/weekly_email__list_of_people.html b/mysite/base/templates/weekly_email__list_of_people.html
+deleted file mode 100644
+index 0c2d63b..0000000
+--- a/mysite/base/templates/weekly_email__list_of_people.html
++++ /dev/null
+@@ -1,82 +0,0 @@
+-{% comment %}
+-# This file is part of OpenHatch.
+-# Copyright (C) 2010 OpenHatch, Inc.
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-{% endcomment %}
+-{% load profile_extras %}
+-
+-                {% if not rich_text %}
+-                <ul>
+-                {% endif %}
+-
+-                {% spaceless %}
+-                    {% for person in truncated_list_of_people %}
+-
+-                        {% if rich_text and not forloop.first %}
+-                        <span> &middot; </span>
+-                        {% endif %}
+-
+-                        {% ifequal person.user.username recipient.user.username %}
+-
+-                            {% if not rich_text %} <li> {% endif %}
+-                            <span>You</span>
+-                            {% if not rich_text %} </li> {% endif %}
+-
+-                        {% else %}
+-
+-                            {% if not rich_text %}
+-                            <li>
+-                            {% endif %}
+-
+-                            {% with person.user as user %}
+-                            {% if rich_text %}
+-                            <strong>
+-                                <a href='http://openhatch.org{{ person.profile_url }}'>
+-                                    {% endif %}
+-                                        <span>{% include 'name.html' %}</span>
+-                                    {% if rich_text %}
+-                                </a>
+-                            </strong>
+-                            {% endif %}
+-
+-                            {% if not rich_text %}
+-                            &lt;http://openhatch.org{{ person.profile_url }}&gt;
+-                            {% endif %}
+-
+-                            {% endwith %}
+-
+-                            {% if not rich_text %}
+-                            </li>
+-                            {% endif %}
+-
+-                        {% endifequal %}
+-                    {% endfor %}
+-                {% endspaceless %}
+-
+-                {% if rich_text %}
+-                &middot;
+-                {# if you change this url, change the one below #}
+-                <a href='http://openhatch.org/people/?q={{ people_search_prefix }}:"{{ project.name|urlencode }}"'>{{ people_count }}&nbsp;total</a>
+-                {% else %}
+-                <li>
+-                {{ people_count }} total
+-                &lt;http://openhatch.org/people/?q={{ people_search_prefix }}:{{ project.name|urlencode }}&gt;
+-                </li>
+-                {% endif %}
+-
+-                {% if not rich_text %}
+-                </ul>
+-                {% endif %}
+-
+diff --git a/mysite/base/templates/weekly_email_re_projects.html b/mysite/base/templates/weekly_email_re_projects.html
+deleted file mode 100644
+index d828acb..0000000
+--- a/mysite/base/templates/weekly_email_re_projects.html
++++ /dev/null
+@@ -1,162 +0,0 @@
+-{% comment %}
+-# This file is part of OpenHatch.
+-# Copyright (C) 2010 OpenHatch, Inc.
+-# Copyright (C) 2011 Jessica McKellar
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-{% endcomment %}
+-{% load humanize %}
+-<html>
+-    <head>
+-        {% comment %}
+-        <style type='text/css'>
+-            a { text-decoration: none; }
+-            body { font-family: Liberation Sans, Helvetica, Arial; }
+-            .username_parenthesized { font-weight: normal; }
+-            .parenthesis { font-weight: normal; text-decoration: none; }
+-            .space_between_name_and_username { font-weight: normal; text-decoration: none; }
+-            .people_type { margin-top: 1em; }
+-            li { margin-left: .7em; }
+-        </style>
+-        {% endcomment %}
+-    </head>
+-    <body>
+-        <p>Hello {% filter force_escape %}{% firstof recipient.user.first_name recipient.user.username %}{% endfilter %},</p>
+-
+-        <p>I'm a robot from OpenHatch, the open source involvement engine,
+-        sending you an email about what's been going on lately in the projects on 
+-        {% if rich_text %}
+-        <a href='http://openhatch.org{{ recipient.profile_url }}'>
+-            your profile</a>.
+-        {% else %}
+-        your profile &lt;http://openhatch.org{{ recipient.profile_url }}&gt;.
+-        {% endif %}
+-        Some of our users have asked for a periodic update email with updates on
+-        their projects' presence on OpenHatch. I hope you find this useful, and I won't
+-        send you more than one email per week. (To unsubscribe, see the
+-        footer.) Let the humans know what you think &ndash; just hit reply. </p>
+-
+-        <p>
+-        To add or remove projects, 
+-        {% if rich_text %}
+-        <a href='http://openhatch.org{% url mysite.profile.views.importer %}'>
+-            edit your profile</a>.
+-        {% else %}
+-        edit your profile:
+-        &lt;http://openhatch.org{% url mysite.profile.views.importer %}&gt;.
+-        {% endif %}
+-        </p>
+-
+-        <dl>
+-            {% for project, ppl_data in project2people %}
+-            <dt style='font-weight: bold; margin-top: 1em;'>
+-
+-            {% if rich_text %}
+-            <a href='http://openhatch.org/+projects/{{ project.name|urlencode }}'>
+-                {{ project.display_name }}</a>
+-            {% else %}
+-            ## {{ project.display_name }} ##<br>
+-            &lt;http://openhatch.org/+projects/{{ project.name|urlencode }}&gt;
+-            {% endif %}
+-            </dt>
+-
+-            <ul>
+-                {% with ppl_data.display_these_contributors as truncated_list_of_people %}
+-                {% if truncated_list_of_people %}
+-                <li style='margin-left: .3em;' class='people_type'>
+-                Newly marked contributors:
+-                <ul>
+-
+-                    {% if rich_text %}
+-                    <li style='margin-left: .3em;'>
+-                    {% endif %}
+-
+-                    {% with ppl_data.contributor_count as people_count %}
+-                    {% with 'project' as people_search_prefix %}
+-                    {% include 'weekly_email__list_of_people.html' %}
+-                    {% endwith %}
+-                    {% endwith %}
+-
+-                    {% if rich_text %}
+-                    </li>
+-                    {% endif %}
+-
+-                </ul>
+-                </li>
+-                {% endif %}
+-                {% endwith %}
+-
+-                {% with ppl_data.display_these_wannahelpers as truncated_list_of_people %}
+-                {% if truncated_list_of_people %}
+-                <li style='margin-left: .3em;' class='people_type'>
+-                People who said they want to help this past week:
+-                <ul>
+-
+-                    {% if rich_text %}
+-                    <li style='margin-left: .3em;'>
+-                    {% endif %}
+-
+-                    {% with ppl_data.wannahelper_count as people_count %}
+-                    {% with 'icanhelp' as people_search_prefix %}
+-                    {% include 'weekly_email__list_of_people.html' %}
+-                    {% endwith %}
+-                    {% endwith %}
+-
+-                    {% if rich_text %}
+-                    </li>
+-                    {% endif %}
+-
+-                </ul>
+-                </li>
+-                {% endif %}
+-                {% endwith %}
+-            </ul>
+-
+-            {% if not rich_text %}
+-            <br>
+-            {% endif %}
+-            {% endfor %}
+-        <p>Wondering what to do with these people? We have put together a guide to help you
+-        contact these new contributors! We hope you'll find it useful.</p>
+-        <dt style='font-weight: bold; margin-top: 1em;'>
+-
+-        {% if rich_text %}
+-        <a href='http://openhatch.org/wiki/Contacting_new_contributors'>
+-        Contacting new Contributors</a>
+-        {% else %}
+-        <br>
+-        &lt;http://openhatch.org/wiki/Contacting_new_contributors&gt;
+-        {% endif %}
+-        </dt>
+-        </dl>
+-        <br>
+-        <p>Yours,</p>
+-
+-        <p>
+-        Mail-Bot<br>
+-        (crafted with love by the OpenHatch team)
+-        </p>
+-
+-        <p>
+-        ---<br>
+-        To stop receiving email like this,
+-        {% if rich_text %}
+-        <a href='{{ unsubscribe_link }}'>click here</a>.
+-        {% else %}
+-        click here:
+-        &lt;{{ unsubscribe_link }}&gt;.
+-        {% endif %}
+-        </p>
+-    </body>
+-</html>
+diff --git a/mysite/base/tests.py b/mysite/base/tests.py
+index be09df5..d615fd2 100644
+--- a/mysite/base/tests.py
++++ b/mysite/base/tests.py
+@@ -46,7 +46,7 @@ import mysite.profile.views
+ import mysite.base.views
+ 
+ import mysite.base.management.commands.nagios
+-import mysite.profile.management.commands.send_weekly_emails
++import mysite.profile.management.commands.profile_daily_tasks
+ 
+ def twill_setup():
+     app = AdminMediaHandler(WSGIHandler())
+@@ -358,26 +358,26 @@ class Unsubscribe(TwillTests):
+         def get_dude():
+             return mysite.profile.models.Person.objects.get(user__username='paulproteus')
+         dude = get_dude()
+-        self.assert_(get_dude().email_me_weekly_re_projects)
++        self.assert_(get_dude().email_me_daily_re_projects)
+ 
+         # Generate a valid token
+         valid_token_string = dude.generate_new_unsubscribe_token().string
+         self.client.post(reverse(mysite.profile.views.unsubscribe_do),
+                 {'token_string': valid_token_string})
+-        self.assertFalse(get_dude().email_me_weekly_re_projects)
++        self.assertFalse(get_dude().email_me_daily_re_projects)
+ 
+     def test_submit_form(self):
+         def get_dude():
+             return mysite.profile.models.Person.objects.get(user__username='paulproteus')
+         dude = get_dude()
+-        self.assert_(get_dude().email_me_weekly_re_projects)
++        self.assert_(get_dude().email_me_daily_re_projects)
+ 
+         # Generate a valid token
+         valid_token_string = dude.generate_new_unsubscribe_token().string
+         twill_goto_view(mysite.profile.views.unsubscribe,
+                 kwargs={'token_string': valid_token_string})
+         tc.submit()
+-        self.assertFalse(get_dude().email_me_weekly_re_projects)
++        self.assertFalse(get_dude().email_me_daily_re_projects)
+ 
+ class TimestampTests(django.test.TestCase):
+     def test_bugzilla_urls_get_and_update_timestamp_without_errors(self):
+@@ -482,7 +482,7 @@ class NagiosTests(django.test.TestCase):
+     # run as a management command
+     def test_nagios_weeklymail_return_ok_after_send(self):
+         # Run the send_weekly_mail
+-        command = mysite.profile.management.commands.send_weekly_emails.Command()
++        command = mysite.profile.management.commands.profile_daily_tasks.Command()
+         command.handle()
+ 
+         # Now run to see if the function sees things are ok in the
+diff --git a/mysite/base/views.py b/mysite/base/views.py
+index 37fde12..e67fd53 100644
+--- a/mysite/base/views.py
++++ b/mysite/base/views.py
+@@ -252,15 +252,15 @@ def landing_for_documenters(request):
+             front_page_data())
+ 
+ @login_required
+-def test_weekly_email_re_projects(request):
+-    from mysite.profile.management.commands import send_weekly_emails
++def test_daily_email_re_projects(request):
++    from mysite.profile.management.commands import send_daily_emails
+     from mysite.profile.models import Person
+-    command = send_weekly_emails.Command()
++    command = send_daily_emails.Command()
+     command.this_run_covers_things_since = datetime.datetime(2009, 5, 28)
+     command.this_run_covers_things_up_until = datetime.datetime.utcnow()
+-    context = command.get_context_for_weekly_email_to(request.user.get_profile()) or {}
++    context = command.get_context_for_daily_email_to(request.user.get_profile()) or {}
+     if context:
+-        return mysite.base.decorators.as_view(request, 'weekly_email_re_projects.html', context, "test_weekly_email_re_projects")
++        return mysite.base.decorators.as_view(request, 'daily_email_re_projects.html', context, "test_daily_email_re_projects")
+     else:
+         return HttpResponse("(We couldn't find any recent project activity for you, so you wouldn't get an email updating you about it.)")
+ 
+diff --git a/mysite/profile/management/commands/profile_daily_tasks.py b/mysite/profile/management/commands/profile_daily_tasks.py
+index f44384b..83ffbef 100644
+--- a/mysite/profile/management/commands/profile_daily_tasks.py
++++ b/mysite/profile/management/commands/profile_daily_tasks.py
+@@ -19,7 +19,7 @@ import django.db.models
+ 
+ import logging
+ import mysite.profile.tasks
+-import mysite.profile.management.commands.send_weekly_emails
++import mysite.profile.management.commands.send_daily_emails
+ 
+ class Command(BaseCommand):
+     help = "Run this once daily for the OpenHatch profile app."
+@@ -47,7 +47,7 @@ class Command(BaseCommand):
+         if made_any_changes:
+             mysite.profile.tasks.RegeneratePostfixAliasesForForwarder().run()
+ 
+-        # Try to send the emails. The command will only actually send emails at
+-        # most once per week.
+-        command = mysite.profile.management.commands.send_weekly_emails.Command()
++        # Try to send the emails. The command will only actually send emails
++        # every 24 hours.
++        command = mysite.profile.management.commands.send_daily_emails.Command()
+         command.handle()
+diff --git a/mysite/profile/management/commands/send_daily_emails.py b/mysite/profile/management/commands/send_daily_emails.py
+new file mode 100644
+index 0000000..dc2cc0d
+--- /dev/null
++++ b/mysite/profile/management/commands/send_daily_emails.py
+@@ -0,0 +1,213 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++from django.core.management.base import BaseCommand
++from mysite.base.models import Timestamp
++from django.core.mail import EmailMultiAlternatives
++from mysite.profile.models import Person
++from django.db.models import Q
++from mysite.profile.models import PortfolioEntry
++from django.template.loader import render_to_string
++from mysite.search.models import WannaHelperNote
++import datetime
++import logging
++import HTMLParser
++import html2text
++
++from django.core.urlresolvers import reverse
++import mysite.profile.views
++
++def push_to_end_of_list(an_object, a_list):
++    try:
++        a_list.remove(an_object)
++
++        # If we reach this line, then the object *was* in the list before.
++        a_list.append(an_object)
++    except ValueError:
++        # list.remove raises a ValueError if the object isn't in the list
++        # But if the object isn't a contributor, no matter
++        pass
++
++class Command(BaseCommand):
++    help = "Send out daily emails to users who've requested a running summary of OpenHatch activity in their projects."
++
++    TIMESTAMP_KEY = "What's the endpoint of the time range of the last email we sent out?"
++
++    @staticmethod
++    def get_time_range_endpoint_of_last_email():
++        return Timestamp.get_timestamp_for_string(Command.TIMESTAMP_KEY)
++
++    def __init__(self):
++        # At initialization time, we store the timestamp that this run is with regard to
++        self.this_run_covers_things_since = Command.get_time_range_endpoint_of_last_email()
++
++        self.this_run_covers_things_up_until = datetime.datetime.utcnow()
++
++        # Now all calls to filter() should include both of those dates: greater than ...since,
++        # and less than up_until.
++
++    def handle(self, *args, **options):
++
++        YESTERDAY = datetime.timedelta(hours=24)
++
++        # If it's been less than 24 hours since our last big email,
++        # stop here and don't send any emails.
++        if ((self.this_run_covers_things_up_until - self.this_run_covers_things_since) < 
++                YESTERDAY):
++            logging.warn("Not sending emails; emails were last sent within 24 hours ago.")
++            return
++
++        # If we made it this far in the function, it's been 24 hours or more
++        # since our last email. Let's make a note that the time range of this
++        # email extends until the timestamp stored in self.this_run_covers_things_up_until
++        Timestamp.update_timestamp_for_string(Command.TIMESTAMP_KEY,
++                override_time=self.this_run_covers_things_up_until)
++        # ^^ This entry in the database will be used for calculating the time
++        # range starting point of the next email
++
++        # Now let's send some emails! :-)
++        people_who_want_email = Person.objects.filter(email_me_daily_re_projects=True)
++
++        count = 0
++        for person in people_who_want_email:
++
++            if not person.user.email:
++                logging.warn("Uh, the person has no email address: %s" % person.user.username)
++                continue # if the user has no email address, we skip the user.
++
++            message_in_plain_text, message_in_html = self.get_daily_projects_email_for(person)
++            if message_in_html: 
++                count += 1
++                print "Emailing %s their daily project activity." % person.user.email
++                email = EmailMultiAlternatives(
++                        subject="News about your OpenHatch projects",
++                        body=message_in_plain_text,
++                        from_email="\"OpenHatch Mail-Bot\" <hello+mailbot@openhatch.org>",
++                        headers={
++                            'X-Notion': "I'm feeling a lot less evil now.",
++                            },
++                        to=[person.user.email])
++                email.attach_alternative(message_in_html, "text/html")
++                email.send()
++        print "Emailed", count 
++
++    def get_daily_projects_email_for(self, recipient):
++        context = self.get_context_for_daily_email_to(recipient)
++        if context is None:
++            return None, None
++
++        # Create two slightly different template contexts
++
++        plain_context = context.copy()
++        rich_context = context.copy()
++
++        plain_context['rich_text'] = False
++        rich_context['rich_text'] = True
++
++        message_in_simpler_html = render_to_string('daily_email_re_projects.html', plain_context)
++        message_in_html = render_to_string('daily_email_re_projects.html', rich_context)
++
++        # when it is converted into Markdown it looks good in an email
++        html2text.BODY_WIDTH = 0 # good for emails
++        to_markdown = html2text.html2text
++        try:
++            message_in_plain_text = to_markdown(message_in_simpler_html)
++        except HTMLParser.HTMLParseError:
++            # Oh, snap. There is something terribly wrong.
++            raise ValueError(("We failed to parse the HTML of the message, which means "
++                              "that we could not create a text version. You might want "
++                              "to look at the message:\n\n" +
++                              message_in_simpler_html))
++
++        return message_in_plain_text, message_in_html
++
++    @staticmethod
++    def get_maintainer_projects(person):
++        return [pfe.project for pfe in person.get_maintainer_portfolio_entries()]
++
++    def get_context_for_daily_email_to(self, recipient):
++        context = {}
++        project2people = []
++
++        within_range = Q(
++                date_created__gt=  self.this_run_covers_things_since,
++                date_created__lte=   self.this_run_covers_things_up_until)
++        within_range_for_wh = Q(
++                created_date__gt=  self.this_run_covers_things_since,
++                created_date__lte=   self.this_run_covers_things_up_until)
++
++        projects = Command.get_maintainer_projects(recipient)
++
++        # Add contributors and wannahelpers in recipient's projects
++        for project in projects:
++
++            # Let's build a dictionary
++            people_data = {}
++            
++            # Add contributors
++            # ---------------------
++            fellow_contributors_pfes = PortfolioEntry.published_ones.filter(
++                within_range, project=project)
++            display_these_contributors = [pfe.person for pfe in fellow_contributors_pfes]
++            people_data['contributor_count'] = len(display_these_contributors)
++
++
++            # Add wanna helpers
++            # ---------------------
++            notes = WannaHelperNote.objects.filter(within_range_for_wh, project=project)
++            display_these_wannahelpers = [note.person for note in notes]
++            people_data['wannahelper_count'] = len(display_these_wannahelpers)
++
++            everybody = set(display_these_contributors + display_these_wannahelpers)
++            if not everybody or everybody == set([recipient]):
++                continue # to the next PortfolioEntry
++
++            # Sort and slice lists of contributors and wannahelpers
++            # --------------------------------------------
++
++            # Sort
++            display_these_contributors.sort(key=lambda x: x.get_coolness_factor(
++                'contributors_for_%s_in_%s' % (recipient.user.username, project.name)))
++            display_these_wannahelpers.sort(key=lambda x: x.get_coolness_factor(
++                'wannahelpers_for_%s_in_%s' % (recipient.user.username, project.name)))
++            
++            # Put the recipient of the email at the end of any list he or she
++            # appears in
++            push_to_end_of_list(recipient, display_these_wannahelpers)
++            push_to_end_of_list(recipient, display_these_contributors)
++
++            # Slice
++            display_these_contributors = display_these_contributors[:3]
++            display_these_wannahelpers = display_these_wannahelpers[:3]
++
++            # Add to dictionary
++            people_data['display_these_contributors'] = display_these_contributors
++            people_data['display_these_wannahelpers'] = display_these_wannahelpers
++
++            # Store dictionary inside tuple
++            project2people.append((project, people_data))
++
++        if not project2people:
++            # If there's no news to report, signal this fact loudly to the caller
++            return None
++
++        context['recipient'] = recipient
++        context['project2people'] = project2people
++        token_string = recipient.generate_new_unsubscribe_token().string
++        context['unsubscribe_link'] = "http://openhatch.org" + reverse(
++                mysite.profile.views.unsubscribe, 
++                kwargs={'token_string': token_string})
++        return context 
+diff --git a/mysite/profile/management/commands/send_weekly_emails.py b/mysite/profile/management/commands/send_weekly_emails.py
+deleted file mode 100644
+index b0e9914..0000000
+--- a/mysite/profile/management/commands/send_weekly_emails.py
++++ /dev/null
+@@ -1,213 +0,0 @@
+-# This file is part of OpenHatch.
+-# Copyright (C) 2010 OpenHatch, Inc.
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-
+-from django.core.management.base import BaseCommand
+-from mysite.base.models import Timestamp
+-from django.core.mail import EmailMultiAlternatives
+-from mysite.profile.models import Person
+-from django.db.models import Q
+-from mysite.profile.models import PortfolioEntry
+-from django.template.loader import render_to_string
+-from mysite.search.models import WannaHelperNote
+-import datetime
+-import logging
+-import HTMLParser
+-import html2text
+-
+-from django.core.urlresolvers import reverse
+-import mysite.profile.views
+-
+-def push_to_end_of_list(an_object, a_list):
+-    try:
+-        a_list.remove(an_object)
+-
+-        # If we reach this line, then the object *was* in the list before.
+-        a_list.append(an_object)
+-    except ValueError:
+-        # list.remove raises a ValueError if the object isn't in the list
+-        # But if the object isn't a contributor, no matter
+-        pass
+-
+-class Command(BaseCommand):
+-    help = "Send out emails, at most once per week, to users who've requested a running summary of OpenHatch activity in their projects."
+-
+-    TIMESTAMP_KEY = "What's the endpoint of the time range of the last email we sent out?"
+-
+-    @staticmethod
+-    def get_time_range_endpoint_of_last_email():
+-        return Timestamp.get_timestamp_for_string(Command.TIMESTAMP_KEY)
+-
+-    def __init__(self):
+-        # At initialization time, we store the timestamp that this run is with regard to
+-        self.this_run_covers_things_since = Command.get_time_range_endpoint_of_last_email()
+-
+-        self.this_run_covers_things_up_until = datetime.datetime.utcnow()
+-
+-        # Now all calls to filter() should include both of those dates: greater than ...since,
+-        # and less than up_until.
+-
+-    def handle(self, *args, **options):
+-
+-        SEVEN_DAYS = datetime.timedelta(days=7)
+-
+-        # If it's been less than seven days since our last big email,
+-        # stop here and don't send any emails.
+-        if ((self.this_run_covers_things_up_until - self.this_run_covers_things_since) < 
+-                SEVEN_DAYS):
+-            logging.warn("Not sending emails; emails were last sent later than seven days ago.")
+-            return
+-
+-        # If we made it this far in the function, it's been seven days or more
+-        # since our last email. Let's make a note that the time range of this
+-        # email extends until the timestamp stored in self.this_run_covers_things_up_until
+-        Timestamp.update_timestamp_for_string(Command.TIMESTAMP_KEY,
+-                override_time=self.this_run_covers_things_up_until)
+-        # ^^ This entry in the database will be used for calculating the time
+-        # range starting point of the next email
+-
+-        # Now let's send some emails! :-)
+-        people_who_want_email = Person.objects.filter(email_me_weekly_re_projects=True)
+-
+-        count = 0
+-        for person in people_who_want_email:
+-
+-            if not person.user.email:
+-                logging.warn("Uh, the person has no email address: %s" % person.user.username)
+-                continue # if the user has no email address, we skip the user.
+-
+-            message_in_plain_text, message_in_html = self.get_weekly_projects_email_for(person)
+-            if message_in_html: 
+-                count += 1
+-                print "Emailing %s their weekly project activity." % person.user.email
+-                email = EmailMultiAlternatives(
+-                        subject="News about your OpenHatch projects",
+-                        body=message_in_plain_text,
+-                        from_email="\"OpenHatch Mail-Bot\" <hello+mailbot@openhatch.org>",
+-                        headers={
+-                            'X-Notion': "I'm feeling a lot less evil now.",
+-                            },
+-                        to=[person.user.email])
+-                email.attach_alternative(message_in_html, "text/html")
+-                email.send()
+-        print "Emailed", count 
+-
+-    def get_weekly_projects_email_for(self, recipient):
+-        context = self.get_context_for_weekly_email_to(recipient)
+-        if context is None:
+-            return None, None
+-
+-        # Create two slightly different template contexts
+-
+-        plain_context = context.copy()
+-        rich_context = context.copy()
+-
+-        plain_context['rich_text'] = False
+-        rich_context['rich_text'] = True
+-
+-        message_in_simpler_html = render_to_string('weekly_email_re_projects.html', plain_context)
+-        message_in_html = render_to_string('weekly_email_re_projects.html', rich_context)
+-
+-        # when it is converted into Markdown it looks good in an email
+-        html2text.BODY_WIDTH = 0 # good for emails
+-        to_markdown = html2text.html2text
+-        try:
+-            message_in_plain_text = to_markdown(message_in_simpler_html)
+-        except HTMLParser.HTMLParseError:
+-            # Oh, snap. There is something terribly wrong.
+-            raise ValueError(("We failed to parse the HTML of the message, which means "
+-                              "that we could not create a text version. You might want "
+-                              "to look at the message:\n\n" +
+-                              message_in_simpler_html))
+-
+-        return message_in_plain_text, message_in_html
+-
+-    @staticmethod
+-    def get_maintainer_projects(person):
+-        return [pfe.project for pfe in person.get_maintainer_portfolio_entries()]
+-
+-    def get_context_for_weekly_email_to(self, recipient):
+-        context = {}
+-        project2people = []
+-
+-        within_range = Q(
+-                date_created__gt=  self.this_run_covers_things_since,
+-                date_created__lte=   self.this_run_covers_things_up_until)
+-        within_range_for_wh = Q(
+-                created_date__gt=  self.this_run_covers_things_since,
+-                created_date__lte=   self.this_run_covers_things_up_until)
+-
+-        projects = Command.get_maintainer_projects(recipient)
+-
+-        # Add contributors and wannahelpers in recipient's projects
+-        for project in projects:
+-
+-            # Let's build a dictionary
+-            people_data = {}
+-            
+-            # Add contributors
+-            # ---------------------
+-            fellow_contributors_pfes = PortfolioEntry.published_ones.filter(
+-                within_range, project=project)
+-            display_these_contributors = [pfe.person for pfe in fellow_contributors_pfes]
+-            people_data['contributor_count'] = len(display_these_contributors)
+-
+-
+-            # Add wanna helpers
+-            # ---------------------
+-            notes = WannaHelperNote.objects.filter(within_range_for_wh, project=project)
+-            display_these_wannahelpers = [note.person for note in notes]
+-            people_data['wannahelper_count'] = len(display_these_wannahelpers)
+-
+-            everybody = set(display_these_contributors + display_these_wannahelpers)
+-            if not everybody or everybody == set([recipient]):
+-                continue # to the next PortfolioEntry
+-
+-            # Sort and slice lists of contributors and wannahelpers
+-            # --------------------------------------------
+-
+-            # Sort
+-            display_these_contributors.sort(key=lambda x: x.get_coolness_factor(
+-                'contributors_for_%s_in_%s' % (recipient.user.username, project.name)))
+-            display_these_wannahelpers.sort(key=lambda x: x.get_coolness_factor(
+-                'wannahelpers_for_%s_in_%s' % (recipient.user.username, project.name)))
+-            
+-            # Put the recipient of the email at the end of any list he or she
+-            # appears in
+-            push_to_end_of_list(recipient, display_these_wannahelpers)
+-            push_to_end_of_list(recipient, display_these_contributors)
+-
+-            # Slice
+-            display_these_contributors = display_these_contributors[:3]
+-            display_these_wannahelpers = display_these_wannahelpers[:3]
+-
+-            # Add to dictionary
+-            people_data['display_these_contributors'] = display_these_contributors
+-            people_data['display_these_wannahelpers'] = display_these_wannahelpers
+-
+-            # Store dictionary inside tuple
+-            project2people.append((project, people_data))
+-
+-        if not project2people:
+-            # If there's no news to report, signal this fact loudly to the caller
+-            return None
+-
+-        context['recipient'] = recipient
+-        context['project2people'] = project2people
+-        token_string = recipient.generate_new_unsubscribe_token().string
+-        context['unsubscribe_link'] = "http://openhatch.org" + reverse(
+-                mysite.profile.views.unsubscribe, 
+-                kwargs={'token_string': token_string})
+-        return context 
+diff --git a/mysite/profile/models.py b/mysite/profile/models.py
+index e9f6792..1440a64 100644
+--- a/mysite/profile/models.py
++++ b/mysite/profile/models.py
+@@ -129,8 +129,8 @@ class Person(models.Model):
+                                              verbose_name='Location')
+     latitude = models.FloatField(null=False, default=-37.3049962)
+     longitude = models.FloatField(null=False, default=-12.6790445)
+-    email_me_weekly_re_projects = models.BooleanField( default=True,
+-            verbose_name='Email me weekly about activity in my projects')
++    email_me_daily_re_projects = models.BooleanField( default=True,
++            verbose_name='Email me daily about activity in my projects')
+ 
+     irc_nick = models.CharField(max_length=30, blank=True, null=True)
+ 
+@@ -450,7 +450,7 @@ class Person(models.Model):
+         return not self.location_confirmed and not self.dont_guess_my_location
+ 
+     def get_coolness_factor(self, unhashed_tiebreaker):
+-        '''This function's output is used as the sort order in (at least) the weekly emails.
++        '''This function's output is used as the sort order in (at least) the daily emails.
+         You can be more cool if you:
+            * Have projects
+            * Have a picture
+diff --git a/mysite/profile/tests.py b/mysite/profile/tests.py
+index f339c3d..d599466 100644
+--- a/mysite/profile/tests.py
++++ b/mysite/profile/tests.py
+@@ -30,7 +30,7 @@ import mysite.project.views
+ import mysite.profile.views
+ import mysite.profile.models
+ import mysite.profile.controllers
+-from mysite.profile.management.commands import send_weekly_emails
++from mysite.profile.management.commands import send_daily_emails
+ from mysite.profile import views
+ from mysite.customs.models import WebResponse
+ from django.utils.unittest import skipIf
+@@ -2162,15 +2162,15 @@ class Notifications(TwillTests):
+ 
+         # First move the timestamp back
+         Timestamp.update_timestamp_for_string(
+-                send_weekly_emails.Command.TIMESTAMP_KEY,
++                send_daily_emails.Command.TIMESTAMP_KEY,
+                 override_time=Timestamp.ZERO_O_CLOCK)
+-        command = mysite.profile.management.commands.send_weekly_emails.Command()
+-        context = command.get_context_for_weekly_email_to(recipient)
++        command = mysite.profile.management.commands.send_daily_emails.Command()
++        context = command.get_context_for_daily_email_to(recipient)
+         return context
+ 
+     @staticmethod
+     def send_email_and_get_outbox():
+-        command = mysite.profile.management.commands.send_weekly_emails.Command()
++        command = mysite.profile.management.commands.send_daily_emails.Command()
+         command.handle()
+         return mail.outbox
+ 
+@@ -2191,9 +2191,9 @@ class Notifications(TwillTests):
+     def test_checkbox_manipulates_db(self):
+         self.login_with_twill()
+ 
+-        # By default, paulproteus has the column email_me_weekly_re_projects set to True
++        # By default, paulproteus has the column email_me_daily_re_projects set to True
+         paul = Person.get_by_username('paulproteus')
+-        self.assert_(paul.email_me_weekly_re_projects)
++        self.assert_(paul.email_me_daily_re_projects)
+ 
+         # Now let's set it to false
+ 
+@@ -2207,12 +2207,12 @@ class Notifications(TwillTests):
+         tc.follow('Email')
+ 
+         # Click it and you find a form for changing your notification settings
+-        # In the form, there's a checkbox labeled "Email me weekly about
++        # In the form, there's a checkbox labeled "Email me daily about
+         # activity on my projects" (or something like that)
+ 
+         # Uncheck the checkbox, and submit the form
+ 
+-        tc.fv(1, 'email_me_weekly_re_projects', '0')
++        tc.fv(1, 'email_me_daily_re_projects', '0')
+         tc.submit()
+ 
+         # Now you no longer receive emails. For the purposes of this test,
+@@ -2222,15 +2222,15 @@ class Notifications(TwillTests):
+ 
+         paul = Person.get_by_username('paulproteus')
+ 
+-        self.assertFalse(paul.email_me_weekly_re_projects)
++        self.assertFalse(paul.email_me_daily_re_projects)
+ 
+-    def add_two_people_to_a_project_and_send_weekly_emails(self,
++    def add_two_people_to_a_project_and_send_daily_emails(self,
+             people_want_emails=True, how_to_add_people=None, outbox_or_context=None,
+             emails_should_actually_be_sent=True):
+ 
+         self.assert_(outbox_or_context in ['outbox', 'context'])
+ 
+-        time_range_endpoint_at_func_top = send_weekly_emails.Command.get_time_range_endpoint_of_last_email()
++        time_range_endpoint_at_func_top = send_daily_emails.Command.get_time_range_endpoint_of_last_email()
+ 
+         project_with_two_participants = Project.create_dummy()
+ 
+@@ -2243,7 +2243,7 @@ class Notifications(TwillTests):
+         for index, add_person_function in enumerate(how_to_add_people):
+             participant = Person.create_dummy(
+                     first_name=str(index),
+-                    email_me_weekly_re_projects=people_want_emails)
++                    email_me_daily_re_projects=people_want_emails)
+             add_person_function(participant, project_with_two_participants)
+             participants_who_are_news_to_each_other.append(participant)
+ 
+@@ -2257,14 +2257,14 @@ class Notifications(TwillTests):
+             if emails_should_actually_be_sent:
+                 # The timestamp log should have been modified since the top of the function.
+                 self.assert_(
+-                        send_weekly_emails.Command.get_time_range_endpoint_of_last_email()
++                        send_daily_emails.Command.get_time_range_endpoint_of_last_email()
+                         > time_range_endpoint_at_func_top)
+ 
+         if outbox_or_context == 'context':
+-            command = mysite.profile.management.commands.send_weekly_emails.Command()
++            command = mysite.profile.management.commands.send_daily_emails.Command()
+             email_contexts = {} # initial value
+             for participant in participants_who_are_news_to_each_other:
+-                email_context = command.get_context_for_weekly_email_to(participant)
++                email_context = command.get_context_for_daily_email_to(participant)
+                 email_contexts[participant.pk] = email_context
+             output = email_contexts
+ 
+@@ -2290,7 +2290,7 @@ class Notifications(TwillTests):
+ 
+     def test_email_the_people_with_checkboxes_checked(self):
+         contributors, outbox = (
+-                self.add_two_people_to_a_project_and_send_weekly_emails(
++                self.add_two_people_to_a_project_and_send_daily_emails(
+                     people_want_emails=True, outbox_or_context='outbox') )
+ 
+         self.assertEqual(len(outbox), 2)
+@@ -2300,7 +2300,7 @@ class Notifications(TwillTests):
+     def test_dont_email_the_people_with_checkboxes_cleared(self):
+ 
+         contributors, outbox = (
+-                self.add_two_people_to_a_project_and_send_weekly_emails(
++                self.add_two_people_to_a_project_and_send_daily_emails(
+                     people_want_emails=False, outbox_or_context='outbox') )
+ 
+         self.assertEqual(len(outbox), 0)
+@@ -2316,7 +2316,7 @@ class Notifications(TwillTests):
+ 
+         # Paul will be the recipient of the email, and he's a contributor to
+         # the project created above, so he'll be getting information about that
+-        # project's recent activity in his weekly email
++        # project's recent activity in his daily email
+         PortfolioEntry.create_dummy(person=paul, project=project, is_published=True)
+ 
+         NUMBER_OF_NEW_CONTRIBUTORS_OTHER_THAN_PAUL = 5
+@@ -2326,6 +2326,8 @@ class Notifications(TwillTests):
+             p = Person.create_dummy()
+             PortfolioEntry.create_dummy(person=p, project=project, is_published=True)
+ 
++        ###TODO do we need to set seven_days_ago to yesterday since emails are now sent daily?
++
+         # 1 person joined this project two weeks ago (too long ago to mention
+         # in this email)
+         now = datetime.datetime.utcnow()
+@@ -2333,7 +2335,7 @@ class Notifications(TwillTests):
+         eight_days_ago = now - datetime.timedelta(days=8)
+ 
+         Timestamp.update_timestamp_for_string(
+-                send_weekly_emails.Command.TIMESTAMP_KEY,
++                send_daily_emails.Command.TIMESTAMP_KEY,
+                 override_time=seven_days_ago)
+ 
+         veteran = Person.create_dummy()
+@@ -2342,9 +2344,9 @@ class Notifications(TwillTests):
+         PortfolioEntry.create_dummy(person=veteran, project=project,
+                 is_published=True, date_created=eight_days_ago)
+ 
+-        # Psst, notice that we have sent out a round of weekly emails since the
++        # Psst, notice that we have sent out a round of daily emails since the
+         # veteran added the project to her profile. So the veteran should not
+-        # appear in the next round of weekly emails.
++        # appear in the next round of emails.
+ 
+         # Let's assert that the email context contains enough information to
+         # say that such and such a project received 6 contributors in the
+@@ -2354,8 +2356,8 @@ class Notifications(TwillTests):
+         new_contributors.remove(paul)
+         new_contributors.remove(veteran)
+ 
+-        command = mysite.profile.management.commands.send_weekly_emails.Command()
+-        context = command.get_context_for_weekly_email_to(paul)
++        command = mysite.profile.management.commands.send_daily_emails.Command()
++        context = command.get_context_for_daily_email_to(paul)
+ 
+         project, actual_people = context['project2people'][0]
+ 
+@@ -2412,7 +2414,7 @@ class Notifications(TwillTests):
+ 
+         # Paul will be the recipient of the email, and he's a contributor to
+         # the project created above, so he'll be getting information about that
+-        # project's recent activity in his weekly email
++        # project's recent activity in his daily email
+         PortfolioEntry.create_dummy(person=paul, project=project, is_published=True)
+ 
+         # Since paul is the only newly marked contributor to this project,
+@@ -2502,11 +2504,11 @@ class Notifications(TwillTests):
+     @staticmethod
+     def set_when_emails_were_last_sent(when):
+         Timestamp.update_timestamp_for_string(
+-                send_weekly_emails.Command.TIMESTAMP_KEY,
++                send_daily_emails.Command.TIMESTAMP_KEY,
+                 override_time=when)
+ 
+     def try_to_send_some_emails(self, expect_success):
+-        add_and_send = self.add_two_people_to_a_project_and_send_weekly_emails
++        add_and_send = self.add_two_people_to_a_project_and_send_daily_emails
+         people, outbox = add_and_send(
+                 how_to_add_people=[
+                     Notifications.add_contributor,
+@@ -2516,45 +2518,45 @@ class Notifications(TwillTests):
+         were_emails_sent = bool(outbox)
+         self.assertEqual(expect_success, were_emails_sent)
+ 
+-    def test_we_dont_send_emails_more_than_once_a_week(self):
++    def test_we_dont_send_emails_more_than_once_a_day(self):
+         # Test that, no matter what, we never send out emails more than once a
+-        # week.
++        # day.
+ 
+         # Here we test two scenarios.
+ 
+         # First, what if we (accidentally) run the
+-        # send_weekly_emails command today, when we sent the emails yesterday?
++        # send_daily_emails command today, when we sent the emails within 24 hours?
+         # We want to make sure that we can't accidentally send people two
+-        # emails in a single week...
++        # emails in a single day...
+ 
+         # Calculate some datetime objects we'll need during this test
+         now = datetime.datetime.utcnow()
+ 
+-        just_under_seven_days = datetime.timedelta(days=6, hours=23)
+-        just_under_seven_days_ago = now - just_under_seven_days
++        just_under_24_hours = datetime.timedelta(hours=23, minutes=59)
++        just_under_24_hours_ago = now - just_under_24_hours
+ 
+-        # Let's record that emails were sent under 7 days ago
+-        Notifications.set_when_emails_were_last_sent(just_under_seven_days_ago)
++        # Let's record that emails were sent under 24 hours ago
++        Notifications.set_when_emails_were_last_sent(just_under_24_hours_ago)
+ 
+         # Try to send emails, but expect no emails to be sent, because we've
+-        # recorded that we sent emails within the last 7 days.
++        # recorded that we sent emails within the last 24 hours.
+         self.try_to_send_some_emails(expect_success=False)
+ 
+     def test_that_we_do_email_you_if_the_last_email_was_sent_long_enough_ago(self):
+ 
+         # Now let's make sure that the converse scenario works as expected. We
+-        # sent the emails over seven days ago, and somebody runs the
+-        # send_weekly_emails command. In this scenario, emails SHOULD be sent.
++        # sent the emails over 24 hours ago, and somebody runs the
++        # send_daily_emails command. In this scenario, emails SHOULD be sent.
+ 
+         now = datetime.datetime.utcnow()
+-        just_over_seven_days = datetime.timedelta(days=7, hours=1)
+-        just_over_seven_days_ago = now - just_over_seven_days
++        just_over_24_hours = datetime.timedelta(hours=24, minutes=1)
++        just_over_24_hours_ago = now - just_over_24_hours
+ 
+-        # Let's record that emails were sent just OVER 7 days ago
+-        Notifications.set_when_emails_were_last_sent(just_over_seven_days_ago)
++        # Let's record that emails were sent just OVER 24 hours ago
++        Notifications.set_when_emails_were_last_sent(just_over_24_hours_ago)
+ 
+         # Try to send emails, but expect some emails to YES be sent, because we've
+-        # recorded that we sent emails over 7 days ago.
++        # recorded that we sent emails over 24 hours ago.
+         self.try_to_send_some_emails(expect_success=True)
+ 
+     def test_get_maintainer_projects(self):
+@@ -2580,7 +2582,7 @@ class Notifications(TwillTests):
+         Notifications.add_contributor_with_maintainer_status(
+             person, project_i_maintain, True)
+ 
+-        maintainer_projects = mysite.profile.management.commands.send_weekly_emails.Command.get_maintainer_projects(person)
++        maintainer_projects = mysite.profile.management.commands.send_daily_emails.Command.get_maintainer_projects(person)
+         self.assertEqual(maintainer_projects, [project_i_maintain])
+ 
+     def test_dont_tell_me_about_projects_where_i_am_the_only_participant(self):
+@@ -2590,8 +2592,8 @@ class Notifications(TwillTests):
+         project_i_wanna_help_and_contributed_to = Project.create_dummy()
+         Notifications.add_contributor(person, project_i_wanna_help_and_contributed_to)
+         Notifications.add_wannahelper(person, project_i_wanna_help_and_contributed_to)
+-        command = mysite.profile.management.commands.send_weekly_emails.Command()
+-        email_context = command.get_context_for_weekly_email_to(person)
++        command = mysite.profile.management.commands.send_daily_emails.Command()
++        email_context = command.get_context_for_daily_email_to(person)
+         self.assertEqual(None, email_context)
+ 
+     def test_dont_show_previously_mentioned_wannahelpers(self):
+@@ -2610,13 +2612,13 @@ class Notifications(TwillTests):
+         old_wh = Person.create_dummy('old_wh@example.com')
+ 
+         now = datetime.datetime.utcnow()
+-        seven_days_ago = now - datetime.timedelta(days=7)
++        twenty_four_hours_ago = now - datetime.timedelta(hours=24)
+         nine_days_ago = now - datetime.timedelta(days=9)
+ 
+-        # The timespan for this email is The Last Seven Days
++        # The timespan for this email is The Last 24 Hours
+         Timestamp.update_timestamp_for_string(
+-                send_weekly_emails.Command.TIMESTAMP_KEY,
+-                override_time=seven_days_ago)
++                send_daily_emails.Command.TIMESTAMP_KEY,
++                override_time=twenty_four_hours_ago)
+ 
+         # This dude signs up to be a helper
+         Notifications.add_wannahelper(new_wh, a_project)
+@@ -2625,8 +2627,8 @@ class Notifications(TwillTests):
+         Notifications.add_wannahelper(old_wh, a_project, nine_days_ago)
+ 
+         # Assert that the new w.h. was included in the email and the old was not.
+-        command = mysite.profile.management.commands.send_weekly_emails.Command()
+-        email_context = command.get_context_for_weekly_email_to(email_recipient)
++        command = mysite.profile.management.commands.send_daily_emails.Command()
++        email_context = command.get_context_for_daily_email_to(email_recipient)
+         self.assert_(email_context)
+         project2people = email_context['project2people']
+         self.assertEqual(len(project2people), 1)
+diff --git a/mysite/profile/views.py b/mysite/profile/views.py
+index 513122f..7cfd9f4 100644
+--- a/mysite/profile/views.py
++++ b/mysite/profile/views.py
+@@ -823,7 +823,7 @@ def unsubscribe(request, token_string):
+ def unsubscribe_do(request):
+     token_string = request.POST.get('token_string', None)
+     person = mysite.profile.models.UnsubscribeToken.whose_token_string_is_this(token_string)
+-    person.email_me_weekly_re_projects = False
++    person.email_me_daily_re_projects = False
+     person.save()
+     return HttpResponseRedirect(reverse(unsubscribe, kwargs={'token_string': token_string}))
+ 
+diff --git a/mysite/urls.py b/mysite/urls.py
+index 38f3c4b..6970e2f 100644
+--- a/mysite/urls.py
++++ b/mysite/urls.py
+@@ -65,7 +65,7 @@ urlpatterns = patterns('',
+         (r'^\+api/v1/customs/',
+          include(mysite.customs.api.TrackerModelResource().urls)),
+ 
+-        (r'^\+test_weekly_email_re_projects/', 'mysite.base.views.test_weekly_email_re_projects'),
++        (r'^\+test_daily_email_re_projects/', 'mysite.base.views.test_daily_email_re_projects'),
+ 
+         (r'^\+project_icon_poll/(?P<project_name>.+)', 'mysite.search.views.project_has_icon'),
+ 
+-- 
+1.7.9.4
+

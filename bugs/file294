@@ -1,0 +1,30 @@
+From c2fc62f2ca01e69e8d7087c704294aabe6d7be8f Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Sun, 29 May 2011 22:22:33 +1200
+Subject: [PATCH] Small fix to Git mission link on logged in landing page
+ See: http://openhatch.org/bugs/msg1947
+ & http://openhatch.org/bugs/issue420
+
+---
+ .../base/landing_page_for_logged_in_users.html     |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/base/templates/base/landing_page_for_logged_in_users.html b/mysite/base/templates/base/landing_page_for_logged_in_users.html
+index bb3e131..b3b1165 100644
+--- a/mysite/base/templates/base/landing_page_for_logged_in_users.html
++++ b/mysite/base/templates/base/landing_page_for_logged_in_users.html
+@@ -162,9 +162,9 @@ document.documentElement.className = 'javascript_is_enabled';
+                                             {% endif %}
+                                           {% if completed_missions.git_checkout or completed_missions.git_diff or completed_missions.git_rebase%}
+                                                 {% if completed_missions.git_checkout and completed_missions.git_diff and completed_missions.git_rebase%}
+-                                                    <li>You have completed the <a href="{% url mysite.missions.git.views.long_description %}">Git mission.</a></li>
++                                                    <li>You have completed the <a href="{% url mysite.missions.git.views.main_page %}">Git mission.</a></li>
+                                                 {% else %}
+-                                                    <li style='list-style-image: url("http://openhatch.org/static/images/cross.gif");'>You have partially completed the <a href="{% url mysite.missions.git.views.long_description %}">Git mission.</a></li>
++                                                    <li style='list-style-image: url("http://openhatch.org/static/images/cross.gif");'>You have partially completed the <a href="{% url mysite.missions.git.views.main_page %}">Git mission.</a></li>
+                                         {% endif %}
+                                     {% endif %}
+                                         </ul>
+-- 
+1.7.2.5
+

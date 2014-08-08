@@ -1,0 +1,31 @@
+From bb22b5225393258c4e6d3d1991fc30d829e95725 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Wed, 1 Jun 2011 20:47:42 +1200
+Subject: [PATCH] Changed the Add a Bug Tracker link in mysite/project/templates/project/project.html
+ to direct to the new  +project sub-page,
+ with a # anchor for the edit_bug_trackers tab.
+ See: http://openhatch.org/bugs/issue399
+
+---
+ mysite/project/templates/project/project.html |    5 ++---
+ 1 files changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 3497449..45c2003 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -290,9 +290,8 @@ about how you can help {{ project.display_name }}
+         {% else %}
+             <p>
+                 No volunteer opportunities in {{project.display_name}} indexed here yet. 
+-                <a href='/wiki/Bug_trackers'>
+-                    To add a bug tracker, 
+-                    visit our wiki</a>.
++                <a href="/+projedit/{{ project.name }}#edit_bug_trackers">
++                    Add a bug tracker</a>.
+ 
+             </p>
+     {% endif %}
+-- 
+1.7.2.5
+

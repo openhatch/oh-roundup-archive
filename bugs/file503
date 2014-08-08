@@ -1,0 +1,39 @@
+From f8b5f4e8bcdaace03e930178be5a71f3d6960d93 Mon Sep 17 00:00:00 2001
+From: Jason Woofenden <jason@jasonwoof.com>
+Date: Wed, 9 May 2012 23:08:45 -0400
+Subject: [PATCH] Code cleanup (remove unused code and fix a comment)
+
+"code" was to enable backwards compatibility for a file which is no longer part
+of the training mission.
+---
+ mysite/missions/diffpatch/controllers.py |    7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/missions/diffpatch/controllers.py b/mysite/missions/diffpatch/controllers.py
+index 02bf5ff..c0316a8 100644
+--- a/mysite/missions/diffpatch/controllers.py
++++ b/mysite/missions/diffpatch/controllers.py
+@@ -90,8 +90,7 @@ class DiffRecursiveMission(object):
+     TARBALL_NAME = ORIG_DIR + '.tar.gz'
+     SUBSTITUTIONS = [('aubergine', 'eggplant'),
+                      ('Aubergine', 'Eggplant')]
+-    ALTERNATE_FILENAMES = {'Skillet.txt': 'AubergineAndChickpeaSkillet.txt',
+-                           'Grilled.txt': 'GrilledAubergine.txt'}
++    ALTERNATE_FILENAMES = {'Skillet.txt': 'AubergineAndChickpeaSkillet.txt'}
+ 
+     @staticmethod
+     def name_new2old(s):
+@@ -157,8 +156,8 @@ class DiffRecursiveMission(object):
+             try:
+                 index = the_patch.source.index(filename)
+             except ValueError:
+-                # Hmm. The user submitted some file with a filename
+-                # we didn't really recognize.
++                # A file the user was supposed to modify was not included in
++                # the patch.
+                 #
+                 # We did rename a bunch of the files a little while ago.
+                 # Maybe we can process their submission anyway by looking for
+-- 
+1.7.10
+

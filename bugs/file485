@@ -1,0 +1,26 @@
+From d4e534749d3c92f1634cb70fee118122b926480b Mon Sep 17 00:00:00 2001
+From: Portia Burton <plburton@gmail.com>
+Date: Tue, 13 Mar 2012 20:13:03 -0700
+Subject: [PATCH] "Added http://www.git-scm.com/ link at the end of the mission"
+
+---
+ mysite/missions/templates/missions/git/rebase.html |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/git/rebase.html b/mysite/missions/templates/missions/git/rebase.html
+index 5e6ffb2..a192e51 100644
+--- a/mysite/missions/templates/missions/git/rebase.html
++++ b/mysite/missions/templates/missions/git/rebase.html
+@@ -37,7 +37,8 @@
+ 
+ {% if git_rebase_done %}
+ <div class="successmsg">
+-  <p><strong>You have successfully completed the mission.  You are ready to work with git repositories.</strong></p>
++  <p><strong>Kudos! You have successfully completed the mission.  You are ready to work with git repositories. If you want to review more concepts, please check out the
++  <a href="http://www.git-scm.com">main git website</a></p>.
+ </div>
+ <p class="next_mission_link">
+   <a href="{% url mysite.missions.base.views.main_page %}">Return to the main mission page &raquo;</a></p>
+-- 
+1.7.1
+

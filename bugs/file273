@@ -1,0 +1,1565 @@
+From e834fbfc29ea9bbddfa9424453dd8b82462eebf3 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Wed, 4 May 2011 18:13:21 -0400
+Subject: [PATCH] New Bash Mission
+ See: http://openhatch.org/bugs/issue390
+
+---
+ mysite/missions/bash/controllers.py                |   39 ++++
+ mysite/missions/bash/forms.py                      |   42 ++++
+ mysite/missions/bash/models.py                     |    3 +
+ mysite/missions/bash/tests.py                      |   94 +++++++++
+ mysite/missions/bash/views.py                      |  217 ++++++++++++++++++++
+ mysite/missions/fixtures/initial_data.json         |   16 ++
+ .../templates/missions/bash/about_bash.html        |   56 +++++
+ mysite/missions/templates/missions/bash/base.html  |   94 +++++++++
+ .../missions/templates/missions/bash/basics.html   |  108 ++++++++++
+ mysite/missions/templates/missions/bash/files.html |  131 ++++++++++++
+ mysite/missions/templates/missions/bash/help.html  |   75 +++++++
+ .../templates/missions/bash/main_page.html         |   55 +++++
+ mysite/missions/templates/missions/bash/top.html   |   71 +++++++
+ .../missions/templates/missions/bash/username.html |   76 +++++++
+ mysite/missions/templates/missions/main.html       |   11 +
+ mysite/static/images/bash_terminal.png             |  Bin 0 -> 17726 bytes
+ mysite/static/images/cross.gif                     |  Bin 0 -> 122 bytes
+ mysite/static/images/tick.gif                      |  Bin 0 -> 194 bytes
+ mysite/urls.py                                     |   14 ++
+ 19 files changed, 1102 insertions(+), 0 deletions(-)
+ create mode 100644 mysite/missions/bash/__init__.py
+ create mode 100644 mysite/missions/bash/controllers.py
+ create mode 100644 mysite/missions/bash/forms.py
+ create mode 100644 mysite/missions/bash/models.py
+ create mode 100644 mysite/missions/bash/tests.py
+ create mode 100644 mysite/missions/bash/views.py
+ create mode 100644 mysite/missions/templates/missions/bash/about_bash.html
+ create mode 100644 mysite/missions/templates/missions/bash/base.html
+ create mode 100644 mysite/missions/templates/missions/bash/basics.html
+ create mode 100644 mysite/missions/templates/missions/bash/files.html
+ create mode 100644 mysite/missions/templates/missions/bash/help.html
+ create mode 100644 mysite/missions/templates/missions/bash/main_page.html
+ create mode 100644 mysite/missions/templates/missions/bash/top.html
+ create mode 100644 mysite/missions/templates/missions/bash/username.html
+ create mode 100644 mysite/static/images/bash_terminal.png
+ create mode 100644 mysite/static/images/cross.gif
+ create mode 100644 mysite/static/images/tick.gif
+
+diff --git a/mysite/missions/bash/__init__.py b/mysite/missions/bash/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/mysite/missions/bash/controllers.py b/mysite/missions/bash/controllers.py
+new file mode 100644
+index 0000000..8bbad3c
+--- /dev/null
++++ b/mysite/missions/bash/controllers.py
+@@ -0,0 +1,39 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 John Stumpo
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++from mysite.missions.base.controllers import *
++
++class BashRepository(object):
++    
++    def __init__(self, username):
++        self.username = username
++        
++class BashTopMission(object):
++
++    @classmethod
++    def validate_top(cls, username, top):
++        EXPECTED_TOP_LINE = 'Cpu(s):'
++        success_count = top.find(EXPECTED_TOP_LINE)
++        if success_count != -1:
++            return True
++        else:
++            return False
++
++    @classmethod
++    def store_bash_username(cls, bash_stored_username):
++        return bash_stored_username
+diff --git a/mysite/missions/bash/forms.py b/mysite/missions/bash/forms.py
+new file mode 100644
+index 0000000..822789e
+--- /dev/null
++++ b/mysite/missions/bash/forms.py
+@@ -0,0 +1,42 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 John Stumpo
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++import django.forms
++
++class UsernameForm(django.forms.Form):
++    secret_word = django.forms.CharField(error_messages={'required': 'No username was given.'})
++
++class UsernameNextForm(django.forms.Form):
++    secret_word = django.forms.CharField(error_messages={'required': 'No username was given.'})
++
++class TopForm(django.forms.Form):
++    top = django.forms.CharField(error_messages={'required': 'No bash top output was entered.'}, widget=django.forms.Textarea())
++
++class BashHelpForm(django.forms.Form):
++    secret_word = django.forms.CharField(error_messages={'required': 'An answer is required. Try again.'})
++    extra_credit = django.forms.CharField(error_messages={'required': 'An answer is required. Try again.'})
++
++class FilesForm(django.forms.Form):
++    man_ls = django.forms.CharField(error_messages={'required': 'An answer is required. Try again.'}, widget=django.forms.Textarea(attrs={'rows':'3'}))
++    bash_cd = django.forms.CharField(error_messages={'required': 'An answer is required. Try again.'})
++    bash_pwd = django.forms.CharField(error_messages={'required': 'An answer is required. Try again.'}, widget=django.forms.Textarea(attrs={'rows':'2'}))
++    bash_chmod = django.forms.CharField(error_messages={'required': 'An answer is required. Try again.'}, widget=django.forms.Textarea(attrs={'rows':'2'}))
++    bash_own = django.forms.CharField(error_messages={'required': 'An answer is required. Try again.'}, widget=django.forms.Textarea(attrs={'rows':'6'}))
++    bash_chgrp = django.forms.CharField(error_messages={'required': 'An answer is required. Try again.'}, widget=django.forms.Textarea(attrs={'rows':'3'}))
++    bash_rm = django.forms.CharField(error_messages={'required': 'An answer is required. Try again.'}, widget=django.forms.Textarea(attrs={'rows':'2'}))
++
+diff --git a/mysite/missions/bash/models.py b/mysite/missions/bash/models.py
+new file mode 100644
+index 0000000..71a8362
+--- /dev/null
++++ b/mysite/missions/bash/models.py
+@@ -0,0 +1,3 @@
++from django.db import models
++
++# Create your models here.
+diff --git a/mysite/missions/bash/tests.py b/mysite/missions/bash/tests.py
+new file mode 100644
+index 0000000..e461410
+--- /dev/null
++++ b/mysite/missions/bash/tests.py
+@@ -0,0 +1,94 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 John Stumpo
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++from mysite.missions.base.tests import *
++from mysite.missions.bash import views, controllers
++
++class BashViewTestsWhileLoggedOut(TwillTests):
++    fixtures = ['user-paulproteus', 'person-paulproteus']
++
++    def setUp(self):
++        TwillTests.setUp(self)
++        self.client = self.login_with_client()
++        self.client.logout()
++
++    def test_main_page_does_not_complain_about_prereqs_even_if_logged_out(self):
++        response = self.client.get(reverse(views.main_page))
++        self.assertTrue(response.context[0]['mission_step_prerequisites_passed'])
++        
++class BashViewTests(TwillTests):
++    fixtures = ['user-paulproteus', 'person-paulproteus']
++
++    def setUp(self):
++        TwillTests.setUp(self)
++        self.client = self.login_with_client()
++        self.repo_path = os.path.join(settings.GIT_REPO_PATH, 'paulproteus')
++        # Make sure that our test user's bash repository does not exist.
++        if os.path.isdir(self.repo_path):
++            shutil.rmtree(self.repo_path)
++            
++    def test_main_page_does_not_complain_about_prereqs(self):
++        response = self.client.get(reverse(views.main_page))
++        self.assertTrue(response.context[0]['mission_step_prerequisites_passed'])
++        
++    def test_resetrepo_returns_error_with_get(self):
++        response = self.client.get(reverse(views.resetrepo))
++        self.assert_(response.status_code == 405)
++        
++    def test_resetrepo_creates_valid_repo(self):
++        self.client.post(reverse(views.resetrepo))
++        self.assertTrue(os.path.exists(self.repo_path + "/.bash"))
++        
++    def test_do_checkout_mission_correctly(self):
++        word = 'the brain'
++        response = self.client.post(reverse(views.checkout_submit), {'secret_word': word})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assert_(controllers.mission_completed(paulproteus, 'bash_checkout'))
++        
++    def test_do_checkout_mission_incorrectly(self):
++        word = 'the wrong word'
++        response = self.client.post(reverse(views.checkout_submit), {'secret_word': word})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assertFalse(controllers.mission_completed(paulproteus, 'bash_checkout'))
++        
++    def test_do_help_mission_correctly(self):
++        word = 'pinky'
++        response = self.client.post(reverse(views.help_submit), {'secret_word': word})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assert_(controllers.mission_completed(paulproteus, 'bash_help'))
++        
++    def test_do_help_mission_incorrectly(self):
++        word = 'the wrong word'
++        response = self.client.post(reverse(views.help_submit), {'secret_word': word})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assertFalse(controllers.mission_completed(paulproteus, 'bash_help'))
++        
++    def test_do_diff_mission_correctly(self):
++        expected_diff = '+print "Hello world!"'
++        response = self.client.post(reverse(views.resetrepo))
++        response = self.client.post(reverse(views.diff_submit), {'diff': expected_diff})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assert_(controllers.mission_completed(paulproteus, 'bash_diff'))
++        
++    def test_do_diff_mission_incorrectly(self):
++        unexpected_diff = '+print "Goodbye world!"'
++        response = self.client.post(reverse(views.resetrepo))
++        response = self.client.post(reverse(views.diff_submit), {'diff': unexpected_diff})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assertFalse(controllers.mission_completed(paulproteus, 'bash_diff'))
++    
+diff --git a/mysite/missions/bash/views.py b/mysite/missions/bash/views.py
+new file mode 100644
+index 0000000..547b619
+--- /dev/null
++++ b/mysite/missions/bash/views.py
+@@ -0,0 +1,217 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++from mysite.missions.base.views import *
++from mysite.missions.bash import controllers, forms
++
++
++### POST handlers
++###
++### Forms submit to this, and we use these to validate input and/or
++### modify the information stored about the user, such as recording
++### that a mission was successfully completed.
++
++@login_required
++def reset(request):
++    if request.method != 'POST':
++        return HttpResponseNotAllowed(['POST'])
++    controllers.unset_mission_completed(request.user.get_profile(), 'bash_username')
++    controllers.unset_mission_completed(request.user.get_profile(), 'bash_top')
++    controllers.unset_mission_completed(request.user.get_profile(), 'bash_help')
++    controllers.unset_mission_completed(request.user.get_profile(), 'bash_files')
++    if 'stay_on_this_page' in request.GET:
++        return HttpResponseRedirect(reverse(main_page))
++    else:
++        return HttpResponseRedirect(reverse(username))
++
++@login_required
++def username_submit(request):
++    # Initialize data array and some default values.
++    data = {}
++    data['bash_username_form'] = forms.UsernameForm()
++    data['bash_username_error_message'] = ''
++    if request.method == 'POST':
++        form = forms.UsernameForm(request.POST)
++        if form.is_valid():
++            new_username_for_bash = form.cleaned_data['secret_word'].lower()
++            controllers.set_mission_completed(request.user.get_profile(), 'bash_username')
++            data['bash_stored_username'] = new_username_for_bash 
++            return HttpResponseRedirect(reverse(username))
++        data['bash_username_form'] = form
++    return username(request, data)
++
++@login_required
++def username_next_submit(request):
++    # Initialize data array and some default values.
++    data = {}
++    data['bash_usernamenext_form'] = forms.UsernameNextForm()
++    data['bash_usernamenext_error_message'] = ''
++    if request.method == 'POST':
++        form = forms.UsernameNextForm(request.POST)
++        if form.is_valid():
++            new_username_for_bash = form.cleaned_data['secret_word'].lower()
++            return HttpResponseRedirect(reverse(top)) + urllib.urlencode({'bash_username': new_username_for_bash }) 
++        data['bash_usernamenext_form'] = form
++    return top(request, data)
++
++@login_required
++def top_submit(request):
++    # Initialize data array and some default values.
++    data = {}
++    data['bash_top_form'] = forms.TopForm()
++    data['bash_top_error_message'] = ''
++    if request.method == 'POST':
++        form = forms.TopForm(request.POST)
++        if form.is_valid():
++                if controllers.BashTopMission.validate_top(request.user.username, form.cleaned_data['top']):
++                    controllers.set_mission_completed(request.user.get_profile(), 'bash_top')
++                    return HttpResponseRedirect(reverse(top))
++                else:
++                    data['bash_top_error_message'] = "The top output is incorrect.  Give it another try!"
++        data['bash_top_form'] = form
++    return top(request, data)
++
++@login_required
++def bash_help_submit(request):
++    # Initialize data array and some default values.
++    data = {}
++    data['bash_help_form'] = forms.BashHelpForm()
++    data['bash_help_error_message'] = ''
++    if request.method == 'POST':
++        form = forms.BashHelpForm(request.POST)
++        if form.is_valid():
++            Extra_Credit = form.cleaned_data['extra_credit'].lower()
++            success_count = Extra_Credit.find('delay time') 
++            if (form.cleaned_data['secret_word'].lower() == 'n' and success_count != -1):
++                controllers.set_mission_completed(request.user.get_profile(), 'bash_help')
++                return HttpResponseRedirect(reverse(bash_help_page))
++            else:
++                data['bash_help_error_message'] = "The answer that you have given is incorrect."
++        data['bash_help_form'] = form
++    return bash_help_page(request, data)
++
++@login_required
++def files_submit(request):
++    # Initialize data array and some default values.
++    data = {}
++    data['bash_file_form'] = forms.FilesForm()
++    data['bash_file_error_message'] = ''
++    if request.method == 'POST':
++        form = forms.FilesForm(request.POST)
++        if form.is_valid():
++            Man_Ls = form.cleaned_data['man_ls'].lower()
++            ls_success_count = Man_Ls.find('1')
++            Bash_Cd = form.cleaned_data['bash_cd'].lower()
++            Cd_success_count = Bash_Cd.find('change directory')
++            Bash_Pwd = form.cleaned_data['bash_pwd'].lower()
++            Pwd_success_count = Bash_Pwd.find('3')
++            Bash_Chmod = form.cleaned_data['bash_chmod'].lower()
++            Chmod_success_count = Bash_Chmod.find('4')
++            Bash_Own = form.cleaned_data['bash_own'].lower()
++            Chown_success_count = Bash_Own.find('5')
++            Bash_Chgrp = form.cleaned_data['bash_chgrp'].lower()
++            Chgrp_success_count = Bash_Chgrp.find('6')
++            Bash_Rm = form.cleaned_data['bash_rm'].lower()
++            Rm_success_count = Bash_Rm.find('7')
++            if (ls_success_count != -1 and Cd_success_count != -1 and Pwd_success_count != -1 and 
++                Chmod_success_count != -1 and Chown_success_count != -1 and 
++                Chgrp_success_count != -1 and Rm_success_count != -1):
++                controllers.set_mission_completed(request.user.get_profile(), 'bash_files')
++                return HttpResponseRedirect(reverse(files))
++            else:
++                data['bash_file_error_message'] = "The answers you have given are incorrect. Please try again!"
++        data['bash_file_form'] = form
++    return files(request, data)
++
++### State manager
++class BashMissionPageState(MissionPageState):
++    def __init__(self, request, passed_data):
++        super(BashMissionPageState, self).__init__(request, passed_data, 'Using Bash')
++
++    def as_dict_for_template_context(self):
++        (data, person) = self.get_base_data_dict_and_person()
++        if person:
++            data.update({
++                'bash_username_done': controllers.mission_completed(person, 'bash_username'),
++                'bash_top_done': controllers.mission_completed(person, 'bash_top'),
++                'bash_help_done': controllers.mission_completed(person, 'bash_help'),
++                'bash_files_done': controllers.mission_completed(person, 'bash_files'),
++            })
++        return data
++
++
++
++### Normal GET handlers. These are usually pretty short.
++
++@view
++def main_page(request, passed_data = None):
++    state = BashMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'Start page'
++    return (request, 'missions/bash/main_page.html',
++            state.as_dict_for_template_context())
++
++@view
++def long_description(request, passed_data = None):
++    state = BashMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'About Bash'
++    return (request, 'missions/bash/about_bash.html',
++            state.as_dict_for_template_context())
++
++@view
++def basics(request, passed_data = None):
++    state = BashMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'Basics'
++    data = state.as_dict_for_template_context()
++    return (request, 'missions/bash/basics.html', data)
++
++@login_required
++@view
++def username(request, passed_data = None):
++    state = BashMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'Username'
++    data = state.as_dict_for_template_context()
++    data['bash_username_form'] = forms.UsernameForm()
++    return (request, 'missions/bash/username.html', data)
++
++@login_required
++@view
++def top(request, passed_data = None):
++    state = BashMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'Using Top'
++    state.mission_step_prerequisite = 'bash_username'
++    data = state.as_dict_for_template_context()
++    data['bash_top_form'] = forms.TopForm()
++    return (request, 'missions/bash/top.html', data)
++
++@login_required
++@view
++def bash_help_page(request, passed_data = None):
++    state = BashMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'Getting Help'
++    state.mission_step_prerequisite = 'bash_top'
++    data = state.as_dict_for_template_context()
++    data['bash_help_form'] = forms.BashHelpForm()
++    return (request, 'missions/bash/help.html', data)
++
++@login_required
++@view
++def files(request, passed_data = None):
++    state = BashMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'The Filesystem'
++    state.mission_step_prerequisite = 'bash_help'
++    data = state.as_dict_for_template_context()
++    data['bash_file_form'] = forms.FilesForm()
++    return (request, 'missions/bash/files.html', data)
+diff --git a/mysite/missions/fixtures/initial_data.json b/mysite/missions/fixtures/initial_data.json
+index 6e69913..a3b7de5 100644
+--- a/mysite/missions/fixtures/initial_data.json
++++ b/mysite/missions/fixtures/initial_data.json
+@@ -46,5 +46,21 @@
+   {"model": "missions.Step",
+    "pk": 12,
+    "fields": {"name": "git_rebase"}
++  },
++  {"model": "missions.Step",
++   "pk": 13,
++   "fields": {"name": "bash_username"}
++  },
++  {"model": "missions.Step",
++   "pk": 14,
++   "fields": {"name": "bash_top"}
++  },
++  {"model": "missions.Step",
++   "pk": 15,
++   "fields": {"name": "bash_help"}
++  },
++  {"model": "missions.Step",
++   "pk": 16,
++   "fields": {"name": "bash_files"}
+   }
+ ]
+diff --git a/mysite/missions/templates/missions/bash/about_bash.html b/mysite/missions/templates/missions/bash/about_bash.html
+new file mode 100644
+index 0000000..92900c6
+--- /dev/null
++++ b/mysite/missions/templates/missions/bash/about_bash.html
+@@ -0,0 +1,56 @@
++{% extends 'missions/bash/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_main_body %}
++
++<p>Bash is a Unix shell written by Brian Fox for the GNU Project. The
++name is an acronym, a pun and descriptive. As an acronym, it stands
++for Bourne-again shell, referring to its initial conception as a free
++software replacement for the Bourne shell (sh). As a pun, it
++expressed that objective in a phrase that sounds the same as born
++again, a term for spiritual rebirth. The name is also descriptive of what
++it did, bashing together the features of sh, csh and ksh.  <br style="clear: left;" />
++Quote from: <a href="http://en.wikipedia.org/wiki/Bash_(Unix_shell)">http://en.wikipedia.org/wiki/Bash_(Unix_shell)</a></p>
++
++<h3>Additional references:</h3>
++<ul class="raquo_bullets">
++<li>The <a href="http://www.softlab.ntua.gr/facilities/documentation/unix/docs/sh.txt" >
++original document</a> outlining the Bourne UNIX Shell, which the BASH
++ shell is based on.</li>
++<li>A great beginners guide to the Unix SHELL -
++<a href="http://linuxcommand.org/lts0010.php" >Unix SHELL -</a></li>
++<li>The Online Man Page for BASH
++<a href="http://tiswww.case.edu/php/chet/bash/bash.html" >
++Man Page for BASH</a></li>
++<li>An awesome guide from Freenodes- IRC #bash channel
++<a href="http://mywiki.wooledge.org/BashGuide" >Freenodes- IRC #bash channel</a></li>
++</ul>
++<br style="clear: left;" />
++<h3>Advanced bash:</h3>
++<ul class="raquo_bullets">
++<li><a href="http://www.ibm.com/developerworks/linux/library/l-bash2/index.html" >
++http://www.ibm.com/developerworks/linux/library/l-bash2/index.html</a></li>
++<li><a href="http://www.freeos.com/guides/lsst/" >http://www.freeos.com/guides/lsst/</a></li>
++</ul>
++<div style='text-align: right;'>
++<p><a href="{% url mysite.missions.bash.views.basics %}">
++ Now to get you started - Bash Basics &raquo;</a></p>
++</div>
++{% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/bash/base.html b/mysite/missions/templates/missions/bash/base.html
+new file mode 100644
+index 0000000..9bdd2c7
+--- /dev/null
++++ b/mysite/missions/templates/missions/bash/base.html
+@@ -0,0 +1,94 @@
++{% extends 'missions/mission_base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block side_nav_links %}
++<li id='link-main_page'>
++  <a href='{% url mysite.missions.bash.views.main_page %}'>
++    Mission start page
++  </a>
++</li>
++<li id='link-long_description'>
++  <a href='{% url mysite.missions.bash.views.long_description %}'>
++    About Bash
++  </a>
++</li>
++<li id='link-basics'>
++  <a href='{% url mysite.missions.bash.views.basics %}'>
++    Bash Basics 
++  </a>
++</li>
++<h3>Step 1:</h3><br /> 
++{% if bash_username_done %} 
++<li id='link-username' style='list-style-image: url("http://openhatch.palbakulich.me/static/images/tick.gif"); margin-left: 30px;'>
++  <a href='{% url mysite.missions.bash.views.username %}'>
++    Find your Username 
++  </a>
++</li>
++{% else %}
++<li id='link-username' style='list-style-image: url("http://openhatch.palbakulich.me/static/images/cross.gif"); margin-left: 30px;'>
++  <a href='{% url mysite.missions.bash.views.username %}'>
++    Find your Username 
++  </a>
++</li>
++{% endif %} 
++<h3>Step 2:</h3><br />
++{% if bash_top_done %}
++<li id='link-top' style='list-style-image: url("http://openhatch.palbakulich.me/static/images/tick.gif"); margin-left: 30px;'>
++  <a href='{% url mysite.missions.bash.views.top %}'>
++    Using Top
++  </a>
++</li>
++{% else %}
++<li id='link-top' style='list-style-image: url("http://openhatch.palbakulich.me/static/images/cross.gif"); margin-left: 30px;'>
++  <a href='{% url mysite.missions.bash.views.top %}'>
++    Using Top
++  </a>
++</li>
++{% endif %}
++<h3>Step 3:</h3><br />
++{% if bash_help_done %}
++<li id='link-help' style='list-style-image: url("http://openhatch.palbakulich.me/static/images/tick.gif"); margin-left: 30px;'>
++  <a href='{% url mysite.missions.bash.views.bash_help_page %}'>
++    Getting Help
++  </a>
++</li>
++{% else %}
++<li id='link-help' style='list-style-image: url("http://openhatch.palbakulich.me/static/images/cross.gif"); margin-left: 30px;'>
++  <a href='{% url mysite.missions.bash.views.bash_help_page %}'>
++    Getting Help
++  </a>
++</li>
++{% endif %}
++<h3>Step 4:</h3><br />
++{% if bash_files_done %}
++<li id='link-files' style='list-style-image: url("http://openhatch.palbakulich.me/static/images/tick.gif"); margin-left: 30px;'>
++  <a href='{% url mysite.missions.bash.views.files %}'>
++    The Filesystem
++  </a>
++</li>
++{% else %}
++<li id='link-files' style='list-style-image: url("http://openhatch.palbakulich.me/static/images/cross.gif"); margin-left: 30px;'>
++  <a href='{% url mysite.missions.bash.views.files %}'>
++    The Filesystem
++  </a>
++</li>
++{% endif %}
++{% endblock side_nav_links %}
+diff --git a/mysite/missions/templates/missions/bash/basics.html b/mysite/missions/templates/missions/bash/basics.html
+new file mode 100644
+index 0000000..a8a7392
+--- /dev/null
++++ b/mysite/missions/templates/missions/bash/basics.html
+@@ -0,0 +1,108 @@
++{% extends 'missions/bash/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Ayffero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++{% block mission_main_body %}
++
++<h2 style="color: #737373;">Get a terminal running</h2>
++<p>Before you can proceed with this training mission, you'll
++need to know how to open up a terminal.
++<br style="clear: left;" /><br style="clear: left;" /> 
++<b>LINUX:</b> If you are running a Linux or BSD system and you have menus, try going
++to Applications->Utiltiies->Terminal. In Ubuntu you will find 'terminal' under
++Accessories.<br style="clear: left;" />
++Otherwise, look for 'xterm', 'gnome-terminal', or 'konsole'.
++<br style="clear: left;" /><br style="clear: left;" />
++<b>MAC OS X:</b> There is a bundled terminal you can use. 
++To find it, open up the Finder, then look for the Applications folder.
++Look for the Utilities folder inside Applications; double-click the
++Terminal program.
++<br style="clear: left;" /><br style="clear: left;" />
++<b>WINDOWS:</b> Install 
++<a href="https://code.google.com/p/msysgit/downloads/list">GitBash</a> 
++so that you have a UNIX-like environment.
++<br style="clear: left;" /><br style="clear: left;" >
++<h3 style="color: red;">Once you open a terminal<br />and have a prompt...</h3>
++<br style="clear: left;" />
++<br style="clear: left;" />
++<code>(username)@(hostname):(path) $</code>
++<br style="clear: left;" />
++<br style="clear: left;" />
++A cursor (usually blinking) should be waiting to accept input from you!
++<br style="clear: left;" />
++<br style="clear: left;" />
++<h2 style="color: #737373;">Quitting programs</h2>
++<p>If you need to exit a program at any time you can use CTRL-C # Which
++cancels the current running command.</p>
++
++<h2 style="color: #737373;">Basic navigation</h2>
++<br style="clear: left;" /><br style="clear: left;" />
++<ul class="raquo_bullets">
++<li>up - down # scroll through your command-line history</li>
++<li>left - right # move cursor inside the command line text</li>
++<li>CTRL+left / right # some terminals support jumping between words</li>
++</ul>
++<br style="clear: left;" />
++<h2 style="color: #737373;">Copy and Paste</h2>
++<br style="clear: left;" /><br style="clear: left;" />
++<h3 style="color: #737373;">Keyboard</h3>
++<ul class="raquo_bullets">
++<li>Shift+Insert # Paste into terminal</li>
++</ul>
++<br style="clear: left;" />
++<h3>Mouse</h3>
++<ul class="raquo_bullets">
++<li>Mouse middle-button-click - scroll-wheel # Paste into terminal</li>
++<li>Left-click - highlight - # Copy some text</li>
++</ul>
++
++<p>NOTE: Usually the standard keyboard key combinations will work for copying
++and pasting. There are however a couple of exceptions. When copying
++within (or to and from) some terminal windows there are different key
++combinations to use. For example, in gnome-terminal instead of Ctrl-c
++and Ctrl-v (for copy and paste) you use Ctrl-shift-c and Ctrl-shift-v
++for copying and pasting. This can be changed within the profile editor
++in gnome-terminal (if you want this feature to echo the standard
++combination.) Be aware, however, that if you copy text by selecting
++via the left mouse you can not paste by using Ctrl-v. The Ctrl-v
++combination (or Ctrl-Shift-v combination) only works in conjunction
++with the Ctrl-c or Ctrl-Shift-c combinations. We recommend using 
++<a href="http://superuser.com/questions/138748/how-to-scroll-up-and-look-at-data-in-gnu-screen">
++GNU Screen</a> - if you do not use a mouse.
++There are also some <a href="http://linuxtidbits.wordpress.com/2008/02/22/command-line-to-clipboard/">
++small programs</a> that extend the terminal's copy & paste options.
++</p>
++<h3 style="color: red;"><b>You're ready to start!</b></h3>
++
++
++<p>Once you have mastered this bash mission, an advanced bash
++ mission to cover even more awesome linux commands and concepts will
++ soon be available to complete your bash training, enabling you to
++ conquer the world - muhahaha.<br />
++<b>PS.</b> Please don't despair, the advanced bash mission will be created by
++the awesome OpenHatch team shortly.</p>
++
++{% if not user.is_authenticated %}
++  <p style="color: grey;">To get started, log in. It'll be easy, trust us. <a href="{% url mysite.missions.bash.views.username %}">Click Here</a></p>
++{% else %}
++<div style='text-align: right;'>
++<p class="next_mission_link">
++  <a href="{% url mysite.missions.bash.views.username %}">Now let's get onto the first mission -  Finding Your Username &raquo;</a></p>
++</div>
++{% endif %}
++{% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/bash/files.html b/mysite/missions/templates/missions/bash/files.html
+new file mode 100644
+index 0000000..7eead78
+--- /dev/null
++++ b/mysite/missions/templates/missions/bash/files.html
+@@ -0,0 +1,131 @@
++{% extends 'missions/bash/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Ayffero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_missing_prerequisite_text %}
++<p>You can't do the The Filesystem step yet. You have to do the
++  <a href="{% url mysite.missions.bash.views.help %}">Getting Help step first</a>!
++</p>
++{% endblock mission_missing_prerequisite_text %}
++
++{% block mission_main_body %}
++
++<p>To learn more about your linux filesystem you need to be able to get
++around it!<br />
++Below are the main commands which will enable you to join
++our team to conquer the world...</p>
++
++<br style="clear: left;" />
++{% if not bash_files_done %}
++<form method="post" action="{% url mysite.missions.bash.views.files_submit %}#bashfile-form">
++  <div class="form-row">
++    <a name="bashfile-form"></a>
++    {% if bash_file_error_message %}
++    <ul class="errorlist"><li>{{ bash_file_error_message }}</li></ul><br /><br />
++    {% endif %}
++    <p>You need to answer the following questions...</p>
++    <p>
++    Q: Copy the <code>man <abbr title="# List Directory Contents #">ls</abbr></code> ( -h ) option's description (2 lines):</p>
++    <div style="margin-top: 2px">
++    <span style="float:left;">A:&nbsp;&nbsp;</span> {{ bash_file_form.man_ls }} {{ bash_file_form.man_ls.errors }}</div>
++    <!-- -h, --human-readable
++              with -l, print sizes in human readable format (e.g., 1K 234M 2G) -->
++ 
++    <br />   <br />
++    <p>
++    Q: What does the <code><abbr title="# Sorry can't give you the answer - That's cheating :P #">cd</abbr></code> command do? (two words)</p>
++    <div style="margin-top: 2px">
++    <span style="float:left;">A:&nbsp;&nbsp;</span> {{ bash_file_form.bash_cd }} {{ bash_file_form.bash_cd.errors }}</div> <!-- change directory -->
++
++ 
++    <br />   <br />
++    <p>
++    Q: Copy the <code>man <abbr title="# print current working directory #">pwd</abbr></code> ( -P ) option's description</p>
++    <div style="margin-top: 2px">
++    <span style="float:left;">A:&nbsp;&nbsp;</span> {{ bash_file_form.bash_pwd }} {{ bash_file_form.bash_pwd.errors }}</div>
++    <!-- -P, --physical
++              avoid all symlinks -->
++
++ 
++    <br />   <br />
++    <p>
++    Q: Copy the <code>man <abbr title="# Change file or directory persmissions #">chmod</abbr></code> ( -R ) option's description</p>
++    <div style="margin-top: 2px">
++    <span style="float:left;">A:&nbsp;&nbsp;</span> {{ bash_file_form.bash_chmod }} {{ bash_file_form.bash_chmod.errors }}</div>
++    <!-- -R, --recursive
++              change files and directories recursively -->
++
++ 
++    <br />   <br />
++    <p>
++    Q: Copy the <code>man <abbr title="# Change file or directory ownership #">chown</abbr></code> ( --from= ) option's description</p>
++    <div style="margin-top: 2px">
++    <span style="float:left;">A:&nbsp;&nbsp;</span> {{ bash_file_form.bash_own }} {{ bash_file_form.bash_own.errors }}</div>
++    <!-- --from=CURRENT_OWNER:CURRENT_GROUP
++              change the owner and/or group of each file only if its current owner and/or group match those specified here.  Either  may  be  omitted,  in
++              which case a match is not required for the omitted attribute -->
++
++ 
++    <br />   <br />
++     <p>
++    Q: Copy the <code>man <abbr title="# Change the file/s or directories group #">chgrp</abbr></code> ( -v ) option's description</p>
++    <div style="margin-top: 2px">
++    <span style="float:left;">A:&nbsp;&nbsp;</span> {{ bash_file_form.bash_chgrp }} {{ bash_file_form.bash_chgrp.errors }}</div>
++    <!-- -v, --verbose
++              output a diagnostic for every file processed -->
++ 
++ 
++    <br />   <br />
++   <p>Phew, that was tough! But world domination isn't easy, right?</p>
++
++   <p>Now, one last question before you can finally prove yourself worthy of
++    joining our secret team...</p>
++
++   <p>Q: Open the man page for the command <code><abbr title="# ReMove Files / Directories #">rm</abbr></code><br />
++   Now copy the description for the option ( --preserve-root )</p>
++   <div style="margin-top: 2px">
++   <span style="float:left;">A:&nbsp;&nbsp;</span> {{ bash_file_form.bash_rm }} {{ bash_file_form.bash_rm.errors }}</div>
++    <!-- do not remove `/' (default)  -->
++ 
++    <br />   <br />
++    <br style="clear: left;" />
++    <input type="submit" value="Submit" style="float: none;" />
++  </div>
++</form>
++{% else %}
++<div class="successmsg">
++  <p><strong>Whoa, excellent!<br />You have successfully completed the beginner bash mission.</strong><br /><br />
++   <span style="font-variant: bold; font-size: 20px; color: navy;">You are ready to work with bash terminals.</span></p>
++  <p>We hope that you have enjoyed this mission!<br />
++Unfortunately, we just found out that a virus has disabled our main server, and now we can't invite you to our 
++team to <b>conquer the world.</b><br /><br />
++<i>Hopefully by the time you complete </i><b>Advanced Bash Mission,</b><i> we will have repaired the
++server to enable you to join our secret team.</i></p>
++<p><b>PS.</b> Please don't despair, the advanced bash mission will be created by
++ the awesome OpenHatch team shortly.</p>
++</div>
++<div style='text-align: right;'>
++<p class="next_mission_link">
++  <a href="{% url mysite.missions.base.views.main_page %}">Return to the main mission page &raquo;</a></p>
++</div>
++{% endif %}
++
++{% endblock mission_main_body %}
++
+diff --git a/mysite/missions/templates/missions/bash/help.html b/mysite/missions/templates/missions/bash/help.html
+new file mode 100644
+index 0000000..22b0575
+--- /dev/null
++++ b/mysite/missions/templates/missions/bash/help.html
+@@ -0,0 +1,75 @@
++{% extends 'missions/bash/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Ayffero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++{% block mission_missing_prerequisite_text %}
++<p>You can't do the Getting Help step yet. You have to do the
++  <a href="{% url mysite.missions.git.views.top %}">Using Top step first</a>!
++</p>
++{% endblock mission_missing_prerequisite_text %}
++
++{% block mission_main_body %}
++
++<p>Even world conquerors need help to enable them to fulfill their
++desires, surprisingly, there are lots of ways of getting help in a
++terminal.</p>
++
++<p>Below we have 3 available help options for the program top, go ahead
++and try them.</p>
++
++<p style="color: slategrey;"><code style="color: black;">man top</code>&nbsp;&nbsp;&nbsp; # man pages short for manual pages, enable you to read about
++linux commands - to read about man itself use the command man man.<br />
++To exit man, type q.
++<br /><br />
++<code style="color: black;">top --help</code>&nbsp;&nbsp;&nbsp; # A quick overview of the commands options.
++<br /><br />
++<code style="color: black;">key h</code><span style="color: black;">- while running top.</span> &nbsp;&nbsp;&nbsp; # Interactive help is usually offered in 
++more complex programs like vi, less or man.</p>
++{% if not bash_help_done %}
++<form method="post" action="{% url mysite.missions.bash.views.bash_help_submit %}#bashhelp-form">
++  <div class="form-row">
++    <a name="bashhelp-form"></a>
++    {% if bash_help_error_message %}
++    <ul class="errorlist"><li>{{ bash_help_error_message }}</li></ul>
++    {% endif %}
++    <p>Using the above methods to find help on using top, describe which key
++    will allow you to limit tops results to 10 commands. 
++    <abbr title="use interactive key h"> HINT</abbr></p> 
++    {{ bash_help_form.secret_word }}
++    {{ bash_help_form.secret_word.errors }}
++    <br style="clear: left;" />
++    <p><b>Extra Credit:</b> Figure out what the -d option for top command in the previous mission was
++    for, by copying the man pages description for that option (only one line).</p>
++    {{ bash_help_form.extra_credit }}
++    {{ bash_help_form.extra_credit.errors }}
++    <br style="clear: left;" />
++    <br style="clear: left;" />
++    <input type="submit" value="Submit" style="float: none;" />
++  </div>
++</form>
++{% else %}
++<div class="successmsg">
++  <p><strong>Excellent, let's get you onto the next mission!</strong></p>
++</div>
++<div style='text-align: right;'>
++<p class="next_mission_link">
++<a href="{% url mysite.missions.bash.views.files %}">The filesystem &raquo;</a></p></div>
++{% endif %}
++
++{% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/bash/main_page.html b/mysite/missions/templates/missions/bash/main_page.html
+new file mode 100644
+index 0000000..a58a2ae
+--- /dev/null
++++ b/mysite/missions/templates/missions/bash/main_page.html
+@@ -0,0 +1,55 @@
++{% extends 'missions/bash/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_main_body %}
++<h3>The Game Plan</h3>
++<br style="clear: left;" />
++<p>We hope to find people who excel at learning bash, maybe <b>you</b> will be 
++competent enough to join our team to conquer the world...</p>
++<br style="clear: left;" />
++<h3>Audience</h3>
++<br style="clear: left;" />
++<br style="clear: left;" />
++<ul class="raquo_bullets">
++  <li>The intended audience are new contributors to open source.</li>
++  <li>Who haven't used a terminal or maybe are just out to test their skills
++     (and are keen to help us conquer the world).
++</ul>
++<br style="clear: left;" />
++<h3>What you'll learn</h3>
++<br style="clear: left;" />
++<br style="clear: left;" />
++<ul class="raquo_bullets">
++  <li>How to find a terminal and how to enter commands.</li>
++  <li>Make you familiar with how to copy and paste in a terminal.</li>
++  <li>Teach you some interesting commands, and how to read their output</li>
++  <li>Help you find documentation on your computer about linux commands</li>
++</ul>
++<br style="clear: left;" />
++<p>Once you complete this mission, you should be capable of running linux commands
++and reading their output, copying and pasting to and from the terminal and using
++all the available built-in help tools.
++<br style="clear: left;" />
++<div style='text-align: right;'>
++<p><a href="{% url mysite.missions.bash.views.long_description %}">
++Next, some interesting Bash facts... &raquo;</a></p>
++</div>
++
++{% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/bash/top.html b/mysite/missions/templates/missions/bash/top.html
+new file mode 100644
+index 0000000..9ac5b93
+--- /dev/null
++++ b/mysite/missions/templates/missions/bash/top.html
+@@ -0,0 +1,71 @@
++{% extends 'missions/bash/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Ayffero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_missing_prerequisite_text %}
++<p>You can't do the Using Top step yet. You have to do the
++  <a href="{% url mysite.missions.bash.views.username %}">Username step first</a>!
++</p>
++{% endblock mission_missing_prerequisite_text %}
++
++{% block mission_main_body %}
++<p>Okay, {{ bash_stored_username }}!
++Through your exceptional ability to learn things quickly you have been
++permitted to continue to the next mission.</p>
++
++<p>Your mission now, if you choose to accept it, is to use learn to use the
++   <code>top</code>  command which displays what current processes are running
++on your system and how much resources they are currently using.</p>
++
++<p>Run:
++<br style="clear: left;" />
++<code>top -d 10</code></p>
++
++<p>To prove that you have successfully run top, copy the first 4 lines of
++output to the area below.<br />
++If you need help on how to copy the results from the terminal,<br /> please re-read the
++<a href="{% url mysite.missions.bash.views.long_description %}">Bash Basics page</a> 
++or come into #openhatch on Frenode IRC and request help.</p>
++
++<br style="clear: left;" />
++{% if bash_top_done %}
++<div class="successmsg">
++  <p><strong> Excellent, you have proven yourself worthy to advance to the next mission!</strong></p>
++</div>
++<div style='text-align: right;'>
++<p class="next_mission_link">
++<a href="{% url mysite.missions.bash.views.bash_help_page %}">Getting Help &raquo;</a></p></div>
++{% else %}
++<form method="post" action="{% url mysite.missions.bash.views.top_submit %}#bashtop-form">
++  <div class="form-row">
++    <a name="bashtop-form"></a>
++    {% if bash_top_error_message %}
++    <ul class="errorlist"><li>{{ bash_top_error_message }}</li></ul>
++    {% endif %}
++    {{ bash_top_form.top.errors }}
++    <br style="clear: left;" />
++    <code>top -d 10</code> output: <br style="clear: left;" />
++    {{ bash_top_form.top }}
++    <br style="clear: left;" />
++    <input type="submit" value="Submit" style="float: none;" />
++  </div>
++</form>
++{% endif %}
++{% endblock %}
+diff --git a/mysite/missions/templates/missions/bash/username.html b/mysite/missions/templates/missions/bash/username.html
+new file mode 100644
+index 0000000..fb90e5e
+--- /dev/null
++++ b/mysite/missions/templates/missions/bash/username.html
+@@ -0,0 +1,76 @@
++{% extends 'missions/bash/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++{% block mission_main_body %}
++
++<p>Your terminal probably looks something like:</p>
++<img src="http://openhatch.palbakulich.me/static/images/bash_terminal.png" alt="Basic Bash Terminal" />
++
++<p>This breaks down into:<br style="clear: left;" />
++<code>(username)@(hostname):(path) $</code></p>
++
++<p>This is called the terminal prompt and it can be changed or customized
++ using a special parameter - $PS1.<br style="clear: left;" /><br style="clear: left;" /> 
++Learn more about 
++<a href="http://mywiki.wooledge.org/BashGuide/Parameters" >bash parameters.</a></p>
++
++<p>The prompt helps you know where you are on your system, if, for
++ example, you connect via SSH (Secure Shell) to another machine it will tell you where
++ you are on that remote machine.</p>
++{% if bash_username_done %}
++<div class="successmsg">
++  <p><strong>You have successfully completed this part of the mission.</strong></p>
++</div>
++<div style='text-align: right;'>
++<form method="post" action="{% url mysite.missions.bash.views.username_next_submit %}#bashusernamenext-form">
++  <div class="form-row">
++    <a name="bashusername-form"></a>
++    {% if bash_username_error_message %}
++    <ul class="errorlist"><li>{{ bash_username_error_message }}</li></ul>
++    {% endif %}
++    {{ bash_username_form.secret_word.errors }}
++    <p>Based on the break-down of the shell prompt above, what is your
++    username on your terminal?</p> 
++    <input type="hidden" value="{{bash_stored_username}}" name="secret_word" />
++    <br style="clear: left;" />
++    <input type="submit" value="Submit" style="float: right; margin-top:-25px;margin-right: 230px;" />
++  </div>
++</form>
++{# <p class="next_mission_link">
++  <a href="{% url mysite.missions.bash.views.top %}">Right! Now the next mission - Using Top. &raquo;</a></p>
++</div> #}
++{% else %}
++<form method="post" action="{% url mysite.missions.bash.views.username_submit %}#bashusername-form">
++  <div class="form-row">
++    <a name="bashusername-form"></a>
++    {% if bash_username_error_message %}
++    <ul class="errorlist"><li>{{ bash_username_error_message }}</li></ul>
++    {% endif %}
++    {{ bash_username_form.secret_word.errors }}
++    <p>Based on the break-down of the shell prompt above, what is your
++    username on your terminal?</p> 
++    {{ bash_username_form.secret_word }}
++    <br style="clear: left;" />
++    <input type="submit" value="Submit" style="float: right; margin-top:-25px;margin-right: 230px;" />
++  </div>
++</form>
++
++{% endif %}
++
++{% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/main.html b/mysite/missions/templates/missions/main.html
+index af76c17..e699527 100644
+--- a/mysite/missions/templates/missions/main.html
++++ b/mysite/missions/templates/missions/main.html
+@@ -45,6 +45,17 @@ Open source training missions
+ 
+     <p>We're looking for feedback.  Please <a href="http://openhatch.org/contact/">get in touch with us</a> and let us know what you think. Our plan is to polish up these missions and then write a HOWTO guide explaining how other people can add their own missions.</p>
+ 
++    <h2>Using Bash</h2>
++    <p>Learn the basics of how to use a bash terminal.</p>
++    {% if completed_missions.bash_checkout or completed_missions.bash_diff or completed_missions.bash_rebase%}
++        {% if completed_missions.bash_checkout and completed_missions.bash_diff and completed_missions.bash_rebase%}
++            <p><em>You have completed this mission.</em></p>
++        {% else %}
++            <p><em>You have partially completed this mission.</em></p>
++        {% endif %}
++    {% endif %}
++   <p><a href="{% url mysite.missions.bash.views.main_page %}">Go to this mission</a></p>
++
+     <h2>Using tar</h2>
+     <p>Learn how to work with tar archives.</p>
+     {% if completed_missions.tar or completed_missions.tar_extract %}
+diff --git a/mysite/static/images/bash_terminal.png b/mysite/static/images/bash_terminal.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..9f3e50bffcc2aa75ea90d6c07dda173d4d448692
+GIT binary patch
+literal 17726
+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
+J=&|wJ{|kPHtGWOH
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/cross.gif b/mysite/static/images/cross.gif
+new file mode 100644
+index 0000000000000000000000000000000000000000..c296b09278f8cf0471f6a207716792f08127c2ba
+GIT binary patch
+literal 122
+zcmZ?wbhEHblwuHISjfl#1poj4KXc{`kW~E1!pOzI%%B4j1<5lodC%!zdHOAbY?Fek
+z<e@dsw<&PUddRz!DNX6*#`!DyQfEqL-YFDeI#iIgGbV2#PeHTHou1=MPJhd`^3`3M
+Xzhp+}TJ2+*<tua#Ofp);z+epkrXw&;
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/tick.gif b/mysite/static/images/tick.gif
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ad7a1ff0e5fe7985c7da0a6eb838215544229a9
+GIT binary patch
+literal 194
+zcmZ?wbhEHblwuHIc+9}?|Ns932M#d&XJ9yE%rFy(7#PwRfB-0t6)64_bS_FwEJ;mK
+zD9<d(P;mG34Pa3G$->CMz`~#d(g`w{fhB6f3D4DgEnXisWe_S4nVT+>VBx3ACUU4?
+ziEd!{0m0K>Rt3p>=9wq|%&|N0a<TLW4b_WJR0Tw4`3IGlmQ-~|Wqf*YwyoEpSvY6q
+X-J&<&KDu$F<puSAT=CvpiNP8GRxVb>
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/urls.py b/mysite/urls.py
+index 537e042..83c59ca 100644
+--- a/mysite/urls.py
++++ b/mysite/urls.py
+@@ -142,6 +142,20 @@ urlpatterns = patterns('',
+         (r'^missions/git/rebase$', 'mysite.missions.git.views.rebase'),
+         (r'^missions/git/rebase/submit$', 'mysite.missions.git.views.rebase_submit'),
+ 
++        (r'^missions/bash$', 'mysite.missions.bash.views.main_page'),
++        (r'^missions/bash/description$', 'mysite.missions.bash.views.long_description'),
++        (r'^missions/bash/username$', 'mysite.missions.bash.views.username'),
++        (r'^missions/bash/reset$', 'mysite.missions.bash.views.reset'),
++        (r'^missions/bash/username/submit$', 'mysite.missions.bash.views.username_submit'),
++        (r'^missions/bash/username_next/submit$', 'mysite.missions.bash.views.username_next_submit'),
++        (r'^missions/bash/basics$', 'mysite.missions.bash.views.basics'),
++        (r'^missions/bash/top$', 'mysite.missions.bash.views.top'),
++        (r'^missions/bash/top/submit$', 'mysite.missions.bash.views.top_submit'),
++        (r'^missions/bash/help$', 'mysite.missions.bash.views.bash_help_page'),
++        (r'^missions/bash/help/submit$', 'mysite.missions.bash.views.bash_help_submit'),
++        (r'^missions/bash/files$', 'mysite.missions.bash.views.files'),
++        (r'^missions/bash/files/submit$', 'mysite.missions.bash.views.files_submit'),
++
+         # Customs-related URLs
+         (r'^customs/$', 'mysite.customs.views.list_trackers'),
+         (r'^customs/add/(?P<tracker_type>\w*)$', 'mysite.customs.views.add_tracker'),
+-- 
+1.7.2.5
+

@@ -1,0 +1,28 @@
+well..i think stars not aligned for me... I initially thought &quot;South&quot; is some person or something..without realizing that the document is referring to the migration tool...so i have experimented with various debian versions from EC2 and getting different errors..but for now.. I have lost  the previous error details... .. I am sure.. it will ultimately work me....one of the error that can be improved in the document is that apt-get couldnt find python2.6-dev version... i had to compile 2.6 manually.. with zlib options..we should update the document if it is the case...<br>
+<br><div class="gmail_quote">On Fri, Mar 25, 2011 at 4:06 AM, Jack Grigg <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">
+<br>
+Jack Grigg &lt;<a href="mailto:me@jackgrigg.com">me@jackgrigg.com</a>&gt; added the comment:<br>
+<br>
+Viv, could you pastebin (<a href="http://pastebin.com/" target="_blank">http://pastebin.com/</a>) the<br>
+output of the migration command? So that we can see<br>
+what error you are getting.<br>
+<br>
+I have a feeling that the error will be something to<br>
+do with an index name being too long, as that has<br>
+recently affected several people including myself<br>
+(though the reason is unknown, as it was fine for a<br>
+long time). If so then it is reasonably easy to fix.<br>
+<br>
+Also, the script that the README refers to is in the<br>
+error message that South outputs, just above the stack<br>
+trace - where it says something like &quot;You MAY be able<br>
+to recover by executing the following:&quot;.<br>
+<br>
+----------<br>
+nosy: +pythonian4000<br>
+<div><div></div><div class="h5"><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue344" target="_blank">https://openhatch.org/bugs/issue344</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br>

@@ -1,0 +1,25 @@
+From 97ab88f6d1a58619469364d12040cf17fff209a9 Mon Sep 17 00:00:00 2001
+From: Eddie Blundell <eblundell@gmail.com>
+Date: Sat, 12 Nov 2011 12:17:44 +0000
+Subject: [PATCH] added correct patch usage
+
+---
+ .../missions/diffpatch/recursive_patch.html        |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/diffpatch/recursive_patch.html b/mysite/missions/templates/missions/diffpatch/recursive_patch.html
+index 96a9283..edf8201 100644
+--- a/mysite/missions/templates/missions/diffpatch/recursive_patch.html
++++ b/mysite/missions/templates/missions/diffpatch/recursive_patch.html
+@@ -28,7 +28,7 @@
+     <p>Here is your mission:</p>
+     <ul class="raquo_bullets">
+       <li>Download <a href="{% url mysite.missions.diffpatch.views.patchrecursive_get_original_tarball %}">this tarball</a> and <a href="{% url mysite.missions.diffpatch.views.patchrecursive_get_patch %}">this patch</a>.</li>
+-      <li>Unpack the tarball and apply the patch using <code>patch -p1</code> from the <code>hats</code> directory.</li>
++      <li>Unpack the tarball and apply the patch using <code>patch -p1 &lt; patch_file</code> from the <code>hats</code> directory.</li>
+       <li>Answer some questions below about the contents of the files inside.</li>
+     </ul>
+ 
+-- 
+1.7.4.4
+

@@ -1,0 +1,40 @@
+From b371f3078f923d2ac584715df2e81fcdd4d55a5c Mon Sep 17 00:00:00 2001
+From: Walker Hale IV <walker.hale.iv@gmail.com>
+Date: Wed, 14 Mar 2012 10:03:53 -0700
+Subject: [PATCH 3/4] Add test methods to exercise snapshot files
+
+---
+ mysite/customs/tests.py |   14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+ mode change 100644 => 100755 mysite/customs/tests.py
+
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+old mode 100644
+new mode 100755
+index 29e7bc8..527af3d
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -1931,6 +1931,20 @@ class DataExport(django.test.TestCase):
+         self.assertEquals(new_tagtype_understands.name, 'understands')
+         self.assertEquals(new_tagtype_can_mentor.name, 'can_mentor')
+ 
++    def test_load_persons_and_profiles1(self):
++        self.load_snapshot_file('snapshot1.json')
++
++    def test_load_persons_and_profiles2(self):
++        self.load_snapshot_file('snapshot2.json')
++
++    def load_snapshot_file(self, snapshot_file_name):
++        snapshot_file_path = os.path.join(
++            settings.MEDIA_ROOT, 'sample-data', 'snapshots', snapshot_file_name
++        )
++        with open(snapshot_file_path) as snapshot_file:
++            for obj in django.core.serializers.deserialize('json', snapshot_file, using='default'):
++                obj.save()
++
+ # vim: set nu:
+ 
+ @skipIf(mysite.base.depends.lxml.html is None, "To run these tests, you must install lxml. See ADVANCED_INSTALLATION.mkd for more.")
+-- 
+1.7.9.2
+

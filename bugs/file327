@@ -1,0 +1,67 @@
+From 2ddee6409dc7353736b9593719b9146bebf788c1 Mon Sep 17 00:00:00 2001
+From: AFMac <amackenzieus@yahoo.com>
+Date: Sun, 5 Jun 2011 14:17:21 -0400
+Subject: [PATCH] Fix to issue 437, with associated unit test updates.
+
+---
+ mysite/missions/diffpatch/controllers.py |    8 +++++++-
+ mysite/missions/diffpatch/tests.py       |   10 ++++++++++
+ 2 files changed, 17 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/diffpatch/controllers.py b/mysite/missions/diffpatch/controllers.py
+index ab81ec1..526dbbb 100644
+--- a/mysite/missions/diffpatch/controllers.py
++++ b/mysite/missions/diffpatch/controllers.py
+@@ -74,6 +74,7 @@ class DiffRecursiveMission(object):
+     @classmethod
+     def validate_patch(cls, patchdata):
+         the_patch = patch.fromstring(patchdata)
++        
+ 
+         # Strip one level of directories from the left of the filenames.
+         for i, filename in enumerate(the_patch.source):
+@@ -106,7 +107,7 @@ class DiffRecursiveMission(object):
+                 raise IncorrectPatch, 'Patch does not modify file "%s", which it should modify.' % filename
+             if the_patch.target[index] != filename:
+                 raise IncorrectPatch, 'Patch headers for file "%s" have inconsistent filenames.' % filename
+-
++            
+             hunks = the_patch.hunks[index]
+             del the_patch.source[index]
+             del the_patch.target[index]
+@@ -123,6 +124,11 @@ class DiffRecursiveMission(object):
+                 else:
+                     raise IncorrectPatch, 'The modifications to "%s" will not apply correctly to the original file.' % filename
+ 
++            # Check for BOM issues.  Likely a Windows-only issue, and only when using a text editor that 
++            # includes UTF-8 BOM markers when saving files.
++            if '\xef\xbb\xbf' in ''.join(the_patch.patch_stream(StringIO(old_contents),hunks)):
++                raise IncorrectPatch, 'It appears the text editor you used to modify "%s" leaves UTF-8 BOM characters.  Try an editor like Notepad++ or something similar.' % filename
++
+             # Check that the resulting file matches what is expected.
+             if ''.join(the_patch.patch_stream(StringIO(old_contents), hunks)) != new_contents:
+                 raise IncorrectPatch, 'The modifications to "%s" do not result in the correct contents. Make sure you replaced "Aubergine", too!' % filename
+diff --git a/mysite/missions/diffpatch/tests.py b/mysite/missions/diffpatch/tests.py
+index 8893be3..933889b 100644
+--- a/mysite/missions/diffpatch/tests.py
++++ b/mysite/missions/diffpatch/tests.py
+@@ -253,6 +253,16 @@ class DiffRecursiveTests(TwillTests):
+         paulproteus = Person.objects.get(user__username='paulproteus')
+         self.assertEqual(len(StepCompletion.objects.filter(step__name='diffpatch_diffrecursive', person=paulproteus)), 0)
+ 
++    def test_do_mission_incorrectly_BOM(self):
++        diff = StringIO('--- a/foo.txt\n+++ b/foo.txt\n@@ -0,0 +0,1 @@\n+\xef\xbb\xbfHello World\n')
++        diff.name = 'foo.patch'
++        submit_response = self.client.post(reverse(views.diffrecursive_submit), {'diff': diff})
++        self.assertFalse(submit_response.context['diffrecursive_success'])
++
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='diffpatch_diffrecursive', person=paulproteus)), 0)
++
++
+ class PatchRecursiveTests(TwillTests):
+     fixtures = ['user-paulproteus', 'person-paulproteus']
+ 
+-- 
+1.7.0.4
+

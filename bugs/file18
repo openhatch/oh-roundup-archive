@@ -1,0 +1,41 @@
+From 44e04ac4e285f26bbbfb9b6ff5a4647e5c8d88ed Mon Sep 17 00:00:00 2001
+From: int3 <jezreel@gmail.com>
+Date: Tue, 11 May 2010 05:10:23 +0800
+Subject: [PATCH] Add link to JSON API for profile
+
+---
+ mysite/account/templates/account/widget.html |    6 ++++++
+ mysite/static/css/account/widget.css         |    2 ++
+ 2 files changed, 8 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/account/templates/account/widget.html b/mysite/account/templates/account/widget.html
+index da3d0b1..89a2e7d 100644
+--- a/mysite/account/templates/account/widget.html
++++ b/mysite/account/templates/account/widget.html
+@@ -21,6 +21,12 @@ Widgetize yourself -
+             Include this <acronym title="Hot Taxidermists Making Latkes">HTML</acronym> wherever in your page you want to put the widget:
+             <textarea style="width: 220px; height: 100px; "><script type='text/javascript' src='{{uri_scheme}}://{{ url_prefix}}/people/{{ the_user.username }}/openhatch-widget.js'></script></textarea>
+         </div>
++
++        <div id='json-link-wrapper'>
++            <div id='json-link'>
++                <a href='{% url mysite.profile.views.widget_display_json the_user.username %}'>Construct your own widget from the JSON API</a>
++            </div>
++        </div>
+     </div>
+ </div>
+ {% endblock settings_main %}
+diff --git a/mysite/static/css/account/widget.css b/mysite/static/css/account/widget.css
+index e07afdf..eca84c4 100644
+--- a/mysite/static/css/account/widget.css
++++ b/mysite/static/css/account/widget.css
+@@ -1,4 +1,6 @@
+ #widget-settings textarea { width: 500px; font: 8pt monospace; height: 300px; }
+ #widget-settings #widget-instructions { margin-left: 30px; margin-top: 10px; float: left; width: 240px; padding: 21px; background-color: #ffc; }
++#widget-settings #json-link { padding: 20px 10px 20px 10px; background-image: url('/static/images/motif.png'); }
++#widget-settings #json-link-wrapper { margin-top: 20px; padding: 10px; float: left; width: 242px; background-image: url('/static/images/motif-eee.png')}
+ #widget-settings xmp { white-space: normal; margin-bottom: 0; }
+ #widget-settings .submodule p { padding: 5px; margin: 0; }
+-- 
+1.6.0.4
+

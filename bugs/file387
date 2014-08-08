@@ -1,0 +1,26 @@
+From c27a3d897b834c9b89d256074312b00e105a71e5 Mon Sep 17 00:00:00 2001
+From: Hadrien Dorio <hadrien.dorio@gmail.com>
+Date: Fri, 26 Aug 2011 14:29:20 +1100
+Subject: [PATCH] Replace 'typographical' by 'spelling'
+
+Closes: https://openhatch.org/bugs/issue548
+---
+ mysite/missions/templates/missions/svn/diff.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/svn/diff.html b/mysite/missions/templates/missions/svn/diff.html
+index 11945ef..74712a7 100644
+--- a/mysite/missions/templates/missions/svn/diff.html
++++ b/mysite/missions/templates/missions/svn/diff.html
+@@ -34,7 +34,7 @@
+ <p>Your mission is this:</p>
+ <ul class="raquo_bullets">
+   <li>You can use your working copy from the previous mission.</li>
+-  <li>The file <code>{{ file_for_svn_diff }}</code> contains a typographical error.  Fix it in your working copy.</li>
++  <li>The file <code>{{ file_for_svn_diff }}</code> contains a spelling error.  Fix it in your working copy.</li>
+   <li>Run <code>svn diff</code> and paste its output into the box below.</li>
+ </ul>
+ 
+-- 
+1.7.1
+

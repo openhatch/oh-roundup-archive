@@ -1,0 +1,27 @@
+From 246d79046d47953f8fc0afe9f4846e672a76b88e Mon Sep 17 00:00:00 2001
+From: Laura Schneider <lauramoyschneider@gmail.com>
+Date: Sun, 26 Feb 2012 12:28:00 -0500
+Subject: [PATCH] Edited to make project page show up on google Chrome as in
+ English.
+
+---
+ mysite/project/templates/project/projects.html |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/project/templates/project/projects.html b/mysite/project/templates/project/projects.html
+index 99fc9a1..bb0d49e 100644
+--- a/mysite/project/templates/project/projects.html
++++ b/mysite/project/templates/project/projects.html
+@@ -53,7 +53,8 @@ about the projects we index
+ {% block main %}
+ <div id='big-project-list' class='module'>
+     <div class='module-content body'>
+-        <h4>
++        <meta http-equiv="content-Language" content="en_US" />
++	<h4>
+             <label for="search_q">Search for a project</label>
+         </h4>
+         <form method="GET" action="" style='width: 100%; float: left; '>
+-- 
+1.7.9.msysgit.0
+

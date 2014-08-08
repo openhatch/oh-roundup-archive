@@ -1,0 +1,30 @@
+From e50ce8b356fcdd0d09e380465764d31d40656aae Mon Sep 17 00:00:00 2001
+From: Russia Madden <dataengineer007@gmail.com>
+Date: Tue, 13 Mar 2012 15:19:37 -0700
+Subject: [PATCH 1/2] Deleted patch.py that contained python-patch version
+ 10.04-2. Added python-patch version 10.1-11 to
+ vendor/packages/python-patch. Modified the
+ vendor/dependencies reflect the change.
+
+---
+ mysite/missions/base/.DS_Store |  Bin 0 -> 6148 bytes
+ 1 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 mysite/missions/base/.DS_Store
+
+diff --git a/mysite/missions/base/.DS_Store b/mysite/missions/base/.DS_Store
+new file mode 100644
+index 0000000000000000000000000000000000000000..5008ddfcf53c02e82d7eee2e57c38e5672ef89f6
+GIT binary patch
+literal 6148
+zcmeH~Jr2S!425mzP>H1@V-^m;4Wg<&0T*E43hX&L&p$$qDprKhvt+--jT7}7np#A3
+zem<@ulZcFPQ@L2!n>{z**<q8>++&mCkOWA81W14cNZ<zv;LbK1Poaz?KmsK2CSc!(
+z0ynLxE!0092;Krf2c+FF_Fe*7ECH>lEfg7;MkzE(HCqgga^y>{tEnwC%0;vJ&^%eQ
+zLs35+`xjp>T0<F0fCPF1$Cyrb|F7^5{eNG?83~ZUUlGt@xh*qZDeu<Z%US-OSsOPv
+j)R!Z4KLME7ReXlK;d!wEw5GODWMKRea10D2@KpjYNUI8I
+
+literal 0
+HcmV?d00001
+
+-- 
+1.7.5.4
+

@@ -1,0 +1,89 @@
+#!/usr/bin/php5
+<?php
+  $nl="\n\r";
+
+  // connect to database
+  $db_host = "localhost";
+  $db_name = "oh_milestone_a";
+  $db_user = "oh_milestone_a";
+  $db_pwd  = "ahmaC0Th" ;
+
+  $dbConnection = mysql_pconnect($db_host, $db_user, $db_pwd);
+  if ( !mysql_ping($dbConnection) ) {
+    // when timed out reconnect
+    $dbConnection = mysql_pconnect($db_host, $db_user, $db_pwd);
+  }
+  
+  $dbStatus = mysql_select_db($db_name, $dbConnection);
+  if (!$dbStatus) {
+    die ('Unable to select requisted database: '.mysql_error().$nl);
+  }
+  
+  // table  : profile_person
+  // fields : id 	interested_in_working_on 	gotten_name_from_ohloh 	user_id 	last_polled 	show_email 	photo 	photo_thumbnail 	location_display_name 	dont_guess_my_location 	location_confirmed 	bio 	homepage_url 	contact_blurb 	photo_thumbnail_30px_wide 	expand_next_steps 	photo_thumbnail_20px_wide 	email_me_weekly_re_projects 
+  $query=sprintf("SELECT * FROM profile_person");
+  $resultset = mysql_query($query);
+  if (!$resultset) {
+    die ('Invalid query: '.mysql_error().$nl);
+  }
+
+  // create KML/XML document
+  while ($row = mysql_fetch_assoc($resultset)) {
+    $userID=$row['user_id'];
+    printf($nl."user_id               : ".$userID.$nl);
+    $locationDisplayname = $row['location_display_name'];
+
+//for testing purposes
+$locationDisplayname = "Philadelphia, PA, United States";
+
+    printf("location_display_name : ".$locationDisplayname.$nl);
+    $locationConfirmed = $row['location_confirmed'];
+/*
+    printf("location_confirmed: ".$locationConfirmed. "(".strlen($locationConfirmed).")".$nl);
+    if ( strlen(trim($locationConfirmed)) > 0 ) {
+      $normalizedLocation=str_replace(" ", "+", $locationConfirmed);
+    }
+    else {
+      $normalizedLocation=str_replace(" ", "+", $locationDisplayname);
+    }
+*/
+    $normalizedLocation=str_replace(" ", "+", $locationDisplayname);
+    
+    printf("Normalized location   : ".$normalizedLocation.$nl);
+    if (strlen($normalizedLocation) == 0 ){
+      die ('No location specified for used_id='.$userID.$nl);
+    }
+
+    // provider : http://www.gisgraphy.com/
+    $doc = new DOMDocument();
+    $doc->formatOutput = true;
+    $geoURL="http://services.gisgraphy.com/fulltext/fulltextsearch?q=".$normalizedLocation."&placetype=&country=&lang=&format=XML&style=FULL&indent=true&from=1&to=2";
+    printf("Geo URL               : ".$geoURL.$nl);
+    $doc->load($geoURL);
+
+    $xpath = new DOMXpath($doc);
+
+    $elements = $xpath->query("/response/result/doc/double");
+/*    
+    foreach ($elements as $elem) {
+      printf("Node: ".$elem->nodeName);
+      $tagname = $elem->localName;
+      printf(" ".$tagname." ");
+      printf(" = ");
+      printf(($elem->nodeValue).$nl);
+    }
+*/
+    $lat=$elements->item(2)->nodeValue;
+    $lng=$elements->item(3)->nodeValue;
+
+    printf("Latitude              : ".$lat.$nl);
+    printf("Longitude             : ".$lng.$nl);
+
+  }
+  
+  mysql_free_result($resultset);
+  
+  // http://www.zipcodeworld.com/samples/distance.php.html
+  // http://snipplr.com/view/40956/use-google-maps-api-to-get-latitude-and-longitude/
+  // 
+?>

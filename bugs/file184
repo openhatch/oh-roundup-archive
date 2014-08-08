@@ -1,0 +1,22 @@
+diff --git a/setup.py b/setup.py
+index 6e06cdf..73fdd25 100644
+--- a/setup.py
++++ b/setup.py
+@@ -64,7 +64,7 @@ setup(
+                         'python-launchpad-bugs',
+                         'html2text',
+                         'lockfile>=0.9', # as of this writing, pypi only has version 0.8
+-                        'python-openid==2.2.5', # as of this writing, upstream has an HTML file where a tar.gz should be
++                        'python-openid==2.2.5-openhatch1', # as of this writing, upstream has an HTML file where a tar.gz should be
+                         'sessionprofile==1.0',
+                        ],
+ 
+@@ -80,7 +80,7 @@ setup(
+     # can override their download URL.
+     dependency_links = [dependency_path,
+                         'http://pylockfile.googlecode.com/files/lockfile-0.9.tar.gz#egg=lockfile',
+-                        dependency_path + 'python-openid-2.2.5.tar.gz#egg=python-openid',
++                        dependency_path + 'python-openid-2.2.5-openhatch1.tar.gz#egg=python-openid-2.2.5-openhatch1',
+                         dependency_path + 'keyring-0.5.0.1.tar.gz#egg=keyring',
+                         dependency_path + 'python_apt-0.6.17-py2.6-linux-i686.egg#egg=python-apt',
+                         dependency_path + 'invitation-1.0.tar.gz#egg=invitation',

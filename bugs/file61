@@ -1,0 +1,71 @@
+From 48a9df38822a51eb232f547f547a71879137170d Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Fri, 30 Jul 2010 03:07:30 +0000
+Subject: [PATCH] Added catch for Google projects that throw 403, and tests. Eventually
+ we could try running the Google importer authenticated, but for the
+ project that is currently 403ing a normal Google login doesn't have
+ permission to view it or its issues.
+
+---
+ .../management/commands/customs_daily_tasks.py     |    8 +++++++-
+ mysite/customs/tests.py                            |   11 +++++++++++
+ 2 files changed, 18 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/management/commands/customs_daily_tasks.py b/mysite/customs/management/commands/customs_daily_tasks.py
+index 62afa9c..10423d1 100644
+--- a/mysite/customs/management/commands/customs_daily_tasks.py
++++ b/mysite/customs/management/commands/customs_daily_tasks.py
+@@ -1,6 +1,8 @@
+ import logging
+ import urllib2
+ 
++import gdata.client
++
+ from django.core.management.base import BaseCommand
+ 
+ import django.conf
+@@ -113,7 +115,11 @@ class Command(BaseCommand):
+         for thing in enabled_google_instances:
+             logging.info("[Google] About to update %s" % thing)
+             instantiated = thing()
+-            instantiated.update()
++            try:
++                instantiated.update()
++            except gdata.client.RequestError, e:
++                logging.error("[Google] ERROR: Importer failed, probably HTTP403, continuing on...")
++                logging.error("[Google] Error message: %s" % str(e))
+ 
+     def update_launchpad_hosted_projects(self):
+         ### For Launchpad:
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index eb200da..ac16dd4 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -31,6 +31,7 @@ import datetime
+ from dateutil.tz import tzutc
+ import ohloh
+ import lp_grabber
++import gdata.client
+ 
+ from mysite.profile.tasks import FetchPersonDataFromOhloh
+ import mysite.customs.debianqa
+@@ -1262,6 +1263,16 @@ class DailyBugImporter(django.test.TestCase):
+         mock_error.side_effect = ValueError()
+         self.assertRaises(ValueError, mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_bugzilla_instances)
+ 
++    @mock.patch('gdata.projecthosting.client.ProjectHostingClient.get_issues')
++    def test_google_request_error_does_not_break(self, mock_error):
++        mock_error.side_effect = gdata.client.RequestError()
++        mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_google_instances()
++
++    @mock.patch('gdata.projecthosting.client.ProjectHostingClient.get_issues')
++    def test_google_generic_error_does_break(self, mock_error):
++        mock_error.side_effect = ValueError()
++        self.assertRaises(ValueError, mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_google_instances)
++
+ class GoogleCodeBugTracker(django.test.TestCase):
+     @mock.patch('mysite.customs.bugtrackers.google.GoogleBug.get_bug_atom_data')
+     def test__bug_id_from_bug_data(self, mock_thing):
+-- 
+1.7.1
+

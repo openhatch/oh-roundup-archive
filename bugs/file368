@@ -1,0 +1,25 @@
+From cfc4f9a22e43f1315d0df7ad647a7e05e162dee1 Mon Sep 17 00:00:00 2001
+From: Mark Freeman <mark@timewasted.net>
+Date: Thu, 7 Jul 2011 09:33:59 -0500
+Subject: [PATCH] models.py: Removed invalid semicolon from field definition.
+
+---
+ mysite/profile/models.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/profile/models.py b/mysite/profile/models.py
+index fd47dae..39443e1 100644
+--- a/mysite/profile/models.py
++++ b/mysite/profile/models.py
+@@ -124,7 +124,7 @@ class Person(models.Model):
+     email_me_weekly_re_projects = models.BooleanField( default=True,
+             verbose_name='Email me weekly about activity in my projects')
+     
+-    irc_nick = models.CharField(max_length=30, blank=True, null=True);
++    irc_nick = models.CharField(max_length=30, blank=True, null=True)
+     
+     @staticmethod
+     def create_dummy(first_name="", email=None, **kwargs):
+-- 
+1.7.4.1
+

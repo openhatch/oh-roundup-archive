@@ -1,0 +1,45 @@
+On the production site, I got a traceback email.<div><br></div><div>I wonder if this means that signing up for a new account, or maybe merging your OpenID with a password-based account, is not working properly, perhaps due to the Django upgrade?</div>
+<div><br></div><div><div><br>---------- Forwarded message ----------<br>From: <b></b> &lt;<a href="mailto:mr_website@linode.openhatch.org">mr_website@linode.openhatch.org</a>&gt;<br>Date: Sunday, July 13, 2014<br>Subject: [Monitoring-private] [Kaboom@OH] ERROR (EXTERNAL IP): Internal Server Error: /openid/register/<br>
+To: <a href="mailto:monitoring-private@lists.openhatch.org">monitoring-private@lists.openhatch.org</a><br><br><br>Traceback (most recent call last):<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/core/handlers/base.py&quot;, line 109, in get_response<br>
+    response = callback(request, *callback_args, **callback_kwargs)<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/django-authopenid/django_authopenid/views.py&quot;, line 159, in decorated<br>
+    return func(request, *args, **kwargs)<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/mysite/account/views.py&quot;, line 527, in register<br>
+    &#39;email&#39;: email<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/forms/forms.py&quot;, line 124, in is_valid<br>
+    return self.is_bound and not bool(self.errors)<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/forms/forms.py&quot;, line 115, in _get_errors<br>
+    self.full_clean()<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/forms/forms.py&quot;, line 271, in full_clean<br>
+    self._clean_form()<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/forms/forms.py&quot;, line 299, in _clean_form<br>
+    self.cleaned_data = self.clean()<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/contrib/auth/forms.py&quot;, line 167, in clean<br>
+    password=password)<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/contrib/auth/__init__.py&quot;, line 45, in authenticate<br>
+    user = backend.authenticate(**credentials)<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/contrib/auth/backends.py&quot;, line 15, in authenticate<br>
+    if user.check_password(password):<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/contrib/auth/models.py&quot;, line 304, in check_password<br>
+    return check_password(raw_password, self.password, setter)<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/contrib/auth/hashers.py&quot;, line 48, in check_password<br>
+    hasher = get_hasher(algorithm)<br>
+<br>
+  File &quot;/home/deploy/milestone-a.buildout/vendor/packages/Django/django/contrib/auth/hashers.py&quot;, line 121, in get_hasher<br>
+    &quot;setting?&quot; % algorithm)<br>
+<br>
+ValueError: Unknown password hashing algorithm &#39;&#39;. Did you specify it in the PASSWORD_HASHERS setting?<br>
+<br><br><div><br></div><div><br></div></div></div>

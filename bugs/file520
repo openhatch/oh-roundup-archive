@@ -1,0 +1,30 @@
+From 8534814a31dfea56a752b1cbe49b742ddba8dc6c Mon Sep 17 00:00:00 2001
+From: Mary Yen <mymaryyn@gmail.com>
+Date: Sat, 15 Sep 2012 17:43:58 -0400
+Subject: [PATCH] I moved the secret password message that The Brain gives to
+ users who have submitted a patch at least 4 spaces to the
+ left.
+
+---
+ mysite/missions/git/controllers.py |    5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index 6622411..6200010 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -55,8 +55,9 @@ class GitDiffMission(object):
+         if commit_diff.returncode == 0: # for shell commands, success is 0
+             commit_msg = """Fixed a terrible mistake. Thanks for reporting this %s.
+ 
+-                Come to my house for a dinner party.
+-                Knock 3 times and give the secret password: Pinky.""" % username
++         Come to my house for a dinner party.
++         Knock 3 times and give the secret password: Pinky.""" 
++% username
+             subprocess.Popen(['git', 'commit', '--allow-empty', '-m', commit_msg], cwd=repo.repo_path)
+             return True
+         else:
+-- 
+1.7.9.5
+

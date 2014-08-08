@@ -1,0 +1,46 @@
+From ad0243c4fb18fceeca54683bc68fef49c2fe6a1b Mon Sep 17 00:00:00 2001
+From: Aaron Hill <aa1ronham@aol.com>
+Date: Wed, 8 May 2013 06:13:03 -0400
+Subject: [PATCH 5/5] Fixed failing FacetFilterResults tests
+
+---
+ mysite/search/tests.py        | 5 +++--
+ mysite/search/view_helpers.py | 3 ++-
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/search/tests.py b/mysite/search/tests.py
+index ce270bc..4ffc959 100644
+--- a/mysite/search/tests.py
++++ b/mysite/search/tests.py
+@@ -475,11 +475,12 @@ class SearchTemplateDecodesQueryString(SearchTest):
+ 
+ class FacetsFilterResults(SearchTest):
+     def setUp(self):
++        SearchTest.setUp(self)
+         self.python_project = Project.create_dummy(language='Python')
+-        self.python_bug = Bug.create_dummy(project=python_project)
++        self.python_bug = Bug.create_dummy(project=self.python_project)
+ 
+         self.not_python_project = Project.create_dummy(language='Nohtyp')
+-        self.not_python_bug = Bug.create_dummy(project=not_python_project)
++        self.not_python_bug = Bug.create_dummy(project=self.not_python_project)
+ 
+ 
+     def test_facets_filter_results(self):
+diff --git a/mysite/search/view_helpers.py b/mysite/search/view_helpers.py
+index af5ad1c..aae7c2a 100644
+--- a/mysite/search/view_helpers.py
++++ b/mysite/search/view_helpers.py
+@@ -84,7 +84,8 @@ class Query:
+         for facet in possible_facets:
+             if GET.get(facet):
+                 active_facet_options[facet] = GET.get(facet)
+-            else:
++            elif GET.get(facet) == '':  # Only select any_facet if a facet is
++                # empty string, not None
+                 any_facet = True
+         terms_string = GET.get('q', u'')
+         terms = Query.split_into_terms(terms_string)
+-- 
+1.8.1.2
+

@@ -1,0 +1,21 @@
+Thanks for reviewing and implementing it.. I will look forward for more bite-size fixes...<br><br><div class="gmail_quote">On Wed, Jul 6, 2011 at 8:26 PM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;"><div class="im"><br>
+Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:<br>
+<br>
+</div>Hi Vivek,<br>
+<br>
+I like the more descriptive git commit log messages for the 0004 and 0005<br>
+patches. In the future, try to make them all like that.<br>
+<br>
+I&#39;m merging this work now and deploying. Thank you for it! The site is actually<br>
+very likely to load faster now.<br>
+<br>
+----------<br>
+milestone: 0.11.07 -&gt; 0.11.06<br>
+status: need-review -&gt; resolved<br>
+<div><div></div><div class="h5"><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue310" target="_blank">https://openhatch.org/bugs/issue310</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br>

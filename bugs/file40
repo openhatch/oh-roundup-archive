@@ -1,0 +1,34 @@
+From 1156369ea1d49d77292c1063df36fb183c76841d Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Sun, 27 Jun 2010 23:49:33 +0000
+Subject: [PATCH] Modified customs.BugzillaTests to create correct dummy project, to stop test calling Ohloh.
+
+---
+ mysite/customs/tests.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index a51341e..984b870 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -279,7 +279,7 @@ class BugzillaTests(django.test.TestCase):
+     fixtures = ['miro-project']
+     @mock.patch("mysite.customs.bugtrackers.bugzilla.url2bug_data")
+     def test_kde(self, mock_xml_opener):
+-        p = Project.create_dummy(name='KDE')
++        p = Project.create_dummy(name='kmail')
+         mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
+             settings.MEDIA_ROOT, 'sample-data', 'kde-117760-2010-04-09.xml')).read())
+         kde = mysite.search.tasks.bugzilla_instances.KDEBugzilla()
+@@ -292,7 +292,7 @@ class BugzillaTests(django.test.TestCase):
+ 
+     @mock.patch("mysite.customs.bugtrackers.bugzilla.url2bug_data")
+     def test_kde_harder_bug(self, mock_xml_opener):
+-        p = Project.create_dummy(name='KDE')
++        p = Project.create_dummy(name='kphotoalbum')
+         mock_xml_opener.return_value = lxml.etree.XML(open(os.path.join(
+             settings.MEDIA_ROOT, 'sample-data', 'kde-182054-2010-04-09.xml')).read())
+         kde = mysite.search.tasks.bugzilla_instances.KDEBugzilla()
+-- 
+1.7.1
+

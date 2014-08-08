@@ -1,0 +1,25 @@
+From ec7fade0c4d69eea9d5c8617fb0c8318e043946a Mon Sep 17 00:00:00 2001
+From: Tiago Sousa <ttiagosousa@gmail.com>
+Date: Thu, 23 Jun 2011 11:37:34 +0100
+Subject: [PATCH] Fixed bug 457
+
+---
+ .../missions/templates/missions/git/main_page.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/git/main_page.html b/mysite/missions/templates/missions/git/main_page.html
+index fcdef90..b310295 100644
+--- a/mysite/missions/templates/missions/git/main_page.html
++++ b/mysite/missions/templates/missions/git/main_page.html
+@@ -21,7 +21,7 @@
+ {% block mission_main_body %}
+ <h3>The set-up</h3>
+ 
+-<p>Somobody out there tried to write a 'Hello, world!" program, but they wrote
++<p>Somebody out there tried to write a 'Hello, world!" program, but they wrote
+ it as "Goodbye, world!". What a mess! Luckily, you can step in and submit a
+ patch.  I bet the maintainer would gladly accept it too!</p>
+ 
+-- 
+1.7.5.2
+

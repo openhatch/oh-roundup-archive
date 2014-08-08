@@ -1,0 +1,463 @@
+From 4f4f92c25c61fe3e87fef58a032bda0d6edc621e Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Thu, 15 Sep 2011 14:14:20 -0400
+Subject: [PATCH 1/7] Make completed_missions a defaultdict
+
+---
+ mysite/missions/base/tests.py |   11 +++++++++--
+ mysite/missions/base/views.py |    6 +++++-
+ 2 files changed, 14 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/missions/base/tests.py b/mysite/missions/base/tests.py
+index 94da4c8..33a73a2 100644
+--- a/mysite/missions/base/tests.py
++++ b/mysite/missions/base/tests.py
+@@ -40,6 +40,12 @@ import random
+ def make_testdata_filename(mission_type, filename):
+     return os.path.join(os.path.dirname(__file__), '..', mission_type, 'testdata', filename)
+ 
++def list_of_true_keys(d):
++    ret = []
++    for key in d:
++        if d[key]:
++            ret.append(key)
++    return ret
+ 
+ class MainPageTests(TwillTests):
+     fixtures = ['person-paulproteus', 'user-paulproteus']
+@@ -50,10 +56,11 @@ class MainPageTests(TwillTests):
+ 
+     def test_mission_completion_list_display(self):
+         response = self.client.get(reverse(views.main_page))
+-        self.assertEqual(response.context['completed_missions'], {})
++        self.assertFalse(list_of_true_keys(response.context['completed_missions']))
+ 
+         paulproteus = Person.objects.get(user__username='paulproteus')
+         StepCompletion(person=paulproteus, step=Step.objects.get(name='tar')).save()
+ 
+         response = self.client.get(reverse(views.main_page))
+-        self.assertEqual(response.context['completed_missions'], {'tar': True})
++        self.assertEqual(['tar'],
++                         list_of_true_keys(response.context['completed_missions']))
+diff --git a/mysite/missions/base/views.py b/mysite/missions/base/views.py
+index 5ab5adc..5b8464f 100644
+--- a/mysite/missions/base/views.py
++++ b/mysite/missions/base/views.py
+@@ -29,6 +29,7 @@ from django.contrib.auth.decorators import login_required
+ 
+ import os
+ import simplejson
++import collections
+ 
+ # Other missions use this helper.
+ #
+@@ -90,5 +91,8 @@ class MissionPageState(object):
+ def main_page(request):
+     completed_missions = {}
+     if request.user.is_authenticated():
+-        completed_missions = dict((c.step.name, True) for c in StepCompletion.objects.filter(person=request.user.get_profile()))
++        completed_missions = collections.defaultdict(bool)
++        completed_missions.update(
++            dict((c.step.name, True)
++                 for c in StepCompletion.objects.filter(person=request.user.get_profile())))
+     return (request, 'missions/main.html', {'completed_missions': completed_missions})
+-- 
+1.7.5.4
+
+
+From 06895e9e36c0ffc6ca4fd9002f2827d4261a7512 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Thu, 15 Sep 2011 13:29:11 -0400
+Subject: [PATCH 2/7] Add a dict to missions.views.base.index indicating which
+ missions are done
+
+This helps the template do less work.
+---
+ mysite/missions/base/views.py |   24 +++++++++++++++++++++++-
+ 1 files changed, 23 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/base/views.py b/mysite/missions/base/views.py
+index 5b8464f..487471d 100644
+--- a/mysite/missions/base/views.py
++++ b/mysite/missions/base/views.py
+@@ -95,4 +95,26 @@ def main_page(request):
+         completed_missions.update(
+             dict((c.step.name, True)
+                  for c in StepCompletion.objects.filter(person=request.user.get_profile())))
+-    return (request, 'missions/main.html', {'completed_missions': completed_missions})
++        ### FIXME: Below is a hack. It should be easier to find out if a
++        ### training mission is fully completed.
++        fully_completed_missions = {}
++        if (completed_missions['tar'] and
++            completed_missions['tar_extract']):
++            fully_completed_missions['tar'] = True
++        if (completed_missions['diffpatch_diffsingle'] and
++            completed_missions['diffpatch_patchsingle'] and
++            completed_missions['diffpatch_diffrecursive'] and
++            completed_missions['diffpatch_patchrecursive']):
++            fully_completed_missions['diffpatch'] = True
++        if (completed_missions['svn_checkout'] and
++            completed_missions['svn_diff'] and
++            completed_missions['svn_commit']):
++            fully_completed_missions['svn'] = True
++        if (completed_missions['git_checkout'] and
++            completed_missions['git_diff'] and
++            completed_missions['git_rebase']):
++            fully_completed_missions['git'] = True
++
++    return (request, 'missions/main.html', {
++            'completed_missions': completed_missions,
++            'fully_completed_missions': fully_completed_missions})
+-- 
+1.7.5.4
+
+
+From 4609cc1308c1b4d3cc8d2b07ab63ba3cd4d90323 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Thu, 15 Sep 2011 13:34:22 -0400
+Subject: [PATCH 3/7] Re-style the /missions/ page so that missions look like
+ cards
+
+---
+ mysite/missions/templates/missions/main.html       |   91 ++++++++++----------
+ .../missions/templates/missions/mission_card.html  |   18 ++++
+ mysite/static/css/missions/base.css                |   41 +++++++++
+ 3 files changed, 105 insertions(+), 45 deletions(-)
+ create mode 100644 mysite/missions/templates/missions/mission_card.html
+
+diff --git a/mysite/missions/templates/missions/main.html b/mysite/missions/templates/missions/main.html
+index fcbf1f1..ba7c79f 100644
+--- a/mysite/missions/templates/missions/main.html
++++ b/mysite/missions/templates/missions/main.html
+@@ -50,52 +50,51 @@ Open source training missions
+     you if you succeeded.”</p>
+ 
+     <h2>Here's what we have so far</h2>
++    <h2>Get to know the tech</h2>
+ 
+-    <h3 class="nofloat">Using tar</h3>
+-    <p>Learn how to work with tar archives.</p>
+-    {% if completed_missions.tar or completed_missions.tar_extract %}
+-      {% if completed_missions.tar and completed_missions.tar_extract %}
+-        <p><em>You have completed this mission.</em></p>
+-      {% else %}
+-        <p><em>You have partially completed this mission.</em></p>
+-      {% endif %}
+-    {% endif %}
+-    <p><a href="{% url mysite.missions.tar.views.about %}">Go to this mission</a></p>
+-
+-    <h3 class="nofloat">Using diff and patch</h3>
+-    <p>Learn how to use diff and patch to submit changes to a project or apply others' changes.</p>
+-    {% if completed_missions.diffpatch_diffsingle or completed_missions.diffpatch_patchsingle or completed_missions.diffpatch_diffrecursive or completed_missions.diffpatch_patchrecursive %}
+-      {% if completed_missions.diffpatch_diffsingle and completed_missions.diffpatch_patchsingle and completed_missions.diffpatch_diffrecursive and completed_missions.diffpatch_patchrecursive %}
+-        <p><em>You have completed this mission.</em></p>
+-      {% else %}
+-        <p><em>You have partially completed this mission.</em></p>
+-      {% endif %}
+-    {% endif %}
+-    <p><a href="{% url mysite.missions.diffpatch.views.about %}">Go to this mission</a></p>
+-
+-    <h3 class="nofloat">Using Subversion</h3>
+-    <p>Learn how to interact with projects that use the Subversion version control system.</p>
+-    {% if completed_missions.svn_checkout or completed_missions.svn_diff or completed_missions.svn_commit %}
+-      {% if completed_missions.svn_checkout and completed_missions.svn_diff and completed_missions.svn_commit %}
+-        <p><em>You have completed this mission.</em></p>
+-      {% else %}
+-        <p><em>You have partially completed this mission.</em></p>
+-      {% endif %}
+-    {% endif %}
+-    <p><a href="{% url mysite.missions.svn.views.main_page %}">Go to this mission</a></p>
+-
+-    <h3 class="nofloat">Using Git</h3>
+-    <p>Learn how to interact with projects that use the Git version control
+-    system.</p>
+-    {% if completed_missions.git_checkout or completed_missions.git_diff or completed_missions.git_rebase%}
+-        {% if completed_missions.git_checkout and completed_missions.git_diff and completed_missions.git_rebase%}
+-            <p><em>You have completed this mission.</em></p>
+-        {% else %}
+-            <p><em>You have partially completed this mission.</em></p>
+-        {% endif %}
+-    {% endif %}
+-    <p><a href="{% url mysite.missions.git.views.main_page %}">Go to this
+-    mission</a></p>
++    {% with fully_completed_missions.tar as mission_completed %}
++    {% with "Using tar" as mission_title %}
++    {% with "Learn how to work with tar archives." as mission_description %}
++    {% with "/missions/tar" as mission_link %}
++    {% include 'missions/mission_card.html' %}
++    {% endwith %}
++    {% endwith %}
++    {% endwith %}
++    {% endwith %}
++
++    {% with fully_completed_missions.diffpatch as mission_completed %}
++    {% with "Using diff and patch" as mission_title %}
++    {% with "Learn how to use diff and patch to submit changes to a project or apply others' changes." as mission_description %}
++    {% with "/missions/diffpatch" as mission_link %}
++    {% include 'missions/mission_card.html' %}
++    {% endwith %}
++    {% endwith %}
++    {% endwith %}
++    {% endwith %}
++
++    <br style="clear: both;" />
++
++    <h2>Practice contributing to a project</h2>
++
++    <p>These missions let you practice sharing a patch with a maintainer.</p>
++
++    {% with fully_completed_missions.svn as mission_completed %}
++    {% with "Using Subversion" as mission_title %}
++    {% with "Learn how to interact with projects that use the Subversion version control system." as mission_description %}
++    {% with "/missions/svn" as mission_link %}
++    {% include 'missions/mission_card.html' %}
++    {% endwith %}
++    {% endwith %}
++    {% endwith %}
++    {% endwith %}
++
++    {% with fully_completed_missions.git as mission_completed %}
++    {% with "Using git" as mission_title %}
++    {% with "Learn how to interact with projects that use the Git version control system." as mission_description %}
++    {% with "/missions/git" as mission_link %}
++    {% include 'missions/mission_card.html' %}
++    {% endwith %}
++    {% endwith %}
+ 
+     <h2>Where they came from, and where they're going</h2>
+     <p>You can read about
+@@ -107,6 +106,8 @@ Open source training missions
+     <p>Now, our community of volunteers takes care of creating more missions and fixing bugs in them. We could use feedback, and if you want to jump in to help, we'd love to have you!
+       <a href="http://openhatch.org/contact/">Get in touch with us</a> and let us know what you think (or how you want to help out!). If you get stuck, <a href="http://openhatch.org/wiki/Mission_help">read our tips</a>.
+       </p>
++    {% endwith %}
++    {% endwith %}
+ 
+   </div>
+ </div>
+diff --git a/mysite/missions/templates/missions/mission_card.html b/mysite/missions/templates/missions/mission_card.html
+new file mode 100644
+index 0000000..5d68f2b
+--- /dev/null
++++ b/mysite/missions/templates/missions/mission_card.html
+@@ -0,0 +1,18 @@
++<div class="card">
++  <h3>
++    {% if mission_completed %}
++    <img width="26" width="16" class="completed_indicator" src="https://openhatch.org/static/images/tick.png" alt="(Completed)" />&nbsp;
++    {% endif %}
++    <span class="text">{{ mission_title }}</span>
++  </h3>
++  <div class="body">
++    <div class="description">
++      <span class="text">
++	{{ mission_description }}
++      </span>
++    </div>
++    <div class="go_to_it">
++      <a href="{{ mission_link }}">Go &raquo;</a>
++    </div>
++  </div>
++</div>
+diff --git a/mysite/static/css/missions/base.css b/mysite/static/css/missions/base.css
+index 0e893d5..a30d8e9 100644
+--- a/mysite/static/css/missions/base.css
++++ b/mysite/static/css/missions/base.css
+@@ -54,3 +54,44 @@ body.missions .mission-help {
+     padding-right: 7px;
+     background-color: yellow;
+ }
++
++.card {
++    float: left;
++    width: 15em;
++    margin-right: 2em;
++    margin-bottom: 0.5em;
++    border: 1px dashed;
++}
++
++.card .body {
++    padding: 0.5em;
++}
++
++.card h3 {
++    height: 20px;
++    padding-top: 0.5em;
++    text-align: center;
++    border-bottom: 1px solid;
++    float: none;
++}
++
++.card h3 .text {
++    position: relative;
++    top: -3px;
++}
++
++.card .go_to_it {
++    text-align: right;
++    float: right;
++}
++
++.card .status {
++    float: left;
++    text-align: center;
++    width: 80%;
++}
++
++.card .description {
++    margin-top: 0.2em;
++    margin-bottom: 1em;
++}
+-- 
+1.7.5.4
+
+
+From c2e903ad203825382ec39a7dc9de93e59d4200a2 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Thu, 15 Sep 2011 13:33:12 -0400
+Subject: [PATCH 4/7] On missions index, give h2 some margin
+
+---
+ mysite/missions/templates/missions/main.html |    4 ++--
+ mysite/static/css/missions/base.css          |    6 ++++++
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/main.html b/mysite/missions/templates/missions/main.html
+index ba7c79f..da5b602 100644
+--- a/mysite/missions/templates/missions/main.html
++++ b/mysite/missions/templates/missions/main.html
+@@ -19,6 +19,8 @@
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ {% endcomment %}
+ 
++{% block body_id %}missions_index{% endblock %}
++
+ {% block css %}
+ {{ block.super }}
+ .up-top {
+@@ -72,8 +74,6 @@ Open source training missions
+     {% endwith %}
+     {% endwith %}
+ 
+-    <br style="clear: both;" />
+-
+     <h2>Practice contributing to a project</h2>
+ 
+     <p>These missions let you practice sharing a patch with a maintainer.</p>
+diff --git a/mysite/static/css/missions/base.css b/mysite/static/css/missions/base.css
+index a30d8e9..2b2f69a 100644
+--- a/mysite/static/css/missions/base.css
++++ b/mysite/static/css/missions/base.css
+@@ -55,6 +55,12 @@ body.missions .mission-help {
+     background-color: yellow;
+ }
+ 
++body#missions_index div.body h2 {
++    margin-bottom: 0.5em;
++    margin-top: 0.5em;
++    clear: both;
++}
++
+ .card {
+     float: left;
+     width: 15em;
+-- 
+1.7.5.4
+
+
+From 55de1877c0cf63013fe2b6b8bea99e73466ed575 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Thu, 15 Sep 2011 13:40:17 -0400
+Subject: [PATCH 5/7] Remove "Here's what we have so far" section heading
+
+---
+ mysite/missions/templates/missions/main.html |    1 -
+ 1 files changed, 0 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/main.html b/mysite/missions/templates/missions/main.html
+index da5b602..b4696a3 100644
+--- a/mysite/missions/templates/missions/main.html
++++ b/mysite/missions/templates/missions/main.html
+@@ -51,7 +51,6 @@ Open source training missions
+     perform. Interact with this web-based robot here, and it will tell
+     you if you succeeded.”</p>
+ 
+-    <h2>Here's what we have so far</h2>
+     <h2>Get to know the tech</h2>
+ 
+     {% with fully_completed_missions.tar as mission_completed %}
+-- 
+1.7.5.4
+
+
+From 4a6a5d2e594cd0c077cde8d7fa800a32c5e7a10b Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Thu, 15 Sep 2011 13:42:11 -0400
+Subject: [PATCH 6/7] Add a note explaining the "Get to know the tech" section
+
+---
+ mysite/missions/templates/missions/main.html |    3 +++
+ 1 files changed, 3 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/main.html b/mysite/missions/templates/missions/main.html
+index b4696a3..04e89b7 100644
+--- a/mysite/missions/templates/missions/main.html
++++ b/mysite/missions/templates/missions/main.html
+@@ -53,6 +53,9 @@ Open source training missions
+ 
+     <h2>Get to know the tech</h2>
+ 
++    <p>These missions give you a tour of command-line tools you may
++      run into when contributing to free software.</p>
++
+     {% with fully_completed_missions.tar as mission_completed %}
+     {% with "Using tar" as mission_title %}
+     {% with "Learn how to work with tar archives." as mission_description %}
+-- 
+1.7.5.4
+
+
+From 6e73f584f8ec5e4bf2c6c14fc75e4f3a0d9dc3f5 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Thu, 15 Sep 2011 14:21:29 -0400
+Subject: [PATCH 7/7] Visually de-emphasize missions that are completed
+
+---
+ .../missions/templates/missions/mission_card.html  |    2 +-
+ mysite/static/css/missions/base.css                |    9 +++++++++
+ 2 files changed, 10 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/mission_card.html b/mysite/missions/templates/missions/mission_card.html
+index 5d68f2b..c954330 100644
+--- a/mysite/missions/templates/missions/mission_card.html
++++ b/mysite/missions/templates/missions/mission_card.html
+@@ -1,5 +1,5 @@
+ <div class="card">
+-  <h3>
++  <h3 {% if not mission_completed %} class="uncompleted" {% endif %}>
+     {% if mission_completed %}
+     <img width="26" width="16" class="completed_indicator" src="https://openhatch.org/static/images/tick.png" alt="(Completed)" />&nbsp;
+     {% endif %}
+diff --git a/mysite/static/css/missions/base.css b/mysite/static/css/missions/base.css
+index 2b2f69a..1e1c168 100644
+--- a/mysite/static/css/missions/base.css
++++ b/mysite/static/css/missions/base.css
+@@ -81,6 +81,15 @@ body#missions_index div.body h2 {
+     float: none;
+ }
+ 
++.card h3.uncompleted {
++    height: 20px;
++    padding-top: 0.5em;
++    text-align: center;
++    border-bottom: 1px solid;
++    float: none;
++    color: black;
++}
++
+ .card h3 .text {
+     position: relative;
+     top: -3px;
+-- 
+1.7.5.4
+

@@ -1,0 +1,51 @@
+From 493d076e01b717e45585c8adf8c78595b6b64ab6 Mon Sep 17 00:00:00 2001
+From: 2mas <t.homas.noee@gmail.com>
+Date: Mon, 2 May 2011 03:00:23 -0700
+Subject: [PATCH 1/2] Issue 419
+
+---
+ mysite/missions/templates/missions/git/rebase.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/git/rebase.html b/mysite/missions/templates/missions/git/rebase.html
+index d5bf639..3989e81 100644
+--- a/mysite/missions/templates/missions/git/rebase.html
++++ b/mysite/missions/templates/missions/git/rebase.html
+@@ -29,7 +29,7 @@
+ 
+ <p>Congratulations! The Brain has accepted your patch and commited it to the main repository. Now no one will accidentally get a "goodbye" instead of "hello"!  In fact, The Brain was so happy with your patch, he has invited you to his top secret dinner party. To get in the door, you'll need to find the password he has hidden in the commit log when your patch was applied.</p>
+ 
+-<p>To learn the secret password, you will need to update your local copy and read the logs:<br style="clear: left;" />
++<p>To learn the secret password, you will need to update your local copy and read the logs: <abbr title="on linux: git log -3">(hover for hint)</abbr><br style="clear: left;" />
+ <ul>
+ 	<li><code>git fetch</code></li>
+ 	<li><code>git rebase origin/master</code></li>
+-- 
+1.7.2.5
+
+
+From 0a45d8e1887431f9f64d3f43838dcb682dfe961e Mon Sep 17 00:00:00 2001
+From: 2mas <t.homas.noee@gmail.com>
+Date: Mon, 2 May 2011 12:44:34 -0700
+Subject: [PATCH 2/2] Issue 419 w/o -3
+
+---
+ mysite/missions/templates/missions/git/rebase.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/git/rebase.html b/mysite/missions/templates/missions/git/rebase.html
+index 3989e81..5e6ffb2 100644
+--- a/mysite/missions/templates/missions/git/rebase.html
++++ b/mysite/missions/templates/missions/git/rebase.html
+@@ -29,7 +29,7 @@
+ 
+ <p>Congratulations! The Brain has accepted your patch and commited it to the main repository. Now no one will accidentally get a "goodbye" instead of "hello"!  In fact, The Brain was so happy with your patch, he has invited you to his top secret dinner party. To get in the door, you'll need to find the password he has hidden in the commit log when your patch was applied.</p>
+ 
+-<p>To learn the secret password, you will need to update your local copy and read the logs: <abbr title="on linux: git log -3">(hover for hint)</abbr><br style="clear: left;" />
++<p>To learn the secret password, you will need to update your local copy and read the logs: <abbr title="on linux: git log">(hover for hint)</abbr><br style="clear: left;" />
+ <ul>
+ 	<li><code>git fetch</code></li>
+ 	<li><code>git rebase origin/master</code></li>
+-- 
+1.7.2.5
+

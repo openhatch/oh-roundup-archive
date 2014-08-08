@@ -1,0 +1,26 @@
+From 2767c3b1c12b61095183bffdeb53d99a980870ec Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Wed, 1 Jun 2011 12:50:31 +1200
+Subject: [PATCH] Change of roundup.css to make logo on roundup link to site
+ See: http://openhatch.org/bugs/issue402
+
+---
+ html/page.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/html/page.html b/html/page.html
+index 50bcafd..eabf0ed 100644
+--- a/html/page.html
++++ b/html/page.html
+@@ -31,7 +31,7 @@ current_milestone string:7;
+ >
+ 
+ <tr>
+- <td class="page-header-left">&nbsp;</td>
++ <td class="page-header-left"><a class="logo" href="http://openhatch.org/" title="OpenHatch">&nbsp;</a></td>
+  <td class="page-header-top">
+    <div id="body-title">
+      <h2><span metal:define-slot="body_title">body title</span></h2>
+-- 
+1.7.2.5
+

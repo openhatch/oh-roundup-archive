@@ -1,0 +1,900 @@
+From 3330549ab32c0593cca69936e60b0c922850a20f Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Fri, 25 Jun 2010 16:27:57 +0000
+Subject: [PATCH 1/2] Chopped out old unnecessary Bugzilla importer code with a large axe.
+
+---
+ mysite/customs/bugtrackers/bugzilla_general.py     |   94 -------------
+ mysite/customs/bugtrackers/fedora_fitfinish.py     |   54 --------
+ mysite/customs/bugtrackers/gnome_love.py           |   93 -------------
+ mysite/customs/bugtrackers/kde.py                  |  106 ---------------
+ mysite/customs/bugtrackers/mozilla.py              |  110 ---------------
+ mysite/customs/bugtrackers/wikimedia.py            |   44 ------
+ mysite/customs/miro.py                             |  141 --------------------
+ .../management/commands/search_daily_tasks.py      |   54 +-------
+ mysite/search/tasks/__init__.py                    |    4 -
+ mysite/search/tasks/bugzilla_instances.py          |   51 -------
+ 10 files changed, 4 insertions(+), 747 deletions(-)
+ delete mode 100644 mysite/customs/bugtrackers/bugzilla_general.py
+ delete mode 100644 mysite/customs/bugtrackers/fedora_fitfinish.py
+ delete mode 100644 mysite/customs/bugtrackers/gnome_love.py
+ delete mode 100644 mysite/customs/bugtrackers/kde.py
+ delete mode 100644 mysite/customs/bugtrackers/mozilla.py
+ delete mode 100644 mysite/customs/bugtrackers/wikimedia.py
+ delete mode 100644 mysite/customs/miro.py
+
+diff --git a/mysite/customs/bugtrackers/bugzilla_general.py b/mysite/customs/bugtrackers/bugzilla_general.py
+deleted file mode 100644
+index f67f642..0000000
+--- a/mysite/customs/bugtrackers/bugzilla_general.py
++++ /dev/null
+@@ -1,94 +0,0 @@
+-import urllib2
+-import logging
+-import mechanize
+-import lxml.etree
+-
+-import mysite.customs.miro
+-import mysite.customs.ohloh
+-import mysite.customs.models
+-import mysite.search.models
+-
+-from itertools import chain
+-
+-def bug_url2bug_id(url, BUG_URL_PREFIX):
+-    before, after = url.split(BUG_URL_PREFIX)
+-    return int(after)
+-
+-def bug_id2bug_url(bug_id, BUG_URL_PREFIX):
+-    return BUG_URL_PREFIX + str(bug_id)
+-
+-def get_remote_bug_ids_already_stored(BUG_URL_PREFIX):
+-    for bug in mysite.search.models.Bug.all_bugs.filter(
+-        canonical_bug_link__contains=BUG_URL_PREFIX):
+-        yield bug_url2bug_id(
+-            bug.canonical_bug_link, BUG_URL_PREFIX=BUG_URL_PREFIX)
+-
+-def find_ctype_xml_form_number(forms):
+-    for n, form in enumerate(forms):
+-        try:
+-            value = form.get_value('ctype')
+-            if value == 'xml':
+-                return n
+-        except:
+-            pass
+-    raise ValueError, "Could not find the right form."
+-
+-def query_url2bug_objects(BUG_URL_PREFIX,
+-                          QUERY_URL,
+-                          project_finder_plugin,
+-                          detect_if_good_for_newcomers_plugin):
+-    b = mysite.customs.ohloh.mechanize_get(QUERY_URL)
+-
+-    # find the one form with ctype XML
+-    ctype_xml_form_no = find_ctype_xml_form_number(b.forms())
+-
+-    # Click ze button
+-    b.select_form(nr=ctype_xml_form_no)
+-    b.submit()
+-
+-    # Get a bunch of XML back
+-    bugzila_elt = lxml.etree.XML(b.response().read())
+-
+-    ret = {}
+-
+-    for bug in bugzila_elt.xpath('bug'):
+-        bug_obj = mysite.customs.miro.bug_elt2bug_object(
+-            bug, canonical_bug_link_format_string=BUG_URL_PREFIX + '%d',
+-            gen_project=project_finder_plugin
+-            )
+-        bug_id = mysite.customs.bugtrackers.bugzilla_general.bug_url2bug_id(
+-            bug_obj.canonical_bug_link, BUG_URL_PREFIX=BUG_URL_PREFIX)
+-        detect_if_good_for_newcomers_plugin(bug, bug_obj)
+-        ret[bug_id] = bug_obj
+-        
+-    return ret
+-
+-def grab(current_bug_id2bug_objs,
+-         BUG_URL_PREFIX):
+-    bug_ids = chain(
+-        current_bug_id2bug_objs.keys(),
+-        get_remote_bug_ids_already_stored(BUG_URL_PREFIX))
+-
+-    for bug_id in set(bug_ids):
+-        # Sometimes create_bug_object_for_remote_bug_id will fail to create
+-        # a bug because it's somehow gone missing. For those cases:
+-
+-        # create canonical_bug_link in this function to avoid assuming the
+-        # returned bug is not None.
+-        canonical_bug_link = BUG_URL_PREFIX + str(bug_id)
+-
+-        # If there is already a bug with this canonical_bug_link in
+-        # the DB, just delete it. Same story if the bug doens't 404!
+-        bugs_this_one_replaces = mysite.search.models.Bug.all_bugs.filter(
+-            canonical_bug_link=canonical_bug_link)
+-        for delete_me in bugs_this_one_replaces:
+-            delete_me.delete()
+-
+-        if bug_id not in current_bug_id2bug_objs:
+-            continue # If the bug is not in the new data set, we're done here.
+-
+-        bug = current_bug_id2bug_objs[bug_id]
+-
+-        # Otherwise, print and save the sucker!
+-        logging.info("Got a bug: %s" % bug)
+-        bug.save()
+diff --git a/mysite/customs/bugtrackers/fedora_fitfinish.py b/mysite/customs/bugtrackers/fedora_fitfinish.py
+deleted file mode 100644
+index 01e3a54..0000000
+--- a/mysite/customs/bugtrackers/fedora_fitfinish.py
++++ /dev/null
+@@ -1,54 +0,0 @@
+-import urllib2
+-import mysite.customs.miro
+-import mechanize
+-import mysite.customs.ohloh
+-import lxml.etree
+-import mysite.customs.models
+-import mysite.search.models
+-import mysite.customs.bugtrackers.bugzilla_general
+-
+-BUG_URL_PREFIX='https://bugzilla.redhat.com/show_bug.cgi?id='
+-FIT_AND_FINISH_TRACKING_BUG='https://bugzilla.redhat.com/show_bug.cgi?ctype=xml&id=509829'
+-
+-def reload_bug_obj(bug_obj):
+-    def project_finder_plugin(bug_elt):
+-        component = bug_elt.find('component').text
+-        p, _ = mysite.search.models.Project.objects.get_or_create(name=component)
+-        # NOTE: If get_or_create() returns a new Project, we're not going
+-        # to know the primary_language.
+-        return p
+-
+-    bug_id = mysite.customs.bugtrackers.bugzilla_general.bug_url2bug_id(
+-        bug_obj.canonical_bug_link,
+-        BUG_URL_PREFIX=BUG_URL_PREFIX)
+-    b = mysite.customs.ohloh.mechanize_get(BUG_URL_PREFIX + '%d&ctype=xml' % bug_id)
+-    # Grab the bug_elt for this bug...
+-    bug_elt = lxml.etree.XML(
+-        b.response().read()).find('bug')
+-    
+-    # FIXME: Move bug_elt2bug_object into bugzilla_general
+-    data = mysite.customs.miro.bug_elt2bug_dict(
+-        bug_elt,
+-        canonical_bug_link_format_string=BUG_URL_PREFIX + '%d',
+-        gen_project=project_finder_plugin)
+-
+-    for key in data:
+-        setattr(bug_obj, key, data[key])
+-
+-    # Bug is from Fedora
+-    bug_obj.as_appears_in_distribution = 'Fedora'
+-
+-    # NOTE this makes it bitesized
+-    # NOTE also that this is a bad place to determine something
+-    # is good for newcomers.
+-    bug_obj.good_for_newcomers=True
+-    return bug_obj
+-
+-def current_fit_and_finish_bug_ids():
+-    # This returns a list of bug IDs we should look at
+-    # that's all the dependencies of this tracking bug. So:
+-    b = mysite.customs.ohloh.mechanize_get(FIT_AND_FINISH_TRACKING_BUG)
+-    xml = lxml.etree.XML(b.response().read())
+-    depends = xml.findall('bug/dependson')
+-    depends_bug_ids = [int(depend.text) for depend in depends]
+-    return depends_bug_ids
+diff --git a/mysite/customs/bugtrackers/gnome_love.py b/mysite/customs/bugtrackers/gnome_love.py
+deleted file mode 100644
+index 2aeee07..0000000
+--- a/mysite/customs/bugtrackers/gnome_love.py
++++ /dev/null
+@@ -1,93 +0,0 @@
+-import urllib2
+-import mysite.customs.miro
+-import mechanize
+-import mysite.customs.ohloh
+-import lxml.etree
+-import mysite.customs.models
+-import mysite.search.models
+-import mysite.customs.bugtrackers.bugzilla_general
+-
+-from itertools import chain
+-
+-GNOME_LOVE_QUERY='https://bugzilla.gnome.org/buglist.cgi?columnlist=id&keywords=gnome-love&query_format=advanced&resolution=---'
+-BUG_URL_PREFIX = 'https://bugzilla.gnome.org/show_bug.cgi?id='
+-
+-def get_current_bug_id2bug_objs():
+-    b = mysite.customs.ohloh.mechanize_get(GNOME_LOVE_QUERY)
+-
+-    # find the one form with ctype XML
+-    ctype_xml_form_no = mysite.customs.bugtrackers.bugzilla_general.find_ctype_xml_form_number(
+-        b.forms())
+-
+-    # Click ze button
+-    b.select_form(nr=ctype_xml_form_no)
+-    b.submit()
+-
+-    # Get a bunch of XML back
+-    bugzila_elt = lxml.etree.XML(b.response().read())
+-
+-    ret = {}
+-
+-    def project_finder_plugin(bug_elt):
+-        import mysite.search.models
+-        project_name = bug_elt.xpath('product')[0].text
+-
+-        ### Special-case a few GNOME-y project names
+-        gnome2openhatch = {'general': 'GNOME (general)',
+-                           'website': 'GNOME (website)'}
+-        if project_name in gnome2openhatch:
+-            project_name=gnome2openhatch[project_name]
+-        
+-        project, _ = mysite.search.models.Project.objects.get_or_create(
+-            name=project_name)
+-        return project
+-
+-    for bug in bugzila_elt.xpath('bug'):
+-        bug_obj = mysite.customs.miro.bug_elt2bug_object(
+-            bug, canonical_bug_link_format_string=BUG_URL_PREFIX + '%d',
+-            gen_project=project_finder_plugin
+-            )
+-        bug_id = mysite.customs.bugtrackers.bugzilla_general.bug_url2bug_id(
+-            bug_obj.canonical_bug_link, BUG_URL_PREFIX=BUG_URL_PREFIX)
+-        bug_obj.good_for_newcomers = True
+-        bug_obj.bite_size_tag_name = 'GNOME-Love'
+-        ret[bug_id] = bug_obj
+-        
+-    return ret
+-
+-def grab():
+-    """Loops over GNOME Bugzilla's list of gnome-love bugs and stores/updates
+-    them in our DB.
+-    
+-    For now, just grab the gnome-love bugs to be kind to their servers."""
+-
+-    current_bug_id2bug_objs = get_current_bug_id2bug_objs()
+-
+-    bug_ids = chain(
+-        current_bug_id2bug_objs.keys(),
+-         mysite.customs.bugtrackers.bugzilla_general.get_remote_bug_ids_already_stored(
+-             BUG_URL_PREFIX))
+-
+-    for bug_id in set(bug_ids):
+-        # Sometimes create_bug_object_for_remote_bug_id will fail to create
+-        # a bug because it's somehow gone missing. For those cases:
+-
+-        # create canonical_bug_link in this function to avoid assuming the
+-        # returned bug is not None.
+-        canonical_bug_link = BUG_URL_PREFIX + str(bug_id)
+-
+-        # If there is already a bug with this canonical_bug_link in
+-        # the DB, just delete it. Same story if the bug doens't 404!
+-        bugs_this_one_replaces = mysite.search.models.Bug.all_bugs.filter(
+-            canonical_bug_link=canonical_bug_link)
+-        for delete_me in bugs_this_one_replaces:
+-            delete_me.delete()
+-
+-        if bug_id not in current_bug_id2bug_objs:
+-            continue # If the bug is not in the new data set, we're done here.
+-
+-        bug = current_bug_id2bug_objs[bug_id]
+-
+-        # Otherwise, print and save the sucker!
+-        print bug
+-        bug.save()
+diff --git a/mysite/customs/bugtrackers/kde.py b/mysite/customs/bugtrackers/kde.py
+deleted file mode 100644
+index 81a536c..0000000
+--- a/mysite/customs/bugtrackers/kde.py
++++ /dev/null
+@@ -1,106 +0,0 @@
+-import logging
+-
+-import mysite.customs.bugtrackers.bugzilla_general
+-
+-QUERY_URL='https://bugs.kde.org/buglist.cgi?query_format=advanced&short_desc_type=allwordssubstr&short_desc=&long_desc_type=allwordssubstr&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&keywords_type=allwords&keywords=junior-jobs&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=REOPENED&bug_status=NEEDSINFO&bug_status=VERIFIED&resolution=---&emailtype1=substring&email1=&emailtype2=substring&email2=&bugidtype=include&bug_id=&votes=&chfieldfrom=&chfieldto=Now&chfieldvalue=&cmdtype=doit&order=Reuse+same+sort+as+last+time&field0-0-0=noop&type0-0-0=noop&value0-0-0='
+-BUG_URL_PREFIX = 'https://bugs.kde.org/show_bug.cgi?id='
+-
+-def project_finder_plugin(bug_xml_elt):
+-    import mysite.search.models
+-    product = bug_xml_elt.xpath('product')[0].text
+-    reasonable_products = set([
+-        'Akonadi',
+-        'Phonon'
+-        'kmail',
+-        'Rocs',
+-        'akregator',
+-        'amarok',
+-        'ark',
+-        'cervisia',
+-        'k3b',
+-        'kappfinder',
+-        'kbabel',
+-        'kdeprint',
+-        'kdesktop',
+-        'kfile',
+-        'kfourinline',
+-        'khotkeys',
+-        'kio',
+-        'kmail',
+-        'kmplot',
+-        'koffice',
+-        'kompare',
+-        'konqueror',
+-        'kopete',
+-        'kpat',
+-        'kphotoalbum',
+-        'krita',
+-        'ksmserver',
+-        'kspread',
+-        'ksysguard',
+-        'ktimetracker',
+-        'kwin',
+-        'kword',
+-        'marble',
+-        'okular',
+-        'plasma',
+-        'printer-applet',
+-        'rsibreak',
+-        'step',
+-        'systemsettings',
+-        'kdelibs',
+-        'kcontrol',
+-        'korganizer',
+-        'kipiplugins',
+-        'Phonon',
+-        'dolphin',
+-        'umbrello']
+-        )
+-    products_to_be_renamed = {
+-        'digikamimageplugins': 'digikam image plugins',
+-        'Network Management': 'KDE Network Management',
+-        'telepathy': 'telepathy for KDE',
+-        'docs': 'KDE documentation',
+-        }
+-    component = bug_xml_elt.xpath('component')[0].text
+-    things = (product, component)
+-
+-    if product in reasonable_products:
+-        project_name = product
+-    else:
+-        if product in products_to_be_renamed:
+-            project_name = products_to_be_renamed[product]
+-        else:
+-            logging.info("Guessing on KDE subproject name. Found %s" %  repr(things))
+-            project_name = product
+-
+-    project, _ = mysite.search.models.Project.objects.get_or_create(
+-        name=project_name)
+-    return project
+-
+-def detect_if_good_for_newcomers_plugin(bug_xml_elt, bug_object):
+-    # muahaha if it starts with "JJ:" eat that
+-    if bug_object.title.startswith("JJ:"):
+-        bug_object.title = bug_object.title[3:].strip()
+-    keywords_blob = bug_xml_elt.xpath('keywords')[0].text
+-    splitted = keywords_blob.split(',')
+-    splitted_and_stripped = [k.strip() for k in splitted]
+-    if 'junior-jobs' in splitted:
+-        bug_object.good_for_newcomers = True
+-    else:
+-        bug_object.good_for_newcomers = False
+-    if bug_object.project.name == 'KDE documentation':
+-        bug_object.concerns_just_documentation = True
+-
+-def get_current_bug_id2bug_objs():
+-    return mysite.customs.bugtrackers.bugzilla_general.query_url2bug_objects(
+-        BUG_URL_PREFIX=BUG_URL_PREFIX,
+-        QUERY_URL=QUERY_URL,
+-        project_finder_plugin=project_finder_plugin,
+-        detect_if_good_for_newcomers_plugin=detect_if_good_for_newcomers_plugin)
+-
+-def grab():
+-    current_bug_id2bug_objs = get_current_bug_id2bug_objs()
+-    mysite.customs.bugtrackers.bugzilla_general.grab(
+-        current_bug_id2bug_objs,
+-        BUG_URL_PREFIX=BUG_URL_PREFIX)
+diff --git a/mysite/customs/bugtrackers/mozilla.py b/mysite/customs/bugtrackers/mozilla.py
+deleted file mode 100644
+index fc58714..0000000
+--- a/mysite/customs/bugtrackers/mozilla.py
++++ /dev/null
+@@ -1,110 +0,0 @@
+-import urllib2
+-import logging
+-import mechanize
+-import lxml.etree
+-
+-import mysite.customs.miro
+-import mysite.customs.ohloh
+-import mysite.customs.models
+-import mysite.search.models
+-import mysite.customs.bugtrackers.bugzilla_general
+-
+-import itertools
+-
+-MOZILLA_GOOD_FIRST_BUG_QUERY='https://bugzilla.mozilla.org/buglist.cgi?resolution=---;status_whiteboard_type=substring;query_format=advanced;status_whiteboard=[good%20first%20bug]'
+-BUG_URL_PREFIX = 'https://bugzilla.mozilla.org/show_bug.cgi?id='
+-
+-def get_current_bug_id2bug_objs():
+-    b = mysite.customs.ohloh.mechanize_get(MOZILLA_GOOD_FIRST_BUG_QUERY)
+-
+-    # find the one form with ctype XML
+-    ctype_xml_form_no = mysite.customs.bugtrackers.bugzilla_general.find_ctype_xml_form_number(
+-        b.forms())
+-
+-    # Click ze button
+-    b.select_form(nr=ctype_xml_form_no)
+-    b.submit()
+-
+-    # Get a bunch of XML back
+-    bugzila_elt = lxml.etree.XML(b.response().read())
+-
+-    ret = {}
+-
+-    def project_finder_plugin(bug_elt):
+-        import mysite.search.models
+-        xml_project_name = bug_elt.xpath('product')[0].text
+-
+-        ### Special-case the project names we know about
+-        mozilla2openhatch = {'Core': 'Mozilla Core',
+-                             'Firefox': 'Firefox',
+-                             'MailNews Core': 'Mozilla Messaging',
+-                             'addons.mozilla.org': 'addons.mozilla.org',
+-                             'Thunderbird': 'Thunderbird',
+-                             'Testing': 'Mozilla automated testing',
+-                             'Directory': 'Mozilla LDAP',
+-                             'mozilla.org': 'mozilla.org',
+-                             'SeaMonkey': 'SeaMonkey',
+-                             'Toolkit': 'Mozilla Toolkit',
+-                             'support.mozilla.com': 'support.mozilla.com',
+-                             'Camino': 'Camino',
+-                             'Calendar': 'Mozilla Calendar',
+-                             'Mozilla Localizations': 'Mozilla Localizations',
+-                             }
+-        if xml_project_name == 'Other Applications':
+-            project_name = 'Mozilla ' + bug_elt.xpath('component')[0].text
+-        else:
+-            project_name = mozilla2openhatch[xml_project_name]
+-        
+-        project, _ = mysite.search.models.Project.objects.get_or_create(
+-            name=project_name)
+-        return project
+-
+-    for bug in bugzila_elt.xpath('bug'):
+-        bug_obj = mysite.customs.miro.bug_elt2bug_object(
+-            bug, canonical_bug_link_format_string=BUG_URL_PREFIX + '%d',
+-            gen_project=project_finder_plugin
+-            )
+-        bug_id = mysite.customs.bugtrackers.bugzilla_general.bug_url2bug_id(
+-            bug_obj.canonical_bug_link, BUG_URL_PREFIX=BUG_URL_PREFIX)
+-        bug_obj.good_for_newcomers = True
+-        bug_obj.bite_size_tag_name = '[good first bug]'
+-        ret[bug_id] = bug_obj
+-        
+-    return ret
+-
+-def grab():
+-    """Loops over Mozilla's list of good first bugs and stores/updates
+-    them in our DB.
+-    
+-    For now, just grab the good first bugs to be kind to their servers."""
+-
+-    current_bug_id2bug_objs = get_current_bug_id2bug_objs()
+-
+-    bug_ids = itertools.chain(
+-        current_bug_id2bug_objs.keys(),
+-        mysite.customs.bugtrackers.bugzilla_general.get_remote_bug_ids_already_stored(
+-             BUG_URL_PREFIX))
+-
+-    for bug_id in set(bug_ids):
+-        # Sometimes create_bug_object_for_remote_bug_id will fail to create
+-        # a bug because it's somehow gone missing. For those cases:
+-
+-        # create canonical_bug_link in this function to avoid assuming the
+-        # returned bug is not None.
+-        canonical_bug_link = BUG_URL_PREFIX + str(bug_id)
+-
+-        # If there is already a bug with this canonical_bug_link in
+-        # the DB, just delete it. Same story if the bug doens't 404!
+-        bugs_this_one_replaces = mysite.search.models.Bug.all_bugs.filter(
+-            canonical_bug_link=canonical_bug_link)
+-        for delete_me in bugs_this_one_replaces:
+-            delete_me.delete()
+-
+-        if bug_id not in current_bug_id2bug_objs:
+-            continue # If the bug is not in the new data set, we're done here.
+-
+-        bug = current_bug_id2bug_objs[bug_id]
+-
+-        # Otherwise, print and save the sucker!
+-        print bug
+-        bug.save()
+diff --git a/mysite/customs/bugtrackers/wikimedia.py b/mysite/customs/bugtrackers/wikimedia.py
+deleted file mode 100644
+index 66ddf41..0000000
+--- a/mysite/customs/bugtrackers/wikimedia.py
++++ /dev/null
+@@ -1,44 +0,0 @@
+-import mysite.customs.bugtrackers.bugzilla_general
+-
+-QUERY_URL='https://bugzilla.wikimedia.org/buglist.cgi?keywords=easy&query_format=advanced&keywords_type=allwords&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_status=VERIFIED&resolution=LATER&resolution=---'
+-BUG_URL_PREFIX = 'https://bugzilla.wikimedia.org/show_bug.cgi?id='
+-
+-def project_finder_plugin(bug_xml_elt):
+-    import mysite.search.models
+-    product = bug_xml_elt.xpath('product')[0].text
+-    if product == 'MediaWiki extensions':
+-        project_name = bug_xml_elt.xpath('component')[0].text
+-        if project_name in ('FCKeditor', 'Gadgets'):
+-            project_name += ' for MediaWiki'
+-    else:
+-        project_name = product
+-        
+-    project, _ = mysite.search.models.Project.objects.get_or_create(
+-        name=project_name)
+-    return project
+-
+-def detect_if_good_for_newcomers_plugin(bug_xml_elt, bug_object):
+-    keywords_blob = bug_xml_elt.xpath('keywords')[0].text
+-    splitted = keywords_blob.split(',')
+-    splitted_and_stripped = [k.strip() for k in splitted]
+-    if 'easy' in splitted:
+-        bug_object.good_for_newcomers = True
+-    else:
+-        bug_object.good_for_newcomers = False        
+-
+-def get_current_bug_id2bug_objs():
+-    return mysite.customs.bugtrackers.bugzilla_general.query_url2bug_objects(
+-        BUG_URL_PREFIX=BUG_URL_PREFIX,
+-        QUERY_URL=QUERY_URL,
+-        project_finder_plugin=project_finder_plugin,
+-        detect_if_good_for_newcomers_plugin=detect_if_good_for_newcomers_plugin)
+-
+-def grab():
+-    current_bug_id2bug_objs = get_current_bug_id2bug_objs()
+-    mysite.customs.bugtrackers.bugzilla_general.grab(
+-        current_bug_id2bug_objs,
+-        BUG_URL_PREFIX=BUG_URL_PREFIX)
+-                                         
+-                                         
+-
+-
+diff --git a/mysite/customs/miro.py b/mysite/customs/miro.py
+deleted file mode 100644
+index 25a944d..0000000
+--- a/mysite/customs/miro.py
++++ /dev/null
+@@ -1,141 +0,0 @@
+-# vim: set columns=80:
+-import os
+-import datetime
+-import csv
+-import urllib2
+-
+-import mysite.base.helpers
+-
+-import simplejson
+-import datetime
+-import glob
+-import lxml
+-from ..search.models import Project, Bug
+-import codecs
+-import dateutil.parser
+-
+-def get_tag_text_from_xml(xml_doc, tag_name, index = 0):
+-    """Given an object representing <bug><tag>text</tag></bug>,
+-    and tag_name = 'tag', returns 'text'."""
+-    tags = xml_doc.xpath(tag_name)
+-    try:
+-        return tags[index].text
+-    except IndexError:
+-        return ''
+-    assert False, "You should not get here."
+-
+-def count_people_involved(xml_doc):
+-    """Strategy: Create a set of all the listed text values
+-    inside a <who ...>(text)</who> tag
+-    Return the length of said set."""
+-    everyone = [tag.text for tag in xml_doc.xpath('.//who')]
+-    return len(set(everyone))
+-
+-def bugzilla_date_to_datetime(date_string):
+-    return mysite.base.helpers.string2naive_datetime(date_string)
+-
+-def who_tag_to_username_and_realname(who_tag):
+-    username = who_tag.text
+-    realname = who_tag.attrib.get('name', '')
+-    return username, realname
+-
+-def xml2bug_object(xml_fd,
+-                   canonical_bug_link_format_string=
+-                   'http://bugzilla.pculture.org/show_bug.cgi?id=%d'):
+-    """xml fd: xml file descriptor 'containing' information about one bug"""
+-    parsed = lxml.etree.parse(xml_fd)
+-    gen_miro_project = lambda x: Project.objects.get_or_create(name='Miro')[0]
+-    bug_elt, = parsed.xpath('bug') # The comma asserts that the xpath() returns a list of length 1
+-    return bug_elt2bug_object(bug_elt, canonical_bug_link_format_string, gen_miro_project)
+-
+-def bug_elt2bug_dict(parsed, canonical_bug_link_format_string,
+-                       gen_project):
+-    date_reported_text = get_tag_text_from_xml(parsed, 'creation_ts')
+-    last_touched_text = get_tag_text_from_xml(parsed, 'delta_ts')
+-    u, r = who_tag_to_username_and_realname(parsed.xpath('.//reporter')[0])
+-    bug_id = int(get_tag_text_from_xml(parsed, 'bug_id'))
+-    keywords_text = get_tag_text_from_xml(parsed, 'keywords')
+-    keywords = map(lambda s: s.strip(),
+-                   keywords_text.split(','))
+-    project = gen_project(parsed)
+-    status = get_tag_text_from_xml(parsed, 'bug_status')
+-    looks_closed = status in ('RESOLVED', 'WONTFIX', 'CLOSED', 'ASSIGNED')
+-
+-    ret = dict(
+-        project = project,
+-        title = get_tag_text_from_xml(parsed, 'short_desc'),
+-        description = (get_tag_text_from_xml(parsed, 'long_desc/thetext') or
+-                       '(Empty description)'),
+-        status = status,
+-        importance = get_tag_text_from_xml(parsed, 'bug_severity'),
+-        people_involved = count_people_involved(parsed),
+-        date_reported = bugzilla_date_to_datetime(date_reported_text),
+-        last_touched = bugzilla_date_to_datetime(last_touched_text),
+-        last_polled = datetime.datetime.now(),
+-        submitter_username = u,
+-        submitter_realname = r,
+-        canonical_bug_link = canonical_bug_link_format_string % bug_id,
+-        good_for_newcomers = ('bitesized' in keywords),
+-        looks_closed=looks_closed)
+-    return ret
+-
+-def bug_elt2bug_object(parsed, canonical_bug_link_format_string,
+-                       gen_project):
+-    ret = Bug()
+-    data = bug_elt2bug_dict(parsed, canonical_bug_link_format_string, gen_project)
+-    for key in data:
+-        setattr(ret, key, data[key])
+-    return ret
+-
+-def bugzilla_query_to_bug_ids(csv_fd):
+-    doc = csv.reader(csv_fd)
+-    try:
+-        doc.next() # throw away header row
+-    except StopIteration:
+-        return []
+-
+-    bug_ids = []
+-    
+-    for row in doc:
+-        bug_ids.append(int(row[0]))
+-
+-    return bug_ids
+-
+-def link2bug_id(url):
+-    first, rest = url.split('?id=')
+-    return int(rest)
+-
+-def bitesized_bugs_csv_fd():
+-    csv_url = 'http://bugzilla.pculture.org/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&field-1-0-0=bug_status&field-1-1-0=product&field-1-2-0=keywords&keywords=bitesized&product=Miro&query_format=advanced&remaction=&type-1-0-0=anyexact&type-1-1-0=anyexact&type-1-2-0=anywords&value-1-0-0=NEW%2CASSIGNED%2CREOPENED&value-1-1-0=Miro&value-1-2-0=bitesized&ctype=csv'
+-    csv_fd = urllib2.urlopen(csv_url)
+-    return csv_fd
+-
+-def open_xml_url(xml_url):
+-    return urllib2.urlopen(xml_url)
+-    
+-def grab_miro_bugs():
+-    '''Input: Nothing.
+-
+-    Side-effect: Loops over the Miro bitesized bugs (in the Miro bug tracker) and stores/updates them in our DB.'''
+-    csv_fd = bitesized_bugs_csv_fd()
+-
+-    old_bitesized_bugs = Bug.all_bugs.filter(canonical_bug_link__startswith='http://bugzilla.pculture.org/')
+-    old_bitesized_bug_ids = [link2bug_id(k.canonical_bug_link) for k in old_bitesized_bugs]
+-    
+-    current_bitesized_bug_ids  = bugzilla_query_to_bug_ids(csv_fd)
+-
+-    bug_ids = current_bitesized_bug_ids + old_bitesized_bug_ids
+-
+-    for bug_id in bug_ids:
+-        xml_url = 'http://bugzilla.pculture.org/show_bug.cgi?ctype=xml&id=%d' % bug_id
+-        xml_fd = open_xml_url(xml_url)
+-        bug = xml2bug_object(xml_fd)
+-
+-        # If there is already a bug with this canonical_bug_link in the DB, just delete it.
+-        bugs_this_one_replaces = Bug.all_bugs.filter(canonical_bug_link=
+-                                                    bug.canonical_bug_link)
+-        for delete_me in bugs_this_one_replaces:
+-            delete_me.delete()
+-
+-        # With the coast clear, we save the bug we just extracted from the Miro tracker.
+-        bug.save()
+diff --git a/mysite/search/management/commands/search_daily_tasks.py b/mysite/search/management/commands/search_daily_tasks.py
+index 5eb8b97..0504564 100644
+--- a/mysite/search/management/commands/search_daily_tasks.py
++++ b/mysite/search/management/commands/search_daily_tasks.py
+@@ -5,20 +5,12 @@ from django.core.management.base import BaseCommand
+ import django.conf
+ django.conf.settings.CELERY_ALWAYS_EAGER = True
+ 
+-import mysite.search.tasks
++import mysite.customs.bugtrackers.opensolaris
+ import mysite.customs.bugtrackers.roundup_general
+-import mysite.customs.bugtrackers
++import mysite.search.tasks.trac_instances
++import mysite.search.tasks.bugzilla_instances
+ import mysite.search.tasks.launchpad_tasks
+ 
+-import mysite.customs.miro
+-import mysite.customs.bugtrackers.trac
+-import mysite.customs.bugtrackers.gnome_love
+-import mysite.customs.bugtrackers.fedora_fitfinish
+-import mysite.customs.bugtrackers.mozilla
+-import mysite.customs.bugtrackers.wikimedia
+-import mysite.customs.bugtrackers.kde
+-import mysite.customs.bugtrackers.opensolaris
+-
+ ### All this code runs synchronously once a day.
+ ### For now, we can crawl all the bug trackers in serial.
+ 
+@@ -46,41 +38,6 @@ import mysite.customs.bugtrackers.opensolaris
+ class Command(BaseCommand):
+     help = "Call this once a day to make sure we run Bug search-related nightly jobs."
+ 
+-    def update_bugzilla_trackers(self):
+-        bugzilla_trackers = {
+-            'Miro':
+-                mysite.customs.miro.grab_miro_bugs,
+-            'KDE junior jobs':
+-                mysite.customs.bugtrackers.kde.grab,
+-            'Wikimedia easy bugs':
+-                mysite.customs.bugtrackers.wikimedia.grab,
+-            'GNOME Love':
+-                mysite.customs.bugtrackers.gnome_love.grab,
+-            'Mozilla "good first bug"s':
+-                mysite.customs.bugtrackers.mozilla.grab,
+-
+-            # FIXME
+-            # Really, the Bugzilla import code should be reworked to be as
+-            # clean and tidy as the Mercurial/Python/Roundup stuff, with
+-            # an abstract class with a .update() method.
+-            # Then simple sub-classes can handle each of the different projects'
+-            # details.
+-
+-            # What the heck is up with the Fedora code being
+-            # special-cased like this? Well, I'll clean it up another day,
+-            # so long as it seems to work right now.
+-            'Fedora "fit and finish" new bugs':
+-                mysite.search.tasks.bugzilla_instances.learn_about_new_fedora_fit_and_finish_bugs,
+-
+-            'Fedora "fit and finish" refreshing old bugs':
+-                mysite.search.tasks.bugzilla_instances.refresh_all_fedora_fit_and_finish_bugs,
+-            }
+-
+-        for bugzilla_tracker in bugzilla_trackers:
+-            logging.info("Refreshing bugs from %s." % bugzilla_tracker)
+-            call_me = bugzilla_trackers[bugzilla_tracker]
+-            call_me()
+-
+     def find_and_update_enabled_roundup_trackers(self):
+         enabled_roundup_trackers = []
+ 
+@@ -147,7 +104,4 @@ class Command(BaseCommand):
+         self.update_launchpad_hosted_projects()
+         self.find_and_update_enabled_trac_instances()
+         self.find_and_update_enabled_roundup_trackers()
+-        self.update_bugzilla_trackers()
+-        #self.find_and_update_enabled_bugzilla_instances()
+-        
+-
++        self.find_and_update_enabled_bugzilla_instances()
+diff --git a/mysite/search/tasks/__init__.py b/mysite/search/tasks/__init__.py
+index 8fcc7a5..2076fd0 100644
+--- a/mysite/search/tasks/__init__.py
++++ b/mysite/search/tasks/__init__.py
+@@ -11,10 +11,6 @@ import datetime
+ 
+ from django.conf import settings
+ 
+-import mysite.customs.miro
+-import mysite.customs.bugtrackers.trac
+-import mysite.customs.bugtrackers.gnome_love
+-import mysite.customs.bugtrackers.fedora_fitfinish
+ import mysite.search.tasks.trac_instances
+ import mysite.search.tasks.bugzilla_instances
+ import mysite.search.tasks.launchpad_tasks
+diff --git a/mysite/search/tasks/bugzilla_instances.py b/mysite/search/tasks/bugzilla_instances.py
+index ea06540..7fd51a3 100644
+--- a/mysite/search/tasks/bugzilla_instances.py
++++ b/mysite/search/tasks/bugzilla_instances.py
+@@ -4,57 +4,6 @@ import logging
+ import mysite.search.models
+ import mysite.customs.bugtrackers.bugzilla
+ 
+-def look_at_one_fedora_bug(bug_id):
+-    logging.info("Was asked to look at bug %d in Fedora" % bug_id)
+-    # If bug is already in our database, and we looked at
+-    # it within the past day, skip the request.
+-    bug_url = mysite.customs.bugtrackers.bugzilla_general.bug_id2bug_url(
+-        bug_id=bug_id,
+-        BUG_URL_PREFIX=mysite.customs.bugtrackers.fedora_fitfinish.BUG_URL_PREFIX)
+-
+-    try:
+-        bug_obj = mysite.search.models.Bug.all_bugs.get(
+-            canonical_bug_link=bug_url)
+-    except mysite.search.models.Bug.MultipleObjectsReturned:
+-        # delete all but the first
+-        bug_objs = mysite.search.models.Bug.all_bugs.filter(
+-            canonical_bug_link=bug_url)
+-        bug_obj = bug_objs[0]
+-        for stupid_dup in bug_objs[1:]:
+-            stupid_dup.delete()
+-
+-    except mysite.search.models.Bug.DoesNotExist:
+-        bug_obj = mysite.search.models.Bug(
+-            canonical_bug_link=bug_url)
+-
+-    # Is that bug fresh enough to skip?
+-    if bug_obj.data_is_more_fresh_than_one_day():
+-        logging.info("Bug is fresh! Skipping.")
+-        return
+-    # if the delta is greater than a day, refresh it.
+-    mysite.customs.bugtrackers.fedora_fitfinish.reload_bug_obj(bug_obj)
+-    bug_obj.save()
+-    logging.info("Finished with %d from Fedora." % bug_id)
+-
+-def learn_about_new_fedora_fit_and_finish_bugs():
+-    logging.info('Started to learn about new Fedora fit and finish bugs.')
+-    for bug_id in mysite.customs.bugtrackers.fedora_fitfinish.current_fit_and_finish_bug_ids():
+-        look_at_one_fedora_bug(bug_id=bug_id)
+-    logging.info('Finished grabbing the list of Fedora fit and finish bugs.')
+-
+-def refresh_all_fedora_fit_and_finish_bugs():
+-    logging.info("Starting refreshing all Fedora bugs.")
+-    all_such_bugs = mysite.search.models.Bug.all_bugs.filter(
+-        canonical_bug_link__contains=
+-        mysite.customs.bugtrackers.fedora_fitfinish.BUG_URL_PREFIX)
+-    logging.info("All %d of them." % all_such_bugs.count())
+-
+-    for bug in all_such_bugs:
+-        bug_id = mysite.customs.bugtrackers.bugzilla_general.bug_url2bug_id(
+-            bug.canonical_bug_link,
+-            BUG_URL_PREFIX=mysite.customs.bugtrackers.fedora_fitfinish.BUG_URL_PREFIX)
+-        look_at_one_fedora_bug(bug_id=bug_id)
+-
+ class BugzillaBugTracker(object):
+     def __init__(self, base_url, project_name, bug_project_name_format, bug_id_list_only=False):
+         self.base_url = base_url
+-- 
+1.7.1
+
+
+From 4b358c5129b9c8db661ffa9186d51e2cc271369c Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Fri, 25 Jun 2010 16:38:13 +0000
+Subject: [PATCH 2/2] Quick fix for search_daily_tasks so that Bugzilla trackers throwing HTTP Error 500 don't break it entirely
+
+---
+ .../management/commands/search_daily_tasks.py      |    8 +++++++-
+ 1 files changed, 7 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/search/management/commands/search_daily_tasks.py b/mysite/search/management/commands/search_daily_tasks.py
+index 0504564..b00b477 100644
+--- a/mysite/search/management/commands/search_daily_tasks.py
++++ b/mysite/search/management/commands/search_daily_tasks.py
+@@ -87,7 +87,13 @@ class Command(BaseCommand):
+         for thing in enabled_bugzilla_instances:
+             logging.info("[Bugzilla] About to update %s" % thing)
+             instantiated = thing()
+-            instantiated.update()
++            # FIXME: The Bugzilla trackers seem to throw error 500 a lot.
++            # For now, chuck in a dirty big try except to stop importer
++            # breaking.
++            try:
++                instantiated.update()
++            except:
++                logging.info("[Bugzilla] ERROR: Importer failed, likely HTTP500, continuing on..."
+ 
+     def update_launchpad_hosted_projects(self):
+         ### For Launchpad:
+-- 
+1.7.1
+

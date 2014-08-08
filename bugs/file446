@@ -1,0 +1,17 @@
+:~/Downloads$ file ghello_4.tar <br>ghello_4.tar: gzip compressed data, last modified: Wed Jan 11 21:25:42 2012, max compression<br>~/Downloads$ <br><br>Thanks for all the help. This seems like doing the xvfz comand in several steps ? How come ?<br>
+<br><div class="gmail_quote">On Wed, Jan 11, 2012 at 11:55 PM, jesstess <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+<div class="im"><br>
+jesstess &lt;<a href="mailto:jessica.mckellar@gmail.com">jessica.mckellar@gmail.com</a>&gt; added the comment:<br>
+<br>
+</div>C_open, thanks, that was perfect.<br>
+<br>
+Can you run:<br>
+<br>
+1. &quot;gunzip ghello_4.tar.gz&quot;<br>
+2. file &lt;filename&gt;, where &lt;filename&gt; is the name of the file produced by gunzip<br>
+<div class="HOEnZb"><div class="h5"><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue656" target="_blank">https://openhatch.org/bugs/issue656</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br>

@@ -1,0 +1,101 @@
+From ba6e2e9db55e564b555fdfb784bff12305462e78 Mon Sep 17 00:00:00 2001
+From: Vivek Shrivastava <vivshrivastava@gmail.com>
+Date: Sun, 6 Nov 2011 15:32:11 -0800
+Subject: [PATCH 2/2] Issue596:
+ 	1.removed validation from controller.py to forms.py
+ 	2.used django form validation framework to check if the required line is present in the submitted data
+ 	3.enhanced/modified error messages
+
+---
+ mysite/missions/git/controllers.py |   25 ++++++++++---------------
+ mysite/missions/git/forms.py       |   10 ++++++++++
+ mysite/missions/git/views.py       |    7 +++++--
+ 3 files changed, 25 insertions(+), 17 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index e59b61d..e74a8be 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -47,21 +47,16 @@ class GitRepository(object):
+ class GitDiffMission(object):
+ 
+     @classmethod
+-    def validate_diff_and_commit_if_ok(cls, username, diff):
+-        EXPECTED_DIFF_LINE = '+print "Hello world!"'
+-        success_count = diff.find(EXPECTED_DIFF_LINE)
++    def commit_if_ok(cls, username, diff):
+         repo = GitRepository(username)
+-        if success_count != -1:
+-            commit_diff = subprocess.Popen(['git', 'am'], cwd=repo.repo_path, stdin=subprocess.PIPE)
+-            commit_diff.communicate(str(diff))
+-            if commit_diff.returncode == 0: # for shell commands, success is 0
+-                commit_msg = """Fixed a terrible mistake. Thanks for reporting this %s.
+-                    Come to my house for a dinner party.
+-                    Knock 3 times and give the secret password: Pinky.""" % username
+-                subprocess.Popen(['git', 'commit', '--allow-empty', '-m', commit_msg], cwd=repo.repo_path)
+-                return True
+-            else:
+-                subprocess.check_call(['git', 'am', '--abort'], cwd=repo.repo_path)
+-                return False
++        commit_diff = subprocess.Popen(['git', 'am'], cwd=repo.repo_path, stdin=subprocess.PIPE)
++        commit_diff.communicate(str(diff))
++        if commit_diff.returncode == 0: # for shell commands, success is 0
++            commit_msg = """Fixed a terrible mistake. Thanks for reporting this %s.
++                Come to my house for a dinner party.
++                Knock 3 times and give the secret password: Pinky.""" % username
++            subprocess.Popen(['git', 'commit', '--allow-empty', '-m', commit_msg], cwd=repo.repo_path)
++            return True
+         else:
++            subprocess.check_call(['git', 'am', '--abort'], cwd=repo.repo_path)
+             return False
+diff --git a/mysite/missions/git/forms.py b/mysite/missions/git/forms.py
+index 1e085fb..fd9255d 100644
+--- a/mysite/missions/git/forms.py
++++ b/mysite/missions/git/forms.py
+@@ -17,6 +17,7 @@
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ import django.forms
++import re
+ 
+ class ConfigForm(django.forms.Form):
+     BAD_ENDINGS = ['local', 'none', 'host']
+@@ -35,5 +36,14 @@ class CheckoutForm(django.forms.Form):
+ class DiffForm(django.forms.Form):
+     diff = django.forms.CharField(error_messages={'required': 'No git diff output was given.'}, widget=django.forms.Textarea())
+ 
++    def clean_diff(self):
++        REGEX_DIFF_LINE = '\+print "[H,h]ello,?[ ]+[w,W]orld\!'
++        success_count = re.search(REGEX_DIFF_LINE, self.cleaned_data['diff'])
++        if success_count == None :
++            raise django.forms.ValidationError, (
++                "Something doesn't look right.The expected line is '+print...' Give it another try!")
++            data['git_diff_error_message'] = "Something doesn't look right.The expected line is '+print...' Give it another try!"
++        
++
+ class RebaseForm(django.forms.Form):
+     secret_word = django.forms.CharField(error_messages={'required': 'The password was incorrect.'})
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+index 3daa634..e7ddfc6 100644
+--- a/mysite/missions/git/views.py
++++ b/mysite/missions/git/views.py
+@@ -79,11 +79,14 @@ def diff_submit(request):
+     if request.method == 'POST':
+         form = forms.DiffForm(request.POST)
+         if form.is_valid():
+-                if controllers.GitDiffMission.validate_diff_and_commit_if_ok(request.user.username, form.cleaned_data['diff']):
++                if controllers.GitDiffMission.commit_if_ok(request.user.username, form.cleaned_data['diff']):
++                    data['git_diff_error_message'] = ""
+                     controllers.set_mission_completed(request.user.get_profile(), 'git_diff')
+                     return HttpResponseRedirect(reverse(diff))
+                 else:
+-                    data['git_diff_error_message'] = "The patch file is incorrect.  Give it another try!"
++                    data['git_diff_error_message'] = "Unable to commit the patch. Please check your username and try again"
++        else:
++            data['git_diff_error_message'] = "Something doesn't look right.The expected line is '+print...' Give it another try!"
+         data['git_diff_form'] = form
+     return diff(request, data)
+ 
+-- 
+1.7.2.5
+

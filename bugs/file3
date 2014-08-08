@@ -1,0 +1,27 @@
+Cool, we&#39;ll take a look at this soon--probably tomorrow.<br><br>Thanks Adam!<br><br><div class="gmail_quote">On Sun, Mar 14, 2010 at 10:02 PM, Adam Baxter <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br>
+
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;"><div class="im"><br>
+Adam Baxter &lt;<a href="mailto:"></a>&gt; added the comment:<br>
+<br>
+</div>I can confirm this.<br>
+1. Sign up/sign in to Wordpress.com<br>
+2. Enter <a href="http://yourusername.wordpress.com" target="_blank">yourusername.wordpress.com</a> as your openID on<br>
+<a href="https://openhatch.org/openid/signin" target="_blank">https://openhatch.org/openid/signin</a><br>
+<br>
+<br>
+URL I get redirected to is<br>
+<a href="http://wordpress.com/?openidserver=1&amp;*snipped" target="_blank">wordpress.com/?openidserver=1&amp;*snipped</a> for security*<br>
+Error is:<br>
+&quot;You do not own this identity&quot;.<br>
+<br>
+I suspect the OpenHatch OpenID login isn&#39;t passing the correct parameters to the<br>
+WordPress provider, however I can&#39;t confirm this right now.<br>
+<br>
+----------<br>
+priority: bug -&gt; urgent<br>
+<div><div></div><div class="h5"><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue16" target="_blank">https://openhatch.org/bugs/issue16</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br><br clear="all"><br>-- <br><a href="http://www.madebyparker.com">http://www.madebyparker.com</a><br>

@@ -1,0 +1,25 @@
+From 29d1d7f6f9eb86041e8deef0e4608017792beba7 Mon Sep 17 00:00:00 2001
+From: Mark Holmquist <mtraceur@member.fsf.org>
+Date: Sun, 13 May 2012 12:34:15 -0700
+Subject: [PATCH] Fix bug 730 (modified to use some existing work on clearfix)
+
+---
+ mysite/customs/templates/customs/main.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/templates/customs/main.html b/mysite/customs/templates/customs/main.html
+index f7628c6..54b5164 100644
+--- a/mysite/customs/templates/customs/main.html
++++ b/mysite/customs/templates/customs/main.html
+@@ -44,7 +44,7 @@ Customs
+         </div>
+         {% endif %}
+         {% block customs_content %}
+-        <form name={% block form_name %}{% endblock %} method='POST'
++        <form class="clearfix" name={% block form_name %}{% endblock %} method='POST'
+             action={% block form_action %}{% endblock %}>{% csrf_token %}
+             {% block form_body %}{% endblock %}
+             <p> <input type='submit'
+-- 
+1.7.4.1
+

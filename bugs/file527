@@ -1,0 +1,27 @@
+From 69bca16ac83daa598f2d7e496d77c1ed6ec4b646 Mon Sep 17 00:00:00 2001
+From: Nick DiRienzo <me@nickdirienzo.com>
+Date: Fri, 14 Dec 2012 19:50:22 -0500
+Subject: [PATCH] Updated Getting Started to mention that weekly meetings do
+ not happen... for now.
+
+---
+ docs/contributor/getting_started.rst |    3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/docs/contributor/getting_started.rst b/docs/contributor/getting_started.rst
+index 4b8786a..e5a84cf 100644
+--- a/docs/contributor/getting_started.rst
++++ b/docs/contributor/getting_started.rst
+@@ -55,8 +55,7 @@ but we'll all be happier if you do)
+   1. Join the `Devel mailing list`_ and say hello.
+   2. :doc:`the #openhatch IRC channel in freenode </contributor/chat_on_irc>`.
+ 
+-  We have weekly meetings, typically on Saturdays at 4pm EST (-5 UTC).
+-
++We used to have weekly development meetings on IRC, but they are on hiatus for now. If you find the idea interesting and would show up, do email devel@ and say so!
+ 
+ .. _Devel mailing list: http://lists.openhatch.org/mailman/listinfo/devel
+ 
+-- 
+1.7.9.5
+

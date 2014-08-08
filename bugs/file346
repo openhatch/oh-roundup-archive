@@ -1,0 +1,47 @@
+From db2b89fb73b1e223c675cf03767f806cabd8d4d4 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Sat, 11 Jun 2011 18:31:35 -0400
+Subject: [PATCH] Another fix to contributors total on profile page
+
+I don't like it showing 1-4 (of 4), so this patch will
+only show that when there are more than 5 people
+to display.
+
+See: http://openhatch.org/bugs/issue347
+---
+ mysite/profile/templates/profile/contributors.html |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/profile/templates/profile/contributors.html b/mysite/profile/templates/profile/contributors.html
+index 0536b31..23d0142 100644
+--- a/mysite/profile/templates/profile/contributors.html
++++ b/mysite/profile/templates/profile/contributors.html
+@@ -22,14 +22,14 @@
+ {% if contributors %}
+ <div class='other-contributors'>
+     {% with project.get_contributors|length as contributor_count %}
+-        {% if contributor_count <= 4 %}
++        {% if contributor_count <= 5 %}
+             {% if contributor_count >= 2 %}
+                 <label>Other contributors ({{ contributor_count|sub:1 }}):</label>
+             {% else %}
+                 <label>Other contributor:</label>
+             {% endif %}
+         {% else %}
+-            <label>Other contributors 1-4 (of {{ contributor_count|sub:1 }}):</label>
++                <label>Other contributors 1-4 (of {{ contributor_count|sub:1 }}):</label>
+         {% endif %}
+     <ul>
+         {% for person in contributors %}
+@@ -55,7 +55,7 @@
+         </li>
+         {% endfor %}
+     </ul>
+-    {% if contributor_count <= 4 %}
++    {% if contributor_count <= 5 %}
+         <a class='see-all'
+             href='{% url mysite.profile.views.people %}?q=project:{{ project.name|urlencode }}'
+         >Show on map &raquo;</a>
+-- 
+1.7.2.5
+

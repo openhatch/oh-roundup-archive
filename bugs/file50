@@ -1,0 +1,83 @@
+From 79c3b1a42916f02cd9199118245ae3d378f8516f Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Mon, 5 Jul 2010 08:32:34 +0000
+Subject: [PATCH 1/2] Added checking of main XML query url Timestamp to Bugzilla importer,
+ to prevent downloading all bug xml when they are likely fresh.
+
+---
+ mysite/search/tasks/bugzilla_instances.py |   20 ++++++++++++++++++++
+ 1 files changed, 20 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/search/tasks/bugzilla_instances.py b/mysite/search/tasks/bugzilla_instances.py
+index c71193c..69ce5fe 100644
+--- a/mysite/search/tasks/bugzilla_instances.py
++++ b/mysite/search/tasks/bugzilla_instances.py
+@@ -1,9 +1,24 @@
+ import datetime
+ import logging
+ 
++import mysite.base.models
+ import mysite.search.models
+ import mysite.customs.bugtrackers.bugzilla
+ 
++# FIXME: Should have this somewhere else. Maybe a decorator?
++# Could take arguments of urls and remove the fresh ones.
++def url_is_more_fresh_than_one_day(url):
++    url_timestamp = mysite.base.models.Timestamp.get_timestamp_for_string(url)
++    url_age = datetime.datetime.now() - url_timestamp
++    url_is_fresh = (url_age < datetime.timedelta(days=1))
++    try:
++        mysite.base.models.Timestamp.update_timestamp_for_string(url)
++    except Exception, e:
++        logging.error("[Bugzilla] Error generated when updating Timestamp.")
++        logging.error("[Bugzilla] Error type is %s" % type(e))
++        logging.error("[Bugzilla] Error is %s" % e)
++    return url_is_fresh
++
+ class BugzillaBugTracker(object):
+     def __init__(self, base_url, project_name, bug_project_name_format, bug_id_list_only=False):
+         self.base_url = base_url
+@@ -14,6 +29,11 @@ class BugzillaBugTracker(object):
+     def generate_bug_xml_from_queries(self, queries):
+         for query_name in queries:
+             query_url = queries[query_name]
++            # Check if this url has been accessed in the last day
++            if url_is_more_fresh_than_one_day(query_url):
++                # Sweet, ignore this one and go on.
++                logging.info("[Bugzilla] URL %s is fresh, skipping..." % query_url)
++                continue
+             query_xml = mysite.customs.bugtrackers.bugzilla.url2bug_data(query_url)
+             for bug_xml in query_xml.xpath('bug'):
+                 yield bug_xml
+-- 
+1.7.1
+
+
+From dac32192da6ca36c1d5d1e6885b2873b5334cbc1 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Mon, 5 Jul 2010 08:37:46 +0000
+Subject: [PATCH 2/2] Print error messages in search_daily_tasks to logging.error instead
+ of logging.info
+
+---
+ .../management/commands/search_daily_tasks.py      |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/search/management/commands/search_daily_tasks.py b/mysite/search/management/commands/search_daily_tasks.py
+index ff74906..5901e81 100644
+--- a/mysite/search/management/commands/search_daily_tasks.py
++++ b/mysite/search/management/commands/search_daily_tasks.py
+@@ -95,8 +95,8 @@ class Command(BaseCommand):
+             try:
+                 instantiated.update()
+             except urllib2.URLError, e:
+-                logging.info("[Bugzilla] ERROR: Importer failed, likely HTTP500, continuing on...")
+-                logging.info("[Bugzilla] Error message: %s" % str(e))
++                logging.error("[Bugzilla] ERROR: Importer failed, likely HTTP500, continuing on...")
++                logging.error("[Bugzilla] Error message: %s" % str(e))
+ 
+     def update_launchpad_hosted_projects(self):
+         ### For Launchpad:
+-- 
+1.7.1
+

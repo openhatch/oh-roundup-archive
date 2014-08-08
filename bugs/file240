@@ -1,0 +1,13 @@
+Index: ../oh-mainline/mysite/urls.py
+===================================================================
+--- ../oh-mainline/mysite/urls.py	(date 1303594244000)
++++ ../oh-mainline/mysite/urls.py	(revision )
+@@ -367,7 +367,7 @@
+ 
+         #regex for the robots.txt file, for search engine exclusion
+         (r'^robots\.txt$', direct_to_template, {'template': 'robots.txt', 'mimetype': 'text/plain'}),
+-        #(r'^robots\.txt$', redirect_to, {'url': '/static/robots.txt'}),
++        
+         # This dangerous regex is last
+         (r'^people/(?P<user_to_display__username>[^/]+)/$',
+                 'mysite.profile.views.display_person_web'),

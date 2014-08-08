@@ -1,0 +1,71 @@
+diff --git a/mysite/missions/diffpatch/controllers.py b/mysite/missions/diffpatch/controllers.py
+index 38733b8..7a69cca 100644
+--- a/mysite/missions/diffpatch/controllers.py
++++ b/mysite/missions/diffpatch/controllers.py
+@@ -14,6 +14,12 @@ class SingleFilePatch(object):
+         if len(the_patch.hunks) != 1:
+             raise IncorrectPatch, 'The patch affects more than one file.'
+ 
++        # Check if the diff is in the wrong order.
++        if ''.join(the_patch.patch_stream(open(cls.NEW_FILE), the_patch.hunks[0])) == open(cls.OLD_FILE).read():
++            raise IncorrectPatch, 'It looks like the order of files passed to diff was flipped. \
++        To generate a diff representing the changes you made to originalfile.txt \
++        to get to modifiedfile.txt, do "diff -u originalfile.txt modifiedfile.txt".'
++
+         # Check that it will apply correctly to the file.
+         if not the_patch._match_file_hunks(cls.OLD_FILE, the_patch.hunks[0]):
+             raise IncorrectPatch, 'The patch will not apply correctly to the original file.'
+diff --git a/mysite/missions/diffpatch/tests.py b/mysite/missions/diffpatch/tests.py
+index f2634c8..5386817 100644
+--- a/mysite/missions/diffpatch/tests.py
++++ b/mysite/missions/diffpatch/tests.py
+@@ -92,6 +92,7 @@ class DiffSingleFileTests(TwillTests):
+         return ''.join(difflib.unified_diff(oldlines, newlines, 'old.txt', 'new.txt'))
+ 
+     def make_swapped_patch(self):
++        # make a backwards diff.
+         oldlines = open(controllers.DiffSingleFileMission.OLD_FILE).readlines()
+         newlines = open(controllers.DiffSingleFileMission.NEW_FILE).readlines()
+         return ''.join(difflib.unified_diff(newlines, oldlines, 'new.txt', 'old.txt'))
+@@ -123,6 +124,17 @@ class DiffSingleFileTests(TwillTests):
+         else:
+             self.fail('no exception raised')
+ 
++    def test_backwards_diff(self):
++        """
++        A backwards diff generates a special IncorrectPatch exception.
++        """
++        try:
++            controllers.DiffSingleFileMission.validate_patch(self.make_swapped_patch())
++        except controllers.IncorrectPatch, e:
++            self.assert_('order of files passed to diff was flipped' in str(e))
++        else:
++            self.fail('no exception raised')
++
+     def test_do_mission_correctly(self):
+         orig_response = self.client.get(reverse(views.diffsingle_get_original_file))
+         orig_lines = StringIO(orig_response.content).readlines()
+@@ -137,7 +149,22 @@ class DiffSingleFileTests(TwillTests):
+         self.assertEqual(len(StepCompletion.objects.filter(step__name='diffpatch_diffsingle', person=paulproteus)), 1)
+ 
+     def test_do_mission_incorrectly(self):
++        """
++        Submitting a generically incorrect diff generates a generic failure message.
++        """
++        submit_response = self.client.post(reverse(views.diffsingle_submit), {'diff': self.make_wrong_dest_patch()})
++        self.assertNotEqual(-1, submit_response.content.find('does not have the correct contents'))
++        self.assertFalse(submit_response.context['diffsingle_success'])
++
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='diffpatch_diffsingle', person=paulproteus)), 0)
++
++    def test_do_mission_backwards_diff(self):
++        """
++        Submitting a backwards diff generates a special failure message.
++        """
+         submit_response = self.client.post(reverse(views.diffsingle_submit), {'diff': self.make_swapped_patch()})
++        self.assertNotEqual(-1, submit_response.content.find('order of files passed to diff was flipped'))
+         self.assertFalse(submit_response.context['diffsingle_success'])
+ 
+         paulproteus = Person.objects.get(user__username='paulproteus')
+

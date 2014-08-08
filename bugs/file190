@@ -1,0 +1,27 @@
+From e8f557c9e0f147374beae14dfba49d014ec6f928 Mon Sep 17 00:00:00 2001
+From: Joel Rivera <joelriv@gmail.com>
+Date: Sun, 27 Mar 2011 23:57:57 -0600
+Subject: [PATCH] Changing dependency of python-openid to a corrected version
+ with better handling of the different character encodings.
+
+https://github.com/vzima/python-openid/commit/8ced77c4d031020c61fcb5d48ea187c5f846ca1e
+---
+ setup.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 7fd744e..b6717e0 100644
+--- a/setup.py
++++ b/setup.py
+@@ -64,7 +64,7 @@ setup(
+                         'python-launchpad-bugs',
+                         'html2text',
+                         'lockfile>=0.9', # as of this writing, pypi only has version 0.8
+-                        'python-openid==2.2.5', # as of this writing, upstream has an HTML file where a tar.gz should be
++                        'python-openid==2.2.5-openhatch1', # as of this writing, upstream has an HTML file where a tar.gz should be
+                         'sessionprofile==1.0',
+                        ],
+ 
+-- 
+1.7.3.4
+

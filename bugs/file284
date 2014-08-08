@@ -1,0 +1,95 @@
+From 766e1046ae8a7ef05d1c77753be0f546937ad3a4 Mon Sep 17 00:00:00 2001
+From: Mark Freeman <mark@timewasted.net>
+Date: Sat, 21 May 2011 20:54:12 -0500
+Subject: [PATCH] Corrected issues with incorrect whitepsace formatting. Issue 163.
+
+---
+ mysite/profile/templates/profile/base_profile.html |    2 +-
+ mysite/profile/tests.py                            |   16 ++++++++--------
+ mysite/profile/views.py                            |    4 ++--
+ 3 files changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/mysite/profile/templates/profile/base_profile.html b/mysite/profile/templates/profile/base_profile.html
+index 7e81948..1503658 100644
+--- a/mysite/profile/templates/profile/base_profile.html
++++ b/mysite/profile/templates/profile/base_profile.html
+@@ -179,7 +179,7 @@
+         {% if person.irc_nick %}
+         <h4>irc nick</h4>
+         <p id="ircnick" style='clear: both;'>
+-            {{person.irc_nick}}
++            {{ person.irc_nick }}
+         </p>
+         {% endif %}
+ 
+diff --git a/mysite/profile/tests.py b/mysite/profile/tests.py
+index 9f3af87..8e5acf3 100644
+--- a/mysite/profile/tests.py
++++ b/mysite/profile/tests.py
+@@ -1384,22 +1384,22 @@ class EditHomepage(TwillTests):
+         '''
+         self.login_with_twill()
+         tc.go(make_twill_url('http://openhatch.org/people/paulproteus/'))
+-        #not so vain.. yet
++        # not so vain.. yet
+         tc.notfind('asheesh.org')
+         tc.go(make_twill_url('http://openhatch.org/profile/views/edit_info'))
+-        #make sure our bio is not already on the form
++        # make sure our bio is not already on the form
+         tc.notfind('asheesh.org')
+         # set the bio in ze form
+         tc.fv("edit-tags", 'edit-tags-homepage_url', 'http://www.asheesh.org/')
+         tc.submit()
+-        #find the string we just submitted as our bio
++        # find the string we just submitted as our bio
+         tc.find('asheesh.org')
+         self.assertEqual(Person.get_by_username('paulproteus').homepage_url,
+         "http://www.asheesh.org/")
+-        #now we should see our bio in the edit form
++        # now we should see our bio in the edit form
+         tc.go(make_twill_url('http://openhatch.org/profile/views/edit_info'))
+         tc.find('asheesh.org')
+-        #try an invalid url
++        # try an invalid url
+         tc.fv('edit-tags', 'edit-tags-homepage_url', 'htttp://www.asheesh.org/')
+         tc.submit()
+         # check that the form came back with an error
+@@ -1423,15 +1423,15 @@ class EditIrcNick(TwillTests):
+         tc.go(make_twill_url('http://openhatch.org/people/paulproteus/'))
+         tc.notfind('paulproteusnick')
+         tc.go(make_twill_url('http://openhatch.org/profile/views/edit_info'))
+-        #make sure our irc nick is not already on the form
++        # make sure our irc nick is not already on the form
+         tc.notfind('paulproteusnick')
+         # set the irc nick in the form
+         tc.fv("edit-tags", 'edit-tags-irc_nick', 'paulproteusnick')
+         tc.submit()
+-        #find the string we just submitted as our irc nick
++        # find the string we just submitted as our irc nick
+         tc.find('paulproteusnick')
+         self.assertEqual(Person.get_by_username('paulproteus').irc_nick, "paulproteusnick")
+-        #now we should see our irc nick in the edit form
++        # now we should see our irc nick in the edit form
+         tc.go(make_twill_url('http://openhatch.org/profile/views/edit_info'))
+         tc.find('paulproteusnick')
+ 
+diff --git a/mysite/profile/views.py b/mysite/profile/views.py
+index 02fcc5c..e0824b9 100644
+--- a/mysite/profile/views.py
++++ b/mysite/profile/views.py
+@@ -273,10 +273,10 @@ def edit_person_info_do(request):
+     else:
+         errors_occurred = True
+ 
+-    #grab their submitted bio
++    # grab their submitted bio
+     person.bio = edit_info_form['bio'].data
+     
+-    #grab the irc nick
++    # grab the irc nick
+     person.irc_nick = edit_info_form['irc_nick'].data
+ 
+     # We can map from some strings to some TagTypes
+-- 
+1.7.2.5
+

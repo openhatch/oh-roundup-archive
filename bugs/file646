@@ -1,0 +1,24 @@
+<div dir="ltr">hello ma&#39;am Britta.. any reply regarding in this issue?</div><div class="gmail_extra"><br><br><div class="gmail_quote">On Wed, Jan 15, 2014 at 7:45 PM, Jerold Camacho <span dir="ltr">&lt;<a href="mailto:jeroldcamacho.res@gmail.com" target="_blank">jeroldcamacho.res@gmail.com</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><div dir="ltr"><a href="https://docs.djangoproject.com/en/dev/ref/contrib/csrf/" target="_blank">https://docs.djangoproject.com/en/dev/ref/contrib/csrf/</a><br>
+<a href="https://docs.djangoproject.com/en/dev/ref/clickjacking/#" target="_blank">https://docs.djangoproject.com/en/dev/ref/clickjacking/#</a><br>
+</div><div class="HOEnZb"><div class="h5"><div class="gmail_extra"><br><br><div class="gmail_quote">On Wed, Jan 15, 2014 at 4:47 PM, Jerold Camacho <span dir="ltr">&lt;<a href="mailto:jeroldcamacho.res@gmail.com" target="_blank">jeroldcamacho.res@gmail.com</a>&gt;</span> wrote:<br>
+
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><div dir="ltr">Waiting to fixed ..<div>all you need .. is to put csrf token in every forms.. :)</div><div><br></div><div>
+
+hope i&#39;ll get any token of appreciation.. <br>Thanks ma&#39;am !</div></div><div><div><div class="gmail_extra">
+<br><br><div class="gmail_quote">On Wed, Jan 15, 2014 at 4:27 PM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org" target="_blank">bugs@openhatch.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+
+
+<br>
+Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org" target="_blank">asheesh@asheesh.org</a>&gt; added the comment:<br>
+<br>
+I&#39;m surprised we&#39;re not using Django&#39;s built-in CSRF protection already!<br>
+pik4chu, thank you for reporting this!<br>
+<br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org" target="_blank">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue917" target="_blank">https://openhatch.org/bugs/issue917</a>&gt;<br>
+__________________________________________<br>
+</blockquote></div><br></div>
+</div></div></blockquote></div><br></div>
+</div></div></blockquote></div><br></div>

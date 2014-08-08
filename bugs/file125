@@ -1,0 +1,30 @@
+From 574aa7bb56234d49d1b111196d770d6bd661156b Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Sun, 30 Jan 2011 22:04:19 +0100
+Subject: [PATCH] Resized "OpenHatch news" box on the landing page to fit half of the page.
+
+Refs https://openhatch.org/bugs/issue197
+---
+ mysite/static/css/base/landing.css |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/static/css/base/landing.css b/mysite/static/css/base/landing.css
+index ac0d5d2..31ea3bc 100644
+--- a/mysite/static/css/base/landing.css
++++ b/mysite/static/css/base/landing.css
+@@ -41,10 +41,10 @@ body#landing #left .body { width: 93%; }
+ 
+ body#landing #right { width: 30%; }
+ body#landing #right .body { padding: 3%; width: 94%; }
+-body#landing #recent_activity_feed { width: 65%; }
++body#landing #recent_activity_feed { width: 50%; }
+ body#landing #recent_activity_feed ul li { margin-bottom: 15px; }
+ body#landing #recent_activity_feed ul li:last-child { margin-bottom: 0; }
+-body#landing #blog_feed { margin-left: 1%; width: 32.3%; }
++body#landing #blog_feed { margin-left: 1%; width: 47%; }
+ body#landing .links_at_tab_bottom { float: left; padding-bottom: 10px; width: 100%; text-align: center; }
+ body#landing .links_at_tab_bottom li { display: inline; }
+ 
+-- 
+1.7.3.5
+

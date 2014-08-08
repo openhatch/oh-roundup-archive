@@ -1,0 +1,169 @@
+openhatch@ip-10-243-73-70:/home/openhatch/oh-mainline$  bin/buildout
+Develop: '/home/openhatch/oh-mainline/.'
+install_dir /home/openhatch/oh-mainline/develop-eggs/tmpybmDp5build
+Couldn't find index page for 'zc.recipe.egg' (maybe misspelled?)
+Getting distribution for 'zc.recipe.egg'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpUlVLvJ
+Got zc.recipe.egg 1.3.2.
+Getting distribution for 'djangorecipe'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpZvtbhN
+Got djangorecipe 0.20.
+Getting distribution for 'hexagonit.recipe.download'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpObJ3lK
+Got hexagonit.recipe.download 1.5.0.
+Getting distribution for 'plone.recipe.command'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpRTji8f
+Got plone.recipe.command 1.1.
+Installing scripts.
+Getting distribution for 'sessionprofile==1.0'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpj_1FYB
+zip_safe flag not set; analyzing archive contents...
+Got sessionprofile 1.0.
+Getting distribution for 'python-openid==2.2.5'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpfyZ2u_
+warning: no files found matching 'CHANGELOG'
+warning: no files found matching '*.css' under directory 'doc'
+warning: no files found matching '*.html' under directory 'doc'
+zip_safe flag not set; analyzing archive contents...
+Got python-openid 2.2.5.
+Getting distribution for 'lockfile>=0.9'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpJNZ6Jb
+zip_safe flag not set; analyzing archive contents...
+Got lockfile 0.9.
+Getting distribution for 'html2text'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpG13vO6
+Got html2text 3.02.
+Getting distribution for 'python-launchpad-bugs'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpqBvaEn
+zip_safe flag not set; analyzing archive contents...
+launchpadbugs.utils: module references __file__
+Got python-launchpad-bugs 0.3.6.
+Getting distribution for 'python-otp'.
+install_dir /home/openhatch/oh-mainline/eggs/tmp46EUZB
+zip_safe flag not set; analyzing archive contents...
+Got python-otp 1.0.
+Getting distribution for 'staticgenerator==1.4.1.2-openhatch'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpl5glwH
+zip_safe flag not set; analyzing archive contents...
+Got staticgenerator 1.4.1.2-openhatch.
+Getting distribution for 'django-voting'.
+install_dir /home/openhatch/oh-mainline/eggs/tmptp3vhz
+zip_safe flag not set; analyzing archive contents...
+voting.tests.settings: module references __file__
+Got django-voting 0.1.
+Getting distribution for 'django-registration>0.7'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpYiLYUg
+zip_safe flag not set; analyzing archive contents...
+Got django-registration 0.8-alpha-1.
+Getting distribution for 'django-haystack'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpXJPFdx
+zip_safe flag not set; analyzing archive contents...
+haystack.__init__: module references __path__
+haystack.__init__: module MAY be using inspect.stack
+Got django-haystack 1.1.0.
+Getting distribution for 'sisynala'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpQRQz8_
+zip_safe flag not set; analyzing archive contents...
+Got sisynala 0.9.19.
+Getting distribution for 'South>=0.7.3.1'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpfmSs90
+zip_safe flag not set; analyzing archive contents...
+south.migration.base: module references __file__
+south.tests.__init__: module references __file__
+Got South 0.7.3.1.
+Getting distribution for 'pysolr'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpxUv_W0
+zip_safe flag not set; analyzing archive contents...
+Got pysolr 2.0.13.
+Getting distribution for 'keyring==0.5.0.1'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpkpOj34
+zip_safe flag not set; analyzing archive contents...
+keyring.core: module references __path__
+keyring.tests.test_core: module references __file__
+Got keyring 0.5.0.1.
+Getting distribution for 'mechanize'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpqjEQ27
+Got mechanize 0.2.4.
+Getting distribution for 'pygeoip==0.1.3'.
+install_dir /home/openhatch/oh-mainline/eggs/tmp0KxACL
+zip_safe flag not set; analyzing archive contents...
+Got pygeoip 0.1.3.
+Getting distribution for 'python-github2==0.1.1'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpz3SfAf
+zip_safe flag not set; analyzing archive contents...
+Got python-github2 0.1.1.
+Getting distribution for 'django-assets==0.2.1'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpr_uLFv
+Sphinx not installed--needed to build documentation
+zip_safe flag not set; analyzing archive contents...
+django_assets.registry: module references __path__
+django_assets.management.commands.assets: module references __file__
+django_assets.filter.__init__: module references __file__
+Got django-assets 0.2.1.
+Getting distribution for 'launchpadlib'.
+install_dir /home/openhatch/oh-mainline/eggs/tmp7sUsy2
+Got launchpadlib 1.6.5.
+Getting distribution for 'celery==1.0.5'.
+install_dir /home/openhatch/oh-mainline/eggs/tmp9hUJOf
+warning: no files found matching 'README.rst'
+no previously-included directories found matching 'tests/*.pyc'
+no previously-included directories found matching 'docs/*.pyc'
+no previously-included directories found matching 'contrib/*.pyc'
+no previously-included directories found matching 'celery/*.pyc'
+no previously-included directories found matching 'bin/*.pyc'
+no previously-included directories found matching 'docs/.build'
+Got celery 1.0.5.
+Getting distribution for 'django-authopenid==1.0.1-openhatch2'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpJ9zJ4x
+warning: no files found matching 'CHANGES.MD'
+Got django-authopenid 1.0.1-openhatch2.
+Getting distribution for 'invitation'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpTAxITP
+install_dir .
+zip_safe flag not set; analyzing archive contents...
+
+Installed /tmp/easy_install-1_OJIO/invitation-1.0/setuptools_hg-0.2-py2.6.egg
+file invitation.py (for module invitation) not found
+file invitation.py (for module invitation) not found
+file invitation.py (for module invitation) not found
+Got invitation 1.0.
+Getting distribution for 'twill==0.9.1-cc'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpCmNx56
+build/bdist.linux-i686/egg/twill/other_packages/_mechanize_dist/_msiecookiejar.py:255: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (sig in ("HASH", "LEAK",
+zip_safe flag not set; analyzing archive contents...
+twill.__init__: module references __file__
+twill.commands: module references __file__
+/home/openhatch/oh-mainline/eggs/tmpCmNx56/twill-0.9.1_cc-py2.6.egg/twill/other_packages/_mechanize_dist/_msiecookiejar.py:255: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (sig in ("HASH", "LEAK",
+/home/openhatch/oh-mainline/eggs/twill-0.9.1_cc-py2.6.egg/twill/other_packages/_mechanize_dist/_msiecookiejar.py:255: SyntaxWarning: assertion is always true, perhaps remove parentheses?
+  assert (sig in ("HASH", "LEAK",
+Got twill 0.9.1-cc.
+Download error: timed out -- Some packages may not be found!
+Getting distribution for 'python-distutils-extra'.
+install_dir /home/openhatch/oh-mainline/eggs/tmp_KBVLJ
+zip_safe flag not set; analyzing archive contents...
+DistUtilsExtra.auto: module references __file__
+Got python-distutils-extra 2.9.
+Getting distribution for 'wadllib'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpDznhC2
+Got wadllib 1.2.0.
+Getting distribution for 'simplejson'.
+install_dir /home/openhatch/oh-mainline/eggs/tmppjOOV6
+Got simplejson 2.1.3.
+Getting distribution for 'oauth'.
+install_dir /home/openhatch/oh-mainline/eggs/tmpPbCCVe
+Got oauth 1.0.1.
+Getting distribution for 'lazr.uri'.
+install_dir /home/openhatch/oh-mainline/eggs/tmphO5zIi
+Got lazr.uri 1.0.2.
+Getting distribution for 'lazr.restfulclient>=0.9.19'.
+install_dir /home/openhatch/oh-mainline/eggs/tmp4fc93X
+Got lazr.restfulclient 0.9.19.
+Couldn't find index page for 'httplib2' (maybe misspelled?)
+Getting distribution for 'httplib2'.
+While:
+  Installing scripts.
+  Getting distribution for 'httplib2'.
+Error: Couldn't find a distribution for 'httplib2'.
+openhatch@ip-10-243-73-70:/home/openhatch/oh-mainline$

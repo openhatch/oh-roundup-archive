@@ -1,0 +1,53 @@
+From f45a771d00ce8b4d4d053e8f242c5ed4800ac46e Mon Sep 17 00:00:00 2001
+From: paulhomebus <paulhomebus@gmail.com>
+Date: Mon, 2 May 2011 08:39:28 +1200
+Subject: [PATCH] Move the block _Preparing for the mission_ into the Git Mission start page
+ Solves: https://openhatch.org/bugs/issue414
+ & https://openhatch.org/bugs/issue413
+
+---
+ .../missions/templates/missions/git/about_git.html |    9 ---------
+ .../missions/templates/missions/git/main_page.html |    7 +++++++
+ 2 files changed, 7 insertions(+), 9 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/git/about_git.html b/mysite/missions/templates/missions/git/about_git.html
+index 36d9bbd..956617e 100644
+--- a/mysite/missions/templates/missions/git/about_git.html
++++ b/mysite/missions/templates/missions/git/about_git.html
+@@ -22,15 +22,6 @@
+ 
+ <p>Git is a version control system (VCS) created by Linux Torvalds,  the creator of the Linux kernel. Git is known as a 'distributed” VCS, or DVCS. This means that each user's copy of the code is a fully working repository and includes all previous commit information.  Rather than connecting to a remote server as you would with Subversion or CVS, users can work productively offline, choosing to later sync their changes with a remote repository or create a patch file.</p>
+ 
+-<p>The purpose of this mission is to teach you how to clone a remote repository, make changes to a file, check them into your local copy, and finally create a patch file.</p>
+-
+-<h3>Preparing for the mission</h3>
+-<ul class="raquo_bullets">
+-  <li>Install git onto your machine.  In linux, the package is typically named "git-core" and is likely available via your package manager.  The <a href="http://git-scm.com/download">git website</a> contains options for downloading the latest version and builds for other platforms.</li>
+-  <li>Configure your user name: git config –global user.name 'First Last'</li>
+-  <li>Configure your user email: git config –global user.email 'name@domain.com'</li>
+-</ul>
+-
+ {% if user.is_authenticated %}
+ <p>(If your project recommends this tutorial to newcomers, we can put you in a list here!)</p>
+ {% endif %}
+diff --git a/mysite/missions/templates/missions/git/main_page.html b/mysite/missions/templates/missions/git/main_page.html
+index fcdef90..4723248 100644
+--- a/mysite/missions/templates/missions/git/main_page.html
++++ b/mysite/missions/templates/missions/git/main_page.html
+@@ -35,6 +35,13 @@ text file and use a terminal, you can complete this mission. </p>
+ <p>You will learn how to clone a git repository, make a commit, submit a patch,
+ and rebase your work onto the new version provided by the maintainer.</p>
+ 
++<h3>Preparing for the mission</h3>
++<ul class="raquo_bullets">
++  <li>Install git onto your machine.  In linux, the package is typically named "git-core" and is likely available via your package manager.  The <a href="http://git-scm.com/download">git website</a> contains options for downloading the latest version and builds for other platforms.</li>
++  <li>Configure your user name: git config –global user.name 'First Last'</li>
++  <li>Configure your user email: git config –global user.email 'name@domain.com'</li>
++</ul>
++
+ <p>If you want to know more about git, read 
+ <a href="{% url mysite.missions.git.views.long_description %}">more about Git</a>.</p>
+ 
+-- 
+1.7.1
+

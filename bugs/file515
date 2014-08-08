@@ -1,0 +1,44 @@
+#!/usr/bin/python
+import mysite.search.models
+import tempfile
+from django.core import serializers
+
+class BadAnswerFinder(object):
+    def __init__(self):
+        self.bad_answer_ids = set()
+        self.looked_at_ids = set()
+        self.xml_log_files = []
+
+    def ask_about(self, answer):
+        if answer.id in self.looked_at_ids:
+            return
+        print repr(answer.text)
+        print 'Is this bad?'
+        val = raw_input().lower()
+        if val and val[0] == 'y':
+            self.bad_answer_ids.add(answer.id)
+        self.looked_at_ids.add(answer.id)
+
+    def search_by_blacklist_text(self, blacklist_text):
+        for a in mysite.search.models.Answer.objects.all().filter(text__icontains=blacklist_text):
+            self.ask_about(a)
+
+    def _get_bad_objects(self):
+        queryset = mysite.search.models.Answer.objects.filter(pk__in=self.bad_answer_ids)
+        return queryset
+
+    def delete_and_log(self, actually_delete=True):
+        queryset = self._get_bad_objects()
+        if not queryset:
+            print "Nothing to do, actually."
+            return
+
+        out = tempfile.NamedTemporaryFile(delete=False)
+        xml_serializer = serializers.get_serializer("xml")()
+        xml_serializer.serialize(queryset, stream=out.file)
+        out.file.close()
+        self.xml_log_files.append(out.name)
+        if actually_delete:
+            queryset.delete()
+            self.bad_answer_ids = set()
+

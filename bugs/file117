@@ -1,0 +1,139 @@
+From d9d5b92b182fac1da708738f182b635eb19b7d3b Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Fri, 28 Jan 2011 18:40:06 +0100
+Subject: [PATCH] Fixed an issue with input fields not being displayed in Tar, SVN and Diff missions.
+
+It was necessary to add Django Form object(s) to data dictionary passed to view's template.
+
+Closes https://openhatch.org/bugs/issue229
+---
+ mysite/missions/diffpatch/views.py |   21 +++++++++++++--------
+ mysite/missions/svn/views.py       |   11 +++++++----
+ mysite/missions/tar/views.py       |   11 +++++++----
+ 3 files changed, 27 insertions(+), 16 deletions(-)
+
+diff --git a/mysite/missions/diffpatch/views.py b/mysite/missions/diffpatch/views.py
+index e49cdfe..ad854e2 100644
+--- a/mysite/missions/diffpatch/views.py
++++ b/mysite/missions/diffpatch/views.py
+@@ -1,6 +1,7 @@
+ # This file is part of OpenHatch.
+ # Copyright (C) 2010 Jack Grigg
+ # Copyright (C) 2010 John Stumpo
++# Copyright (C) 2011 Krzysztof Tarnowski (krzysztof.tarnowski@ymail.com)
+ # Copyright (C) 2010, 2011 OpenHatch, Inc.
+ #
+ # This program is free software: you can redistribute it and/or modify
+@@ -152,26 +153,30 @@ def about(request, passed_data={}):
+ def single_file_diff(request, passed_data={}):
+     state = DiffPatchMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'Single file diff'
+-    return (request, 'missions/diffpatch/single_file_diff.html',
+-            state.as_dict_for_template_context())
++    data = state.as_dict_for_template_context()
++    data['diffsingle_form'] = forms.DiffSingleUploadForm()
++    return (request, 'missions/diffpatch/single_file_diff.html', data)
+ 
+ @view
+ def single_file_patch(request, passed_data={}):
+     state = DiffPatchMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'Single file patch'
+-    return (request, 'missions/diffpatch/single_file_patch.html',
+-            state.as_dict_for_template_context())
++    data = state.as_dict_for_template_context()
++    data['patchsingle_form'] = forms.PatchSingleUploadForm()
++    return (request, 'missions/diffpatch/single_file_patch.html', data)
+ 
+ @view
+ def recursive_patch(request, passed_data={}):
+     state = DiffPatchMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'Recursive patch'
+-    return (request, 'missions/diffpatch/recursive_patch.html',
+-            state.as_dict_for_template_context())
++    data = state.as_dict_for_template_context()
++    data['patchrecursive_form'] = forms.PatchRecursiveUploadForm()
++    return (request, 'missions/diffpatch/recursive_patch.html', data)
+ 
+ @view
+ def recursive_diff(request, passed_data={}):
+     state = DiffPatchMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'Recursive diff'
+-    return (request, 'missions/diffpatch/recursive_diff.html',
+-            state.as_dict_for_template_context())
++    data = state.as_dict_for_template_context()
++    data['diffrecursive_form'] = forms.DiffRecursiveUploadForm()
++    return (request, 'missions/diffpatch/recursive_diff.html', data)
+diff --git a/mysite/missions/svn/views.py b/mysite/missions/svn/views.py
+index ea3a48d..7afc8e2 100644
+--- a/mysite/missions/svn/views.py
++++ b/mysite/missions/svn/views.py
+@@ -1,6 +1,7 @@
+ # This file is part of OpenHatch.
+ # Copyright (C) 2010 Jack Grigg
+ # Copyright (C) 2010 John Stumpo
++# Copyright (C) 2011 Krzysztof Tarnowski (krzysztof.tarnowski@ymail.com)
+ # Copyright (C) 2010, 2011 OpenHatch, Inc.
+ #
+ # This program is free software: you can redistribute it and/or modify
+@@ -119,8 +120,9 @@ def long_description(request, passed_data = None):
+ def checkout(request, passed_data = None):
+     state = SvnMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'Checking out'
+-    return (request, 'missions/svn/checkout.html',
+-            state.as_dict_for_template_context())
++    data = state.as_dict_for_template_context()
++    data['svn_checkout_form'] = forms.CheckoutForm()
++    return (request, 'missions/svn/checkout.html', data)
+ 
+ @login_required
+ @view
+@@ -128,8 +130,9 @@ def diff(request, passed_data = None):
+     state = SvnMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'Diffing your changes'
+     state.mission_step_prerequisite = 'svn_checkout'
+-    return (request, 'missions/svn/diff.html',
+-            state.as_dict_for_template_context())
++    data = state.as_dict_for_template_context()
++    data['svn_diff_form'] = forms.DiffForm()
++    return (request, 'missions/svn/diff.html', data)
+ 
+ @login_required
+ @view
+diff --git a/mysite/missions/tar/views.py b/mysite/missions/tar/views.py
+index 3df4458..3502e61 100644
+--- a/mysite/missions/tar/views.py
++++ b/mysite/missions/tar/views.py
+@@ -1,6 +1,7 @@
+ # This file is part of OpenHatch.
+ # Copyright (C) 2010 Jack Grigg
+ # Copyright (C) 2010 John Stumpo
++# Copyright (C) 2011 Krzysztof Tarnowski (krzysztof.tarnowski@ymail.com)
+ # Copyright (C) 2010, 2011 OpenHatch, Inc.
+ #
+ # This program is free software: you can redistribute it and/or modify
+@@ -110,16 +111,18 @@ def about(request, passed_data={}):
+ def unpacking(request, passed_data={}):
+     state = TarMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'Unpacking'
+-    return (request, 'missions/tar/unpacking.html',
+-            state.as_dict_for_template_context())
++    data = state.as_dict_for_template_context()
++    data['unpack_form'] = forms.ExtractUploadForm()
++    return (request, 'missions/tar/unpacking.html', data)
+ 
+ @login_required
+ @view
+ def creating(request, passed_data={}):
+     state = TarMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'Creating'
+-    return (request, 'missions/tar/creating.html',
+-            state.as_dict_for_template_context())
++    data = state.as_dict_for_template_context()
++    data['create_form'] = forms.UploadForm()
++    return (request, 'missions/tar/creating.html', data)
+ 
+ @view
+ def hints(request, passed_data={}):
+-- 
+1.7.3.5
+

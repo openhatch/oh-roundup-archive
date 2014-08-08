@@ -1,0 +1,20 @@
+#!/bin/sh
+git reset --hard HEAD
+git clean -dfx
+sed -i -e 's/^DEBUG = True/DEBUG = False/' mysite/settings.py
+python manage.py syncdb --noinput
+python manage.py migrate
+python manage.py shell_plus <<EOF
+p = Person.create_dummy()
+p.user.username = 'foo'
+p.user.set_password('foo')
+p.user.save()
+p.save()
+EOF
+trap "pkill -f runserver" INT EXIT
+python manage.py runserver &
+echo "Test: login as foo:foo and click 'Add a project'"
+sleep 2
+URL=http://localhost:8000/+portfolio/editor/
+xdg-open $URL || open $URL
+(echo "sleeping 5min before killing 'runserver'" && sleep 300 && pkill -f runserver)

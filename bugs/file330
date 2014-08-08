@@ -1,0 +1,21 @@
+kracekumar@python-lover:~/openhatch/contrib$ ./bin/buildout  >buildout_error.txtTraceback (most recent call last):
+  File "./bin/buildout", line 15, in <module>
+    import site # imports custom buildout-generated site.py
+  File "/home/kracekumar/openhatch/contrib/parts/buildout/site.py", line 564, in <module>
+    main()
+  File "/home/kracekumar/openhatch/contrib/parts/buildout/site.py", line 547, in main
+    known_paths = addsitepackages(known_paths)
+  File "/home/kracekumar/openhatch/contrib/parts/buildout/site.py", line 262, in addsitepackages
+    import pkg_resources
+  File "/usr/lib/python2.6/dist-packages/pkg_resources.py", line 2691, in <module>
+    add_activation_listener(lambda dist: dist.activate())
+  File "/usr/lib/python2.6/dist-packages/pkg_resources.py", line 668, in subscribe
+    callback(dist)
+  File "/usr/lib/python2.6/dist-packages/pkg_resources.py", line 2691, in <lambda>
+    add_activation_listener(lambda dist: dist.activate())
+  File "/usr/lib/python2.6/dist-packages/pkg_resources.py", line 2195, in activate
+    map(declare_namespace, self._get_metadata('namespace_packages.txt'))
+  File "/usr/lib/python2.6/dist-packages/pkg_resources.py", line 1776, in declare_namespace
+    __import__(parent)
+ImportError: No module named enthought
+

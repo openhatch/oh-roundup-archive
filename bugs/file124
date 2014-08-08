@@ -1,0 +1,46 @@
+From eea5ef4c818a99c1c78f8be4b48e25174182e75d Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Sun, 30 Jan 2011 22:02:07 +0100
+Subject: [PATCH] Added "About OpenHatch.org" box on landing page for first-time visitors.
+
+Refs https://openhatch.org/bugs/issue197
+---
+ mysite/base/templates/base/landing.html |    8 ++++++++
+ mysite/static/css/base/landing.css      |    5 +++++
+ 2 files changed, 13 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/base/templates/base/landing.html b/mysite/base/templates/base/landing.html
+index ce28642..a552107 100644
+--- a/mysite/base/templates/base/landing.html
++++ b/mysite/base/templates/base/landing.html
+@@ -216,6 +216,14 @@ document.documentElement.className = 'javascript_is_enabled';
+ 
+         </div>
+     </div>
++    
++    <div class=module id=about-message>
++      <div class=head><h3>About OpenHatch.org</h3></div>
++      <div class=body>
++<p>We believe that our community loses tons of prospective members because learning how and where you can fit in is difficult.<br/> 
++<a href="/about/" title="Community for free and open source software">OpenHatch</a> is an ongoing project to address these issues, through our website and in-person outreach efforts.</p><a class="link-more" href="/about/" title="About OpenHatch.org">Read more about OpenHatch.org &raquo;</a>
++      </div>
++    </div>
+ 
+     {% include 'feed_widget.html' %}
+ 
+diff --git a/mysite/static/css/base/landing.css b/mysite/static/css/base/landing.css
+index 3919b8d..ac0d5d2 100644
+--- a/mysite/static/css/base/landing.css
++++ b/mysite/static/css/base/landing.css
+@@ -47,3 +47,8 @@ body#landing #recent_activity_feed ul li:last-child { margin-bottom: 0; }
+ body#landing #blog_feed { margin-left: 1%; width: 32.3%; }
+ body#landing .links_at_tab_bottom { float: left; padding-bottom: 10px; width: 100%; text-align: center; }
+ body#landing .links_at_tab_bottom li { display: inline; }
++
++body#landing #about-message { width: 98.5% }
++body#landing #about-message .body { width: 96%; font-size: 110% }
++body#landing #about-message .body p { font-weight: bold }
++.link-more { float: right; font-size: 90% }
+-- 
+1.7.3.5
+

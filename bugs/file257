@@ -1,0 +1,77 @@
+From 5a8c7de6a8dc00e59ca0ae608e6c7b8102310277 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Mon, 25 Apr 2011 17:56:03 -0400
+Subject: [PATCH 1/2] A few changes to the git mission. so that we can get it put in milestone 11.04.
+ See: http://openhatch.org/bugs/issue185 
+
+---
+ mysite/settings.py |   2 ++
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/settings.py b/mysite/settings.py
+index 963f4b6..6e1beab 100644
+--- a/mysite/settings.py
++++ b/mysite/settings.py
+@@ -266,1 +267,1 @@ PATH_TO_MANAGEMENT_SCRIPT = os.path.abspath(sys.argv[0])
+ CELERY_ALWAYS_EAGER = True
+ SOUTH_TESTS_MIGRATE = False
+
+ GIT_REPO_PATH = os.path.join(MEDIA_ROOT_BEFORE_STATIC, 'missions-userdata', 'git')
+-GIT_REPO_URL_PREFIX = 'git://openhatch.org/'
++GIT_REPO_URL_PREFIX = 'http:/openhatch.org/'
+-- 
+1.7.2.5
+
+From d45a93c5adc1a80ebd9b9f1b7beec30cc8a16d46 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Sat, 30 Apr 2011 21:12:16 -0400
+Subject: [PATCH 2/2] A few changes to the git mission. so that we can get it put in milestone 11.04.
+ See: http://openhatch.org/bugs/issue185
+
+---
+ .../missions/templates/missions/git/checkout.html  |    2 +-
+ mysite/missions/templates/missions/git/diff.html   |    7 ++++---
+ 2 files changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/git/checkout.html b/mysite/missions/templates/missions/git/checkout.html
+index bda2d0c..ea5525f 100644
+--- a/mysite/missions/templates/missions/git/checkout.html
++++ b/mysite/missions/templates/missions/git/checkout.html
+@@ -26,7 +26,7 @@
+ <p>You can clone the repository by running:<br style="clear: left;" />
+ <code>git clone {{ checkout_url }} git_missions</code>
+
+-<p>Once you have a copy of the repository, open hello_world.py to read the comments and see if you can find the name of the author responsible for this mishap!</p>
++<p>Once you have a copy of the repository, use git blame to find the author responsible for this mishap! (<abbr title="on linux: cd git_missions, then type: git blame hello.py">hover for hint</abbr>)</p>
+
+ {% if git_checkout_done %}
+ <div class="successmsg">
+diff --git a/mysite/missions/templates/missions/git/diff.html b/mysite/missions/templates/missions/git/diff.html
+index 5f5ed10..bc349e8 100644
+--- a/mysite/missions/templates/missions/git/diff.html
++++ b/mysite/missions/templates/missions/git/diff.html
+@@ -33,11 +33,11 @@
+ <ul class="raquo_bullets">
+   <li>You can use your working copy from the previous mission.</li>
+   <li>The file <code>{{ file_for_git_diff }}</code> contains a terrible error.  Fix it in your working copy to print "Hello world", rather than "Goodbye world".</li>
+-  <li>Check your changes into your local copy.</li>
++  <li>Check your changes into your local copy using git add then git commit -m (or by using git commit -am "Fixed hello world").</li>
+   <li>Run <code>git format-patch origin/master</code> to create a file containing the patch.
+-  <li>Open the patch file and paste the results in the box below.</li>
++  <li>Open the patch file with a text editor and paste the results in the box below.</li>
+ </ul>
+-
++<br style="clear: left;" />
+ {% if git_diff_done %}
+ <div class="successmsg">
+   <p><strong>You have successfully completed this part of the mission.</strong></p>
+@@ -59,5 +59,6 @@
+     <input type="submit" value="Submit" style="float: none;" />
+   </div>
+ </form>
++<p>Note: Files created by git format-patch are like normal <a href="{% url mysite.missions.diffpatch.views.about %}">patch files</a>, but they also carry information about the git commit that created the patch: the author, the date, and the commit log message are all there at the top of the patch.</p>
+ {% endif %}
+ {% endblock %}
+--
+1.7.2.5
+

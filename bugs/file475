@@ -1,0 +1,25 @@
+From 7fe695bd03d08357939c3e8c85a1ed607fe4fb02 Mon Sep 17 00:00:00 2001
+From: unknown <Kathleen@Kathleen-PC.(none)>
+Date: Sun, 26 Feb 2012 16:33:45 -0500
+Subject: [PATCH] Change error message for wrong password.
+
+---
+ mysite/missions/git/views.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+index f280585..9bc5290 100644
+--- a/mysite/missions/git/views.py
++++ b/mysite/missions/git/views.py
+@@ -100,7 +100,7 @@ def rebase_submit(request):
+                 controllers.set_mission_completed(request.user.get_profile(), 'git_rebase')
+                 return HttpResponseRedirect(reverse(rebase))
+             else:
+-                data['git_rebase_error_message'] = "The author's name is incorrect."
++                data['git_rebase_error_message'] = "The password is incorrect."
+         data['git_rebase_form'] = form
+     return rebase(request, data)
+ 
+-- 
+1.7.9.msysgit.0
+

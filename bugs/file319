@@ -1,0 +1,156 @@
+From 52ad1b81ed5e79faf6b71dc6ee53eef1e06d3fa7 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Fri, 3 Jun 2011 22:17:52 +1200
+Subject: [PATCH] Template changes for a new step to the Git Mission
+
+Add a configuration check step to the git mission,
+to make sure the user has git installed correctly.
+We do this by getting them to copy the output of
+git config --global user.email.
+
+I've also used var|safe|escape to allow me to make the
+error message bold in the about_git.html template.
+---
+ .../missions/templates/missions/git/about_git.html |   42 +++++++++++++++-----
+ mysite/missions/templates/missions/git/base.html   |    2 +-
+ .../missions/templates/missions/git/checkout.html  |   14 ++++++-
+ .../missions/templates/missions/git/main_page.html |    6 +--
+ 4 files changed, 47 insertions(+), 17 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/git/about_git.html b/mysite/missions/templates/missions/git/about_git.html
+index 1b1173e..a28611a 100644
+--- a/mysite/missions/templates/missions/git/about_git.html
++++ b/mysite/missions/templates/missions/git/about_git.html
+@@ -22,6 +22,14 @@
+ 
+ <p>Git is a version control system (VCS) created by Linus Torvalds,  the creator of the Linux kernel. Git is known as a 'distributed” VCS, or DVCS. This means that each user's copy of the code is a fully working repository and includes all previous commit information.  Rather than connecting to a remote server as you would with Subversion or CVS, users can work productively offline, choosing to later sync their changes with a remote repository or create a patch file.</p>
+ 
++<h3>Other resources</h3>
++
++<ul class="raquo_bullets">
++  <li>The <a href="http://git-scm.com/">website</a> for the git project contains a quickstart guide and links to <a href="http://git-scm.com/documentation"> other useful resources</a>.</li>
++  <li>The <a href="http://book.git-scm.com/"> Git Community Book</a> is a wonderful resource for more in depth explanation of git's features.</li>
++  <li>Many git users chat on the #git channel on IRC</li>
++</ul>
++
+ <p>The purpose of this mission is to teach you how to clone a remote repository, make changes to a file, check them into your local copy, and finally create a patch file.</p>
+ 
+ <h3>Preparing for the mission</h3>
+@@ -32,15 +40,29 @@
+ </ul>
+ 
+ {% if user.is_authenticated %}
+-<p>(If your project recommends this tutorial to newcomers, we can put you in a list here!)</p>
+-{% endif %}
+-<p>
+-<h3>Other resources</h3>
++    {% if git_config_done %}
++        <div class="successmsg">
++          <p><strong>You have successfully completed the first part of the mission.</strong></p>
++        </div>
++        <p class="next_mission_link">
++          <a href="{% url mysite.missions.git.views.checkout %}">Checking out a
++          working copy &raquo;</a></p>
++        {% else %}
++        <form method="post" action="{% url mysite.missions.git.views.long_description_submit %}#gitconfig-form">
++            <div class="form-row">
++            <a name="gitconfig-form"></a>
++            <br style="clear: left;" />
++            {% if git_config_error_message or git_config_form.user_email.errors %}
++                <ul class="errorlist"><li>{{ git_config_form.user_email.errors }}  {{ git_config_error_message|safe|escape }}</li></ul><br style="clear: left;" />
++            {% endif %}
++            To confirm that you have setup git correctly, please copy the output from...<br />
++            <code>git config --global user.email</code><br style="clear: left;" /><br />
++            {{ git_config_form.user_email }}
++            <br style="clear: left;" />
++            <input type="submit" value="Submit" style="float: right; margin-top: -20px; margin-right: 200px;" />
++          </div>
++        </form>
++        {% endif %}
++{% endif %} 
+ 
+-<ul class="raquo_bullets">
+-  <li>The <a href="http://git-scm.com/">website</a> for the git project contains a quickstart guide and links to <a href="http://git-scm.com/documentation"> other useful resources</a>.</li>
+-  <li>The <a href="http://book.git-scm.com/"> Git Community Book</a> is a wonderful resource for more in depth explanation of git's features.</li>
+-  <li>Many git users chat on the #git channel on IRC</li>
+-</ul>
+-</p>
+ {% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/git/base.html b/mysite/missions/templates/missions/git/base.html
+index 5662b40..0b9f60b 100644
+--- a/mysite/missions/templates/missions/git/base.html
++++ b/mysite/missions/templates/missions/git/base.html
+@@ -27,7 +27,7 @@
+ </li>
+ <li id='link-long_description'>
+   <a href='{% url mysite.missions.git.views.long_description %}'>
+-    About Git
++    Setup Git
+   </a>
+ </li>
+ <li id='link-checkout'>
+diff --git a/mysite/missions/templates/missions/git/checkout.html b/mysite/missions/templates/missions/git/checkout.html
+index 1b37001..a3c48ee 100644
+--- a/mysite/missions/templates/missions/git/checkout.html
++++ b/mysite/missions/templates/missions/git/checkout.html
+@@ -21,6 +21,17 @@
+ 
+ {% block mission_main_body %}
+ 
++{% if not repository_exists %}
++
++{% block mission_missing_prerequisite_text %}
++<p>You can't do the git checkout step yet! <br />
++You have to create your repository on the
++  <a href='{% url mysite.missions.git.views.main_page %}'>Mission start page</a>!
++</p>
++{% endblock mission_missing_prerequisite_text %}
++
++{% else %}
++
+ <p>Your first mission is to obtain a copy of the remote git repository. For this mission, we will use the git repository you created in step one.  Running the following command will clone the remote repository and create a copy on your hard drive.</p>
+ 
+ <p>You can clone the repository by running:<br style="clear: left;" />
+@@ -35,7 +46,7 @@
+ <p class="next_mission_link">
+   <a href="{% url mysite.missions.git.views.diff %}">Creating a patch of your changes &raquo;</a></p>
+ {% else %}
+-<form method="post" action="{% url mysite.missions.git.views.checkout_submit %}#gitcheckout-form">
++<form method="post" action="{% url mysite.missions.git.views.checkout_submit %}">
+   <div class="form-row">
+     <a name="gitcheckout-form"></a>
+     {% if git_checkout_error_message %}
+@@ -51,5 +62,6 @@
+ </form>
+ 
+ {% endif %}
++{% endif %}
+ 
+ {% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/git/main_page.html b/mysite/missions/templates/missions/git/main_page.html
+index fcdef90..9dfd76e 100644
+--- a/mysite/missions/templates/missions/git/main_page.html
++++ b/mysite/missions/templates/missions/git/main_page.html
+@@ -35,9 +35,6 @@ text file and use a terminal, you can complete this mission. </p>
+ <p>You will learn how to clone a git repository, make a commit, submit a patch,
+ and rebase your work onto the new version provided by the maintainer.</p>
+ 
+-<p>If you want to know more about git, read 
+-<a href="{% url mysite.missions.git.views.long_description %}">more about Git</a>.</p>
+-
+ {% if user.is_authenticated %}
+ {% if repository_exists %}
+ <p>You already have a repository that you can use for these missions, but if
+@@ -48,8 +45,7 @@ you want to start over fresh, you can reset it.</p>
+ </form><br style="clear: left;" />
+ 
+ <p class="next_mission_link">
+-  <a href="{% url mysite.missions.git.views.checkout %}">Checking out a
+-  working copy &raquo;</a></p>
++    <a href="{% url mysite.missions.git.views.long_description %}">Now let's get Git set up &raquo;</a>.</p>
+   {% else %}
+   <p>To do these missions, you will need to make a personal repository.  Your
+   repository will reside on the OpenHatch server, specifically for your use in
+-- 
+1.7.2.5
+

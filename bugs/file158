@@ -1,0 +1,56 @@
+From f1e5254a99d7cab2fcb868a55296b04c53440646 Mon Sep 17 00:00:00 2001
+From: Jairo Lopez <jelfn@sislacom.com>
+Date: Tue, 15 Mar 2011 14:59:56 -0430
+Subject: [PATCH 2/2] Committed a simple test to check the meta data generation.
+
+Added a simple check to the meta_data function so that there is no 0
+division when obtaining the percentage of bugs in the database and
+passes the absolutely simple test I wrote.
+
+Cheers.
+---
+ mysite/base/tests.py |    5 +++++
+ mysite/base/views.py |   13 +++++++++----
+ 2 files changed, 14 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/base/tests.py b/mysite/base/tests.py
+index d46529f..a0531a9 100644
+--- a/mysite/base/tests.py
++++ b/mysite/base/tests.py
+@@ -470,4 +470,9 @@ class NagiosTests(django.test.TestCase):
+ 
+         self.assertEqual(2, mysite.base.views.meta_exit_code(data))
+ 
++# Test cases for meta data generation 
++class MetaDataTests(django.test.TestCase):
++    def test_meta_data_zero_div(self):
++        mysite.base.views.meta_data()
++        
+ # vim: set ai et ts=4 sw=4 nu:
+diff --git a/mysite/base/views.py b/mysite/base/views.py
+index 02adaa3..abf314c 100644
+--- a/mysite/base/views.py
++++ b/mysite/base/views.py
+@@ -198,10 +198,15 @@ def meta_data():
+                     datetime.timedelta(days=2))
+     my['Bugs last polled more than two days ago'] = mysite.search.models.Bug.all_bugs.filter(
+         last_polled__lt=two_days_ago).count()
+-    my['Bugs last polled more than two days ago (in percent)'] = (
+-        mysite.search.models.Bug.all_bugs.filter(
+-        last_polled__lt=two_days_ago).count() * 100.0 /
+-        mysite.search.models.Bug.all_bugs.count())
++
++    # Test for 0 division
++    allbug = mysite.search.models.Bug.all_bugs.count()
++    perbug = 0.0
++    if allbug:
++        perbug = ( mysite.search.models.Bug.all_bugs.filter(
++            last_polled__lt=two_days_ago).count() * 100.0 / allbug)
++
++    my['Bugs last polled more than two days ago (in percent)'] = perbug
+ 
+     return data
+ 
+-- 
+1.7.2.3
+

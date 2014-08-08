@@ -1,0 +1,69 @@
+2011-02-21 12:12:13,859 execute:129 DEBUG    south execute "ALTER TABLE `profile_citation` ;" with params "[]"
+2011-02-21 12:12:13,861 execute:129 DEBUG    south execute "ALTER TABLE `profile_citation` ALTER COLUMN `date_created` SET DEFAULT %s ;" with params "[datetime.datetime(2010, 1, 8, 2, 5, 54, 480532)]"
+2011-02-21 12:12:13,932 execute:129 DEBUG    south execute "ALTER TABLE `profile_citation` MODIFY `date_created` datetime NOT NULL;;" with params "[]"
+ > profile:0068_add_homepage_url_models
+2011-02-21 12:12:14,269 execute:129 DEBUG    south execute "ALTER TABLE `profile_person` ADD COLUMN `homepage_url` varchar(200) NOT NULL;" with params "[]"
+2011-02-21 12:12:14,273 execute:129 DEBUG    south execute "ALTER TABLE `profile_person` ADD COLUMN `homepage_url` varchar(200) NOT NULL;" with params "[]"
+ > profile:0069_fix_wrong_encoded_data_in_location_display_name
+ - Migration 'profile:0069_fix_wrong_encoded_data_in_location_display_name' is marked for no-dry-run.
+ ! Error found during real run of migration! Aborting.
+
+ ! Since you have a database that does not support running
+ ! schema-altering statements in transactions, we have had 
+ ! to leave it in an interim state between migrations.
+
+! You *might* be able to recover with:
+ ! The South developers regret this has happened, and would
+ ! like to gently persuade you to consider a slightly
+ ! easier-to-deal-with DBMS.
+
+Traceback (most recent call last):
+  File "./bin/mysite", line 77, in <module>
+    djangorecipe.manage.main('mysite.settings')
+  File "/home/jesstess/dev/oh-mainline/eggs/djangorecipe-0.20-py2.6.egg/djangorecipe/manage.py", line 16, in main
+    management.execute_manager(mod)
+  File "/usr/lib/pymodules/python2.6/django/core/management/__init__.py", line 438, in execute_manager
+    utility.execute()
+  File "/usr/lib/pymodules/python2.6/django/core/management/__init__.py", line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/lib/pymodules/python2.6/django/core/management/base.py", line 191, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/usr/lib/pymodules/python2.6/django/core/management/base.py", line 220, in execute
+    output = self.handle(*args, **options)
+  File "/usr/lib/pymodules/python2.6/south/management/commands/migrate.py", line 102, in handle
+    delete_ghosts = delete_ghosts,
+  File "/usr/lib/pymodules/python2.6/south/migration/__init__.py", line 202, in migrate_app
+    success = migrator.migrate_many(target, workplan, database)
+  File "/usr/lib/pymodules/python2.6/south/migration/migrators.py", line 215, in migrate_many
+    result = migrator.__class__.migrate_many(migrator, target, migrations, database)
+  File "/usr/lib/pymodules/python2.6/south/migration/migrators.py", line 284, in migrate_many
+    result = self.migrate(migration, database)
+  File "/usr/lib/pymodules/python2.6/south/migration/migrators.py", line 121, in migrate
+    result = self.run(migration)
+  File "/usr/lib/pymodules/python2.6/south/migration/migrators.py", line 95, in run
+    return self.run_migration(migration)
+  File "/usr/lib/pymodules/python2.6/south/migration/migrators.py", line 77, in run_migration
+    migration_function()
+  File "/usr/lib/pymodules/python2.6/south/migration/migrators.py", line 56, in <lambda>
+    return (lambda: direction(orm))
+  File "/home/jesstess/dev/oh-mainline/mysite/profile/migrations/0069_fix_wrong_encoded_data_in_location_display_name.py", line 27, in forwards
+    for person in orm['profile.person'].objects.all():
+  File "/usr/lib/pymodules/python2.6/django/db/models/query.py", line 106, in _result_iter
+    self._fill_cache()
+  File "/usr/lib/pymodules/python2.6/django/db/models/query.py", line 760, in _fill_cache
+    self._result_cache.append(self._iter.next())
+  File "/usr/lib/pymodules/python2.6/django/db/models/query.py", line 269, in iterator
+    for row in compiler.results_iter():
+  File "/usr/lib/pymodules/python2.6/django/db/models/sql/compiler.py", line 672, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/lib/pymodules/python2.6/django/db/models/sql/compiler.py", line 727, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/lib/pymodules/python2.6/django/db/backends/util.py", line 15, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/lib/pymodules/python2.6/django/db/backends/mysql/base.py", line 86, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib/pymodules/python2.6/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib/pymodules/python2.6/MySQLdb/connections.py", line 35, in defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'profile_person.bio' in 'field list'")

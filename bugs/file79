@@ -1,0 +1,93 @@
+From f9463b8779f804147c05fe132e0585c6d472fd26 Mon Sep 17 00:00:00 2001
+From: Karen <karen@openhatch.org>
+Date: Thu, 30 Sep 2010 11:57:53 -0700
+Subject: [PATCH 2/3] Wrote test for bug dumping -- it passes!
+
+---
+ .../management/commands/dump_public_user_data.py   |   24 ++++++++++++++++---
+ mysite/customs/tests.py                            |    7 ++++-
+ 2 files changed, 25 insertions(+), 6 deletions(-)
+
+diff --git a/mysite/customs/management/commands/dump_public_user_data.py b/mysite/customs/management/commands/dump_public_user_data.py
+index fa817b0..8c5cdd5 100644
+--- a/mysite/customs/management/commands/dump_public_user_data.py
++++ b/mysite/customs/management/commands/dump_public_user_data.py
+@@ -6,10 +6,14 @@ import sys
+ import simplejson
+ from django.core.management.base import BaseCommand
+ import django.core.serializers
++import django.core.serializers.json
++import mysite.search.views
++
+ 
+ ## You can run this, and it generates a JSON file that can be
+ ## passed to loaddata.
+ 
++
+ class Command(BaseCommand):
+     help = "Create a JSON file of all the public data in the Person and User models."
+ 
+@@ -30,6 +34,20 @@ class Command(BaseCommand):
+             # Now, in obj, replace the fields with a safe version
+             obj['fields'] = fields_that_are_safe_to_export
+         return all
++        
++    def serialize_all_objects(self, query_set):
++        obj_serializer = django.core.serializers.get_serializer('python')()
++        all = obj_serializer.serialize(query_set)
++        for obj in all:
++            fields_that_are_safe_to_export = {}
++            for key in obj['fields']:
++                value = obj['fields'][key]
++
++                fields_that_are_safe_to_export[key] = value
++
++            # Now, in obj, replace the fields with a safe version
++            obj['fields'] = fields_that_are_safe_to_export
++        return all
+ 
+     def handle(self, output=None, *args, **options):
+         if output == None:
+@@ -54,10 +72,8 @@ class Command(BaseCommand):
+         data.extend(public_data_from_person_model)
+         
+         # exporting Bug data (?)
+-        public_bug_data = self.serialize_objects(
+-	        query_set=Bug.all_bugs.all(),
+-	        whitelisted_columns = ['project', 'title', 'description', 'status'])
++        public_bug_data = self.serialize_all_objects(query_set=Bug.all_bugs.all())
+         data.extend(public_bug_data)
+ 
+         ### anyway, now we stream all this data out using simplejson
+-        simplejson.dump(data, output)
++        simplejson.dump(data, output,cls=django.core.serializers.json.DjangoJSONEncoder)
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index f6340d6..41ccc29 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -1586,8 +1586,9 @@ class DataExport(django.test.TestCase):
+ 		# data capture, woo
+ 		fake_stdout = StringIO()
+ 		# make fake bug
+-		b = Bug.create_dummy()
++		b = Bug.create_dummy_with_project()
+ 		b.title = 'fire-ant'
++		b.save()
+ 		
+ 		# dump fake bug into fake stdout
+ 		command = mysite.customs.management.commands.dump_public_user_data.Command()
+@@ -1600,8 +1601,10 @@ class DataExport(django.test.TestCase):
+ 		for obj in django.core.serializers.deserialize('json', fake_stdout.getvalue()):
+ 			obj.save()
+ 		
++		# testing to see if there are ANY bugs
++		self.assertTrue(Bug.all_bugs.all())
+ 		# testing to see if fire-ant is there
+-		reincarnated_b = django.contrib.auth.models.Bug.objects.get(title='fire-ant')
++		reincarnated_b = mysite.search.models.Bug.all_bugs.get(title='fire-ant')
+ 
+ # vim: set nu:
+ 
+-- 
+1.7.0.4
+

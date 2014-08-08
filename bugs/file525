@@ -1,0 +1,67 @@
+From 49a21d9825bc9e0461297a82c8e3a7e1874e620a Mon Sep 17 00:00:00 2001
+From: Betsy Cannon <forklady42@gmail.com>
+Date: Tue, 13 Nov 2012 11:44:59 -0500
+Subject: [PATCH] Prompt spelling corrected
+
+---
+ mysite/missions/templates/missions/diffpatch/recursive_diff.html    |    2 +-
+ mysite/missions/templates/missions/diffpatch/recursive_patch.html   |    2 +-
+ mysite/missions/templates/missions/diffpatch/single_file_diff.html  |    2 +-
+ mysite/missions/templates/missions/diffpatch/single_file_patch.html |    2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/diffpatch/recursive_diff.html b/mysite/missions/templates/missions/diffpatch/recursive_diff.html
+index 67bfa4f..8f0eaca 100644
+--- a/mysite/missions/templates/missions/diffpatch/recursive_diff.html
++++ b/mysite/missions/templates/missions/diffpatch/recursive_diff.html
+@@ -109,7 +109,7 @@
+       </ul>
+     </div>
+     <div id="high">
+-<p>Open a command propmt, and type these commands in, one at a time. You need to copy them exactly. Make sure to press enter between each one.</p>
++<p>Open a command prompt, and type these commands in, one at a time. You need to copy them exactly. Make sure to press enter between each one.</p>
+       <p>First, create a directory you'll work in and change into it.</p>
+       <pre>
+ 	mkdir recursivediff
+diff --git a/mysite/missions/templates/missions/diffpatch/recursive_patch.html b/mysite/missions/templates/missions/diffpatch/recursive_patch.html
+index 0b47e09..a5f931b 100644
+--- a/mysite/missions/templates/missions/diffpatch/recursive_patch.html
++++ b/mysite/missions/templates/missions/diffpatch/recursive_patch.html
+@@ -103,7 +103,7 @@
+       <p>That should apply the patch file. Open up <code>more-garlic.diff</code> in a text editor and read the patch file "headers". Pay special attention to the directory paths. The <code>-p1</code> says to ignore up through the first "/" in the paths in the patch headers when trying to find files to patch.</p>
+     </div>
+     <div id="high">
+-      <p>Open a command propmt, and type these commands in, one at a time. You need to copy them exactly. Make sure to press enter between each one.</p>
++      <p>Open a command prompt, and type these commands in, one at a time. You need to copy them exactly. Make sure to press enter between each one.</p>
+       <p>First, create a directory you'll work in and change into it.</p>
+       <pre>
+ 	mkdir recursivepatch
+diff --git a/mysite/missions/templates/missions/diffpatch/single_file_diff.html b/mysite/missions/templates/missions/diffpatch/single_file_diff.html
+index 4b8add6..76c0153 100644
+--- a/mysite/missions/templates/missions/diffpatch/single_file_diff.html
++++ b/mysite/missions/templates/missions/diffpatch/single_file_diff.html
+@@ -109,7 +109,7 @@
+       </ul>
+     </div>
+     <div id="high">
+-      <p>Open a command propmt, and type these commands in, one at a time. You need to copy them exactly. Make sure to press enter between each one.</p>
++      <p>Open a command prompt, and type these commands in, one at a time. You need to copy them exactly. Make sure to press enter between each one.</p>
+       <p>First, create a directory you'll work in and change into it.</p>
+       <pre>
+ 	mkdir singlediff
+diff --git a/mysite/missions/templates/missions/diffpatch/single_file_patch.html b/mysite/missions/templates/missions/diffpatch/single_file_patch.html
+index c29d430..3a51e2f 100644
+--- a/mysite/missions/templates/missions/diffpatch/single_file_patch.html
++++ b/mysite/missions/templates/missions/diffpatch/single_file_patch.html
+@@ -100,7 +100,7 @@
+ 	 <p>One way to accomplish this is by running a command like <pre>patch -p0 &lt; patch_file</pre> from the command-line, in the directory containing both <code>patch_file</code> and the original file (replace <code>"patch_file"</code> with the actual name of the file you downloaded). This command says "use the patch program to apply the diff in <code>patch_file</code> to a file in the current directory". You can read more about the <code>patch</code> program in its <a href="http://linux.die.net/man/1/patch">man page</a> (or type <code>man patch</code> at the command-line).</p>
+     </div>
+     <div id="high">
+-      <p>Open a command propmt, and type these commands in, one at a time. You need to copy them exactly. Make sure to press enter between each one.</p>
++      <p>Open a command prompt, and type these commands in, one at a time. You need to copy them exactly. Make sure to press enter between each one.</p>
+       <p>First, create a directory you'll work in and change into it.</p>
+       <pre>
+ 	mkdir singlediffpatch
+-- 
+1.7.10.msysgit.1
+

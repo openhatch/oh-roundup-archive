@@ -1,0 +1,79 @@
+From db3562cdb00248db83995d18b000d917d5ffb1da Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Mon, 6 Jun 2011 15:20:01 +1200
+Subject: [PATCH] Fix ambiguous wording in the contributors project template
+
+In templates/profile/contributors.html I now have the words
+_Other contributors_ for more than 2 contributors and
+for less than 2 contributors it will only display
+_Other contributor_.
+But also for more than 4 contributors it will display _Other contributors 1-4 of_
+
+I decided to subtract the person from the total to make the results
+clearer.
+
+Solves: http://openhatch.org/bugs/issue347
+---
+ mysite/profile/templates/profile/contributors.html |   25 +++++++++++++++++--
+ mysite/profile/templatetags/profile_extras.py      |    5 ++++
+ 2 files changed, 27 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/profile/templates/profile/contributors.html b/mysite/profile/templates/profile/contributors.html
+index d359843..671a467 100644
+--- a/mysite/profile/templates/profile/contributors.html
++++ b/mysite/profile/templates/profile/contributors.html
+@@ -22,7 +22,17 @@
+ {% if contributors %}
+ <div class='other-contributors'>
+     {% with project.get_contributors|length as contributor_count %}
+-    <label>Other contributor{{contributor_count|pluralize}} ({{ contributor_count }} total):</label>
++        {% if contributor_count <= 4 %}
++            {% if contributor_count >= 2 %}
++                <label>Other contributors ({{ contributor_count|sub:1 }}):</label>
++            {% else %}
++                <label>Other contributor:</label>
++            {% endif %}
++        {% else %}
++            <label>Other contributors 1-4 of ({{ contributor_count|sub:1 }}):</label>
++        {% endif %}
+     <ul>
+         {% for person in contributors %}
+         <li>
+@@ -47,9 +57,18 @@
+         </li>
+         {% endfor %}
+     </ul>
+-    <a class='see-all'
++    {% if contributor_count <= 4 %}
++        <a class='see-all'
+             href='{% url mysite.profile.views.people %}?q=project:{{ project.name|urlencode }}'
+-        >See all &raquo;</a>
++        >Show on map &raquo;</a>
++    {% else %}
++        <a class='see-all'
++                href='{% url mysite.profile.views.people %}?q=project:{{ project.name|urlencode }}'
++            >Show all on map &raquo;</a>
++    {% endif %}
++
+     {% endwith %}
+ </div>
+ {% endif %}
+diff --git a/mysite/profile/templatetags/profile_extras.py b/mysite/profile/templatetags/profile_extras.py
+index 7b76837..380a841 100644
+--- a/mysite/profile/templatetags/profile_extras.py
++++ b/mysite/profile/templatetags/profile_extras.py
+@@ -75,6 +75,11 @@ def length_lte(value, arg):
+     "Returns a boolean of whether the value's length is less than or equal to the argument"
+     return len(value) <= int(arg)
+ 
++@register.filter
++def sub(value, arg):
++    "Subtracts the arg from the value"
++    return int(value) - int(arg)
++
+ def break_long_words(value, max_word_length=8):
+     # if the word is really long, insert a <wbr> occasionally.
+ 
+-- 
+1.7.2.5
+

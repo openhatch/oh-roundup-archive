@@ -1,0 +1,13 @@
+yeah i tried it on lenny and squeeze.... I will try on squeeze only...<br><br><div class="gmail_quote">On Fri, Mar 25, 2011 at 4:42 PM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;"><div class="im"><br>
+Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:<br>
+<br>
+</div>You shouldn&#39;t need to compile Python 2.6 yourself -- Debian squeeze ships<br>
+python2.6 as a package. Can you try installing it from packages? (Are you sure<br>
+you&#39;re on Debian squeeze?)<br>
+<div><div></div><div class="h5"><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue344" target="_blank">https://openhatch.org/bugs/issue344</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br>

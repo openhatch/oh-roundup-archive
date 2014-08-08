@@ -1,0 +1,16 @@
+fixed and committed...<br><br><div class="gmail_quote">On Fri, Mar 25, 2011 at 5:51 PM, Vivek Shrivastava <span dir="ltr">&lt;<a href="mailto:vivshrivastava@gmail.com">vivshrivastava@gmail.com</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin: 0pt 0pt 0pt 0.8ex; border-left: 1px solid rgb(204, 204, 204); padding-left: 1ex;">
+yeah i tried it on lenny and squeeze.... I will try on squeeze only...<div><div></div><div class="h5"><br><br><div class="gmail_quote">On Fri, Mar 25, 2011 at 4:42 PM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org" target="_blank">bugs@openhatch.org</a>&gt;</span> wrote:<br>
+
+<blockquote class="gmail_quote" style="margin: 0pt 0pt 0pt 0.8ex; border-left: 1px solid rgb(204, 204, 204); padding-left: 1ex;"><div><br>
+Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org" target="_blank">asheesh@asheesh.org</a>&gt; added the comment:<br>
+<br>
+</div>You shouldn&#39;t need to compile Python 2.6 yourself -- Debian squeeze ships<br>
+python2.6 as a package. Can you try installing it from packages? (Are you sure<br>
+you&#39;re on Debian squeeze?)<br>
+<div><div></div><div><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org" target="_blank">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue344" target="_blank">https://openhatch.org/bugs/issue344</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br>
+</div></div></blockquote></div><br>

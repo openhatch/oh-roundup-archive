@@ -1,0 +1,53 @@
+From 0077b7f45ea783e748aa880e77dd39448bebe9aa Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Tue, 1 Feb 2011 10:31:15 +0100
+Subject: [PATCH 4/4] Added unit tests for mission reset feature.
+
+---
+ mysite/missions/tar/tests.py |   26 ++++++++++++++++++++++++++
+ 1 files changed, 26 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/missions/tar/tests.py b/mysite/missions/tar/tests.py
+index 3374741..5a8746a 100644
+--- a/mysite/missions/tar/tests.py
++++ b/mysite/missions/tar/tests.py
+@@ -16,6 +16,7 @@
+ # You should have received a copy of the GNU Affero General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
++from mysite.base.tests import TwillTests
+ from mysite.missions.base.tests import *
+ from mysite.missions.tar import views, controllers
+ 
+@@ -139,3 +140,28 @@ class UntarViewTests(TwillTests):
+         paulproteus = Person.objects.get(user__username='paulproteus')
+         self.assertEqual(len(StepCompletion.objects.filter(step__name='tar_extract', person=paulproteus)), 0)
+ 
++class MissionPageStateTests(TwillTests):
++    fixtures = ['person-paulproteus', 'user-paulproteus',]
++    
++    def setUp(self):
++        TwillTests.setUp(self)
++        self.client = self.login_with_client()
++        
++    def test_mission_completion_full_reset(self):
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        StepCompletion(person=paulproteus, step=Step.objects.get(name='tar')).save()
++        
++        response = self.client.post(reverse(views.reset), {'mission_steps': 'tar' })
++        self.assert_('Operation successful' in response.content)
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar', person=paulproteus)), 0)        
++        
++        
++    def test_mission_completion_partial_reset(self):
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        StepCompletion(person=paulproteus, step=Step.objects.get(name='tar')).save()
++        StepCompletion(person=paulproteus, step=Step.objects.get(name='tar_extract')).save()
++        
++        response = self.client.post(reverse(views.reset), {'mission_steps': 'tar,tar_extract' })
++        self.assert_('Operation successful' in response.content)
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar', person=paulproteus)), 0)
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar_extract', person=paulproteus)), 0)                  
+-- 
+1.7.3.5
+

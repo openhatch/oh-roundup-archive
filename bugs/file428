@@ -1,0 +1,765 @@
+From 4171459843c57bedd6fd2e4c5f58acf0fa75c2a6 Mon Sep 17 00:00:00 2001
+From: Jule Slootbeek <jslootbeek@gmail.com>
+Date: Sun, 13 Nov 2011 21:45:56 -0500
+Subject: [PATCH 1/6] started implementing IWH_Handler
+
+---
+ mysite/project/forms.py                            |    5 +
+ mysite/project/templates/project/project.html      |   25 ++
+ mysite/project/urls.py                             |    5 +-
+ mysite/project/views.py                            |   43 ++++-
+ ...rnote_contacted_by__add_field_wannahelpernot.py |  234 ++++++++++++++++++++
+ mysite/search/models.py                            |    2 +
+ 6 files changed, 309 insertions(+), 5 deletions(-)
+ create mode 100644 mysite/search/migrations/0069_auto__add_field_wannahelpernote_contacted_by__add_field_wannahelpernot.py
+
+diff --git a/mysite/project/forms.py b/mysite/project/forms.py
+index 3291c29..b766922 100644
+--- a/mysite/project/forms.py
++++ b/mysite/project/forms.py
+@@ -21,6 +21,11 @@ class WannaHelpForm(django.forms.Form):
+     project = django.forms.ModelChoiceField(mysite.search.models.Project.objects.all())
+     from_offsite = django.forms.BooleanField(required=False)
+ 
++class MarkContactedForm(django.forms.Form):
++    project = django.forms.ModelChoiceField(queryset=mysite.search.models.Project.objects.all(), widget=django.forms.HiddenInput())
++    person = django.forms.ModelChoiceField(queryset=mysite.profile.models.Person.objects.all(), widget=django.forms.HiddenInput())
++    checked = django.forms.BooleanField(required=True)
++
+ class ProjectForm(django.forms.ModelForm):
+ 
+     def clean_name(self):
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index feacb81..9023556 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -105,6 +105,11 @@ about how you can help {{ project.display_name }}
+                         <h3><a href='#buildhelper'>Buildhelper</a></h3>
+                     </li>
+                     {% endif %}
++                    {% if people_to_show %}
++                    <li >
++                        <h3><a href='#iwh_handler'>IWH Handler</a></h3>
++                    </li>
++                    {% endif %}
+             </ul>
+         <div id="chatter" class='body tab'>
+             <div style="font-size: 1.3em" class="you-are-missing-things">
+@@ -219,6 +224,26 @@ about how you can help {{ project.display_name }}
+             </ul>
+         </div>
+     {% endif %}
++    {% if people_to_show %}
++        <div id="ipw_handler" class="body tab {% if not user %}hidden{% endif %}">
++            <div class="explanation">
++                <p>The following people have expressed interest in helping with this project</p>
++            </div>
++            <form id='mark_contacted_do_form' action="{% url mysite.project.views.mark_contacted_do %}" method="POST">
++                {% csrf_token %}
++                <ul>
++                    <li>
++                    {% for person in mark_contacted_forms %}
++                        {{ person.person.user.username }}
++                        {{ person.form }} 
++                        {{ person.note.contacted_on }} {{ person.note.contacted_by }}
++                    {% endfor %}
++                    </li>
++                </ul>
++                <input type='submit' id='mark_contact-button' rel='tipsy-south' title='Click to mark that the selected individuals have been contacted!' value='Contacted!'>
++            </form>
++        </div>
++    {% endif %}
+ </div><!-- /.module #requests -->
+ 
+ {% endblock left %}
+diff --git a/mysite/project/urls.py b/mysite/project/urls.py
+index 4eee254..18f4383 100644
+--- a/mysite/project/urls.py
++++ b/mysite/project/urls.py
+@@ -18,10 +18,13 @@ from django.conf.urls.defaults import *
+ 
+ urlpatterns = patterns('mysite.project.views',
+ 
++        (r'^mark_contacted_do/$',
++            'mark_contacted_do'),
++
+         (r'(?P<project__name>.+)$', 'project'),
+ 
+         (r'^$', 'projects'),
+ 
+-        )
++)
+ 
+ # vim: set ai ts=4 sts=4 et sw=4:
+diff --git a/mysite/project/views.py b/mysite/project/views.py
+index 25421bd..1b0c7a2 100644
+--- a/mysite/project/views.py
++++ b/mysite/project/views.py
+@@ -52,8 +52,9 @@ def create_project_page_do(request):
+ def project(request, project__name = None):
+     p = get_object_or_404(Project, name=project__name)
+ 
++    wanna_helpers = p.people_who_wanna_help.all()
+     if (request.user.is_authenticated() and
+-        request.user.get_profile() in p.people_who_wanna_help.all()):
++        request.user.get_profile() in wanna_helpers):
+         user_wants_to_help = True
+     else:
+         user_wants_to_help = False
+@@ -90,11 +91,28 @@ def project(request, project__name = None):
+         context['cookies_disabled'] = True
+ 
+     if wanna_help:
+-        people_to_show = list(p.people_who_wanna_help.exclude(user=request.user))
++        people_to_show = list(wanna_helpers.exclude(user=request.user))
+         people_to_show.insert(0, request.user.get_profile())
+     else:
+-        people_to_show = p.people_who_wanna_help.all()
+-
++        people_to_show = wanna_helpers
++
++    contact_form_list = []
++    for person in people_to_show:
++        # a WannaHelperNote should always exist for all Person objects in people_to_show
++        try:
++            note = mysite.search.models.WannaHelperNote.objects.get(person=person, project=p)
++            contact_form_list.append({
++                'form' : mysite.project.forms.MarkContactedForm(prefix="helper-%d" % (person.pk,), 
++                                                                initial= { 'project' : p, 
++                                                                           'person' : person, 
++                                                                           'checked' : True if note.contacted_on else False,
++                                                                         }),
++                'person' : person,
++                'note' : note,
++            })
++        except:
++            pass
++        
+     button_widget_data = mysite.base.controllers.get_uri_metadata_for_generating_absolute_links(
+             request)
+     button_widget_data['project'] = p
+@@ -113,6 +131,7 @@ def project(request, project__name = None):
+         'user_just_signed_up_as_wants_to_help': wanna_help,
+         'people_to_show': people_to_show,
+         'button_as_widget_source': button_as_widget_source,
++        'mark_contacted_forms' : contact_form_list,
+         })
+ 
+     question_suggestion_response = request.GET.get('question_suggestion_response', None)
+@@ -256,6 +275,22 @@ def suggest_question_do(request):
+     template = "project/project.html"
+     return HttpResponseRedirect(reverse(mysite.project.views.project, kwargs={'project__name': project.name}) + '?question_suggestion_response=' + question_suggestion_response)
+ 
++def mark_contacted_do(request):
++    import pdb;pdb.set_trace()
++    
++    #extract person_ids from request.POST.keys()
++    #for each prefix, validate form
++        #if not already contacted, update WannaHelperNote
++    mark_contacted_form = mysite.project.forms.MarkContactedForm(request.POST, prefix="helped")
++    if mark_contacted_form.is_valid():
++        project = mark_contacted_form.cleaned_data['project']
++    else:
++        return HttpResponseBadRequest("No project id submitted.")
++
++    if request.user.us_authenticated():
++        person = request.user.get_profile()
++
++        
+ def wanna_help_do(request):
+     wanna_help_form = mysite.project.forms.WannaHelpForm(request.POST)
+     if wanna_help_form.is_valid():
+diff --git a/mysite/search/migrations/0069_auto__add_field_wannahelpernote_contacted_by__add_field_wannahelpernot.py b/mysite/search/migrations/0069_auto__add_field_wannahelpernote_contacted_by__add_field_wannahelpernot.py
+new file mode 100644
+index 0000000..8cc8e68
+--- /dev/null
++++ b/mysite/search/migrations/0069_auto__add_field_wannahelpernote_contacted_by__add_field_wannahelpernot.py
+@@ -0,0 +1,234 @@
++# encoding: utf-8
++import datetime
++from south.db import db
++from south.v2 import SchemaMigration
++from django.db import models
++
++class Migration(SchemaMigration):
++
++    def forwards(self, orm):
++        
++        # Adding field 'WannaHelperNote.contacted_by'
++        db.add_column('search_wannahelpernote', 'contacted_by', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='contacted_by_user', null=True, to=orm['auth.User']), keep_default=False)
++
++        # Adding field 'WannaHelperNote.contacted_on'
++        db.add_column('search_wannahelpernote', 'contacted_on', self.gf('django.db.models.fields.DateField')(null=True, blank=True), keep_default=False)
++
++
++    def backwards(self, orm):
++        
++        # Deleting field 'WannaHelperNote.contacted_by'
++        db.delete_column('search_wannahelpernote', 'contacted_by_id')
++
++        # Deleting field 'WannaHelperNote.contacted_on'
++        db.delete_column('search_wannahelpernote', 'contacted_on')
++
++
++    models = {
++        'auth.group': {
++            'Meta': {'object_name': 'Group'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '80'}),
++            'permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'})
++        },
++        'auth.permission': {
++            'Meta': {'ordering': "('content_type__app_label', 'content_type__model', 'codename')", 'unique_together': "(('content_type', 'codename'),)", 'object_name': 'Permission'},
++            'codename': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
++        },
++        'auth.user': {
++            'Meta': {'object_name': 'User'},
++            'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
++            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'groups': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Group']", 'symmetrical': 'False', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'is_staff': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'is_superuser': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
++            'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
++            'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
++        },
++        'contenttypes.contenttype': {
++            'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
++            'app_label': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
++        },
++        'customs.webresponse': {
++            'Meta': {'object_name': 'WebResponse'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'response_headers': ('django.db.models.fields.TextField', [], {}),
++            'status': ('django.db.models.fields.IntegerField', [], {}),
++            'text': ('django.db.models.fields.TextField', [], {}),
++            'url': ('django.db.models.fields.TextField', [], {})
++        },
++        'profile.dataimportattempt': {
++            'Meta': {'object_name': 'DataImportAttempt'},
++            'completed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'date_created': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.utcnow'}),
++            'failed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.Person']"}),
++            'query': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'source': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
++            'web_response': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.WebResponse']", 'null': 'True'})
++        },
++        'profile.person': {
++            'Meta': {'object_name': 'Person'},
++            'bio': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'blacklisted_repository_committers': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['profile.RepositoryCommitter']", 'symmetrical': 'False'}),
++            'contact_blurb': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'dont_guess_my_location': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'email_me_weekly_re_projects': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'expand_next_steps': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'gotten_name_from_ohloh': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'homepage_url': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'irc_nick': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'location_confirmed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'location_display_name': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
++            'photo': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100'}),
++            'photo_thumbnail': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_20px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_30px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'show_email': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'unique': 'True'})
++        },
++        'profile.repositorycommitter': {
++            'Meta': {'unique_together': "(('project', 'data_import_attempt'),)", 'object_name': 'RepositoryCommitter'},
++            'data_import_attempt': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.DataImportAttempt']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.answer': {
++            'Meta': {'object_name': 'Answer'},
++            'author': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"}),
++            'question': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'answers'", 'to': "orm['search.ProjectInvolvementQuestion']"}),
++            'text': ('django.db.models.fields.TextField', [], {}),
++            'title': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True'})
++        },
++        'search.bug': {
++            'Meta': {'object_name': 'Bug'},
++            'as_appears_in_distribution': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200'}),
++            'bize_size_tag_name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
++            'canonical_bug_link': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'concerns_just_documentation': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_reported': ('django.db.models.fields.DateTimeField', [], {}),
++            'description': ('django.db.models.fields.TextField', [], {}),
++            'good_for_newcomers': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'importance': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'last_touched': ('django.db.models.fields.DateTimeField', [], {}),
++            'looks_closed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'people_involved': ('django.db.models.fields.IntegerField', [], {'null': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"}),
++            'status': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'submitter_realname': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True'}),
++            'submitter_username': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'title': ('django.db.models.fields.CharField', [], {'max_length': '500'}),
++            'tracker_id': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True'}),
++            'tracker_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']", 'null': 'True'})
++        },
++        'search.bugalert': {
++            'Meta': {'object_name': 'BugAlert'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'email': ('django.db.models.fields.EmailField', [], {'max_length': '255'}),
++            'how_many_bugs_at_time_of_request': ('django.db.models.fields.IntegerField', [], {}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'query_string': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'})
++        },
++        'search.buildhelper': {
++            'Meta': {'object_name': 'Buildhelper'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'default_frustration_handler': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.buildhelperstep': {
++            'Meta': {'object_name': 'BuildhelperStep'},
++            'buildhelper': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Buildhelper']"}),
++            'command': ('django.db.models.fields.TextField', [], {'default': "''", 'blank': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'description': ('django.db.models.fields.TextField', [], {'default': "''", 'blank': 'True'}),
++            'frustration_handler': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'}),
++            'hint': ('django.db.models.fields.URLField', [], {'default': "'http://cuteoverload.com'", 'max_length': '200', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_checked': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'is_prerequisite': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'time': ('django.db.models.fields.IntegerField', [], {'default': '0'})
++        },
++        'search.project': {
++            'Meta': {'object_name': 'Project'},
++            'cached_contributor_count': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_icon_was_fetched_from_ohloh': ('django.db.models.fields.DateTimeField', [], {'default': 'None', 'null': 'True'}),
++            'display_name': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200'}),
++            'homepage': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'icon_for_profile': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_for_search_result': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_raw': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True', 'blank': 'True'}),
++            'icon_smaller_for_badge': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'language': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'logo_contains_name': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'people_who_wanna_help': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'projects_i_wanna_help'", 'symmetrical': 'False', 'to': "orm['profile.Person']"})
++        },
++        'search.projectinvolvementquestion': {
++            'Meta': {'object_name': 'ProjectInvolvementQuestion'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_bug_style': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'key_string': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'text': ('django.db.models.fields.TextField', [], {})
++        },
++        'search.wannahelpernote': {
++            'Meta': {'unique_together': "[('project', 'person')]", 'object_name': 'WannaHelperNote'},
++            'contacted_by': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'contacted_by_user'", 'null': 'True', 'to': "orm['auth.User']"}),
++            'contacted_on': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.Person']"}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.wrongicon': {
++            'Meta': {'object_name': 'WrongIcon'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_icon_was_fetched_from_ohloh': ('django.db.models.fields.DateTimeField', [], {'default': 'None', 'null': 'True'}),
++            'icon_for_profile': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_for_search_result': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_raw': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_smaller_for_badge': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'logo_contains_name': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        }
++    }
++
++    complete_apps = ['search']
+diff --git a/mysite/search/models.py b/mysite/search/models.py
+index 7c24b4d..d56b63b 100644
+--- a/mysite/search/models.py
++++ b/mysite/search/models.py
+@@ -611,6 +611,8 @@ class WannaHelperNote(OpenHatchModel):
+         unique_together = [('project', 'person')]
+     person = models.ForeignKey('profile.Person')
+     project = models.ForeignKey(Project)
++    contacted_by = models.ForeignKey(User, related_name="contacted_by_user", blank=True, null=True)
++    contacted_on = models.DateField(blank=True, null=True)
+ 
+     @staticmethod
+     def add_person_project(person, project):
+-- 
+1.7.7.1
+
+
+From dc540fac883f8e6a2166c6fded5c5e07c20f9190 Mon Sep 17 00:00:00 2001
+From: Jule Slootbeek <jslootbeek@gmail.com>
+Date: Sun, 4 Dec 2011 11:09:47 -0500
+Subject: [PATCH 2/6] ipw fixes
+
+---
+ mysite/project/views.py |    5 ++---
+ 1 files changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/project/views.py b/mysite/project/views.py
+index 1b0c7a2..d57ec6e 100644
+--- a/mysite/project/views.py
++++ b/mysite/project/views.py
+@@ -276,9 +276,8 @@ def suggest_question_do(request):
+     return HttpResponseRedirect(reverse(mysite.project.views.project, kwargs={'project__name': project.name}) + '?question_suggestion_response=' + question_suggestion_response)
+ 
+ def mark_contacted_do(request):
+-    import pdb;pdb.set_trace()
+-    
+     #extract person_ids from request.POST.keys()
++    print request.POST.keys()
+     #for each prefix, validate form
+         #if not already contacted, update WannaHelperNote
+     mark_contacted_form = mysite.project.forms.MarkContactedForm(request.POST, prefix="helped")
+@@ -287,7 +286,7 @@ def mark_contacted_do(request):
+     else:
+         return HttpResponseBadRequest("No project id submitted.")
+ 
+-    if request.user.us_authenticated():
++    if request.user.is_authenticated():
+         person = request.user.get_profile()
+ 
+         
+-- 
+1.7.7.1
+
+
+From 0a48eda4daef9b92cd667c0da9c6d1329563186a Mon Sep 17 00:00:00 2001
+From: Jule Slootbeek <jslootbeek@gmail.com>
+Date: Sun, 4 Dec 2011 12:07:31 -0500
+Subject: [PATCH 3/6] updates WannaHelperNote to save contacted date
+
+---
+ mysite/project/views.py |   27 ++++++++++++++++++---------
+ 1 files changed, 18 insertions(+), 9 deletions(-)
+
+diff --git a/mysite/project/views.py b/mysite/project/views.py
+index d57ec6e..a767851 100644
+--- a/mysite/project/views.py
++++ b/mysite/project/views.py
+@@ -15,6 +15,7 @@
+ # You should have received a copy of the GNU Affero General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
++import datetime
+ from django.core.mail import send_mail
+ import socket
+ from mysite.search.models import Project, ProjectInvolvementQuestion, Answer
+@@ -277,19 +278,27 @@ def suggest_question_do(request):
+ 
+ def mark_contacted_do(request):
+     #extract person_ids from request.POST.keys()
+-    print request.POST.keys()
+-    #for each prefix, validate form
+-        #if not already contacted, update WannaHelperNote
+-    mark_contacted_form = mysite.project.forms.MarkContactedForm(request.POST, prefix="helped")
+-    if mark_contacted_form.is_valid():
+-        project = mark_contacted_form.cleaned_data['project']
+-    else:
+-        return HttpResponseBadRequest("No project id submitted.")
++    for key in request.POST.keys():
++        if key.endswith('checked'):
++            person_pk = key[7:-8]
++            #for each prefix, validate form
++            #if not already contacted, update WannaHelperNote
++            mark_contacted_form = mysite.project.forms.MarkContactedForm(request.POST, prefix="helper-%s" % (person_pk))
++            if mark_contacted_form.is_valid():
++                project = mark_contacted_form.cleaned_data['project']
++                person = mark_contacted_form.cleaned_data['person']
++                whn = mysite.search.models.WannaHelperNote.objects.get(person=person, project=project)
++                whn.contacted_by = request.user
++                whn.contacted_on = datetime.date.today()
++                whn.save()
++            else:
++                return HttpResponseBadRequest("No project id submitted.")
+ 
+     if request.user.is_authenticated():
+         person = request.user.get_profile()
+ 
+-        
++    return HttpResponse("return")
++
+ def wanna_help_do(request):
+     wanna_help_form = mysite.project.forms.WannaHelpForm(request.POST)
+     if wanna_help_form.is_valid():
+-- 
+1.7.7.1
+
+
+From e13ffc39cbfbfdeaf3d419e67f2153418b058e0c Mon Sep 17 00:00:00 2001
+From: Jule Slootbeek <jslootbeek@gmail.com>
+Date: Sun, 4 Dec 2011 12:54:11 -0500
+Subject: [PATCH 4/6] main functionality complete
+
+---
+ mysite/project/forms.py                       |    2 +-
+ mysite/project/templates/project/project.html |   20 ++++++++++----------
+ mysite/project/views.py                       |   20 +++++++++-----------
+ 3 files changed, 20 insertions(+), 22 deletions(-)
+
+diff --git a/mysite/project/forms.py b/mysite/project/forms.py
+index b766922..dcf5969 100644
+--- a/mysite/project/forms.py
++++ b/mysite/project/forms.py
+@@ -24,7 +24,7 @@ class WannaHelpForm(django.forms.Form):
+ class MarkContactedForm(django.forms.Form):
+     project = django.forms.ModelChoiceField(queryset=mysite.search.models.Project.objects.all(), widget=django.forms.HiddenInput())
+     person = django.forms.ModelChoiceField(queryset=mysite.profile.models.Person.objects.all(), widget=django.forms.HiddenInput())
+-    checked = django.forms.BooleanField(required=True)
++    checked = django.forms.BooleanField(label="Mark person as contacted", required=True)
+ 
+ class ProjectForm(django.forms.ModelForm):
+ 
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 9023556..136376b 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -225,21 +225,21 @@ about how you can help {{ project.display_name }}
+         </div>
+     {% endif %}
+     {% if people_to_show %}
+-        <div id="ipw_handler" class="body tab {% if not user %}hidden{% endif %}">
++        <div id="iwh_handler" class="body tab {% if not user %}hidden{% endif %}">
+             <div class="explanation">
+                 <p>The following people have expressed interest in helping with this project</p>
+             </div>
+             <form id='mark_contacted_do_form' action="{% url mysite.project.views.mark_contacted_do %}" method="POST">
+                 {% csrf_token %}
+-                <ul>
+-                    <li>
+-                    {% for person in mark_contacted_forms %}
+-                        {{ person.person.user.username }}
+-                        {{ person.form }} 
+-                        {{ person.note.contacted_on }} {{ person.note.contacted_by }}
+-                    {% endfor %}
+-                    </li>
+-                </ul>
++                {% for person in mark_contacted_forms %}
++                    <p>
++                        <a href="{{ person.person.profile_url }}">{{ person.person.user.username }}</a><br>
++                        {{ person.form.person }}{{ person.form.project }}
++                        {% if not person.note.contacted_on %}{{ person.form.checked.label }} {{ person.form.checked }}<br>{% else %}
++                        Contacted on {{ person.note.contacted_on }} by {{ person.note.contacted_by }}<br>{% endif %}
++                    </p>
++                {% endfor %}
++                <input type='hidden' id='id_mark_contact-project' name='mark_contact-project' value='{{ project.pk }}'>
+                 <input type='submit' id='mark_contact-button' rel='tipsy-south' title='Click to mark that the selected individuals have been contacted!' value='Contacted!'>
+             </form>
+         </div>
+diff --git a/mysite/project/views.py b/mysite/project/views.py
+index a767851..3ea335c 100644
+--- a/mysite/project/views.py
++++ b/mysite/project/views.py
+@@ -278,26 +278,24 @@ def suggest_question_do(request):
+ 
+ def mark_contacted_do(request):
+     #extract person_ids from request.POST.keys()
++    project = django.shortcuts.get_object_or_404(Project, pk=request.POST.get('mark_contact-project'))
+     for key in request.POST.keys():
+         if key.endswith('checked'):
+             person_pk = key[7:-8]
+             #for each prefix, validate form
+-            #if not already contacted, update WannaHelperNote
++            #if not already contacted, update get_
+             mark_contacted_form = mysite.project.forms.MarkContactedForm(request.POST, prefix="helper-%s" % (person_pk))
+             if mark_contacted_form.is_valid():
+                 project = mark_contacted_form.cleaned_data['project']
+                 person = mark_contacted_form.cleaned_data['person']
+                 whn = mysite.search.models.WannaHelperNote.objects.get(person=person, project=project)
+-                whn.contacted_by = request.user
+-                whn.contacted_on = datetime.date.today()
+-                whn.save()
+-            else:
+-                return HttpResponseBadRequest("No project id submitted.")
+-
+-    if request.user.is_authenticated():
+-        person = request.user.get_profile()
+-
+-    return HttpResponse("return")
++                # add contacted by and date if not already set.
++                if not whn.contacted_by:
++                    whn.contacted_by = request.user
++                    whn.contacted_on = datetime.date.today()
++                    whn.save()
++    
++    return HttpResponseRedirect(reverse(mysite.project.views.project, kwargs={'project__name': project.name}) + '#iwh_handler')
+ 
+ def wanna_help_do(request):
+     wanna_help_form = mysite.project.forms.WannaHelpForm(request.POST)
+-- 
+1.7.7.1
+
+
+From 98a4ededab1a25e001d3e51d12434b9538e45c1e Mon Sep 17 00:00:00 2001
+From: Jule Slootbeek <jslootbeek@gmail.com>
+Date: Sun, 4 Dec 2011 13:01:46 -0500
+Subject: [PATCH 5/6] added settings to the default decorator added
+ ENABLE_NEW_IWH_HANLDER settings variable
+
+---
+ mysite/base/decorators.py                     |    4 ++++
+ mysite/project/templates/project/project.html |   10 ++++++----
+ mysite/settings.py                            |    2 +-
+ 3 files changed, 11 insertions(+), 5 deletions(-)
+
+diff --git a/mysite/base/decorators.py b/mysite/base/decorators.py
+index 3bdc52c..598e0f3 100644
+--- a/mysite/base/decorators.py
++++ b/mysite/base/decorators.py
+@@ -34,6 +34,10 @@ from django.core.urlresolvers import reverse, resolve
+ import django.contrib.auth.decorators
+ 
+ def as_view(request, template, data, slug):
++    ### add settings to the request so that the template
++    ### can adjst what it displays depending on settings.
++    data['settings'] = django.conf.settings
++    
+     if request.user.is_authenticated() or 'cookies_work' in request.session:
+         # Great! Cookies work.
+         pass
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 136376b..7a09f1c 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -105,10 +105,12 @@ about how you can help {{ project.display_name }}
+                         <h3><a href='#buildhelper'>Buildhelper</a></h3>
+                     </li>
+                     {% endif %}
+-                    {% if people_to_show %}
+-                    <li >
+-                        <h3><a href='#iwh_handler'>IWH Handler</a></h3>
+-                    </li>
++                     {% if settings.ENABLE_NEW_IWH_HANDLER %}
++                        {% if people_to_show %}
++                            <li >
++                                <h3><a href='#iwh_handler'>IWH Handler</a></h3>
++                            </li>
++                        {% endif %}
+                     {% endif %}
+             </ul>
+         <div id="chatter" class='body tab'>
+diff --git a/mysite/settings.py b/mysite/settings.py
+index 926d699..a186b2f 100644
+--- a/mysite/settings.py
++++ b/mysite/settings.py
+@@ -313,8 +313,8 @@ if sys.platform.startswith('win'):
+         'staticgenerator.middleware.StaticGeneratorMiddleware')
+ 
+ 
++ENABLE_NEW_IWH_HANDLER = False
+ ### Include a user's customizations
+-
+ try:
+     from local_settings import *
+ except ImportError:
+-- 
+1.7.7.1
+
+
+From d0acab4b1c0ed3aceb3dda72edc6cda64dafc950 Mon Sep 17 00:00:00 2001
+From: Jule Slootbeek <jslootbeek@gmail.com>
+Date: Sun, 4 Dec 2011 13:38:48 -0500
+Subject: [PATCH 6/6] added a test to verify mark_contacted runs successfully
+
+---
+ mysite/project/tests.py |   20 ++++++++++++++++++++
+ mysite/project/views.py |    6 +-----
+ 2 files changed, 21 insertions(+), 5 deletions(-)
+
+diff --git a/mysite/project/tests.py b/mysite/project/tests.py
+index 4a1d987..c314951 100644
+--- a/mysite/project/tests.py
++++ b/mysite/project/tests.py
+@@ -31,6 +31,7 @@ from mysite.base.tests import better_make_twill_url
+ 
+ import mock
+ import urlparse
++import datetime
+ 
+ from django.core.urlresolvers import reverse
+ 
+@@ -191,6 +192,25 @@ class ButtonClickMarksSomeoneAsWannaHelp(TwillTests):
+ 
+         self.assertFalse(p_after.people_who_wanna_help.all())
+ 
++    def test_mark_as_contacted(self):
++        person = Person.objects.get(user__username='paulproteus')
++        p_before = Project.create_dummy()
++        p_before.people_who_wanna_help.add(person)
++        p_before.save()
++        mysite.search.models.WannaHelperNote.add_person_project(person, p_before)
++
++        client = self.login_with_client()
++        post_to = reverse(mysite.project.views.mark_contacted_do)
++        vars = {u'mark_contact-project': unicode(p_before.pk),
++                u'helper-%s-checked' % (person.pk,) : unicode('on'),
++                u'helper-%s-person' % (person.pk) : unicode(person.pk),
++                u'helper-%s-project' % (person.pk) : unicode(p_before.pk)}
++        client.post(post_to, vars)
++
++        whn_after = mysite.search.models.WannaHelperNote.objects.get(person=person, project=p_before)
++        self.assertTrue(whn_after.contacted_on)
++        self.assertTrue(whn_after.contacted_by, datetime.date.today())
++
+ class WannaHelpSubmitHandlesNoProjectIdGracefully(TwillTests):
+     def test(self):
+         # Submit nothing.
+diff --git a/mysite/project/views.py b/mysite/project/views.py
+index 3ea335c..da07688 100644
+--- a/mysite/project/views.py
++++ b/mysite/project/views.py
+@@ -103,11 +103,7 @@ def project(request, project__name = None):
+         try:
+             note = mysite.search.models.WannaHelperNote.objects.get(person=person, project=p)
+             contact_form_list.append({
+-                'form' : mysite.project.forms.MarkContactedForm(prefix="helper-%d" % (person.pk,), 
+-                                                                initial= { 'project' : p, 
+-                                                                           'person' : person, 
+-                                                                           'checked' : True if note.contacted_on else False,
+-                                                                         }),
++                'form' : mysite.project.forms.MarkContactedForm(prefix="helper-%d" % (person.pk,), initial= { 'project' : p, 'person' : person,'checked' : True if note.contacted_on else False }),
+                 'person' : person,
+                 'note' : note,
+             })
+-- 
+1.7.7.1
+

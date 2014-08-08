@@ -1,0 +1,21 @@
+From eb05c2f4cb517c0c5404d808015798057e845b65 Mon Sep 17 00:00:00 2001
+From: Alexander Langford <nirvashtzero@gmail.com>
+Date: Thu, 19 Jan 2012 16:39:33 -0500
+Subject: [PATCH] Removed the author line from hello.py
+
+---
+ mysite/missions/git/data/hello.py |    1 -
+ 1 files changed, 0 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/git/data/hello.py b/mysite/missions/git/data/hello.py
+index 680b306..a14159b 100644
+--- a/mysite/missions/git/data/hello.py
++++ b/mysite/missions/git/data/hello.py
+@@ -1,4 +1,3 @@
+ #! /usr/bin/env python
+ 
+-#Author: The Brain
+ print "Goodbye world!"
+-- 
+1.7.8.msysgit.0
+

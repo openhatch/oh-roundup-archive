@@ -1,0 +1,64 @@
+From dad28859765ae9296bc849dde520d9e92c7f87e0 Mon Sep 17 00:00:00 2001
+From: Vivek Shrivastava <vivshrivastava@gmail.com>
+Date: Sun, 6 Nov 2011 23:24:46 -0800
+Subject: [PATCH 3/4] Issue596 : Modified diff patch submission to use case insensitive regular expression instead of fixed case sensitive "Hello world!" string.
+ 	1.moved validation from controller.py to forms.py
+         2.used django form validation framework to check if the required line is present in the submitted data
+         3.enhanced/modified error messages
+
+---
+ mysite/missions/git/controllers.py |    2 +-
+ mysite/missions/git/forms.py       |    4 ++--
+ mysite/missions/git/views.py       |    5 +----
+ 3 files changed, 4 insertions(+), 7 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index e74a8be..442a36d 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -50,7 +50,7 @@ class GitDiffMission(object):
+     def commit_if_ok(cls, username, diff):
+         repo = GitRepository(username)
+         commit_diff = subprocess.Popen(['git', 'am'], cwd=repo.repo_path, stdin=subprocess.PIPE)
+-        commit_diff.communicate(str(diff))
++        out,err = commit_diff.communicate(str(diff))
+         if commit_diff.returncode == 0: # for shell commands, success is 0
+             commit_msg = """Fixed a terrible mistake. Thanks for reporting this %s.
+                 Come to my house for a dinner party.
+diff --git a/mysite/missions/git/forms.py b/mysite/missions/git/forms.py
+index fd9255d..c2dbe9f 100644
+--- a/mysite/missions/git/forms.py
++++ b/mysite/missions/git/forms.py
+@@ -42,8 +42,8 @@ class DiffForm(django.forms.Form):
+         if success_count == None :
+             raise django.forms.ValidationError, (
+                 "Something doesn't look right.The expected line is '+print...' Give it another try!")
+-            data['git_diff_error_message'] = "Something doesn't look right.The expected line is '+print...' Give it another try!"
+-        
++        return self.cleaned_data['diff']
++               
+ 
+ class RebaseForm(django.forms.Form):
+     secret_word = django.forms.CharField(error_messages={'required': 'The password was incorrect.'})
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+index e7ddfc6..8c52f05 100644
+--- a/mysite/missions/git/views.py
++++ b/mysite/missions/git/views.py
+@@ -80,13 +80,10 @@ def diff_submit(request):
+         form = forms.DiffForm(request.POST)
+         if form.is_valid():
+                 if controllers.GitDiffMission.commit_if_ok(request.user.username, form.cleaned_data['diff']):
+-                    data['git_diff_error_message'] = ""
+                     controllers.set_mission_completed(request.user.get_profile(), 'git_diff')
+                     return HttpResponseRedirect(reverse(diff))
+                 else:
+-                    data['git_diff_error_message'] = "Unable to commit the patch. Please check your username and try again"
+-        else:
+-            data['git_diff_error_message'] = "Something doesn't look right.The expected line is '+print...' Give it another try!"
++                    data['git_diff_error_message'] = "Unable to commit the patch. Please check your patch and try again"
+         data['git_diff_form'] = form
+     return diff(request, data)
+ 
+-- 
+1.7.2.5
+

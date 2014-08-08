@@ -1,0 +1,28 @@
+From a831d70e5dfff81382e0faccd54692664647a7f8 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Sun, 29 May 2011 00:44:45 -0400
+Subject: [PATCH] git config should have --global
+ See: http://openhatch.org/bugs/issue422
+
+---
+ .../missions/templates/missions/git/about_git.html |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/git/about_git.html b/mysite/missions/templates/missions/git/about_git.html
+index b9116f0..1b1173e 100644
+--- a/mysite/missions/templates/missions/git/about_git.html
++++ b/mysite/missions/templates/missions/git/about_git.html
+@@ -27,8 +27,8 @@
+ <h3>Preparing for the mission</h3>
+ <ul class="raquo_bullets">
+   <li>Install git onto your machine.  In linux, the package is typically named "git-core" and is likely available via your package manager.  The <a href="http://git-scm.com/download">git website</a> contains options for downloading the latest version and builds for other platforms.</li>
+-  <li>Configure your user name: git config –global user.name 'First Last'</li>
+-  <li>Configure your user email: git config –global user.email 'name@domain.com'</li>
++  <li>Configure your user name: git config --global user.name 'First Last'</li>
++  <li>Configure your user email: git config --global user.email 'name@domain.com'</li>
+ </ul>
+ 
+ {% if user.is_authenticated %}
+-- 
+1.7.2.5
+

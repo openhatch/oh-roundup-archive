@@ -1,0 +1,30 @@
+From 603681584fa36b55a9e5770a3669fdae2585ad1a Mon Sep 17 00:00:00 2001
+From: Nick DiRienzo <me@nickdirienzo.com>
+Date: Wed, 19 Dec 2012 15:10:35 -0500
+Subject: [PATCH 2/2] Updated getting_started.rst to have an anchor to the
+ devel@ mailing list.
+
+Closes: http://openhatch.org/bugs/issue797
+---
+ docs/contributor/getting_started.rst |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/docs/contributor/getting_started.rst b/docs/contributor/getting_started.rst
+index e5a84cf..1347fea 100644
+--- a/docs/contributor/getting_started.rst
++++ b/docs/contributor/getting_started.rst
+@@ -55,9 +55,10 @@ but we'll all be happier if you do)
+   1. Join the `Devel mailing list`_ and say hello.
+   2. :doc:`the #openhatch IRC channel in freenode </contributor/chat_on_irc>`.
+ 
+-We used to have weekly development meetings on IRC, but they are on hiatus for now. If you find the idea interesting and would show up, do email devel@ and say so!
++We used to have weekly development meetings on IRC, but they are on hiatus for now. If you find the idea interesting and would show up, do `email devel@`_ and say so!
+ 
+ .. _Devel mailing list: http://lists.openhatch.org/mailman/listinfo/devel
++.. _email devel@: devel@lists.openhatch.org
+ 
+ 
+ Read more documentation
+-- 
+1.7.9.5
+

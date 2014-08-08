@@ -1,0 +1,31 @@
+From 03ef9133289a917e7ebaba5b6c9ee899612e7e81 Mon Sep 17 00:00:00 2001
+From: Jessica Ledbetter <jessica.ledbetter@gmail.com>
+Date: Tue, 19 Apr 2011 10:42:34 -0700
+Subject: [PATCH] Updated jquery on non-logged-in home to store tab selection for 1 day
+
+Closes: https://openhatch.org/bugs/issue336
+---
+ mysite/base/templates/base/landing.html |    7 ++++++-
+ 1 files changed, 6 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/base/templates/base/landing.html b/mysite/base/templates/base/landing.html
+index 99af486..7184b68 100644
+--- a/mysite/base/templates/base/landing.html
++++ b/mysite/base/templates/base/landing.html
+@@ -185,7 +185,12 @@ document.documentElement.className = 'javascript_is_enabled';
+ <script type='text/javascript'>
+ $(function(){
+         $('#people-list li').hoverClass('hover');
+-        $('#tabbed_container_of_big_links').tabs();
++        $('#tabbed_container_of_big_links').tabs({
++            cookie: {
++                // keeps tab choice for one day
++                expires: 1
++            }
++        });
+         $('.invisible_if_js').removeClass('invisible_if_js');
+ });
+ </script>
+-- 
+1.7.1
+

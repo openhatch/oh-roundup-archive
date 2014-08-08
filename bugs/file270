@@ -1,0 +1,111 @@
+From b4092fc9c14caa296ba6d301b61da1db77e21b78 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Tue, 3 May 2011 04:41:46 -0400
+Subject: [PATCH] Make Git mission show up in logged in landing page.
+ See: http://openhatch.org/bugs/issue420
+
+---
+ .../base/landing_page_for_logged_in_users.html     |   32 +++++++++++++++----
+ mysite/static/css/base/landing.css                 |    5 ++-
+ mysite/static/images/cross.gif                     |  Bin 0 -> 109 bytes
+ mysite/static/images/tick.gif                      |  Bin 0 -> 139 bytes
+ 4 files changed, 28 insertions(+), 9 deletions(-)
+ create mode 100644 mysite/static/images/cross.gif
+ create mode 100644 mysite/static/images/tick.gif
+
+diff --git a/mysite/base/templates/base/landing_page_for_logged_in_users.html b/mysite/base/templates/base/landing_page_for_logged_in_users.html
+index b83c29b..7036280 100644
+--- a/mysite/base/templates/base/landing_page_for_logged_in_users.html
++++ b/mysite/base/templates/base/landing_page_for_logged_in_users.html
+@@ -137,18 +137,36 @@ document.documentElement.className = 'javascript_is_enabled';
+                                     <h5>Start learning:</h5>
+                                     <p>Try our friendly, interactive training missions that teach you essential open source tools like diff and subversion.</p> 
+                                 {% else %}
+-                                    <h5>Completed missions:</h5>
+                                     {% if completed_missions %}
+                                         <ul class="missions">
+-                                            {% if completed_missions.diffpatch_diffsingle and completed_missions.diffpatch_patchsingle and completed_missions.diffpatch_diffrecursive and completed_missions.diffpatch_patchrecursive %}
+-                                                <li><a href="{% url mysite.missions.diffpatch.views.about %}">Diff and patch</a></li>
++                                            {% if completed_missions.tar or completed_missions.tar_extract %}
++                                                {% if completed_missions.tar and completed_missions.tar_extract %}
++                                                    <li>You have completed the <a href="{% url mysite.missions.tar.views.about %}">Tar mission.</a></li>
++                                                {% else %}
++                                                    <li style='list-style-image: url("http://openhatch.org/static/images/cross.gif");'>You have partially completed the <a href="{% url mysite.missions.tar.views.about %}">Tar mission.</a></li>
++                                                {% endif %}
+                                             {% endif %}
+-                                            {% if completed_missions.svn_checkout and completed_missions.svn_diff and completed_missions.svn_commit %}
+-                                                <li><a href="{% url mysite.missions.svn.views.main_page %}">SVN</a></li>
++                                            {% if completed_missions.diffpatch_diffsingle or completed_missions.diffpatch_patchsingle or completed_missions.diffpatch_diffrecursive or completed_missions.diffpatch_patchrecursive %}
++                                                {% if completed_missions.diffpatch_diffsingle and completed_missions.diffpatch_patchsingle and completed_missions.diffpatch_diffrecursive and completed_missions.diffpatch_patchrecursive %}
++                                                    <li>You have completed the <a href="{% url mysite.missions.diffpatch.views.about %}">Diff and Patch mission.</a></li>
++                                                {% else %}
++                                                    <li style='list-style-image: url("http://openhatch.org/static/images/cross.gif");'>You have partially completed this <a href="{% url mysite.missions.diffpatch.views.about %}">Diff and Patch mission.</a></li>
++                                                {% endif %}
+                                             {% endif %}
+-                                            {% if completed_missions.tar and completed_missions.tar_extract %}
+-                                                <li><a href="{% url mysite.missions.tar.views.about %}">Tar</a></li>
++                                            {% if completed_missions.svn_checkout or completed_missions.svn_diff or completed_missions.svn_commit %}
++                                                {% if completed_missions.svn_checkout and completed_missions.svn_diff and completed_missions.svn_commit %}
++                                                    <li>You have completed the <a href="{% url mysite.missions.svn.views.main_page %}">SVN mission.</a></li>
++                                                {% else %}
++                                                    <li style='list-style-image: url("http://openhatch.org/static/images/cross.gif");'>You have partially completed the <a href="{% url mysite.missions.svn.views.main_page %}">SVN mission.</a></li>
++                                                {% endif %}
+                                             {% endif %}
++                                          {% if completed_missions.git_checkout or completed_missions.git_diff or completed_missions.git_rebase%}
++                                                {% if completed_missions.git_checkout and completed_missions.git_diff and completed_missions.git_rebase%}
++                                                    <li>You have completed the <a href="{% url mysite.missions.git.views.long_description %}">Git mission.</a></li>
++                                                {% else %}
++                                                    <li style='list-style-image: url("http://openhatch.org/static/images/cross.gif");'>You have partially completed the <a href="{% url mysite.missions.git.views.long_description %}">Git mission.</a></li>
++                                        {% endif %}
++                                    {% endif %}
+                                         </ul>
+                                     {% else %}
+                                         <p>You haven't completed any missions yet.</p>
+diff --git a/mysite/static/css/base/landing.css b/mysite/static/css/base/landing.css
+index 80dcd0c..6aca2a9 100644
+--- a/mysite/static/css/base/landing.css
++++ b/mysite/static/css/base/landing.css
+@@ -29,7 +29,8 @@ body#landing .screenshot h3 .note { float: right; font-size: .em;  }
+ body#landing .screenshot h3 .feed { float: right; }
+ body#landing .screenshot h5 { padding-top: .7em; font-weight: bold; }
+ body#landing .screenshot .body { margin-bottom: 2em; padding: 0 0 0 1em !important; }
+-body#landing .missions li, body#landing .projects li { list-style: inside disc;  }
++body#landing .projects li { list-style: inside disc; }
++body#landing .missions li { list-style: inside disc;  list-style-image: url("http://openhatch.org/static/images/tick.gif"); }
+ body#landing .screenshot #bugs, body#landing .screenshot #bug-recommendations { margin-left: 25px; padding-top: 1em; }
+ body#landing .screenshot #bugs li, body#landing .screenshot #bug-recommendations li { padding-bottom: 1em; }
+ body#landing #bugs .body li { color: #999; list-style: circle; margin-left: 2em; padding: 0; margin-top: 5px; }
+@@ -63,4 +64,4 @@ body#landing .links_at_tab_bottom li { display: inline; margin-right: 20px; font
+ 
+ body#landing #about-message { width: 98.5% }
+ body#landing #about-message .body { width: 96%; font-size: 110% }
+-.link-more { float: right; font-size: 90% }
+\ No newline at end of file
++.link-more { float: right; font-size: 90% }
+diff --git a/mysite/static/images/cross.gif b/mysite/static/images/cross.gif
+new file mode 100644
+index 0000000000000000000000000000000000000000..48628959fb9dd03b67bc15ba571083d90af1e5e1
+GIT binary patch
+literal 109
+zcmZ?wbhEHb6krfwIK;s4|Ns9p#>Nal#>|;OHXJDaWMSlDU}4Z<U|?e4XW(OCU^epD
+zb>|-+gW6(&$qlow$}xUxy(>0H+#~4F%XPgklP30*&9j~UZL7Xf6!)`-BAJFUt`iv;
+FtN{Y|E;RrE
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/tick.gif b/mysite/static/images/tick.gif
+new file mode 100644
+index 0000000000000000000000000000000000000000..2522cea38b461833bc3d753047d4f319573da5b4
+GIT binary patch
+literal 139
+zcmZ?wbhEHb6krfw*v!E2|Ns932M#d&XJ9yE%rFy(7#PwR@Bqc1EQ|~cj0`#;H6Sw>
+zSS$=qc&^_2gK2`M0qb?fRs)$uWi!&Ha)dVUt!2+Eww>4%@MJ|-kLzVle%HlMow@t?
+P&Ye50x;Bbgkii-Nzd$5$
+
+literal 0
+HcmV?d00001
+
+-- 
+1.7.2.5
+

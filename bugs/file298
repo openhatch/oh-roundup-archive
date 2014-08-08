@@ -1,0 +1,40 @@
+From b49e4eddac40987dbaeae4d482a5f223a66a0a08 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Tue, 31 May 2011 13:10:27 +1200
+Subject: [PATCH] A blurb with a link to: http://openhatch.org/wiki/Contacting_new_contributors
+  to help project maintainers get in contact with new contributors
+  See: http://openhatch.org/bugs/issue323
+
+---
+ .../base/templates/weekly_email_re_projects.html   |   14 +++++++++++++-
+ 1 files changed, 13 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/base/templates/weekly_email_re_projects.html b/mysite/base/templates/weekly_email_re_projects.html
+index b615a45..a191210 100644
+--- a/mysite/base/templates/weekly_email_re_projects.html
++++ b/mysite/base/templates/weekly_email_re_projects.html
+@@ -127,8 +127,20 @@
+             <br>
+             {% endif %}
+             {% endfor %}
+-        </dl>
++        <p>What now you ask? Well we have put together a blueprint to help you
++        contact these new contributors! We hope you'll find it useful...</p>
++        <dt style='font-weight: bold; margin-top: 1em;'>
+ 
++        {% if rich_text %}
++        <a href='http://openhatch.org/wiki/Contacting_new_contributors'>
++        Contacting new Contributors</a>
++        {% else %}
++        <br>
++        &lt;http://openhatch.org/wiki/Contacting_new_contributors&gt;
++        {% endif %}
++        </dt>
++        </dl>
++        <br>
+         <p>Yours,</p>
+ 
+         <p>
+-- 
+1.7.2.5
+

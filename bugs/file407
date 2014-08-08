@@ -1,0 +1,464 @@
+From 1b62d1373ba90fdbda36e1933b6e0ae450990222 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Tue, 20 Sep 2011 15:20:23 -0400
+Subject: [PATCH 1/5] Remove useless trailing whitespace from lines
+
+---
+ mysite/missions/diffpatch/controllers.py |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/missions/diffpatch/controllers.py b/mysite/missions/diffpatch/controllers.py
+index 0c571c1..876eacb 100644
+--- a/mysite/missions/diffpatch/controllers.py
++++ b/mysite/missions/diffpatch/controllers.py
+@@ -80,7 +80,7 @@ class DiffRecursiveMission(object):
+     @classmethod
+     def validate_patch(cls, patchdata):
+         the_patch = patch.fromstring(patchdata)
+-        
++
+ 
+         # Strip one level of directories from the left of the filenames.
+         for i, filename in enumerate(the_patch.source):
+@@ -113,7 +113,7 @@ class DiffRecursiveMission(object):
+                 raise IncorrectPatch, 'Patch does not modify file "%s", which it should modify.' % filename
+             if the_patch.target[index] != filename:
+                 raise IncorrectPatch, 'Patch headers for file "%s" have inconsistent filenames.' % filename
+-            
++
+             hunks = the_patch.hunks[index]
+             del the_patch.source[index]
+             del the_patch.target[index]
+@@ -130,7 +130,7 @@ class DiffRecursiveMission(object):
+                 else:
+                     raise IncorrectPatch, 'The modifications to "%s" will not apply correctly to the original file.' % filename
+ 
+-            # Check for BOM issues.  Likely a Windows-only issue, and only when using a text editor that 
++            # Check for BOM issues.  Likely a Windows-only issue, and only when using a text editor that
+             # includes UTF-8 BOM markers when saving files.
+             if '\xef\xbb\xbf' in ''.join(the_patch.patch_stream(StringIO(old_contents),hunks)):
+                 raise IncorrectPatch, 'It appears the text editor you used to modify "%s" leaves UTF-8 BOM characters.  Try an editor like Notepad++ or something similar.' % filename
+-- 
+1.7.5.4
+
+
+From dbc2a22f18889eb797ed511216029e9697bd2ec0 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Tue, 20 Sep 2011 15:22:07 -0400
+Subject: [PATCH 2/5] Rename sample files so that they do not have aubergine
+ in their names
+
+This was confusing many users of the training missions,
+for example Wasseem Daher.
+
+Closes: http://openhatch.org/bugs/issue591
+---
+ .../data/recipes/AubergineAndChickpeaSkillet.txt   |   30 --------------------
+ mysite/missions/diffpatch/data/recipes/Grilled.txt |   26 +++++++++++++++++
+ .../diffpatch/data/recipes/GrilledAubergine.txt    |   26 -----------------
+ mysite/missions/diffpatch/data/recipes/Skillet.txt |   30 ++++++++++++++++++++
+ 4 files changed, 56 insertions(+), 56 deletions(-)
+ delete mode 100644 mysite/missions/diffpatch/data/recipes/AubergineAndChickpeaSkillet.txt
+ create mode 100644 mysite/missions/diffpatch/data/recipes/Grilled.txt
+ delete mode 100644 mysite/missions/diffpatch/data/recipes/GrilledAubergine.txt
+ create mode 100644 mysite/missions/diffpatch/data/recipes/Skillet.txt
+
+diff --git a/mysite/missions/diffpatch/data/recipes/AubergineAndChickpeaSkillet.txt b/mysite/missions/diffpatch/data/recipes/AubergineAndChickpeaSkillet.txt
+deleted file mode 100644
+index f482681..0000000
+--- a/mysite/missions/diffpatch/data/recipes/AubergineAndChickpeaSkillet.txt
++++ /dev/null
+@@ -1,30 +0,0 @@
+-Aubergine and Chickpea Skillet is a colorful and tasty dish suitable
+-for vegans. It is important to use fresh basil in this recipe.
+-
+-Ingredients
+-
+-    * 1 Tbsp. Olive oil
+-    * 1 green Bell pepper, diced
+-    * 2 cloves Garlic, chopped
+-    * 1 small aubergine or 2 Italian aubergines, quartered and sliced
+-    * 6-8 Mushrooms, sliced
+-    * 1 15-oz (400g) can diced Tomatoes
+-    * 1 15-oz (400g) can Chickpeas, drained
+-    * 1/2 tsp. Tarragon
+-    * 2-3 cups (200-250 g) Broccoli, cut into small florets
+-    * 8-12 fresh Basil leaves (preferably Thai basil)
+-
+-Procedure
+-
+-1.  Sauté the green bell pepper and garlic in the oil over medium heat
+-    for several minutes. Add mushrooms and aubergine and continue cooking,
+-    stirring often, for five minutes.
+-
+-2.  Add the tomatoes with their juice, chickpeas and tarragon. Stir well,
+-    cover and simmer for 10-12 minutes until aubergine has softened
+-    somewhat.
+-
+-3.  Stir in the basil leaves and broccoli and simmer, partially covered,
+-    for 8-10 minutes or until broccoli is bright green. Season to
+-    taste with salt and freshly ground black pepper. Serve over rice
+-    or couscous.
+diff --git a/mysite/missions/diffpatch/data/recipes/Grilled.txt b/mysite/missions/diffpatch/data/recipes/Grilled.txt
+new file mode 100644
+index 0000000..795a977
+--- /dev/null
++++ b/mysite/missions/diffpatch/data/recipes/Grilled.txt
+@@ -0,0 +1,26 @@
++Ingredients
++
++    * 1 large (375g) aubergine
++    * vegetable oil
++    * 2 tablespoons miso
++    * 1.5 tablespoons sugar
++    * 2 tablespoons soup stock
++    * 1 teaspoon white sesame seeds
++
++Procedure
++
++1.  Wash the aubergine and cut it into 2.5cm lengthways slices.
++
++2.  Brush the cut surfaces with oil.
++
++3.  Grill 7 – 10 cm from the source of the heat until the aubergine
++    is tender and browned all over (about 5 minutes).
++
++4.  In a small saucepan combine the miso, sugar and soup stock and cook,
++    stirring, over low heat until the mixture is smooth and hot. Do not
++    let it boil.
++
++5.  Pour the sauce mixture over the aubergine.
++
++6.  In a small frying pan toast the sesame seeds until they jump and
++    sprinkle them over the aubergine.
+diff --git a/mysite/missions/diffpatch/data/recipes/GrilledAubergine.txt b/mysite/missions/diffpatch/data/recipes/GrilledAubergine.txt
+deleted file mode 100644
+index 795a977..0000000
+--- a/mysite/missions/diffpatch/data/recipes/GrilledAubergine.txt
++++ /dev/null
+@@ -1,26 +0,0 @@
+-Ingredients
+-
+-    * 1 large (375g) aubergine
+-    * vegetable oil
+-    * 2 tablespoons miso
+-    * 1.5 tablespoons sugar
+-    * 2 tablespoons soup stock
+-    * 1 teaspoon white sesame seeds
+-
+-Procedure
+-
+-1.  Wash the aubergine and cut it into 2.5cm lengthways slices.
+-
+-2.  Brush the cut surfaces with oil.
+-
+-3.  Grill 7 – 10 cm from the source of the heat until the aubergine
+-    is tender and browned all over (about 5 minutes).
+-
+-4.  In a small saucepan combine the miso, sugar and soup stock and cook,
+-    stirring, over low heat until the mixture is smooth and hot. Do not
+-    let it boil.
+-
+-5.  Pour the sauce mixture over the aubergine.
+-
+-6.  In a small frying pan toast the sesame seeds until they jump and
+-    sprinkle them over the aubergine.
+diff --git a/mysite/missions/diffpatch/data/recipes/Skillet.txt b/mysite/missions/diffpatch/data/recipes/Skillet.txt
+new file mode 100644
+index 0000000..f482681
+--- /dev/null
++++ b/mysite/missions/diffpatch/data/recipes/Skillet.txt
+@@ -0,0 +1,30 @@
++Aubergine and Chickpea Skillet is a colorful and tasty dish suitable
++for vegans. It is important to use fresh basil in this recipe.
++
++Ingredients
++
++    * 1 Tbsp. Olive oil
++    * 1 green Bell pepper, diced
++    * 2 cloves Garlic, chopped
++    * 1 small aubergine or 2 Italian aubergines, quartered and sliced
++    * 6-8 Mushrooms, sliced
++    * 1 15-oz (400g) can diced Tomatoes
++    * 1 15-oz (400g) can Chickpeas, drained
++    * 1/2 tsp. Tarragon
++    * 2-3 cups (200-250 g) Broccoli, cut into small florets
++    * 8-12 fresh Basil leaves (preferably Thai basil)
++
++Procedure
++
++1.  Sauté the green bell pepper and garlic in the oil over medium heat
++    for several minutes. Add mushrooms and aubergine and continue cooking,
++    stirring often, for five minutes.
++
++2.  Add the tomatoes with their juice, chickpeas and tarragon. Stir well,
++    cover and simmer for 10-12 minutes until aubergine has softened
++    somewhat.
++
++3.  Stir in the basil leaves and broccoli and simmer, partially covered,
++    for 8-10 minutes or until broccoli is bright green. Season to
++    taste with salt and freshly ground black pepper. Serve over rice
++    or couscous.
+-- 
+1.7.5.4
+
+
+From c86f0707f87cf86ab38783208e4f7ee5c406e342 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Tue, 20 Sep 2011 15:30:16 -0400
+Subject: [PATCH 3/5] Through diffpatch mission, make imports more explicit
+
+---
+ mysite/missions/diffpatch/controllers.py |   11 ++++++++++-
+ mysite/missions/diffpatch/views.py       |   28 +++++++++++++++++++---------
+ 2 files changed, 29 insertions(+), 10 deletions(-)
+
+diff --git a/mysite/missions/diffpatch/controllers.py b/mysite/missions/diffpatch/controllers.py
+index 876eacb..f5a44aa 100644
+--- a/mysite/missions/diffpatch/controllers.py
++++ b/mysite/missions/diffpatch/controllers.py
+@@ -17,7 +17,16 @@
+ # You should have received a copy of the GNU Affero General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-from mysite.missions.base.controllers import *
++import difflib
++import os.path
++from cStringIO import StringIO
++import re
++import tarfile
++
++from mysite.missions.base.controllers import (
++    IncorrectPatch,
++    patch,
++    get_mission_data_path)
+ 
+ class SingleFilePatch(object):
+     @classmethod
+diff --git a/mysite/missions/diffpatch/views.py b/mysite/missions/diffpatch/views.py
+index ad854e2..6ee1700 100644
+--- a/mysite/missions/diffpatch/views.py
++++ b/mysite/missions/diffpatch/views.py
+@@ -17,7 +17,17 @@
+ # You should have received a copy of the GNU Affero General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-from mysite.missions.base.views import *
++import os.path
++from mysite.missions.base.views import (
++    make_download,
++    login_required,
++    MissionPageState,
++    view,
++    )
++from mysite.missions.base.controllers import (
++    mission_completed,
++    set_mission_completed,
++    )
+ from mysite.missions.diffpatch import forms, controllers
+ 
+ ### POST handlers
+@@ -44,7 +54,7 @@ def patchsingle_submit(request):
+         form = forms.PatchSingleUploadForm(request.POST, request.FILES)
+         if form.is_valid():
+             if form.cleaned_data['patched_file'].read() == open(controllers.PatchSingleFileMission.NEW_FILE).read():
+-                controllers.set_mission_completed(request.user.get_profile(), 'diffpatch_patchsingle')
++                set_mission_completed(request.user.get_profile(), 'diffpatch_patchsingle')
+                 data['patchsingle_success'] = True
+             else:
+                 data['patchsingle_error_message'] = 'The file did not match the contents it should have.'
+@@ -67,7 +77,7 @@ def diffsingle_submit(request):
+         if form.is_valid():
+             try:
+                 controllers.DiffSingleFileMission.validate_patch(form.cleaned_data['diff'])
+-                controllers.set_mission_completed(request.user.get_profile(), 'diffpatch_diffsingle')
++                set_mission_completed(request.user.get_profile(), 'diffpatch_diffsingle')
+                 data['diffsingle_success'] = True
+             except controllers.IncorrectPatch, e:
+                 data['diffsingle_error_message'] = str(e)
+@@ -89,7 +99,7 @@ def diffrecursive_submit(request):
+         if form.is_valid():
+             try:
+                 controllers.DiffRecursiveMission.validate_patch(form.cleaned_data['diff'].read())
+-                controllers.set_mission_completed(request.user.get_profile(), 'diffpatch_diffrecursive')
++                set_mission_completed(request.user.get_profile(), 'diffpatch_diffrecursive')
+                 data['diffrecursive_success'] = True
+             except controllers.IncorrectPatch, e:
+                 data['diffrecursive_error_message'] = str(e)
+@@ -119,7 +129,7 @@ def patchrecursive_submit(request):
+                 else:
+                     data['patchrecursive_%s_error_message' % key] = ''
+             if not wrong_answers_present:
+-                controllers.set_mission_completed(request.user.get_profile(), 'diffpatch_patchrecursive')
++                set_mission_completed(request.user.get_profile(), 'diffpatch_patchrecursive')
+                 data['patchrecursive_success'] = True
+         data['patchrecursive_form'] = form
+     return recursive_patch(request, data)
+@@ -133,10 +143,10 @@ class DiffPatchMissionPageState(MissionPageState):
+         (data, person) = self.get_base_data_dict_and_person()
+         if person:
+             data.update({
+-                'patchrecursive_done': controllers.mission_completed(person, 'diffpatch_patchrecursive'),
+-                'diffrecursive_done': controllers.mission_completed(person, 'diffpatch_diffrecursive'),
+-                'patchsingle_done': controllers.mission_completed(person, 'diffpatch_patchsingle'),
+-                'diffsingle_done': controllers.mission_completed(person, 'diffpatch_diffsingle')
++                'patchrecursive_done': mission_completed(person, 'diffpatch_patchrecursive'),
++                'diffrecursive_done': mission_completed(person, 'diffpatch_diffrecursive'),
++                'patchsingle_done': mission_completed(person, 'diffpatch_patchsingle'),
++                'diffsingle_done': mission_completed(person, 'diffpatch_diffsingle')
+             })
+         return data
+ 
+-- 
+1.7.5.4
+
+
+From 375b9f82d858acd9773357122cf21b0fb0e5d7fc Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Tue, 20 Sep 2011 15:40:37 -0400
+Subject: [PATCH 4/5] Remove "import *" from mysite.missions.diffpatch.tests
+
+---
+ mysite/missions/diffpatch/tests.py |   15 ++++++++++++++-
+ 1 files changed, 14 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/diffpatch/tests.py b/mysite/missions/diffpatch/tests.py
+index f4d20aa..9926c39 100644
+--- a/mysite/missions/diffpatch/tests.py
++++ b/mysite/missions/diffpatch/tests.py
+@@ -17,7 +17,20 @@
+ # You should have received a copy of the GNU Affero General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-from mysite.missions.base.tests import *
++import tempfile
++import os
++import subprocess
++from StringIO import StringIO
++import difflib
++import tarfile
++import shutil
++
++from mysite.missions.base.tests import (
++    TwillTests,
++    Person,
++    reverse,
++    StepCompletion,
++    )
+ from mysite.missions.diffpatch import views, controllers
+ 
+ class PatchSingleFileTests(TwillTests):
+-- 
+1.7.5.4
+
+
+From 9f0b278f0da545161af548559fdf016170b08980 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Tue, 20 Sep 2011 15:54:40 -0400
+Subject: [PATCH 5/5] Accept old filenames in DiffRecursiveMission
+
+---
+ mysite/missions/diffpatch/controllers.py |   37 +++++++++++++++++++++++++++++-
+ mysite/missions/diffpatch/tests.py       |   31 +++++++++++++++++++++++++
+ 2 files changed, 67 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/diffpatch/controllers.py b/mysite/missions/diffpatch/controllers.py
+index f5a44aa..d6e77d1 100644
+--- a/mysite/missions/diffpatch/controllers.py
++++ b/mysite/missions/diffpatch/controllers.py
+@@ -77,6 +77,30 @@ class DiffRecursiveMission(object):
+     TARBALL_NAME = ORIG_DIR + '.tar.gz'
+     SUBSTITUTIONS = [('aubergine', 'eggplant'),
+                      ('Aubergine', 'Eggplant')]
++    ALTERNATE_FILENAMES = {'Skillet.txt': 'AubergineAndChickpeaSkillet.txt',
++                           'Grilled.txt': 'GrilledAubergine.txt'}
++
++    @staticmethod
++    def name_new2old(s):
++        for new_name in DiffRecursiveMission.ALTERNATE_FILENAMES:
++            old_name = DiffRecursiveMission.ALTERNATE_FILENAMES[
++                new_name]
++            if s.endswith('/' + new_name):
++                return s.replace('/' + new_name, '/' + old_name, 1)
++            if s == new_name:
++                return old_name
++        return s
++
++    @staticmethod
++    def name_old2new(s):
++        for new_name in DiffRecursiveMission.ALTERNATE_FILENAMES:
++            old_name = DiffRecursiveMission.ALTERNATE_FILENAMES[
++                new_name]
++            if s.endswith('/' + old_name):
++                return s.replace('/' + old_name, '/' + new_name, 1)
++            if s == old_name:
++                return new_name
++        return s
+ 
+     @classmethod
+     def synthesize_tarball(cls):
+@@ -119,7 +143,18 @@ class DiffRecursiveMission(object):
+             try:
+                 index = the_patch.source.index(filename)
+             except ValueError:
+-                raise IncorrectPatch, 'Patch does not modify file "%s", which it should modify.' % filename
++                # Hmm. The user submitted some file with a filename
++                # we didn't really recognize.
++                #
++                # We did rename a bunch of the files a little while ago.
++                # Maybe we can process their submission anyway by looking for
++                # the old filename in the patch header.
++                filename = DiffRecursiveMission.name_new2old(filename)
++                try:
++                    index = the_patch.source.index(filename)
++                except ValueError:
++                    raise IncorrectPatch, 'Patch does not modify file "%s", which it should modify.' % filename
++
+             if the_patch.target[index] != filename:
+                 raise IncorrectPatch, 'Patch headers for file "%s" have inconsistent filenames.' % filename
+ 
+diff --git a/mysite/missions/diffpatch/tests.py b/mysite/missions/diffpatch/tests.py
+index 9926c39..89bf990 100644
+--- a/mysite/missions/diffpatch/tests.py
++++ b/mysite/missions/diffpatch/tests.py
+@@ -244,6 +244,37 @@ class DiffRecursiveTests(TwillTests):
+         paulproteus = Person.objects.get(user__username='paulproteus')
+         self.assertEqual(len(StepCompletion.objects.filter(step__name='diffpatch_diffrecursive', person=paulproteus)), 1)
+ 
++    def test_do_mission_correctly_with_old_filenames(self):
++        orig_response = self.client.get(reverse(views.diffrecursive_get_original_tarball))
++        tfile = tarfile.open(fileobj=StringIO(orig_response.content), mode='r:gz')
++        diff = StringIO()
++        for fileinfo in tfile:
++            if not fileinfo.isfile():
++                continue
++
++            # calcualate the old name
++            transformed_name = controllers.DiffRecursiveMission.name_new2old(
++                fileinfo.name)
++
++            oldlines = tfile.extractfile(fileinfo).readlines()
++            newlines = []
++            for line in oldlines:
++                for old, new in controllers.DiffRecursiveMission.SUBSTITUTIONS:
++                    line = line.replace(old, new)
++                newlines.append(line)
++
++            diff.writelines(difflib.unified_diff(oldlines, newlines,
++                                                 'orig-'+transformed_name,
++                                                 transformed_name))
++
++        diff.seek(0)
++        diff.name = 'foo.patch'
++        submit_response = self.client.post(reverse(views.diffrecursive_submit), {'diff': diff})
++        self.assert_(submit_response.context['diffrecursive_success'])
++
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='diffpatch_diffrecursive', person=paulproteus)), 1)
++
+     def test_do_mission_incorrectly(self):
+         diff = StringIO('--- a/foo.txt\n+++ b/foo.txt\n@@ -0,0 +0,1 @@\n+Hello World\n')
+         diff.name = 'foo.patch'
+-- 
+1.7.5.4
+

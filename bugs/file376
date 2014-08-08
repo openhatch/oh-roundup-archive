@@ -1,0 +1,233 @@
+[16:00:03] --> timewasted (~mark@75-138-4-250.dhcp.mntv.al.charter.com) has joined #openhatch
+[16:00:13] <timewasted> hey everyone.
+[16:00:16] <paulproteus> #startmeeting
+[16:00:20] <paulproteus> Oh, we're botless I suppose!
+[16:00:22] <paulproteus> Hi timewasted!
+[16:00:27] <paulproteus> Well yeah, it's meeting o'clock.
+[16:00:29] <paulproteus> Time to say hello.
+[16:00:48] <paulproteus> A blog post that jesstess wrote got put on geekfeminism.org. In the comments is this intriguing link: http://blogs.discovermagazine.com/notrocketscience/2010/11/25/15-minute-writing-exercise-closes-the-gender-gap-in-university-level-physics/
+[16:00:49] <aldeka> Hello!
+[16:02:23] <paulproteus> timewasted: BTW I think that what I will do w/r/t meeting minutes is try to reply to my meeting announcement with them.
+[16:02:30] <paulproteus> And/or someone who isn't me can do that.
+[16:02:59] <timewasted> Sure that sounds fine.  Any of the suggestion people had will work. It's always nice to catch up.
+[16:03:21] <timewasted> I'll have to go in about 20 minutes I'm afraid, so I can use them to read the rest of the conversation!
+[16:03:43] <paulproteus> Perfect. (-:
+[16:03:54] <paulproteus> We're botless today (psst pythonian4000afk , although maybe it's my-ish fault).
+[16:04:37] <paulproteus> I've been playing more with Vagrant, and I think that it's pretty excellent at reliably creating VMs that can run web apps.
+[16:04:52] <paulproteus> I might try to spend some more time today making a Vagrant-based VM-based setup for OpenHatch.
+[16:05:01] <paulproteus> I was going to yesterday, but then I did it for Miro Community (AKA work) instead.
+[16:05:28] <paulproteus> #topic Roadmap brainstorm
+[16:05:38] <paulproteus> Oh, BTW, does anyone want to add anything to the agenda at http://lists.openhatch.org/pipermail/devel/2011-July/002142.html ?
+[16:05:51] <paulproteus> I realized I forgot to add "Get help with things you're stuck on" so let's say that gets 15 min before the last item.
+[16:06:25] <paulproteus> Seeing none, well, jledbetter asked for a roadmap two months ago, and it's high time we make one.
+[16:06:43] <paulproteus> We've done a lot of big-picture brainstorming, but I don't think we've done it at the level of granularity that she was asking for.
+[16:07:20] -*- aldeka just glued her hand back together and is slow at typing
+[16:07:23] <paulproteus> It's also a good opportunity to plan what we want done for this upcoming month, which makes this first-meeting-of-the-month a good time for it, I think.
+[16:07:34] <aldeka> paulproteus: what level of granularity do you have in mind?
+[16:07:46] <palhmbs> #action I'll work on getting the bug-tracker up-to-date.
+[16:08:00] <paulproteus> Yo palhmbs!
+[16:08:01] <palhmbs> & hi pythonian4000 -- 1 whole year wow!
+[16:08:23] <paulproteus> Yeah, palhmbs, I know! 1  whole year of me totally lucking out to have him around.
+[16:08:37] <paulproteus> http://lists.openhatch.org/pipermail/devel/2011-May/001972.html asked for release-by-release focuses.
+[16:09:10] <paulproteus> I've been doing a sloppy job managing lately, but I'm going to make some more time (especially easy with less travel for the next 3 weeks) on that wow the breeze from outside is amazing.
+[16:09:37] <paulproteus> Features we want, for one thing.
+[16:09:43] <paulproteus> aldeka: You and we made a roadmap last month; I'll grab the link
+[16:09:43] <aldeka> lol
+[16:09:43] <palhmbs> so I'll move everything into the later category, apart from things that people are actually working on - is that ok?
+[16:09:58] <paulproteus> http://openhatch.org/wiki/OpenHatch_Roadmap_Sept_2012 is more zoomed-out; I think the jledbetter-style roadmap is month-by-month
+[16:10:02] <paulproteus> palhmbs: That's perfect.
+[16:10:21] <palhmbs> bd
+[16:10:47] <aldeka> paulproteus: but how many months in advance? the farther, the fuzzier, I think
+[16:10:55] <paulproteus> Yeah, exactly; I think she wanted about 3.
+[16:10:57] <paulproteus> I like that idea, personally.
+[16:11:26] <paulproteus> You seem to be dragging your feet; tell me more what you think.
+[16:11:50] <aldeka> that's partially because my left hand can barely type right now :)
+[16:11:57] <paulproteus> Dragging your hands, then, as it were.
+[16:12:03] <aldeka> :D
+[16:12:15] <aldeka> the other part is I don't really have any idea what would go in that roadmap.
+[16:12:27] <paulproteus> http://piratepad.net/next-few-months # let's give it a shot
+[16:12:37] <paulproteus> I'm looking at http://openhatch.org/wiki/OpenHatch_Roadmap_Sept_2012 and trying to slot things in
+[16:12:37] -*- aldeka has an easier time envisioning a year than 3 months, how silly is that?
+[16:12:44] <aldeka> Sensible.
+[16:13:22] <aldeka> I liked the themed milestones we had going on for a while.
+[16:13:35] <aldeka> Picking 3-ish themes might be a good way to start.
+[16:14:39] <paulproteus> I'd love to get timewasted and palhmbs on the pad too. http://piratepad.net/next-few-months
+[16:14:50] <paulproteus> (and others, e.g. pythonian4000afk , but you can't always get what you want)
+[16:18:12] <timewasted> OK, sorry folks but I have to run.  I'll catch up when I get home tonight and post any thoughts to the devel list.
+[16:19:14] <-> timewasted is now known as timewasted_afk
+[16:19:50] <paulproteus> Ciao for now timewasted_afk!
+[16:20:04] <aldeka> paulproteus: Do you know when you'll be starting working on OH full-time?
+[16:20:51] <paulproteus> I quit my PCF job on July 20, but then I go to Europe for three weeks. July 22-30 I'll be totally busy at Debconf. July 31-Aug 5 I'll be pretty free (and in Paris). Aug 6-11 I'll be half-ish-free (at Desktop Summit in Berlin). Aug 15 onwards, solid.
+[16:21:19] -*- aldeka nods
+[16:21:29] <paulproteus> (the word "quit" should be read as a future tense verb)
+[16:21:36] <aldeka> :)
+[16:24:13] <-> pythonian4000afk is now known as pythonian4000
+[16:24:26] <paulproteus> aldeka: FWIW I am thinking of doing the full non-profit move later on, like in mid-2012, just because I'm not enthusiastic about dealing with the paperwork until at *least* Sep 2011, probably later.
+[16:24:49] <pythonian4000> o/
+[16:24:49] <aldeka> So the SPI thing would happen sooner?
+[16:24:50] <paulproteus> pythonian4000: Hello!
+[16:24:54] <aldeka> I guess that's all I really meant.
+[16:24:58] <paulproteus> Yeah, SPI thing can be super-quick so long as jesstess is on board.
+[16:24:59] -*- pythonian4000 is awake now
+[16:25:01] <paulproteus> Mornin'
+[16:25:25] <paulproteus> If jesstess and I don't quite agree on what it should look like, the easy way for me to handle that is to just use the SPI account for fewer things (the intersection of what we'd want to spend OpenHatch money on)
+[16:26:58] <pythonian4000> Hmm botless. Did you kill sufjan?
+[16:27:04] <paulproteus> pythonian4000: Through the reboot, that's all
+[16:27:07] <pythonian4000> If you pretend he is still here, I acn replay the logs
+[16:27:11] <paulproteus> pythonian4000: Cool
+[16:27:20] <pythonian4000> So use commands as usual
+[16:27:23] <paulproteus> #link http://openhatch.org/wiki/OpenHatch_Roadmap_Sept_2012 has the one-year roadmap
+[16:27:37] <paulproteus> #info we're working on a three-month one; it will go in the wiki post-meeting
+[16:27:57] <palhmbs> I'm racing us towards the July milestone... :D
+[16:28:21] <pythonian4000> (If you haven't done the startmeeting etc. I'll insert them into whatever logs I'm given.
+[16:28:43] <paulproteus> (I have)
+[16:29:48] <pythonian4000> bd
+[16:31:54] <paulproteus> One of the reasons I have been slow about testing virtualenv etc. is that I feel it's a brittle tool.
+[16:32:14] <paulproteus> Vagrant is a tool I like more, but it comes at a much greater disk space + RAM cost, since it requires running an entire virtual OS.
+[16:33:04] <paulproteus> pythonian4000: How soon are you going to work on the OSL move? I might try spending a few hours today fine-tuning the Puppet config.
+[16:33:19] <paulproteus> Which realistically will spill over into 2x that time, which means I'll be enthusiastically ready starting Monday-ish.
+[16:35:22] <pythonian4000> I had a look at the Puppet config.
+[16:35:26] <pythonian4000> Seems too empty =P
+[16:35:38] <paulproteus> It sure doesn't rebuild the whole server.
+[16:35:55] <paulproteus> e.g. mail daemon
+[16:35:57] <paulproteus> I think.
+[16:36:03] <pythonian4000> How does puppet handle custom configs etc. of packages that are set to be requiried installs?
+[16:36:24] <paulproteus> (The way I use Puppet) you handle that by adding config files to the Puppet git repo.
+[16:36:41] <pythonian4000> And it just finds them?
+[16:36:56] <paulproteus> You add a little line or two to have the Puppet config install the config file just before/after it installs the package.
+[16:37:11] <pythonian4000> Ah kay.
+[16:38:01] <paulproteus> I'm pretty happy with the July one of these, at least.
+[16:38:04] <paulproteus> jledbetter, are you around perchance?
+[16:38:26] <paulproteus> One piece of feedback that I got is that if you're truly new to open source, the OpenHatch site isn't that clear.
+[16:38:34] <paulproteus> There should be a glossary of some sort, for example.
+[16:38:42] <paulproteus> I'll try to convert that into bugs, at least.
+[16:40:01] <paulproteus> pythonian4000 + aldeka + palhmbs: I think that covers what I wanted for the roadmap.
+[16:40:07] <aldeka> Yay!
+[16:40:27] <paulproteus> We can/should wikify it before too long, but I'm ready to move on if you folks are. Y/N?
+[16:40:51] <aldeka> Y
+[16:40:55] <pythonian4000> Y
+[16:40:56] <palhmbs> awesome
+[16:41:20] <palhmbs> Y
+[16:41:56] <paulproteus> #topic Discuss the forum
+[16:42:04] -*- paulproteus is going from the http://lists.openhatch.org/pipermail/devel/2011-July/002142.html agenda
+[16:42:20] <paulproteus> Anyone have particular things they want to bring up w/r/t forum?
+[16:43:01] <paulproteus> I kind of wish that e.g. http://forum.openhatch.org/categories/first-contribution-help (category page) it told you a description of the category.
+[16:43:08] <paulproteus> I guess the theme should get put in version control, too.
+[16:43:12] <paulproteus> I'll file bugs for those.
+[16:43:19] <palhmbs> re: forum - we _need_ to put some great questions on there to kick it off
+[16:44:40] <paulproteus> Well, related to that is that we maybe should just get all the people who ask on e.g. Reddit, "How can I help out?" to have that conversation on the forum
+[16:44:59] <paulproteus> Check the OpenHatchery twitter stream for a few examples of that sort of thing
+[16:45:11] <aldeka> That's a bit more ambitious, I think.
+[16:45:24] <aldeka> Unless you mean just linking them to the forum when they ask such questions elsewhere.
+[16:45:59] <paulproteus> Yeah, that's what I mean.
+[16:46:19] <paulproteus> Tell them, "Hey! We have a community for that sort of question. Ask here: http://forum.openhatch.org/"
+[16:46:46] <pythonian4000> \
+[16:46:54] <pythonian4000> s/\//g
+[16:47:44] <aldeka> Of course, then we need to have answers there. :)
+[16:47:53] <paulproteus> Nah -- we just need to have people asking, and people available to answer.
+[16:48:00] <aldeka> "Quick, someone pretend to be a confused FOSS newbie!"
+[16:48:12] <paulproteus> Where's tehviking when you need him!?
+[16:48:21] <aldeka> paulproteus: You think a random Redditor is willing to be the first post evar?
+[16:48:24] <paulproteus> Yup.
+[16:48:31] <paulproteus> The kind of Redditor who asks, "How can I help out?"
+[16:48:44] <paulproteus> We can guide the person through it.
+[16:48:48] <paulproteus> I'm okay with other ways to get people, too.
+[16:48:59] <paulproteus> I just think that doing so inorganically within ourselves isn't a great strategy.
+[16:49:22] <paulproteus> I think that doing real outreach to find people who really have those questions is the way to do it, and then getting them to ask, and then maybe having an IRC bot notify this IRC channel when a new topic opens up.
+[16:49:24] --> shiftingcontrol (~kracekuma@117.197.195.156) has joined #openhatch
+[16:49:27] <paulproteus> So that the people who idle here all know about it.
+[16:49:28] <aldeka> It's not, but the alternative seems slow and improbable.
+[16:49:28] <paulproteus> Hi shiftingcontrol!
+[16:49:41] <shiftingcontrol> paulproteus, hi ,how you been ?
+[16:49:41] <aldeka> I like the IRC bot idea!
+[16:49:51] <paulproteus> aldeka: I'll file a bug!
+[16:49:55] <aldeka> :)
+[16:51:04] <pythonian4000> Should be doable as a supybot plugin
+[16:51:26] -*- pythonian4000 will also make supybot stable over restarts during the OSL migration
+[16:52:19] <aldeka> "Sufjan the Friendly Penguinlet says: It looks like you're trying to contribute to open source! Would you like some help?"
+[16:52:33] <paulproteus> http://www.reddit.com/r/learnprogramming/related/cm8be/reddit_how_do_i_get_involved_in_open_source/ has a whole bunch of similar questions, and redditors who may be willing to suffer thorugh a long forum Q&A with us.
+[16:53:10] <paulproteus> shiftingcontrol: Good!
+[16:53:40] <paulproteus> shiftingcontrol: We wrote up this earlier in the meeting: http://piratepad.net/next-few-months
+[16:53:42] <paulproteus> We'll email out minutes.
+[16:54:24] <shiftingcontrol> paulproteus, nice to hear from you. . . .unfortunately I am not contributing anything :(
+[16:54:42] <shiftingcontrol> Hope i find out something i can contrib
+[16:55:46] <paulproteus> aldeka: If you want to find people to ask questions and organize that, I won't stop you (-;
+[16:56:16] <aldeka> :)
+[16:56:17] <paulproteus> shiftingcontrol: One thing we were just saying is that the people on Reddit who ask how to get involved in open source: we need someone to reach out to them and invite them to the forum.
+[16:56:48] <paulproteus> Wow, there are *lots* of questions in there.
+[16:56:50] <paulproteus> Anyway.
+[16:58:05] <paulproteus> ...where did I put that agenda
+[16:58:36] <paulproteus> Seems we're done discussing the forum now?
+[16:58:41] <palhmbs> so - http://openhatch.org/bugs/milestone10?@template=open is the current milestone & hopefully looks reasonable.
+[16:58:58] <palhmbs> with only 24 boogies :P
+[16:59:42] <palhmbs> I've left buildhelper stuff in as well as stuff people were already working on
+[16:59:52] <shiftingcontrol> paulproteus, that sounds cool . . .First let us create a open hatch article in wiki and in open source,foss ,contents in wiki we will add a link to open hatch . . we will mainatain how to contribute to projects .we have to target students and should tel ppl why yous should contribute.We shuld share our success storeis of contributing
+[16:59:52] <palhmbs> plus a couple of things that  really ought to get cleared up.
+[17:00:35] <paulproteus> shiftingcontrol: I wouldn't worry so much about creating a Wikipedia article. (That's what you mean by "in wiki"?)
+[17:00:43] <paulproteus> I do really like the idea of sharing success stories.
+[17:00:58] <pythonian4000> There's more than one wiki? =P
+[17:01:04] <paulproteus> One other thing we can do that might help is have "Open thread"s on the blog that are actually forum discussions, to get people checking it out.
+[17:01:30] <paulproteus> I can try to make one of those in the next hour, actually, and then hold off on release notes on the blog until July 5 or so.
+[17:01:40] <shiftingcontrol> paulproteus, ok ok .we should also analysis why ppl don't contribute and why ppl contribute ,
+[17:02:40] <paulproteus> I agree. Do you have any specific suggestions for how to do that sort of analysis?
+[17:03:14] <paulproteus> #action paulproteus will post an Open Thread blog post that asks people to try commenting on the forum.
+[17:05:01] <paulproteus> As shiftingcontrol thinks about that, let's look for bitesize bugs.
+[17:05:11] <paulproteus> I think there are a few that could be relatively bitesize if we write up the steps to fix them.
+[17:05:49] <palhmbs> there are some this-would-rock bugs in roundup too...
+[17:05:54] <palhmbs> that might fit the bill.
+[17:06:33] <paulproteus> palhmbs: Do you plan to finish up https://openhatch.org/bugs/issue413 ?
+[17:06:54] <palhmbs> paulproteus, yeah - I'd love to
+[17:07:04] <paulproteus> Great!
+[17:07:13] <palhmbs> paulproteus, but I think you still have a question jesstess couldn't answer on there :P
+[17:07:45] -*- paulproteus answeres
+[17:07:53] <paulproteus> Quick, everyone else look for bitesize bugs as I do that
+[17:09:21] <-- shiftingcontrol (~kracekuma@117.197.195.156) has quit (Ping timeout: 250 seconds)
+[17:12:30] <paulproteus> https://openhatch.org/bugs/issue76 would be bitesize if we had more of a spec for how the API would work.
+[17:12:43] <paulproteus> If we had a spec, then timewasted_afk would probably tear through it and implement the entire API in about ten minutes.
+[17:14:23] <paulproteus> ...ironic that on the OpenHatch bug tracker, there is no big link to our own bitesize bugs.
+[17:16:06] --> shiftingcontrol (~kracekuma@117.197.197.6) has joined #openhatch
+[17:16:20] <aldeka> paulproteus: file a bug?
+[17:16:23] <pythonian4000> =P
+[17:16:25] <paulproteus> Done
+[17:16:26] <palhmbs> you want us to find existing bitesize bugs or label bugs we think should be bitesize?
+[17:16:42] <shiftingcontrol> sorry my net got disconnected
+[17:16:48] <paulproteus> Well what I'm hoping to do in this next 10ish min is make the bitesize bug list for OpenHatch be super high-quality
+[17:16:48] <palhmbs> yeah that bug tracker page really could do with work...
+[17:16:53] <paulproteus> I'm looking at https://openhatch.org/bugs/issue?%40search_text=&title=&%40columns=title&milestone=&keyword=1&id=&%40columns=id&creation=&creator=&activity=&%40columns=activity&%40sort=activity&actor=&priority=&%40group=priority&status=-1%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C9%2C10&%40columns=status&assignedto=&%40columns=assignedto&%40pagesize=50&%40startwith=0&%40queryname=&%40old-queryname=&%40action=search
+[17:17:01] <paulproteus> On that page, most of these aren't that bitesize.
+[17:17:09] <paulproteus> I'm going to review the ones that are there right now.
+[17:17:32] <paulproteus> If there are other bugs that you think we should label bitesize, feel free to add the label, or to say in-channel that I should write up a note on the bug indicating the right set of next steps to solving it.
+[17:19:49] <palhmbs> we probably could close the meeting?
+[17:20:03] <paulproteus> Well maybe I can do the bitesize bugging post-meeting a bit, then
+[17:20:14] -*- paulproteus checks agenda for what else there was
+[17:20:36] <paulproteus> http://lists.openhatch.org/pipermail/devel/2011-July/002142.html says: "Say what we are hoping to get done this week"
+[17:21:22] <paulproteus> Apparently "be exhausted by a meeting that ran too long" is on everyone's list
+[17:21:24] <paulproteus> (-:
+[17:22:03] <shiftingcontrol> :)
+[17:22:20] <paulproteus> Any goals for y'all, aldeka, pythonian4000, timewasted_afk, palhmbs, shiftingcontrol?
+[17:22:41] <aldeka> paulproteus: First working draft of the buildhelper this week :)
+[17:22:57] <paulproteus> I will write up my ideas for how the training missions can link to the forum.
+[17:23:05] <paulproteus> I will also work immediately post-this on high-quality bitesize bugs in the tracker.
+[17:23:14] <paulproteus> shiftingcontrol, that should provide some things for you to jump in on, if you like.
+[17:23:32] <palhmbs> #action - Start work on finishing my bash mission, add a JIRA bug_tracker & sort out virtualenv problems.
+[17:23:40] <pythonian4000> GET. OSL. MIGRATION. STARTED. =P
+[17:23:41] <palhmbs> #undo
+[17:23:46] <shiftingcontrol> paulproteus, I came at the end,I don't understand much of the stuff,if there is a to do list with brief explanation for a week or month.I can think what i can contrib
+[17:24:01] <palhmbs>  #action - palhmbs will start work on finishing my bash mission, add a JIRA bug_tracker & sort out virtualenv problems.
+[17:24:03] <palhmbs> <palhmbs> #undo
+[17:24:03] <palhmbs> <pythonian4000> GET. OSL. MIGRATION. STARTED. =P
+[17:24:05] <paulproteus> shiftingcontrol: Cool, I can try to make sure that's clear in the meeting minutes, and if not, reply on the list.
+[17:24:25] <paulproteus> pythonian4000: One of us ought to refine the Puppet scripts.
+[17:24:28] <paulproteus> It can be you, if you like, or it can be me.
+[17:24:35] <paulproteus> I can provide lots of guidance if it's you.
+[17:24:47] <palhmbs> & hide in embarrassment over my cut & paste fail
+[17:24:48] <pythonian4000> I'd be happy with that.
+[17:24:54] <paulproteus> Great!
+[17:25:02] <paulproteus> I will try to give you a version of the Miro Community one that doesn't have our passwords in it.
+[17:25:08] <paulproteus> And also, you'll probably want to set up Vagrant on your own machine.
+[17:25:30] <shiftingcontrol> paulproteus, good,so what are we going to do next month,is this the link to check that one http://piratepad.net/next-few-months
+[17:25:54] <paulproteus> shiftingcontrol: Yup, and I'll put it on the wiki post-meeting in an hour or two (unless someone beats me to it).
+[17:26:01] <paulproteus> Okay, then I think that's a wrap for this meeting. Closing in 15 sec unless someone says to keep it open
+[17:26:32] <shiftingcontrol> ok ok ,I will check it tomo Close it and satrt the work :)
+[17:26:34] <paulproteus> #endmeeting
+

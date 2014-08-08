@@ -1,0 +1,26 @@
+From 842fa5672e198b67dc6522b9786877171a6ae98e Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Sun, 23 Jan 2011 20:24:58 +0100
+Subject: [PATCH] Fixed typo in Django base template for diff mission.
+
+refs #223 (3m)
+---
+ .../templates/missions/diffpatch/base.html         |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/diffpatch/base.html b/mysite/missions/templates/missions/diffpatch/base.html
+index d0d4586..417d3ff 100644
+--- a/mysite/missions/templates/missions/diffpatch/base.html
++++ b/mysite/missions/templates/missions/diffpatch/base.html
+@@ -16,7 +16,7 @@
+     Diffing individual files
+   </a>
+ </li>
+-<li id='link-recursive_diff' %}
++<li id='link-recursive_diff'>
+   <a href='{% url mysite.missions.diffpatch.views.recursive_diff %}'>
+     Diffing entire directories
+   </a>
+-- 
+1.7.3.4
+

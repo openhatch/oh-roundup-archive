@@ -1,0 +1,57 @@
+From c0aa82ccbba538cb3af0132ff93f82644092fcd6 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Fri, 30 Jul 2010 03:19:44 +0000
+Subject: [PATCH] Fixed Asheesh's Google Code importer test by making ObjectFromDict
+ optionally recursive over dictionaries.
+
+---
+ mysite/base/helpers.py               |    4 +++-
+ mysite/customs/bugtrackers/google.py |    2 +-
+ mysite/customs/tests.py              |    2 +-
+ 3 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/base/helpers.py b/mysite/base/helpers.py
+index 3637065..b14e1d4 100644
+--- a/mysite/base/helpers.py
++++ b/mysite/base/helpers.py
+@@ -18,8 +18,10 @@ def json_response(python_object):
+     return HttpResponse(json, mimetype="application/json")
+ 
+ class ObjectFromDict(object):
+-    def __init__(self, data):
++    def __init__(self, data, recursive = False):
+         for key in data:
++            if recursive and type(data[key]) == type({}):
++                data[key] = ObjectFromDict(data[key], recursive = recursive)
+             setattr(self, key, data[key])
+ 
+ def assert_or_pdb(expression):
+diff --git a/mysite/customs/bugtrackers/google.py b/mysite/customs/bugtrackers/google.py
+index 077acf7..a9cf825 100644
+--- a/mysite/customs/bugtrackers/google.py
++++ b/mysite/customs/bugtrackers/google.py
+@@ -72,7 +72,7 @@ class GoogleBug(object):
+         self.client = client
+ 
+     def _bug_id_from_bug_data(self):
+-        id_url = self.get_bug_atom_data().id['text']
++        id_url = self.get_bug_atom_data().id.text
+         base, num = id_url.rsplit('/', 1)
+         return int(num)
+ 
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index ac16dd4..a264c40 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -1276,7 +1276,7 @@ class DailyBugImporter(django.test.TestCase):
+ class GoogleCodeBugTracker(django.test.TestCase):
+     @mock.patch('mysite.customs.bugtrackers.google.GoogleBug.get_bug_atom_data')
+     def test__bug_id_from_bug_data(self, mock_thing):
+-        mock_thing.return_value = mysite.base.helpers.ObjectFromDict({'id': {'text': 'http://whatever/3'}})
++        mock_thing.return_value = mysite.base.helpers.ObjectFromDict({'id': {'text': 'http://whatever/3'}}, recursive = True)
+         gb = mysite.customs.bugtrackers.google.GoogleBug(google_name='ok', client=None, bug_id=3)
+         bug_id = gb._bug_id_from_bug_data()
+         self.assertEqual(bug_id, 3)
+-- 
+1.7.1
+

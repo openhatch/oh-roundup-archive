@@ -1,0 +1,26 @@
+From a3eb4e2c3badcdf1576241cb11a93670fa4a8cb5 Mon Sep 17 00:00:00 2001
+From: Jessica McKellar <jesstess@mit.edu>
+Date: Sun, 26 Feb 2012 11:06:14 -0500
+Subject: [PATCH] Formatted command in tar unpacking mission as fixed-width
+ type.
+
+---
+ .../missions/templates/missions/tar/unpacking.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/tar/unpacking.html b/mysite/missions/templates/missions/tar/unpacking.html
+index 15a1c4c..93f7c67 100644
+--- a/mysite/missions/templates/missions/tar/unpacking.html
++++ b/mysite/missions/templates/missions/tar/unpacking.html
+@@ -90,7 +90,7 @@
+ 	<div id="high">
+ 	  <p>To unpack the tarball, you might want to use this command:</p>
+ 	  <ul class="raquo_bullets">
+-	    <li>tar xvzf ghello-0.4.tar.gz</li>
++	    <li><tt>tar xvzf ghello-0.4.tar.gz</tt></li>
+ 	  </ul>
+ 	</div>
+       </div>
+-- 
+1.7.6.1
+

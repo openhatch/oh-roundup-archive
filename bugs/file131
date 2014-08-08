@@ -1,0 +1,26 @@
+From 887011c2fa8794c624bb0e871dadd0e6b2284e8d Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Mon, 31 Jan 2011 21:03:35 +0100
+Subject: [PATCH 4/6] Adjusted styles so file upload error message on mission page displayes properly.
+
+---
+ mysite/static/css/missions/base.css |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/static/css/missions/base.css b/mysite/static/css/missions/base.css
+index f865b47..54b6bb7 100644
+--- a/mysite/static/css/missions/base.css
++++ b/mysite/static/css/missions/base.css
+@@ -25,7 +25,8 @@ body.missions .file-upload {
+   padding: 5px;
+   -webkit-border-radius: 5px;
+   width: 100%;
+-  background: #F4F4F4
++  background: #F4F4F4;
++  overflow: hidden;
+ }
+ 
+ body.missions .file-upload input[type="file"] {
+-- 
+1.7.3.5
+

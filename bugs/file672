@@ -1,0 +1,20 @@
+<div dir="ltr"><div>I also didn&#39;t want to effect more then that one page so what I did was remved the fat and skinny from the class definitions and created a new class that had the right width alignment (I hope it will work for you)</div>
+( what I suggest is move the class form <span style="color:rgb(85,85,85);font-family:Monaco,&#39;Liberation Mono&#39;,Courier,monospace;font-size:12.222222328186035px;line-height:33px;white-space:nowrap;background-color:rgb(234,234,234)">mysite/static/css/profile/base.css</span> to some place more general) <div>
+<pre class="" style="font-family:Consolas,&#39;Liberation Mono&#39;,Courier,monospace;font-size:12px;margin-top:0px;margin-bottom:0px;color:rgb(51,51,51)">+body div.photo-wide { width: 64%; }</pre><pre class="" style="font-family:Consolas,&#39;Liberation Mono&#39;,Courier,monospace;font-size:12px;margin-top:0px;margin-bottom:0px;color:rgb(51,51,51)">
+<br></pre><pre class="" style="margin-top:0px;margin-bottom:0px"><font face="arial"><span style="white-space:normal">- Mike</span></font></pre></div></div><div class="gmail_extra"><br><br><div class="gmail_quote">On Thu, Apr 17, 2014 at 11:44 PM, skfroi <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org" target="_blank">bugs@openhatch.org</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><br>
+skfroi &lt;<a href="mailto:irizarry.froilan@gmail.com">irizarry.froilan@gmail.com</a>&gt; added the comment:<br>
+<br>
+This same issue is found on the set location page (see attached img). I&#39;m working on a way to fix<br>
+this without affecting anything else. Up to know the fix would be to set the submodule.skinny css<br>
+class to a margin of 15px, down from 20px, or to eliminate the border to the links box at the left.<br>
+<br>
+Any suggestions?<br>
+<br>
+----------<br>
+nosy: +skfroi<br>
+<br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue691" target="_blank">https://openhatch.org/bugs/issue691</a>&gt;<br>
+__________________________________________</blockquote></div><br></div>

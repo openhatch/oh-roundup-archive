@@ -1,0 +1,36 @@
+From 6b266c185426848fa92603be6fbb1478aeb00325 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Fri, 3 Jun 2011 19:13:22 +1200
+Subject: [PATCH] Replace some subprocess.Popens for subprocess.check_calls
+
+I believe that the problem with creating a repository for the
+git mission is that there are multiple Popen processes
+running simultaneously.
+
+Solves: http://openhatch.org/bugs/issue427
+---
+ mysite/missions/git/controllers.py |    8 ++++----
+ 1 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index 4932506..e59b61d 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -30,10 +30,10 @@ class GitRepository(object):
+         if os.path.isdir(self.repo_path):
+             shutil.rmtree(self.repo_path)
+         subprocess.check_call(['git', 'init', self.repo_path])
+-        subprocess.Popen(['git', 'config', 'user.name', '"The Brain"'], cwd=self.repo_path)
+-        subprocess.Popen(['cp', '../../../missions/git/data/hello.py', '.'], cwd=self.repo_path)
+-        subprocess.Popen(['git', 'add', '.'], cwd=self.repo_path)
+-        subprocess.Popen(['git', 'commit', '-m', '"Initial commit"'], cwd=self.repo_path)
++        subprocess.check_call(['git', 'config', 'user.name', '"The Brain"'], cwd=self.repo_path)
++        subprocess.check_call(['cp', '../../../missions/git/data/hello.py', '.'], cwd=self.repo_path)
++        subprocess.check_call(['git', 'add', '.'], cwd=self.repo_path)
++        subprocess.check_call(['git', 'commit', '-m', '"Initial commit"'], cwd=self.repo_path)
+ 
+         # Touch the git-daemon-export-ok file
+         file_obj = file(os.path.join(self.repo_path, '.git', 'git-daemon-export-ok'), 'w')
+-- 
+1.7.2.5
+

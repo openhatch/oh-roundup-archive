@@ -1,0 +1,99 @@
+diff --git a/mysite/customs/lp_grabber.py b/mysite/customs/lp_grabber.py
+index 536b439..b5ccf38 100644
+--- a/mysite/customs/lp_grabber.py
++++ b/mysite/customs/lp_grabber.py
+@@ -5,6 +5,7 @@ import urllib2
+ import urlparse
+ import time
+ import random
++import re
+ 
+ def project2languages(project_name):
+     """Find the Launchpad URL for the given project. Scrape launchpad page for languages."""
+@@ -27,6 +28,19 @@ def project2languages(project_name):
+     except IndexError:
+         return []
+ 
++def get_tree(url):
++    try:
++        b = mechanize_get(url)
++    except urllib2.HTTPError, e:
++        if str(e.code) == '404':
++            return {}
++        else:
++            raise # not a 404? Bubble-up the explosion.
++    doc = b.response().read()
++    doc_u = unicode(doc, 'utf-8')
++    tree = lxml.html.document_fromstring(doc_u)
++    return tree
++    
+ def get_info_for_launchpad_username(username):
+     """This figures out what the named person has been involved with.
+     It returns a dictionary like this:
+@@ -38,45 +52,59 @@ def get_info_for_launchpad_username(username):
+         }
+     }
+     """
++
++    ##################
++    # Bug management #
++    ##################
++    bug_tree = get_tree(
++            'https://bugs.launchpad.net/~%s' %
++            urllib.quote(username))
++
++    for tr in bug_tree.cssselect('#buglisting tr'):
++        tds = tr.cssselect('td')
++
++        # The URL is in the third TD
++        url = tds[2].get('href')
++
++        # The projects are in the fifth TD
++        project_str = tds[4].text_content()
++        # project_str looks something like this:
++        #   "pidgin (Ubuntu)"
++        regex = r'(.+)( \((.+)\))'
++        project_name, _, distro = re.match(regex, project_str).groups()
++
++        # FIXME: Do something inclusive with distro.
++
++        ret[project_name] = {
++                'involvement_types': 'Bug Management',
++                'url': url,
++                'languages': project2languages(project_name),
++                }
++
++    ################
++    # Translations #
++    ################
++    translation_tree = get_tree(
++            'https://translations.launchpad.net/~%s/+activity' %
++            urllib.quote(username))
++
++    for td in translation_tree.cssselect('#activity-table td')[1::2]:
++        url = td.cssselect('a')[0].get('href')
++        lang = td.text_content().split(' (')[0].strip()
++
++        project_name_re = r'https://translations.launchpad.net/([^/]+)/'
++        project_name = re.match(project_name_re, url).groups()[0]
++
++        # FIXME: Don't overwrite.
++        ret[project_name] = {
++                'involvement_types': 'Translations',
++                'url': url,
++                'languages': lang
++                }
++        
++
++        """
+         project_link = row.cssselect('a')[0]
+         project_name = project_link.text_content().strip()
+         project_url_relative = project_link.attrib['href']
+@@ -90,6 +118,7 @@ def get_info_for_launchpad_username(username):
+                 'url': project_url,
+                 'languages': languages
+                 }
++        """
+     return ret
+ 
+ def person_to_bazaar_branch_languages(username):

@@ -1,0 +1,24 @@
+From 14c680583f93134e86a3a9f2cf35b6ed9e7e447b Mon Sep 17 00:00:00 2001
+From: Patricia Sazama <PatriciaSazama@gmail.com>
+Date: Sun, 26 Feb 2012 13:40:03 -0500
+Subject: [PATCH] Added link to TortoiseSVN for Windows users.
+
+---
+ .../missions/templates/missions/svn/about_svn.html |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/svn/about_svn.html b/mysite/missions/templates/missions/svn/about_svn.html
+index 5d9cbf2..453b338 100644
+--- a/mysite/missions/templates/missions/svn/about_svn.html
++++ b/mysite/missions/templates/missions/svn/about_svn.html
+@@ -36,6 +36,7 @@
+ <h3>Other resources</h3>
+ 
+ <ul class="raquo_bullets">
++  <li>To get Subversion for Windows download <a href="http://tortoisesvn.net/">TortoiseSVN</a>.</li>
+   <li>The Subversion Book has an excellent summary of the <a href="http://svnbook.red-bean.com/en/1.5/svn.tour.cycle.html">basic work cycle</a> of a Subversion user.</li>
+   <li>Wikipedia has <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Apache_Subversion">an article about it</a>. Subversion's history as a project is quite interesting.</li>
+   <li>Many Subversion users chat using IRC in #svn on FreeNode.</li>
+-- 
+1.7.9.msysgit.0
+

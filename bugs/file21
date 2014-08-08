@@ -1,0 +1,97 @@
+
+Page not found (404)
+Request Method: 	GET
+Request URL: 	http://localhost:8000/account/settings/location/?asdf
+
+Using the URLconf defined in mysite.urls, Django tried these URL patterns, in this order:
+
+   1. ^\+project_icon_poll/(?P<project_name>.+)
+   2. ^\+projects/suggest_question/
+   3. ^\+projedit/(?P<project__name>.+)
+   4. ^\+projects/suggest_question_do/
+   5. ^\+do/project.views.wanna_help_do
+   6. ^\+do/profile.views.set_expand_next_steps_do
+   7. ^\+do/project.views.unlist_self_from_wanna_help_do
+   8. ^\+projects/create_project_page_do
+   9. ^\+answer/vote/(?P<object_id>\d+)/(?P<direction>up|down|clear)vote/?$
+  10. ^invitation/
+  11. ^$
+  12. ^search/$
+  13. ^admin/(.*)
+  14. ^static/(?P<path>.*)$
+  15. ^people/$
+  16. ^\+people/list/$
+  17. ^account/forgot_pass/$
+  18. ^account/catch-me$
+  19. ^account/login/$
+  20. ^account/login/do$
+  21. ^account/login/old$
+  22. ^account/logout/$
+  23. ^account/signup/do$
+  24. ^people/(?P<user_to_display__username>[^/]+)/widget/$
+  25. ^people/(?P<user_to_display__username>[^/]+)/openhatch-widget.js$
+  26. ^people/info/edit/do$
+  27. ^openid/signin/$
+  28. ^openid/register/$
+  29. ^openid/register/do$
+  30. ^openid/
+  31. ^account/forgot_pass_confirm/(?P<uidb36>[^/]+)/(?P<token>[^/]+)/$
+  32. ^account/forgot_pass_done/
+  33. ^account/forgot_pass_complete/
+  34. ^account/forgot_pass_confirm/(?P<uidb36>[^/]+)/(?P<token>[^/]+)/$
+  35. \+do/save_portfolio_entry_ordering_do
+  36. \^do/profile.views.set_pfentries_dot_use_my_description_do
+  37. ^account/signup/?$
+  38. ^account/settings/$
+  39. ^account/settings/edit_name$
+  40. ^account/settings/edit_name_do$
+  41. ^account/settings/password/$
+  42. ^account/settings/location/$
+  43. ^account/settings/location/do$
+  44. ^account/settings/location/confirm_suggestion/do$
+  45. ^account/settings/location/dont_guess_location/do$
+  46. ^account/settings/invite_someone/$
+  47. ^account/settings/invite_someone/do$
+  48. ^account/settings/password/change$
+  49. ^account/settings/contact-info/$
+  50. ^account/settings/contact-info/do$
+  51. ^account/settings/widget/$
+  52. ^account/edit/photo/$
+  53. ^account/edit/photo/do$
+  54. ^profile/views/add_citation_manually_do$
+  55. ^profile/views/replace_icon_with_default$
+  56. ^search/get_suggestions$
+  57. ^profile/views/gimme_json_for_portfolio$
+  58. ^profile/views/publish_citation_do$
+  59. ^profile/views/delete_citation_do$
+  60. ^profile/views/save_portfolio_entry_do$
+  61. ^profile/views/delete_portfolio_entry_do$
+  62. ^people/portfolio/import/$
+  63. ^\+portfolio/editor/$
+  64. ^\+portfolio/editor/test$
+  65. ^profile/views/edit_info$
+  66. ^profile/views/prepare_data_import_attempts_do$
+  67. ^people/user_selected_these_dia_checkboxes$
+  68. ^test_404$
+  69. ^search/people/(?P<property>[^/]+)/(?P<value>.+)$
+  70. ^(favicon.ico)
+  71. ^people/[$]username[/]*$
+  72. ^\+me$
+  73. ^\+do/project.views.create_answer_do$
+  74. ^\+do/project.views.delete_paragraph_answer_do$
+  75. ^\+do/search.views.subscribe_to_bug_alert_do$
+  76. ^\+projects/
+  77. ^\+project/(?P<project__name>.+)
+  78. ^\+do/project.views.create_project_page_do$
+  79. ^\+yo_is_django_alive$
+  80. ^\+bitesize$
+  81. ^\+geocode$
+  82. ^hearch/
+  83. ^edit/name$
+  84. ^\+v/nextsteps4helpers/?$
+  85. ^people/(?P<user_to_display__username>[^/]+)[/?]$
+
+The current URL, account/settings/location/, didn't match any of these.
+
+You're seeing this error because you have DEBUG = True in your Django settings file. Change that to False, and Django will display a standard 404 page.
+

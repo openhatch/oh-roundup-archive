@@ -1,0 +1,26 @@
+From 7b99715ef2e71f822ac5d3fb90780b2c924257ea Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Fri, 28 Jan 2011 11:35:10 +0100
+Subject: [PATCH] Adjusted width of the module's container.
+
+Refs https://openhatch.org/bugs/issue236
+---
+ mysite/base/templates/500.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/base/templates/500.html b/mysite/base/templates/500.html
+index 6c49411..0f6f87d 100644
+--- a/mysite/base/templates/500.html
++++ b/mysite/base/templates/500.html
+@@ -9,7 +9,7 @@ Error
+ {% block body_id %}error{% endblock body_id %}
+ 
+ {% block main %}
+-<div class='module'>
++<div class='module' style='width: 100%'>
+     <div class='head'>
+         <h3 style='font-family: "Comic Sans MS"; font-size: 15pt;'>Error 500 (server error)</h3>
+     </div>
+-- 
+1.7.3.5
+

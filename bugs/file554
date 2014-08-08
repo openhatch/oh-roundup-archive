@@ -1,0 +1,30 @@
+From 5382e000ca0a14678f54cc10caf18a01d06b95f6 Mon Sep 17 00:00:00 2001
+From: Aaron Hill <aa1ronham@aol.com>
+Date: Sat, 18 May 2013 18:27:35 -0400
+Subject: [PATCH] Fix typo in spelling of 'recipes'
+
+---
+ mysite/missions/templates/missions/diffpatch/recursive_diff.html | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/diffpatch/recursive_diff.html b/mysite/missions/templates/missions/diffpatch/recursive_diff.html
+index cdaa046..41b11c5 100644
+--- a/mysite/missions/templates/missions/diffpatch/recursive_diff.html
++++ b/mysite/missions/templates/missions/diffpatch/recursive_diff.html
+@@ -117,11 +117,11 @@
+       </pre>
+       <p>Then, download the original collection of recipes.</p>
+       <pre>
+-	curl {{ url_prefix }}{% url mysite.missions.diffpatch.views.diffrecursive_get_original_tarball %} > recipies.tar.gz
++	curl {{ url_prefix }}{% url mysite.missions.diffpatch.views.diffrecursive_get_original_tarball %} > recipes.tar.gz
+       </pre>
+       <p>Unzip the archive file, but do not extract it.</p>
+       <pre>
+-	gzip -d recipies.tar.gz
++	gzip -d recipes.tar.gz
+       </pre>
+       <p>Unpack it once, and rename that to recipes-us indicating that this is the version you'll adjust for American tastes. (This is the copy we'll edit.)</p>
+       <pre>
+-- 
+1.8.1.2
+

@@ -1,0 +1,55 @@
+From 67f965d00e135f6461ddf217ef90a722402c5080 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Tue, 29 Jun 2010 14:29:21 +0000
+Subject: [PATCH] Attempt at simplifying the Bugzilla importer error catcher test.
+ assertRaises does weird things.
+
+---
+ mysite/customs/tests.py |   16 +++-------------
+ 1 files changed, 3 insertions(+), 13 deletions(-)
+
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 5a957e3..8e1db52 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -40,6 +40,7 @@ import mysite.customs.github
+ import mysite.customs.models
+ import mysite.customs.bugtrackers.roundup_general
+ import mysite.customs.lp_grabber
++import mysite.search.management.commands.search_daily_tasks
+ # }}}
+ 
+ # Mocked out browser.open
+@@ -1031,27 +1032,16 @@ class OpenSolaris(django.test.TestCase):
+         self.assertEquals(bug_result, False)
+ 
+ class DailyBugImporter(django.test.TestCase):
+-    import mysite.search.management.commands.search_daily_tasks
+ 
+     @mock.patch('mysite.customs.ohloh.mechanize_get')
+     def test_bugzilla_http_error_504_does_not_break(self, mock_error):
+         mock_error.side_effect = generate_504
+-        try:
+-            mysite.search.management.commands.search_daily_tasks.Command().find_and_update_enabled_bugzilla_instances()
+-        except HTTPError, e:
+-            if e.code == 504:
+-                self.fail('504 error should have been caught')
+-        except Exception, e:
+-            pass
++        mysite.search.management.commands.search_daily_tasks.Command().find_and_update_enabled_bugzilla_instances()
+ 
+     @mock.patch('mysite.customs.ohloh.mechanize_get')
+     def test_bugzilla_http_generic_error_does_break(self, mock_error):
+         mock_error.side_effect = ValueError()
+-        try:
+-            mysite.search.management.commands.search_daily_tasks.Command().find_and_update_enabled_bugzilla_instances()
+-        except ValueError, e:
+-            return
+-        self.fail('No error occurred - should have been a 404')
++        self.assertRaises(ValueError, mysite.search.management.commands.search_daily_tasks.Command().find_and_update_enabled_bugzilla_instances())
+ 
+ 
+ # vim: set nu:
+-- 
+1.7.1
+

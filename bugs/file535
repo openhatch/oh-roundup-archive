@@ -1,0 +1,26 @@
+From d688f7a18ef982f32d73ceba2fcd9d0ce7a8749b Mon Sep 17 00:00:00 2001
+From: florapdx <floraworleypdx@gmail.com>
+Date: Tue, 19 Mar 2013 16:47:17 -0700
+Subject: [PATCH 02/10] changed 'add a bug tracker' to go to /customs instead
+ of wiki
+
+---
+ mysite/search/templates/search/search.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mysite/search/templates/search/search.html b/mysite/search/templates/search/search.html
+index bd1fa14..f32e3c1 100644
+--- a/mysite/search/templates/search/search.html
++++ b/mysite/search/templates/search/search.html
+@@ -189,7 +189,7 @@ Volunteer opportunities in free and open source software
+         <div id='learn_more'>
+             <a href='{% url mysite.project.views.projects %}'>See all</a>
+             <span style='color: #999;'>&bull;</span>
+-            <a href='https://openhatch.org/wiki/Bug_trackers'>Add a bug tracker</a>
++            <a href='{% url mysite.customs.views.list_trackers %}'>Add a bug tracker</a>
+         </div>
+     </div>
+ 
+-- 
+1.8.1.3
+

@@ -1,0 +1,85 @@
+From 27c47f909980ccc10692791c34ac2e813bb32307 Mon Sep 17 00:00:00 2001
+From: Jule Slootbeek <jslootbeek@gmail.com>
+Date: Sun, 4 Dec 2011 14:02:25 -0500
+Subject: [PATCH 7/7] fixed stylings
+
+---
+ mysite/base/decorators.py                     |    3 +--
+ mysite/project/templates/project/project.html |   10 ++++------
+ mysite/project/views.py                       |   10 ++++++----
+ 3 files changed, 11 insertions(+), 12 deletions(-)
+
+diff --git a/mysite/base/decorators.py b/mysite/base/decorators.py
+index 598e0f3..a6aa945 100644
+--- a/mysite/base/decorators.py
++++ b/mysite/base/decorators.py
+@@ -35,9 +35,8 @@ import django.contrib.auth.decorators
+ 
+ def as_view(request, template, data, slug):
+     ### add settings to the request so that the template
+-    ### can adjst what it displays depending on settings.
++    ### can adjust what it displays depending on settings.
+     data['settings'] = django.conf.settings
+-    
+     if request.user.is_authenticated() or 'cookies_work' in request.session:
+         # Great! Cookies work.
+         pass
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 7a09f1c..ab37e8a 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -105,12 +105,10 @@ about how you can help {{ project.display_name }}
+                         <h3><a href='#buildhelper'>Buildhelper</a></h3>
+                     </li>
+                     {% endif %}
+-                     {% if settings.ENABLE_NEW_IWH_HANDLER %}
+-                        {% if people_to_show %}
+-                            <li >
+-                                <h3><a href='#iwh_handler'>IWH Handler</a></h3>
+-                            </li>
+-                        {% endif %}
++                     {% if settings.ENABLE_NEW_IWH_HANDLER and people_to_show%}
++                        <li >
++                            <h3><a href='#iwh_handler'>IWH Handler</a></h3>
++                        </li>
+                     {% endif %}
+             </ul>
+         <div id="chatter" class='body tab'>
+diff --git a/mysite/project/views.py b/mysite/project/views.py
+index da07688..3686e9b 100644
+--- a/mysite/project/views.py
++++ b/mysite/project/views.py
+@@ -103,7 +103,10 @@ def project(request, project__name = None):
+         try:
+             note = mysite.search.models.WannaHelperNote.objects.get(person=person, project=p)
+             contact_form_list.append({
+-                'form' : mysite.project.forms.MarkContactedForm(prefix="helper-%d" % (person.pk,), initial= { 'project' : p, 'person' : person,'checked' : True if note.contacted_on else False }),
++                'form' : mysite.project.forms.MarkContactedForm(prefix="helper-%d" % (person.pk,),
++                                                                initial= { 'project' : p,
++                                                                           'person' : person,
++                                                                           'checked' : bool(note.contacted_on) }),
+                 'person' : person,
+                 'note' : note,
+             })
+@@ -279,7 +282,6 @@ def mark_contacted_do(request):
+         if key.endswith('checked'):
+             person_pk = key[7:-8]
+             #for each prefix, validate form
+-            #if not already contacted, update get_
+             mark_contacted_form = mysite.project.forms.MarkContactedForm(request.POST, prefix="helper-%s" % (person_pk))
+             if mark_contacted_form.is_valid():
+                 project = mark_contacted_form.cleaned_data['project']
+@@ -290,8 +292,8 @@ def mark_contacted_do(request):
+                     whn.contacted_by = request.user
+                     whn.contacted_on = datetime.date.today()
+                     whn.save()
+-    
+-    return HttpResponseRedirect(reverse(mysite.project.views.project, kwargs={'project__name': project.name}) + '#iwh_handler')
++    return HttpResponseRedirect(reverse(mysite.project.views.project,
++                                        kwargs={'project__name': project.name}) + '#iwh_handler')
+ 
+ def wanna_help_do(request):
+     wanna_help_form = mysite.project.forms.WannaHelpForm(request.POST)
+-- 
+1.7.7.1
+

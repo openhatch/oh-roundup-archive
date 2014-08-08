@@ -1,0 +1,132 @@
+From f0b292bd0ad948ccc9983b1fec3c4d537b4e0ae1 Mon Sep 17 00:00:00 2001
+From: int3 <jezreel@gmail.com>
+Date: Sun, 9 May 2010 19:24:49 +0800
+Subject: [PATCH] Add JSON support for the widget
+
+---
+ mysite/base/helpers.py                       |   17 +++++++++++++++++
+ mysite/profile/templates/profile/widget.html |    4 ++--
+ mysite/profile/views.py                      |   23 +++++++++++++++++++++--
+ mysite/urls.py                               |    3 +++
+ 4 files changed, 43 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/base/helpers.py b/mysite/base/helpers.py
+index 0702843..d027e75 100644
+--- a/mysite/base/helpers.py
++++ b/mysite/base/helpers.py
+@@ -8,6 +8,8 @@ from django.http import HttpResponse
+ import django.shortcuts
+ from django.template import RequestContext
+ import django.conf
++from django.db.models.manager import Manager
++from django.db.models.query import QuerySet
+ 
+ import mysite.base.decorators
+ 
+@@ -42,3 +44,18 @@ def string2naive_datetime(s):
+ def render_response(req, *args, **kwargs):
+     kwargs['context_instance'] = RequestContext(req)
+     return django.shortcuts.render_to_response(*args, **kwargs)
++
++def filter_some_or_404(klass, *args, **kwargs):
++    queryset = None
++    if isinstance(klass, QuerySet):
++        queryset = klass
++    elif isinstance(klass, Manager):
++        queryset = klass.all()
++    else:
++        queryset = klass._default_manager.all()
++
++    result = queryset.filter(*args, **kwargs)
++    if result.count() == 0:
++        raise Http404('No %s matches the given query.'
++            % queryset.model._meta.object_name)
++    return result
+diff --git a/mysite/profile/templates/profile/widget.html b/mysite/profile/templates/profile/widget.html
+index ab15434..b7b7d0c 100644
+--- a/mysite/profile/templates/profile/widget.html
++++ b/mysite/profile/templates/profile/widget.html
+@@ -281,7 +281,7 @@
+         </div>
+         <div class='body'>
+             <ul>
+-            {% for entry in person.get_nonarchived_published_portfolio_entries %}
++            {% for entry in person.0.get_nonarchived_published_portfolio_entries %}
+             {% if forloop.counter0|divisibleby:3 and not forloop.first %}
+                 </div>
+             {% endif %}
+@@ -310,7 +310,7 @@
+             </ul>
+         </div>
+         <div class='foot'>
+-            <a href='{{uri_scheme}}://{{ url_prefix }}{% url mysite.profile.views.display_person_web person.user.username %}'>See my full profile at
++            <a href='{{uri_scheme}}://{{ url_prefix }}{% url mysite.profile.views.display_person_web person.0.user.username %}'>See my full profile at
+                 <img src='{{uri_scheme}}://{{ url_prefix }}{% version '/static/images/logo-for-widget.png' %}' height='55' width='80'/></a>
+         </div>
+     </div>
+diff --git a/mysite/profile/views.py b/mysite/profile/views.py
+index 162f952..faf9817 100644
+--- a/mysite/profile/views.py
++++ b/mysite/profile/views.py
+@@ -29,6 +29,7 @@ import mysite.base.controllers
+ import mysite.base.unicode_sanity
+ import mysite.profile.controllers
+ import mysite.base.helpers
++from mysite.base.helpers import filter_some_or_404
+ from mysite.profile.models import \
+         Person, Tag, TagType, \
+         Link_Project_Tag, Link_Person_Tag, \
+@@ -129,9 +130,13 @@ def widget_display_undecorated(request, user_to_display__username):
+     """so it can referenced by widget_display_string."""
+     # {{{
+     user = get_object_or_404(User, username=user_to_display__username)
+-    person = get_object_or_404(Person, user=user)
++    person = filter_some_or_404(Person, user=user)
++
++    data = get_personal_data(person[0])
++    # get_personal_data returns attribute 'person' as an object of type Person,
++    # but we want it to be a QuerySet
++    data['person'] = person
+ 
+-    data = get_personal_data(person)
+     data.update(mysite.base.controllers.get_uri_metadata_for_generating_absolute_links(
+         request))
+     return (request, 'profile/widget.html', data)
+@@ -154,6 +159,20 @@ def widget_display_js(request, user_to_display__username):
+                               {'in_string': encoded_for_js},
+                               mimetype='application/javascript')
+ 
++def widget_display_json(request, user_to_display__username):
++    # simplejson can't handle QuerySets, and Django can't handle
++    # anything but QuerySets. This makes them play nicely together.
++    class django_json_encoder(simplejson.JSONEncoder):
++        def default(self, obj):
++            if type(obj).__name__ == 'QuerySet':
++                return simplejson.loads(serializers.serialize('json', obj))
++            return simplejson.JSONEncoder.default(self, obj)
++
++    request, template, data = widget_display_undecorated(request, user_to_display__username)
++    data['projects'] = data['person'][0].get_nonarchived_published_portfolio_entries()
++    json = simplejson.dumps(data, cls=django_json_encoder)
++    return HttpResponse(json, mimetype='application/json')
++
+ # }}}
+ 
+ # Debtags {{{
+diff --git a/mysite/urls.py b/mysite/urls.py
+index 162005a..0a96995 100644
+--- a/mysite/urls.py
++++ b/mysite/urls.py
+@@ -89,6 +89,9 @@ urlpatterns = patterns('',
+         (r'^people/(?P<user_to_display__username>[^/]+)/openhatch-widget.js$',
+                 'mysite.profile.views.widget_display_js'),
+ 
++        (r'^people/(?P<user_to_display__username>[^/]+)/openhatch-widget.json$',
++                'mysite.profile.views.widget_display_json'),
++
+         (r'^people/info/edit/do$',
+             'mysite.profile.views.edit_person_info_do'),
+ 
+-- 
+1.6.0.4
+

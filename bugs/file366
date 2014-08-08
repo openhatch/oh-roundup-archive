@@ -1,0 +1,1318 @@
+From 2fbcdeef47cd9b1092a794fe94183fec74c6d174 Mon Sep 17 00:00:00 2001
+From: Karen Rustad <karen.rustad@gmail.com>
+Date: Tue, 5 Jul 2011 15:04:55 -0400
+Subject: [PATCH] Created basic buildhelper that can be viewed on a project page and edited via the admin interface
+
+---
+ .gitignore                                         |    2 +
+ mysite/project/templates/project/project.html      |   68 +++++-
+ mysite/project/views.py                            |    4 +
+ mysite/search/admin.py                             |   14 +-
+ ...5_auto__add_buildhelper__add_buildhelperstep.py |  276 ++++++++++++++++++++
+ ..._auto__del_field_buildhelperstep_step_number.py |  246 +++++++++++++++++
+ ...er_num_steps__chg_field_buildhelperstep_time.py |  251 ++++++++++++++++++
+ mysite/search/models.py                            |   31 +++
+ .../static/images/buildhelper/checkbox-active.png  |  Bin 0 -> 932 bytes
+ .../static/images/buildhelper/checkbox-checked.png |  Bin 0 -> 2060 bytes
+ .../static/images/buildhelper/checkbox-empty.png   |  Bin 0 -> 794 bytes
+ .../images/buildhelper/frustration-handler.png     |  Bin 0 -> 3665 bytes
+ mysite/static/images/buildhelper/time.png          |  Bin 0 -> 1999 bytes
+ .../static/images/buildhelper/tutorial-button.png  |  Bin 0 -> 3133 bytes
+ 14 files changed, 890 insertions(+), 2 deletions(-)
+ create mode 100644 mysite/search/migrations/0065_auto__add_buildhelper__add_buildhelperstep.py
+ create mode 100644 mysite/search/migrations/0066_auto__del_field_buildhelperstep_step_number.py
+ create mode 100644 mysite/search/migrations/0067_auto__del_field_buildhelper_num_steps__chg_field_buildhelperstep_time.py
+ create mode 100644 mysite/static/images/buildhelper/checkbox-active.png
+ create mode 100644 mysite/static/images/buildhelper/checkbox-checked.png
+ create mode 100644 mysite/static/images/buildhelper/checkbox-empty.png
+ create mode 100644 mysite/static/images/buildhelper/frustration-handler.png
+ create mode 100644 mysite/static/images/buildhelper/time.png
+ create mode 100644 mysite/static/images/buildhelper/tutorial-button.png
+
+diff --git a/.gitignore b/.gitignore
+index 2189c5b..1e1c2d8 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -25,3 +25,5 @@ build/
+ git_pivot.yml
+ mysite.egg-info/
+ .vagrant
++deactivate/
++mysite/indexes/
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 1e668c3..872bf5b 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -40,6 +40,39 @@ about how you can help {{ project.display_name }}
+ #big-project-list form input[type='text'] { font-family: sans-serif; float: left; width: 20em; font-size: 1.5em; padding: 4px; }
+ #big-project-list form input[type='submit'] { font-family: sans-serif; float: left; font-weight: normal; font-size: 1.5em; padding: 4px 8px 3px 8px; position: relative; top: -1px; }
+ #big-project-list .note { margin-left: 2em; font-weight: normal; }
++
++.step {
++    border-bottom: 1px solid #ddd;
++    padding-top: 5px;
++    margin-bottom: 15px;
++    }
++.step-checkbox, a.step-checkbox, .step-checkbox:link, .step-checkbox:visited {
++    text-decoration: none;
++    width: 40px;
++    height: 30px;
++    margin-top: 5px;
++    padding: 15px 20px;
++    background: url('/static/images/buildhelper/checkbox-empty.png') no-repeat;
++    }
++.step-checkbox:hover, .step-checkbox:active {
++    background: url('/static/images/buildhelper/checkbox-active.png') no-repeat;
++    }
++.step-name {
++    border-bottom: 1px solid #666;
++    }
++.step-commands {
++    display: block;
++    margin: 0 15px;
++    padding: 1px 10px;
++    background: #eee;
++    }
++.step-icon-holder {
++    height: 50px;
++    padding-bottom: 10px;
++    }
++.step-icons {
++    float: right;
++    }
+ {% endblock css %}
+ 
+ {% block pagetop %}
+@@ -98,6 +131,7 @@ about how you can help {{ project.display_name }}
+     <div class='module contains_questions'>
+         <div class='head'>
+             <h3>Chatter</h3>
++            {% if buildhelper_steps %}<h3>Buildhelper</h3>{% endif %}
+         </div>
+         <div class='body'>
+             <div style="font-size: 1.3em" class="you-are-missing-things">
+@@ -175,7 +209,39 @@ about how you can help {{ project.display_name }}
+     </strong>
+     </div>
+ </div><!-- /.module #requests -->
+-
++{% if buildhelper_steps %}
++<div class='module contains_questions'>
++        <div class='head'>
++        <h3>Buildhelper</h3>
++        </div>
++        <div class='body'>
++            <ul>
++            {% for step in buildhelper_steps %}
++            <li class="step {% if step.is_prerequisite %}prereq{% endif %}">
++                <h3 class="step-name">{% if step.is_checked %}<a href="" class="step-checkbox">&nbsp;</a>{% else %}<a href="" class="step-checkbox">&nbsp;</a>{% endif %}{% if step.is_prerequisite %}Prerequisite: {% endif %}{{ step.name }}</h3>
++                {% if step.command %}
++                <code class="step-commands">
++                {{ step.command|linebreaks }}
++                </code>
++                {% endif %}
++                {% if step.description %}
++                <div class="step-description">
++                {{ step.description|linebreaks }}
++                </div>
++                {% endif %}
++                <div class="step-icon-holder">
++                    <span class="step-icons">
++                    <img src="/static/images/buildhelper/time.png" />{{ step.time }} minutes 
++                    {% if step.hint %}<a href="{{ step.hint }}"><img src="/static/images/buildhelper/tutorial-button.png" /></a>{% endif %}
++                    {% if step.frustration_handler %}<a href="{{ step.frustration_handler }}"><img src="/static/images/buildhelper/frustration-handler.png" /></a>{% endif %}
++                    </span>
++                </div>
++            </li>
++            {% endfor %}
++            </ul>
++        </div>
++</div>
++{% endif %}
+ {% endblock left %}
+ 
+ {% block main %}
+diff --git a/mysite/project/views.py b/mysite/project/views.py
+index 25bb453..07f304a 100644
+--- a/mysite/project/views.py
++++ b/mysite/project/views.py
+@@ -83,6 +83,9 @@ def project(request, project__name = None):
+     context['question2answer'] = [(question, question.get_answers_for_project(p))
+         for question in questions]
+ 
++    buildhelper = p.buildhelper_set.all()[0]
++    buildhelper_steps = buildhelper.buildhelperstep_set.all()
++    
+     if request.GET.get('cookies', '') == 'disabled':
+         context['cookies_disabled'] = True
+ 
+@@ -100,6 +103,7 @@ def project(request, project__name = None):
+ 
+     context.update({
+         'project': p,
++        'buildhelper_steps' : buildhelper_steps,
+         'contributors': p.get_contributors()[:3],
+         'mentors': (mysite.profile.controllers.people_matching(
+             'can_mentor', project__name)),
+diff --git a/mysite/search/admin.py b/mysite/search/admin.py
+index fdba4f8..875aeaa 100644
+--- a/mysite/search/admin.py
++++ b/mysite/search/admin.py
+@@ -14,8 +14,20 @@
+ # You should have received a copy of the GNU Affero General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-from mysite.search.models import Project, Bug
++from mysite.search.models import Project, Bug, Buildhelper, BuildhelperStep
+ from django.contrib import admin
+ 
++class BuildhelperStepInline(admin.StackedInline):
++    model = BuildhelperStep
++    extra = 1
++    
++class BuildhelperAdmin(admin.ModelAdmin):
++    fieldsets = [
++        (None, {'fields': ['project']}),
++        (None, {'fields': ['default_frustration_handler']})
++    ]
++    inlines = [BuildhelperStepInline]
++
+ admin.site.register(Project)
+ admin.site.register(Bug)
++admin.site.register(Buildhelper, BuildhelperAdmin)
+diff --git a/mysite/search/migrations/0065_auto__add_buildhelper__add_buildhelperstep.py b/mysite/search/migrations/0065_auto__add_buildhelper__add_buildhelperstep.py
+new file mode 100644
+index 0000000..eb70ee6
+--- /dev/null
++++ b/mysite/search/migrations/0065_auto__add_buildhelper__add_buildhelperstep.py
+@@ -0,0 +1,276 @@
++# encoding: utf-8
++import datetime
++from south.db import db
++from south.v2 import SchemaMigration
++from django.db import models
++
++class Migration(SchemaMigration):
++
++    def forwards(self, orm):
++        
++        # Adding model 'Buildhelper'
++        db.create_table('search_buildhelper', (
++            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
++            ('created_date', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, null=True, blank=True)),
++            ('modified_date', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
++            ('project', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['search.Project'])),
++            ('num_steps', self.gf('django.db.models.fields.IntegerField')(default=0)),
++            ('default_frustration_handler', self.gf('django.db.models.fields.URLField')(max_length=200)),
++        ))
++        db.send_create_signal('search', ['Buildhelper'])
++
++        # Adding model 'BuildhelperStep'
++        db.create_table('search_buildhelperstep', (
++            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
++            ('created_date', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, null=True, blank=True)),
++            ('modified_date', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
++            ('buildhelper', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['search.Buildhelper'])),
++            ('step_number', self.gf('django.db.models.fields.IntegerField')()),
++            ('is_prerequisite', self.gf('django.db.models.fields.BooleanField')(default=False)),
++            ('is_checked', self.gf('django.db.models.fields.BooleanField')(default=False)),
++            ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
++            ('description', self.gf('django.db.models.fields.TextField')(default='')),
++            ('command', self.gf('django.db.models.fields.TextField')(default='')),
++            ('time', self.gf('django.db.models.fields.TimeField')()),
++            ('hint', self.gf('django.db.models.fields.URLField')(default='', max_length=200)),
++            ('frustration_handler', self.gf('django.db.models.fields.URLField')(default='', max_length=200)),
++        ))
++        db.send_create_signal('search', ['BuildhelperStep'])
++
++
++    def backwards(self, orm):
++        
++        # Deleting model 'Buildhelper'
++        db.delete_table('search_buildhelper')
++
++        # Deleting model 'BuildhelperStep'
++        db.delete_table('search_buildhelperstep')
++
++
++    models = {
++        'auth.group': {
++            'Meta': {'object_name': 'Group'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '80'}),
++            'permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'})
++        },
++        'auth.permission': {
++            'Meta': {'ordering': "('content_type__app_label', 'content_type__model', 'codename')", 'unique_together': "(('content_type', 'codename'),)", 'object_name': 'Permission'},
++            'codename': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
++        },
++        'auth.user': {
++            'Meta': {'object_name': 'User'},
++            'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
++            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'groups': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Group']", 'symmetrical': 'False', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'is_staff': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'is_superuser': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
++            'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
++            'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
++        },
++        'contenttypes.contenttype': {
++            'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
++            'app_label': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
++        },
++        'customs.webresponse': {
++            'Meta': {'object_name': 'WebResponse'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'response_headers': ('django.db.models.fields.TextField', [], {}),
++            'status': ('django.db.models.fields.IntegerField', [], {}),
++            'text': ('django.db.models.fields.TextField', [], {}),
++            'url': ('django.db.models.fields.TextField', [], {})
++        },
++        'profile.dataimportattempt': {
++            'Meta': {'object_name': 'DataImportAttempt'},
++            'completed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'date_created': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.utcnow'}),
++            'failed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.Person']"}),
++            'query': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'source': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
++            'web_response': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.WebResponse']", 'null': 'True'})
++        },
++        'profile.person': {
++            'Meta': {'object_name': 'Person'},
++            'bio': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'blacklisted_repository_committers': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['profile.RepositoryCommitter']", 'symmetrical': 'False'}),
++            'contact_blurb': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'dont_guess_my_location': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'email_me_weekly_re_projects': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'expand_next_steps': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'gotten_name_from_ohloh': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'homepage_url': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'irc_nick': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'location_confirmed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'location_display_name': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
++            'photo': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100'}),
++            'photo_thumbnail': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_20px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_30px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'show_email': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'unique': 'True'})
++        },
++        'profile.repositorycommitter': {
++            'Meta': {'unique_together': "(('project', 'data_import_attempt'),)", 'object_name': 'RepositoryCommitter'},
++            'data_import_attempt': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.DataImportAttempt']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.answer': {
++            'Meta': {'object_name': 'Answer'},
++            'author': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"}),
++            'question': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'answers'", 'to': "orm['search.ProjectInvolvementQuestion']"}),
++            'text': ('django.db.models.fields.TextField', [], {}),
++            'title': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True'})
++        },
++        'search.bug': {
++            'Meta': {'object_name': 'Bug'},
++            'as_appears_in_distribution': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200'}),
++            'bize_size_tag_name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
++            'bug_tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.BugTracker']", 'null': 'True'}),
++            'canonical_bug_link': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'concerns_just_documentation': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_reported': ('django.db.models.fields.DateTimeField', [], {}),
++            'description': ('django.db.models.fields.TextField', [], {}),
++            'good_for_newcomers': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'importance': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'last_touched': ('django.db.models.fields.DateTimeField', [], {}),
++            'looks_closed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'people_involved': ('django.db.models.fields.IntegerField', [], {'null': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"}),
++            'status': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'submitter_realname': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True'}),
++            'submitter_username': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'title': ('django.db.models.fields.CharField', [], {'max_length': '500'}),
++            'tracker_id': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True'}),
++            'tracker_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']", 'null': 'True'})
++        },
++        'search.bugalert': {
++            'Meta': {'object_name': 'BugAlert'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'email': ('django.db.models.fields.EmailField', [], {'max_length': '255'}),
++            'how_many_bugs_at_time_of_request': ('django.db.models.fields.IntegerField', [], {}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'query_string': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'})
++        },
++        'search.bugtracker': {
++            'Meta': {'object_name': 'BugTracker'},
++            'bug_tracker_model_class_name': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
++            'bug_tracker_model_module': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
++            'bug_tracker_model_pk': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
++            'class_name': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'module_name': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'})
++        },
++        'search.buildhelper': {
++            'Meta': {'object_name': 'Buildhelper'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'default_frustration_handler': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'num_steps': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.buildhelperstep': {
++            'Meta': {'object_name': 'BuildhelperStep'},
++            'buildhelper': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Buildhelper']"}),
++            'command': ('django.db.models.fields.TextField', [], {'default': "''"}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'description': ('django.db.models.fields.TextField', [], {'default': "''"}),
++            'frustration_handler': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200'}),
++            'hint': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_checked': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'is_prerequisite': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'step_number': ('django.db.models.fields.IntegerField', [], {}),
++            'time': ('django.db.models.fields.TimeField', [], {})
++        },
++        'search.hitcountcache': {
++            'Meta': {'object_name': 'HitCountCache'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'hashed_query': ('django.db.models.fields.CharField', [], {'max_length': '40', 'primary_key': 'True'}),
++            'hit_count': ('django.db.models.fields.IntegerField', [], {}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
++        },
++        'search.project': {
++            'Meta': {'object_name': 'Project'},
++            'cached_contributor_count': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_icon_was_fetched_from_ohloh': ('django.db.models.fields.DateTimeField', [], {'default': 'None', 'null': 'True'}),
++            'display_name': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200'}),
++            'homepage': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'icon_for_profile': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_for_search_result': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_raw': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True', 'blank': 'True'}),
++            'icon_smaller_for_badge': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'language': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'logo_contains_name': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'people_who_wanna_help': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'projects_i_wanna_help'", 'symmetrical': 'False', 'to': "orm['profile.Person']"})
++        },
++        'search.projectinvolvementquestion': {
++            'Meta': {'object_name': 'ProjectInvolvementQuestion'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_bug_style': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'key_string': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'text': ('django.db.models.fields.TextField', [], {})
++        },
++        'search.wannahelpernote': {
++            'Meta': {'unique_together': "[('project', 'person')]", 'object_name': 'WannaHelperNote'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.Person']"}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.wrongicon': {
++            'Meta': {'object_name': 'WrongIcon'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_icon_was_fetched_from_ohloh': ('django.db.models.fields.DateTimeField', [], {'default': 'None', 'null': 'True'}),
++            'icon_for_profile': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_for_search_result': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_raw': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_smaller_for_badge': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'logo_contains_name': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        }
++    }
++
++    complete_apps = ['search']
+diff --git a/mysite/search/migrations/0066_auto__del_field_buildhelperstep_step_number.py b/mysite/search/migrations/0066_auto__del_field_buildhelperstep_step_number.py
+new file mode 100644
+index 0000000..6a69690
+--- /dev/null
++++ b/mysite/search/migrations/0066_auto__del_field_buildhelperstep_step_number.py
+@@ -0,0 +1,246 @@
++# encoding: utf-8
++import datetime
++from south.db import db
++from south.v2 import SchemaMigration
++from django.db import models
++
++class Migration(SchemaMigration):
++
++    def forwards(self, orm):
++        
++        # Deleting field 'BuildhelperStep.step_number'
++        db.delete_column('search_buildhelperstep', 'step_number')
++
++
++    def backwards(self, orm):
++        
++        # Adding field 'BuildhelperStep.step_number'
++        db.add_column('search_buildhelperstep', 'step_number', self.gf('django.db.models.fields.IntegerField')(default=0), keep_default=False)
++
++
++    models = {
++        'auth.group': {
++            'Meta': {'object_name': 'Group'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '80'}),
++            'permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'})
++        },
++        'auth.permission': {
++            'Meta': {'ordering': "('content_type__app_label', 'content_type__model', 'codename')", 'unique_together': "(('content_type', 'codename'),)", 'object_name': 'Permission'},
++            'codename': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
++        },
++        'auth.user': {
++            'Meta': {'object_name': 'User'},
++            'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
++            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'groups': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Group']", 'symmetrical': 'False', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'is_staff': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'is_superuser': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
++            'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
++            'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
++        },
++        'contenttypes.contenttype': {
++            'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
++            'app_label': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
++        },
++        'customs.webresponse': {
++            'Meta': {'object_name': 'WebResponse'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'response_headers': ('django.db.models.fields.TextField', [], {}),
++            'status': ('django.db.models.fields.IntegerField', [], {}),
++            'text': ('django.db.models.fields.TextField', [], {}),
++            'url': ('django.db.models.fields.TextField', [], {})
++        },
++        'profile.dataimportattempt': {
++            'Meta': {'object_name': 'DataImportAttempt'},
++            'completed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'date_created': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.utcnow'}),
++            'failed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.Person']"}),
++            'query': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'source': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
++            'web_response': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.WebResponse']", 'null': 'True'})
++        },
++        'profile.person': {
++            'Meta': {'object_name': 'Person'},
++            'bio': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'blacklisted_repository_committers': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['profile.RepositoryCommitter']", 'symmetrical': 'False'}),
++            'contact_blurb': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'dont_guess_my_location': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'email_me_weekly_re_projects': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'expand_next_steps': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'gotten_name_from_ohloh': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'homepage_url': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'irc_nick': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'location_confirmed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'location_display_name': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
++            'photo': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100'}),
++            'photo_thumbnail': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_20px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_30px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'show_email': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'unique': 'True'})
++        },
++        'profile.repositorycommitter': {
++            'Meta': {'unique_together': "(('project', 'data_import_attempt'),)", 'object_name': 'RepositoryCommitter'},
++            'data_import_attempt': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.DataImportAttempt']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.answer': {
++            'Meta': {'object_name': 'Answer'},
++            'author': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"}),
++            'question': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'answers'", 'to': "orm['search.ProjectInvolvementQuestion']"}),
++            'text': ('django.db.models.fields.TextField', [], {}),
++            'title': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True'})
++        },
++        'search.bug': {
++            'Meta': {'object_name': 'Bug'},
++            'as_appears_in_distribution': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200'}),
++            'bize_size_tag_name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
++            'bug_tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.BugTracker']", 'null': 'True'}),
++            'canonical_bug_link': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'concerns_just_documentation': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_reported': ('django.db.models.fields.DateTimeField', [], {}),
++            'description': ('django.db.models.fields.TextField', [], {}),
++            'good_for_newcomers': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'importance': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'last_touched': ('django.db.models.fields.DateTimeField', [], {}),
++            'looks_closed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'people_involved': ('django.db.models.fields.IntegerField', [], {'null': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"}),
++            'status': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'submitter_realname': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True'}),
++            'submitter_username': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'title': ('django.db.models.fields.CharField', [], {'max_length': '500'}),
++            'tracker_id': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True'}),
++            'tracker_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']", 'null': 'True'})
++        },
++        'search.bugalert': {
++            'Meta': {'object_name': 'BugAlert'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'email': ('django.db.models.fields.EmailField', [], {'max_length': '255'}),
++            'how_many_bugs_at_time_of_request': ('django.db.models.fields.IntegerField', [], {}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'query_string': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'})
++        },
++        'search.bugtracker': {
++            'Meta': {'object_name': 'BugTracker'},
++            'bug_tracker_model_class_name': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
++            'bug_tracker_model_module': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
++            'bug_tracker_model_pk': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
++            'class_name': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'module_name': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'})
++        },
++        'search.buildhelper': {
++            'Meta': {'object_name': 'Buildhelper'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'default_frustration_handler': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'num_steps': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.buildhelperstep': {
++            'Meta': {'object_name': 'BuildhelperStep'},
++            'buildhelper': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Buildhelper']"}),
++            'command': ('django.db.models.fields.TextField', [], {'default': "''"}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'description': ('django.db.models.fields.TextField', [], {'default': "''"}),
++            'frustration_handler': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200'}),
++            'hint': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_checked': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'is_prerequisite': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'time': ('django.db.models.fields.TimeField', [], {})
++        },
++        'search.hitcountcache': {
++            'Meta': {'object_name': 'HitCountCache'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'hashed_query': ('django.db.models.fields.CharField', [], {'max_length': '40', 'primary_key': 'True'}),
++            'hit_count': ('django.db.models.fields.IntegerField', [], {}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
++        },
++        'search.project': {
++            'Meta': {'object_name': 'Project'},
++            'cached_contributor_count': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_icon_was_fetched_from_ohloh': ('django.db.models.fields.DateTimeField', [], {'default': 'None', 'null': 'True'}),
++            'display_name': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200'}),
++            'homepage': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'icon_for_profile': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_for_search_result': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_raw': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True', 'blank': 'True'}),
++            'icon_smaller_for_badge': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'language': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'logo_contains_name': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'people_who_wanna_help': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'projects_i_wanna_help'", 'symmetrical': 'False', 'to': "orm['profile.Person']"})
++        },
++        'search.projectinvolvementquestion': {
++            'Meta': {'object_name': 'ProjectInvolvementQuestion'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_bug_style': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'key_string': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'text': ('django.db.models.fields.TextField', [], {})
++        },
++        'search.wannahelpernote': {
++            'Meta': {'unique_together': "[('project', 'person')]", 'object_name': 'WannaHelperNote'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.Person']"}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.wrongicon': {
++            'Meta': {'object_name': 'WrongIcon'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_icon_was_fetched_from_ohloh': ('django.db.models.fields.DateTimeField', [], {'default': 'None', 'null': 'True'}),
++            'icon_for_profile': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_for_search_result': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_raw': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_smaller_for_badge': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'logo_contains_name': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        }
++    }
++
++    complete_apps = ['search']
+diff --git a/mysite/search/migrations/0067_auto__del_field_buildhelper_num_steps__chg_field_buildhelperstep_time.py b/mysite/search/migrations/0067_auto__del_field_buildhelper_num_steps__chg_field_buildhelperstep_time.py
+new file mode 100644
+index 0000000..b8d3d12
+--- /dev/null
++++ b/mysite/search/migrations/0067_auto__del_field_buildhelper_num_steps__chg_field_buildhelperstep_time.py
+@@ -0,0 +1,251 @@
++# encoding: utf-8
++import datetime
++from south.db import db
++from south.v2 import SchemaMigration
++from django.db import models
++
++class Migration(SchemaMigration):
++
++    def forwards(self, orm):
++        
++        # Deleting field 'Buildhelper.num_steps'
++        db.delete_column('search_buildhelper', 'num_steps')
++
++        # Changing field 'BuildhelperStep.time'
++        db.alter_column('search_buildhelperstep', 'time', self.gf('django.db.models.fields.IntegerField')())
++
++
++    def backwards(self, orm):
++        
++        # Adding field 'Buildhelper.num_steps'
++        db.add_column('search_buildhelper', 'num_steps', self.gf('django.db.models.fields.IntegerField')(default=0), keep_default=False)
++
++        # Changing field 'BuildhelperStep.time'
++        db.alter_column('search_buildhelperstep', 'time', self.gf('django.db.models.fields.TimeField')())
++
++
++    models = {
++        'auth.group': {
++            'Meta': {'object_name': 'Group'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '80'}),
++            'permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'})
++        },
++        'auth.permission': {
++            'Meta': {'ordering': "('content_type__app_label', 'content_type__model', 'codename')", 'unique_together': "(('content_type', 'codename'),)", 'object_name': 'Permission'},
++            'codename': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
++        },
++        'auth.user': {
++            'Meta': {'object_name': 'User'},
++            'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
++            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'groups': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Group']", 'symmetrical': 'False', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'is_staff': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'is_superuser': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
++            'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
++            'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
++        },
++        'contenttypes.contenttype': {
++            'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
++            'app_label': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
++        },
++        'customs.webresponse': {
++            'Meta': {'object_name': 'WebResponse'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'response_headers': ('django.db.models.fields.TextField', [], {}),
++            'status': ('django.db.models.fields.IntegerField', [], {}),
++            'text': ('django.db.models.fields.TextField', [], {}),
++            'url': ('django.db.models.fields.TextField', [], {})
++        },
++        'profile.dataimportattempt': {
++            'Meta': {'object_name': 'DataImportAttempt'},
++            'completed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'date_created': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.utcnow'}),
++            'failed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.Person']"}),
++            'query': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'source': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
++            'web_response': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.WebResponse']", 'null': 'True'})
++        },
++        'profile.person': {
++            'Meta': {'object_name': 'Person'},
++            'bio': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'blacklisted_repository_committers': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['profile.RepositoryCommitter']", 'symmetrical': 'False'}),
++            'contact_blurb': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'dont_guess_my_location': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'email_me_weekly_re_projects': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'expand_next_steps': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'gotten_name_from_ohloh': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'homepage_url': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'irc_nick': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'location_confirmed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'location_display_name': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
++            'photo': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100'}),
++            'photo_thumbnail': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_20px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_30px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'show_email': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'unique': 'True'})
++        },
++        'profile.repositorycommitter': {
++            'Meta': {'unique_together': "(('project', 'data_import_attempt'),)", 'object_name': 'RepositoryCommitter'},
++            'data_import_attempt': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.DataImportAttempt']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.answer': {
++            'Meta': {'object_name': 'Answer'},
++            'author': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"}),
++            'question': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'answers'", 'to': "orm['search.ProjectInvolvementQuestion']"}),
++            'text': ('django.db.models.fields.TextField', [], {}),
++            'title': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True'})
++        },
++        'search.bug': {
++            'Meta': {'object_name': 'Bug'},
++            'as_appears_in_distribution': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200'}),
++            'bize_size_tag_name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
++            'bug_tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.BugTracker']", 'null': 'True'}),
++            'canonical_bug_link': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'concerns_just_documentation': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_reported': ('django.db.models.fields.DateTimeField', [], {}),
++            'description': ('django.db.models.fields.TextField', [], {}),
++            'good_for_newcomers': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'importance': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'last_touched': ('django.db.models.fields.DateTimeField', [], {}),
++            'looks_closed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'people_involved': ('django.db.models.fields.IntegerField', [], {'null': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"}),
++            'status': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'submitter_realname': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True'}),
++            'submitter_username': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'title': ('django.db.models.fields.CharField', [], {'max_length': '500'}),
++            'tracker_id': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True'}),
++            'tracker_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']", 'null': 'True'})
++        },
++        'search.bugalert': {
++            'Meta': {'object_name': 'BugAlert'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'email': ('django.db.models.fields.EmailField', [], {'max_length': '255'}),
++            'how_many_bugs_at_time_of_request': ('django.db.models.fields.IntegerField', [], {}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'query_string': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'})
++        },
++        'search.bugtracker': {
++            'Meta': {'object_name': 'BugTracker'},
++            'bug_tracker_model_class_name': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
++            'bug_tracker_model_module': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
++            'bug_tracker_model_pk': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
++            'class_name': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'module_name': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'})
++        },
++        'search.buildhelper': {
++            'Meta': {'object_name': 'Buildhelper'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'default_frustration_handler': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.buildhelperstep': {
++            'Meta': {'object_name': 'BuildhelperStep'},
++            'buildhelper': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Buildhelper']"}),
++            'command': ('django.db.models.fields.TextField', [], {'default': "''", 'blank': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'description': ('django.db.models.fields.TextField', [], {'default': "''", 'blank': 'True'}),
++            'frustration_handler': ('django.db.models.fields.URLField', [], {'max_length': '200', 'blank': 'True'}),
++            'hint': ('django.db.models.fields.URLField', [], {'default': "'http://cuteoverload.com'", 'max_length': '200', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_checked': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'is_prerequisite': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'time': ('django.db.models.fields.IntegerField', [], {'default': '0'})
++        },
++        'search.hitcountcache': {
++            'Meta': {'object_name': 'HitCountCache'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'hashed_query': ('django.db.models.fields.CharField', [], {'max_length': '40', 'primary_key': 'True'}),
++            'hit_count': ('django.db.models.fields.IntegerField', [], {}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
++        },
++        'search.project': {
++            'Meta': {'object_name': 'Project'},
++            'cached_contributor_count': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_icon_was_fetched_from_ohloh': ('django.db.models.fields.DateTimeField', [], {'default': 'None', 'null': 'True'}),
++            'display_name': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200'}),
++            'homepage': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'icon_for_profile': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_for_search_result': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_raw': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True', 'blank': 'True'}),
++            'icon_smaller_for_badge': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'language': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'logo_contains_name': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'people_who_wanna_help': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'projects_i_wanna_help'", 'symmetrical': 'False', 'to': "orm['profile.Person']"})
++        },
++        'search.projectinvolvementquestion': {
++            'Meta': {'object_name': 'ProjectInvolvementQuestion'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_bug_style': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'key_string': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'text': ('django.db.models.fields.TextField', [], {})
++        },
++        'search.wannahelpernote': {
++            'Meta': {'unique_together': "[('project', 'person')]", 'object_name': 'WannaHelperNote'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.Person']"}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.wrongicon': {
++            'Meta': {'object_name': 'WrongIcon'},
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_icon_was_fetched_from_ohloh': ('django.db.models.fields.DateTimeField', [], {'default': 'None', 'null': 'True'}),
++            'icon_for_profile': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_for_search_result': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_raw': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_smaller_for_badge': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'logo_contains_name': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        }
++    }
++
++    complete_apps = ['search']
+diff --git a/mysite/search/models.py b/mysite/search/models.py
+index fc073bf..d843ae1 100644
+--- a/mysite/search/models.py
++++ b/mysite/search/models.py
+@@ -423,6 +423,37 @@ class WrongIcon(OpenHatchModel):
+         default=None)
+ 
+     logo_contains_name = models.BooleanField(default=False)
++    
++class Buildhelper(OpenHatchModel):
++    '''Model where all the steps in the buildhelper live'''
++    project = models.ForeignKey(Project)
++    default_frustration_handler = models.URLField(max_length=200, default='')
++    
++    def addStep(self, name, time, is_prerequisite = False, description='', command='', hint='', frustration_handler = None):
++        '''creates and saves a BuildhelperStep object'''
++        if frustration_handler is None:
++            import pdb; pdb.set_trace()
++            frustration_handler = self.default_frustration_handler
++        s = BuildhelperStep(buildhelper = self,is_prerequisite = is_prerequisite, name = name, description = description, command = command, time = time, hint= hint, frustration_handler = frustration_handler)
++        s.save()
++        
++    def __unicode__(self):
++        return self.project.display_name +"'s Buildhelper"
++        
++    
++class BuildhelperStep(OpenHatchModel):
++    '''A single step in the buildhelper'''
++    buildhelper = models.ForeignKey(Buildhelper)
++    is_prerequisite = models.BooleanField(default=False)
++    is_checked = models.BooleanField(default=False)
++    name = models.CharField(max_length=255)
++    description = models.TextField(default='',blank=True)
++    command = models.TextField(default='',blank=True)
++    time = models.IntegerField(default=0)
++    hint = models.URLField(max_length=200, default='http://cuteoverload.com',blank=True)
++    frustration_handler = models.URLField(max_length=200, blank=True)
++    def __unicode__(self):
++        return "Buildhelper step for project " + self.buildhelper.project.display_name + ": " + self.name
+ 
+ class ProjectInvolvementQuestion(OpenHatchModel):
+     key_string = models.CharField(max_length=255)
+diff --git a/mysite/static/images/buildhelper/checkbox-active.png b/mysite/static/images/buildhelper/checkbox-active.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..711831e1f58329f4ae462a9f9eceff818f122280
+GIT binary patch
+literal 932
+zcmV;V16%xwP)<h;3K|Lk000e1NJLTq001Ze0015c1^@s6Ufo>X0000PbVXQnQ*UN;
+zcVTj606}DLVr3vnZDD6+Qe|Oed2z{QJOBU#MoC0LRCwC#SIutIKoH*9T_>&6hEi0J
+z;6N$dxxl%qIC9}F;EehJaOWL(1>S&)3spIAKwJ<Km7p!CO`4|pk9UU|dy_bc)ugr$
+z6=Kto-CcY9&CEBmJAjDdDi0~H`1lX-p9iQ1H#eT$=1YlhW9x>*k`zd;IfJZQ11E#g
+zC+U*l#5&6{$th1(-W{d`D9)wd_*!`z)cQ|^#X|TY30+ce-A7~`5C9mVpbycypkly3
+z%dcU8B?l2fK}Rj?J^x|(g<McInhnwcMDf5Y6(0rFei;o$V2u0F^Z*=rDmLph#SFm!
+ztiG-ui=N!1=`S?(Ege7uiv{hKO~F%JPq%vH2kf*u5P1iMu~v*>N+_THl5hNyj|302
+z*5csDf!ck)TcBqZw(P1v?Wg8oNTOa4XiwwoH?NB2m1XCMIHhocc9`(Y2>r*MU9tD!
+z6NOotXb~Y(7E1x12`sdl?F2XBjO*Zj^na_-6v&<@%AiF}5M_FRq*qF**vh=NzXg9W
+z)Jxzbhk3&Nm-Zl7ORAWBb{4?-3}7BcPllmY**wVkPlM4Vdk`k>Az^-eSPm}^^PNMi
+zGI>zZ;0i||^VtT*3`NKqVuHq{6-8bg9O$77*G<XgClkPMH<&a$3&0%qeVwE<EDaZa
+z4(CglaZ9s@ILr?Evo_xl(+yE4D?rj^!Ysx?q;t!Wunwl!MW#Hcw9<4+i4|(NWSN14
+ztuQ<fMIKC%Bzl}A0OPc}h-*0W8JxBbvv@Epskt_JDDq8`k=}f^y4a~Ox1NNLL@}x)
+zaS-O_V4F@wC=v;sii4cLmW}Opx+J~nc%zt`RUCyzy%E`q!;HrC0FgI$!;O!qpPh^S
+z?>~q7SUJF~IxMCRveimWMEMH{8iF)l)G?1}SWvBguMgYLw*x+jSYrWQHzWb%04AS!
+zsF)*Hq>*2uVA2BE2)XUGyZovL9t3JhH?x%)C5&DzR$(93PmWI1Wc(oJLv&o7;SuFd
+zAQq$yB&c81lvdIM)c9Ez)Jy;V$|iMnx7?bHIsu{Yt>4|axwf`ZKdYbrKKgTbdRF6J
+zw;i>bE<5N)?|LK<mS<X%o;ohxDeX|#ydzF^`?3K43NQdfik%6^f-cDb0000<MNUMn
+GLSTZzS*zv%
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/buildhelper/checkbox-checked.png b/mysite/static/images/buildhelper/checkbox-checked.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..f4c271f569e1b9931f7304cb57cd0044cc8a88f6
+GIT binary patch
+literal 2060
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/buildhelper/checkbox-empty.png b/mysite/static/images/buildhelper/checkbox-empty.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..6b1b762d13460508012199248f46993c3fd9a2b5
+GIT binary patch
+literal 794
+zcmV+#1LgdQP)<h;3K|Lk000e1NJLTq001Ze0015c1^@s6Ufo>X0000PbVXQnQ*UN;
+zcVTj606}DLVr3vnZDD6+Qe|Oed2z{QJOBU!yh%hsRCwC#SIutIKoH(PJ8_dzq^P9_
+zjzoO`9whGq^a4BtZ^D^K^g`YMjwAwsC7?<b@@H@C-C@>$aZ)NJURUZND_L3Z#<Smk
+z^UcgI1pxAp8$AF#06YNP0bu9snd!UJiT_Tks7DBR2pcG&0gkKuzgxdCrK~(pfIvDA
+zaFPvaeCCWhpIYtHmt45Z@t?1IF(OL+r_JWk^I$pcXbmD=u2|^54M3;3)}X=cdGnnp
+z#>4_gy4WA#Gp!1+(Qda-K})yS>q$x}ESF1S7*18N{!PIl3Q9;>BCS?Sp^aq5bsaJs
+z4n@D;cg;Fls}ASnmkmG?hT)2H0k7Y@Z9YDEWUZgUU_d@zU1^j;l&!`0wZY1I6oNOE
+zis@pps72t$4rpz77TBQ${nY^qClQg>wE*-yFOvxHObXfxU>wKFSkpD79^7yqD>Pe+
+z+5luy$`B(M>S9o%9Z0ETnf{m!K<;A0$gC}SZ`rY8uyBE~sp|#^N%E#uY?J}gycE=3
+z{?M$+-qe;sUYOGl&&A2dC~6ZTiMVS9n6qb>2jxo2w6fLeVxvEir5Za8Vh}g(BZ_gu
+zycCGl88nTMDvsEZNec!`yDrXk_n|@SG(+lSFn5RzNOs!^P;sxfn>kNf*YmB~ndBE4
+zN`iHHE%FMC8kx*yv)o4IO0ofPwTc3hW2Un?9gV)PwFq}O2kr)EKDfD=6noDOt(5_0
+zDS%C)XvHpHy@)j4H&m>OltUTil%%4<InXL$8`f6=V<S!SnC{J}3W6ZHj3GEF9B*1h
+zgE>HRGn0;c<cGmz<@>(a=44Co#&v8reN%<shK!3bz64bP8v4KBweWrG`0N{AaJ+N@
+z$nzq-xafAz&!2SvV*Ba)Kd!IGzmd^+vy7S3A2{a05tX=wIrD~h`~kb4jf(aK_)mZV
+Y0AGQPxtjsKH~;_u07*qoM6N<$f-gXCAOHXW
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/buildhelper/frustration-handler.png b/mysite/static/images/buildhelper/frustration-handler.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..17913d8de7f7e761969245b04a4067d333d90c1c
+GIT binary patch
+literal 3665
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/buildhelper/time.png b/mysite/static/images/buildhelper/time.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..9191965279262ca83f8679cb8a6a55a7ef1450c0
+GIT binary patch
+literal 1999
+zcmV;=2Qc`FP)<h;3K|Lk000e1NJLTq001EX001Kh1^@s68Z2XE0000PbVXQnQ*UN;
+zcVTj606}DLVr3vnZDD6+Qe|Oed2z{QJOBU(aY;l$RCwCFSbI#9R}??}TG|2yL|#>V
+zfUo#k4AVHBF*0K|^bgI{Ma`CsXcS!n=v<clu`QdrSF*%mw!};qv&E^)&_$*OG@6M+
+zr*1&942uL1rGP-Ov{32u?sqQzSb_4|bSF8qz2E)r{oV8UopaG7CMHs-2qCDWqeFg%
+zllAM@lhf&>^73-h>-BP8AP}G}TeeVRV<VkDeY$V1Mxz<DPPj20jX@Me(OWE*xh|J0
+z9RQZ%x4EmUtJ~}Kw%xdK!_wW|-Kf=SYyEz|bu8;@Mrn!J(3hdF;3V@IywPa%0f_MV
+zd;x$UkH=#S&TWSlLQi4t)zMgDBoGPEcc43PLPJJIM)RIMd&W(hHf<b)bUGaw3<m1y
+z>7j;(22oU0^yt#1OP-pVn(?rP9`9X%z6-4w4g@g>Rg;pEC?O$1PK3MwwcxvB)22<O
+zSopCBk%I>hidCyt3AfuFIxMicsI9FPd-v{b0`N|(;fB5sHL4&632z#z<HwKZiP?D6
+z6BQLzURG9iO@xs{hYpF&n>P!@hmZFTH>a|)@&eW?Vgp0ZL(O49@ZbR5#xDWT1-Ru8
+zF|-7rLjnkqrtIwO--AFdV*R+00(BMCpO%(ZiWAn4uy{a>LAGz-?qnbUQ4rP|L1Baz
+zM0|tIX1hP^?ty@)sHhNib#<c#VYl1Gk|j$#0N_KctbmfL#8Dm>7sqbc%SaC&K3qD|
+zf-NmA0zoVTlL3uZ5MS&PfsDE`ckbMX`Sa%!tIP-lPc%SO&zLczdNhkxRaFU`KwtrZ
+z^c->i*|TTG{{8!9=73rK3}n`<S<5psGimwq<)pAVKr|VcJ8R#*eUpasmnzH)oa=74
+z2kIVjURzrm<>uznx^?U5=FOYTxRjHVqwq7hd~JJsyPQK)rc7a1d;*ua@nBSDy>;sr
+z2bf4pOBYxq?3{Dw&WQyJ7D)4BZE^JIH*y^8Dke^x*o^Vt-~lBvGLqOQdN5xl%;Fj*
+z3;Ov8bwVyaY4T(lAEDCR+#JZu%ab5^&U4Q#2^9T&&fU}V52?+YH}49bIbvdBW&n^Z
+zO4IRzbJwn2-C;KO1i7G}T)%!@Zh!@Z)oSfy%45fliJ3EJ%4eu8A~!crSgP;(;IgjJ
+z_p#UQpoOy1)6<E-ikUos1wwtn1jID$4QCn^#DobGL}zEGxO3-@ShHr02ojQ5xpJi_
+zJbeaMdMLpS6zt^+f_MX*L^@a^mIDQ*F@@GKsDTM}$nuK-RunCrJb983`2>r|Ov}sP
+zO|QNB8fsAjnM~1x0vZ<LcYVR3B-tVam11LK^`}mqqKz9ja^z}<1HhTVS=HM5kaq6e
+zDFLilkxAcv`yJ)%*g=ygrw#&8U0qE}moBCA=g$**5L<A#OKoa;_zTSDNA=T|mX;DI
+zTNbmSggYwkrdXNi@^SjtU(Y79IhoxX_8kU2efo51tutrN*n`8h@^3^$#PfVOl;(Q&
+zABxt9H3A)!$jZu+WcAZeXQl7a+>Dwz!Io8gc(C;X2F5ZI>cpZ|V<}QrYm=y{sTJrq
+z$5O{cd%G<V6BFBnShT=uQPSdb=FHJ!pb|gskA{N(i*QLOE-v9B=GQ37<-Xn({`cVX
+zR|I1!Qq4h6QCzOagqYI;k7Cg4%hlqkfblqJzUN8Dj~{P&S^zkRxp%#K^%r+<EE=vN
+zBbgfddOl9m%hA!%ZD9iQNw^`<)Z8MjT=_*H5jY#GO{Ulw6@(J(d;`!g5%r1r`T2j~
+zyYC4ZK==az8?wjka5(6zufA+W0W*NG3gYAAoa_qLeyI%ofhhy6`(OW}jT^|%0lpX2
+z)!%biEO*7%UmxuWGUc!F@$p8k8C=0-6~{m*6Q%-j8PKH`7Z>XmFJ3&RQ>!e?oYC3o
+z5H?$fA~4+e-~pI;Ll;`SNZeUgAQQ_tM*2zss$Sm@kQHBI7Q%0rQRich966$_UAtDY
+z9XBKcMQv#K0>t9=`UnM$91bUWeO@_s@7_Jywsot^YHf^4NlAHc_wL;Xus(%?&~lon
+zHzIxjOEkl8m+<qY6DLlLyMO-yC8wAvDl!T;u87{ow6`;&)vH%iNl6K1X1>7nfZEV0
+zb%XNN4N8iOY1hsi4>~9V%KlqZr%wG0w>V~Ld3#e;tGYwIo^b$iZvvD4h{+Ri`+lad
+zu+ZPy+NvPPC_<-~8`&Rq5=uI%WfDERaG|t{dYJmUdiwaI1MY%?0v!%?7aP4gd-m+_
+zc|&~m?WL*)KI-iUJKU5oE`lDwf9#eJ$%47x#U{&S?M+H<U9@OX_w&n^Y0N2RgDJ)o
+zsb~~~-Tvq?Dy8SzwNlgV+qX>|gxKH<xbagIJR7<x>9!3UHptV5-bV+4u-U!+{O+_{
+zRlmOoaND3Ou|VQ5|32t~%Zi|%M;H?-x*g5Z{M_0zh(D_u=)i|>_XE-Q|B2)TqqKm_
+z*)q@)y%Tl1i)OR=B4|Dp&20vT(zzE3Hb3rQZ@`GljnT>VLxKF@y*CFpNGhV(_(}AC
+hi{nwF{QO&h0RWL+<9g>vRF(h$002ovPDHLkV1k)1(P;nx
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/buildhelper/tutorial-button.png b/mysite/static/images/buildhelper/tutorial-button.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..6850611b04c8663c83792396654d9ba2f0619c69
+GIT binary patch
+literal 3133
+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
+X&Ui_Xgwz?$00000NkvXXu0mjfo8uWP
+
+literal 0
+HcmV?d00001
+
+-- 
+1.7.0.4
+

@@ -1,0 +1,2549 @@
+From 598ea8a7a74fa082a817dc3740adbdb13e7ab152 Mon Sep 17 00:00:00 2001
+From: Mark Freeman <mark@timewasted.net>
+Date: Sun, 27 Feb 2011 09:11:50 -0600
+Subject: [PATCH 1/9] Added initial mission screen and about page
+
+---
+ mysite/missions/git_basic/models.py                |    3 +
+ mysite/missions/git_basic/tests.py                 |   23 ++++++
+ mysite/missions/git_basic/views.py                 |   62 +++++++++++++++++
+ .../templates/missions/git_basic/about_git.html    |   46 +++++++++++++
+ .../templates/missions/git_basic/base.html         |   38 ++++++++++
+ .../templates/missions/git_basic/main_page.html    |   72 ++++++++++++++++++++
+ mysite/missions/templates/missions/main.html       |   13 ++++
+ mysite/settings.py                                 |    4 +-
+ mysite/urls.py                                     |    3 +
+ 9 files changed, 262 insertions(+), 2 deletions(-)
+ create mode 100644 mysite/missions/git_basic/__init__.py
+ create mode 100644 mysite/missions/git_basic/models.py
+ create mode 100644 mysite/missions/git_basic/tests.py
+ create mode 100644 mysite/missions/git_basic/views.py
+ create mode 100644 mysite/missions/templates/missions/git_basic/about_git.html
+ create mode 100644 mysite/missions/templates/missions/git_basic/base.html
+ create mode 100644 mysite/missions/templates/missions/git_basic/main_page.html
+
+diff --git a/mysite/missions/git_basic/__init__.py b/mysite/missions/git_basic/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/mysite/missions/git_basic/models.py b/mysite/missions/git_basic/models.py
+new file mode 100644
+index 0000000..71a8362
+--- /dev/null
++++ b/mysite/missions/git_basic/models.py
+@@ -0,0 +1,3 @@
++from django.db import models
++
++# Create your models here.
+diff --git a/mysite/missions/git_basic/tests.py b/mysite/missions/git_basic/tests.py
+new file mode 100644
+index 0000000..2247054
+--- /dev/null
++++ b/mysite/missions/git_basic/tests.py
+@@ -0,0 +1,23 @@
++"""
++This file demonstrates two different styles of tests (one doctest and one
++unittest). These will both pass when you run "manage.py test".
++
++Replace these with more appropriate tests for your application.
++"""
++
++from django.test import TestCase
++
++class SimpleTest(TestCase):
++    def test_basic_addition(self):
++        """
++        Tests that 1 + 1 always equals 2.
++        """
++        self.failUnlessEqual(1 + 1, 2)
++
++__test__ = {"doctest": """
++Another way to test that 1 + 1 is equal to 2.
++
++>>> 1 + 1 == 2
++True
++"""}
++
+diff --git a/mysite/missions/git_basic/views.py b/mysite/missions/git_basic/views.py
+new file mode 100644
+index 0000000..55310da
+--- /dev/null
++++ b/mysite/missions/git_basic/views.py
+@@ -0,0 +1,62 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++from mysite.missions.base.views import *
++
++
++### State manager
++class GitBasicMissionPageState(MissionPageState):
++    def __init__(self, request, passed_data):
++        super(GitBasicMissionPageState, self).__init__(request, passed_data, 'Using Git')
++
++    def as_dict_for_template_context(self):
++        (data, person) = self.get_base_data_dict_and_person()
++        if person:
++            repo = controllers.GitBasicRepository(self.request.user.username)
++            data.update({
++                'repository_exists': repo.exists(),
++                'git_checkout_done': controllers.mission_completed(person, 'git_checkout'),
++                'git_diff_done': controllers.mission_completed(person, 'git_diff'),
++                'git_commit_done': controllers.mission_completed(person, 'git_commit'),
++            })
++            if data['repository_exists']:
++              data.update({
++                'checkout_url': repo.public_trunk_url(),
++                'secret_word_file': controllers.GitBasicCheckoutMission.SECRET_WORD_FILE,
++                'file_for_git_diff': controllers.GitBasicDiffMission.FILE_TO_BE_PATCHED,
++                'new_secret_word': controllers.GitBasicCommitMission.NEW_SECRET_WORD,
++                'commit_username': self.request.user.username,
++                'commit_password': repo.get_password()
++              })
++        return data
++
++
++
++### Normal GET handlers. These are usually pretty short.
++
++@view
++def main_page(request, passed_data = None):
++    state = GitBasicMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'Start page'
++    return (request, 'missions/git_basic/main_page.html',
++            state.as_dict_for_template_context())
++
++@view
++def long_description(request, passed_data = None):
++    state = GitBasicMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'About Git'
++    return (request, 'missions/git_basic/about_git.html',
++            state.as_dict_for_template_context())
+diff --git a/mysite/missions/templates/missions/git_basic/about_git.html b/mysite/missions/templates/missions/git_basic/about_git.html
+new file mode 100644
+index 0000000..603fe3e
+--- /dev/null
++++ b/mysite/missions/templates/missions/git_basic/about_git.html
+@@ -0,0 +1,46 @@
++{% extends 'missions/git_basic/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_main_body %}
++
++<p>Git is a version control system (VCS) created by Linux Torvalds,  the creator of the Linux kernel. Git is known as a 'distributed” VCS, or DVCS. This means that each user's copy of the code is a fully working repository and includes all previous commit information.  Rather than connecting to a remote server as you would with Subversion or CVS, users can work productively offline, choosing to later sync their changes with a remote repository or create a patch file.</p>
++
++<p>The purpose of this mission is to teach you how to clone a remote repository, make changes to a file, check them into your local copy, and finally create a patch file.</p>
++
++<h3>Preparing for the mission</h3>
++<ul class="raquo_bullets">
++  <li>Install git onto your machine.  In linux, the package is typically named "git-core" and is likely available via your package manager.  The <a href="http://git-scm.com/download">git website</a> contains options for downloading the latest version and builds for other platforms.</li>
++  <li>Configure your user name: git config –global user.name 'First Last'</li>
++  <li>Configure your user email: git config –global user.email 'name@domain.com'</li>
++</ul>
++
++{% if user.is_authenticated %}
++<p>(If your project recommends this tutorial to newcomers, we can put you in a list here!)</p>
++{% endif %}
++<p>
++<h3>Other resources</h3>
++
++<ul class="raquo_bullets">
++  <li>The <a href="http://git-scm.com/">website</a> for the git project contains a quickstart guide and links to <a href="http://git-scm.com/documentation"> other useful resources</a>.</li>
++  <li>The <a href="http://book.git-scm.com/"> Git Community Book</a> is a wonderful resource for more in depth explanation of git's features.</li>
++  <li>Many git users chat on the #git channel on IRC</li>
++</ul>
++</p>
++{% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/git_basic/base.html b/mysite/missions/templates/missions/git_basic/base.html
+new file mode 100644
+index 0000000..9f96aec
+--- /dev/null
++++ b/mysite/missions/templates/missions/git_basic/base.html
+@@ -0,0 +1,38 @@
++{% extends 'missions/mission_base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block side_nav_links %}
++<li id='link-main_page'>
++  <a href='{% url mysite.missions.git_basic.views.main_page %}'>
++    Mission start page
++  </a>
++</li>
++<li id='link-long_description'>
++  <a href='{% url mysite.missions.git_basic.views.long_description %}'>
++    About Git
++  </a>
++</li>
++<li id='link-checkout'>
++  <a href='{% url mysite.missions.git_basic.views.checkout %}'>
++    Cloning a project
++  </a>
++</li>
++{% endblock side_nav_links %}
+diff --git a/mysite/missions/templates/missions/git_basic/main_page.html b/mysite/missions/templates/missions/git_basic/main_page.html
+new file mode 100644
+index 0000000..d68639e
+--- /dev/null
++++ b/mysite/missions/templates/missions/git_basic/main_page.html
+@@ -0,0 +1,72 @@
++{% extends 'missions/git_basic/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_main_body %}
++<h3>The set-up</h3>
++
++<p>Somobody out there tried to write a 'Hello, world!" program, but they wrote
++it as "Goodbye, world!". What a mess! Luckily, you can step in and submit a
++patch.  I bet the maintainer would gladly accept it too!</p>
++
++<h3>Audience</h3>
++
++<p>The inded audience are new contributors to open source. If you can edit a
++text file and use a terminal, you can complete this mission. </p>
++
++<h3>What you'll learn</h3>
++
++<p>You will learn how to clone a git repository, make a commit, submit a patch,
++and rebase your work onto the new version provided by the maintainer.</p>
++
++<p>If you want to know more about git, read <a href="{% url
++mysite.missions.git_basic.views.long_description %}">more about Git</a>.</p>
++
++{% if user.is_authenticated %}
++{% if repository_exists %}
++<p>You already have a repository that you can use for these missions, but if
++you want to start over fresh, you can reset it.</p>
++
++<form method="post" action="{% url mysite.missions.git_basic.views.resetrepo
++%}?stay_on_this_page=1" onsubmit="return confirm('Are you sure you want to
++reset your repository to its original state?');">
++    <input type="submit" value="Reset your repository" />
++</form><br style="clear: left;" />
++
++<p class="next_mission_link">
++  <a href="{% url mysite.missions.git_basic.views.checkout %}">Checking out a
++  working copy &raquo;</a></p>
++  {% else %}
++  <p>To do these missions, you will need to make a personal repository.  Your
++  repository will reside on the OpenHatch server, specifically for your use in
++  these missions.  Then you can go on and interact with it.</p>
++
++<form method="post" action="{% url mysite.missions.git_basic.views.resetrepo %}">
++  <input type="submit" value="Create your repository and start the missions
++  &raquo;" />
++  </form><br style="clear: left;" />
++
++  {% endif %}
++
++  {% else %}
++  <p>If you were logged in, you could create a repository that you could use to
++  do these missions.</p>
++  {% endif %}
++
++  {% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/main.html b/mysite/missions/templates/missions/main.html
+index b517842..7bae1e4 100644
+--- a/mysite/missions/templates/missions/main.html
++++ b/mysite/missions/templates/missions/main.html
+@@ -78,6 +78,19 @@ Open source training missions
+     {% endif %}
+     <p><a href="{% url mysite.missions.svn.views.main_page %}">Go to this mission</a></p>
+ 
++    <h2>Git basics</h2>
++    <p>Learn how to interact with projects that use the Git version control
++    system.</p>
++    {% if completed_missions.git_checkout or completed_missions.git_diff or completed_missions.git_commit %}
++        {% if completed_missions.git_checkout and completed_missions.git_diff and completed_missions.git_commit %}
++            <p><em>You have completed this mission.</em></p>
++        {% else %}
++            <p><em>You have partially completed this mission.</em></p>
++        {% endif %}
++    {% endif %}
++    <p><a href="{% url mysite.missions.git_basic.views.main_page %}">Go to this
++    mission</a></p>
++
+   </div>
+ </div>
+ {% endblock main %}
+diff --git a/mysite/settings.py b/mysite/settings.py
+index 782ccf4..3eac30f 100644
+--- a/mysite/settings.py
++++ b/mysite/settings.py
+@@ -99,7 +99,7 @@ MIDDLEWARE_CLASSES = (
+     'mysite.base.middleware.DetectLogin', # This must live on top of Auth + Session middleware
+     'django.middleware.common.CommonMiddleware',
+     'staticgenerator.middleware.StaticGeneratorMiddleware',
+-    'sessionprofile.middleware.SessionProfileMiddleware',
++    #'sessionprofile.middleware.SessionProfileMiddleware',
+     'django.contrib.sessions.middleware.SessionMiddleware',
+     'django.contrib.auth.middleware.AuthenticationMiddleware',
+     'django_authopenid.middleware.OpenIDMiddleware',
+@@ -162,7 +162,7 @@ INSTALLED_APPS = (
+     'voting',
+     'reversion',
+     #'debug_toolbar',
+-    'sessionprofile',
++    #'sessionprofile',
+ )
+ 
+ # testrunner allows us to control which testrunner to use
+diff --git a/mysite/urls.py b/mysite/urls.py
+index 6e81de6..90ae39f 100644
+--- a/mysite/urls.py
++++ b/mysite/urls.py
+@@ -129,6 +129,9 @@ urlpatterns = patterns('',
+         (r'^missions/svn/commit$', 'mysite.missions.svn.views.commit'),
+         (r'^missions/svn/commit/poll$', 'mysite.missions.svn.views.commit_poll'),
+ 
++        (r'^missions/git_basic$', 'mysite.missions.git_basic.views.main_page'),
++        (r'^missions/git_basic/description$', 'mysite.missions.git_basic.views.long_description'),
++
+         # Customs-related URLs
+         (r'^customs/$', 'mysite.customs.views.list_trackers'),
+         (r'^customs/add/(?P<tracker_type>\w*)$', 'mysite.customs.views.add_tracker'),
+-- 
+1.7.2.5
+
+
+From a084303c6d7d6188150798d6c3450716fe118cab Mon Sep 17 00:00:00 2001
+From: Mark Freeman <mark@timewasted.net>
+Date: Sun, 27 Mar 2011 12:06:32 -0500
+Subject: [PATCH 2/9] Renamed package to git rather than git basic.
+
+---
+ mysite/missions-userdata/git/README                |   16 +++
+ mysite/missions/git/controllers.py                 |   38 +++++++
+ mysite/missions/git/forms.py                       |   25 +++++
+ mysite/missions/git/models.py                      |    3 +
+ mysite/missions/git/tests.py                       |   23 ++++
+ mysite/missions/git/views.py                       |  108 ++++++++++++++++++++
+ mysite/missions/git_basic/controllers.py           |   36 +++++++
+ mysite/missions/git_basic/forms.py                 |   25 +++++
+ mysite/missions/git_basic/views.py                 |   42 +++++++-
+ .../missions/templates/missions/git/about_git.html |   46 ++++++++
+ mysite/missions/templates/missions/git/base.html   |   38 +++++++
+ .../missions/templates/missions/git/checkout.html  |   55 ++++++++++
+ .../missions/templates/missions/git/main_page.html |   71 +++++++++++++
+ .../templates/missions/git_basic/checkout.html     |   29 +++++
+ .../templates/missions/git_basic/main_page.html    |    3 +-
+ mysite/missions/templates/missions/main.html       |    2 +-
+ mysite/settings.py                                 |    3 +
+ mysite/urls.py                                     |    2 +
+ 18 files changed, 556 insertions(+), 9 deletions(-)
+ create mode 100644 mysite/missions-userdata/git/README
+ create mode 100644 mysite/missions/git/__init__.py
+ create mode 100644 mysite/missions/git/controllers.py
+ create mode 100644 mysite/missions/git/forms.py
+ create mode 100644 mysite/missions/git/models.py
+ create mode 100644 mysite/missions/git/tests.py
+ create mode 100644 mysite/missions/git/views.py
+ create mode 100644 mysite/missions/git_basic/controllers.py
+ create mode 100644 mysite/missions/git_basic/forms.py
+ create mode 100644 mysite/missions/templates/missions/git/about_git.html
+ create mode 100644 mysite/missions/templates/missions/git/base.html
+ create mode 100644 mysite/missions/templates/missions/git/checkout.html
+ create mode 100644 mysite/missions/templates/missions/git/main_page.html
+ create mode 100644 mysite/missions/templates/missions/git_basic/checkout.html
+
+diff --git a/mysite/missions-userdata/git/README b/mysite/missions-userdata/git/README
+new file mode 100644
+index 0000000..ee61f08
+--- /dev/null
++++ b/mysite/missions-userdata/git/README
+@@ -0,0 +1,16 @@
++This directory contains users' Subversion repositories for the
++Subversion-related training missions.  To make them accessible (and
++therefore make it possible for users to do the svn missions), you will
++have to serve this directory out using svnserve, as we use an svnserve-
++specific authentication mechanism for commits.
++
++However you go about doing that, set SVN_REPO_URL_PREFIX in settings.py
++to whatever URL points to this directory.
++
++For example, OpenHatch itself uses the following inetd.conf line:
++svn stream tcp nowait deploy /usr/bin/svnserve svnserve --inetd --root /home/deploy/milestone-a/mysite/missions-userdata/svn/
++
++
++(In addition to providing this information, this file is present to
++make sure the directory it is in exists because Git won't version empty
++directories.)
+diff --git a/mysite/missions/git/__init__.py b/mysite/missions/git/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+new file mode 100644
+index 0000000..cef11c6
+--- /dev/null
++++ b/mysite/missions/git/controllers.py
+@@ -0,0 +1,38 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 John Stumpo
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++from mysite.missions.base.controllers import *
++
++class GitBasicRepository(object):
++    
++    # Below needs to be adjusted for beginning data
++    INITIAL_CONTENT = os.path.join(get_mission_data_path('git'), 'git-initial.gitdump')
++    
++    def __init__(self, username):
++        self.username = username
++        self.repo_path = os.path.join(settings.GIT_REPO_PATH, username)
++        self.file_url = 'file://' + self.repo_path
++        self.public_url = settings.GIT_REPO_URL_PREFIX + username
++        
++    def reset(self):
++        if os.path.isdir(self.repo_path):
++            shutil.rmtree(self.repo_path)
++        subprocess.check_call(['git', 'init', self.repo_path])
++        
++        
++    
+\ No newline at end of file
+diff --git a/mysite/missions/git/forms.py b/mysite/missions/git/forms.py
+new file mode 100644
+index 0000000..6b3d3d9
+--- /dev/null
++++ b/mysite/missions/git/forms.py
+@@ -0,0 +1,25 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 John Stumpo
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++import django.forms
++
++class CheckoutForm(django.forms.Form):
++    secret_word = django.forms.CharField(error_messages={'required': 'No author was given.'})
++
++class DiffForm(django.forms.Form):
++    diff = django.forms.CharField(error_messages={'required': 'No git diff output was given.'}, widget=django.forms.Textarea())
+diff --git a/mysite/missions/git/models.py b/mysite/missions/git/models.py
+new file mode 100644
+index 0000000..71a8362
+--- /dev/null
++++ b/mysite/missions/git/models.py
+@@ -0,0 +1,3 @@
++from django.db import models
++
++# Create your models here.
+diff --git a/mysite/missions/git/tests.py b/mysite/missions/git/tests.py
+new file mode 100644
+index 0000000..2247054
+--- /dev/null
++++ b/mysite/missions/git/tests.py
+@@ -0,0 +1,23 @@
++"""
++This file demonstrates two different styles of tests (one doctest and one
++unittest). These will both pass when you run "manage.py test".
++
++Replace these with more appropriate tests for your application.
++"""
++
++from django.test import TestCase
++
++class SimpleTest(TestCase):
++    def test_basic_addition(self):
++        """
++        Tests that 1 + 1 always equals 2.
++        """
++        self.failUnlessEqual(1 + 1, 2)
++
++__test__ = {"doctest": """
++Another way to test that 1 + 1 is equal to 2.
++
++>>> 1 + 1 == 2
++True
++"""}
++
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+new file mode 100644
+index 0000000..ffef9d4
+--- /dev/null
++++ b/mysite/missions/git/views.py
+@@ -0,0 +1,108 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++from mysite.missions.base.views import *
++from mysite.missions.git import controllers, forms
++
++
++### POST handlers
++###
++### Forms submit to this, and we use these to validate input and/or
++### modify the information stored about the user, such as recording
++### that a mission was successfully completed.
++
++@login_required
++def resetrepo(request):
++    if request.method != 'POST':
++        return HttpResponseNotAllowed(['POST'])
++    controllers.GitBasicRepository(request.user.username).reset()
++    controllers.unset_mission_completed(request.user.get_profile(), 'git_checkout')
++    controllers.unset_mission_completed(request.user.get_profile(), 'git_diff')
++    controllers.unset_mission_completed(request.user.get_profile(), 'git_commit')
++    if 'stay_on_this_page' in request.GET:
++        return HttpResponseRedirect(reverse(main_page))
++    else:
++        return HttpResponseRedirect(reverse(checkout))
++
++@login_required
++def checkout_submit(request):
++    # Initialize data array and some default values.
++    data = {}
++    data['git_checkout_form'] = forms.CheckoutForm()
++    data['git_checkout_error_message'] = ''
++    if request.method == 'POST':
++        form = forms.CheckoutForm(request.POST)
++        if form.is_valid():
++            if form.cleaned_data['secret_word'] == controllers.GitBasicCheckoutMission.get_secret_word(request.user.username):
++                controllers.set_mission_completed(request.user.get_profile(), 'git_checkout')
++                return HttpResponseRedirect(reverse(checkout))
++            else:
++                data['git_checkout_error_message'] = "The author's name is incorrect."
++        data['git_checkout_form'] = form
++    return checkout(request, data)
++
++### State manager
++class GitBasicMissionPageState(MissionPageState):
++    def __init__(self, request, passed_data):
++        super(GitBasicMissionPageState, self).__init__(request, passed_data, 'Using Git')
++
++    def as_dict_for_template_context(self):
++        (data, person) = self.get_base_data_dict_and_person()
++        if person:
++            repo = controllers.GitBasicRepository(self.request.user.username)
++            data.update({
++                'repository_exists': False, #repo.exists(),
++                'git_checkout_done': False, #controllers.mission_completed(person, 'git_checkout'),
++                'git_diff_done': False, #controllers.mission_completed(person, 'git_diff'),
++                'git_commit_done': False, #controllers.mission_completed(person, 'git_commit'),
++            })
++            if data['repository_exists']:
++              data.update({
++                'checkout_url': repo.public_url,
++                'secret_word_file': controllers.GitBasicCheckoutMission.SECRET_WORD_FILE,
++                'file_for_git_diff': controllers.GitBasicDiffMission.FILE_TO_BE_PATCHED,
++                'new_secret_word': controllers.GitBasicCommitMission.NEW_SECRET_WORD,
++                'commit_username': self.request.user.username,
++                'commit_password': repo.get_password()
++              })
++        return data
++
++
++
++### Normal GET handlers. These are usually pretty short.
++
++@view
++def main_page(request, passed_data = None):
++    state = GitBasicMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'Start page'
++    return (request, 'missions/git/main_page.html',
++            state.as_dict_for_template_context())
++
++@view
++def long_description(request, passed_data = None):
++    state = GitBasicMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'About Git'
++    return (request, 'missions/git/about_git.html',
++            state.as_dict_for_template_context())
++
++@login_required
++@view
++def checkout(request, passed_data = None):
++    state = GitBasicMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'Cloning'
++    data = state.as_dict_for_template_context()
++    data['git_checkout_form'] = forms.CheckoutForm()
++    return (request, 'missions/git/checkout.html', data)
+\ No newline at end of file
+diff --git a/mysite/missions/git_basic/controllers.py b/mysite/missions/git_basic/controllers.py
+new file mode 100644
+index 0000000..d3eb1b9
+--- /dev/null
++++ b/mysite/missions/git_basic/controllers.py
+@@ -0,0 +1,36 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 John Stumpo
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++from mysite.missions.base.controllers import *
++
++class GitBasicRepository(object):
++    
++    # Below needs to be adjusted for beginning data
++    INITIAL_CONTENT = os.path.join(get_mission_data_path('git_basic'), 'git-initial.gitdump')
++    
++    def __init__(self, username):
++        self.username = username
++        self.repo_path = os.path.join(settings.GIT_REPO_PATH, username)
++        self.file_url = 'file://' + self.repo_path
++        self.public_url = settings.GIT_REPO_URL_PREFIX + username
++        
++    def reset(self):
++        # Need to create this method!
++        pass
++        
++    
+\ No newline at end of file
+diff --git a/mysite/missions/git_basic/forms.py b/mysite/missions/git_basic/forms.py
+new file mode 100644
+index 0000000..995ef77
+--- /dev/null
++++ b/mysite/missions/git_basic/forms.py
+@@ -0,0 +1,25 @@
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 John Stumpo
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++
++import django.forms
++
++class CheckoutForm(django.forms.Form):
++    secret_word = django.forms.CharField(error_messages={'required': 'No secret word was given.'})
++
++class DiffForm(django.forms.Form):
++    diff = django.forms.CharField(error_messages={'required': 'No git diff output was given.'}, widget=django.forms.Textarea())
+diff --git a/mysite/missions/git_basic/views.py b/mysite/missions/git_basic/views.py
+index 55310da..f27bde6 100644
+--- a/mysite/missions/git_basic/views.py
++++ b/mysite/missions/git_basic/views.py
+@@ -15,6 +15,27 @@
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+ from mysite.missions.base.views import *
++from mysite.missions.git_basic import controllers, forms
++
++
++### POST handlers
++###
++### Forms submit to this, and we use these to validate input and/or
++### modify the information stored about the user, such as recording
++### that a mission was successfully completed.
++
++@login_required
++def resetrepo(request):
++    if request.method != 'POST':
++        return HttpResponseNotAllowed(['POST'])
++    # controllers.GitBasicRepository(request.user.username).reset()
++    controllers.unset_mission_completed(request.user.get_profile(), 'git_basic_checkout')
++    controllers.unset_mission_completed(request.user.get_profile(), 'git_basic_diff')
++    controllers.unset_mission_completed(request.user.get_profile(), 'git_basic_commit')
++    if 'stay_on_this_page' in request.GET:
++        return HttpResponseRedirect(reverse(main_page))
++    else:
++        return HttpResponseRedirect(reverse(checkout))
+ 
+ 
+ ### State manager
+@@ -27,12 +48,12 @@ class GitBasicMissionPageState(MissionPageState):
+         if person:
+             repo = controllers.GitBasicRepository(self.request.user.username)
+             data.update({
+-                'repository_exists': repo.exists(),
+-                'git_checkout_done': controllers.mission_completed(person, 'git_checkout'),
+-                'git_diff_done': controllers.mission_completed(person, 'git_diff'),
+-                'git_commit_done': controllers.mission_completed(person, 'git_commit'),
++                'repository_exists': False, #repo.exists(),
++                'git_checkout_done': False, #controllers.mission_completed(person, 'git_checkout'),
++                'git_diff_done': False, #controllers.mission_completed(person, 'git_diff'),
++                'git_commit_done': False, #controllers.mission_completed(person, 'git_commit'),
+             })
+-            if data['repository_exists']:
++            '''if data['repository_exists']:
+               data.update({
+                 'checkout_url': repo.public_trunk_url(),
+                 'secret_word_file': controllers.GitBasicCheckoutMission.SECRET_WORD_FILE,
+@@ -40,7 +61,7 @@ class GitBasicMissionPageState(MissionPageState):
+                 'new_secret_word': controllers.GitBasicCommitMission.NEW_SECRET_WORD,
+                 'commit_username': self.request.user.username,
+                 'commit_password': repo.get_password()
+-              })
++              })'''
+         return data
+ 
+ 
+@@ -60,3 +81,12 @@ def long_description(request, passed_data = None):
+     state.this_mission_page_short_name = 'About Git'
+     return (request, 'missions/git_basic/about_git.html',
+             state.as_dict_for_template_context())
++
++@login_required
++@view
++def checkout(request, passed_data = None):
++    state = GitBasicMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'Cloning'
++    data = state.as_dict_for_template_context()
++    data['git_basic_checkout_form'] = forms.CheckoutForm()
++    return (request, 'missions/git_basic/checkout.html', data)
+\ No newline at end of file
+diff --git a/mysite/missions/templates/missions/git/about_git.html b/mysite/missions/templates/missions/git/about_git.html
+new file mode 100644
+index 0000000..36d9bbd
+--- /dev/null
++++ b/mysite/missions/templates/missions/git/about_git.html
+@@ -0,0 +1,46 @@
++{% extends 'missions/git/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_main_body %}
++
++<p>Git is a version control system (VCS) created by Linux Torvalds,  the creator of the Linux kernel. Git is known as a 'distributed” VCS, or DVCS. This means that each user's copy of the code is a fully working repository and includes all previous commit information.  Rather than connecting to a remote server as you would with Subversion or CVS, users can work productively offline, choosing to later sync their changes with a remote repository or create a patch file.</p>
++
++<p>The purpose of this mission is to teach you how to clone a remote repository, make changes to a file, check them into your local copy, and finally create a patch file.</p>
++
++<h3>Preparing for the mission</h3>
++<ul class="raquo_bullets">
++  <li>Install git onto your machine.  In linux, the package is typically named "git-core" and is likely available via your package manager.  The <a href="http://git-scm.com/download">git website</a> contains options for downloading the latest version and builds for other platforms.</li>
++  <li>Configure your user name: git config –global user.name 'First Last'</li>
++  <li>Configure your user email: git config –global user.email 'name@domain.com'</li>
++</ul>
++
++{% if user.is_authenticated %}
++<p>(If your project recommends this tutorial to newcomers, we can put you in a list here!)</p>
++{% endif %}
++<p>
++<h3>Other resources</h3>
++
++<ul class="raquo_bullets">
++  <li>The <a href="http://git-scm.com/">website</a> for the git project contains a quickstart guide and links to <a href="http://git-scm.com/documentation"> other useful resources</a>.</li>
++  <li>The <a href="http://book.git-scm.com/"> Git Community Book</a> is a wonderful resource for more in depth explanation of git's features.</li>
++  <li>Many git users chat on the #git channel on IRC</li>
++</ul>
++</p>
++{% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/git/base.html b/mysite/missions/templates/missions/git/base.html
+new file mode 100644
+index 0000000..25b5e19
+--- /dev/null
++++ b/mysite/missions/templates/missions/git/base.html
+@@ -0,0 +1,38 @@
++{% extends 'missions/mission_base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block side_nav_links %}
++<li id='link-main_page'>
++  <a href='{% url mysite.missions.git.views.main_page %}'>
++    Mission start page
++  </a>
++</li>
++<li id='link-long_description'>
++  <a href='{% url mysite.missions.git.views.long_description %}'>
++    About Git
++  </a>
++</li>
++<li id='link-checkout'>
++  <a href='{% url mysite.missions.git.views.checkout %}'>
++    Cloning a project
++  </a>
++</li>
++{% endblock side_nav_links %}
+diff --git a/mysite/missions/templates/missions/git/checkout.html b/mysite/missions/templates/missions/git/checkout.html
+new file mode 100644
+index 0000000..bda2d0c
+--- /dev/null
++++ b/mysite/missions/templates/missions/git/checkout.html
+@@ -0,0 +1,55 @@
++{% extends 'missions/git/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_main_body %}
++
++<p>Your first mission is to obtain a copy of the remote git repository. For this mission, we will use the git repository you created in step one.  Running the following command will clone the remote repository and create a copy on your hard drive.</p>
++
++<p>You can clone the repository by running:<br style="clear: left;" />
++<code>git clone {{ checkout_url }} git_missions</code>
++
++<p>Once you have a copy of the repository, open hello_world.py to read the comments and see if you can find the name of the author responsible for this mishap!</p>
++
++{% if git_checkout_done %}
++<div class="successmsg">
++  <p><strong>You have successfully completed this part of the mission.</strong></p>
++</div>
++<p class="next_mission_link">
++  <a href="{% url mysite.missions.git.views.diff %}">Creating a patch of your changes &raquo;</a></p>
++{% else %}
++<form method="post" action="{% url mysite.missions.git.views.checkout_submit %}#gitcheckout-form">
++  <div class="form-row">
++    <a name="gitcheckout-form"></a>
++    {% if git_checkout_error_message %}
++    <ul class="errorlist"><li>{{ git_checkout_error_message }}</li></ul>
++    {% endif %}
++    {{ git_checkout_form.secret_word.errors }}
++    <br style="clear: left;" />
++    Author's name: <br style="clear: left;" />
++    {{ git_checkout_form.secret_word }}
++    <br style="clear: left;" />
++    <input type="submit" value="Submit" style="float: none;" />
++  </div>
++</form>
++
++{% endif %}
++
++{% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/git/main_page.html b/mysite/missions/templates/missions/git/main_page.html
+new file mode 100644
+index 0000000..f25b057
+--- /dev/null
++++ b/mysite/missions/templates/missions/git/main_page.html
+@@ -0,0 +1,71 @@
++{% extends 'missions/git/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_main_body %}
++<h3>The set-up</h3>
++
++<p>Somobody out there tried to write a 'Hello, world!" program, but they wrote
++it as "Goodbye, world!". What a mess! Luckily, you can step in and submit a
++patch.  I bet the maintainer would gladly accept it too!</p>
++
++<h3>Audience</h3>
++
++<p>The inded audience are new contributors to open source. If you can edit a
++text file and use a terminal, you can complete this mission. </p>
++
++<h3>What you'll learn</h3>
++
++<p>You will learn how to clone a git repository, make a commit, submit a patch,
++and rebase your work onto the new version provided by the maintainer.</p>
++
++<p>If you want to know more about git, read <a href="{% url
++mysite.missions.git.views.long_description %}">more about Git</a>.</p>
++
++{% if user.is_authenticated %}
++{% if repository_exists %}
++<p>You already have a repository that you can use for these missions, but if
++you want to start over fresh, you can reset it.</p>
++
++<form method="post" action="{% url mysite.missions.git.views.resetrepo
++%}?stay_on_this_page=1" onsubmit="return confirm('Are you sure you want to
++reset your repository to its original state?');">
++    <input type="submit" value="Reset your repository" />
++</form><br style="clear: left;" />
++
++<p class="next_mission_link">
++  <a href="{% url mysite.missions.git.views.checkout %}">Checking out a
++  working copy &raquo;</a></p>
++  {% else %}
++  <p>To do these missions, you will need to make a personal repository.  Your
++  repository will reside on the OpenHatch server, specifically for your use in
++  these missions.  Then you can go on and interact with it.</p>
++
++<form method="post" action="{% url mysite.missions.git.views.resetrepo %}">
++  <input type="submit" value="Create your repository and start the missions &raquo;" />
++  </form><br style="clear: left;" />
++
++  {% endif %}
++
++  {% else %}
++  <p>If you were logged in, you could create a repository that you could use to
++  do these missions.</p>
++  {% endif %}
++
++  {% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/git_basic/checkout.html b/mysite/missions/templates/missions/git_basic/checkout.html
+new file mode 100644
+index 0000000..ac14a38
+--- /dev/null
++++ b/mysite/missions/templates/missions/git_basic/checkout.html
+@@ -0,0 +1,29 @@
++{% extends 'missions/git_basic/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_main_body %}
++<p>You can clone the repository by running:<br style="clear: left;" />
++  <code>git clone {{ checkout_url }} git_missions</code></p>
++
++
++
++
++{% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/git_basic/main_page.html b/mysite/missions/templates/missions/git_basic/main_page.html
+index d68639e..f9a0a95 100644
+--- a/mysite/missions/templates/missions/git_basic/main_page.html
++++ b/mysite/missions/templates/missions/git_basic/main_page.html
+@@ -58,8 +58,7 @@ reset your repository to its original state?');">
+   these missions.  Then you can go on and interact with it.</p>
+ 
+ <form method="post" action="{% url mysite.missions.git_basic.views.resetrepo %}">
+-  <input type="submit" value="Create your repository and start the missions
+-  &raquo;" />
++  <input type="submit" value="Create your repository and start the missions &raquo;" />
+   </form><br style="clear: left;" />
+ 
+   {% endif %}
+diff --git a/mysite/missions/templates/missions/main.html b/mysite/missions/templates/missions/main.html
+index 7bae1e4..5151cdf 100644
+--- a/mysite/missions/templates/missions/main.html
++++ b/mysite/missions/templates/missions/main.html
+@@ -78,7 +78,7 @@ Open source training missions
+     {% endif %}
+     <p><a href="{% url mysite.missions.svn.views.main_page %}">Go to this mission</a></p>
+ 
+-    <h2>Git basics</h2>
++    <h2>Using Git</h2>
+     <p>Learn how to interact with projects that use the Git version control
+     system.</p>
+     {% if completed_missions.git_checkout or completed_missions.git_diff or completed_missions.git_commit %}
+diff --git a/mysite/settings.py b/mysite/settings.py
+index 3eac30f..90f49da 100644
+--- a/mysite/settings.py
++++ b/mysite/settings.py
+@@ -253,3 +253,6 @@ SVN_REPO_URL_PREFIX = 'svn://openhatch.org/'
+ # The script to invoke for management commands in this environment.
+ PATH_TO_MANAGEMENT_SCRIPT = os.path.abspath(sys.argv[0])
+ CELERY_ALWAYS_EAGER = True
++
++GIT_REPO_PATH = os.path.join(MEDIA_ROOT_BEFORE_STATIC, 'missions-userdata', 'git')
++GIT_REPO_URL_PREFIX = 'git://openhatch.org/'
+\ No newline at end of file
+diff --git a/mysite/urls.py b/mysite/urls.py
+index 90ae39f..bf9b569 100644
+--- a/mysite/urls.py
++++ b/mysite/urls.py
+@@ -131,6 +131,8 @@ urlpatterns = patterns('',
+ 
+         (r'^missions/git_basic$', 'mysite.missions.git_basic.views.main_page'),
+         (r'^missions/git_basic/description$', 'mysite.missions.git_basic.views.long_description'),
++        (r'^missions/git_basic/checkout$', 'mysite.missions.git_basic.views.checkout'),
++        (r'^missions/git_basic/resetrepo$', 'mysite.missions.git_basic.views.resetrepo'),
+ 
+         # Customs-related URLs
+         (r'^customs/$', 'mysite.customs.views.list_trackers'),
+-- 
+1.7.2.5
+
+
+From a4297f8b432a2741ee409395ffe77dc541a9d9d0 Mon Sep 17 00:00:00 2001
+From: Mark Freeman <mark@timewasted.net>
+Date: Sun, 27 Mar 2011 13:57:44 -0400
+Subject: [PATCH 3/9] "Initial commit"
+
+---
+ mysite/missions/git/controllers.py                 |   21 ++++-
+ mysite/missions/git/views.py                       |   23 ++---
+ mysite/missions/git_basic/controllers.py           |   36 --------
+ mysite/missions/git_basic/forms.py                 |   25 ------
+ mysite/missions/git_basic/models.py                |    3 -
+ mysite/missions/git_basic/tests.py                 |   23 -----
+ mysite/missions/git_basic/views.py                 |   92 --------------------
+ .../missions/templates/missions/git/main_page.html |    4 +-
+ .../templates/missions/git_basic/about_git.html    |   46 ----------
+ .../templates/missions/git_basic/base.html         |   38 --------
+ .../templates/missions/git_basic/checkout.html     |   29 ------
+ .../templates/missions/git_basic/main_page.html    |   71 ---------------
+ mysite/missions/templates/missions/main.html       |    2 +-
+ mysite/urls.py                                     |    9 +-
+ 14 files changed, 33 insertions(+), 389 deletions(-)
+ delete mode 100644 mysite/missions/git_basic/__init__.py
+ delete mode 100644 mysite/missions/git_basic/controllers.py
+ delete mode 100644 mysite/missions/git_basic/forms.py
+ delete mode 100644 mysite/missions/git_basic/models.py
+ delete mode 100644 mysite/missions/git_basic/tests.py
+ delete mode 100644 mysite/missions/git_basic/views.py
+ delete mode 100644 mysite/missions/templates/missions/git_basic/about_git.html
+ delete mode 100644 mysite/missions/templates/missions/git_basic/base.html
+ delete mode 100644 mysite/missions/templates/missions/git_basic/checkout.html
+ delete mode 100644 mysite/missions/templates/missions/git_basic/main_page.html
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index cef11c6..0206303 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -18,10 +18,10 @@
+ 
+ from mysite.missions.base.controllers import *
+ 
+-class GitBasicRepository(object):
++class GitRepository(object):
+     
+     # Below needs to be adjusted for beginning data
+-    INITIAL_CONTENT = os.path.join(get_mission_data_path('git'), 'git-initial.gitdump')
++    # INITIAL_CONTENT = os.path.join(get_mission_data_path('git'), 'git-initial.gitdump')
+     
+     def __init__(self, username):
+         self.username = username
+@@ -30,9 +30,22 @@ class GitBasicRepository(object):
+         self.public_url = settings.GIT_REPO_URL_PREFIX + username
+         
+     def reset(self):
++        print self.repo_path # debug 
+         if os.path.isdir(self.repo_path):
+             shutil.rmtree(self.repo_path)
+         subprocess.check_call(['git', 'init', self.repo_path])
++        hello_file = open(self.repo_path + '/hello.py', 'w')
++        hello_file.write('#! usr/env/bin python/nprint "Goodbye world!')
++        hello_file.close()
++        subprocess.check_call(['git', 'commit', '-a', '-m', '"Initial commit"'])
++        set_mission_completed(person, 'git_checkout')
+         
+-        
+-    
+\ No newline at end of file
++    def exists(self):
++        return os.path.isdir(self.repo_path)
++
++class GitCheckoutMission(object):
++    SECRET_WORD_FILE = 'word.txt'
++
++    @classmethod
++    def get_secret_word(cls, username):
++        return SvnRepository(username).cat('/trunk/' + cls.SECRET_WORD_FILE).strip()
+\ No newline at end of file
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+index ffef9d4..a5426c3 100644
+--- a/mysite/missions/git/views.py
++++ b/mysite/missions/git/views.py
+@@ -28,7 +28,7 @@ from mysite.missions.git import controllers, forms
+ def resetrepo(request):
+     if request.method != 'POST':
+         return HttpResponseNotAllowed(['POST'])
+-    controllers.GitBasicRepository(request.user.username).reset()
++    controllers.GitRepository(request.user.username).reset()
+     controllers.unset_mission_completed(request.user.get_profile(), 'git_checkout')
+     controllers.unset_mission_completed(request.user.get_profile(), 'git_diff')
+     controllers.unset_mission_completed(request.user.get_profile(), 'git_commit')
+@@ -46,7 +46,7 @@ def checkout_submit(request):
+     if request.method == 'POST':
+         form = forms.CheckoutForm(request.POST)
+         if form.is_valid():
+-            if form.cleaned_data['secret_word'] == controllers.GitBasicCheckoutMission.get_secret_word(request.user.username):
++            if form.cleaned_data['secret_word'] == controllers.GitCheckoutMission.get_secret_word(request.user.username):
+                 controllers.set_mission_completed(request.user.get_profile(), 'git_checkout')
+                 return HttpResponseRedirect(reverse(checkout))
+             else:
+@@ -55,16 +55,16 @@ def checkout_submit(request):
+     return checkout(request, data)
+ 
+ ### State manager
+-class GitBasicMissionPageState(MissionPageState):
++class GitMissionPageState(MissionPageState):
+     def __init__(self, request, passed_data):
+-        super(GitBasicMissionPageState, self).__init__(request, passed_data, 'Using Git')
++        super(GitMissionPageState, self).__init__(request, passed_data, 'Using Git')
+ 
+     def as_dict_for_template_context(self):
+         (data, person) = self.get_base_data_dict_and_person()
+         if person:
+-            repo = controllers.GitBasicRepository(self.request.user.username)
++            repo = controllers.GitRepository(self.request.user.username)
+             data.update({
+-                'repository_exists': False, #repo.exists(),
++                'repository_exists': repo.exists(),
+                 'git_checkout_done': False, #controllers.mission_completed(person, 'git_checkout'),
+                 'git_diff_done': False, #controllers.mission_completed(person, 'git_diff'),
+                 'git_commit_done': False, #controllers.mission_completed(person, 'git_commit'),
+@@ -72,11 +72,6 @@ class GitBasicMissionPageState(MissionPageState):
+             if data['repository_exists']:
+               data.update({
+                 'checkout_url': repo.public_url,
+-                'secret_word_file': controllers.GitBasicCheckoutMission.SECRET_WORD_FILE,
+-                'file_for_git_diff': controllers.GitBasicDiffMission.FILE_TO_BE_PATCHED,
+-                'new_secret_word': controllers.GitBasicCommitMission.NEW_SECRET_WORD,
+-                'commit_username': self.request.user.username,
+-                'commit_password': repo.get_password()
+               })
+         return data
+ 
+@@ -86,14 +81,14 @@ class GitBasicMissionPageState(MissionPageState):
+ 
+ @view
+ def main_page(request, passed_data = None):
+-    state = GitBasicMissionPageState(request, passed_data)
++    state = GitMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'Start page'
+     return (request, 'missions/git/main_page.html',
+             state.as_dict_for_template_context())
+ 
+ @view
+ def long_description(request, passed_data = None):
+-    state = GitBasicMissionPageState(request, passed_data)
++    state = GitMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'About Git'
+     return (request, 'missions/git/about_git.html',
+             state.as_dict_for_template_context())
+@@ -101,7 +96,7 @@ def long_description(request, passed_data = None):
+ @login_required
+ @view
+ def checkout(request, passed_data = None):
+-    state = GitBasicMissionPageState(request, passed_data)
++    state = GitMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'Cloning'
+     data = state.as_dict_for_template_context()
+     data['git_checkout_form'] = forms.CheckoutForm()
+diff --git a/mysite/missions/git_basic/__init__.py b/mysite/missions/git_basic/__init__.py
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/mysite/missions/git_basic/controllers.py b/mysite/missions/git_basic/controllers.py
+deleted file mode 100644
+index d3eb1b9..0000000
+--- a/mysite/missions/git_basic/controllers.py
++++ /dev/null
+@@ -1,36 +0,0 @@
+-# This file is part of OpenHatch.
+-# Copyright (C) 2010 Jack Grigg
+-# Copyright (C) 2010 John Stumpo
+-# Copyright (C) 2010, 2011 OpenHatch, Inc.
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-
+-from mysite.missions.base.controllers import *
+-
+-class GitBasicRepository(object):
+-    
+-    # Below needs to be adjusted for beginning data
+-    INITIAL_CONTENT = os.path.join(get_mission_data_path('git_basic'), 'git-initial.gitdump')
+-    
+-    def __init__(self, username):
+-        self.username = username
+-        self.repo_path = os.path.join(settings.GIT_REPO_PATH, username)
+-        self.file_url = 'file://' + self.repo_path
+-        self.public_url = settings.GIT_REPO_URL_PREFIX + username
+-        
+-    def reset(self):
+-        # Need to create this method!
+-        pass
+-        
+-    
+\ No newline at end of file
+diff --git a/mysite/missions/git_basic/forms.py b/mysite/missions/git_basic/forms.py
+deleted file mode 100644
+index 995ef77..0000000
+--- a/mysite/missions/git_basic/forms.py
++++ /dev/null
+@@ -1,25 +0,0 @@
+-# This file is part of OpenHatch.
+-# Copyright (C) 2010 Jack Grigg
+-# Copyright (C) 2010 John Stumpo
+-# Copyright (C) 2010, 2011 OpenHatch, Inc.
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-
+-import django.forms
+-
+-class CheckoutForm(django.forms.Form):
+-    secret_word = django.forms.CharField(error_messages={'required': 'No secret word was given.'})
+-
+-class DiffForm(django.forms.Form):
+-    diff = django.forms.CharField(error_messages={'required': 'No git diff output was given.'}, widget=django.forms.Textarea())
+diff --git a/mysite/missions/git_basic/models.py b/mysite/missions/git_basic/models.py
+deleted file mode 100644
+index 71a8362..0000000
+--- a/mysite/missions/git_basic/models.py
++++ /dev/null
+@@ -1,3 +0,0 @@
+-from django.db import models
+-
+-# Create your models here.
+diff --git a/mysite/missions/git_basic/tests.py b/mysite/missions/git_basic/tests.py
+deleted file mode 100644
+index 2247054..0000000
+--- a/mysite/missions/git_basic/tests.py
++++ /dev/null
+@@ -1,23 +0,0 @@
+-"""
+-This file demonstrates two different styles of tests (one doctest and one
+-unittest). These will both pass when you run "manage.py test".
+-
+-Replace these with more appropriate tests for your application.
+-"""
+-
+-from django.test import TestCase
+-
+-class SimpleTest(TestCase):
+-    def test_basic_addition(self):
+-        """
+-        Tests that 1 + 1 always equals 2.
+-        """
+-        self.failUnlessEqual(1 + 1, 2)
+-
+-__test__ = {"doctest": """
+-Another way to test that 1 + 1 is equal to 2.
+-
+->>> 1 + 1 == 2
+-True
+-"""}
+-
+diff --git a/mysite/missions/git_basic/views.py b/mysite/missions/git_basic/views.py
+deleted file mode 100644
+index f27bde6..0000000
+--- a/mysite/missions/git_basic/views.py
++++ /dev/null
+@@ -1,92 +0,0 @@
+-# This file is part of OpenHatch.
+-# Copyright (C) 2010, 2011 OpenHatch, Inc.
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-
+-from mysite.missions.base.views import *
+-from mysite.missions.git_basic import controllers, forms
+-
+-
+-### POST handlers
+-###
+-### Forms submit to this, and we use these to validate input and/or
+-### modify the information stored about the user, such as recording
+-### that a mission was successfully completed.
+-
+-@login_required
+-def resetrepo(request):
+-    if request.method != 'POST':
+-        return HttpResponseNotAllowed(['POST'])
+-    # controllers.GitBasicRepository(request.user.username).reset()
+-    controllers.unset_mission_completed(request.user.get_profile(), 'git_basic_checkout')
+-    controllers.unset_mission_completed(request.user.get_profile(), 'git_basic_diff')
+-    controllers.unset_mission_completed(request.user.get_profile(), 'git_basic_commit')
+-    if 'stay_on_this_page' in request.GET:
+-        return HttpResponseRedirect(reverse(main_page))
+-    else:
+-        return HttpResponseRedirect(reverse(checkout))
+-
+-
+-### State manager
+-class GitBasicMissionPageState(MissionPageState):
+-    def __init__(self, request, passed_data):
+-        super(GitBasicMissionPageState, self).__init__(request, passed_data, 'Using Git')
+-
+-    def as_dict_for_template_context(self):
+-        (data, person) = self.get_base_data_dict_and_person()
+-        if person:
+-            repo = controllers.GitBasicRepository(self.request.user.username)
+-            data.update({
+-                'repository_exists': False, #repo.exists(),
+-                'git_checkout_done': False, #controllers.mission_completed(person, 'git_checkout'),
+-                'git_diff_done': False, #controllers.mission_completed(person, 'git_diff'),
+-                'git_commit_done': False, #controllers.mission_completed(person, 'git_commit'),
+-            })
+-            '''if data['repository_exists']:
+-              data.update({
+-                'checkout_url': repo.public_trunk_url(),
+-                'secret_word_file': controllers.GitBasicCheckoutMission.SECRET_WORD_FILE,
+-                'file_for_git_diff': controllers.GitBasicDiffMission.FILE_TO_BE_PATCHED,
+-                'new_secret_word': controllers.GitBasicCommitMission.NEW_SECRET_WORD,
+-                'commit_username': self.request.user.username,
+-                'commit_password': repo.get_password()
+-              })'''
+-        return data
+-
+-
+-
+-### Normal GET handlers. These are usually pretty short.
+-
+-@view
+-def main_page(request, passed_data = None):
+-    state = GitBasicMissionPageState(request, passed_data)
+-    state.this_mission_page_short_name = 'Start page'
+-    return (request, 'missions/git_basic/main_page.html',
+-            state.as_dict_for_template_context())
+-
+-@view
+-def long_description(request, passed_data = None):
+-    state = GitBasicMissionPageState(request, passed_data)
+-    state.this_mission_page_short_name = 'About Git'
+-    return (request, 'missions/git_basic/about_git.html',
+-            state.as_dict_for_template_context())
+-
+-@login_required
+-@view
+-def checkout(request, passed_data = None):
+-    state = GitBasicMissionPageState(request, passed_data)
+-    state.this_mission_page_short_name = 'Cloning'
+-    data = state.as_dict_for_template_context()
+-    data['git_basic_checkout_form'] = forms.CheckoutForm()
+-    return (request, 'missions/git_basic/checkout.html', data)
+\ No newline at end of file
+diff --git a/mysite/missions/templates/missions/git/main_page.html b/mysite/missions/templates/missions/git/main_page.html
+index f25b057..fe29e64 100644
+--- a/mysite/missions/templates/missions/git/main_page.html
++++ b/mysite/missions/templates/missions/git/main_page.html
+@@ -43,9 +43,7 @@ mysite.missions.git.views.long_description %}">more about Git</a>.</p>
+ <p>You already have a repository that you can use for these missions, but if
+ you want to start over fresh, you can reset it.</p>
+ 
+-<form method="post" action="{% url mysite.missions.git.views.resetrepo
+-%}?stay_on_this_page=1" onsubmit="return confirm('Are you sure you want to
+-reset your repository to its original state?');">
++<form method="post" action="{% url mysite.missions.git.views.resetrepo %}" onsubmit="return confirm('Are you sure you want to reset your repository to its original state?');">
+     <input type="submit" value="Reset your repository" />
+ </form><br style="clear: left;" />
+ 
+diff --git a/mysite/missions/templates/missions/git_basic/about_git.html b/mysite/missions/templates/missions/git_basic/about_git.html
+deleted file mode 100644
+index 603fe3e..0000000
+--- a/mysite/missions/templates/missions/git_basic/about_git.html
++++ /dev/null
+@@ -1,46 +0,0 @@
+-{% extends 'missions/git_basic/base.html' %}
+-{% comment %}
+-# This file is part of OpenHatch.
+-# Copyright (C) 2010, 2011 OpenHatch, Inc.
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-{% endcomment %}
+-
+-
+-{% block mission_main_body %}
+-
+-<p>Git is a version control system (VCS) created by Linux Torvalds,  the creator of the Linux kernel. Git is known as a 'distributed” VCS, or DVCS. This means that each user's copy of the code is a fully working repository and includes all previous commit information.  Rather than connecting to a remote server as you would with Subversion or CVS, users can work productively offline, choosing to later sync their changes with a remote repository or create a patch file.</p>
+-
+-<p>The purpose of this mission is to teach you how to clone a remote repository, make changes to a file, check them into your local copy, and finally create a patch file.</p>
+-
+-<h3>Preparing for the mission</h3>
+-<ul class="raquo_bullets">
+-  <li>Install git onto your machine.  In linux, the package is typically named "git-core" and is likely available via your package manager.  The <a href="http://git-scm.com/download">git website</a> contains options for downloading the latest version and builds for other platforms.</li>
+-  <li>Configure your user name: git config –global user.name 'First Last'</li>
+-  <li>Configure your user email: git config –global user.email 'name@domain.com'</li>
+-</ul>
+-
+-{% if user.is_authenticated %}
+-<p>(If your project recommends this tutorial to newcomers, we can put you in a list here!)</p>
+-{% endif %}
+-<p>
+-<h3>Other resources</h3>
+-
+-<ul class="raquo_bullets">
+-  <li>The <a href="http://git-scm.com/">website</a> for the git project contains a quickstart guide and links to <a href="http://git-scm.com/documentation"> other useful resources</a>.</li>
+-  <li>The <a href="http://book.git-scm.com/"> Git Community Book</a> is a wonderful resource for more in depth explanation of git's features.</li>
+-  <li>Many git users chat on the #git channel on IRC</li>
+-</ul>
+-</p>
+-{% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/git_basic/base.html b/mysite/missions/templates/missions/git_basic/base.html
+deleted file mode 100644
+index 9f96aec..0000000
+--- a/mysite/missions/templates/missions/git_basic/base.html
++++ /dev/null
+@@ -1,38 +0,0 @@
+-{% extends 'missions/mission_base.html' %}
+-{% comment %}
+-# This file is part of OpenHatch.
+-# Copyright (C) 2010 Jack Grigg
+-# Copyright (C) 2010 OpenHatch, Inc.
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-{% endcomment %}
+-
+-
+-{% block side_nav_links %}
+-<li id='link-main_page'>
+-  <a href='{% url mysite.missions.git_basic.views.main_page %}'>
+-    Mission start page
+-  </a>
+-</li>
+-<li id='link-long_description'>
+-  <a href='{% url mysite.missions.git_basic.views.long_description %}'>
+-    About Git
+-  </a>
+-</li>
+-<li id='link-checkout'>
+-  <a href='{% url mysite.missions.git_basic.views.checkout %}'>
+-    Cloning a project
+-  </a>
+-</li>
+-{% endblock side_nav_links %}
+diff --git a/mysite/missions/templates/missions/git_basic/checkout.html b/mysite/missions/templates/missions/git_basic/checkout.html
+deleted file mode 100644
+index ac14a38..0000000
+--- a/mysite/missions/templates/missions/git_basic/checkout.html
++++ /dev/null
+@@ -1,29 +0,0 @@
+-{% extends 'missions/git_basic/base.html' %}
+-{% comment %}
+-# This file is part of OpenHatch.
+-# Copyright (C) 2010 Jack Grigg
+-# Copyright (C) 2010 OpenHatch, Inc.
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-{% endcomment %}
+-
+-
+-{% block mission_main_body %}
+-<p>You can clone the repository by running:<br style="clear: left;" />
+-  <code>git clone {{ checkout_url }} git_missions</code></p>
+-
+-
+-
+-
+-{% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/git_basic/main_page.html b/mysite/missions/templates/missions/git_basic/main_page.html
+deleted file mode 100644
+index f9a0a95..0000000
+--- a/mysite/missions/templates/missions/git_basic/main_page.html
++++ /dev/null
+@@ -1,71 +0,0 @@
+-{% extends 'missions/git_basic/base.html' %}
+-{% comment %}
+-# This file is part of OpenHatch.
+-# Copyright (C) 2010, 2011 OpenHatch, Inc.
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-{% endcomment %}
+-
+-
+-{% block mission_main_body %}
+-<h3>The set-up</h3>
+-
+-<p>Somobody out there tried to write a 'Hello, world!" program, but they wrote
+-it as "Goodbye, world!". What a mess! Luckily, you can step in and submit a
+-patch.  I bet the maintainer would gladly accept it too!</p>
+-
+-<h3>Audience</h3>
+-
+-<p>The inded audience are new contributors to open source. If you can edit a
+-text file and use a terminal, you can complete this mission. </p>
+-
+-<h3>What you'll learn</h3>
+-
+-<p>You will learn how to clone a git repository, make a commit, submit a patch,
+-and rebase your work onto the new version provided by the maintainer.</p>
+-
+-<p>If you want to know more about git, read <a href="{% url
+-mysite.missions.git_basic.views.long_description %}">more about Git</a>.</p>
+-
+-{% if user.is_authenticated %}
+-{% if repository_exists %}
+-<p>You already have a repository that you can use for these missions, but if
+-you want to start over fresh, you can reset it.</p>
+-
+-<form method="post" action="{% url mysite.missions.git_basic.views.resetrepo
+-%}?stay_on_this_page=1" onsubmit="return confirm('Are you sure you want to
+-reset your repository to its original state?');">
+-    <input type="submit" value="Reset your repository" />
+-</form><br style="clear: left;" />
+-
+-<p class="next_mission_link">
+-  <a href="{% url mysite.missions.git_basic.views.checkout %}">Checking out a
+-  working copy &raquo;</a></p>
+-  {% else %}
+-  <p>To do these missions, you will need to make a personal repository.  Your
+-  repository will reside on the OpenHatch server, specifically for your use in
+-  these missions.  Then you can go on and interact with it.</p>
+-
+-<form method="post" action="{% url mysite.missions.git_basic.views.resetrepo %}">
+-  <input type="submit" value="Create your repository and start the missions &raquo;" />
+-  </form><br style="clear: left;" />
+-
+-  {% endif %}
+-
+-  {% else %}
+-  <p>If you were logged in, you could create a repository that you could use to
+-  do these missions.</p>
+-  {% endif %}
+-
+-  {% endblock mission_main_body %}
+diff --git a/mysite/missions/templates/missions/main.html b/mysite/missions/templates/missions/main.html
+index 5151cdf..4c3aba6 100644
+--- a/mysite/missions/templates/missions/main.html
++++ b/mysite/missions/templates/missions/main.html
+@@ -88,7 +88,7 @@ Open source training missions
+             <p><em>You have partially completed this mission.</em></p>
+         {% endif %}
+     {% endif %}
+-    <p><a href="{% url mysite.missions.git_basic.views.main_page %}">Go to this
++    <p><a href="{% url mysite.missions.git.views.main_page %}">Go to this
+     mission</a></p>
+ 
+   </div>
+diff --git a/mysite/urls.py b/mysite/urls.py
+index bf9b569..da7baec 100644
+--- a/mysite/urls.py
++++ b/mysite/urls.py
+@@ -129,10 +129,11 @@ urlpatterns = patterns('',
+         (r'^missions/svn/commit$', 'mysite.missions.svn.views.commit'),
+         (r'^missions/svn/commit/poll$', 'mysite.missions.svn.views.commit_poll'),
+ 
+-        (r'^missions/git_basic$', 'mysite.missions.git_basic.views.main_page'),
+-        (r'^missions/git_basic/description$', 'mysite.missions.git_basic.views.long_description'),
+-        (r'^missions/git_basic/checkout$', 'mysite.missions.git_basic.views.checkout'),
+-        (r'^missions/git_basic/resetrepo$', 'mysite.missions.git_basic.views.resetrepo'),
++        (r'^missions/git$', 'mysite.missions.git.views.main_page'),
++        (r'^missions/git/description$', 'mysite.missions.git.views.long_description'),
++        (r'^missions/git/checkout$', 'mysite.missions.git.views.checkout'),
++        (r'^missions/git/resetrepo$', 'mysite.missions.git.views.resetrepo'),
++        (r'^missions/git/checkout/submit$', 'mysite.missions.git.views.checkout_submit'),
+ 
+         # Customs-related URLs
+         (r'^customs/$', 'mysite.customs.views.list_trackers'),
+-- 
+1.7.2.5
+
+
+From a26b44864bd495f4c807df01a1f1ff463cdae315 Mon Sep 17 00:00:00 2001
+From: Mark Freeman <mark@timewasted.net>
+Date: Sun, 27 Mar 2011 13:59:44 -0400
+Subject: [PATCH 4/9] "Initial commit"
+
+---
+ mysite/missions/git/controllers.py |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index 0206303..8d98673 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -28,6 +28,7 @@ class GitRepository(object):
+         self.repo_path = os.path.join(settings.GIT_REPO_PATH, username)
+         self.file_url = 'file://' + self.repo_path
+         self.public_url = settings.GIT_REPO_URL_PREFIX + username
++        self.person = Person.objects.get(user__username=username)
+         
+     def reset(self):
+         print self.repo_path # debug 
+-- 
+1.7.2.5
+
+
+From 02838d2fbbe6cf6f58f56efee7acba52fad2ccf7 Mon Sep 17 00:00:00 2001
+From: Mark Freeman <mark@timewasted.net>
+Date: Sun, 27 Mar 2011 14:00:44 -0400
+Subject: [PATCH 5/9] "Initial commit"
+
+---
+ mysite/missions/git/controllers.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index 8d98673..48d004e 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -28,7 +28,6 @@ class GitRepository(object):
+         self.repo_path = os.path.join(settings.GIT_REPO_PATH, username)
+         self.file_url = 'file://' + self.repo_path
+         self.public_url = settings.GIT_REPO_URL_PREFIX + username
+-        self.person = Person.objects.get(user__username=username)
+         
+     def reset(self):
+         print self.repo_path # debug 
+@@ -39,6 +38,7 @@ class GitRepository(object):
+         hello_file.write('#! usr/env/bin python/nprint "Goodbye world!')
+         hello_file.close()
+         subprocess.check_call(['git', 'commit', '-a', '-m', '"Initial commit"'])
++        person = Person.objects.get(user__username=username)
+         set_mission_completed(person, 'git_checkout')
+         
+     def exists(self):
+-- 
+1.7.2.5
+
+
+From 8f4952d3eddfd02b1ccccd8605f0003f17b6f937 Mon Sep 17 00:00:00 2001
+From: Mark Freeman <mark@timewasted.net>
+Date: Sun, 27 Mar 2011 14:01:38 -0400
+Subject: [PATCH 6/9] "Initial commit"
+
+---
+ mysite/missions/git/controllers.py |    3 +--
+ 1 files changed, 1 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index 48d004e..71a4c73 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -30,7 +30,6 @@ class GitRepository(object):
+         self.public_url = settings.GIT_REPO_URL_PREFIX + username
+         
+     def reset(self):
+-        print self.repo_path # debug 
+         if os.path.isdir(self.repo_path):
+             shutil.rmtree(self.repo_path)
+         subprocess.check_call(['git', 'init', self.repo_path])
+@@ -38,7 +37,7 @@ class GitRepository(object):
+         hello_file.write('#! usr/env/bin python/nprint "Goodbye world!')
+         hello_file.close()
+         subprocess.check_call(['git', 'commit', '-a', '-m', '"Initial commit"'])
+-        person = Person.objects.get(user__username=username)
++        person = Person.objects.get(user__username=self.username)
+         set_mission_completed(person, 'git_checkout')
+         
+     def exists(self):
+-- 
+1.7.2.5
+
+
+From 3e83745300027c33524f029211e169076932082f Mon Sep 17 00:00:00 2001
+From: Mark Freeman <mark@timewasted.net>
+Date: Sun, 27 Mar 2011 14:03:16 -0400
+Subject: [PATCH 7/9] "Initial commit"
+
+---
+ mysite/missions/git/controllers.py |    5 +++--
+ 1 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index 71a4c73..150305f 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -37,8 +37,9 @@ class GitRepository(object):
+         hello_file.write('#! usr/env/bin python/nprint "Goodbye world!')
+         hello_file.close()
+         subprocess.check_call(['git', 'commit', '-a', '-m', '"Initial commit"'])
+-        person = Person.objects.get(user__username=self.username)
+-        set_mission_completed(person, 'git_checkout')
++        #TODO need to fix whatever is going on below.  Doesn't work.
++        #person = Person.objects.get(user__username=self.username)
++        #set_mission_completed(person, 'git_checkout')
+         
+     def exists(self):
+         return os.path.isdir(self.repo_path)
+-- 
+1.7.2.5
+
+
+From a33690aa52c5129daf61c48c5f939acf1fce700d Mon Sep 17 00:00:00 2001
+From: Mark Freeman <mark@timewasted.net>
+Date: Sun, 27 Mar 2011 14:24:49 -0400
+Subject: [PATCH 8/9] "Initial commit"
+
+---
+ mysite/missions/fixtures/initial_data.json |    4 ++++
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/missions/fixtures/initial_data.json b/mysite/missions/fixtures/initial_data.json
+index 7b14a2c..137014d 100644
+--- a/mysite/missions/fixtures/initial_data.json
++++ b/mysite/missions/fixtures/initial_data.json
+@@ -35,4 +35,8 @@
+    "pk": 9,
+    "fields": {"name": "svn_commit"}
+   }
++    {"model": "missions.Step",
++   "pk": 10,
++   "fields": {"name": "git_checkout"}
++  },
+ ]
+-- 
+1.7.2.5
+
+
+From e8ece88ea70cc14774cda38605ca07ce92f4232a Mon Sep 17 00:00:00 2001
+From: Mark Freeman <mark@timewasted.net>
+Date: Mon, 18 Apr 2011 16:43:54 -0500
+Subject: [PATCH 9/9] Git Mission. Prep for upload of patch.
+
+---
+ mysite/missions-userdata/git/README                |   18 +---
+ mysite/missions-userdata/git/timewasted            |    1 +
+ mysite/missions/fixtures/initial_data.json         |   12 ++-
+ mysite/missions/git/controllers.py                 |   33 ++++---
+ mysite/missions/git/data/hello.patch               |   22 ++++
+ mysite/missions/git/data/hello.py                  |    4 +
+ mysite/missions/git/forms.py                       |    3 +
+ mysite/missions/git/tests.py                       |  107 ++++++++++++++++----
+ mysite/missions/git/views.py                       |   66 +++++++++++-
+ mysite/missions/templates/missions/git/base.html   |   10 ++
+ mysite/missions/templates/missions/git/diff.html   |   63 ++++++++++++
+ .../missions/templates/missions/git/main_page.html |    4 +-
+ mysite/missions/templates/missions/git/rebase.html |   62 +++++++++++
+ mysite/missions/templates/missions/main.html       |    4 +-
+ mysite/missions/tests.py                           |    2 +
+ mysite/urls.py                                     |    4 +
+ 16 files changed, 358 insertions(+), 57 deletions(-)
+ create mode 160000 mysite/missions-userdata/git/timewasted
+ create mode 100644 mysite/missions/git/data/hello.patch
+ create mode 100644 mysite/missions/git/data/hello.py
+ create mode 100644 mysite/missions/templates/missions/git/diff.html
+ create mode 100644 mysite/missions/templates/missions/git/rebase.html
+
+diff --git a/mysite/missions-userdata/git/README b/mysite/missions-userdata/git/README
+index ee61f08..bdd3f3f 100644
+--- a/mysite/missions-userdata/git/README
++++ b/mysite/missions-userdata/git/README
+@@ -1,16 +1,8 @@
+-This directory contains users' Subversion repositories for the
+-Subversion-related training missions.  To make them accessible (and
+-therefore make it possible for users to do the svn missions), you will
+-have to serve this directory out using svnserve, as we use an svnserve-
+-specific authentication mechanism for commits.
++This directory contains users' Git repositories for the
++Git-related training missions.  To make them accessible (and
++therefore make it possible for users to do the git missions), you will
++have to serve this directory out.
+ 
+-However you go about doing that, set SVN_REPO_URL_PREFIX in settings.py
++However you go about doing that, set GIT_REPO_URL_PREFIX in settings.py
+ to whatever URL points to this directory.
+ 
+-For example, OpenHatch itself uses the following inetd.conf line:
+-svn stream tcp nowait deploy /usr/bin/svnserve svnserve --inetd --root /home/deploy/milestone-a/mysite/missions-userdata/svn/
+-
+-
+-(In addition to providing this information, this file is present to
+-make sure the directory it is in exists because Git won't version empty
+-directories.)
+diff --git a/mysite/missions-userdata/git/timewasted b/mysite/missions-userdata/git/timewasted
+new file mode 160000
+index 0000000..ed1a72e
+--- /dev/null
++++ b/mysite/missions-userdata/git/timewasted
+@@ -0,0 +1 @@
++Subproject commit ed1a72ecabbadcbf0067e45fa05503350b2fac8d
+diff --git a/mysite/missions/fixtures/initial_data.json b/mysite/missions/fixtures/initial_data.json
+index 137014d..6e69913 100644
+--- a/mysite/missions/fixtures/initial_data.json
++++ b/mysite/missions/fixtures/initial_data.json
+@@ -34,9 +34,17 @@
+   {"model": "missions.Step",
+    "pk": 9,
+    "fields": {"name": "svn_commit"}
+-  }
+-    {"model": "missions.Step",
++  },
++  {"model": "missions.Step",
+    "pk": 10,
+    "fields": {"name": "git_checkout"}
+   },
++  {"model": "missions.Step",
++   "pk": 11,
++   "fields": {"name": "git_diff"}
++  },
++  {"model": "missions.Step",
++   "pk": 12,
++   "fields": {"name": "git_rebase"}
++  }
+ ]
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index 150305f..bfa2ce0 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -20,9 +20,6 @@ from mysite.missions.base.controllers import *
+ 
+ class GitRepository(object):
+     
+-    # Below needs to be adjusted for beginning data
+-    # INITIAL_CONTENT = os.path.join(get_mission_data_path('git'), 'git-initial.gitdump')
+-    
+     def __init__(self, username):
+         self.username = username
+         self.repo_path = os.path.join(settings.GIT_REPO_PATH, username)
+@@ -33,20 +30,28 @@ class GitRepository(object):
+         if os.path.isdir(self.repo_path):
+             shutil.rmtree(self.repo_path)
+         subprocess.check_call(['git', 'init', self.repo_path])
+-        hello_file = open(self.repo_path + '/hello.py', 'w')
+-        hello_file.write('#! usr/env/bin python/nprint "Goodbye world!')
+-        hello_file.close()
+-        subprocess.check_call(['git', 'commit', '-a', '-m', '"Initial commit"'])
+-        #TODO need to fix whatever is going on below.  Doesn't work.
+-        #person = Person.objects.get(user__username=self.username)
+-        #set_mission_completed(person, 'git_checkout')
++        subprocess.Popen(['git', 'config', 'user.name', '"The Brain"'], cwd=self.repo_path)
++        subprocess.Popen(['cp', '../../../missions/git/data/hello.py', '.'], cwd=self.repo_path)
++        subprocess.Popen(['git', 'add', '.'], cwd=self.repo_path)
++        subprocess.Popen(['git', 'commit', '-m', '"Initial commit"'], cwd=self.repo_path)
++        person = Person.objects.get(user__username=self.username)
+         
+     def exists(self):
+         return os.path.isdir(self.repo_path)
+ 
+-class GitCheckoutMission(object):
+-    SECRET_WORD_FILE = 'word.txt'
++class GitDiffMission(object):
+ 
+     @classmethod
+-    def get_secret_word(cls, username):
+-        return SvnRepository(username).cat('/trunk/' + cls.SECRET_WORD_FILE).strip()
+\ No newline at end of file
++    def validate_diff_and_commit_if_ok(cls, username, diff):
++        EXPECTED_DIFF_LINE = '+print "Hello world!"'
++        success_count = diff.find(EXPECTED_DIFF_LINE)
++        repo = GitRepository(username)
++        if success_count != -1:
++            subprocess.Popen(['git', 'apply', '../../../missions/git/data/hello.patch'], cwd=repo.repo_path)
++            commit_msg = """Fixed a terrible mistake. Thanks for reporting this %s. 
++                Come to my house for a dinner party.  
++                Knock 3 times and give the secret password: Pinky.""" % username
++            subprocess.Popen(['git', 'commit', '-a', '-m', '"' + commit_msg + '"'], cwd=repo.repo_path)
++            return True
++        else:
++            return False
+\ No newline at end of file
+diff --git a/mysite/missions/git/data/hello.patch b/mysite/missions/git/data/hello.patch
+new file mode 100644
+index 0000000..33a8628
+--- /dev/null
++++ b/mysite/missions/git/data/hello.patch
+@@ -0,0 +1,22 @@
++From be60b4f864c862e353079eea2659f3989e32ddd9 Mon Sep 17 00:00:00 2001
++From: The Brain <the.brain@pinkyandthebrain.com>
++Date: Sun, 3 Apr 2011 17:22:00 -0500
++Subject: [PATCH] Thanks.
++
++---
++ hello.py |    2 +-
++ 1 files changed, 1 insertions(+), 1 deletions(-)
++
++diff --git a/hello.py b/hello.py
++index 680b306..21dec4d 100644
++--- a/hello.py
+++++ b/hello.py
++@@ -1,4 +1,4 @@
++ #! /usr/bin/env python
++ 
++ #Author: The Brain
++-print "Goodbye world!"
+++print "Hello world!"
++-- 
++1.7.2.5
++
+diff --git a/mysite/missions/git/data/hello.py b/mysite/missions/git/data/hello.py
+new file mode 100644
+index 0000000..680b306
+--- /dev/null
++++ b/mysite/missions/git/data/hello.py
+@@ -0,0 +1,4 @@
++#! /usr/bin/env python
++
++#Author: The Brain
++print "Goodbye world!"
+diff --git a/mysite/missions/git/forms.py b/mysite/missions/git/forms.py
+index 6b3d3d9..5f6144f 100644
+--- a/mysite/missions/git/forms.py
++++ b/mysite/missions/git/forms.py
+@@ -23,3 +23,6 @@ class CheckoutForm(django.forms.Form):
+ 
+ class DiffForm(django.forms.Form):
+     diff = django.forms.CharField(error_messages={'required': 'No git diff output was given.'}, widget=django.forms.Textarea())
++
++class RebaseForm(django.forms.Form):
++    secret_word = django.forms.CharField(error_messages={'required': 'The password was incorrect.'})
+diff --git a/mysite/missions/git/tests.py b/mysite/missions/git/tests.py
+index 2247054..668eeca 100644
+--- a/mysite/missions/git/tests.py
++++ b/mysite/missions/git/tests.py
+@@ -1,23 +1,94 @@
+-"""
+-This file demonstrates two different styles of tests (one doctest and one
+-unittest). These will both pass when you run "manage.py test".
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 John Stumpo
++# Copyright (C) 2010, 2011 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Affero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-Replace these with more appropriate tests for your application.
+-"""
++from mysite.missions.base.tests import *
++from mysite.missions.git import views, controllers
+ 
+-from django.test import TestCase
++class GitViewTestsWhileLoggedOut(TwillTests):
++    fixtures = ['user-paulproteus', 'person-paulproteus']
+ 
+-class SimpleTest(TestCase):
+-    def test_basic_addition(self):
+-        """
+-        Tests that 1 + 1 always equals 2.
+-        """
+-        self.failUnlessEqual(1 + 1, 2)
++    def setUp(self):
++        TwillTests.setUp(self)
++        self.client = self.login_with_client()
++        self.client.logout()
+ 
+-__test__ = {"doctest": """
+-Another way to test that 1 + 1 is equal to 2.
+-
+->>> 1 + 1 == 2
+-True
+-"""}
++    def test_main_page_does_not_complain_about_prereqs_even_if_logged_out(self):
++        response = self.client.get(reverse(views.main_page))
++        self.assertTrue(response.context[0]['mission_step_prerequisites_passed'])
++        
++class GitViewTests(TwillTests):
++    fixtures = ['user-paulproteus', 'person-paulproteus']
+ 
++    def setUp(self):
++        TwillTests.setUp(self)
++        self.client = self.login_with_client()
++        self.repo_path = os.path.join(settings.GIT_REPO_PATH, 'paulproteus')
++        # Make sure that our test user's git repository does not exist.
++        if os.path.isdir(self.repo_path):
++            shutil.rmtree(self.repo_path)
++            
++    def test_main_page_does_not_complain_about_prereqs(self):
++        response = self.client.get(reverse(views.main_page))
++        self.assertTrue(response.context[0]['mission_step_prerequisites_passed'])
++        
++    def test_resetrepo_returns_error_with_get(self):
++        response = self.client.get(reverse(views.resetrepo))
++        self.assert_(response.status_code == 405)
++        
++    def test_resetrepo_creates_valid_repo(self):
++        self.client.post(reverse(views.resetrepo))
++        self.assertTrue(os.path.exists(self.repo_path + "/.git"))
++        
++    def test_do_checkout_mission_correctly(self):
++        word = 'the brain'
++        response = self.client.post(reverse(views.checkout_submit), {'secret_word': word})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assert_(controllers.mission_completed(paulproteus, 'git_checkout'))
++        
++    def test_do_checkout_mission_incorrectly(self):
++        word = 'the wrong word'
++        response = self.client.post(reverse(views.checkout_submit), {'secret_word': word})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assertFalse(controllers.mission_completed(paulproteus, 'git_checkout'))
++        
++    def test_do_rebase_mission_correctly(self):
++        word = 'pinky'
++        response = self.client.post(reverse(views.rebase_submit), {'secret_word': word})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assert_(controllers.mission_completed(paulproteus, 'git_rebase'))
++        
++    def test_do_rebase_mission_incorrectly(self):
++        word = 'the wrong word'
++        response = self.client.post(reverse(views.rebase_submit), {'secret_word': word})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assertFalse(controllers.mission_completed(paulproteus, 'git_rebase'))
++        
++    def test_do_diff_mission_correctly(self):
++        expected_diff = '+print "Hello world!"'
++        response = self.client.post(reverse(views.resetrepo))
++        response = self.client.post(reverse(views.diff_submit), {'diff': expected_diff})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assert_(controllers.mission_completed(paulproteus, 'git_diff'))
++        
++    def test_do_diff_mission_incorrectly(self):
++        unexpected_diff = '+print "Goodbye world!"'
++        response = self.client.post(reverse(views.resetrepo))
++        response = self.client.post(reverse(views.diff_submit), {'diff': unexpected_diff})
++        paulproteus = Person.objects.get(user__username='paulproteus')
++        self.assertFalse(controllers.mission_completed(paulproteus, 'git_diff'))
++    
+\ No newline at end of file
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+index a5426c3..e3a7eec 100644
+--- a/mysite/missions/git/views.py
++++ b/mysite/missions/git/views.py
+@@ -31,7 +31,7 @@ def resetrepo(request):
+     controllers.GitRepository(request.user.username).reset()
+     controllers.unset_mission_completed(request.user.get_profile(), 'git_checkout')
+     controllers.unset_mission_completed(request.user.get_profile(), 'git_diff')
+-    controllers.unset_mission_completed(request.user.get_profile(), 'git_commit')
++    controllers.unset_mission_completed(request.user.get_profile(), 'git_rebase')
+     if 'stay_on_this_page' in request.GET:
+         return HttpResponseRedirect(reverse(main_page))
+     else:
+@@ -46,7 +46,7 @@ def checkout_submit(request):
+     if request.method == 'POST':
+         form = forms.CheckoutForm(request.POST)
+         if form.is_valid():
+-            if form.cleaned_data['secret_word'] == controllers.GitCheckoutMission.get_secret_word(request.user.username):
++            if form.cleaned_data['secret_word'].lower() == 'the brain':
+                 controllers.set_mission_completed(request.user.get_profile(), 'git_checkout')
+                 return HttpResponseRedirect(reverse(checkout))
+             else:
+@@ -54,6 +54,40 @@ def checkout_submit(request):
+         data['git_checkout_form'] = form
+     return checkout(request, data)
+ 
++@login_required
++def diff_submit(request):
++    # Initialize data array and some default values.
++    data = {}
++    data['git_diff_form'] = forms.DiffForm()
++    data['git_diff_error_message'] = ''
++    if request.method == 'POST':
++        form = forms.DiffForm(request.POST)
++        if form.is_valid():
++                if controllers.GitDiffMission.validate_diff_and_commit_if_ok(request.user.username, form.cleaned_data['diff']):
++                    controllers.set_mission_completed(request.user.get_profile(), 'git_diff')
++                    return HttpResponseRedirect(reverse(diff))
++                else:
++                    data['git_diff_error_message'] = "The patch file is incorrect.  Give it another try!"
++        data['git_diff_form'] = form
++    return diff(request, data)
++
++@login_required
++def rebase_submit(request):
++    # Initialize data array and some default values.
++    data = {}
++    data['git_rebase_form'] = forms.RebaseForm()
++    data['git_rebase_error_message'] = ''
++    if request.method == 'POST':
++        form = forms.RebaseForm(request.POST)
++        if form.is_valid():
++            if form.cleaned_data['secret_word'].lower() == 'pinky':
++                controllers.set_mission_completed(request.user.get_profile(), 'git_rebase')
++                return HttpResponseRedirect(reverse(rebase))
++            else:
++                data['git_rebase_error_message'] = "The author's name is incorrect."
++        data['git_rebase_form'] = form
++    return checkout(request, data)
++
+ ### State manager
+ class GitMissionPageState(MissionPageState):
+     def __init__(self, request, passed_data):
+@@ -65,9 +99,9 @@ class GitMissionPageState(MissionPageState):
+             repo = controllers.GitRepository(self.request.user.username)
+             data.update({
+                 'repository_exists': repo.exists(),
+-                'git_checkout_done': False, #controllers.mission_completed(person, 'git_checkout'),
+-                'git_diff_done': False, #controllers.mission_completed(person, 'git_diff'),
+-                'git_commit_done': False, #controllers.mission_completed(person, 'git_commit'),
++                'git_checkout_done': controllers.mission_completed(person, 'git_checkout'),
++                'git_diff_done': controllers.mission_completed(person, 'git_diff'),
++                'git_rebase_done': controllers.mission_completed(person, 'git_rebase'),
+             })
+             if data['repository_exists']:
+               data.update({
+@@ -100,4 +134,24 @@ def checkout(request, passed_data = None):
+     state.this_mission_page_short_name = 'Cloning'
+     data = state.as_dict_for_template_context()
+     data['git_checkout_form'] = forms.CheckoutForm()
+-    return (request, 'missions/git/checkout.html', data)
+\ No newline at end of file
++    return (request, 'missions/git/checkout.html', data)
++
++@login_required
++@view
++def diff(request, passed_data = None):
++    state = GitMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'Diffing your changes'
++    state.mission_step_prerequisite = 'git_checkout'
++    data = state.as_dict_for_template_context()
++    data['git_diff_form'] = forms.DiffForm()
++    return (request, 'missions/git/diff.html', data)
++
++@login_required
++@view
++def rebase(request, passed_data = None):
++    state = GitMissionPageState(request, passed_data)
++    state.this_mission_page_short_name = 'Rebase'
++    state.mission_step_prerequisite = 'git_diff'
++    data = state.as_dict_for_template_context()
++    data['git_rebase_form'] = forms.RebaseForm()
++    return (request, 'missions/git/rebase.html', data)
+\ No newline at end of file
+diff --git a/mysite/missions/templates/missions/git/base.html b/mysite/missions/templates/missions/git/base.html
+index 25b5e19..5662b40 100644
+--- a/mysite/missions/templates/missions/git/base.html
++++ b/mysite/missions/templates/missions/git/base.html
+@@ -35,4 +35,14 @@
+     Cloning a project
+   </a>
+ </li>
++<li id='link-diff'>
++  <a href='{% url mysite.missions.git.views.diff %}'>
++    Creating a patch
++  </a>
++</li>
++<li id='link-rebase'>
++  <a href='{% url mysite.missions.git.views.rebase %}'>
++    Rebase and merge
++  </a>
++</li>
+ {% endblock side_nav_links %}
+diff --git a/mysite/missions/templates/missions/git/diff.html b/mysite/missions/templates/missions/git/diff.html
+new file mode 100644
+index 0000000..5f5ed10
+--- /dev/null
++++ b/mysite/missions/templates/missions/git/diff.html
+@@ -0,0 +1,63 @@
++{% extends 'missions/git/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Ayffero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_missing_prerequisite_text %}
++<p>You can't do the diffing step yet. You have to do the
++  <a href="{% url mysite.missions.git.views.checkout %}">checkout step first</a>!
++</p>
++{% endblock mission_missing_prerequisite_text %}
++
++{% block mission_main_body %}
++<p>Now that you have a copy of the repository, you can fix the problem before it spreads further.</p>
++<p>In most cases, especially when starting to contribute to an open source project, you will not have rights to commit directly to the code base. Your contributions will be sent to the project maintainers using a patch file.  This file contains the contents of your changes.  The maintainers can review your work and then merge the changes into the main project, when ready. Using these steps, you can give The Brain a patch containing your changes.  If he likes it, he'll commit it for you!</p>
++
++<p>Your mission is this:</p>
++<ul class="raquo_bullets">
++  <li>You can use your working copy from the previous mission.</li>
++  <li>The file <code>{{ file_for_git_diff }}</code> contains a terrible error.  Fix it in your working copy to print "Hello world", rather than "Goodbye world".</li>
++  <li>Check your changes into your local copy.</li>
++  <li>Run <code>git format-patch origin/master</code> to create a file containing the patch.  
++  <li>Open the patch file and paste the results in the box below.</li>
++</ul>
++
++{% if git_diff_done %}
++<div class="successmsg">
++  <p><strong>You have successfully completed this part of the mission.</strong></p>
++</div>
++<p class="next_mission_link">
++  <a href="{% url mysite.missions.git.views.rebase %}">Updating your local project with changes from the master repository &raquo;</a></p>
++{% else %}
++<form method="post" action="{% url mysite.missions.git.views.diff_submit %}#gitdiff-form">
++  <div class="form-row">
++    <a name="gitdiff-form"></a>
++    {% if git_diff_error_message %}
++    <ul class="errorlist"><li>{{ git_diff_error_message }}</li></ul>
++    {% endif %}
++    {{ git_diff_form.diff.errors }}
++    <br style="clear: left;" />
++    <code>git diff</code> output: <br style="clear: left;" />
++    {{ git_diff_form.diff }}
++    <br style="clear: left;" />
++    <input type="submit" value="Submit" style="float: none;" />
++  </div>
++</form>
++{% endif %}
++{% endblock %}
+diff --git a/mysite/missions/templates/missions/git/main_page.html b/mysite/missions/templates/missions/git/main_page.html
+index fe29e64..2f0b4d3 100644
+--- a/mysite/missions/templates/missions/git/main_page.html
++++ b/mysite/missions/templates/missions/git/main_page.html
+@@ -27,7 +27,7 @@ patch.  I bet the maintainer would gladly accept it too!</p>
+ 
+ <h3>Audience</h3>
+ 
+-<p>The inded audience are new contributors to open source. If you can edit a
++<p>The intended audience are new contributors to open source. If you can edit a
+ text file and use a terminal, you can complete this mission. </p>
+ 
+ <h3>What you'll learn</h3>
+@@ -43,7 +43,7 @@ mysite.missions.git.views.long_description %}">more about Git</a>.</p>
+ <p>You already have a repository that you can use for these missions, but if
+ you want to start over fresh, you can reset it.</p>
+ 
+-<form method="post" action="{% url mysite.missions.git.views.resetrepo %}" onsubmit="return confirm('Are you sure you want to reset your repository to its original state?');">
++<form method="post" action="{% url mysite.missions.git.views.resetrepo %}?stay_on_this_page=1" onsubmit="return confirm('Are you sure you want to reset your repository to its original state?');">
+     <input type="submit" value="Reset your repository" />
+ </form><br style="clear: left;" />
+ 
+diff --git a/mysite/missions/templates/missions/git/rebase.html b/mysite/missions/templates/missions/git/rebase.html
+new file mode 100644
+index 0000000..d5bf639
+--- /dev/null
++++ b/mysite/missions/templates/missions/git/rebase.html
+@@ -0,0 +1,62 @@
++{% extends 'missions/git/base.html' %}
++{% comment %}
++# This file is part of OpenHatch.
++# Copyright (C) 2010 Jack Grigg
++# Copyright (C) 2010 OpenHatch, Inc.
++#
++# This program is free software: you can redistribute it and/or modify
++# it under the terms of the GNU Affero General Public License as published by
++# the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU Ayffero General Public License for more details.
++#
++# You should have received a copy of the GNU Affero General Public License
++# along with this program.  If not, see <http://www.gnu.org/licenses/>.
++{% endcomment %}
++
++
++{% block mission_missing_prerequisite_text %}
++<p>You can't do the rebase step yet. You have to do the
++  <a href="{% url mysite.missions.git.views.diff %}">diff step first</a>!
++</p>
++{% endblock mission_missing_prerequisite_text %}
++
++{% block mission_main_body %}
++
++<p>Congratulations! The Brain has accepted your patch and commited it to the main repository. Now no one will accidentally get a "goodbye" instead of "hello"!  In fact, The Brain was so happy with your patch, he has invited you to his top secret dinner party. To get in the door, you'll need to find the password he has hidden in the commit log when your patch was applied.</p>
++
++<p>To learn the secret password, you will need to update your local copy and read the logs:<br style="clear: left;" />
++<ul>
++	<li><code>git fetch</code></li>
++	<li><code>git rebase origin/master</code></li>
++</ul>
++
++{% if git_rebase_done %}
++<div class="successmsg">
++  <p><strong>You have successfully completed the mission.  You are ready to work with git repositories.</strong></p>
++</div>
++<p class="next_mission_link">
++  <a href="{% url mysite.missions.base.views.main_page %}">Return to the main mission page &raquo;</a></p>
++{% else %}
++<form method="post" action="{% url mysite.missions.git.views.rebase_submit %}#gitrebase-form">
++  <div class="form-row">
++    <a name="gitrebase-form"></a>
++    {% if git_rebase_error_message %}
++    <ul class="errorlist"><li>{{ git_rebase_error_message }}</li></ul>
++    {% endif %}
++    {{ git_rebase_form.secret_word.errors }}
++    <br style="clear: left;" />
++    Give the secret password to join the dinner party: <br style="clear: left;" />
++    {{ git_rebase_form.secret_word }}
++    <br style="clear: left;" />
++    <input type="submit" value="Submit" style="float: none;" />
++  </div>
++</form>
++{% endif %}
++
++{% endblock mission_main_body %}
++
+diff --git a/mysite/missions/templates/missions/main.html b/mysite/missions/templates/missions/main.html
+index 4c3aba6..af76c17 100644
+--- a/mysite/missions/templates/missions/main.html
++++ b/mysite/missions/templates/missions/main.html
+@@ -81,8 +81,8 @@ Open source training missions
+     <h2>Using Git</h2>
+     <p>Learn how to interact with projects that use the Git version control
+     system.</p>
+-    {% if completed_missions.git_checkout or completed_missions.git_diff or completed_missions.git_commit %}
+-        {% if completed_missions.git_checkout and completed_missions.git_diff and completed_missions.git_commit %}
++    {% if completed_missions.git_checkout or completed_missions.git_diff or completed_missions.git_rebase%}
++        {% if completed_missions.git_checkout and completed_missions.git_diff and completed_missions.git_rebase%}
+             <p><em>You have completed this mission.</em></p>
+         {% else %}
+             <p><em>You have partially completed this mission.</em></p>
+diff --git a/mysite/missions/tests.py b/mysite/missions/tests.py
+index 31c8fec..c829614 100644
+--- a/mysite/missions/tests.py
++++ b/mysite/missions/tests.py
+@@ -19,3 +19,5 @@
+ from mysite.missions.tar.tests import *
+ from mysite.missions.diffpatch.tests import *
+ from mysite.missions.svn.tests import *
++from mysite.missions.git.tests import *
++
+diff --git a/mysite/urls.py b/mysite/urls.py
+index da7baec..c705234 100644
+--- a/mysite/urls.py
++++ b/mysite/urls.py
+@@ -134,6 +134,10 @@ urlpatterns = patterns('',
+         (r'^missions/git/checkout$', 'mysite.missions.git.views.checkout'),
+         (r'^missions/git/resetrepo$', 'mysite.missions.git.views.resetrepo'),
+         (r'^missions/git/checkout/submit$', 'mysite.missions.git.views.checkout_submit'),
++        (r'^missions/git/diff$', 'mysite.missions.git.views.diff'),
++        (r'^missions/git/diff/submit$', 'mysite.missions.git.views.diff_submit'),
++        (r'^missions/git/rebase$', 'mysite.missions.git.views.rebase'),
++        (r'^missions/git/rebase/submit$', 'mysite.missions.git.views.rebase_submit'),
+ 
+         # Customs-related URLs
+         (r'^customs/$', 'mysite.customs.views.list_trackers'),
+-- 
+1.7.2.5
+

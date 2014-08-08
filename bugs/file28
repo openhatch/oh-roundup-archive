@@ -1,0 +1,717 @@
+From e681c6e87badb0d61acb7b457a205242cf045b16 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Tue, 15 Jun 2010 06:03:10 +0000
+Subject: [PATCH 1/3] Issues 94 and 95 - Twisted and Sugar Labs bug trackers migrated to the new format. Also, added many more Trac-trackers in the same way (taken from the list on the Bug_trackers wiki page).
+
+---
+ mysite/customs/bugtrackers/trac.py                 |    8 +-
+ mysite/customs/tests.py                            |   12 +-
+ .../management/commands/search_daily_tasks.py      |   22 +-
+ mysite/search/tasks/trac_instances.py              |  243 +++++++++++++++++++-
+ 4 files changed, 264 insertions(+), 21 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/trac.py b/mysite/customs/bugtrackers/trac.py
+index a3c2423..9f2bdfb 100644
+--- a/mysite/customs/bugtrackers/trac.py
++++ b/mysite/customs/bugtrackers/trac.py
+@@ -16,6 +16,7 @@ def csv_of_bugs(url):
+     b = mysite.customs.ohloh.mechanize_get(url)
+     return b.response()
+ 
++# FIXME: Seems redundant given the previous method exists. Remove?
+ def sugar_labs_csv_of_easy_bugs():
+     b = mysite.customs.ohloh.mechanize_get(
+         'http://bugs.sugarlabs.org/query?status=new&status=assigned&status=reopened&format=csv&keywords=%7sugar-love&order=priority')
+@@ -76,7 +77,7 @@ class TracBug:
+                     people.append(person)
+         return people
+ 
+-    def __init__(self, bug_id, BASE_URL):
++    def __init__(self, bug_id, BASE_URL, bitesized_keyword):
+         self._bug_specific_csv_data = None
+         self._bug_html_page = None
+         self._parsed_bug_html_page = None
+@@ -84,6 +85,7 @@ class TracBug:
+         if not BASE_URL.endswith('/'):
+             BASE_URL += '/'
+         self.BASE_URL = BASE_URL
++        self.bitesized_keyword = bitesized_keyword
+ 
+     @staticmethod
+     def from_url(url):
+@@ -143,8 +145,8 @@ class TracBug:
+                'submitter_username': trac_data['reporter'],
+                'submitter_realname': '', # can't find this in Trac
+                'canonical_bug_link': self.as_bug_specific_url(),
+-               'good_for_newcomers': ('easy' in trac_data['keywords']),
+-               'bite_size_tag_name': 'easy',
++               'good_for_newcomers': (self.bitesized_keyword in trac_data['keywords']),
++               'bite_size_tag_name': self.bitesized_keyword,
+                'concerns_just_documentation': False,
+                'as_appears_in_distribution': '',
+                'last_polled': datetime.datetime.utcnow(),
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 0b3e1d9..d1f44ac 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -726,7 +726,8 @@ class TracBug(django.test.TestCase):
+             'type': 'task'}
+         tb = mysite.customs.bugtrackers.trac.TracBug(
+             bug_id=4298,
+-            BASE_URL='http://twistedmatrix.com/trac/')
++            BASE_URL='http://twistedmatrix.com/trac/',
++            bitesized_keyword='easy')
+         cached_html_filename = os.path.join(settings.MEDIA_ROOT, 'sample-data', 'twisted-trac-4298-on-2010-04-02.html')
+         tb._bug_html_page = unicode(
+             open(cached_html_filename).read(), 'utf-8')
+@@ -774,7 +775,8 @@ class TracBug(django.test.TestCase):
+             'type': 'task'}
+         tb = mysite.customs.bugtrackers.trac.TracBug(
+             bug_id=4298,
+-            BASE_URL='http://twistedmatrix.com/trac/')
++            BASE_URL='http://twistedmatrix.com/trac/',
++            bitesized_keyword='easy')
+         cached_html_filename = os.path.join(settings.MEDIA_ROOT, 'sample-data', 'twisted-trac-4298.html')
+         tb._bug_html_page = unicode(
+             open(cached_html_filename).read(), 'utf-8')
+@@ -821,7 +823,8 @@ class TracBug(django.test.TestCase):
+             'type': 'task'}
+         tb = mysite.customs.bugtrackers.trac.TracBug(
+             bug_id=4298,
+-            BASE_URL='http://twistedmatrix.com/trac/')
++            BASE_URL='http://twistedmatrix.com/trac/',
++            bitesized_keyword='easy')
+         cached_html_filename = os.path.join(settings.MEDIA_ROOT, 'sample-data', 'twisted-trac-4298-without-modified.html')
+         tb._bug_html_page = unicode(
+             open(cached_html_filename).read(), 'utf-8')
+@@ -868,7 +871,8 @@ class TracBug(django.test.TestCase):
+             'type': 'task'}
+         tb = mysite.customs.bugtrackers.trac.TracBug(
+             bug_id=4298,
+-            BASE_URL='http://twistedmatrix.com/trac/')
++            BASE_URL='http://twistedmatrix.com/trac/',
++            bitesized_keyword='easy')
+         cached_html_filename = os.path.join(settings.MEDIA_ROOT, 'sample-data', 'twisted-trac-4298-without-modified-using-owned-instead-of-assigned.html')
+         tb._bug_html_page = unicode(
+             open(cached_html_filename).read(), 'utf-8')
+diff --git a/mysite/search/management/commands/search_daily_tasks.py b/mysite/search/management/commands/search_daily_tasks.py
+index 89dbf0a..e638235 100644
+--- a/mysite/search/management/commands/search_daily_tasks.py
++++ b/mysite/search/management/commands/search_daily_tasks.py
+@@ -98,21 +98,23 @@ class Command(BaseCommand):
+             instantiated = thing()
+             instantiated.update()
+ 
+-    def update_trac_instances(self):
++    def find_and_update_enabled_trac_instances(self):
+         # Trac instances' update functions
+         # Note that each Trac instance has two such functions for now. It would be
+         # good to rework the Trac code so it looks more like the RoundupTracker
+         # code, with just one .update() method. Another day.
+-        trac_instance_functions_to_call = [
++        # FIXME: Twisted and Sugar Labs now migrated to the new-style Trac system.
++        # Remove this? Commented out for now.
++        #trac_instance_functions_to_call = [
+             # Sugar
+-            mysite.search.tasks.trac_instances.learn_about_new_sugar_easy_bugs,
+-            mysite.search.tasks.trac_instances.refresh_all_sugar_easy_bugs,
++        #    mysite.search.tasks.trac_instances.learn_about_new_sugar_easy_bugs,
++        #    mysite.search.tasks.trac_instances.refresh_all_sugar_easy_bugs,
+             # Twisted
+-            mysite.search.tasks.trac_instances.learn_about_new_easy_twisted_bugs,
+-            mysite.search.tasks.trac_instances.refresh_all_twisted_bugs,
+-        ]
+-        for callable in trac_instance_functions_to_call:
+-            callable()
++        #    mysite.search.tasks.trac_instances.learn_about_new_easy_twisted_bugs,
++        #    mysite.search.tasks.trac_instances.refresh_all_twisted_bugs,
++        #]
++        #for callable in trac_instance_functions_to_call:
++        #    callable()
+ 
+         ### And for my next trick...  discover the new-style Trac instances
+         enabled_ones = []
+@@ -144,7 +146,7 @@ class Command(BaseCommand):
+     def handle(self, *args, **options):
+         self.update_opensolaris_osnet()
+         self.update_launchpad_hosted_projects()
+-        self.update_trac_instances()
++        self.find_and_update_enabled_trac_instances()
+         self.find_and_update_enabled_roundup_trackers()
+         self.update_bugzilla_trackers()
+         
+diff --git a/mysite/search/tasks/trac_instances.py b/mysite/search/tasks/trac_instances.py
+index fbba089..6302a0d 100644
+--- a/mysite/search/tasks/trac_instances.py
++++ b/mysite/search/tasks/trac_instances.py
+@@ -4,6 +4,9 @@ import logging
+ import mysite.search.models
+ import mysite.customs.bugtrackers.trac
+ 
++# FIXME: All the methods below for Twisted and Sugar Labs should now
++# be unnecessary. Delete after confirmation that new style works?
++
+ ### Twisted
+ def look_at_one_twisted_bug(bug_id):
+     """Import one Twisted bug. bug_id is the ticket number in the bug's URL."""
+@@ -152,7 +155,8 @@ class TracBugTracker(object):
+     def refresh_one_bug_id(self, bug_id):
+         tb = mysite.customs.bugtrackers.trac.TracBug(
+             bug_id=bug_id,
+-            BASE_URL=self.base_url)
++            BASE_URL=self.base_url,
++            bitesized_keyword=self.bitesized_keyword)
+         bug_url = tb.as_bug_specific_url()
+     
+         try:
+@@ -175,9 +179,6 @@ class TracBugTracker(object):
+             value = data[key]
+             setattr(bug, key, value)
+ 
+-        # If the bug has the relevant keyword, mark it as good_for_newcomers
+-        ### FIXME: This done by hard-coding in the TracBug class.
+-
+         # And save the project onto it
+         project_from_tb, _ = mysite.search.models.Project.objects.get_or_create(name=tb.component)
+         if bug.project_id != project_from_tb.id:
+@@ -199,3 +200,237 @@ class TahoeLafsTrac(TracBugTracker):
+         return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+             mysite.customs.bugtrackers.trac.csv_of_bugs(
+                 'http://tahoe-lafs.org/trac/tahoe-lafs/query?status=assigned&status=new&status=reopened&max=10000&reporter=~&col=id&col=summary&col=keywords&col=reporter&col=status&col=owner&col=type&col=priority&col=milestone&keywords=~&owner=~&desc=1&order=id&format=csv'))
++
++class TwistedTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Twisted',
++                                base_url='http://twistedmatrix.com/trac/',
++                                bitesized_keyword='easy')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Just index bitesized bugs
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'http://twistedmatrix.com/trac/query?status=new&status=assigned&status=reopened&format=csv&keywords=%7Eeasy&order=priority'))
++
++class SugarLabsTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Sugar Labs',
++                                base_url='http://bugs.sugarlabs.org/',
++                                bitesized_keyword='sugar-love')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Just index bitesized bugs
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'http://bugs.sugarlabs.org/query?status=new&status=assigned&status=reopened&format=csv&keywords=%7Esugar-love&order=priority'))
++
++class StatusNetTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='StatusNet',
++                                base_url='http://status.net/trac/',
++                                bitesized_keyword='easy')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Only gives a list of bitesized bugs - confirm if devels want all bugs indexed
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'http://status.net/trac/query?status=accepted&status=assigned&status=new&status=reopened&format=csv&order=priority&keywords=%7Eeasy'))
++
++class XiphTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Xiph.Org',
++                                base_url='http://trac.xiph.org/',
++                                bitesized_keyword='easy') # Unconfirmed, there were no such bugs at the time
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Only gives a list of bitesized bugs - confirm if devels want all bugs indexed
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'https://trac.xiph.org/query?status=assigned&status=new&status=reopened&order=priority&format=csv&keywords=%7Eeasy'))
++
++class OLPCTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='OLPC',
++                                base_url='http://dev.laptop.org/',
++                                bitesized_keyword='easy') # Also uses 'sugar-love'.
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'http://dev.laptop.org/query?status=assigned&status=new&status=reopened&order=priority&format=csv'))
++
++class DjangoTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Django',
++                                base_url='http://code.djangoproject.com/',
++                                bitesized_keyword='easy')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'http://code.djangoproject.com/query?status=new&status=assigned&status=reopened&order=priority&format=csv'))
++
++class HelenOSTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='HelenOS',
++                                base_url='http://trac.helenos.org/trac.fcgi/',
++                                bitesized_keyword='easy') # Unconfirmed, there were no such bugs at the time
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'http://trac.helenos.org/trac.fcgi/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv'))
++
++class Bcfg2Trac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Bcfg2',
++                                base_url='https://trac.mcs.anl.gov/projects/bcfg2/',
++                                bitesized_keyword='easy') # Unconfirmed, there were no such bugs at the time
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'https://trac.mcs.anl.gov/projects/bcfg2/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv'))
++
++class WarFoundryTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='WarFoundry',
++                                base_url='http://dev.ibboard.co.uk/projects/warfoundry/',
++                                bitesized_keyword='papercut')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'http://dev.ibboard.co.uk/projects/warfoundry/query?status=accepted&status=assigned&status=confirmed&status=needinfo&status=needinfo_new&status=new&status=reopened&order=priority&format=csv'))
++
++class FedoraPythonModulesTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Fedora Python Modules',
++                                base_url='https://fedorahosted.org/python-fedora/',
++                                bitesized_keyword='')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'https://fedorahosted.org/python-fedora/query?status=new&status=assigned&status=reopened&order=priority&format=csv'))
++
++class AngbandTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Angband',
++                                base_url='http://trac.rephial.org/',
++                                bitesized_keyword='easy') # Unconfirmed, there were no such bugs at the time
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'http://trac.rephial.org/query?status=assigned&status=confirmed&status=new&status=reopened&order=priority&format=csv'))
++
++class GHCTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='GHC',
++                                base_url='http://hackage.haskell.org/trac/ghc/',
++                                bitesized_keyword='Easy (less than 1 hour)') # FIXME: Does OH support spaces in keywords?
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'http://hackage.haskell.org/trac/ghc/query?status=new&status=assigned&status=reopened&group=priority&order=id&desc=1&format=csv'))
++
++class TracTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='Trac',
++                                base_url='http://trac.edgewall.org/',
++                                bitesized_keyword='bitesized')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        # Just index bitesized bugs
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'http://trac.edgewall.org/query?status=!closed&keywords=~bitesized&format=csv'))
++
++class SSSDTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='SSSD',
++                                base_url='https://fedorahosted.org/sssd/',
++                                bitesized_keyword='easy') # They actually use the 'trivial' priority setting
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'https://fedorahosted.org/sssd/query?status=new&status=assigned&status=reopened&order=priority&format=csv'))
++
++class I2PTrac(TracBugTracker):
++    enabled = True
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='I2P',
++                                base_url='http://trac.i2p2.de/',
++                                bitesized_keyword='easy') # Unconfirmed, there were no such bugs at the time
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                'http://trac.i2p2.de/query?status=accepted&status=assigned&status=new&status=reopened&order=priority&format=csv'))
++
++# Copy this generic class to add a new Trac bugtracker
++# Remember to set 'enabled' to True
++# Notes:
++# Base URL: the URL of a bug for the bugtracker, without the 'ticket/1234'
++# Tracking URL: go to BASE_URL/query and search for the bugs you want tracked
++class GenTrac(TracBugTracker):
++    enabled = False
++
++    def __init__(self):
++        TracBugTracker.__init__(self,
++                                project_name='',
++                                base_url='',
++                                bitesized_keyword='')
++
++    def generate_list_of_bug_ids_to_look_at(self):
++        return mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
++            mysite.customs.bugtrackers.trac.csv_of_bugs(
++                ''))
+-- 
+1.7.1
+
+
+From 3e5f3865deb49af935b7c26c8cf0dc644395e3b9 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Wed, 16 Jun 2010 12:56:46 +0000
+Subject: [PATCH 2/3] Fixd the Trac bug tracker to allow for more flexibility in the information provided on the bug ticket page. Tweaked a few logging lines for readability. Changed bug project names to be set to the actual project name rather than the component name.
+
+---
+ mysite/customs/bugtrackers/trac.py    |   20 ++++++++++++++++----
+ mysite/search/tasks/trac_instances.py |   16 ++++++++--------
+ 2 files changed, 24 insertions(+), 12 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/trac.py b/mysite/customs/bugtrackers/trac.py
+index 9f2bdfb..97c629b 100644
+--- a/mysite/customs/bugtrackers/trac.py
++++ b/mysite/customs/bugtrackers/trac.py
+@@ -34,7 +34,8 @@ class TracBug:
+         for key_th in key_ths:
+             key = key_th.text
+             value = key_th.itersiblings().next().text
+-            ret[key.strip()] = value.strip()
++            if value is not None:
++                ret[key.strip()] = value.strip()
+         return ret
+     
+     @staticmethod
+@@ -93,7 +94,8 @@ class TracBug:
+         bug_id = int(num)
+         assert ticket == 'ticket'
+         return TracBug(bug_id=bug_id,
+-                       BASE_URL=base + '/')
++                       BASE_URL=base + '/',
++                       bitesized_keyword='') # Unknown in this context (but this method is only ever used to get the bug id)
+ 
+     def as_bug_specific_url(self):
+         return urlparse.urljoin(self.BASE_URL,
+@@ -104,7 +106,10 @@ class TracBug:
+ 
+     @cached_property
+     def component(self):
+-        return self.as_bug_specific_csv_data()['component']
++        try:
++            return self.as_bug_specific_csv_data()['component']
++        except KeyError:
++            return ''
+ 
+     def as_bug_specific_csv_data(self):
+         if self._bug_specific_csv_data is None:
+@@ -138,10 +143,12 @@ class TracBug:
+         trac_data = self.as_bug_specific_csv_data()
+         html_data = self.get_parsed_bug_html_page()
+ 
++        # Seems that some Trac bug trackers don't give all the information below.
++        # For now, just put the offending item inside a try catch and give it a
++        # null case.
+         ret = {'title': trac_data['summary'],
+                'description': TracBug.string_un_csv(trac_data['description']),
+                'status': trac_data['status'],
+-               'importance': trac_data['priority'],
+                'submitter_username': trac_data['reporter'],
+                'submitter_realname': '', # can't find this in Trac
+                'canonical_bug_link': self.as_bug_specific_url(),
+@@ -151,6 +158,11 @@ class TracBug:
+                'as_appears_in_distribution': '',
+                'last_polled': datetime.datetime.utcnow(),
+                }
++        try:
++            ret['importance'] = trac_data['priority']
++        except KeyError:
++            ret['importance'] = 'N/A'
++
+         ret['looks_closed'] = (trac_data['status'] == 'closed')
+ 
+         page_metadata = TracBug.page2metadata_table(html_data)
+diff --git a/mysite/search/tasks/trac_instances.py b/mysite/search/tasks/trac_instances.py
+index 6302a0d..de046cf 100644
+--- a/mysite/search/tasks/trac_instances.py
++++ b/mysite/search/tasks/trac_instances.py
+@@ -167,7 +167,7 @@ class TracBugTracker(object):
+ 
+         # Hopefully, the bug is so fresh it needs no refreshing.
+         if bug.data_is_more_fresh_than_one_day():
+-            logging.info("Bug is fresh. Doing nothing!")
++            logging.info("Bug %d from %s is fresh. Doing nothing!" % (bug_id, self.project_name))
+             return # sweet
+ 
+         # Okay, fine, we need to actually refresh it.
+@@ -180,9 +180,9 @@ class TracBugTracker(object):
+             setattr(bug, key, value)
+ 
+         # And save the project onto it
+-        project_from_tb, _ = mysite.search.models.Project.objects.get_or_create(name=tb.component)
+-        if bug.project_id != project_from_tb.id:
+-            bug.project = project_from_tb
++        project_from_name, _ = mysite.search.models.Project.objects.get_or_create(name=self.project_name)
++        if bug.project_id != project_from_name.id:
++            bug.project = project_from_name
+         bug.last_polled = datetime.datetime.utcnow()
+         bug.save()
+         logging.info("Finished with %d from %s." % (bug_id, self.project_name))
+@@ -251,7 +251,7 @@ class XiphTrac(TracBugTracker):
+ 
+     def __init__(self):
+         TracBugTracker.__init__(self,
+-                                project_name='Xiph.Org',
++                                project_name='Xiph',
+                                 base_url='http://trac.xiph.org/',
+                                 bitesized_keyword='easy') # Unconfirmed, there were no such bugs at the time
+ 
+@@ -276,7 +276,7 @@ class OLPCTrac(TracBugTracker):
+                 'http://dev.laptop.org/query?status=assigned&status=new&status=reopened&order=priority&format=csv'))
+ 
+ class DjangoTrac(TracBugTracker):
+-    enabled = True
++    enabled = False # Opened' and 'Last modified' fields aren't hyperlinked
+ 
+     def __init__(self):
+         TracBugTracker.__init__(self,
+@@ -332,7 +332,7 @@ class WarFoundryTrac(TracBugTracker):
+                 'http://dev.ibboard.co.uk/projects/warfoundry/query?status=accepted&status=assigned&status=confirmed&status=needinfo&status=needinfo_new&status=new&status=reopened&order=priority&format=csv'))
+ 
+ class FedoraPythonModulesTrac(TracBugTracker):
+-    enabled = True
++    enabled = False # 'Opened' and 'Last modified' bug fields aren't hyperlinked
+ 
+     def __init__(self):
+         TracBugTracker.__init__(self,
+@@ -389,7 +389,7 @@ class TracTrac(TracBugTracker):
+                 'http://trac.edgewall.org/query?status=!closed&keywords=~bitesized&format=csv'))
+ 
+ class SSSDTrac(TracBugTracker):
+-    enabled = True
++    enabled = False # 'Opened' and 'Last modified' fields aren't hyperlinked
+ 
+     def __init__(self):
+         TracBugTracker.__init__(self,
+-- 
+1.7.1
+
+
+From 2c2291a6c4f2a23a98249ae35eec5198ffc03822 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Wed, 16 Jun 2010 13:19:04 +0000
+Subject: [PATCH 3/3] Removed old and unnecessary code from the Trac bug importer, now that the new format is working.
+
+---
+ mysite/customs/bugtrackers/trac.py    |    6 --
+ mysite/search/tasks/trac_instances.py |  120 ---------------------------------
+ 2 files changed, 0 insertions(+), 126 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/trac.py b/mysite/customs/bugtrackers/trac.py
+index 97c629b..582f3dc 100644
+--- a/mysite/customs/bugtrackers/trac.py
++++ b/mysite/customs/bugtrackers/trac.py
+@@ -16,12 +16,6 @@ def csv_of_bugs(url):
+     b = mysite.customs.ohloh.mechanize_get(url)
+     return b.response()
+ 
+-# FIXME: Seems redundant given the previous method exists. Remove?
+-def sugar_labs_csv_of_easy_bugs():
+-    b = mysite.customs.ohloh.mechanize_get(
+-        'http://bugs.sugarlabs.org/query?status=new&status=assigned&status=reopened&format=csv&keywords=%7sugar-love&order=priority')
+-    return b.response()    
+-
+ def csv_url2list_of_bug_ids(csv_fd):
+     dictreader = csv.DictReader(csv_fd)
+     return [int(line['id']) for line in dictreader]
+diff --git a/mysite/search/tasks/trac_instances.py b/mysite/search/tasks/trac_instances.py
+index de046cf..6727eba 100644
+--- a/mysite/search/tasks/trac_instances.py
++++ b/mysite/search/tasks/trac_instances.py
+@@ -4,126 +4,6 @@ import logging
+ import mysite.search.models
+ import mysite.customs.bugtrackers.trac
+ 
+-# FIXME: All the methods below for Twisted and Sugar Labs should now
+-# be unnecessary. Delete after confirmation that new style works?
+-
+-### Twisted
+-def look_at_one_twisted_bug(bug_id):
+-    """Import one Twisted bug. bug_id is the ticket number in the bug's URL."""
+-    logging.info("Was asked to look at bug %d in Twisted" % bug_id)
+-    tb = mysite.customs.bugtrackers.trac.TracBug(
+-        bug_id=bug_id,
+-        BASE_URL='http://twistedmatrix.com/trac/')
+-
+-    bug_url = tb.as_bug_specific_url()
+-
+-    # If bug is already in our database, and we looked at
+-    # it within the past day, skip the request.
+-    try:
+-        bug_obj = mysite.search.models.Bug.all_bugs.get(
+-            canonical_bug_link=bug_url)
+-    except mysite.search.models.Bug.MultipleObjectsReturned:
+-        # delete all but the first
+-        bug_objs = mysite.search.models.Bug.all_bugs.filter(
+-            canonical_bug_link=bug_url)
+-        bug_obj = bug_objs[0]
+-        for stupid_dup in bug_objs[1:]:
+-            stupid_dup.delete()
+-
+-    except mysite.search.models.Bug.DoesNotExist:
+-        bug_obj = mysite.search.models.Bug(
+-            canonical_bug_link=bug_url)
+-
+-    # Is that bug fresh enough?
+-    if bug_obj.data_is_more_fresh_than_one_day():
+-        logging.info("Skipping! It's fresh.")
+-        return
+-    else: # it is stale.
+-        logging.info("Refreshing bug %d from Twisted." %
+-                     bug_id)
+-        # if the delta is greater than a day, refresh it.
+-        data = tb.as_data_dict_for_bug_object()
+-        for key in data:
+-            value = data[key]
+-            setattr(bug_obj, key, value)
+-        # And the project...
+-        if not bug_obj.project_id:
+-            project, _ = mysite.search.models.Project.objects.get_or_create(name='Twisted')
+-            bug_obj.project = project
+-        bug_obj.save()
+-    logging.info("Finished with %d from Twisted." % bug_id)
+-
+-def learn_about_new_easy_twisted_bugs():
+-    logging.info('Started to learn about new Twisted easy bugs.')
+-    for bug_id in mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-        mysite.customs.bugtrackers.trac.csv_of_bugs(
+-            url='http://twistedmatrix.com/trac/query?status=new&status=assigned&status=reopened&format=csv&keywords=%7Eeasy&order=priority')):
+-        look_at_one_twisted_bug(bug_id=bug_id)
+-    logging.info('Finished grabbing the list of Twisted easy bugs.')
+-
+-def refresh_all_twisted_bugs():
+-    logging.info("Starting refreshing all easy Twisted bugs.")
+-    all_such_bugs = mysite.search.models.Bug.all_bugs.filter(
+-        canonical_bug_link__contains=
+-        'http://twistedmatrix.com/trac/')
+-    logging.info("All %d of them." % all_such_bugs.count())
+-
+-    for bug in all_such_bugs:
+-        tb = mysite.customs.bugtrackers.trac.TracBug.from_url(
+-            bug.canonical_bug_link)
+-        look_at_one_twisted_bug(bug_id=tb.bug_id)
+-
+-def look_at_sugar_labs_bug(bug_id):
+-    logging.info("Looking at bug %d in Sugar Labs" % bug_id)
+-    tb = mysite.customs.bugtrackers.trac.TracBug(
+-        bug_id=bug_id,
+-        BASE_URL='http://bugs.sugarlabs.org/')
+-    bug_url = tb.as_bug_specific_url()
+-    
+-    try:
+-        bug = mysite.search.models.Bug.all_bugs.get(
+-            canonical_bug_link=bug_url)
+-    except mysite.search.models.Bug.DoesNotExist:
+-        bug = mysite.search.models.Bug(canonical_bug_link = bug_url)
+-
+-    # Hopefully, the bug is so fresh it needs no refreshing.
+-    if bug.data_is_more_fresh_than_one_day():
+-        logging.info("Bug is fresh. Doing nothing!")
+-        return # sweet
+-
+-    # Okay, fine, we need to actually refresh it.
+-    logging.info("Refreshing bug %d from Sugar Labs." %
+-                 bug_id)
+-    data = tb.as_data_dict_for_bug_object()
+-    for key in data:
+-        value = data[key]
+-        setattr(bug, key, value)
+-
+-    # And the project...
+-    project_from_tb, _ = mysite.search.models.Project.objects.get_or_create(name=tb.component)
+-    if bug.project_id != project_from_tb.id:
+-        bug.project = project_from_tb
+-    bug.last_polled = datetime.datetime.utcnow()
+-    bug.save()
+-    logging.info("Finished with %d from Sugar Labs." % bug_id)
+-    
+-def learn_about_new_sugar_easy_bugs():
+-    logging.info('Started to learn about new Sugar Labs easy bugs.')
+-    for bug_id in mysite.customs.bugtrackers.trac.csv_url2list_of_bug_ids(
+-        mysite.customs.bugtrackers.trac.csv_of_bugs(
+-            url='http://bugs.sugarlabs.org/query?status=new&status=assigned&status=reopened&format=csv&keywords=%7Esugar-love&order=priority')):
+-        look_at_sugar_labs_bug(bug_id=bug_id)
+-    logging.info('Finished grabbing the list of Sugar Labs easy bugs.')
+-
+-def refresh_all_sugar_easy_bugs():
+-    logging.info("Starting refreshing all Sugar bugs.")
+-    for bug in mysite.search.models.Bug.all_bugs.filter(
+-        canonical_bug_link__contains=
+-        'http://bugs.sugarlabs.org/'):
+-        tb = mysite.customs.bugtrackers.trac.TracBug.from_url(
+-            bug.canonical_bug_link)
+-        look_at_sugar_labs_bug(bug_id=tb.bug_id)
+-
+ class TracBugTracker(object):
+     enabled = False
+ 
+-- 
+1.7.1
+

@@ -1,0 +1,31 @@
+From 53fb043f9bbea9fbb44d9aec9d124a52241b1ab0 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Wed, 1 Jun 2011 12:25:35 +1200
+Subject: [PATCH] Change of roundup.css to make logo on roundup link to sit
+ See: http://openhatch.org/bugs/issue402
+
+---
+ mysite/static/css/roundup.css |    7 +++++++
+ 1 files changed, 7 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/static/css/roundup.css b/mysite/static/css/roundup.css
+index 794b632..72566c6 100644
+--- a/mysite/static/css/roundup.css
++++ b/mysite/static/css/roundup.css
+@@ -91,6 +91,13 @@ th.required {
+ 	width: 87px;
+ 	height: 60px;
+ 	background: url('https://openhatch.org/static/images/the-logo-bluegreen-87px.png') no-repeat;
++        text-indent: -9999;
++}
++.page-header-left .logo {
++        display:block;
++        height:58px;
++        text-indent:-9999px;
++        width:200px;
+ }
+ 
+ p.ok-message {
+-- 
+1.7.2.5
+

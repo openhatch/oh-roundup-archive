@@ -1,0 +1,28 @@
+From 916ae20b60276f7c407b95ba20fe45e764f746da Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Fri, 16 Jul 2010 05:10:01 +0000
+Subject: [PATCH] Noticed that bug_id_list_only was not being set by the abstract
+ subclass generator. This would cause trackers using tracker bugs
+ to fail. Fixed.
+
+---
+ mysite/customs/bugtrackers/bugzilla.py |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/bugzilla.py b/mysite/customs/bugtrackers/bugzilla.py
+index 45731ea..d9eec9d 100644
+--- a/mysite/customs/bugtrackers/bugzilla.py
++++ b/mysite/customs/bugtrackers/bugzilla.py
+@@ -294,7 +294,8 @@ def bugzilla_tracker_factory(bt):
+         BugzillaBugTracker.__init__(self,
+                                     base_url=bt.base_url,
+                                     project_name=bt.project_name,
+-                                    bug_project_name_format=bt.bug_project_name_format)
++                                    bug_project_name_format=bt.bug_project_name_format,
++                                    bug_id_list_only=(bt.query_url_type=='tracker'))
+ 
+     # Create bug query methods. It doesn't matter what type of query url
+     # is stored, since the incorrectly generated method will not be used
+-- 
+1.7.1
+

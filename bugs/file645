@@ -1,0 +1,352 @@
+diff --git a/mysite/base/unicode_sanity.py b/mysite/base/unicode_sanity.py
+index ee99853..a97bc34 100644
+--- a/mysite/base/unicode_sanity.py
++++ b/mysite/base/unicode_sanity.py
+@@ -25,28 +25,6 @@ import cStringIO as StringIO
+ 
+ import decorator
+ 
+-_urlencode = urllib.urlencode
+-
+-
+-def urlencode(unicode_dict):
+-    utf8_dict = {}
+-    bad_keys = []
+-    bad_values = []
+-    for key in unicode_dict:
+-        value = unicode_dict[key]
+-        if type(key) == str:
+-            bad_keys.append(key)
+-        if type(value) == str:
+-            bad_values.append(value)
+-        utf8_dict[unicode(key).encode('utf-8')
+-                  ] = unicode(value).encode('utf-8')
+-    if bad_keys or bad_values:
+-        raise ValueError
+-        #import pdb
+-        # pdb.set_trace()
+-    return _urlencode(utf8_dict)
+-
+-
+ @decorator.decorator
+ def unicodify_strings_when_inputted(func, *args, **kwargs):
+     '''Decorator that makes sure every argument passed in that is
+diff --git a/mysite/base/view_helpers.py b/mysite/base/view_helpers.py
+index 303818d..6d29be9 100644
+--- a/mysite/base/view_helpers.py
++++ b/mysite/base/view_helpers.py
+@@ -16,7 +16,7 @@
+ # You should have received a copy of the GNU Affero General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-from django.utils import simplejson
++from django.utils import simplejson,http
+ import urllib
+ import os
+ import os.path
+@@ -175,7 +175,6 @@ def get_object_or_none(klass, *args, **kwargs):
+ # You should have received a copy of the GNU Affero General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-import mysite.base.unicode_sanity
+ import mysite.base.disk_cache
+ from django.utils import simplejson
+ from django.core.cache import cache
+@@ -274,8 +273,7 @@ def _geocode(address=None, response_data=None):
+     mapsUrl = 'https://maps.googleapis.com/maps/api/geocode/json?'
+ 
+     # This joins the parts of the URL together into one string.
+-    query_string = mysite.base.unicode_sanity.urlencode(
+-        {u'address': address, u'sensor': u'false'})
++    query_string = http.urlencode({u'address': address, u'sensor': u'false'})
+     # This retrieves the URL from Google, parses out the longitude and latitude,
+     # and then returns them as a string.
+     try:
+diff --git a/mysite/customs/models.py b/mysite/customs/models.py
+index dc58874..5298d97 100644
+--- a/mysite/customs/models.py
++++ b/mysite/customs/models.py
+@@ -30,6 +30,7 @@ from model_utils.managers import InheritanceManager
+ 
+ import django.forms.models
+ import mysite.base.unicode_sanity
++from django.utils import http
+ 
+ 
+ class RecentMessageFromCIA(models.Model):
+@@ -395,7 +396,7 @@ def google_query_url(project_name, **kwargs):
+                   }
+     extra_data.update(kwargs)
+     base = 'https://code.google.com/feeds/issues/p/%s/issues/full' % (project_name,)
+-    url = base + '?' + mysite.base.unicode_sanity.urlencode(extra_data)
++    url = base + '?' + http.urlencode(extra_data)
+     return url
+ 
+ 
+@@ -690,8 +691,7 @@ def github_query_url(github_user_name, github_repo_name, **kwargs):
+     base_url = ('https://api.github.com/repos/%s/%s/issues' % (
+         mysite.base.unicode_sanity.quote(github_user_name),
+         mysite.base.unicode_sanity.quote(github_repo_name)))
+-    return base_url + '?' + mysite.base.unicode_sanity.urlencode(
+-        kwargs)
++    return base_url + '?' + http.urlencode(kwargs)
+ 
+ 
+ class GitHubQueryModel(TrackerQueryModel):
+diff --git a/mysite/customs/ohloh.py b/mysite/customs/ohloh.py
+index 1c9490a..1f520e7 100644
+--- a/mysite/customs/ohloh.py
++++ b/mysite/customs/ohloh.py
+@@ -18,7 +18,6 @@
+ # This file is just a wrapper around the Ohloh.net API that helps
+ # us get icons for projects.
+ 
+-import mysite.base.unicode_sanity
+ import xml.etree.ElementTree as ET
+ import xml.parsers.expat
+ import urllib
+@@ -26,6 +25,7 @@ import urllib2
+ import cStringIO as StringIO
+ from django.conf import settings
+ import mysite.customs.models
++from django.utils import http
+ 
+ 
+ def uni_text(s):
+@@ -57,7 +57,7 @@ def ohloh_url2data(url, selector, params={}, many=False, API_KEY=None, person=No
+     # FIXME: We return more than just "ret" these days! Rename this variable.
+     ret = []
+ 
+-    encoded = mysite.base.unicode_sanity.urlencode(params)
++    encoded = http.urlencode(params)
+     url += encoded
+     try:
+         b = mysite.customs.mechanize_helpers.mechanize_get(url, person)
+diff --git a/mysite/profile/models.py b/mysite/profile/models.py
+index 7a4f59a..b16460b 100644
+--- a/mysite/profile/models.py
++++ b/mysite/profile/models.py
+@@ -25,7 +25,6 @@ from mysite.search.models import Project, get_image_data_scaled
+ import mysite.customs.models
+ import mysite.profile.view_helpers
+ import mysite.base.models
+-import mysite.base.unicode_sanity
+ 
+ from django.db import models
+ from django.contrib.auth.models import User
+@@ -34,6 +33,7 @@ from django.conf import settings
+ from django.contrib.auth import SESSION_KEY, BACKEND_SESSION_KEY, load_backend
+ from django.core.urlresolvers import reverse
+ from django.db.models import Q
++from django.utils import http
+ 
+ import datetime
+ import uuid
+@@ -830,8 +830,7 @@ class Citation(models.Model):
+                     try:
+                         project_name = unicode(
+                             self.portfolio_entry.project.name, 'utf-8')
+-                        return "http://www.ohloh.net/search?%s" % mysite.base.unicode_sanity.urlencode(
+-                            {u'q': project_name})
++                        return "http://www.ohloh.net/search?%s" % http.urlencode({u'q': project_name})
+                     except:
+                         logging.warn(
+                             "During Citation.get_url_or_guess, we failed to encode the project name correctly.")
+diff --git a/mysite/profile/views.py b/mysite/profile/views.py
+index a4f2fec..b4bc6c0 100644
+--- a/mysite/profile/views.py
++++ b/mysite/profile/views.py
+@@ -41,10 +41,10 @@ from django.contrib.auth.decorators import login_required
+ from django.core.urlresolvers import reverse
+ from django.views.decorators.csrf import csrf_exempt
+ import django.views.generic
++from django.utils import http
+ 
+ # OpenHatch apps
+ import mysite.base.view_helpers
+-import mysite.base.unicode_sanity
+ import mysite.profile.view_helpers
+ from mysite.profile.models import \
+     Person, Tag, TagType, \
+@@ -429,7 +429,7 @@ def permanent_redirect_to_people_search(request, property, value):
+     q = '%s:%s' % (property, escaped_value)
+     get_args = {u'q': q}
+     destination_url = (reverse('mysite.profile.views.people') + '?' +
+-                       mysite.base.unicode_sanity.urlencode(get_args))
++                       http.urlencode(get_args))
+     return HttpResponsePermanentRedirect(destination_url)
+ 
+ 
+diff --git a/mysite/project/views.py b/mysite/project/views.py
+index 38351d5..d23410c 100644
+--- a/mysite/project/views.py
++++ b/mysite/project/views.py
+@@ -33,6 +33,7 @@ from django.contrib.auth.decorators import login_required
+ from django.template.loader import render_to_string
+ 
+ from django.utils.datastructures import MultiValueDictKeyError
++from django.utils import http
+ 
+ 
+ def create_project_page_do(request):
+@@ -252,8 +253,8 @@ def create_answer_do(request):
+         # If user isn't logged in, send them to the login page with next
+         # parameter populated.
+         url = reverse('oh_login')
+-        url += "?" + mysite.base.unicode_sanity.urlencode({u'next':
+-                                                           unicode(answer.project.get_url())})
++        url += "?" + http.urlencode({u'next':
++                 unicode(answer.project.get_url())})
+         return HttpResponseRedirect(url)
+     else:
+         answer.author = request.user
+@@ -350,8 +351,8 @@ def wanna_help_do(request):
+         # parameter populated.
+         url = reverse('oh_login')
+         url += "?"
+-        url += mysite.base.unicode_sanity.urlencode({u'next':
+-                                                     unicode(project.get_url()) + '?wanna_help=true'})
++        url += http.urlencode({u'next':
++                 unicode(project.get_url()) + '?wanna_help=true'})
+         if request.is_ajax():
+             return HttpResponse("redirect: " + url)
+         else:
+diff --git a/mysite/search/models.py b/mysite/search/models.py
+index a582782..239a53e 100644
+--- a/mysite/search/models.py
++++ b/mysite/search/models.py
+@@ -38,6 +38,7 @@ import mysite.customs.ohloh
+ import mysite.base.depends
+ import mysite.base.decorators
+ import django.contrib.contenttypes.models
++from django.utils import http
+ 
+ 
+ class OpenHatchModel(models.Model):
+@@ -338,9 +339,8 @@ class Project(OpenHatchModel):
+             query_var = self.name
+             if not mentors_available:
+                 query_var = self.language
+-            query_string = mysite.base.unicode_sanity.urlencode(
+-                {u'q': u'can_mentor:"%s"' %
+-                 query_var})
++            query_string = http.urlencode({u'q': u'can_mentor:"%s"' % 
++                             query_var})
+             return reverse(mysite.profile.views.people) + '?' + query_string
+         else:
+             return ""
+diff --git a/mysite/search/tests.py b/mysite/search/tests.py
+index 18f4bfe..3e319b2 100644
+--- a/mysite/search/tests.py
++++ b/mysite/search/tests.py
+@@ -19,7 +19,6 @@
+ 
+ from mysite.base.tests import make_twill_url, TwillTests
+ import mysite.base.models
+-import mysite.base.unicode_sanity
+ 
+ import mysite.account.tests
+ from mysite.profile.models import Person
+@@ -35,7 +34,7 @@ from django.utils.unittest import skipIf
+ import django.db
+ import django.conf
+ 
+-from django.utils import simplejson
++from django.utils import simplejson, http
+ import mock
+ from twill import commands as tc
+ 
+@@ -1208,7 +1207,7 @@ class SuggestAlertOnLastResultsPage(TwillTests):
+         query = u'ruby'
+         opps_query_string = {u'q': query, u'start': 1, u'end': 10}
+         opps_url = make_twill_url('http://openhatch.org' + reverse(opps_view)
+-                                  + '?' + mysite.base.unicode_sanity.urlencode(opps_query_string))
++                                  + '?' + http.urlencode(opps_query_string))
+         tc.go(opps_url)
+ 
+         # Make sure we *don't* have the comment that flags this as a page that
+@@ -1218,7 +1217,7 @@ class SuggestAlertOnLastResultsPage(TwillTests):
+ 
+         # Visit the last page of results
+         GET = {u'q': query, u'start': 11, u'end': 20}
+-        query_string = mysite.base.unicode_sanity.urlencode(GET)
++        query_string = http.urlencode(GET)
+         opps_url = make_twill_url(
+             'http://openhatch.org' + reverse(opps_view) + '?' + query_string)
+         tc.go(opps_url)
+diff --git a/mysite/search/view_helpers.py b/mysite/search/view_helpers.py
+index 0d33c00..be5777e 100644
+--- a/mysite/search/view_helpers.py
++++ b/mysite/search/view_helpers.py
+@@ -17,7 +17,6 @@
+ 
+ import mysite.search.models
+ import mysite.search.views
+-import mysite.base.unicode_sanity
+ import mysite.base.decorators
+ import re
+ import hashlib
+@@ -25,6 +24,7 @@ import django.core.cache
+ from django.db import connection
+ from django.db.models import Q, Count
+ import logging
++from django.utils import http
+ 
+ CCT = 'hit_count_cache_timestamp'
+ 
+@@ -191,7 +191,7 @@ class Query:
+             u'q': unicode(self.terms_string),
+             unicode(facet_name): unicode(option_name),
+         })
+-        query_string = mysite.base.unicode_sanity.urlencode(GET_data)
++        query_string = http.urlencode(GET_data)
+         query = Query.create_from_GET_data(GET_data)
+         the_all_option = u'any'
+         name = option_name or the_all_option
+@@ -422,7 +422,7 @@ class Query:
+ 
+     def get_query_string(self):
+         GET_data = self.get_GET_data()
+-        query_string = mysite.base.unicode_sanity.urlencode(GET_data)
++        query_string = http.urlencode(GET_data)
+         logging.info("Query is " + query_string)
+         return query_string
+ 
+diff --git a/mysite/search/views.py b/mysite/search/views.py
+index 5e950aa..9b2a489 100644
+--- a/mysite/search/views.py
++++ b/mysite/search/views.py
+@@ -28,13 +28,12 @@ except ImportError:
+ from mysite.search.models import Project
+ import mysite.search.view_helpers
+ import mysite.base.view_helpers
+-import mysite.base.unicode_sanity
+ from mysite.base.view_helpers import render_response
+ 
+ import datetime
+ from dateutil import tz
+ import pytz
+-from django.utils import simplejson
++from django.utils import simplejson, http
+ import mysite.search.forms
+ import mysite.base.decorators
+ 
+@@ -57,7 +56,7 @@ def search_index(request, invalid_subscribe_to_alert_form=None):
+         new_GET = {}
+         for key in request.GET.keys():
+             new_GET[key.lower()] = request.GET[key]
+-        return HttpResponseRedirect(reverse(search_index) + '?' + mysite.base.unicode_sanity.urlencode(new_GET))
++        return HttpResponseRedirect(reverse(search_index) + '?' + http.urlencode(new_GET))
+ 
+     if request.user.is_authenticated():
+         person = request.user.get_profile()
+@@ -117,8 +116,7 @@ def search_index(request, invalid_subscribe_to_alert_form=None):
+     data['end'] = min(end, total_bug_count)
+     data['prev_page_url'] = '/search/?' + prev_page_query_str.urlencode()
+     data['next_page_url'] = '/search/?' + next_page_query_str.urlencode()
+-    data['this_page_query_str'] = mysite.base.unicode_sanity.urlencode(
+-        request.GET)
++    data['this_page_query_str'] = http.urlencode(request.GET)
+ 
+     is_this_page_1 = (start <= 1)
+     is_this_the_last_page = (end >= (total_bug_count - 1))

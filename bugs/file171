@@ -1,0 +1,22 @@
+Thanks very much for fixing this...<br><br><div class="gmail_quote">On Fri, Mar 25, 2011 at 4:14 PM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin: 0pt 0pt 0pt 0.8ex; border-left: 1px solid rgb(204, 204, 204); padding-left: 1ex;">
+<div class="im"><br>
+Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:<br>
+<br>
+</div>Vivek,<br>
+<br>
+I can reproduce the problem you had. So can paulhomebus (palhmbs on IRC).<br>
+<br>
+I&#39;m working on a fix for it. You should stick to Debian squeeze. Get that<br>
+installed again, and soon I will push a fixed buildout file that actually works.<br>
+<br>
+I deeply apologize for forcing you to flail about, in a situation where you do<br>
+not know the right fix for your problems. In fact, they are problems with our<br>
+dependency list, and I&#39;m working on fixing that now.<br>
+<font color="#888888"><br>
+-- Asheesh.<br>
+</font><div><div></div><div class="h5"><br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue344" target="_blank">https://openhatch.org/bugs/issue344</a>&gt;<br>
+__________________________________________<br>
+</div></div></blockquote></div><br>

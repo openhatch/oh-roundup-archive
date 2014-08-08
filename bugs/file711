@@ -1,0 +1,3561 @@
+﻿<html>
+     <title>Garcinia Cambogia Free Trial - Limited Time Only</title>
+        <style> 
+            body { 
+            #landing a.blog-feed { 
+                background-image:
+                url(/static/images/base/landing/feed-icon-16x16-sprited.png) }
+            .person {
+                font-size: 80%; }
+            .geocode {
+                font-size: 80%; }
+            body#profile #importer { 
+                background-image:
+                url(/static/images/ship.png) }
+            body#profile #progressbar.working .ui-progressbar-value { 
+                background-image:
+                url(/static/css/jquery-ui-lightness/images/pbar-ani.gif); }
+            body#profile .portfolio_entry > .actions li.save_and_publish_button *,
+            body#profile .portfolio_entry > .actions li.save_button * { 
+                background-image:
+                url(/static/images/icons/publish.png); }
+            body#profile .portfolio_entry > .actions li.delete_portfolio_entry a { 
+                background-image:
+                url(/static/images/icons/delete.png); }
+            body#profile .citations li .actions a.delete_citation { 
+                background-image:
+                url(/static/images/icons/delete-citation.png); }
+            body#profile #portfolio.viewer .portfolio_entry .submodule { 
+                background-image:
+                url(/static/images/profile/portfolio/portfolio-entry-bg.png) }
+            body#project #wannahelp-button { 
+                background-image:
+                url(/static/images/wannahelp-button-bg.png); }
+            body#project #wannahelp-button:active { 
+                background-image:
+                url(/static/images/wannahelp-button-bg-active.png); }
+            body#project #wannahelp-button:hover,
+            body#project #wannahelp-button:focus { 
+                background-image:
+                url(/static/images/wannahelp-button-bg-hover.png); }
+            body#project #wannahelp-button:hover:active { 
+                background-image:
+                url(/static/images/wannahelp-button-bg-hover-active.png); }
+            body#project .next_steps_for_helpers { 
+                background-image:
+                url(/static/images/bg-translucent-green.png); }
+            #footer { background: #333 url('/static/images/dark-hatch.png') repeat; }
+           
+        </style>
+
+        
+	
+        
+        <link rel="stylesheet/less" type="text/css" href="https://openhatch.org/static/less/base/base.less">
+        <link rel="stylesheet/less" type="text/css" href="https://openhatch.org/static/less/base/one_column.less">
+        <link rel="stylesheet/less" type="text/css" href="https://openhatch.org/static/less/base/two_column.less">
+        <link rel="stylesheet/less" type="text/css" href="https://openhatch.org/static/less/base/three_column.less">
+        <link rel="stylesheet/less" type="text/css" href="https://openhatch.org/static/less/base/landing.less">
+        
+     <style>   
+/* coloration */
+.nav-bg {
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+/* size, width and padding stuff */
+/* CSSTODO -- do we use these actually?*/
+.enormous {
+  font-size: 3em;
+}
+.fairly-big {
+  font-size: 1.7em;
+}
+.enormous > div {
+  margin-bottom: 1em;
+}
+.normal-size {
+  font-size: 11pt;
+}
+/* other useful mixins */
+.screw-you-webkit {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+.centered {
+  margin: 0 auto;
+}
+/* styles */
+body {
+  font: 11pt Arial, Helvetica, sans-serif;
+  background: #f8f8f8 url('/static/images/light-hatch.png') repeat;
+  color: #222222;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+code {
+  overflow-x: auto;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+}
+.link_like,
+a,
+body .ui-widget-content a {
+  color: #ff6d3d;
+  text-decoration: none;
+  cursor: pointer;
+  cursor: hand;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix {
+  zoom: 1;
+}
+/* IE6 */
+*:first-child + html .clearfix {
+  zoom: 1;
+}
+/* IE7 */
+/* deprecated; to remove in favor of .clearfix */
+.clearer {
+  width: 100%;
+  clear: both;
+  float: none;
+}
+/* for Firefox */
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0px;
+}
+/* for IE8 */
+input[type="submit"]:focus,
+input[type="button"]:focus {
+  outline: none;
+}
+.alt-text {
+  left: -9999px;
+  position: absolute;
+}
+/* ^^^ display: none would hide this from screenreaders. Let's hide this off stage left instead. */
+.hidden {
+  display: none;
+}
+a:hover,
+.ui-widget-content a:hover {
+  text-decoration: underline;
+}
+a img {
+  border-style: none;
+}
+abbr {
+  border-bottom: 1px dotted #999;
+}
+abbr.foss {
+  border: 0;
+  font-variant: small-caps;
+}
+h1 a,
+h1 a:hover {
+  text-decoration: none;
+}
+#container {
+  width: 1000px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+}
+.module {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: 3px solid rgba(100, 200, 255, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+  float: left;
+}
+.module .module-head {
+  background: rgba(100, 200, 255, 0.3);
+  padding: 2px 20px;
+}
+.module .module-head ul li a {
+  float: right;
+  padding-top: 5px;
+}
+.module .module-head h3 {
+  text-shadow: 0 1px 0 #fff;
+  float: none;
+  padding: 4px 10px 7px 0;
+  font-size: 1.2em;
+}
+.module .module-body {
+  clear: both;
+  padding: 10px 20px 20px 20px;
+}
+.module .module-foot {
+  padding: 2px 20px 5px 20px;
+  text-align: right;
+}
+.module .module-foot .module-foot-left {
+  float: left;
+}
+.submodule-container {
+  float: none;
+  clear: both;
+  width: 100%;
+  margin: 0 auto;
+}
+.submodule {
+  background-color: #ffffff;
+  margin: 0 10px 20px 0;
+  padding: 8px 10px;
+  border: 2px dashed #e4e4e4;
+  float: left;
+}
+.submodule .submodule-head {
+  margin-bottom: 5px;
+}
+.submodule .submodule-body {
+  clear: both;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  clear: both;
+}
+h1 {
+  font-weight: normal;
+  font-size: 23pt;
+}
+#nav-container {
+  width: 100%;
+  height: 67px;
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+#nav {
+  margin: 0 auto;
+  padding-top: 3px;
+  border-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+#nav h1 {
+  float: left;
+}
+#nav ul {
+  list-style: none;
+  margin: 0;
+  float: right;
+}
+#nav li {
+  float: right;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+#pagetop {
+  padding: 0;
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+.up-top {
+  padding: 0;
+  margin-bottom: -15px;
+}
+ul#links {
+  margin-left: 20px;
+}
+#links li {
+  display: inline;
+  font-size: 12pt;
+  margin-top: 20px;
+}
+#account-links,
+#topnavlinks {
+  float: right;
+}
+#account-links #username,
+#topnavlinks #username {
+  font-weight: bold;
+}
+#account-links li,
+#topnavlinks li {
+  margin: 15px 0;
+}
+#account-links a,
+#topnavlinks a {
+  float: left;
+  padding: 5px 10px;
+  color: white;
+}
+#topnavlinks {
+  float: left;
+}
+#topnavlinks li {
+  font-size: 1.1em;
+}
+#content {
+  padding: 10px 0 30px 0;
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+#footer-wrapper {
+  width: 100%;
+  clear: both;
+  padding-top: 40px;
+}
+#footer {
+  width: 100%;
+  bottom: 0;
+  padding: 10px 0px;
+  text-align: right;
+  margin: 0 auto;
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+#footer ul {
+  display: inline;
+  list-style-type: none;
+  max-width: 108em;
+  padding: 0 20px;
+}
+#footer li {
+  display: block;
+  text-align: left;
+  padding-left: 0;
+  margin-bottom: 0.3em;
+}
+#footer a {
+  color: #ffffff;
+}
+#footer h3 {
+  color: #ddd;
+  font-size: 1em;
+  margin-bottom: 0.8em;
+}
+#footer .threecol {
+  width: 960px;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: left;
+}
+#footer .column {
+  width: 210px;
+  display: inline-block;
+  margin: 0px 5px;
+  vertical-align: top;
+  text-align: left;
+  float: none;
+}
+#training-missions {
+  width: 100%;
+}
+h3 {
+  margin-bottom: 0px;
+  text-align: left;
+  clear: left;
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #222222;
+  letter-spacing: 0;
+  margin: 0;
+}
+h3.nofloat {
+  float: none;
+}
+img.show-more-link {
+  float: right;
+  position: relative;
+  top: 1px;
+}
+input[type='text'],
+input[type='password'],
+input[type='file'],
+textarea {
+  padding: 5px;
+  font-size: 11pt;
+  float: left;
+}
+input[type='submit'] {
+  padding: 1px 8px;
+  color: #222222;
+  font-weight: bold;
+  float: left;
+}
+.alert {
+  padding: 15px 0;
+}
+.alert div {
+  background-color: #ffa;
+  color: #444;
+  padding: 8px 15px;
+  width: 700px;
+  font-size: 11pt;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+img {
+  border: 0;
+}
+img.left {
+  float: left;
+  padding: 0 10px 20px 0;
+}
+img.right {
+  float: right;
+  padding: 0 0 20px 10px;
+}
+.usernames {
+  font-size: 10pt;
+}
+#info .tag-type {
+  font-weight: normal;
+  display: block;
+  font-size: 8pt;
+}
+.column {
+  float: left;
+  margin-right: 10px;
+}
+h4,
+.cute-header {
+  font-size: 9pt;
+  color: #666666;
+  float: left;
+  margin: 0;
+  padding: 1px;
+}
+input[type='submit'] {
+  color: #333333;
+  float: right;
+}
+#notifications {
+  text-align: center;
+  float: left;
+}
+.notification {
+  float: left;
+  width: 95%;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  padding: 10px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.errorlist ul {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.errorlist li {
+  float: left;
+  padding: 5px 10px;
+  width: 410px;
+  color: #522;
+  background-color: #ffe4e4;
+  margin: 10px 0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#normal_login_form li {
+  list-style: none;
+}
+dt {
+  font-size: 120%;
+}
+dd {
+  margin-top: .5em;
+  margin-left: 1.2em;
+}
+#greeting {
+  background-color: #ffffc8;
+  background-color: rgba(255, 255, 200, 0.5);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  padding: 2%;
+  width: 96%;
+  margin-top: 10px;
+  border: 4px solid #fff;
+  float: left;
+}
+#greeting #about-openhatch {
+  font-size: 140%;
+  float: left;
+  width: 100%;
+  margin-right: 20px;
+}
+#greeting #invitation {
+  font-size: 120%;
+  margin-top: 10px;
+  text-align: center;
+  float: left;
+  width: 100%;
+}
+#greeting #next-steps {
+  float: left;
+  width: 100%;
+}
+#greeting #next-steps li {
+  font-size: 120%;
+  float: left;
+  width: 210px;
+  margin: 10px 20px 0 0;
+}
+#error #content {
+  padding: 0 300px;
+}
+#error #content .module {
+  width: 400px;
+}
+#error #content .module .head {
+  width: 96%;
+  color: #aaa;
+  padding: 2%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 96pt;
+}
+#error #content .module .body {
+  width: 90%;
+}
+.head .note {
+  float: right;
+  color: #777;
+  font-size: .9em;
+  padding: 6px;
+}
+.head .more {
+  float: right;
+  padding: 3px;
+}
+body ul.raquo_bullets {
+  margin-left: 0;
+  padding-left: 1.1em;
+  text-indent: -1em;
+  list-style: none;
+}
+body ul.raquo_bullets li {
+  margin-bottom: .4em;
+}
+body ul.raquo_bullets li:last-child {
+  margin-bottom: 0;
+}
+body ul.raquo_bullets li:before {
+  color: #999;
+  font-family: Georgia;
+  margin-right: 2px;
+  font-weight: bold;
+  content: "\00BB \0020";
+}
+body ul.raquo_bullets li code {
+  display: inline-table;
+  margin-left: 16px;
+}
+.contact_us {
+  display: inline-block;
+  text-align: center;
+}
+/* CSSTODO */
+body#login .post_login_action_explanation {
+  color: #444;
+  font-size: 1.5em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  text-align: center;
+  float: left;
+  width: 98%;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #faffaa;
+}
+ol > li {
+  margin: 15px 0;
+}
+/* CSSTODO I think this is just missions*/
+input[rel='hint'].blur {
+  color: #777;
+}
+/* CSSTODO */
+body#people-map #search_engine_is_down_message {
+  float: left;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 0;
+  font-size: 1.3em;
+}
+.ajax-loader-circle-txt-medium {
+  display: inline-block;
+  line-height: 32px;
+  padding-left: 32px;
+  background: url('/static/images/throbber.gif') no-repeat left;
+  font-weight: bold;
+  color: #444444;
+}
+/* Stuff for jQuery UI Tabs */
+/* CSSTODO */
+.ui-tabs-hide {
+  display: none !important;
+}
+.tab_nav .ui-state-active {
+  font-weight: bold;
+}
+/* Stuff initially for the events page */
+/* CSSTODO */
+.module .left-image {
+  width: 180px;
+  height: 180px;
+  float: left;
+  margin-right: 10px;
+}
+.module .name-of-event {
+  font-size: 180%;
+  margin-bottom: 1em;
+}
+.module .rest-of-box {
+  margin: 15px;
+}
+.module .little-read-more {
+  width: 100px;
+  float: right;
+}
+.module .link-without-style {
+  color: inherit;
+}
+/* Add responsive design only for phones and tablets */
+@media (max-width: 800px) {
+  /* Based on observation, overwrite existing css styles */
+  #footer .threecol,
+  body #container,
+  body#missions_index .submodule,
+  body.one_column #main .submodule.skinny,
+  body.one_column #main .submodule.fat,
+  .column,
+  body#profile .project-display,
+  body#search #container #pagetop img#volunteer-opportunities,
+  #nav,
+  #pagetop,
+  #content {
+    width: 100%;
+  }
+  #footer .column {
+    width: 30%;
+  }
+}
+</style><style id="less:static-less-base-one_column" media="screen" type="text/css">/* fonts */
+@font-face {
+  font-family: arial;
+  src: url('/static/fonts/arial_regular.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-weight: bold;
+  src: url('/static/fonts/arial_bold.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-style: italic;
+  src: url('/static/fonts/arial_italic.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-weight: bold;
+  font-style: italic;
+  src: url('/static/fonts/arial_bold_italic.ttf');
+}
+/* coloration */
+.nav-bg {
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+/* size, width and padding stuff */
+/* CSSTODO -- do we use these actually?*/
+.enormous {
+  font-size: 3em;
+}
+.fairly-big {
+  font-size: 1.7em;
+}
+.enormous > div {
+  margin-bottom: 1em;
+}
+.normal-size {
+  font-size: 11pt;
+}
+/* other useful mixins */
+.screw-you-webkit {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+.centered {
+  margin: 0 auto;
+}
+/* styles */
+body {
+  font: 11pt arial, Helvetica, sans-serif;
+  background: #f8f8f8 url('/static/images/light-hatch.png') repeat;
+  color: #222222;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+code {
+  overflow-x: auto;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+}
+.link_like,
+a,
+body .ui-widget-content a {
+  color: #ff6d3d;
+  text-decoration: none;
+  cursor: pointer;
+  cursor: hand;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix {
+  zoom: 1;
+}
+/* IE6 */
+*:first-child + html .clearfix {
+  zoom: 1;
+}
+/* IE7 */
+/* deprecated; to remove in favor of .clearfix */
+.clearer {
+  width: 100%;
+  clear: both;
+  float: none;
+}
+/* for Firefox */
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0px;
+}
+/* for IE8 */
+input[type="submit"]:focus,
+input[type="button"]:focus {
+  outline: none;
+}
+.alt-text {
+  left: -9999px;
+  position: absolute;
+}
+/* ^^^ display: none would hide this from screenreaders. Let's hide this off stage left instead. */
+.hidden {
+  display: none;
+}
+a:hover,
+.ui-widget-content a:hover {
+  text-decoration: underline;
+}
+a img {
+  border-style: none;
+}
+abbr {
+  border-bottom: 1px dotted #999;
+}
+abbr.foss {
+  border: 0;
+  font-variant: small-caps;
+}
+h1 a,
+h1 a:hover {
+  text-decoration: none;
+}
+#container {
+  width: 1000px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+}
+.module {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: 3px solid rgba(100, 200, 255, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+  float: left;
+}
+.module .module-head {
+  background: rgba(100, 200, 255, 0.3);
+  padding: 2px 20px;
+}
+.module .module-head ul li a {
+  float: right;
+  padding-top: 5px;
+}
+.module .module-head h3 {
+  text-shadow: 0 1px 0 #fff;
+  float: none;
+  padding: 4px 10px 7px 0;
+  font-size: 1.2em;
+}
+.module .module-body {
+  clear: both;
+  padding: 10px 20px 20px 20px;
+}
+.module .module-foot {
+  padding: 2px 20px 5px 20px;
+  text-align: right;
+}
+.module .module-foot .module-foot-left {
+  float: left;
+}
+.submodule-container {
+  float: none;
+  clear: both;
+  width: 100%;
+  margin: 0 auto;
+}
+.submodule {
+  background-color: #ffffff;
+  margin: 0 10px 20px 0;
+  padding: 8px 10px;
+  border: 2px dashed #e4e4e4;
+  float: left;
+}
+.submodule .submodule-head {
+  margin-bottom: 5px;
+}
+.submodule .submodule-body {
+  clear: both;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  clear: both;
+}
+h1 {
+  font-weight: normal;
+  font-size: 23pt;
+}
+#nav-container {
+  width: 100%;
+  height: 67px;
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+#nav {
+  margin: 0 auto;
+  padding-top: 3px;
+  border-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+#nav h1 {
+  float: left;
+}
+#nav ul {
+  list-style: none;
+  margin: 0;
+  float: right;
+}
+#nav li {
+  float: right;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+#pagetop {
+  padding: 0;
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+.up-top {
+  padding: 0;
+  margin-bottom: -15px;
+}
+ul#links {
+  margin-left: 20px;
+}
+#links li {
+  display: inline;
+  font-size: 12pt;
+  margin-top: 20px;
+}
+#account-links,
+#topnavlinks {
+  float: right;
+}
+#account-links #username,
+#topnavlinks #username {
+  font-weight: bold;
+}
+#account-links li,
+#topnavlinks li {
+  margin: 15px 0;
+}
+#account-links a,
+#topnavlinks a {
+  float: left;
+  padding: 5px 10px;
+  color: white;
+}
+#topnavlinks {
+  float: left;
+}
+#topnavlinks li {
+  font-size: 1.1em;
+}
+#content {
+  padding: 10px 0 30px 0;
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+#footer-wrapper {
+  width: 100%;
+  clear: both;
+  padding-top: 40px;
+}
+#footer {
+  width: 100%;
+  bottom: 0;
+  padding: 10px 0px;
+  text-align: right;
+  margin: 0 auto;
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+#footer ul {
+  display: inline;
+  list-style-type: none;
+  max-width: 108em;
+  padding: 0 20px;
+}
+#footer li {
+  display: block;
+  text-align: left;
+  padding-left: 0;
+  margin-bottom: 0.3em;
+}
+#footer a {
+  color: #ffffff;
+}
+#footer h3 {
+  color: #ddd;
+  font-size: 1em;
+  margin-bottom: 0.8em;
+}
+#footer .threecol {
+  width: 960px;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: left;
+}
+#footer .column {
+  width: 210px;
+  display: inline-block;
+  margin: 0px 5px;
+  vertical-align: top;
+  text-align: left;
+  float: none;
+}
+#training-missions {
+  width: 100%;
+}
+h3 {
+  margin-bottom: 0px;
+  text-align: left;
+  clear: left;
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #222222;
+  letter-spacing: 0;
+  margin: 0;
+}
+h3.nofloat {
+  float: none;
+}
+img.show-more-link {
+  float: right;
+  position: relative;
+  top: 1px;
+}
+input[type='text'],
+input[type='password'],
+input[type='file'],
+textarea {
+  padding: 5px;
+  font-size: 11pt;
+  float: left;
+}
+input[type='submit'] {
+  padding: 1px 8px;
+  color: #222222;
+  font-weight: bold;
+  float: left;
+}
+.alert {
+  padding: 15px 0;
+}
+.alert div {
+  background-color: #ffa;
+  color: #444;
+  padding: 8px 15px;
+  width: 700px;
+  font-size: 11pt;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+img {
+  border: 0;
+}
+img.left {
+  float: left;
+  padding: 0 10px 20px 0;
+}
+img.right {
+  float: right;
+  padding: 0 0 20px 10px;
+}
+.usernames {
+  font-size: 10pt;
+}
+#info .tag-type {
+  font-weight: normal;
+  display: block;
+  font-size: 8pt;
+}
+.column {
+  float: left;
+  margin-right: 10px;
+}
+h4,
+.cute-header {
+  font-size: 9pt;
+  color: #666666;
+  float: left;
+  margin: 0;
+  padding: 1px;
+}
+input[type='submit'] {
+  color: #333333;
+  float: right;
+}
+#notifications {
+  text-align: center;
+  float: left;
+}
+.notification {
+  float: left;
+  width: 95%;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  padding: 10px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.errorlist ul {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.errorlist li {
+  float: left;
+  padding: 5px 10px;
+  width: 410px;
+  color: #522;
+  background-color: #ffe4e4;
+  margin: 10px 0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#normal_login_form li {
+  list-style: none;
+}
+dt {
+  font-size: 120%;
+}
+dd {
+  margin-top: .5em;
+  margin-left: 1.2em;
+}
+#greeting {
+  background-color: #ffffc8;
+  background-color: rgba(255, 255, 200, 0.5);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  padding: 2%;
+  width: 96%;
+  margin-top: 10px;
+  border: 4px solid #fff;
+  float: left;
+}
+#greeting #about-openhatch {
+  font-size: 140%;
+  float: left;
+  width: 100%;
+  margin-right: 20px;
+}
+#greeting #invitation {
+  font-size: 120%;
+  margin-top: 10px;
+  text-align: center;
+  float: left;
+  width: 100%;
+}
+#greeting #next-steps {
+  float: left;
+  width: 100%;
+}
+#greeting #next-steps li {
+  font-size: 120%;
+  float: left;
+  width: 210px;
+  margin: 10px 20px 0 0;
+}
+#error #content {
+  padding: 0 300px;
+}
+#error #content .module {
+  width: 400px;
+}
+#error #content .module .head {
+  width: 96%;
+  color: #aaa;
+  padding: 2%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 96pt;
+}
+#error #content .module .body {
+  width: 90%;
+}
+.head .note {
+  float: right;
+  color: #777;
+  font-size: .9em;
+  padding: 6px;
+}
+.head .more {
+  float: right;
+  padding: 3px;
+}
+body ul.raquo_bullets {
+  margin-left: 0;
+  padding-left: 1.1em;
+  text-indent: -1em;
+  list-style: none;
+}
+body ul.raquo_bullets li {
+  margin-bottom: .4em;
+}
+body ul.raquo_bullets li:last-child {
+  margin-bottom: 0;
+}
+body ul.raquo_bullets li:before {
+  color: #999;
+  font-family: Georgia;
+  margin-right: 2px;
+  font-weight: bold;
+  content: "\00BB \0020";
+}
+body ul.raquo_bullets li code {
+  display: inline-table;
+  margin-left: 16px;
+}
+.contact_us {
+  display: inline-block;
+  text-align: center;
+}
+/* CSSTODO */
+body#login .post_login_action_explanation {
+  color: #444;
+  font-size: 1.5em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  text-align: center;
+  float: left;
+  width: 98%;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #faffaa;
+}
+ol > li {
+  margin: 15px 0;
+}
+/* CSSTODO I think this is just missions*/
+input[rel='hint'].blur {
+  color: #777;
+}
+/* CSSTODO */
+body#people-map #search_engine_is_down_message {
+  float: left;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 0;
+  font-size: 1.3em;
+}
+.ajax-loader-circle-txt-medium {
+  display: inline-block;
+  line-height: 32px;
+  padding-left: 32px;
+  background: url('/static/images/throbber.gif') no-repeat left;
+  font-weight: bold;
+  color: #444444;
+}
+/* Stuff for jQuery UI Tabs */
+/* CSSTODO */
+.ui-tabs-hide {
+  display: none !important;
+}
+.tab_nav .ui-state-active {
+  font-weight: bold;
+}
+/* Stuff initially for the events page */
+/* CSSTODO */
+.module .left-image {
+  width: 180px;
+  height: 180px;
+  float: left;
+  margin-right: 10px;
+}
+.module .name-of-event {
+  font-size: 180%;
+  margin-bottom: 1em;
+}
+.module .rest-of-box {
+  margin: 15px;
+}
+.module .little-read-more {
+  width: 100px;
+  float: right;
+}
+.module .link-without-style {
+  color: inherit;
+}
+/* Add responsive design only for phones and tablets */
+@media (max-width: 800px) {
+  /* Based on observation, overwrite existing css styles */
+  #footer .threecol,
+  body #container,
+  body#missions_index .submodule,
+  body.one_column #main .submodule.skinny,
+  body.one_column #main .submodule.fat,
+  .column,
+  body#profile .project-display,
+  body#search #container #pagetop img#volunteer-opportunities,
+  #nav,
+  #pagetop,
+  #content {
+    width: 100%;
+  }
+  #footer .column {
+    width: 30%;
+  }
+}
+/* CSSTODO
+   One day, we'll probably want to review this and clean it up. */
+body.one_column #main {
+  float: none;
+  /* SKINNY SUBMODULE */
+
+  /* FAT SUBMODULE */
+
+}
+body.one_column #main .submodule .head h3 {
+  font-weight: normal;
+  font-size: 11pt;
+}
+body.one_column #main .submodule .body,
+body.one_column #main #main .submodule .foot {
+  padding: 3% 5%;
+  float: left;
+}
+body.one_column #main .submodule.skinny {
+  width: 25%;
+  margin-right: 15px;
+}
+body.one_column #main .submodule.skinny .submodule-head {
+  width: 82.5%;
+}
+body.one_column #main .submodule.skinny .submodule-head h3 {
+  width: 95%;
+}
+body.one_column #main .submodule.skinny .submodule-body {
+  width: 90%;
+}
+body.one_column #main .submodule.fat {
+  width: 67%;
+}
+body.one_column #main .submodule.fat .submodule-head {
+  width: 93.8%;
+}
+body.one_column #main .submodule.fat .submodule-head h3 {
+  width: 100%;
+}
+body.one_column #main .submodule.fat .submodule-body {
+  width: 90%;
+}
+body.one_column #main .submodule.fat .submodule-foot {
+  width: 90%;
+}
+body.one_column #main .equal-width {
+  width: 45%;
+}
+body.one_column #main .equal-width .submodule {
+  width: 45%;
+}
+body.one_column #main .equal-width .submodule submodule-head,
+body.one_column #main .equal-width .submodule .submodule-body,
+body.one_column #main .equal-width .submodule .submodule-foot {
+  width: 90.5%;
+}
+body.one_column #main .submodule.left {
+  margin-right: 20px;
+}
+</style><style id="less:static-less-base-two_column" media="screen" type="text/css">/* fonts */
+@font-face {
+  font-family: arial;
+  src: url('/static/fonts/arial_regular.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-weight: bold;
+  src: url('/static/fonts/arial_bold.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-style: italic;
+  src: url('/static/fonts/arial_italic.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-weight: bold;
+  font-style: italic;
+  src: url('/static/fonts/arial_bold_italic.ttf');
+}
+/* coloration */
+.nav-bg {
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+/* size, width and padding stuff */
+/* CSSTODO -- do we use these actually?*/
+.enormous {
+  font-size: 3em;
+}
+.fairly-big {
+  font-size: 1.7em;
+}
+.enormous > div {
+  margin-bottom: 1em;
+}
+.normal-size {
+  font-size: 11pt;
+}
+/* other useful mixins */
+.screw-you-webkit {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+.centered {
+  margin: 0 auto;
+}
+/* styles */
+body {
+  font: 11pt arial, Helvetica, sans-serif;
+  background: #f8f8f8 url('/static/images/light-hatch.png') repeat;
+  color: #222222;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+code {
+  overflow-x: auto;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+}
+.link_like,
+a,
+body .ui-widget-content a {
+  color: #ff6d3d;
+  text-decoration: none;
+  cursor: pointer;
+  cursor: hand;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix {
+  zoom: 1;
+}
+/* IE6 */
+*:first-child + html .clearfix {
+  zoom: 1;
+}
+/* IE7 */
+/* deprecated; to remove in favor of .clearfix */
+.clearer {
+  width: 100%;
+  clear: both;
+  float: none;
+}
+/* for Firefox */
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0px;
+}
+/* for IE8 */
+input[type="submit"]:focus,
+input[type="button"]:focus {
+  outline: none;
+}
+.alt-text {
+  left: -9999px;
+  position: absolute;
+}
+/* ^^^ display: none would hide this from screenreaders. Let's hide this off stage left instead. */
+.hidden {
+  display: none;
+}
+a:hover,
+.ui-widget-content a:hover {
+  text-decoration: underline;
+}
+a img {
+  border-style: none;
+}
+abbr {
+  border-bottom: 1px dotted #999;
+}
+abbr.foss {
+  border: 0;
+  font-variant: small-caps;
+}
+h1 a,
+h1 a:hover {
+  text-decoration: none;
+}
+#container {
+  width: 1000px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+}
+.module {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: 3px solid rgba(100, 200, 255, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+  float: left;
+}
+.module .module-head {
+  background: rgba(100, 200, 255, 0.3);
+  padding: 2px 20px;
+}
+.module .module-head ul li a {
+  float: right;
+  padding-top: 5px;
+}
+.module .module-head h3 {
+  text-shadow: 0 1px 0 #fff;
+  float: none;
+  padding: 4px 10px 7px 0;
+  font-size: 1.2em;
+}
+.module .module-body {
+  clear: both;
+  padding: 10px 20px 20px 20px;
+}
+.module .module-foot {
+  padding: 2px 20px 5px 20px;
+  text-align: right;
+}
+.module .module-foot .module-foot-left {
+  float: left;
+}
+.submodule-container {
+  float: none;
+  clear: both;
+  width: 100%;
+  margin: 0 auto;
+}
+.submodule {
+  background-color: #ffffff;
+  margin: 0 10px 20px 0;
+  padding: 8px 10px;
+  border: 2px dashed #e4e4e4;
+  float: left;
+}
+.submodule .submodule-head {
+  margin-bottom: 5px;
+}
+.submodule .submodule-body {
+  clear: both;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  clear: both;
+}
+h1 {
+  font-weight: normal;
+  font-size: 23pt;
+}
+#nav-container {
+  width: 100%;
+  height: 67px;
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+#nav {
+  margin: 0 auto;
+  padding-top: 3px;
+  border-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+#nav h1 {
+  float: left;
+}
+#nav ul {
+  list-style: none;
+  margin: 0;
+  float: right;
+}
+#nav li {
+  float: right;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+#pagetop {
+  padding: 0;
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+.up-top {
+  padding: 0;
+  margin-bottom: -15px;
+}
+ul#links {
+  margin-left: 20px;
+}
+#links li {
+  display: inline;
+  font-size: 12pt;
+  margin-top: 20px;
+}
+#account-links,
+#topnavlinks {
+  float: right;
+}
+#account-links #username,
+#topnavlinks #username {
+  font-weight: bold;
+}
+#account-links li,
+#topnavlinks li {
+  margin: 15px 0;
+}
+#account-links a,
+#topnavlinks a {
+  float: left;
+  padding: 5px 10px;
+  color: white;
+}
+#topnavlinks {
+  float: left;
+}
+#topnavlinks li {
+  font-size: 1.1em;
+}
+#content {
+  padding: 10px 0 30px 0;
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+#footer-wrapper {
+  width: 100%;
+  clear: both;
+  padding-top: 40px;
+}
+#footer {
+  width: 100%;
+  bottom: 0;
+  padding: 10px 0px;
+  text-align: right;
+  margin: 0 auto;
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+#footer ul {
+  display: inline;
+  list-style-type: none;
+  max-width: 108em;
+  padding: 0 20px;
+}
+#footer li {
+  display: block;
+  text-align: left;
+  padding-left: 0;
+  margin-bottom: 0.3em;
+}
+#footer a {
+  color: #ffffff;
+}
+#footer h3 {
+  color: #ddd;
+  font-size: 1em;
+  margin-bottom: 0.8em;
+}
+#footer .threecol {
+  width: 960px;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: left;
+}
+#footer .column {
+  width: 210px;
+  display: inline-block;
+  margin: 0px 5px;
+  vertical-align: top;
+  text-align: left;
+  float: none;
+}
+#training-missions {
+  width: 100%;
+}
+h3 {
+  margin-bottom: 0px;
+  text-align: left;
+  clear: left;
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #222222;
+  letter-spacing: 0;
+  margin: 0;
+}
+h3.nofloat {
+  float: none;
+}
+img.show-more-link {
+  float: right;
+  position: relative;
+  top: 1px;
+}
+input[type='text'],
+input[type='password'],
+input[type='file'],
+textarea {
+  padding: 5px;
+  font-size: 11pt;
+  float: left;
+}
+input[type='submit'] {
+  padding: 1px 8px;
+  color: #222222;
+  font-weight: bold;
+  float: left;
+}
+.alert {
+  padding: 15px 0;
+}
+.alert div {
+  background-color: #ffa;
+  color: #444;
+  padding: 8px 15px;
+  width: 700px;
+  font-size: 11pt;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+img {
+  border: 0;
+}
+img.left {
+  float: left;
+  padding: 0 10px 20px 0;
+}
+img.right {
+  float: right;
+  padding: 0 0 20px 10px;
+}
+.usernames {
+  font-size: 10pt;
+}
+#info .tag-type {
+  font-weight: normal;
+  display: block;
+  font-size: 8pt;
+}
+.column {
+  float: left;
+  margin-right: 10px;
+}
+h4,
+.cute-header {
+  font-size: 9pt;
+  color: #666666;
+  float: left;
+  margin: 0;
+  padding: 1px;
+}
+input[type='submit'] {
+  color: #333333;
+  float: right;
+}
+#notifications {
+  text-align: center;
+  float: left;
+}
+.notification {
+  float: left;
+  width: 95%;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  padding: 10px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.errorlist ul {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.errorlist li {
+  float: left;
+  padding: 5px 10px;
+  width: 410px;
+  color: #522;
+  background-color: #ffe4e4;
+  margin: 10px 0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#normal_login_form li {
+  list-style: none;
+}
+dt {
+  font-size: 120%;
+}
+dd {
+  margin-top: .5em;
+  margin-left: 1.2em;
+}
+#greeting {
+  background-color: #ffffc8;
+  background-color: rgba(255, 255, 200, 0.5);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  padding: 2%;
+  width: 96%;
+  margin-top: 10px;
+  border: 4px solid #fff;
+  float: left;
+}
+#greeting #about-openhatch {
+  font-size: 140%;
+  float: left;
+  width: 100%;
+  margin-right: 20px;
+}
+#greeting #invitation {
+  font-size: 120%;
+  margin-top: 10px;
+  text-align: center;
+  float: left;
+  width: 100%;
+}
+#greeting #next-steps {
+  float: left;
+  width: 100%;
+}
+#greeting #next-steps li {
+  font-size: 120%;
+  float: left;
+  width: 210px;
+  margin: 10px 20px 0 0;
+}
+#error #content {
+  padding: 0 300px;
+}
+#error #content .module {
+  width: 400px;
+}
+#error #content .module .head {
+  width: 96%;
+  color: #aaa;
+  padding: 2%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 96pt;
+}
+#error #content .module .body {
+  width: 90%;
+}
+.head .note {
+  float: right;
+  color: #777;
+  font-size: .9em;
+  padding: 6px;
+}
+.head .more {
+  float: right;
+  padding: 3px;
+}
+body ul.raquo_bullets {
+  margin-left: 0;
+  padding-left: 1.1em;
+  text-indent: -1em;
+  list-style: none;
+}
+body ul.raquo_bullets li {
+  margin-bottom: .4em;
+}
+body ul.raquo_bullets li:last-child {
+  margin-bottom: 0;
+}
+body ul.raquo_bullets li:before {
+  color: #999;
+  font-family: Georgia;
+  margin-right: 2px;
+  font-weight: bold;
+  content: "\00BB \0020";
+}
+body ul.raquo_bullets li code {
+  display: inline-table;
+  margin-left: 16px;
+}
+.contact_us {
+  display: inline-block;
+  text-align: center;
+}
+/* CSSTODO */
+body#login .post_login_action_explanation {
+  color: #444;
+  font-size: 1.5em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  text-align: center;
+  float: left;
+  width: 98%;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #faffaa;
+}
+ol > li {
+  margin: 15px 0;
+}
+/* CSSTODO I think this is just missions*/
+input[rel='hint'].blur {
+  color: #777;
+}
+/* CSSTODO */
+body#people-map #search_engine_is_down_message {
+  float: left;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 0;
+  font-size: 1.3em;
+}
+.ajax-loader-circle-txt-medium {
+  display: inline-block;
+  line-height: 32px;
+  padding-left: 32px;
+  background: url('/static/images/throbber.gif') no-repeat left;
+  font-weight: bold;
+  color: #444444;
+}
+/* Stuff for jQuery UI Tabs */
+/* CSSTODO */
+.ui-tabs-hide {
+  display: none !important;
+}
+.tab_nav .ui-state-active {
+  font-weight: bold;
+}
+/* Stuff initially for the events page */
+/* CSSTODO */
+.module .left-image {
+  width: 180px;
+  height: 180px;
+  float: left;
+  margin-right: 10px;
+}
+.module .name-of-event {
+  font-size: 180%;
+  margin-bottom: 1em;
+}
+.module .rest-of-box {
+  margin: 15px;
+}
+.module .little-read-more {
+  width: 100px;
+  float: right;
+}
+.module .link-without-style {
+  color: inherit;
+}
+/* Add responsive design only for phones and tablets */
+@media (max-width: 800px) {
+  /* Based on observation, overwrite existing css styles */
+  #footer .threecol,
+  body #container,
+  body#missions_index .submodule,
+  body.one_column #main .submodule.skinny,
+  body.one_column #main .submodule.fat,
+  .column,
+  body#profile .project-display,
+  body#search #container #pagetop img#volunteer-opportunities,
+  #nav,
+  #pagetop,
+  #content {
+    width: 100%;
+  }
+  #footer .column {
+    width: 30%;
+  }
+}
+.column {
+  clear: none;
+}
+.two-column-left {
+  float: left;
+  width: 300px;
+}
+.two-column-right {
+  /*    margin-left: @column-width + @padding-between-columns; */
+
+  width: 640px;
+  float: none;
+  clear: none;
+}
+#more-content {
+  clear: both;
+}
+</style><style id="less:static-less-base-three_column" media="screen" type="text/css">/* fonts */
+@font-face {
+  font-family: arial;
+  src: url('/static/fonts/arial_regular.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-weight: bold;
+  src: url('/static/fonts/arial_bold.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-style: italic;
+  src: url('/static/fonts/arial_italic.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-weight: bold;
+  font-style: italic;
+  src: url('/static/fonts/arial_bold_italic.ttf');
+}
+/* coloration */
+.nav-bg {
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+/* size, width and padding stuff */
+/* CSSTODO -- do we use these actually?*/
+.enormous {
+  font-size: 3em;
+}
+.fairly-big {
+  font-size: 1.7em;
+}
+.enormous > div {
+  margin-bottom: 1em;
+}
+.normal-size {
+  font-size: 11pt;
+}
+/* other useful mixins */
+.screw-you-webkit {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+.centered {
+  margin: 0 auto;
+}
+/* styles */
+body {
+  font: 11pt arial, Helvetica, sans-serif;
+  background: #f8f8f8 url('/static/images/light-hatch.png') repeat;
+  color: #222222;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+code {
+  overflow-x: auto;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+}
+.link_like,
+a,
+body .ui-widget-content a {
+  color: #ff6d3d;
+  text-decoration: none;
+  cursor: pointer;
+  cursor: hand;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix {
+  zoom: 1;
+}
+/* IE6 */
+*:first-child + html .clearfix {
+  zoom: 1;
+}
+/* IE7 */
+/* deprecated; to remove in favor of .clearfix */
+.clearer {
+  width: 100%;
+  clear: both;
+  float: none;
+}
+/* for Firefox */
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0px;
+}
+/* for IE8 */
+input[type="submit"]:focus,
+input[type="button"]:focus {
+  outline: none;
+}
+.alt-text {
+  left: -9999px;
+  position: absolute;
+}
+/* ^^^ display: none would hide this from screenreaders. Let's hide this off stage left instead. */
+.hidden {
+  display: none;
+}
+a:hover,
+.ui-widget-content a:hover {
+  text-decoration: underline;
+}
+a img {
+  border-style: none;
+}
+abbr {
+  border-bottom: 1px dotted #999;
+}
+abbr.foss {
+  border: 0;
+  font-variant: small-caps;
+}
+h1 a,
+h1 a:hover {
+  text-decoration: none;
+}
+#container {
+  width: 1000px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+}
+.module {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: 3px solid rgba(100, 200, 255, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+  float: left;
+}
+.module .module-head {
+  background: rgba(100, 200, 255, 0.3);
+  padding: 2px 20px;
+}
+.module .module-head ul li a {
+  float: right;
+  padding-top: 5px;
+}
+.module .module-head h3 {
+  text-shadow: 0 1px 0 #fff;
+  float: none;
+  padding: 4px 10px 7px 0;
+  font-size: 1.2em;
+}
+.module .module-body {
+  clear: both;
+  padding: 10px 20px 20px 20px;
+}
+.module .module-foot {
+  padding: 2px 20px 5px 20px;
+  text-align: right;
+}
+.module .module-foot .module-foot-left {
+  float: left;
+}
+.submodule-container {
+  float: none;
+  clear: both;
+  width: 100%;
+  margin: 0 auto;
+}
+.submodule {
+  background-color: #ffffff;
+  margin: 0 10px 20px 0;
+  padding: 8px 10px;
+  border: 2px dashed #e4e4e4;
+  float: left;
+}
+.submodule .submodule-head {
+  margin-bottom: 5px;
+}
+.submodule .submodule-body {
+  clear: both;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  clear: both;
+}
+h1 {
+  font-weight: normal;
+  font-size: 23pt;
+}
+#nav-container {
+  width: 100%;
+  height: 67px;
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+#nav {
+  margin: 0 auto;
+  padding-top: 3px;
+  border-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+#nav h1 {
+  float: left;
+}
+#nav ul {
+  list-style: none;
+  margin: 0;
+  float: right;
+}
+#nav li {
+  float: right;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+#pagetop {
+  padding: 0;
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+.up-top {
+  padding: 0;
+  margin-bottom: -15px;
+}
+ul#links {
+  margin-left: 20px;
+}
+#links li {
+  display: inline;
+  font-size: 12pt;
+  margin-top: 20px;
+}
+#account-links,
+#topnavlinks {
+  float: right;
+}
+#account-links #username,
+#topnavlinks #username {
+  font-weight: bold;
+}
+#account-links li,
+#topnavlinks li {
+  margin: 15px 0;
+}
+#account-links a,
+#topnavlinks a {
+  float: left;
+  padding: 5px 10px;
+  color: white;
+}
+#topnavlinks {
+  float: left;
+}
+#topnavlinks li {
+  font-size: 1.1em;
+}
+#content {
+  padding: 10px 0 30px 0;
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+#footer-wrapper {
+  width: 100%;
+  clear: both;
+  padding-top: 40px;
+}
+#footer {
+  width: 100%;
+  bottom: 0;
+  padding: 10px 0px;
+  text-align: right;
+  margin: 0 auto;
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+#footer ul {
+  display: inline;
+  list-style-type: none;
+  max-width: 108em;
+  padding: 0 20px;
+}
+#footer li {
+  display: block;
+  text-align: left;
+  padding-left: 0;
+  margin-bottom: 0.3em;
+}
+#footer a {
+  color: #ffffff;
+}
+#footer h3 {
+  color: #ddd;
+  font-size: 1em;
+  margin-bottom: 0.8em;
+}
+#footer .threecol {
+  width: 960px;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: left;
+}
+#footer .column {
+  width: 210px;
+  display: inline-block;
+  margin: 0px 5px;
+  vertical-align: top;
+  text-align: left;
+  float: none;
+}
+#training-missions {
+  width: 100%;
+}
+h3 {
+  margin-bottom: 0px;
+  text-align: left;
+  clear: left;
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #222222;
+  letter-spacing: 0;
+  margin: 0;
+}
+h3.nofloat {
+  float: none;
+}
+img.show-more-link {
+  float: right;
+  position: relative;
+  top: 1px;
+}
+input[type='text'],
+input[type='password'],
+input[type='file'],
+textarea {
+  padding: 5px;
+  font-size: 11pt;
+  float: left;
+}
+input[type='submit'] {
+  padding: 1px 8px;
+  color: #222222;
+  font-weight: bold;
+  float: left;
+}
+.alert {
+  padding: 15px 0;
+}
+.alert div {
+  background-color: #ffa;
+  color: #444;
+  padding: 8px 15px;
+  width: 700px;
+  font-size: 11pt;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+img {
+  border: 0;
+}
+img.left {
+  float: left;
+  padding: 0 10px 20px 0;
+}
+img.right {
+  float: right;
+  padding: 0 0 20px 10px;
+}
+.usernames {
+  font-size: 10pt;
+}
+#info .tag-type {
+  font-weight: normal;
+  display: block;
+  font-size: 8pt;
+}
+.column {
+  float: left;
+  margin-right: 10px;
+}
+h4,
+.cute-header {
+  font-size: 9pt;
+  color: #666666;
+  float: left;
+  margin: 0;
+  padding: 1px;
+}
+input[type='submit'] {
+  color: #333333;
+  float: right;
+}
+#notifications {
+  text-align: center;
+  float: left;
+}
+.notification {
+  float: left;
+  width: 95%;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  padding: 10px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.errorlist ul {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.errorlist li {
+  float: left;
+  padding: 5px 10px;
+  width: 410px;
+  color: #522;
+  background-color: #ffe4e4;
+  margin: 10px 0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#normal_login_form li {
+  list-style: none;
+}
+dt {
+  font-size: 120%;
+}
+dd {
+  margin-top: .5em;
+  margin-left: 1.2em;
+}
+#greeting {
+  background-color: #ffffc8;
+  background-color: rgba(255, 255, 200, 0.5);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  padding: 2%;
+  width: 96%;
+  margin-top: 10px;
+  border: 4px solid #fff;
+  float: left;
+}
+#greeting #about-openhatch {
+  font-size: 140%;
+  float: left;
+  width: 100%;
+  margin-right: 20px;
+}
+#greeting #invitation {
+  font-size: 120%;
+  margin-top: 10px;
+  text-align: center;
+  float: left;
+  width: 100%;
+}
+#greeting #next-steps {
+  float: left;
+  width: 100%;
+}
+#greeting #next-steps li {
+  font-size: 120%;
+  float: left;
+  width: 210px;
+  margin: 10px 20px 0 0;
+}
+#error #content {
+  padding: 0 300px;
+}
+#error #content .module {
+  width: 400px;
+}
+#error #content .module .head {
+  width: 96%;
+  color: #aaa;
+  padding: 2%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 96pt;
+}
+#error #content .module .body {
+  width: 90%;
+}
+.head .note {
+  float: right;
+  color: #777;
+  font-size: .9em;
+  padding: 6px;
+}
+.head .more {
+  float: right;
+  padding: 3px;
+}
+body ul.raquo_bullets {
+  margin-left: 0;
+  padding-left: 1.1em;
+  text-indent: -1em;
+  list-style: none;
+}
+body ul.raquo_bullets li {
+  margin-bottom: .4em;
+}
+body ul.raquo_bullets li:last-child {
+  margin-bottom: 0;
+}
+body ul.raquo_bullets li:before {
+  color: #999;
+  font-family: Georgia;
+  margin-right: 2px;
+  font-weight: bold;
+  content: "\00BB \0020";
+}
+body ul.raquo_bullets li code {
+  display: inline-table;
+  margin-left: 16px;
+}
+.contact_us {
+  display: inline-block;
+  text-align: center;
+}
+/* CSSTODO */
+body#login .post_login_action_explanation {
+  color: #444;
+  font-size: 1.5em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  text-align: center;
+  float: left;
+  width: 98%;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #faffaa;
+}
+ol > li {
+  margin: 15px 0;
+}
+/* CSSTODO I think this is just missions*/
+input[rel='hint'].blur {
+  color: #777;
+}
+/* CSSTODO */
+body#people-map #search_engine_is_down_message {
+  float: left;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 0;
+  font-size: 1.3em;
+}
+.ajax-loader-circle-txt-medium {
+  display: inline-block;
+  line-height: 32px;
+  padding-left: 32px;
+  background: url('/static/images/throbber.gif') no-repeat left;
+  font-weight: bold;
+  color: #444444;
+}
+/* Stuff for jQuery UI Tabs */
+/* CSSTODO */
+.ui-tabs-hide {
+  display: none !important;
+}
+.tab_nav .ui-state-active {
+  font-weight: bold;
+}
+/* Stuff initially for the events page */
+/* CSSTODO */
+.module .left-image {
+  width: 180px;
+  height: 180px;
+  float: left;
+  margin-right: 10px;
+}
+.module .name-of-event {
+  font-size: 180%;
+  margin-bottom: 1em;
+}
+.module .rest-of-box {
+  margin: 15px;
+}
+.module .little-read-more {
+  width: 100px;
+  float: right;
+}
+.module .link-without-style {
+  color: inherit;
+}
+/* Add responsive design only for phones and tablets */
+@media (max-width: 800px) {
+  /* Based on observation, overwrite existing css styles */
+  #footer .threecol,
+  body #container,
+  body#missions_index .submodule,
+  body.one_column #main .submodule.skinny,
+  body.one_column #main .submodule.fat,
+  .column,
+  body#profile .project-display,
+  body#search #container #pagetop img#volunteer-opportunities,
+  #nav,
+  #pagetop,
+  #content {
+    width: 100%;
+  }
+  #footer .column {
+    width: 30%;
+  }
+}
+.three-column {
+  width: 300px;
+  margin-right: 20px;
+  float: left;
+}
+.three-column-last {
+  margin-right: 0px;
+}
+</style><style id="less:static-less-base-landing" media="screen" type="text/css">/* fonts */
+@font-face {
+  font-family: arial;
+  src: url('/static/fonts/arial_regular.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-weight: bold;
+  src: url('/static/fonts/arial_bold.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-style: italic;
+  src: url('/static/fonts/arial_italic.ttf');
+}
+@font-face {
+  font-family: arial;
+  font-weight: bold;
+  font-style: italic;
+  src: url('/static/fonts/arial_bold_italic.ttf');
+}
+/* coloration */
+.nav-bg {
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+/* size, width and padding stuff */
+/* CSSTODO -- do we use these actually?*/
+.enormous {
+  font-size: 3em;
+}
+.fairly-big {
+  font-size: 1.7em;
+}
+.enormous > div {
+  margin-bottom: 1em;
+}
+.normal-size {
+  font-size: 11pt;
+}
+/* other useful mixins */
+.screw-you-webkit {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+.centered {
+  margin: 0 auto;
+}
+/* styles */
+body {
+  font: 11pt arial, Helvetica, sans-serif;
+  background: #f8f8f8 url('/static/images/light-hatch.png') repeat;
+  color: #222222;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+code {
+  overflow-x: auto;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+}
+.link_like,
+a,
+body .ui-widget-content a {
+  color: #ff6d3d;
+  text-decoration: none;
+  cursor: pointer;
+  cursor: hand;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix {
+  zoom: 1;
+}
+/* IE6 */
+*:first-child + html .clearfix {
+  zoom: 1;
+}
+/* IE7 */
+/* deprecated; to remove in favor of .clearfix */
+.clearer {
+  width: 100%;
+  clear: both;
+  float: none;
+}
+/* for Firefox */
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0px;
+}
+/* for IE8 */
+input[type="submit"]:focus,
+input[type="button"]:focus {
+  outline: none;
+}
+.alt-text {
+  left: -9999px;
+  position: absolute;
+}
+/* ^^^ display: none would hide this from screenreaders. Let's hide this off stage left instead. */
+.hidden {
+  display: none;
+}
+a:hover,
+.ui-widget-content a:hover {
+  text-decoration: underline;
+}
+a img {
+  border-style: none;
+}
+abbr {
+  border-bottom: 1px dotted #999;
+}
+abbr.foss {
+  border: 0;
+  font-variant: small-caps;
+}
+h1 a,
+h1 a:hover {
+  text-decoration: none;
+}
+#container {
+  width: 1000px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+}
+.module {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: 3px solid rgba(100, 200, 255, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+  float: left;
+}
+.module .module-head {
+  background: rgba(100, 200, 255, 0.3);
+  padding: 2px 20px;
+}
+.module .module-head ul li a {
+  float: right;
+  padding-top: 5px;
+}
+.module .module-head h3 {
+  text-shadow: 0 1px 0 #fff;
+  float: none;
+  padding: 4px 10px 7px 0;
+  font-size: 1.2em;
+}
+.module .module-body {
+  clear: both;
+  padding: 10px 20px 20px 20px;
+}
+.module .module-foot {
+  padding: 2px 20px 5px 20px;
+  text-align: right;
+}
+.module .module-foot .module-foot-left {
+  float: left;
+}
+.submodule-container {
+  float: none;
+  clear: both;
+  width: 100%;
+  margin: 0 auto;
+}
+.submodule {
+  background-color: #ffffff;
+  margin: 0 10px 20px 0;
+  padding: 8px 10px;
+  border: 2px dashed #e4e4e4;
+  float: left;
+}
+.submodule .submodule-head {
+  margin-bottom: 5px;
+}
+.submodule .submodule-body {
+  clear: both;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  clear: both;
+}
+h1 {
+  font-weight: normal;
+  font-size: 23pt;
+}
+#nav-container {
+  width: 100%;
+  height: 67px;
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+#nav {
+  margin: 0 auto;
+  padding-top: 3px;
+  border-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+#nav h1 {
+  float: left;
+}
+#nav ul {
+  list-style: none;
+  margin: 0;
+  float: right;
+}
+#nav li {
+  float: right;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+#pagetop {
+  padding: 0;
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+.up-top {
+  padding: 0;
+  margin-bottom: -15px;
+}
+ul#links {
+  margin-left: 20px;
+}
+#links li {
+  display: inline;
+  font-size: 12pt;
+  margin-top: 20px;
+}
+#account-links,
+#topnavlinks {
+  float: right;
+}
+#account-links #username,
+#topnavlinks #username {
+  font-weight: bold;
+}
+#account-links li,
+#topnavlinks li {
+  margin: 15px 0;
+}
+#account-links a,
+#topnavlinks a {
+  float: left;
+  padding: 5px 10px;
+  color: white;
+}
+#topnavlinks {
+  float: left;
+}
+#topnavlinks li {
+  font-size: 1.1em;
+}
+#content {
+  padding: 10px 0 30px 0;
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 960px;
+}
+#footer-wrapper {
+  width: 100%;
+  clear: both;
+  padding-top: 40px;
+}
+#footer {
+  width: 100%;
+  bottom: 0;
+  padding: 10px 0px;
+  text-align: right;
+  margin: 0 auto;
+  background: #333333 url('/static/images/dark-hatch.png') repeat;
+  box-shadow: 0 0 7px #333333;
+  -moz-box-shadow: 0 0 7px #333333;
+  -webkit-box-shadow: 0 0 7px #333333;
+}
+#footer ul {
+  display: inline;
+  list-style-type: none;
+  max-width: 108em;
+  padding: 0 20px;
+}
+#footer li {
+  display: block;
+  text-align: left;
+  padding-left: 0;
+  margin-bottom: 0.3em;
+}
+#footer a {
+  color: #ffffff;
+}
+#footer h3 {
+  color: #ddd;
+  font-size: 1em;
+  margin-bottom: 0.8em;
+}
+#footer .threecol {
+  width: 960px;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: left;
+}
+#footer .column {
+  width: 210px;
+  display: inline-block;
+  margin: 0px 5px;
+  vertical-align: top;
+  text-align: left;
+  float: none;
+}
+#training-missions {
+  width: 100%;
+}
+h3 {
+  margin-bottom: 0px;
+  text-align: left;
+  clear: left;
+  font-weight: normal;
+  font-size: 1.1em;
+  color: #222222;
+  letter-spacing: 0;
+  margin: 0;
+}
+h3.nofloat {
+  float: none;
+}
+img.show-more-link {
+  float: right;
+  position: relative;
+  top: 1px;
+}
+input[type='text'],
+input[type='password'],
+input[type='file'],
+textarea {
+  padding: 5px;
+  font-size: 11pt;
+  float: left;
+}
+input[type='submit'] {
+  padding: 1px 8px;
+  color: #222222;
+  font-weight: bold;
+  float: left;
+}
+.alert {
+  padding: 15px 0;
+}
+.alert div {
+  background-color: #ffa;
+  color: #444;
+  padding: 8px 15px;
+  width: 700px;
+  font-size: 11pt;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+img {
+  border: 0;
+}
+img.left {
+  float: left;
+  padding: 0 10px 20px 0;
+}
+img.right {
+  float: right;
+  padding: 0 0 20px 10px;
+}
+.usernames {
+  font-size: 10pt;
+}
+#info .tag-type {
+  font-weight: normal;
+  display: block;
+  font-size: 8pt;
+}
+.column {
+  float: left;
+  margin-right: 10px;
+}
+h4,
+.cute-header {
+  font-size: 9pt;
+  color: #666666;
+  float: left;
+  margin: 0;
+  padding: 1px;
+}
+input[type='submit'] {
+  color: #333333;
+  float: right;
+}
+#notifications {
+  text-align: center;
+  float: left;
+}
+.notification {
+  float: left;
+  width: 95%;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  padding: 10px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.errorlist ul {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.errorlist li {
+  float: left;
+  padding: 5px 10px;
+  width: 410px;
+  color: #522;
+  background-color: #ffe4e4;
+  margin: 10px 0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#normal_login_form li {
+  list-style: none;
+}
+dt {
+  font-size: 120%;
+}
+dd {
+  margin-top: .5em;
+  margin-left: 1.2em;
+}
+#greeting {
+  background-color: #ffffc8;
+  background-color: rgba(255, 255, 200, 0.5);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  padding: 2%;
+  width: 96%;
+  margin-top: 10px;
+  border: 4px solid #fff;
+  float: left;
+}
+#greeting #about-openhatch {
+  font-size: 140%;
+  float: left;
+  width: 100%;
+  margin-right: 20px;
+}
+#greeting #invitation {
+  font-size: 120%;
+  margin-top: 10px;
+  text-align: center;
+  float: left;
+  width: 100%;
+}
+#greeting #next-steps {
+  float: left;
+  width: 100%;
+}
+#greeting #next-steps li {
+  font-size: 120%;
+  float: left;
+  width: 210px;
+  margin: 10px 20px 0 0;
+}
+#error #content {
+  padding: 0 300px;
+}
+#error #content .module {
+  width: 400px;
+}
+#error #content .module .head {
+  width: 96%;
+  color: #aaa;
+  padding: 2%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 96pt;
+}
+#error #content .module .body {
+  width: 90%;
+}
+.head .note {
+  float: right;
+  color: #777;
+  font-size: .9em;
+  padding: 6px;
+}
+.head .more {
+  float: right;
+  padding: 3px;
+}
+body ul.raquo_bullets {
+  margin-left: 0;
+  padding-left: 1.1em;
+  text-indent: -1em;
+  list-style: none;
+}
+body ul.raquo_bullets li {
+  margin-bottom: .4em;
+}
+body ul.raquo_bullets li:last-child {
+  margin-bottom: 0;
+}
+body ul.raquo_bullets li:before {
+  color: #999;
+  font-family: Georgia;
+  margin-right: 2px;
+  font-weight: bold;
+  content: "\00BB \0020";
+}
+body ul.raquo_bullets li code {
+  display: inline-table;
+  margin-left: 16px;
+}
+.contact_us {
+  display: inline-block;
+  text-align: center;
+}
+/* CSSTODO */
+body#login .post_login_action_explanation {
+  color: #444;
+  font-size: 1.5em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  text-align: center;
+  float: left;
+  width: 98%;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #faffaa;
+}
+ol > li {
+  margin: 15px 0;
+}
+/* CSSTODO I think this is just missions*/
+input[rel='hint'].blur {
+  color: #777;
+}
+/* CSSTODO */
+body#people-map #search_engine_is_down_message {
+  float: left;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 0;
+  font-size: 1.3em;
+}
+.ajax-loader-circle-txt-medium {
+  display: inline-block;
+  line-height: 32px;
+  padding-left: 32px;
+  background: url('/static/images/throbber.gif') no-repeat left;
+  font-weight: bold;
+  color: #444444;
+}
+/* Stuff for jQuery UI Tabs */
+/* CSSTODO */
+.ui-tabs-hide {
+  display: none !important;
+}
+.tab_nav .ui-state-active {
+  font-weight: bold;
+}
+/* Stuff initially for the events page */
+/* CSSTODO */
+.module .left-image {
+  width: 180px;
+  height: 180px;
+  float: left;
+  margin-right: 10px;
+}
+.module .name-of-event {
+  font-size: 180%;
+  margin-bottom: 1em;
+}
+.module .rest-of-box {
+  margin: 15px;
+}
+.module .little-read-more {
+  width: 100px;
+  float: right;
+}
+.module .link-without-style {
+  color: inherit;
+}
+/* Add responsive design only for phones and tablets */
+@media (max-width: 800px) {
+  /* Based on observation, overwrite existing css styles */
+  #footer .threecol,
+  body #container,
+  body#missions_index .submodule,
+  body.one_column #main .submodule.skinny,
+  body.one_column #main .submodule.fat,
+  .column,
+  body#profile .project-display,
+  body#search #container #pagetop img#volunteer-opportunities,
+  #nav,
+  #pagetop,
+  #content {
+    width: 100%;
+  }
+  #footer .column {
+    width: 30%;
+  }
+}
+body#landing {
+  /* Add responsive design for phones and tablets,
+        so each box occupies its own row. */
+
+}
+body#landing #landing-module {
+  background: #ffffff;
+}
+body#landing #landing-module #landing-message {
+  font-size: 2em;
+  padding: 10px 0 15px 0;
+  margin: 0 0 20px 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+body#landing .submodule-container {
+  clear: both;
+  margin: 0 auto;
+  width: 100%;
+  padding-bottom: 30px;
+}
+body#landing .submodule {
+  float: left;
+  width: 21%;
+  margin-right: 12px;
+  font-size: 1.15em;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+@media (max-width: 800px) {
+  body#landing .submodule {
+    width: 100%;
+    margin-right: 0px;
+  }
+  body#landing .column.three-column {
+    width: 100%;
+  }
+}
+body#landing p {
+  padding: 5px 0;
+}
+body#landing h4 {
+  font-size: 1.5em;
+  float: none;
+}
+body#landing .landing-page-pic {
+  height: auto;
+  width: auto;
+  max-width: 150px;
+  max-height: 150px;
+}
+body#landing .penguin {
+  float: left;
+  padding: 0 20px 20px 10px;
+  height: auto;
+  width: auto;
+  max-width: 100px;
+  max-height: 80px;
+}
+body#landing .blurb {
+  font-size: 15px;
+}
+body#landing .outreach-head {
+  font-weight: bold;
+}
+body#landing .outreach-title {
+  padding-bottom: 15px;
+  margin-bottom: -8px;
+  margin-top: 18px;
+  display: inline-block;
+}
+</style>
+        
+
+        
+<script type="text/javascript">
+document.documentElement.className = 'javascript_is_enabled';
+</script>
+
+
+
+    
+    <body data-twttr-rendered="true" id="landing" class="one_column">
+
+        <div id="nav-container">
+
+                
+                
+
+
+<div id="nav">
+        <h1>
+            <a href="https://openhatch.org/">
+                <img src="https://openhatch.org/static/images/the-logo-bluegreen-87px.png" alt="openhatch" height="60" width="87">
+            </a>
+        </h1>
+        
+        <ul id="topnavlinks">
+
+        </ul>
+        <ul id="account-links">
+            
+                <li><a id="login" href="https://openhatch.org/account/login/">log in / <strong>sign up</strong></a></li>
+                
+            
+        </ul>
+
+</div><!-- /#nav -->&nbsp;
+
+
+
+                
+                
+        </div>
+        
+        <div id="container">
+                
+                <div id="pagetop">
+                    
+                    
+                </div>
+                <div id="content">
+                    
+
+    
+    
+
+    <div class="module" id="landing-module">
+        <div class="module-body">
+            <h1>Garcinia Cambogia - Get a Free Bottle For a Limited Time Only
+	</h1>
+
+Are you struggling with your weight? Do you find it difficult to shed those unwanted pounds? If so, you need to try a pumpkin-like fruit called garcinia cambogia, which has proven fat busting effects. 
+<br/><br/>
+Garcinica cambogia comes from Southeast Asia and is changing the way doctors, fitness professionals and celebrities view weight loss. It’s so powerful that Dr. Mehmet Oz called it the “miracle fat burner.” Since then, garcinia cambogia has exploded in popularity and thousands of people have seen success with this powerful fat burner.
+<br/><br/>
+
+<div style="float:left;padding-right:10px;"><a href="http://garciniatv.com/go/free-trial-offer/"><img src="http://i.imgur.com/AGGjZug.jpg"></a></div>
+<b><big>Garcinia Cambogia Free Trial Offer</big></b><br>If you could try something for free that could literally change your life, would you do it? That’s the question that thousands of people are answering with a resounding, YES! <br/><br/>
+Because for a limited time only you can get a FREE TRIAL of Garcinia Cambogia! This revolutionary weight loss supplement is changing people’s bodies and making a difference in the lives of millions of people all over the globe. <br/><br/>
+After receiving endorsements from Dr. Oz and multiple celebrities, the demand for this product has gone through the roof. Bottles are literally flying off the shelf at full price!  However, we are able to let you experience the amazing benefits of Pure Garcinia Cambogia Extract for free!<br/><br/>
+<big><big><a class="outreach-head" href="http://garciniatv.com/go/free-trial-offer/">Click Here to Claim a Free Bottle!</a></big></big>
+
+<p>
+
+
+<h2>How Does It Work?</h2>
+<div style="float:right;"><img src="http://i.imgur.com/1hOhIyg.jpg"></div>
+Garcinia cambogia contains a powerful extract called hydroxycitric acid or HCA extract. HCA extract has two weight loss properties, which are:
+<br/><br/>
+Appetite suppressant: HCA extract increases the secretion of a neurotransmitter called serotonin. Serotonin controls both mood and appetite and studies have shown that low levels of serotonin can cause serious food cravings.
+<br/><br/>
+By increasing the serotonin levels in your body, garcinia cambogia helps block food cravings and will eliminate your desire for unhealthy foods. This process is especially helpful for emotional eaters, which tend to eat during times of great stress or anxiety.
+<br/><br/>
+Fat blocker: HCA extract inhibits the production of an enzyme called citric lyase, which causes the body to convert carbohydrates into fat. By blocking this hormone, the liver stops producing fat and starts converting carbohydrates into usable energy.
+<br/><br/>
+This process also boosts the body’s natural metabolism, which is the rate at which we burn fat. By revving up your metabolism, garcinia cambogia can effectively help you burn fat faster.
+<br/><br/>
+<h2>Research and Clinical Studies</h2>
+<div style="float:left;padding-right:10px;"><a href="http://garciniatv.com/go/free-trial-offer/"><img src="http://i.imgur.com/ZBg582B.jpg"></a></div>
+There have been several research studies on garcinia cambogia, which have been almost all been positive. Here are a few of the studies:
+<br/><br/>
+In a 12-week study, 89 adults were either given a high dose of garcinia cambogia extract or a placebo. After the four months were completed, participants were weighed and measured again. 
+<br/><br/>
+The garcinia cambogia group lost 2.9 more pounds than the placebo group but managed to lose a significantly more amount of fat. Garcinia users also saw a reduction in blood pressure and cholesterol.
+In a second study, 60 participants were either given a 1,320mg dose of garcinia cambogia or a placebo. After two months, the garcinia cambogia group had lost an average of 14.0 pounds where as the placebo group had lost an average of 6.1 pounds.
+<br/><br/>
+The garcinia cambogia group also had no problems with their appetite whereas the placebo group had trouble sticking to the 1,200 calorie diet participants had to follow.
+<br/><br/>
+Finally, in a paper published in the Journal of Obesity, researchers evaluated about a dozen clinical trials and found that garcinia cambogia could help dieters lose about a dozen extra pounds over the course of 2-3 months.
+<br/><br/>
+<h2>100% Natural and Deemed to Be Safe</h2>
+<div style="float:right;"><img src="http://i.imgur.com/hFdJNa4.png"></div>
+From the information we have available, there seems to be no serious concerns regarding garcinia cambogia. Obviously, children and pregnant or nursing mothers should avoid garcinia, as this is standard with all dietary supplements, not just garcinia cambogia.
+<br/><br/>
+There appear to be the same side effects of all dietary supplements, which include nausea and slight stomach discomfort. However, other than these common minor side effects, garcinia cambogia appears to be safe for adults to use.
+<br/><br/>
+The one exception seems to be adults taking statins. Some studies have indicated that garcinia cambogia may interact with statins and cause the supplements to become ineffective.
+<br/><br/>
+If you are unsure whether or not garcinia cambogia is safe for you, consult your doctor. He or she will be able to give you more advice on whether or not garcinia can help you lose more weight.
+<br/><br/>
+<h2>Other Benefits of Garcinia Extract</h2>
+Besides weight loss, garcinia cambogia has plenty of other benefits. Garcinia cambogia naturally inhibits citric lyase, which controls fat and triglyceride production. By blocking this enzyme, cholesterol is naturally lowered and subsequently blood pressure is lower as well.
+<br/><br/>
+Garcinia cambogia also has several anti-inflammatory properties that enable the immune system to prevent disease and fight disease and sickness more efficiently if it does strike. 
+<br/><br/>
+Third and finally, garcinia cambogia naturally enhances the body’s metabolism provides the body with energy throughout the entire day. You don’t have to worry about crashing during the middle of the day anymore. With garcinia cambogia, you’ve awake and fully energized for the entire day.
+<br/><br/>
+<h2>Garcinia Cambogia – The Miracle Fat Burner</h2>
+Unlike past diet products, garcinia cambogia is the real deal. It’s powerful fat busting ingredients will help you melt away fat and shed those unwanted pounds.
+<br/><br/>
+Endorsed by doctors and weight loss experts, garcinia cambogia is unlike anything we’ve ever seen before. If you’re struggling to lose weight and want to truly change the way you look and get healthier, then garcinia cambogia can help.
+<br/><br/>
+Thousands of people just like you have lost weight with garcinia cambogia. You can too. Your weight loss transformation is only a few clicks away! Don’t wait any longer!
+
+</p>
+        <center><A href="http://garciniatv.com/go/free-trial-offer/"><img src="http://i.imgur.com/NQ8QY8g.png"></a><img src="http://i.imgur.com/t6YSCOx.jpg"></center>
+             
+            
+
+        </div>
+    </div>
+
+   
+
+
+
+                </div><!-- /#content -->
+                
+        </div><!-- /#container -->
+        </div>
+
+        <div id="footer-wrapper">
+          <div id="footer">
+            
+	    <div class="threecol">
+              <div class="column">
+                
+
+                <ul>
+                  <li><a href="https://openhatch.org/about/">about openhatch</a></li>
+                  <li><a href="https://openhatch.org/sponsors/">sponsors</a></li>
+                 
+                  
+                </ul>
+              </div>
+
+	      <div class="column">
+	
+		<ul>
+		   <li><a href="https://openhatch.org/blog/">blog</a></li>
+                  <li><a href="https://openhatch.org/contact/">contact</a></li>
+		</ul>
+	      </div>
+
+	      <div class="column">
+		
+		<ul>
+                  <li><a href="https://openhatch.org/wiki/Privacy_policy">privacy policy</a></li>
+<li><a id="login" href="https://openhatch.org/account/login/">log in</a></li>
+		</ul>
+	      </div>
+	    </div>
+            
+          </div>
+        </div>
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://garciniatv.com/" : "http://garciniatv.com/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.php' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 42);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}</script> 
+</body>
+</html>

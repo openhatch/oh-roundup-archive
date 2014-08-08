@@ -1,0 +1,25 @@
+From 9c65a9cb436f936dfebf43869a80a8bfb2152e86 Mon Sep 17 00:00:00 2001
+From: florapdx <floraworleypdx@gmail.com>
+Date: Tue, 19 Mar 2013 17:09:26 -0700
+Subject: [PATCH 05/10] change 'chatter' to 'q&a'
+
+---
+ mysite/project/templates/project/project.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 228089d..9e30bfa 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -99,7 +99,7 @@ about how you can help {{ project.display_name }}
+     <div id='project-tab-container' class='module contains_questions'>
+             <ul class='module-head tab_nav'>
+                     <li class='ui-state-active'>
+-                        <h3><a href='#chatter'>Chatter</a></h3>
++                        <h3><a href='#chatter'>Q&A</a></h3>
+                     </li>
+                     {% if buildhelper_steps %}
+                     <li >
+-- 
+1.8.1.3
+

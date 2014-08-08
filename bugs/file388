@@ -1,0 +1,282 @@
+From cef17374472df8c0fa1116926e512b571b99fb32 Mon Sep 17 00:00:00 2001
+From: vagrant <vagrant@vagrant-debian-squeeze.vagrantup.com>
+Date: Fri, 26 Aug 2011 06:09:25 +0100
+Subject: [PATCH 1/8] Change the constraints
+
+---
+ ...nswer_points_to_project_and_so_does_question.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/search/migrations/0034_answer_points_to_project_and_so_does_question.py b/mysite/search/migrations/0034_answer_points_to_project_and_so_does_question.py
+index 4ea77e7..1e6055a 100644
+--- a/mysite/search/migrations/0034_answer_points_to_project_and_so_does_question.py
++++ b/mysite/search/migrations/0034_answer_points_to_project_and_so_does_question.py
+@@ -79,7 +79,7 @@ class Migration:
+         'search.answer': {
+             'author': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'}),
+             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+-            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']", 'null': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']", 'null': 'False'}),
+             'question': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'answers'", 'to': "orm['search.ProjectInvolvementQuestion']"}),
+             'text': ('django.db.models.fields.TextField', [], {})
+         },
+-- 
+1.7.5.4
+
+
+From 4c54f7159328c6d717d747fd1f30ed9799e3d4e2 Mon Sep 17 00:00:00 2001
+From: vagrant <vagrant@vagrant-debian-squeeze.vagrantup.com>
+Date: Fri, 26 Aug 2011 06:09:50 +0100
+Subject: [PATCH 2/8] puppet nonsense
+
+---
+ puppet-provisioning-files/manifests/squeeze.pp |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/puppet-provisioning-files/manifests/squeeze.pp b/puppet-provisioning-files/manifests/squeeze.pp
+index 851d22c..8688537 100644
+--- a/puppet-provisioning-files/manifests/squeeze.pp
++++ b/puppet-provisioning-files/manifests/squeeze.pp
+@@ -12,7 +12,7 @@ class {
+ 
+ node default {
+   include apt_get_update
+-  include openhatch_dependencies
+-  include openhatch_code
+-  include openhatch_database
++#  include openhatch_dependencies
++#  include openhatch_code
++#  include openhatch_database
+ }
+-- 
+1.7.5.4
+
+
+From 0f51f010a506a48e3086d55511ace44e31bbe1d8 Mon Sep 17 00:00:00 2001
+From: vagrant <vagrant@vagrant-debian-squeeze.vagrantup.com>
+Date: Fri, 26 Aug 2011 07:24:10 +0100
+Subject: [PATCH 3/8] zomg
+
+---
+ ...nswer_points_to_project_and_so_does_question.py |   10 ++++++----
+ 1 files changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/search/migrations/0034_answer_points_to_project_and_so_does_question.py b/mysite/search/migrations/0034_answer_points_to_project_and_so_does_question.py
+index 1e6055a..08a1eb1 100644
+--- a/mysite/search/migrations/0034_answer_points_to_project_and_so_does_question.py
++++ b/mysite/search/migrations/0034_answer_points_to_project_and_so_does_question.py
+@@ -1,3 +1,4 @@
++
+ # This file is part of OpenHatch.
+ # Copyright (C) 2010 OpenHatch, Inc.
+ #
+@@ -18,16 +19,17 @@
+ from south.db import db
+ from django.db import models
+ from mysite.search.models import *
++from south.v2 import SchemaMigration
+ 
+-class Migration:
++class Migration(SchemaMigration):
+     
+     def forwards(self, orm):
+         
+         # Adding field 'Answer.project'
+-        db.add_column('search_answer', 'project', orm['search.answer:project'])
++        db.add_column('search_answer', 'project', self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['search.Project']), keep_default=False)
+         
+         # Deleting field 'ProjectInvolvementQuestion.project'
+-        db.delete_column('search_projectinvolvementquestion', 'project_id')
++        #db.delete_column('search_projectinvolvementquestion', 'project_id')
+         
+     
+     
+@@ -79,7 +81,7 @@ class Migration:
+         'search.answer': {
+             'author': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'}),
+             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+-            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']", 'null': 'False'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']", 'null': 'True'}),
+             'question': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'answers'", 'to': "orm['search.ProjectInvolvementQuestion']"}),
+             'text': ('django.db.models.fields.TextField', [], {})
+         },
+-- 
+1.7.5.4
+
+
+From e2e8fda05db101b6337a7cad86e1ed8296b14337 Mon Sep 17 00:00:00 2001
+From: vagrant <vagrant@vagrant-debian-squeeze.vagrantup.com>
+Date: Fri, 26 Aug 2011 08:01:38 +0100
+Subject: [PATCH 4/8] lollersk8es
+
+---
+ ...23_asheesh_add_person_tag_link_person_column.py |    5 +++--
+ 1 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/profile/migrations/0023_asheesh_add_person_tag_link_person_column.py b/mysite/profile/migrations/0023_asheesh_add_person_tag_link_person_column.py
+index 0962ab7..2a47d7f 100644
+--- a/mysite/profile/migrations/0023_asheesh_add_person_tag_link_person_column.py
++++ b/mysite/profile/migrations/0023_asheesh_add_person_tag_link_person_column.py
+@@ -17,9 +17,10 @@
+ 
+ from south.db import db
+ from django.db import models
++from south.v2 import SchemaMigration
+ from mysite.profile.models import *
+ 
+-class Migration:
++class Migration(SchemaMigration):
+     
+     def forwards(self, orm):
+         
+@@ -27,7 +28,7 @@ class Migration:
+         db.add_column('profile_link_person_tag', 'person', models.ForeignKey(orm.Person, null=True))
+         
+         # Deleting field 'Link_Person_Tag.project'
+-        db.delete_column('profile_link_person_tag', 'project_id')
++        # db.delete_column('profile_link_person_tag', 'project_id')
+         
+         # Changing field 'Person.time_record_was_created'
+         db.alter_column('profile_person', 'time_record_was_created', models.DateTimeField(default=datetime.datetime(2009, 6, 29, 0, 57, 6, 907059)))
+-- 
+1.7.5.4
+
+
+From 4cb3533d4aa683ced24be6a21515c3e3c469626e Mon Sep 17 00:00:00 2001
+From: vagrant <vagrant@vagrant-debian-squeeze.vagrantup.com>
+Date: Fri, 26 Aug 2011 14:26:43 +0100
+Subject: [PATCH 5/8] fix
+
+---
+ .../0058_web_response_and_citation_ignoring.py     |    8 +++++---
+ 1 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/profile/migrations/0058_web_response_and_citation_ignoring.py b/mysite/profile/migrations/0058_web_response_and_citation_ignoring.py
+index 6be5cf3..c8914ed 100644
+--- a/mysite/profile/migrations/0058_web_response_and_citation_ignoring.py
++++ b/mysite/profile/migrations/0058_web_response_and_citation_ignoring.py
+@@ -18,8 +18,10 @@
+ from south.db import db
+ from django.db import models
+ from mysite.profile.models import *
++from south.v2 import SchemaMigration
+ 
+-class Migration:
++     
++class Migration(SchemaMigration):
+     
+     def forwards(self, orm):
+         
+@@ -42,8 +44,8 @@ class Migration:
+         db.add_column('profile_citation', 'ignored_due_to_duplicate', orm['profile.citation:ignored_due_to_duplicate'])
+         
+         # Adding field 'DataImportAttempt.web_response'
+-        db.add_column('profile_dataimportattempt', 'web_response', orm['profile.dataimportattempt:web_response'])
+-        
++        db.add_column('profile_dataimportattempt', 'web_response', self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['profile.dataimportattempt']), keep_default=False)
++
+         # Changing field 'DataImportAttempt.date_created'
+         # (to signature: django.db.models.fields.DateTimeField(default=datetime.datetime(2009, 11, 5, 16, 25, 12, 117760)))
+         db.alter_column('profile_dataimportattempt', 'date_created', orm['profile.dataimportattempt:date_created'])
+-- 
+1.7.5.4
+
+
+From cdcf68275af8c360fc2e37485337a1fb8375d568 Mon Sep 17 00:00:00 2001
+From: vagrant <vagrant@vagrant-debian-squeeze.vagrantup.com>
+Date: Fri, 26 Aug 2011 14:36:21 +0100
+Subject: [PATCH 6/8] -ATTEMPTEDfix
+
+---
+ .../0013_fix_fieldname_in_bugzillaurl.py           |    5 +++--
+ 1 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/customs/migrations/0013_fix_fieldname_in_bugzillaurl.py b/mysite/customs/migrations/0013_fix_fieldname_in_bugzillaurl.py
+index 04d1371..8276e19 100644
+--- a/mysite/customs/migrations/0013_fix_fieldname_in_bugzillaurl.py
++++ b/mysite/customs/migrations/0013_fix_fieldname_in_bugzillaurl.py
+@@ -18,13 +18,14 @@
+ from south.db import db
+ from django.db import models
+ from mysite.customs.models import *
++from south.v2 import SchemaMigration
+ 
+-class Migration:
++class Migration(SchemaMigration):
+     
+     def forwards(self, orm):
+         
+         # Adding field 'BugzillaUrl.tracker'
+-        db.add_column('customs_bugzillaurl', 'tracker', orm['customs.bugzillaurl:tracker'])
++        db.add_column('customs_bugzillaurl', 'tracker', self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['customs.bugzillaurl:tracker']), keep_default=False)
+         
+         # Deleting field 'BugzillaUrl.bugzilla_tracker'
+         db.delete_column('customs_bugzillaurl', 'bugzilla_tracker_id')
+-- 
+1.7.5.4
+
+
+From f33424725e832966f67d95971621d79a1ca2210a Mon Sep 17 00:00:00 2001
+From: vagrant <vagrant@vagrant-debian-squeeze.vagrantup.com>
+Date: Fri, 26 Aug 2011 14:59:26 +0100
+Subject: [PATCH 7/8] hmm
+
+---
+ .../0013_fix_fieldname_in_bugzillaurl.py           |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/migrations/0013_fix_fieldname_in_bugzillaurl.py b/mysite/customs/migrations/0013_fix_fieldname_in_bugzillaurl.py
+index 8276e19..8ce0275 100644
+--- a/mysite/customs/migrations/0013_fix_fieldname_in_bugzillaurl.py
++++ b/mysite/customs/migrations/0013_fix_fieldname_in_bugzillaurl.py
+@@ -25,7 +25,7 @@ class Migration(SchemaMigration):
+     def forwards(self, orm):
+         
+         # Adding field 'BugzillaUrl.tracker'
+-        db.add_column('customs_bugzillaurl', 'tracker', self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['customs.bugzillaurl:tracker']), keep_default=False)
++        db.add_column('customs_bugzillaurl', 'tracker', self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['customs.bugzillatracker']), keep_default=False)
+         
+         # Deleting field 'BugzillaUrl.bugzilla_tracker'
+         db.delete_column('customs_bugzillaurl', 'bugzilla_tracker_id')
+-- 
+1.7.5.4
+
+
+From 5717e73378e143dc13fee003ccaab3f5cd877c01 Mon Sep 17 00:00:00 2001
+From: vagrant <vagrant@vagrant-debian-squeeze.vagrantup.com>
+Date: Fri, 26 Aug 2011 15:17:53 +0100
+Subject: [PATCH 8/8] Upgrade django-reversion to 1.3.3
+
+---
+ buildout.cfg |    2 +-
+ setup.py     |    1 +
+ 2 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/buildout.cfg b/buildout.cfg
+index 2b8858c..7158bb8 100644
+--- a/buildout.cfg
++++ b/buildout.cfg
+@@ -46,7 +46,7 @@ eggs =
+     fabric==1.0.0
+     nose==1.0.0
+     gdata==2.0.14
+-    django-reversion==1.2.1
++    django-reversion==1.3.3
+     Twisted==10.2.0
+     xapian-haystack
+     geopy==0.94.1
+diff --git a/setup.py b/setup.py
+index 3d95ff3..ccfa91c 100644
+--- a/setup.py
++++ b/setup.py
+@@ -69,6 +69,7 @@ setup(
+                         'python-openid==2.2.5-openhatch1', # as of this writing, upstream has an HTML file where a tar.gz should be
+                         'sessionprofile==1.0',
+                         'django-model-utils',
++                        'django-reversion==1.3.3',
+                        ],
+ 
+     # dependency_links is a list of URLs. If you need to override the URL
+-- 
+1.7.5.4
+

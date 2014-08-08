@@ -1,0 +1,25 @@
+From 90ee4129b682a68250c76c05cefa2afa2a8945e2 Mon Sep 17 00:00:00 2001
+From: florapdx <floraworleypdx@gmail.com>
+Date: Tue, 19 Mar 2013 17:48:37 -0700
+Subject: [PATCH 08/10] change link from going to '/+projedit' to '/customs'
+
+---
+ mysite/project/templates/project/project.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 684b006..885ce51 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -341,7 +341,7 @@ about how you can help {{ project.display_name }}
+         {% else %}
+             <p>
+                 No volunteer opportunities in {{project.display_name}} indexed here yet. 
+-                <a href='{% url mysite.project.views.edit_project project.name %}#edit_bug_trackers'>
++                <a href='{% url mysite.customs.views.list_trackers %}'>
+                     Add a bug tracker</a>.
+ 
+             </p>
+-- 
+1.8.1.3
+

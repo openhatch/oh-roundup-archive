@@ -1,0 +1,45 @@
+From ce22a485e28d13b26abcf6645507f9d265217459 Mon Sep 17 00:00:00 2001
+From: Tiago Sousa <ttiagosousa@gmail.com>
+Date: Fri, 24 Jun 2011 12:00:06 +0100
+Subject: [PATCH 4/4] Fixed language
+
+Fixed language to be more clear for non native english speakers 
+Hit it is now Done!
+Pick a froopy handle is now Pick a nickname
+
+Solves : https://openhatch.org/bugs/issue460
+
+---
+ mysite/account/forms.py                      |    2 +-
+ mysite/account/templates/account/signup.html |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/account/forms.py b/mysite/account/forms.py
+index 4fa166b..6705a51 100644
+--- a/mysite/account/forms.py
++++ b/mysite/account/forms.py
+@@ -37,7 +37,7 @@ RESERVED_USERNAMES =  (
+ 
+ class UserCreationFormWithEmail(django.contrib.auth.forms.UserCreationForm):
+     username = django.forms.RegexField(label="Username", max_length=30, regex=r'^\w+$',
+-        help_text = "<span class='help_text'>Pick a froopy handle, with length < 31 characters. Stick to letters, digits and underscores.</span>",
++        help_text = "<span class='help_text'>Pick a nickname, with length < 31 characters. Stick to letters, digits and underscores.</span>",
+         error_messages = {'invalid': "Stick to letters, digits and underscores.", 'required': "Gotta pick a username!"})
+     email = django.forms.EmailField(error_messages={
+         'required': "Your email address is required. We promise to use it respectfully.",
+diff --git a/mysite/account/templates/account/signup.html b/mysite/account/templates/account/signup.html
+index 0f8b6dc..f869f3b 100644
+--- a/mysite/account/templates/account/signup.html
++++ b/mysite/account/templates/account/signup.html
+@@ -53,7 +53,7 @@ body#signup_with_password .body { background: #fff;}
+         <p>Now is a good time to <a href="/policies-etc/">read our privacy policy</a>.</p>
+         <form name="signup" action="{% url mysite.account.views.signup_do %}" method="post">{% csrf_token %}
+             {{ form.as_p }}
+-            <p> <input type="submit" value="Hit it" /> </p>
++            <p> <input type="submit" value="Done!" /> </p>
+         </form>
+         Or <a href='/account/login/'>sign up using an account you already have</a>.
+     </div>
+-- 
+1.7.5.2
+

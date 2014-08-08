@@ -1,0 +1,66 @@
+From e84acd825922e5a52e5a8616a877fe1571b18e8c Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Mon, 28 Mar 2011 23:41:43 +1300
+Subject: [PATCH 2/2] Added ROBOTS_NO_FOLLOW to mysite/settings.py
+ and mysite/deployment_settings.py
+ and test for True or False in
+ mysite/base/templates/base/base.html
+
+---
+ mysite/base/templates/base/base.html |    3 +++
+ mysite/deployment_settings.py        |    5 ++++-
+ mysite/settings.py                   |    5 ++++-
+ 3 files changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/base/templates/base/base.html b/mysite/base/templates/base/base.html
+index 96b6d91..b9d1d4c 100644
+--- a/mysite/base/templates/base/base.html
++++ b/mysite/base/templates/base/base.html
+@@ -33,6 +33,9 @@
+         <link rel="shortcut icon" href="/favicon.ico" />
+         <link rel="canonical" href="https://openhatch.org{{ request.get_full_path }}" />
+         <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
++        (% if ROBOTS_NO_FOLLOW %}
++        <meta name="robots" content="noindex, nofollow">
++        {% endif %}
+         <meta http-equiv='Content-Language' content='en-us' />
+         <meta name='Description' content='OpenHatch, the open source involvement engine.'>
+ 
+diff --git a/mysite/deployment_settings.py b/mysite/deployment_settings.py
+index bbbbfc4..c66063f 100644
+--- a/mysite/deployment_settings.py
++++ b/mysite/deployment_settings.py
+@@ -26,7 +26,10 @@ POSTFIX_FORWARDER_TABLE_PATH = '/etc/postfix/virtual_alias_maps'
+ 
+ CELERY_ALWAYS_EAGER = False # srsly
+ 
+-## always use linode-one for 
++# Set robots_no_follow to False for deployed servers
++ROBOTS_NO_FOLLOW = False
++
++## always use linode-one for
+ ## AMQP, Rabbit Queue, Celery
+ CARROT_BACKEND = 'amqp'
+ 
+diff --git a/mysite/settings.py b/mysite/settings.py
+index 08be64f..972fcce 100644
+--- a/mysite/settings.py
++++ b/mysite/settings.py
+@@ -165,10 +165,13 @@ INSTALLED_APPS = (
+     'sessionprofile',
+ )
+ 
++# Set robots_no_follow to true for development
++ROBOTS_NO_FOLLOW = True
++
+ # testrunner allows us to control which testrunner to use
+ TEST_RUNNER = 'mysite.testrunner.run'
+ 
+-# Make test names prettier 
++# Make test names prettier
+ TEST_OUTPUT_DESCRIPTIONS = True
+ 
+ TEST_OUTPUT_DIR = "test_output"
+-- 
+1.7.2.5
+

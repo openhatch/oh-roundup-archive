@@ -1,0 +1,58 @@
+From d942a9120f36bd13f7033dc2c13da2187cf575cc Mon Sep 17 00:00:00 2001
+From: Vivek Shrivastava <vivshrivastava@gmail.com>
+Date: Sun, 19 Jun 2011 21:05:12 -0700
+Subject: [PATCH] issue 541 : Moved OpenHatch missing div to top of the page
+
+---
+ mysite/base/templates/base/landing.html |   28 ++++++++++++++--------------
+ 1 files changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/mysite/base/templates/base/landing.html b/mysite/base/templates/base/landing.html
+index 3a4b304..d730477 100644
+--- a/mysite/base/templates/base/landing.html
++++ b/mysite/base/templates/base/landing.html
+@@ -46,6 +46,20 @@ document.documentElement.className = 'javascript_is_enabled';
+         <strong>OpenHatch</strong> &middot; community tools for free and open source software
+     </p>
+ 
++    <div class="module" id="about-message">
++      <div class="head"><h3>About OpenHatch.org</h3></div>
++      <div class="body">
++	<p>
++	  Free, open source software <strong>loses tons of prospective contributors</strong> because it is difficult to learn how and where you can fit in.
++	</p>
++	<p>
++	  <a href="/about/" title="Community for free and open source software">OpenHatch</a> is an open source community aiming to <strong>help newcomers find their way</strong> into free software projects.<br />
++	  We work toward this goal through this website and outreach events.
++	</p>
++	<a class="link-more" href="/about/" title="About OpenHatch.org">Read more about OpenHatch.org &raquo;</a>
++      </div>
++    </div>    
++
+     <div class='module' id='what_to_do'>
+         
+         <div class='body'>
+@@ -141,20 +155,6 @@ document.documentElement.className = 'javascript_is_enabled';
+         </div>
+     </div>
+ 
+-    <div class="module" id="about-message">
+-      <div class="head"><h3>About OpenHatch.org</h3></div>
+-      <div class="body">
+-	<p>
+-	  Free, open source software <strong>loses tons of prospective contributors</strong> because it is difficult to learn how and where you can fit in.
+-	</p>
+-	<p>
+-	  <a href="/about/" title="Community for free and open source software">OpenHatch</a> is an open source community aiming to <strong>help newcomers find their way</strong> into free software projects.<br />
+-	  We work toward this goal through this website and outreach events.
+-	</p>
+-	<a class="link-more" href="/about/" title="About OpenHatch.org">Read more about OpenHatch.org &raquo;</a>
+-      </div>
+-    </div>
+-
+     {% include 'feed_widget.html' %}
+ 
+     {% include 'blog_widget.html' %}
+-- 
+1.7.2.5
+

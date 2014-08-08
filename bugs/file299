@@ -1,0 +1,47 @@
+From dc095ba5f8f6a456283630c7293f55c42638293b Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Tue, 31 May 2011 15:51:14 +1200
+Subject: [PATCH] Progress indicator images for the Missions
+ The tick image I honestly don't know where I got from,
+ but the cross image was created using the tick image
+ as a base.
+ See: http://openhatch.org/bugs/issue125
+
+---
+ mysite/static/images/cross.png |  Bin 0 -> 230 bytes
+ mysite/static/images/tick.png  |  Bin 0 -> 233 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 mysite/static/images/cross.png
+ create mode 100644 mysite/static/images/tick.png
+
+diff --git a/mysite/static/images/cross.png b/mysite/static/images/cross.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..089b4cd953b7c28b3103ecec24605af8eb200160
+GIT binary patch
+literal 230
+zcmeAS@N?(olHy`uVBq!ia0vp^0wB!73?$#)eFPF<EDmyaVpw-h<|UBBAK(+>D#*a_
+z|Ns9p#>PN_|1)Q*Ff3jKQdbh>7tG-B>_!@hljQC0!qCAg>jC6&7I;J!Gca%qgD@k*
+ztT_@uLG}_)Usv|qtn$pdCgu6_z5#`tJzX3_IIbrrC~$E!2{JP;-pC-pD0#@Q&4DFJ
+zLvyx9qePFJm)9u;%>@Dx4UK}w1X{cpS*P?)QP{;ZQ*l=Uo6}kbhDn|5{%w9I_5h7z
+N@O1TaS?83{1OO`*JkJ0C
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/images/tick.png b/mysite/static/images/tick.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d2e5419969baf46b4227a9782dd783cadda2f3fe
+GIT binary patch
+literal 233
+zcmeAS@N?(olHy`uVBq!ia0vp^0wB!73?$#)eFPF<EDmyaVpw-h<|U9L5#STzdf>o;
+z|Ns9p{AXY|W6UrUh!_~sfN~61Y=cce8cKrvf*Bm1-2e$PCV9KNFm$lWdH^|`1s;*b
+z3=G`DAk4@xYmNj^kiEpy*OmP?t30!=TFbTf`+!2Wo-U3d9M_W*4)95^F5ubdu)<-2
+zrHe<5<dFoC1RWzimebCxO(BX*4u#1bL50a17y>jTS50@^BXG9{=zxHO94#x?x*rA_
+O#Ng@b=d#Wzp$P!n$3MaV
+
+literal 0
+HcmV?d00001
+
+-- 
+1.7.2.5
+

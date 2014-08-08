@@ -1,0 +1,535 @@
+From 6df3e03f41dbe77432f67ad69cb75fb7bb031acb Mon Sep 17 00:00:00 2001
+From: Jason Michalski <armooo@armooo.net>
+Date: Tue, 20 Dec 2011 13:08:59 -0500
+Subject: [PATCH 3/4] Added bitesized and doc tag processing
+
+---
+ mysite/customs/bugimporters/launchpad.py           |    9 +-
+ ...rackermodel_bitesized_tag__add_field_launchp.py |  261 ++++++++++++++++++++
+ mysite/customs/models.py                           |    4 +
+ mysite/customs/tests.py                            |   43 +++-
+ .../static/sample-data/launchpad/bugs_839461bite   |   43 ++++
+ mysite/static/sample-data/launchpad/bugs_839461doc |   43 ++++
+ .../sample-data/launchpad/bugs_task_839461bite     |    1 +
+ .../sample-data/launchpad/bugs_task_839461doc      |    1 +
+ 8 files changed, 402 insertions(+), 3 deletions(-)
+ create mode 100644 mysite/customs/migrations/0032_auto__add_field_launchpadtrackermodel_bitesized_tag__add_field_launchp.py
+ create mode 100644 mysite/static/sample-data/launchpad/bugs_839461bite
+ create mode 100644 mysite/static/sample-data/launchpad/bugs_839461doc
+ create mode 100644 mysite/static/sample-data/launchpad/bugs_task_839461bite
+ create mode 100644 mysite/static/sample-data/launchpad/bugs_task_839461doc
+
+diff --git a/mysite/customs/bugimporters/launchpad.py b/mysite/customs/bugimporters/launchpad.py
+index 6afd3bf..40cf988 100644
+--- a/mysite/customs/bugimporters/launchpad.py
++++ b/mysite/customs/bugimporters/launchpad.py
+@@ -82,7 +82,7 @@ class LaunchpadBugImporter(BugImporter):
+             self.determine_if_finished()
+             return
+         for bug_url, task_data in bug_list:
+-            lp_bug = LaunchpadBug()
++            lp_bug = LaunchpadBug(self.tm)
+             if task_data:
+                 self.handle_task_data_json(task_data, lp_bug)
+             else:
+@@ -198,7 +198,8 @@ class LaunchpadBugImporter(BugImporter):
+ 
+ 
+ class LaunchpadBug(object):
+-    def __init__(self):
++    def __init__(self, tracker):
++        self._tracker = tracker
+         self._data = {}
+         self._data['last_polled'] =  datetime.datetime.utcnow()
+ 
+@@ -218,6 +219,10 @@ class LaunchpadBug(object):
+         self.owner_link = data['owner_link']
+         self._data['last_touched'] = self._parse_datetime(data['date_last_updated'])
+         self._data['description'] = data['description']
++        self._data['concerns_just_documentation'] = \
++            self._tracker.documentation_tag in data['tags']
++        self._data['good_for_newcomers'] = \
++            self._tracker.bitesized_tag in data['tags']
+ 
+     def parse_subscriptions(self, data):
+         self._data['people_involved'] = int(data['total_size'])
+diff --git a/mysite/customs/migrations/0032_auto__add_field_launchpadtrackermodel_bitesized_tag__add_field_launchp.py b/mysite/customs/migrations/0032_auto__add_field_launchpadtrackermodel_bitesized_tag__add_field_launchp.py
+new file mode 100644
+index 0000000..f0ce78f
+--- /dev/null
++++ b/mysite/customs/migrations/0032_auto__add_field_launchpadtrackermodel_bitesized_tag__add_field_launchp.py
+@@ -0,0 +1,261 @@
++# encoding: utf-8
++import datetime
++from south.db import db
++from south.v2 import SchemaMigration
++from django.db import models
++
++class Migration(SchemaMigration):
++
++    def forwards(self, orm):
++        
++        # Adding field 'LaunchpadTrackerModel.bitesized_tag'
++        db.add_column('customs_launchpadtrackermodel', 'bitesized_tag', self.gf('django.db.models.fields.CharField')(default='', max_length=50, blank=True), keep_default=False)
++
++        # Adding field 'LaunchpadTrackerModel.documentation_tag'
++        db.add_column('customs_launchpadtrackermodel', 'documentation_tag', self.gf('django.db.models.fields.CharField')(default='', max_length=50, blank=True), keep_default=False)
++
++
++    def backwards(self, orm):
++        
++        # Deleting field 'LaunchpadTrackerModel.bitesized_tag'
++        db.delete_column('customs_launchpadtrackermodel', 'bitesized_tag')
++
++        # Deleting field 'LaunchpadTrackerModel.documentation_tag'
++        db.delete_column('customs_launchpadtrackermodel', 'documentation_tag')
++
++
++    models = {
++        'auth.group': {
++            'Meta': {'object_name': 'Group'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '80'}),
++            'permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'})
++        },
++        'auth.permission': {
++            'Meta': {'ordering': "('content_type__app_label', 'content_type__model', 'codename')", 'unique_together': "(('content_type', 'codename'),)", 'object_name': 'Permission'},
++            'codename': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
++        },
++        'auth.user': {
++            'Meta': {'object_name': 'User'},
++            'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
++            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'groups': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Group']", 'symmetrical': 'False', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'is_staff': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'is_superuser': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
++            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
++            'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
++            'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
++            'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
++        },
++        'contenttypes.contenttype': {
++            'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
++            'app_label': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
++            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
++        },
++        'customs.bugzillaquerymodel': {
++            'Meta': {'object_name': 'BugzillaQueryModel', '_ormbases': ['customs.TrackerQueryModel']},
++            'description': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'query_type': ('django.db.models.fields.CharField', [], {'default': "'xml'", 'max_length': '20'}),
++            'tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.BugzillaTrackerModel']"}),
++            'trackerquerymodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerQueryModel']", 'unique': 'True', 'primary_key': 'True'}),
++            'url': ('django.db.models.fields.URLField', [], {'max_length': '400'})
++        },
++        'customs.bugzillatrackermodel': {
++            'Meta': {'object_name': 'BugzillaTrackerModel', '_ormbases': ['customs.TrackerModel']},
++            'as_appears_in_distribution': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'base_url': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'bitesized_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'bitesized_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'bug_project_name_format': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'documentation_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'documentation_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'query_url_type': ('django.db.models.fields.CharField', [], {'default': "'xml'", 'max_length': '20'}),
++            'tracker_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'trackermodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.googlequerymodel': {
++            'Meta': {'object_name': 'GoogleQueryModel', '_ormbases': ['customs.TrackerQueryModel']},
++            'description': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'label': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.GoogleTrackerModel']"}),
++            'trackerquerymodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerQueryModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.googletrackermodel': {
++            'Meta': {'object_name': 'GoogleTrackerModel', '_ormbases': ['customs.TrackerModel']},
++            'bitesized_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'bitesized_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'documentation_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'documentation_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'google_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'tracker_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'trackermodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.launchpadquerymodel': {
++            'Meta': {'object_name': 'LaunchpadQueryModel', '_ormbases': ['customs.TrackerQueryModel']},
++            'tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.LaunchpadTrackerModel']"}),
++            'trackerquerymodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerQueryModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.launchpadtrackermodel': {
++            'Meta': {'object_name': 'LaunchpadTrackerModel', '_ormbases': ['customs.TrackerModel']},
++            'bitesized_tag': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
++            'documentation_tag': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
++            'launchpad_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'tracker_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'trackermodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.recentmessagefromcia': {
++            'Meta': {'object_name': 'RecentMessageFromCIA'},
++            'branch': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'committer_identifier': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'message': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'module': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'path': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'project_name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
++            'time_received': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
++            'version': ('django.db.models.fields.CharField', [], {'max_length': '255'})
++        },
++        'customs.roundupquerymodel': {
++            'Meta': {'object_name': 'RoundupQueryModel', '_ormbases': ['customs.TrackerQueryModel']},
++            'description': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.RoundupTrackerModel']"}),
++            'trackerquerymodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerQueryModel']", 'unique': 'True', 'primary_key': 'True'}),
++            'url': ('django.db.models.fields.URLField', [], {'max_length': '400'})
++        },
++        'customs.rounduptrackermodel': {
++            'Meta': {'object_name': 'RoundupTrackerModel', '_ormbases': ['customs.TrackerModel']},
++            'as_appears_in_distribution': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'base_url': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'bitesized_field': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '50', 'blank': 'True'}),
++            'bitesized_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'closed_status': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'documentation_field': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '50', 'blank': 'True'}),
++            'documentation_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'tracker_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'trackermodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.tracbugtimes': {
++            'Meta': {'object_name': 'TracBugTimes'},
++            'canonical_bug_link': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'date_reported': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'last_touched': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'latest_timeline_status': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '15', 'blank': 'True'}),
++            'timeline': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.TracTimeline']"})
++        },
++        'customs.trackermodel': {
++            'Meta': {'object_name': 'TrackerModel'},
++            'created_for_project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']", 'null': 'True'}),
++            'custom_parser': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'max_connections': ('django.db.models.fields.IntegerField', [], {'default': '8', 'blank': 'True'})
++        },
++        'customs.trackerquerymodel': {
++            'Meta': {'object_name': 'TrackerQueryModel'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'})
++        },
++        'customs.tracquerymodel': {
++            'Meta': {'object_name': 'TracQueryModel', '_ormbases': ['customs.TrackerQueryModel']},
++            'description': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'tracker': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.TracTrackerModel']"}),
++            'trackerquerymodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerQueryModel']", 'unique': 'True', 'primary_key': 'True'}),
++            'url': ('django.db.models.fields.URLField', [], {'max_length': '400'})
++        },
++        'customs.tractimeline': {
++            'Meta': {'object_name': 'TracTimeline'},
++            'base_url': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'})
++        },
++        'customs.tractrackermodel': {
++            'Meta': {'object_name': 'TracTrackerModel', '_ormbases': ['customs.TrackerModel']},
++            'as_appears_in_distribution': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'base_url': ('django.db.models.fields.URLField', [], {'unique': 'True', 'max_length': '200'}),
++            'bitesized_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'bitesized_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'bug_project_name_format': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'documentation_text': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'documentation_type': ('django.db.models.fields.CharField', [], {'max_length': '10', 'blank': 'True'}),
++            'old_trac': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'tracker_name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'trackermodel_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['customs.TrackerModel']", 'unique': 'True', 'primary_key': 'True'})
++        },
++        'customs.webresponse': {
++            'Meta': {'object_name': 'WebResponse'},
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'response_headers': ('django.db.models.fields.TextField', [], {}),
++            'status': ('django.db.models.fields.IntegerField', [], {}),
++            'text': ('django.db.models.fields.TextField', [], {}),
++            'url': ('django.db.models.fields.TextField', [], {})
++        },
++        'profile.dataimportattempt': {
++            'Meta': {'object_name': 'DataImportAttempt'},
++            'completed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'date_created': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.utcnow'}),
++            'failed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'person': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.Person']"}),
++            'query': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
++            'source': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
++            'web_response': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['customs.WebResponse']", 'null': 'True'})
++        },
++        'profile.person': {
++            'Meta': {'object_name': 'Person'},
++            'bio': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'blacklisted_repository_committers': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['profile.RepositoryCommitter']", 'symmetrical': 'False'}),
++            'contact_blurb': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
++            'dont_guess_my_location': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'email_me_weekly_re_projects': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'expand_next_steps': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
++            'gotten_name_from_ohloh': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'homepage_url': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'irc_nick': ('django.db.models.fields.CharField', [], {'max_length': '30', 'null': 'True', 'blank': 'True'}),
++            'last_polled': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(1970, 1, 1, 0, 0)'}),
++            'location_confirmed': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'location_display_name': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
++            'photo': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100'}),
++            'photo_thumbnail': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_20px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'photo_thumbnail_30px_wide': ('django.db.models.fields.files.ImageField', [], {'default': "''", 'max_length': '100', 'null': 'True'}),
++            'show_email': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'unique': 'True'})
++        },
++        'profile.repositorycommitter': {
++            'Meta': {'unique_together': "(('project', 'data_import_attempt'),)", 'object_name': 'RepositoryCommitter'},
++            'data_import_attempt': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['profile.DataImportAttempt']"}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['search.Project']"})
++        },
++        'search.project': {
++            'Meta': {'object_name': 'Project'},
++            'cached_contributor_count': ('django.db.models.fields.IntegerField', [], {'default': '0', 'null': 'True'}),
++            'created_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'null': 'True', 'blank': 'True'}),
++            'date_icon_was_fetched_from_ohloh': ('django.db.models.fields.DateTimeField', [], {'default': 'None', 'null': 'True'}),
++            'display_name': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200'}),
++            'homepage': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'icon_for_profile': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_for_search_result': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_raw': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True', 'blank': 'True'}),
++            'icon_smaller_for_badge': ('django.db.models.fields.files.ImageField', [], {'default': 'None', 'max_length': '100', 'null': 'True'}),
++            'icon_url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
++            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
++            'language': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '200', 'blank': 'True'}),
++            'logo_contains_name': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
++            'modified_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
++            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '200'}),
++            'people_who_wanna_help': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'projects_i_wanna_help'", 'symmetrical': 'False', 'to': "orm['profile.Person']"})
++        }
++    }
++
++    complete_apps = ['customs']
+diff --git a/mysite/customs/models.py b/mysite/customs/models.py
+index 3723f4d..eb76875 100644
+--- a/mysite/customs/models.py
++++ b/mysite/customs/models.py
+@@ -354,6 +354,10 @@ class LaunchpadTrackerModel(TrackerModel):
+     launchpad_name = models.CharField(max_length=200, unique=True,
+                                     blank=False, null=False,
+             help_text="This is the name that Launchpad.net uses to identify the project.")
++    bitesized_tag = models.CharField(max_length=50, blank=True,
++            help_text="This is the value of the tag that indicates a bite-sized bug.")
++    documentation_tag = models.CharField(max_length=50, blank=True,
++            help_text="This is the value of the tag that indicates documentation bug.")
+ 
+     all_trackers = models.Manager()
+ 
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 8062673..0fb680b 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -108,6 +108,10 @@ class FakeGetPage(object):
+         self.url2data['https://api.launchpad.net/1.0/~vila']= open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'launchpad', '~vila')).read()
+         self.url2data['https://api.launchpad.net/1.0/bzr/+bug/839461']= open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'launchpad', 'bugs_task_839461')).read()
+         self.url2data['https://api.launchpad.net/1.0/bzr/+bug/839461closed']= open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'launchpad', 'bugs_task_839461closed')).read()
++        self.url2data['https://api.launchpad.net/1.0/bzr/+bug/839461doc']= open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'launchpad', 'bugs_task_839461doc')).read()
++        self.url2data['https://api.launchpad.net/1.0/bugs/839461doc']= open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'launchpad', 'bugs_839461doc')).read()
++        self.url2data['https://api.launchpad.net/1.0/bzr/+bug/839461bite']= open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'launchpad', 'bugs_task_839461bite')).read()
++        self.url2data['https://api.launchpad.net/1.0/bugs/839461bite']= open(os.path.join(settings.MEDIA_ROOT, 'sample-data', 'launchpad', 'bugs_839461bite')).read()
+ 
+     """This is a fake version of Twisted.web's getPage() function.
+     It returns a Deferred that is already 'fired', and has the page content
+@@ -2152,7 +2156,9 @@ class LaunchpadBugImport(django.test.TestCase):
+     def setUp(self):
+         self.tm = mysite.customs.models.LaunchpadTrackerModel.all_trackers.create(
+                 tracker_name='bzr',
+-                launchpad_name='bzr',)
++                launchpad_name='bzr',
++                bitesized_tag='easy',
++                documentation_tag='doc')
+         self.dm = mock.Mock(name='dm')
+         self.dm.running_deferreds = 0
+         self.im = mysite.customs.bugimporters.launchpad.LaunchpadBugImporter(self.tm, self.dm)
+@@ -2169,6 +2175,8 @@ class LaunchpadBugImport(django.test.TestCase):
+         bug_model.save.assert_called_with()
+         self.assert_bug(bug_model)
+         self.assertEqual(False, bug_model.looks_closed)
++        self.assertEqual(False, bug_model.good_for_newcomers)
++        self.assertEqual(False, bug_model.concerns_just_documentation)
+ 
+     @mock.patch('mysite.search.models.Bug.all_bugs.get')
+     @mock.patch('twisted.web.client.getPage', fakeGetPage.getPage)
+@@ -2181,6 +2189,8 @@ class LaunchpadBugImport(django.test.TestCase):
+         bug_model.save.assert_called_with()
+         self.assert_bug(bug_model)
+         self.assertEqual(False, bug_model.looks_closed)
++        self.assertEqual(False, bug_model.good_for_newcomers)
++        self.assertEqual(False, bug_model.concerns_just_documentation)
+ 
+     @mock.patch('mysite.search.models.Bug.all_bugs.get')
+     @mock.patch('twisted.web.client.getPage', fakeGetPage.getPage)
+@@ -2192,7 +2202,38 @@ class LaunchpadBugImport(django.test.TestCase):
+ 
+         bug_model.save.assert_called_with()
+         self.assert_bug(bug_model)
++
+         self.assertEqual(True, bug_model.looks_closed)
++        self.assertEqual(False, bug_model.good_for_newcomers)
++        self.assertEqual(False, bug_model.concerns_just_documentation)
++
++    @mock.patch('mysite.search.models.Bug.all_bugs.get')
++    @mock.patch('twisted.web.client.getPage', fakeGetPage.getPage)
++    def test_process_bugs_doc(self, bugs_get):
++        bug_model = bugs_get.return_value = mock.Mock(name='bug_model')
++        bug_list = [('https://bugs.launchpad.net/bzr/+bug/839461doc', None)]
++
++        self.im.process_bugs(bug_list)
++
++        bug_model.save.assert_called_with()
++        self.assert_bug(bug_model)
++        self.assertEqual(False, bug_model.looks_closed)
++        self.assertEqual(False, bug_model.good_for_newcomers)
++        self.assertEqual(True, bug_model.concerns_just_documentation)
++
++    @mock.patch('mysite.search.models.Bug.all_bugs.get')
++    @mock.patch('twisted.web.client.getPage', fakeGetPage.getPage)
++    def test_process_bugs_bitsized(self, bugs_get):
++        bug_model = bugs_get.return_value = mock.Mock(name='bug_model')
++        bug_list = [('https://bugs.launchpad.net/bzr/+bug/839461bite', None)]
++
++        self.im.process_bugs(bug_list)
++
++        bug_model.save.assert_called_with()
++        self.assert_bug(bug_model)
++        self.assertEqual(False, bug_model.looks_closed)
++        self.assertEqual(True, bug_model.good_for_newcomers)
++        self.assertEqual(False, bug_model.concerns_just_documentation)
+ 
+     def assert_bug(self, bug_model):
+         self.assertEqual('Confirmed', bug_model.status)
+diff --git a/mysite/static/sample-data/launchpad/bugs_839461bite b/mysite/static/sample-data/launchpad/bugs_839461bite
+new file mode 100644
+index 0000000..4d0664a
+--- /dev/null
++++ b/mysite/static/sample-data/launchpad/bugs_839461bite
+@@ -0,0 +1,43 @@
++{
++   "users_unaffected_collection_link":"https://api.launchpad.net/1.0/bugs/839461/users_unaffected",
++   "latest_patch_uploaded":null,
++   "users_affected_count_with_dupes":1,
++   "security_related":false,
++   "private":false,
++   "bug_watches_collection_link":"https://api.launchpad.net/1.0/bugs/839461/bug_watches",
++   "date_made_private":null,
++   "linked_branches_collection_link":"https://api.launchpad.net/1.0/bugs/839461/linked_branches",
++   "subscriptions_collection_link":"https://api.launchpad.net/1.0/bugs/839461/subscriptions",
++   "number_of_duplicates":0,
++   "id":839461,
++   "users_unaffected_count":0,
++   "title":"can't run selftest for 2.2 with recent subunit/testtools",
++   "other_users_affected_count_with_dupes":1,
++   "name":null,
++   "http_etag":"\"5daee437ae8be2351aaab5e3fa3a138965b1e6ac-e87cf4db4d97026b82fe95099e557c8a9f73810d\"",
++   "messages_collection_link":"https://api.launchpad.net/1.0/bugs/839461/messages",
++   "self_link":"https://api.launchpad.net/1.0/bugs/839461",
++   "who_made_private_link":null,
++   "attachments_collection_link":"https://api.launchpad.net/1.0/bugs/839461/attachments",
++   "resource_type_link":"https://api.launchpad.net/1.0/#bug",
++   "activity_collection_link":"https://api.launchpad.net/1.0/bugs/839461/activity",
++   "date_last_updated":"2011-12-16T09:21:28.695637+00:00",
++   "description":"While freezing bzr-2.2.5 from a natty machine with python-2.7.1+,\nlp:testtools revno 244 and lp:subunit revno 151 I wasn't able to\nrun 'make check-dist-tarball'.\n\nI had to revert to testtools-0.9.2 and subunit 0.0.6 and use\npython2.6 to successfully run:\n\n  BZR_PLUGIN_PATH=-site make check-dist-tarball PYTHON=python2.6 | subunit2pyunit\n\nAlso, I've checked the versions used on pqm:\n\n(pqm-amd64-new)pqm@cupuasso:~/pqm-workdir/bzr+ssh/new-pqm-test$ dpkg -l | grep subunit\nii  libsubunit-perl                                 0.0.6-1~bazaar1.0.IS.10.04            perl parser and diff for Subunit streams\nii  python-subunit                                  0.0.6-1~bazaar1.0.IS.10.04            unit testing protocol - Python bindings to g\nii  subunit                                         0.0.6-1~bazaar1.0.IS.10.04            command line tools for processing Subunit st\n(pqm-amd64-new)pqm@cupuasso:~/pqm-workdir/bzr+ssh/new-pqm-test$ dpkg -l | grep testtools\nii  python-testtools                                0.9.6-0~bazaar1.0.IS.8.04             Extensions to the Python unittest library",
++   "duplicates_collection_link":"https://api.launchpad.net/1.0/bugs/839461/duplicates",
++   "tags":[
++        "easy"
++   ],
++   "message_count":3,
++   "heat":6,
++   "bug_tasks_collection_link":"https://api.launchpad.net/1.0/bugs/839461/bug_tasks",
++   "duplicate_of_link":null,
++   "users_affected_with_dupes_collection_link":"https://api.launchpad.net/1.0/bugs/839461/users_affected_with_dupes",
++   "cves_collection_link":"https://api.launchpad.net/1.0/bugs/839461/cves",
++   "web_link":"https://bugs.launchpad.net/bugs/839461",
++   "users_affected_count":1,
++   "owner_link":"https://api.launchpad.net/1.0/~vila",
++   "date_created":"2011-09-02T10:42:43.883929+00:00",
++   "can_expire":false,
++   "date_last_message":"2011-12-16T09:21:27.136827+00:00",
++   "users_affected_collection_link":"https://api.launchpad.net/1.0/bugs/839461/users_affected"
++}
+diff --git a/mysite/static/sample-data/launchpad/bugs_839461doc b/mysite/static/sample-data/launchpad/bugs_839461doc
+new file mode 100644
+index 0000000..11760ee
+--- /dev/null
++++ b/mysite/static/sample-data/launchpad/bugs_839461doc
+@@ -0,0 +1,43 @@
++{
++   "users_unaffected_collection_link":"https://api.launchpad.net/1.0/bugs/839461/users_unaffected",
++   "latest_patch_uploaded":null,
++   "users_affected_count_with_dupes":1,
++   "security_related":false,
++   "private":false,
++   "bug_watches_collection_link":"https://api.launchpad.net/1.0/bugs/839461/bug_watches",
++   "date_made_private":null,
++   "linked_branches_collection_link":"https://api.launchpad.net/1.0/bugs/839461/linked_branches",
++   "subscriptions_collection_link":"https://api.launchpad.net/1.0/bugs/839461/subscriptions",
++   "number_of_duplicates":0,
++   "id":839461,
++   "users_unaffected_count":0,
++   "title":"can't run selftest for 2.2 with recent subunit/testtools",
++   "other_users_affected_count_with_dupes":1,
++   "name":null,
++   "http_etag":"\"5daee437ae8be2351aaab5e3fa3a138965b1e6ac-e87cf4db4d97026b82fe95099e557c8a9f73810d\"",
++   "messages_collection_link":"https://api.launchpad.net/1.0/bugs/839461/messages",
++   "self_link":"https://api.launchpad.net/1.0/bugs/839461",
++   "who_made_private_link":null,
++   "attachments_collection_link":"https://api.launchpad.net/1.0/bugs/839461/attachments",
++   "resource_type_link":"https://api.launchpad.net/1.0/#bug",
++   "activity_collection_link":"https://api.launchpad.net/1.0/bugs/839461/activity",
++   "date_last_updated":"2011-12-16T09:21:28.695637+00:00",
++   "description":"While freezing bzr-2.2.5 from a natty machine with python-2.7.1+,\nlp:testtools revno 244 and lp:subunit revno 151 I wasn't able to\nrun 'make check-dist-tarball'.\n\nI had to revert to testtools-0.9.2 and subunit 0.0.6 and use\npython2.6 to successfully run:\n\n  BZR_PLUGIN_PATH=-site make check-dist-tarball PYTHON=python2.6 | subunit2pyunit\n\nAlso, I've checked the versions used on pqm:\n\n(pqm-amd64-new)pqm@cupuasso:~/pqm-workdir/bzr+ssh/new-pqm-test$ dpkg -l | grep subunit\nii  libsubunit-perl                                 0.0.6-1~bazaar1.0.IS.10.04            perl parser and diff for Subunit streams\nii  python-subunit                                  0.0.6-1~bazaar1.0.IS.10.04            unit testing protocol - Python bindings to g\nii  subunit                                         0.0.6-1~bazaar1.0.IS.10.04            command line tools for processing Subunit st\n(pqm-amd64-new)pqm@cupuasso:~/pqm-workdir/bzr+ssh/new-pqm-test$ dpkg -l | grep testtools\nii  python-testtools                                0.9.6-0~bazaar1.0.IS.8.04             Extensions to the Python unittest library",
++   "duplicates_collection_link":"https://api.launchpad.net/1.0/bugs/839461/duplicates",
++   "tags":[
++        "doc"
++   ],
++   "message_count":3,
++   "heat":6,
++   "bug_tasks_collection_link":"https://api.launchpad.net/1.0/bugs/839461/bug_tasks",
++   "duplicate_of_link":null,
++   "users_affected_with_dupes_collection_link":"https://api.launchpad.net/1.0/bugs/839461/users_affected_with_dupes",
++   "cves_collection_link":"https://api.launchpad.net/1.0/bugs/839461/cves",
++   "web_link":"https://bugs.launchpad.net/bugs/839461",
++   "users_affected_count":1,
++   "owner_link":"https://api.launchpad.net/1.0/~vila",
++   "date_created":"2011-09-02T10:42:43.883929+00:00",
++   "can_expire":false,
++   "date_last_message":"2011-12-16T09:21:27.136827+00:00",
++   "users_affected_collection_link":"https://api.launchpad.net/1.0/bugs/839461/users_affected"
++}
+diff --git a/mysite/static/sample-data/launchpad/bugs_task_839461bite b/mysite/static/sample-data/launchpad/bugs_task_839461bite
+new file mode 100644
+index 0000000..e6b93f5
+--- /dev/null
++++ b/mysite/static/sample-data/launchpad/bugs_task_839461bite
+@@ -0,0 +1 @@
++{"date_closed": null, "date_assigned": null, "title": "Bug #839461 in Bazaar: \"can't run selftest for 2.2 with recent subunit/testtools\"", "bug_link": "https://api.launchpad.net/1.0/bugs/839461bite", "bug_watch_link": null, "milestone_link": null, "http_etag": "\"7637a30eacaf5ecb72de984cade968b8fa71f254-d972cf0e7d92bfe2254297a6f6615e71e6dd0184\"", "date_left_closed": null, "date_fix_committed": null, "date_fix_released": null, "date_in_progress": null, "resource_type_link": "https://api.launchpad.net/1.0/#bug_task", "status": "Confirmed", "bug_target_name": "bzr", "importance": "Critical", "assignee_link": null, "date_triaged": null, "self_link": "https://api.launchpad.net/1.0/bzr/+bug/839461", "target_link": "https://api.launchpad.net/1.0/bzr", "bug_target_display_name": "Bazaar", "related_tasks_collection_link": "https://api.launchpad.net/1.0/bzr/+bug/839461/related_tasks", "date_confirmed": "2011-09-02T10:46:28.553673+00:00", "date_left_new": "2011-09-02T10:46:28.553673+00:00", "web_link": "https://bugs.launchpad.net/bzr/+bug/839461", "owner_link": "https://api.launchpad.net/1.0/~vila", "date_created": "2011-09-02T10:42:43.883929+00:00", "date_incomplete": null, "is_complete": false}
+diff --git a/mysite/static/sample-data/launchpad/bugs_task_839461doc b/mysite/static/sample-data/launchpad/bugs_task_839461doc
+new file mode 100644
+index 0000000..76f06b7
+--- /dev/null
++++ b/mysite/static/sample-data/launchpad/bugs_task_839461doc
+@@ -0,0 +1 @@
++{"date_closed": null, "date_assigned": null, "title": "Bug #839461 in Bazaar: \"can't run selftest for 2.2 with recent subunit/testtools\"", "bug_link": "https://api.launchpad.net/1.0/bugs/839461doc", "bug_watch_link": null, "milestone_link": null, "http_etag": "\"7637a30eacaf5ecb72de984cade968b8fa71f254-d972cf0e7d92bfe2254297a6f6615e71e6dd0184\"", "date_left_closed": null, "date_fix_committed": null, "date_fix_released": null, "date_in_progress": null, "resource_type_link": "https://api.launchpad.net/1.0/#bug_task", "status": "Confirmed", "bug_target_name": "bzr", "importance": "Critical", "assignee_link": null, "date_triaged": null, "self_link": "https://api.launchpad.net/1.0/bzr/+bug/839461", "target_link": "https://api.launchpad.net/1.0/bzr", "bug_target_display_name": "Bazaar", "related_tasks_collection_link": "https://api.launchpad.net/1.0/bzr/+bug/839461/related_tasks", "date_confirmed": "2011-09-02T10:46:28.553673+00:00", "date_left_new": "2011-09-02T10:46:28.553673+00:00", "web_link": "https://bugs.launchpad.net/bzr/+bug/839461", "owner_link": "https://api.launchpad.net/1.0/~vila", "date_created": "2011-09-02T10:42:43.883929+00:00", "date_incomplete": null, "is_complete": false}
+-- 
+1.7.5.4
+

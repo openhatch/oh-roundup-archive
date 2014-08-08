@@ -1,0 +1,43 @@
+From dc095fe9c2eb269ec58a5f6e20d2e71a956e25bd Mon Sep 17 00:00:00 2001
+From: Vivek Shrivastava <vivshrivastava@gmail.com>
+Date: Sun, 19 Jun 2011 15:13:09 -0700
+Subject: [PATCH] Issue 463: Handling IndexError exception, including condition to go in if condition only when no error in patch file, also added exception handling for Index out of bound error
+
+---
+ mysite/missions/base/patch.py |   20 ++++++++++++++------
+ 1 files changed, 14 insertions(+), 6 deletions(-)
+
+diff --git a/mysite/missions/base/patch.py b/mysite/missions/base/patch.py
+index 2f11270..b9a3d9d 100644
+--- a/mysite/missions/base/patch.py
++++ b/mysite/missions/base/patch.py
+@@ -321,12 +321,20 @@ class Patch(object):
+ 
+     if not hunkskip:
+       warning("patch file incomplete")
+-      if not hunkinfo.invalid:
+-        self.hunks[nextfileno-1].append(hunkinfo.copy())
+-        # switch to hunkskip state
+-        hunkbody = False
+-        hunkskip = True
+-      # sys.exit(?)
++
++      if ((not hunkinfo.invalid) and ( nextfileno > 0)):
++         # if patch file is incomplete nextfileno is 0
++        try:
++            info("nextfileno is %d" % nextfileno)
++            self.hunks[nextfileno-1].append(hunkinfo.copy())
++            # switch to hunkskip state
++            hunkbody = False
++            hunkskip = True
++            # sys.exit(?)
++        except IndexError:
++            info("caught IndexError because of incomplete patch file")
++
++
+     else:
+       # duplicated message when an eof is reached
+       if debugmode and len(self.source) > 0:
+-- 
+1.7.2.5
+

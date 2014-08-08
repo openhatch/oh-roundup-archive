@@ -1,0 +1,540 @@
+From 4c632d6b8bd1cac7df31d6723daeddf68c7348a5 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Mon, 14 Jun 2010 21:32:16 +0000
+Subject: [PATCH] Fix for issue91 - OpenSolaris bugtracker now doesn't update bugs which are fresh.
+
+---
+ mysite/customs/bugtrackers/opensolaris.py          |   89 ++++--
+ mysite/customs/tests.py                            |   31 ++-
+ .../management/commands/search_daily_tasks.py      |    2 +-
+ .../static/sample-data/open-opensolaris-bug.html   |  330 ++++++++++++++++++++
+ 4 files changed, 427 insertions(+), 25 deletions(-)
+ create mode 100644 mysite/static/sample-data/open-opensolaris-bug.html
+
+diff --git a/mysite/customs/bugtrackers/opensolaris.py b/mysite/customs/bugtrackers/opensolaris.py
+index 7464577..33cbfef 100644
+--- a/mysite/customs/bugtrackers/opensolaris.py
++++ b/mysite/customs/bugtrackers/opensolaris.py
+@@ -23,6 +23,7 @@ from itertools import chain
+ import csv
+ from mysite.search.models import Bug, Project
+ import datetime
++import logging
+ 
+ import itertools
+ 
+@@ -44,9 +45,36 @@ def view_bug_table2dict(tree):
+ def decode_datetime(s):
+     return datetime.datetime.strptime(s, '%d-%B-%Y')
+ 
+-def create_bug_object_for_remote_bug_id(remote_bug_id):
++BUG_URL_PREFIX = 'http://bugs.opensolaris.org/bugdatabase/view_bug.do?bug_id='
++
++def create_bug_object_for_remote_bug_id_if_necessary(remote_bug_id):
++    """See if we have either no bug or only a stale one.
++    If this is the case, run a refresh."""
++    remote_bug_url = BUG_URL_PREFIX + "%d" % remote_bug_id
++    logging.info("Was asked to look at bug %d in OpenSolaris OS/Net" % remote_bug_id)
++    try:
++        bug = Bug.all_bugs.get(canonical_bug_link=remote_bug_url)
++	if bug.data_is_more_fresh_than_one_day():
++	    return False
++    except Bug.DoesNotExist:
++        bug = Bug()
++	bug.canonical_bug_link = remote_bug_url
++    # If we got to here, we either have a new bug or an stale one.
++    # So refresh away!
++    bug = _update_bug_object_for_remote_bug_id(
++        bug_object=bug,
++	remote_bug_id=remote_bug_id)
++    if bug is None:
++        # Bug doesn't exist on tracker
++        # Bug object not created, so return False
++        return False
++    bug.save()
++    logging.info("Actually loaded %d in from OpenSolaris OS/Net" % remote_bug_id)
++    return True
++
++def _update_bug_object_for_remote_bug_id(bug_object, remote_bug_id):
+     '''Create but don't save a bug.'''
+-    remote_bug_url = "http://bugs.opensolaris.org/bugdatabase/view_bug.do?bug_id=%d" % remote_bug_id
++    remote_bug_url = BUG_URL_PREFIX + "%d" % remote_bug_id
+     try:
+         tree = lxml.html.document_fromstring(urllib2.urlopen(remote_bug_url).read())
+     except urllib2.HTTPError, e:
+@@ -55,36 +83,32 @@ def create_bug_object_for_remote_bug_id(remote_bug_id):
+         # otherwise, bubble that crazy error up.
+         raise e
+ 
+-    bug = Bug()
+-
+     metadata_dict = view_bug_table2dict(tree)
+ 
+-    bug.submitter_username = '' # FIXME: Find an example of this having a value
+-    bug.submitter_realname = '' # FIXME: Find an example of this having a value
+-    bug.date_reported = decode_datetime(metadata_dict['Submit Date'])
+-    bug.last_touched = decode_datetime(metadata_dict['Last Update Date'])
+-    bug.canonical_bug_link = remote_bug_url
+-    bug.good_for_newcomers = 'oss-bite-size' in metadata_dict['Keywords']
+-    bug.status = metadata_dict['State']
+-    status_number = int(bug.status.split('-')[0])
+-    bug.looks_closed = (status_number in (8, 10, 11))
+-    bug.title = metadata_dict['Synopsis']
+-    bug.importance = '' # No importance, as far as I can tell.
++    bug_object.submitter_username = '' # FIXME: Find an example of this having a value
++    bug_object.submitter_realname = '' # FIXME: Find an example of this having a value
++    bug_object.date_reported = decode_datetime(metadata_dict['Submit Date'])
++    bug_object.last_touched = decode_datetime(metadata_dict['Last Update Date'])
++    bug_object.canonical_bug_link = remote_bug_url
++    bug_object.good_for_newcomers = 'oss-bite-size' in metadata_dict['Keywords']
++    bug_object.status = metadata_dict['State']
++    status_number = int(bug_object.status.split('-')[0])
++    bug_object.looks_closed = (status_number in (8, 10, 11))
++    bug_object.title = metadata_dict['Synopsis']
++    bug_object.importance = '' # No importance, as far as I can tell.
+ 
+     # For description, just grab the first "message"
+-    bug.description = metadata_dict['Description']
++    bug_object.description = metadata_dict['Description']
+ 
+-    # We are always the project called Python.
+-    bug.project, _ = Project.objects.get_or_create(name='OpenSolaris OS/Net', language='C')
++    # We are always the project called OpenSolaris OS/Net.
++    bug_object.project, _ = Project.objects.get_or_create(name='OpenSolaris OS/Net', language='C')
+ 
+     # How many people participated?
+-    bug.people_involved = None # This tracker has no idea.
++    bug_object.people_involved = None # This tracker has no idea.
+ 
+-    bug.last_polled = datetime.datetime.utcnow()
++    bug_object.last_polled = datetime.datetime.utcnow()
+ 
+-    return bug
+-
+-BUG_URL_PREFIX = 'http://bugs.opensolaris.org/bugdatabase/view_bug.do?bug_id='
++    return bug_object
+ 
+ def get_remote_bug_ids_to_read():
+     remote_bug_list = 'http://hub.opensolaris.org/bin/view/Main/oss_bite_size'
+@@ -104,6 +128,7 @@ def get_remote_bug_ids_already_stored():
+ def grab():
+     """Loops over the OpenSolaris bug tracker's oss-bite-sized bugs and stores/updates them in our DB.
+     For now, just grab the easy bugs to be kind to their servers."""
++    # FIXME: Use update() instead (should this function be removed?)
+ 
+     bug_ids = itertools.chain(
+         get_remote_bug_ids_to_read(), get_remote_bug_ids_already_stored())
+@@ -133,3 +158,21 @@ def grab():
+         # Otherwise, print and save the sucker!
+         print bug
+         bug.save()
++
++    def update():
++        """Call this nightly."""
++        logging.info("Learning about new bugs in OpenSolaris OS/Net.")
++        # Check new bugs first
++        for bug_id in get_remote_bug_ids_to_read():
++            create_bug_object_for_remote_bug_id_if_necessary(bug_id)
++        # Now scan through all bugs and refresh stale ones
++        # This will include the new ones found above, but
++        # since they are fresly added they won't be re-scanned.
++        logging.info("Starting refreshing all bugs from OpenSolaris OS/Net.")
++        count = 0
++        for bug_id in get_remote_bug_ids_already_stored():
++            create_bug_object_for_remote_bug_id_if_necessary(bug_id)
++            count += 1
++        logging.info("Okay, looked at %d bugs from OpenSolaris OS/Net." % count)
++
++# vim: set nu:
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 85f6f42..0b3e1d9 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -990,5 +990,34 @@ class OnlineBitbucket(django.test.TestCase):
+         repos = list(mysite.customs.bitbucket.get_user_repos('mark freeman'))
+         self.assertEqual(repos, [])
+         
+-        
++class OpenSolaris(django.test.TestCase):
++
++    open_bug_filename = os.path.join(settings.MEDIA_ROOT, 'sample-data',
++            "open-opensolaris-bug.html")
++
++    @mock.patch('urllib2.urlopen')
++    @mock.patch('mysite.customs.bugtrackers.opensolaris.Bug.all_bugs.get')
++    def test_existing_bug_is_updated(self, mock_bug_to_update, mock_urlopen):
++        """This method tests that an existing bug
++         which should be updated is updated"""
++        mock_urlopen.return_value = open(self.open_bug_filename)
++        bug = Bug()
++        bug.canonical_bug_link = "http://bugs.opensolaris.org/bugdatabase/view_bug.do?bug_id=1"
++        bug.last_polled = datetime.datetime.utcnow() - datetime.timedelta(days=2)
++        mock_bug_to_update.return_value = bug
++        bug_result = mysite.customs.bugtrackers.opensolaris.create_bug_object_for_remote_bug_id_if_necessary(1)
++        self.assertEquals(bug_result, True)
++
++    @mock.patch('mysite.customs.bugtrackers.opensolaris.Bug.all_bugs.get')
++    def test_existing_bug_is_not_updated(self, mock_bug_to_not_update):
++        """This method tests that an existing bug
++         which should not be updated is not updated"""
++        bug = Bug()
++        bug.canonical_bug_link = "http://bugs.opensolaris.org/bugdatabase/view_bug.do?bug_id=1"
++        bug.last_polled = datetime.datetime.utcnow()
++        mock_bug_to_not_update.return_value = bug
++        bug_result = mysite.customs.bugtrackers.opensolaris.create_bug_object_for_remote_bug_id_if_necessary(1)
++        self.assertEquals(bug_result, False)
++
++
+ # vim: set nu:
+diff --git a/mysite/search/management/commands/search_daily_tasks.py b/mysite/search/management/commands/search_daily_tasks.py
+index 4fbda45..89dbf0a 100644
+--- a/mysite/search/management/commands/search_daily_tasks.py
++++ b/mysite/search/management/commands/search_daily_tasks.py
+@@ -139,7 +139,7 @@ class Command(BaseCommand):
+         mysite.search.tasks.launchpad_tasks.refresh_all_launchpad_bugs()
+ 
+     def update_opensolaris_osnet(self):
+-        mysite.customs.bugtrackers.opensolaris.grab()
++        mysite.customs.bugtrackers.opensolaris.update()
+ 
+     def handle(self, *args, **options):
+         self.update_opensolaris_osnet()
+diff --git a/mysite/static/sample-data/open-opensolaris-bug.html b/mysite/static/sample-data/open-opensolaris-bug.html
+new file mode 100644
+index 0000000..c94431d
+--- /dev/null
++++ b/mysite/static/sample-data/open-opensolaris-bug.html
+@@ -0,0 +1,330 @@
++
++
++
++
++        
++	
++	
++        
++        
++	
++
++
++
++<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
++<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
++<head>
++    <title>Bug ID: 6957932 SunVTS loopback tests hang on Niantic card after run for long duration</title>
++    
++
++
++
++
++
++<meta name="product" content="solaris">
++<meta name="category" content="">
++<meta name="subcategory" content="">
++<meta name="keywords" content="oss-bite-size">
++<meta name="synopsis" content="Random OpenSolaris bug">
++<meta name="state" content="3-Accepted">
++<meta name="submit_date" content="1-June-2010">
++<meta name="type" content="bug">
++<meta name="reported_against" content="">
++<meta name="date" content="2010-06-03">
++<meta name="commitToFix" content="">
++<meta name="sponsor" content="">
++<meta name="submitter" content="">
++<meta name="DESCRIPTION" content="This field not used" >
++<style>
++
++         pre {
++         white-space: -moz-pre-wrap;
++         white-space: -pre-wrap;
++         white-space: -o-pre-wrap;
++         white-space: pre-wrap;
++         }
++
++</style>
++
++    <script type="text/javascript" src="/js/tonic.js"></script>
++    <link rel="stylesheet" type="text/css" media="screen" href="/css/screen.css" />
++    <!--[if IE]><link rel="stylesheet" type="text/css" href="/css/ie.css" /><![endif]-->
++</head>
++
++<body>
++    <div id="PageBox">
++        <div id="Masthead">
++            <h1><a href="http://www.opensolaris.org">OpenSolaris</a></h1>
++             <a href="http://www.opensolaris.org"><div id="MastheadLogo"></div></a>
++            <div id="Iconbar">
++              <a id="DiscussionsIcon" href="http://hub.opensolaris.org/bin/view/Main/discussions">Discussions</a>
++              <a id="CommunitiesIcon" href="http://hub.opensolaris.org/bin/view/Main/communities#portal">Communities</a>
++              <a id="ProjectsIcon" href="http://hub.opensolaris.org/bin/view/Main/projects#portal">Projects</a>
++              <a id="DownloadIcon" href="http://hub.opensolaris.org/bin/view/Main/downloads">Download</a>
++              <a id="SourceBrowserIcon" href="http://src.opensolaris.org/">Source Browser</a>
++            </div>
++        </div>
++  <table id="Layout">
++  <tr>
++   <td id="Navigation"><div class="Format">
++    <ol class="siteNavigation">
++      <li>
++       <div>Quick Links</div>
++        <ol>
++            <li><a href="http://hub.opensolaris.org/bin/view/Main/TryOpenSolaris">Try OpenSolaris</a></li>
++            <li><a href="http://hub.opensolaris.org/bin/view/Main/get">Get the Source</a></li>
++            <li><a href="http://hub.opensolaris.org/bin/view/Main/package">Get More Packages</a></li>
++            <li><a href="http://hub.opensolaris.org/bin/view/Main/participate">Participate in Projects</a></li>
++            <li><a href="http://hub.opensolaris.org/bin/view/Main/usergroups">Join a User Group</a></li>
++        </ol>
++      <div>Subsites</div>
++       <ol>
++          <li><a href="http://cr.opensolaris.org">Code Reviews</a></li>
++          <li><a href="http://repo.opensolaris.org/">Code Repositories</a></li>
++          <li><a href="http://pkg.opensolaris.org/">Package Search</a></li>
++          <li><a href="http://bugs.opensolaris.org">Bugster</a></li>
++          <li><a href="http://defect.opensolaris.org">Bugzilla</a></li>
++          <li><a href="http://test.opensolaris.org">Test Machines</a></li>
++          <li><a href="http://planet.opensolaris.org">Planet</a></li>
++          <li><a href="http://mail.opensolaris.org">Mailing Lists</a></li>
++       </ol>
++        <div>General</div>
++          <ol>
++           <li><a href="http://hub.opensolaris.org/bin/view/Main/profile">Account Management</a></li>
++           <li><a href="http://hub.opensolaris.org/bin/view/Main/documentation">Documentation</a></li>
++           <li><a href="http://hub.opensolaris.org/bin/view/Main/">Help</a></li>
++           <li><a href="http://hub.opensolaris.org/bin/view/Main/about">About</a></li>
++           <li><a href="http://hub.opensolaris.org/bin/view/Main/faq">FAQs</a></li>
++           <li><a href="http://hub.opensolaris.org/bin/view/Main/values">Values</a></li>
++        </ol>
++      </li>
++    </ol>
++    </div></td>
++   <td id="Content"><div class="Format">
++    
++
++
++
++
++
++
++
++
++<table class="NoBorder" width="100%" border="0" cellpadding="4" cellspacing="2">
++    <span class="smaller">
++        <td align="left">
++            <a href="/bugdatabase/printableBug.do?bug_id=6957932" style="text-decoration: none; font-size: 13px">Printable Version</a>
++        </td>
++        <td align="right">
++            <a href="/bugdatabase" style="text-decoration: none; font-size: 13px">Enter a New Search</a>
++        </td>
++    </span>
++</table>
++
++
++         <table border="0" cellpadding="2" cellspacing="0" class="NoBorder">
++         <tbody>
++             <tr>
++                 <td align="right">
++                     <font face=""><b>Bug ID</b></font>
++                 </td>
++                 <td align="left">
++                     <font face="">1</font>
++                 </td>
++             </tr>
++             
++             <tr>
++                 <td align="right">
++                     <font face=""><b>Synopsis</b></font>  
++                 </td>
++                 <td align="left">
++                     <font face="" >Random OpenSolaris bug</font>
++                 </td>
++             </tr>
++	     <tr>
++                 <td align="right">
++                     <font face=""><b>State</b></font>
++                 </td>
++		 <td align="left">
++                     <font face="" color="red" >3-Accepted</font><font face="" > (Yes, that is a problem)</font>
++                 </td>
++             </tr>
++             <tr>
++                 <td align="right">
++                     <font face=""><b>Category:Subcategory</b></font> 
++                 </td>
++                 <td align="left">
++                     <font face="" >:</font>
++                 </td>
++             </tr>
++	     <tr>
++                 <td align="right" valign="top">
++                     <font face=""><b>Keywords</b></font>
++                 </td>
++                 <td align="left">
++                     <font face="" >oss-bite-size</font>
++                 </td>
++             </tr>
++             
++             
++                 <tr>
++                     <td align="right"  nowrap>
++                         <font face=""><b>Responsible Engineer</b></font>  
++                     </td>
++                     <td align="left">
++                         <font face="">
++                             Jack Grigg
++                         </font>
++                     </td>
++                 </tr>
++             
++             <tr>
++                 <td align="right"  nowrap>
++                     <font face=""><b>Reported Against</b></font>  
++                 </td>
++                 <td align="left">
++                     <font face="">
++                         
++                             
++                         
++                     </font>
++                 </td>
++             </tr>
++             <tr>
++                 <td align="right"  nowrap>
++                     <font face=""><b>Duplicate Of</b></font>
++                 </td>
++                 <td>
++                     
++                 </td>
++             </tr>
++	     <tr>
++                 <td align="right" nowrap>
++                     <font face=""><b>Introduced In</b></font>
++                 </td>
++                 <td align="left">
++                     <font face="" ></font>
++                 </td>
++             </tr>
++	     <tr>
++                 <td align="right">
++                     <font face=""><b>Commit to Fix</b></font>
++                 </td>
++                 <td align="left">
++                     <font face="" ></font>
++                 </td>
++             </tr>
++	     <tr>
++                 <td align="right">
++                     <font face=""><b>Fixed In</b></font>
++                 </td>
++                 <td align="left">
++                     <font face="" ></font>
++                 </td>
++             </tr>
++             <tr>
++                 <td align="right">
++                     <font face=""><b>Release Fixed</b></font> 
++                 </td>
++                 <td align="left">
++                     <font face="">
++                         
++                        
++                        <!--
++                        
++                            
++                        
++                        -->
++                     </font>
++                 </td>
++             </tr>
++             <tr>
++                 <td align="right">
++                     <font face=""><b>Related Bugs</b></font> 
++                 </td>
++                 <td align="left">
++                     <font face="">
++                         
++                         
++                     </font>
++                 </td>
++             </tr>
++             <tr>
++                 <td align="right">
++                     <font face=""><b>Submit Date</b></font> 
++                 </td>
++                 <td align="left">
++                     <font face="" >1-June-2010</font>
++                 </td>
++             </tr>
++	     <tr>
++                 <td align="right">
++                     <font face=""><b>Last Update Date</b></font>
++                 </td>
++                 <td align="left">
++                     <font face="" >2-June-2010</font>
++                 </td>
++             </tr>
++             <tr>
++                 <td align="right" valign="top">
++                     <font face=""><b>Description</b></font> 
++                 </td>
++                 <td align="left">
++                     <pre>WallOfText</pre>
++                 </td>
++             </tr>
++             <tr>
++                 <td align="right" valign="top">
++                     <font face=""><b>Work Around</b></font> 
++                 </td>
++                 <td align="left">
++                     <pre>N/A</pre>
++                 </td>
++             </tr>
++             <tr>
++                 <td align="right" valign="top">
++                     <font face=""><b>Comments</b></font>
++                 </td>
++                 <td align="left">
++                     <pre>N/A</pre>
++                 </td>
++             </tr>
++             
++             <tr>
++                 <td align="right" valign="top">
++                     &nbsp;
++                 </td>
++                 <td align="left">
++                     <a href="/bugdatabase/addToInterestList.do?bug_id=6957932"> Add Yourself to the Interest List</a>
++                 </td>
++             </tr>
++             
++         </tbody></table>
++ 
++
++
++    </div></td>
++  </tr>
++ </table>
++<div id="Footer">
++<p class="Center">
++ <a href="http://hub.opensolaris.org/bin/view/Main/tou">Terms of Use</a> |
++ <a href="http://www.sun.com/privacy/">Privacy</a> |
++ <a href="http://hub.opensolaris.org/bin/view/Main/trademark">Trademarks</a> |
++ <a href="http://hub.opensolaris.org/bin/view/Main/copyrights">Copyright Policy</a> |
++ <a href="http://hub.opensolaris.org/bin/view/Main/site_guidelines">Site Guidelines</a> |
++ <a href="http://hub.opensolaris.org/bin/view/Main/site-map">Site Map</a> |
++ <a href="http://hub.opensolaris.org/bin/view/Main/help">Help</a><br />Your use of this web site or any of its content or software indicates your agreement to be bound by these Terms of Use.<br />
++&copy; 2010, Oracle Corporation and/or its affiliates<br/>
++<img src="/images/logo_oracle_footer.gif" alt="Oracle Logo" />
++</p>
++  </div>
++</div>
++
++ 
++
++<script type="text/javascript" src="/bugdatabase/js/s_code_remote.js"></script>
++</body>
++
++</html>
++
+-- 
+1.6.4.4
+

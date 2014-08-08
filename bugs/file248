@@ -1,0 +1,126 @@
+From 5300d287a81f4f0883b2a1cbd5671368d55e6157 Mon Sep 17 00:00:00 2001
+From: Filipovskii Off <filipovskii_off@Puppo.(none)>
+Date: Mon, 25 Apr 2011 01:31:43 +0400
+Subject: [PATCH] Solves Issue 271
+
+---
+ mysite/missions/base/controllers.py |   13 +++++++++--
+ mysite/missions/models.py           |    4 ++-
+ mysite/missions/tar/tests.py        |    6 ++--
+ mysite/missions/tests.py            |   39 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 55 insertions(+), 7 deletions(-)
+
+diff --git a/mysite/missions/base/controllers.py b/mysite/missions/base/controllers.py
+index fab9425..9d74ae3 100644
+--- a/mysite/missions/base/controllers.py
++++ b/mysite/missions/base/controllers.py
+@@ -40,14 +40,21 @@ def get_mission_data_path(mission_type):
+     return os.path.join(os.path.dirname(__file__), '..', mission_type, 'data')
+ 
+ def set_mission_completed(profile, mission_name):
+-    StepCompletion.objects.get_or_create(person=profile, step=Step.objects.get(name=mission_name))
++    s, _ = StepCompletion.objects.get_or_create(person=profile, step=Step.objects.get(name=mission_name))
++    s.is_currently_completed = True
++    s.save()
+ 
+ def unset_mission_completed(profile, mission_name):
+-    StepCompletion.objects.filter(person=profile, step=Step.objects.get(name=mission_name)).delete()
++    s = StepCompletion.objects.filter(person=profile, step=Step.objects.get(name=mission_name), is_currently_completed=True)
++    if len(s):
++        s[0].is_currently_completed = False
++        s[0].save()
+ 
+ def mission_completed(profile, mission_name):
+-    return len(StepCompletion.objects.filter(step__name=mission_name, person=profile)) != 0
++    return len(StepCompletion.objects.filter(step__name=mission_name, person=profile, is_currently_completed=True)) != 0
+ 
++def mission_completed_at_least_once(profile, mission_name):
++    return len(StepCompletion.objects.filter(step__name=mission_name, person=profile)) != 0
+ 
+ class IncorrectPatch(Exception):
+     pass
+diff --git a/mysite/missions/models.py b/mysite/missions/models.py
+index 3c1f9e4..fb94dad 100644
+--- a/mysite/missions/models.py
++++ b/mysite/missions/models.py
+@@ -22,6 +22,8 @@ class Step(models.Model):
+ class StepCompletion(models.Model):
+     person = models.ForeignKey('profile.Person')
+     step = models.ForeignKey('Step')
+-
++    # Current mission status (True - user have completed it, False - reseted) 
++    is_currently_completed = models.BooleanField(default=True)
++	
+     class Meta:
+         unique_together = ('person', 'step')
+diff --git a/mysite/missions/tar/tests.py b/mysite/missions/tar/tests.py
+index 5e8c906..78cb810 100644
+--- a/mysite/missions/tar/tests.py
++++ b/mysite/missions/tar/tests.py
+@@ -153,7 +153,7 @@ class MissionPageStateTests(TwillTests):
+         
+         response = self.client.post(reverse(views.reset), {'mission_parts': 'tar' })
+         self.assert_('Operation successful' in response.content)
+-        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar', person=paulproteus)), 0)        
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar', person=paulproteus, is_currently_completed=True)), 0)        
+         
+         
+     def test_mission_completion_partial_reset(self):
+@@ -163,5 +163,5 @@ class MissionPageStateTests(TwillTests):
+         
+         response = self.client.post(reverse(views.reset), {'mission_parts': 'tar,tar_extract' })
+         self.assert_('Operation successful' in response.content)
+-        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar', person=paulproteus)), 0)
+-        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar_extract', person=paulproteus)), 0)                  
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar', person=paulproteus, is_currently_completed=True)), 0)
++        self.assertEqual(len(StepCompletion.objects.filter(step__name='tar_extract', person=paulproteus, is_currently_completed=True)), 0)                  
+diff --git a/mysite/missions/tests.py b/mysite/missions/tests.py
+index 31c8fec..6eeb9d9 100644
+--- a/mysite/missions/tests.py
++++ b/mysite/missions/tests.py
+@@ -19,3 +19,42 @@
+ from mysite.missions.tar.tests import *
+ from mysite.missions.diffpatch.tests import *
+ from mysite.missions.svn.tests import *
++
++import django.test
++from mysite.missions.base.controllers import *
++from mysite.missions.models import Step, StepCompletion
++from mysite.profile.models import Person
++
++class MissionCompletionTestCase(django.test.TestCase):
++    fixtures = ['initial-data.json', 'person-barry.json']	
++        
++    def test_unset_mission_completed_sets_is_currently_completed_to_true(self):
++        """When user unsets step completion
++        'StepCompletion' object 'is_currently_completed' param becomes true"""
++        profile = Person.objects.all()[0]
++        step = Step.objects.all()[0]	
++        #creates StepCompletion object
++        set_mission_completed(profile, step.name)
++
++        unset_mission_completed(profile, step.name)
++        obj_after = StepCompletion.objects.get(person = profile, step = step)
++		
++        self.assertTrue(mission_completed_at_least_once(profile, step.name))
++        self.assertFalse(mission_completed(profile, step.name))
++        self.assertFalse(obj_after.is_currently_completed)
++
++        obj_after.delete()
++
++    def test_set_mission_completed_sets_is_currently_completed_to_false(self):
++        profile = Person.objects.all()[0]
++        step = Step.objects.all()[0]
++
++        set_mission_completed(profile, step.name)
++        # sets StepCompletion.is_currently_completed to True
++        unset_mission_completed(profile, step.name)
++        # should make StepCompletion.is_currently_completed False again 
++        set_mission_completed(profile, step.name)
++        obj_after = StepCompletion.objects.get(person = profile, step = step)
++        
++        self.assertTrue(mission_completed(profile, step.name))
++        self.assertTrue(obj_after.is_currently_completed)
+-- 
+1.7.1
+

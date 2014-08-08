@@ -1,0 +1,81 @@
+From 6f20a7dc16b4f2de14cb8cb64bc0255319ecaa9e Mon Sep 17 00:00:00 2001
+From: kracekumar <kracethekingmaker@gmail.com>
+Date: Mon, 6 Jun 2011 01:20:53 +0530
+Subject: [PATCH 2/2] Done with <abbr> typo mistakes
+
+---
+ .../templates/missions/diffpatch/diff_patch.html   |    2 +-
+ .../missions/diffpatch/recursive_diff.html         |    2 +-
+ .../missions/diffpatch/recursive_patch.html        |    2 +-
+ .../missions/diffpatch/single_file_diff.html       |    2 +-
+ .../missions/diffpatch/single_file_patch.html      |    2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/diffpatch/diff_patch.html b/mysite/missions/templates/missions/diffpatch/diff_patch.html
+index 00571a8..60026b6 100644
+--- a/mysite/missions/templates/missions/diffpatch/diff_patch.html
++++ b/mysite/missions/templates/missions/diffpatch/diff_patch.html
+@@ -19,7 +19,7 @@
+     <p>Often your changes will involve more than one file, so it makes sense to submit all of those changes in one shot, especially if the changes depend on one another.  The <code>-r</code> option to diff makes it take two directories and compare their contents file-by-file, so you can keep one untouched copy of the project and one copy that you make your modifications to, then diff them with the <code>-r</code> option and get all of your changes in one convenient blob.</p>
+     <p>Here is your mission:</p>
+     <ul class="raquo_bullets">
+-      <li><abrr title="Upack the tarball and find and replace Aubergine,aubergine,Aubergines,aubergines respectively with Eggplant,eggplant,Eggplants,eggplants respectively.Make a unified diff and upload.Make sure copy of original file is maintained and changes are made in another directory.After modification run from top level directory , diff -ur unmodified-directory modified-directory" ><a href="{% url mysite.missions.diffpatch.views.diffpatch_diffrecursive_get_original_tarball %}">Download this tarball</a></abbr> containing some recipes.</li>
++      <li><abbr title=" Upack the tarball and find and replace Aubergine ,aubergine ,Aubergines, aubergines respectively with Eggplant, eggplant, Eggplants, eggplants respectively. Make a unified diff and upload . Make sure a copy of original file is maintained and changes are made in another directory. After modification run from top level directory , diff -ur unmodified-directory modified-directory" ><a href="{% url mysite.missions.diffpatch.views.diffpatch_diffrecursive_get_original_tarball %}">Download this tarball</a></abbr> containing some recipes.</li>
+       <li>Unpack the tarball.</li>
+       <li>Find all places in the files where "aubergine" is mentioned and replace them with the synonym, "eggplant". (Just change the contents of the files, not the filenames.)</li>
+       <li>Make a unified diff of your changes.  It should be possible to apply it with "patch -p1" from the "recipes" directory.  (One way to do this is <code>diff -ur recipes-orig recipes</code>, where <code>recipes-orig</code> is an unmodified copy of the <code>recipes</code> directory.)</li>
+diff --git a/mysite/missions/templates/missions/diffpatch/recursive_diff.html b/mysite/missions/templates/missions/diffpatch/recursive_diff.html
+index a17089d..76a12ef 100644
+--- a/mysite/missions/templates/missions/diffpatch/recursive_diff.html
++++ b/mysite/missions/templates/missions/diffpatch/recursive_diff.html
+@@ -28,7 +28,7 @@
+     <p>Often your changes will involve more than one file, so it makes sense to submit all of those changes in one shot, especially if the changes depend on one another.  The <code>-r</code> option to diff makes it take two directories and compare their contents file-by-file, so you can keep one untouched copy of the project and one copy that you make your modifications to, then diff them with the <code>-r</code> option and get all of your changes in one convenient blob.</p>
+     <p>Here is your mission:</p>
+     <ul class="raquo_bullets">
+-      <li><abrr title="Upack the tarball and find and replace Aubergine,aubergine,Aubergines,aubergines respectively with Eggplant,eggplant,Eggplants,eggplants respectively.Make a unified diff and upload.Make sure copy of original file is maintained and changes are made in another directory.After modification run from top level directory , diff -ur unmodified-directory modified-directory" ><a href="{% url mysite.missions.diffpatch.views.diffrecursive_get_original_tarball %}">Download this tarball</a></abbr> containing some recipes.</li>
++      <li><abbr title=" Upack the tarball and find and replace Aubergine, aubergine, Aubergines, aubergines respectively with Eggplant, eggplant, Eggplants, eggplants respectively. Make a unified diff and upload. Make sure copy of original file is maintained and changes are made in another directory.After modification run from top level directory , 'diff -ur unmodified-directory modified-directory' " ><a href="{% url mysite.missions.diffpatch.views.diffrecursive_get_original_tarball %}">Download this tarball</a></abbr> containing some recipes.</li>
+       <li>Unpack the tarball.</li>
+       <li>Find all places where "aubergine" is mentioned and replace them with the synonym, "eggplant". (If you see "Aubergine" with a capital "A", replace that with a similarly-capitalized word!)</li>
+       <li>Make a unified diff of your changes.  It should be possible to apply it with "patch -p1" from the "recipes" directory.  (One way to do this is <code>diff -ur recipes-orig recipes</code>, where <code>recipes-orig</code> is an unmodified copy of the <code>recipes</code> directory.)</li>
+diff --git a/mysite/missions/templates/missions/diffpatch/recursive_patch.html b/mysite/missions/templates/missions/diffpatch/recursive_patch.html
+index bfc8eea..ad380a4 100644
+--- a/mysite/missions/templates/missions/diffpatch/recursive_patch.html
++++ b/mysite/missions/templates/missions/diffpatch/recursive_patch.html
+@@ -27,7 +27,7 @@
+     <p>Sometimes you might have to apply a patch that affects more than one file.  The patch program can tell what parts of the patch apply to what files by examining the headers, but you might need to help it out by giving the <code>-p</code> option to tell it how many levels of directories to ignore so it finds the correct files to patch.</p>
+     <p>Here is your mission:</p>
+     <ul class="raquo_bullets">
+-      <li>Download <abrr title="Download the tar file and extract the files."><a href="{% url mysite.missions.diffpatch.views.patchrecursive_get_original_tarball %}">this tarball</a></abbr> and <abbr title="Download the patch file and cd into hats directory and run the patch file using patch -p1 <../patchfile(If you have not moved patch to hats directory).Read the patched file in the hats directory and answer the questions given below."><a href="{% url mysite.missions.diffpatch.views.patchrecursive_get_patch %}">this patch</a></abbr>.</li>
++      <li>Download <abbr title=" Download the tar file and extract the files."><a href="{% url mysite.missions.diffpatch.views.patchrecursive_get_original_tarball %}">this tarball</a></abbr> and <abbr title=" Download the patch file and cd into hats directory and run the patch file using patch -p1 <../patchfile(If you have not moved patch to hats directory). Read the patched file in the hats directory and answer the questions given below. "><a href="{% url mysite.missions.diffpatch.views.patchrecursive_get_patch %}">this patch</a></abbr>.</li>
+       <li>Unpack the tarball and apply the patch using <code>patch -p1</code> from the <code>hats</code> directory.</li>
+       <li>Answer some questions below about the contents of the files inside.</li>
+     </ul>
+diff --git a/mysite/missions/templates/missions/diffpatch/single_file_diff.html b/mysite/missions/templates/missions/diffpatch/single_file_diff.html
+index 958cfce..dba8648 100644
+--- a/mysite/missions/templates/missions/diffpatch/single_file_diff.html
++++ b/mysite/missions/templates/missions/diffpatch/single_file_diff.html
+@@ -27,7 +27,7 @@
+     <p>When you are submitting changes to a project, you will need to run diff to create a patch that you can submit.  Large patches can be stored in files and attached to whatever medium you use to submit the patch, but since this patch will be short, it can be included inline in the message.  So instead of uploading the patch in a file, your mission will be to make your patch and copy and paste it into the box below.</p>
+     <p>Here's the mission:</p>
+     <ul class="raquo_bullets">
+-      <li><abbr title= "Download diffsingle.txt and follow the instructions and keep the original and modify the copy of the original file .After modification run diff -u original-file.txt modified-file.txt"><a href="{% url mysite.missions.diffpatch.views.diffsingle_get_original_file %}">Download this file.</a></abbr></li>
++      <li><abbr title= " Download diffsingle.txt and follow the instructions and keep the original and modify the copy of the original file . After modification run 'diff -u original-file.txt modified-file.txt' ."><a href="{% url mysite.missions.diffpatch.views.diffsingle_get_original_file %}">Download this file.</a></abbr></li>
+       <li>Open the file in a text editor and follow the instructions inside the file.  (These instructions will involve modifying the file.)</li>
+       <li>Make a unified diff (the universally preferred flavor of diff output) of your changes.  (Try <code>diff -u originalfile.txt modifiedfile.txt</code>.)</li>
+     </ul>
+diff --git a/mysite/missions/templates/missions/diffpatch/single_file_patch.html b/mysite/missions/templates/missions/diffpatch/single_file_patch.html
+index 53b6f4d..187b429 100644
+--- a/mysite/missions/templates/missions/diffpatch/single_file_patch.html
++++ b/mysite/missions/templates/missions/diffpatch/single_file_patch.html
+@@ -24,7 +24,7 @@
+     <h3>Patching individual files</h3>
+   </div>
+   <div class="body">
+-    <p<abbr title=" Download the file and patch it .">><a href="{% url mysite.missions.diffpatch.views.patchsingle_get_original_file %}">Here is a file</a></abbr> that contains a piece of code that could be implemented in a much better way.  Let's say that this file is part of a project you are working on, and somebody has come along, noticed the piece of code that could be improved, and <abbr title="This is patch file,download run patch sourcefile patchfile or patch -p1 < patchfile.patch "> <a href="{% url mysite.missions.diffpatch.views.patchsingle_get_patch %}">gave you a patch with the improved code</a></abbr>.</p>
++    <p<abbr title=" Download the file and patch it ."><a href="{% url mysite.missions.diffpatch.views.patchsingle_get_original_file %}">Here is a file</a></abbr> that contains a piece of code that could be implemented in a much better way.  Let's say that this file is part of a project you are working on, and somebody has come along, noticed the piece of code that could be improved, and <abbr title="This is patch file, download and run 'patch sourcefile patchfile' or 'patch -p1 < patchfile.patch '."> <a href="{% url mysite.missions.diffpatch.views.patchsingle_get_patch %}">gave you a patch with the improved code</a></abbr>.</p>
+     <p>In order to review the changes, you'll need to apply the patch to the file using the patch program, and your mission is to do that.</p>
+ 
+     <form method="post" enctype="multipart/form-data" action="{% url mysite.missions.diffpatch.views.patchsingle_submit %}#patchsingle-form">{% csrf_token %}
+-- 
+1.7.4.1
+

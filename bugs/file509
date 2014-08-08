@@ -1,0 +1,27 @@
+--- diffsingle.txt	2012-05-13 15:34:07.308808002 -0700
++++ diffsingle-modified.txt	2012-05-13 15:35:52.784808002 -0700
+@@ -1,3 +1,6 @@
++Move this sentence to at the start of the file, ensuring that it
++starts on the first line (remember about the blank lines!).
++
+ This mission is to have you make modifications to a file and submit a
+ diff of them. The changes may seem a bit silly, but they will cause the
+ diff to contain examples of different types of changes - additions,
+@@ -19,15 +22,11 @@
+ 
+ Read this sentence, and leave it alone.
+ 
+-Nod your head enthusiastically, and then remove this paragraph
+-(being careful to keep just one blank line between the surrounding paragraphs).
+-
+ Take this sentence, and copy it underneath itself (remember the blank line!).
+ 
+-Move this sentence to at the start of the file, ensuring that it
+-starts on the first line (remember about the blank lines!).
++Take this sentence, and copy it underneath itself (remember the blank line!).
+ 
+-There is a typo in this sentence, which oyu should fix.
++There is a typo in this sentence, which you should fix.
+ 
+ Finally, save your changes in your editor and make a unified diff
+ of your changes with the diff command. (If you're not sure how,

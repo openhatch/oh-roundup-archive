@@ -1,0 +1,35 @@
+From 9bc7524876591b415877da648b413b3d48b6bb2e Mon Sep 17 00:00:00 2001
+From: Walker Hale IV <walker.hale.iv@gmail.com>
+Date: Wed, 14 Mar 2012 13:47:52 -0700
+Subject: [PATCH] Fix LoginWinOpenID test
+
+---
+ mysite/account/tests.py |    9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/mysite/account/tests.py b/mysite/account/tests.py
+index 01b6b0a..ab21f74 100644
+--- a/mysite/account/tests.py
++++ b/mysite/account/tests.py
+@@ -63,14 +63,13 @@ class Login(TwillTests):
+     # }}}
+ 
+ class LoginWithOpenID(TwillTests):
+-    #{{{
+-    fixtures = ['user-paulproteus']
+     def test_login_creates_user_profile(self):
++        # Create a user object
++        u = User.objects.create(username='paulproteus')
++        u.save()
+         # Even though we didn't add the person-paulproteus
+         # fixture, a Person object is created.
+-        self.assert_(list(
+-            Person.objects.filter(user__username='paulproteus')))
+-    #}}}
++        self.assert_(list(Person.objects.filter(user__username='paulproteus')))
+ 
+ class Signup(TwillTests):
+     """ Tests for signup without invite code. """
+-- 
+1.7.9.2
+

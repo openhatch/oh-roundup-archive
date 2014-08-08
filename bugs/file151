@@ -1,0 +1,43 @@
+From 2021387d568a85dcb5e5c87d6c77c9df2940d5f1 Mon Sep 17 00:00:00 2001
+From: Jairo Lopez <jelfn@sislacom.com>
+Date: Mon, 14 Mar 2011 15:22:40 -0430
+Subject: [PATCH 2/2] Small modification to make the meta data dictionary be returned by a separate function.
+
+---
+ mysite/base/views.py |   13 ++++++++++---
+ 1 files changed, 10 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/base/views.py b/mysite/base/views.py
+index e4a9aba..b3081fc 100644
+--- a/mysite/base/views.py
++++ b/mysite/base/views.py
+@@ -160,8 +160,9 @@ def geocode(request):
+     return HttpResponse(coordinates_as_json, 
+                         mimetype='application/json')
+ 
+-@view
+-def meta(request):
++# Refactoring code to separate the meta data from the request return
++def meta_data():
++
+     data = {}
+     data['dia_diagnostics'] = {}
+ 
+@@ -202,7 +203,13 @@ def meta(request):
+         last_polled__lt=two_days_ago).count() * 100.0 /
+         mysite.search.models.Bug.all_bugs.count())
+ 
+-    return (request, 'meta.html', data)
++    return data
++
++@view
++def meta(request):
++    
++    return (request, 'meta.html', meta_data())
++
+ 
+ @login_required
+ def save_portfolio_entry_ordering_do(request):
+-- 
+1.7.2.3
+

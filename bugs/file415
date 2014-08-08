@@ -1,0 +1,6 @@
+28c28,30
+<     <p>In order to review the changes, you'll need to apply the patch to the file using the patch program, and your mission is to do that.</p>
+---
+>     <p>In order to review the changes, you'll need to apply the patch to the file using the patch program, and your mission is to do that.</p><p>Hint:</p><p>  One way to accomplish this is by running a command like  "patch -p0 < patch_file" from the 
+> command line, in the directory containing both patch_file and the original file. This command says "use the patch program to apply the diff in patch_file to a file in the current 
+> directory". You can read more about the patch program in its <a href="http://linux.die.net/man/1/patch">"man page"</a> or type "man patch" in terminal.  </p>

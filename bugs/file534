@@ -1,0 +1,26 @@
+From 50d24f5627d40b2376ab4348c935a4733cf3c7ac Mon Sep 17 00:00:00 2001
+From: florapdx <floraworleypdx@gmail.com>
+Date: Tue, 19 Mar 2013 17:11:53 -0700
+Subject: [PATCH 06/10] change 'Edit' to 'Edit project settings' in 'About'
+ pane
+
+---
+ mysite/project/templates/project/project.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 9e30bfa..684b006 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -235,7 +235,7 @@ about how you can help {{ project.display_name }}
+             <h3>About {{ project.display_name }}</h3>
+             <ul>
+                 <li>
+-                    <a href='{{ project.get_edit_page_url }}'>Edit</a>
++                    <a href='{{ project.get_edit_page_url }}'>Edit project settings</a>
+                 </li>
+             </ul>
+         </div>
+-- 
+1.8.1.3
+

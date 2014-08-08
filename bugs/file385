@@ -1,0 +1,81 @@
+From c24f50b5775c61309cfaaa3a280cef050c845d8d Mon Sep 17 00:00:00 2001
+From: Jessica McKellar <jesstess@mit.edu>
+Date: Sat, 20 Aug 2011 20:29:54 -0400
+Subject: [PATCH] If a diffpatch diff is submitted without diff headers, display a hint to include them.
+
+Previously, a diff without headers caused an exception in the patch
+parsing code that led to a server 500.
+
+This resolves https://openhatch.org/bugs/issue484.
+---
+ mysite/missions/base/patch.py            |    5 ++++-
+ mysite/missions/diffpatch/controllers.py |    6 ++++++
+ mysite/missions/diffpatch/tests.py       |   12 ++++++++++++
+ 3 files changed, 22 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/base/patch.py b/mysite/missions/base/patch.py
+index 2f11270..acaa026 100644
+--- a/mysite/missions/base/patch.py
++++ b/mysite/missions/base/patch.py
+@@ -319,6 +319,10 @@ class Patch(object):
+           nexthunkno += 1
+           continue
+ 
++    if not nextfileno or not self.source or not self.target or not self.header:
++      warning("patch file is missing headers")
++      return
++
+     if not hunkskip:
+       warning("patch file incomplete")
+       if not hunkinfo.invalid:
+@@ -326,7 +330,6 @@ class Patch(object):
+         # switch to hunkskip state
+         hunkbody = False
+         hunkskip = True
+-      # sys.exit(?)
+     else:
+       # duplicated message when an eof is reached
+       if debugmode and len(self.source) > 0:
+diff --git a/mysite/missions/diffpatch/controllers.py b/mysite/missions/diffpatch/controllers.py
+index 526dbbb..0c571c1 100644
+--- a/mysite/missions/diffpatch/controllers.py
++++ b/mysite/missions/diffpatch/controllers.py
+@@ -29,6 +29,12 @@ class SingleFilePatch(object):
+     @classmethod
+     def validate_patch(cls, patchdata):
+         the_patch = patch.fromstring(patchdata)
++
++        # If we couldn't create even 1 hunk, the patch headers are missing.
++        if not the_patch.hunks:
++            raise IncorrectPatch, 'The file resulting from patching does not have the correct contents. \
++        Make sure you are including the diff headers (those --- and +++ and @@ lines).'
++
+         # Check that it only patches one file.
+         if len(the_patch.hunks) != 1:
+             raise IncorrectPatch, 'The patch affects more than one file.'
+diff --git a/mysite/missions/diffpatch/tests.py b/mysite/missions/diffpatch/tests.py
+index 933889b..f4d20aa 100644
+--- a/mysite/missions/diffpatch/tests.py
++++ b/mysite/missions/diffpatch/tests.py
+@@ -154,6 +154,18 @@ class DiffSingleFileTests(TwillTests):
+         else:
+             self.fail('no exception raised')
+ 
++    def test_diff_missing_headers(self):
++        """
++        If a diff submission lacks headers, raise a special IncorrectPatch
++        exception with a hint that the headers should be included.
++        """
++        try:
++            controllers.DiffSingleFileMission.validate_patch("I lack headers.")
++        except controllers.IncorrectPatch, e:
++            self.assert_('Make sure you are including the diff headers' in str(e))
++        else:
++            self.fail('no exception raised')
++
+     def test_do_mission_correctly(self):
+         orig_response = self.client.get(reverse(views.diffsingle_get_original_file))
+         orig_lines = StringIO(orig_response.content).readlines()
+-- 
+1.7.4.1
+

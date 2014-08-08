@@ -1,0 +1,3 @@
+<div dir="ltr">loaddata is indeed an upstream thing. So we could file an issue there.<div><br></div><div>It might be worth profiling it -- where is all the time going? Is it being spent waiting on the database, or mostly spent parsing the *.json.gz file? If the parsing, maybe we can find a different format (the Scrapy &quot;jsonlines&quot; format is one of my favorite formats) and see if we can hack in support for that.</div>
+<div><br></div><div>One great thing about &quot;jsonlines&quot; is that it enables a more useful progress bar.</div><div><br></div><div>If the slowness is in the database calls, maybe we&#39;d better-serve new contributors by creating a sqlite file that has the data pre-loaded. We could make that a job in e.g. Jenkins.</div>
+</div>

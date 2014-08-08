@@ -1,0 +1,4 @@
+<div>kracekumar@python-lover:~/codes/python/web/oh-mainline$ git fetch</div><div>kracekumar@python-lover:~/codes/python/web/oh-mainline$ git rebase origin/no_buildout </div><div>Cannot rebase: You have unstaged changes.</div>
+<div>Please commit or stash them.</div><div>kracekumar@python-lover:~/codes/python/web/oh-mainline$</div><div><div>kracekumar@python-lover:~/codes/python/web/oh-mainline$ ls</div><div>504.html      CREDITS    puppet-provisioning-files  setup.py</div>
+<div>bootstrap.py  downloads  README.mkd                 Vagrantfile</div><div>bootstrap.sh  LAYOUT     README.virtualenv.mkd</div><div>buildout.cfg  LICENSE    run_importer.sh</div><div>coveragerc    mysite     setup.cfg</div>
+</div><div><br></div><div><br></div><div>I think i have messed up the directorie.I can&#39;t find bin directory, I don&#39;t have virtualenv, should I start from first ?</div>

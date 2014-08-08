@@ -1,0 +1,94 @@
+From e7d10494e597b987a1c68502186cf69c4590bfbb Mon Sep 17 00:00:00 2001
+From: Aaron Hill <aa1ronham@aol.com>
+Date: Mon, 6 May 2013 19:45:40 -0400
+Subject: [PATCH] Improved fix for any option
+
+---
+ mysite/search/tests.py        | 23 ++++++++++++++---------
+ mysite/search/view_helpers.py | 10 +++++++---
+ 2 files changed, 21 insertions(+), 12 deletions(-)
+
+diff --git a/mysite/search/tests.py b/mysite/search/tests.py
+index 97cf832..ce270bc 100644
+--- a/mysite/search/tests.py
++++ b/mysite/search/tests.py
+@@ -474,20 +474,25 @@ class SearchTemplateDecodesQueryString(SearchTest):
+                          expected_facets)
+ 
+ class FacetsFilterResults(SearchTest):
+-    def test_facets_filter_results(self):
+-        facets = {u'language': u'Python'}
++    def setUp(self):
++        self.python_project = Project.create_dummy(language='Python')
++        self.python_bug = Bug.create_dummy(project=python_project)
+ 
+-        # Those facets should pick up this bug:
+-        python_project = Project.create_dummy(language='Python')
+-        python_bug = Bug.create_dummy(project=python_project)
++        self.not_python_project = Project.create_dummy(language='Nohtyp')
++        self.not_python_bug = Bug.create_dummy(project=not_python_project)
+ 
+-        # But not this bug
+-        not_python_project = Project.create_dummy(language='Nohtyp')
+-        Bug.create_dummy(project=not_python_project)
++
++    def test_facets_filter_results(self):
++        facets = {u'language': u'Python'}
+ 
+         results = mysite.search.view_helpers.Query(
+                 terms=[], active_facet_options=facets).get_bugs_unordered()
+-        self.assertEqual(list(results), [python_bug])
++        self.assertEqual(list(results), [self.python_bug])
++
++    def test_any_facet(self):
++        results = mysite.search.view_helpers.Query(
++                terms=[], active_facet_options={}).get_bugs_unordered()
++        self.assertEqual(list(results), [self.python_bug, self.not_python_bug])
+ 
+ class QueryGetPossibleFacets(SearchTest):
+     """Ask a query, what facets are you going to show on the left?
+diff --git a/mysite/search/view_helpers.py b/mysite/search/view_helpers.py
+index e6711a2..af5ad1c 100644
+--- a/mysite/search/view_helpers.py
++++ b/mysite/search/view_helpers.py
+@@ -37,10 +37,11 @@ def order_bugs(query):
+ 
+ class Query:
+ 
+-    def __init__(self, terms=None, active_facet_options=None, terms_string=None):
++    def __init__(self, terms=None, active_facet_options=None, any_facet=False, terms_string=None):
+         self.terms = terms or []
+         self.active_facet_options = (mysite.base.decorators.no_str_in_the_dict(active_facet_options)
+                                      or {})
++        self.any_facet = any_facet
+         if type(terms_string) == str:
+             terms_string = unicode(terms_string, 'utf-8')
+         self._terms_string = terms_string
+@@ -79,19 +80,22 @@ class Query:
+                            u'project']
+ 
+         active_facet_options = {}
++        any_facet = False
+         for facet in possible_facets:
+             if GET.get(facet):
+                 active_facet_options[facet] = GET.get(facet)
++            else:
++                any_facet = True
+         terms_string = GET.get('q', u'')
+         terms = Query.split_into_terms(terms_string)
+ 
+-        return Query(terms=terms, active_facet_options=active_facet_options, terms_string=terms_string)
++        return Query(terms=terms, active_facet_options=active_facet_options, any_facet=any_facet, terms_string=terms_string)
+ 
+     def get_bugs_unordered(self):
+         return mysite.search.models.Bug.open_ones.filter(self.get_Q())
+ 
+     def __nonzero__(self):
+-        if self.terms or self.active_facet_options:
++        if self.terms or self.active_facet_options or self.any_facet:
+             return 1
+         return 0
+ 
+-- 
+1.8.1.2
+

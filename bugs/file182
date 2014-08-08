@@ -1,0 +1,65 @@
+From 099c8455636e57da294de05aca1deb43031d2238 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Sun, 27 Mar 2011 11:32:52 +1300
+Subject: [PATCH] Added new dependency -debug_toolbar- to
+  buildout.cfg and change mysite/settings.py to
+  only load debug_toolbar if DEBUG = True
+
+---
+ buildout.cfg       |    1 +
+ mysite/settings.py |   14 ++++++++++----
+ 2 files changed, 11 insertions(+), 4 deletions(-)
+
+diff --git a/buildout.cfg b/buildout.cfg
+index 4f9ebfb..25a17ba 100644
+--- a/buildout.cfg
++++ b/buildout.cfg
+@@ -38,6 +38,7 @@ eggs =
+     staticgenerator
+     python-launchpad-bugs
+     html2text
++    debug_toolbar
+     coverage
+     pylint
+     unittest-xml-reporting
+diff --git a/mysite/settings.py b/mysite/settings.py
+index fd39a91..fd190e8 100644
+--- a/mysite/settings.py
++++ b/mysite/settings.py
+@@ -106,8 +106,7 @@ MIDDLEWARE_CLASSES = (
+     'mysite.base.middleware.LocationMiddleware',
+     'mysite.base.middleware.HandleWannaHelpQueue',
+     'django.middleware.transaction.TransactionMiddleware',
+-    # Django debug toolbar
+-    #'debug_toolbar.middleware.DebugToolbarMiddleware',
++
+ )
+ 
+ ROOT_URLCONF = 'mysite.urls'
+@@ -161,14 +160,21 @@ INSTALLED_APPS = (
+     'haystack',
+     'voting',
+     'reversion',
+-    #'debug_toolbar',
+     'sessionprofile',
+ )
+ 
++if DEBUG=True:
++ INSTALLED_APPS +=   (
++    'debug_toolbar',
++)
++ MIDDLEWARE_CLASSES = (  # Django debug toolbar
++    'debug_toolbar.middleware.DebugToolbarMiddleware',
++)
++
+ # testrunner allows us to control which testrunner to use
+ TEST_RUNNER = 'mysite.testrunner.run'
+ 
+-# Make test names prettier 
++# Make test names prettier
+ TEST_OUTPUT_DESCRIPTIONS = True
+ 
+ TEST_OUTPUT_DIR = "test_output"
+-- 
+1.7.2.5
+

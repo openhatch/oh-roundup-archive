@@ -1,0 +1,67 @@
+From 8c08157ffd79c5f7d9855f874bf4ca648a729893 Mon Sep 17 00:00:00 2001
+From: Walker Hale IV <walker.hale.iv@gmail.com>
+Date: Wed, 14 Mar 2012 10:17:05 -0700
+Subject: [PATCH 1/4] Fix hard tabs in test code
+
+---
+ mysite/customs/tests.py |   44 ++++++++++++++++++++++----------------------
+ 1 file changed, 22 insertions(+), 22 deletions(-)
+
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index ad1a0db..29e7bc8 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -1689,28 +1689,28 @@ class DataExport(django.test.TestCase):
+         self.assertEquals(new_p2.user.email, 'public@example.com')
+ 
+     def test_snapshot_bug(self):
+-		# data capture, woo
+-		fake_stdout = StringIO()
+-		# make fake bug
+-		b = Bug.create_dummy_with_project()
+-		b.title = 'fire-ant'
+-		b.save()
+-
+-		# snapshot fake bug into fake stdout
+-		command = mysite.customs.management.commands.snapshot_public_data.Command()
+-		command.handle(output=fake_stdout)
+-
+-		#now, delete bug...
+-		b.delete()
+-
+-		# let's see if we can re-import fire-ant!
+-		for obj in django.core.serializers.deserialize('json', fake_stdout.getvalue()):
+-			obj.save()
+-
+-		# testing to see if there are ANY bugs
+-		self.assertTrue(Bug.all_bugs.all())
+-		# testing to see if fire-ant is there
+-		mysite.search.models.Bug.all_bugs.get(title='fire-ant')
++        # data capture, woo
++        fake_stdout = StringIO()
++        # make fake bug
++        b = Bug.create_dummy_with_project()
++        b.title = 'fire-ant'
++        b.save()
++
++        # snapshot fake bug into fake stdout
++        command = mysite.customs.management.commands.snapshot_public_data.Command()
++        command.handle(output=fake_stdout)
++
++        #now, delete bug...
++        b.delete()
++
++        # let's see if we can re-import fire-ant!
++        for obj in django.core.serializers.deserialize('json', fake_stdout.getvalue()):
++            obj.save()
++
++        # testing to see if there are ANY bugs
++        self.assertTrue(Bug.all_bugs.all())
++        # testing to see if fire-ant is there
++        mysite.search.models.Bug.all_bugs.get(title='fire-ant')
+ 
+     def test_snapshot_timestamp(self):
+         # data capture, woo
+-- 
+1.7.9.2
+

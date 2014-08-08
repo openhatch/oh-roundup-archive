@@ -1,0 +1,21 @@
+From 46589872dfe491e307051dd14e25b8b8d862f8cd Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Wed, 20 Apr 2011 20:20:23 +1200
+Subject: [PATCH] Slight change to CSS for Wiki - http://openhatch.org/bugs/issue361
+
+---
+ mysite/static/css/wiki_overides.css |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/static/css/wiki_overides.css b/mysite/static/css/wiki_overides.css
+index fef0f76..e696899 100644
+--- a/mysite/static/css/wiki_overides.css
++++ b/mysite/static/css/wiki_overides.css
+@@ -10,3 +10,4 @@
+ h1, h2, h3, h4, h5, h6 { border-bottom-color: #e4e4e4 !important; }
+ #footer { border-width: 2px !important; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; border-left-style: solid !important; border-right-style: solid !important; border-left-color: #e4e4e4 !important; border-right-color: #e4e4e4 !important; border-bottom-color: #e4e4e4 !important; border-top-color: #e4e4e4 !important; width: 80% !important; margin-left: 230px !important; }
+ #footer div img { padding-top: 8px !important; }
++#p-personal { margin-top: 10px !important; }
+-- 
+1.7.1
+

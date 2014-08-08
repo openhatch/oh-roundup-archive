@@ -1,0 +1,84 @@
+From 8c78a899fe5379e56e3f42181d3f1f885f2427d4 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Sun, 12 Jun 2011 18:21:28 +1200
+Subject: [PATCH] In creating a new project, 1 project is created at a time
+
+I've managed to do some jQuery goodness that shows a
+updating.gif - the image for this is sourced from the "free"
+http://ajaxload.info/ site.
+Once it has saved the project it then removes the updating
+image.
+
+Solves: http://openhatch.org/bugs/issue369
+---
+ .../profile/portfolio/portfolio_entry_element.html |    1 +
+ mysite/static/images/update.gif                    |  Bin 0 -> 847 bytes
+ mysite/static/js/importer.js                       |    9 +++++++++
+ 3 files changed, 10 insertions(+), 0 deletions(-)
+ create mode 100644 mysite/static/images/update.gif
+
+diff --git a/mysite/profile/templates/profile/portfolio/portfolio_entry_element.html b/mysite/profile/templates/profile/portfolio/portfolio_entry_element.html
+index f11448a..0e4afb7 100644
+--- a/mysite/profile/templates/profile/portfolio/portfolio_entry_element.html
++++ b/mysite/profile/templates/profile/portfolio/portfolio_entry_element.html
+@@ -185,6 +185,7 @@
+         <li class='portfolio_entry_is_unpublished'><span>Unpublished</span></li>
+         <li class='portfolio_entry_is_published'><span>Published</span></li>
+         <li class='publish_portfolio_entry save_and_publish_button'><a href='#'>Save and publish</a></li>
++        <li id="update_icon" style='display:none;padding-left:35px;'><img src='/static/images/update.gif' alt='loading...' />
+         <li class='publish_portfolio_entry save_button'><a href='#'>Save</a></li>
+         <li class='portfolio_entry_is_saved'><span>Saved</span></li>
+         <li class='delete_portfolio_entry'><a href='#'>Delete</a></li>
+diff --git a/mysite/static/images/update.gif b/mysite/static/images/update.gif
+new file mode 100644
+index 0000000000000000000000000000000000000000..e192ca895cd00d6b752ec84619b787188f30ee41
+GIT binary patch
+literal 847
+zcmZ?wbhEHb6krfw_`<;O|Nnmm28JI$eppyow6wIav9YPCsa?BvZN-WeVq#)tWo2n;
+zX-}R!nK5I=v17+PJUqg}!hq_D2a5l>{aizWogD*Qjr0td8G$+#|4BI)r6!i7rYMwW
+zmSiX-W+hhS<R_-+W#*;jGbsLK;p76U(gE24awG$5fPz9_O6I(!1|m6%S}h5y*3J+)
+zHc`s7;RD;vj)v%778|C_)_{out&E+mi~81R>NI#p{aB=u^kJ9BqzM)+D@@g7D>_ZH
+z6>Nk>K2^#dec$hd&5{fSg)a9?JsDb3M<1+M;h^GLd*HyqYe$(ldZsj_W{3#!96X@l
+zAjsu&py5MupnEfu)0U^(0!(Kp*sL-QO$pql{X%Kq;`Av7E5z0<TG;QHEpT4hk%8ML
+zz}$e{hLfeifG?8GLW`HPU0D&E<q1F^Du14!aZAKQi|a^$2&e9ncEk6^ja*jFrwzTg
+zc(gP<Wb@FQp>lI$B?E`RzKdsAZ)9=nHHN!5+~JF4SY+VADb}iE(C2i8t1nx?>)BhL
+zP<zvIW|kV2Y~C16ex7cumIgtBwLxJDlcC5_hZW7va%^kFk7ai^&0$n@dXiwz(72sx
+z-vnjXCW|Vkz=($A-MNd(xP_D!D!e?jIH572jW^V7nPkx&Nxr28uQflX{cpf(4ajf6
+z*jwSi<7y~y=%hq$ti<u15*|Gl+HPpD3v{uVFeyCO(2-c?rkLo#5D`3sqcPWX$yUZB
+z7mqD$46Ak~Ch2hXsWucCizOdX-k|=2_l**}iJ5tTnpT8<gGNuU3RX+wp_Y08J;t%j
+z!Gz(^relsuo)bAX%vzYhVVBp+>S>_TA<--6ZN7=uLx=rfr*28JR#UU9l!(BR!@3s}
+qR&*pBVEQRw*vTQWVY)*<pR;)ehrS_88f%PZcaNGPgEc65f&l>bLIMx~
+
+literal 0
+HcmV?d00001
+
+diff --git a/mysite/static/js/importer.js b/mysite/static/js/importer.js
+index 19983a2..e1b8c31 100644
+--- a/mysite/static/js/importer.js
++++ b/mysite/static/js/importer.js
+@@ -760,6 +760,8 @@ PortfolioEntry.Save.postOptions.success = function (response) {
+     }
+     var $entry = $('#portfolio_entry_'+response.portfolio_entry__pk);
+     $entry.removeClass('unsaved').removeClass('adding');
++    var $newupdateIcon = $entry.find('.actions li#update_icon');
++    $newupdateIcon.toggle();
+     var project_name = $entry.find('.project_name').text();
+     Notifier.displayMessage('Saved entry for '+project_name+'.');
+ 
+@@ -777,6 +779,13 @@ PortfolioEntry.Save.save = function () {
+     $saveLink = $(this);
+ 
+     $pfEntry = $saveLink.closest('.portfolio_entry');
++    Notifier.displayMessage('Saving, please wait!');
++    var $updateIcon = $pfEntry.find('.actions li#update_icon');
++    $updateIcon.toggle();
++    if ($pfEntry.find('.actions li.save_and_publish_button')) {
++        var $savePublishButton = $pfEntry.find('.actions li.save_and_publish_button');
++        $savePublishButton.remove();
++    }
+ 
+     // Do some client-side validation.
+     $projectName = $pfEntry.find('input.project_name');
+-- 
+1.7.2.5
+

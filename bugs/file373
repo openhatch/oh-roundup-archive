@@ -1,0 +1,23 @@
+Chrome has a builtin Inspect Element tool. The checkboxes do not have a name attribute, they differ only in value.<div><br></div><div><meta charset="utf-8"><span class="Apple-style-span" style="font-family: Menlo, monospace; font-size: 11px; white-space: pre-wrap; -webkit-text-size-adjust: none; ">&lt;input type=&quot;checkbox&quot; class=&quot;receive_maintainer_updates&quot; value=&quot;receive_maintainer_updates_11064&quot;&gt;</span><br clear="all">
+
+<div><br></div>Cheers,<div><br></div><div>Andrew Pennebaker</div><div><a href="http://www.yellosoft.us" target="_blank">www.yellosoft.us</a></div><br>
+<br><br><div class="gmail_quote">On Thu, Jul 14, 2011 at 4:24 PM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">
+
+<br>
+Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:<br>
+<br>
+I wonder: maybe the problem is that the form element&#39;s name is being set<br>
+wrong.<br>
+<br>
+Can you use Firebug &quot;Inspect element&quot; to look at those checkboxes? They<br>
+should have different &lt;form name=&quot;...&quot;&gt; values from each other. Maybe they<br>
+don&#39;t?<br>
+<br>
+----------<br>
+status: unread -&gt; chatting<br>
+<br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue477" target="_blank">https://openhatch.org/bugs/issue477</a>&gt;<br>
+__________________________________________<br>
+</blockquote></div><br></div>

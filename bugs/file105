@@ -1,0 +1,476 @@
+/home/jesstess/dev/oh-mainline/eggs/twill-0.9.1_cc-py2.6.egg/twill/other_packages/_mechanize_dist/_auth.py:14: DeprecationWarning: the sha module is deprecated; use the hashlib module instead
+  import re, base64, urlparse, posixpath, md5, sha, sys, copy
+..........2010-12-07 23:19:02,208 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:02,221 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:04,340 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:04,358 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:05,190 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:05,203 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+.2010-12-07 23:19:06,217 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:06,229 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+.2010-12-07 23:19:07,501 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:07,515 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+.2010-12-07 23:19:08,591 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:08,602 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:09,425 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:09,436 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+.2010-12-07 23:19:10,533 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:10,549 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:11,290 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:11,303 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+.2010-12-07 23:19:12,582 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:12,594 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:13,565 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:13,577 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+.F..../usr/lib/python2.6/dist-packages/PIL/Image.py:1298: DeprecationWarning: integer argument expected, got float
+  im = self.im.stretch(size, resample)
+.....F...FF..F.....2010-12-07 23:19:21,701 add:595 DEBUG    Starting to build add request...
+2010-12-07 23:19:21,703 add:642 DEBUG    Built add request of 1 docs in 0.00 seconds.
+2010-12-07 23:19:21,704 _send_request:269 DEBUG    Starting request to 'http://127.0.0.1:1/update/?commit=true' (POST) with body '<add><doc>'...
+2010-12-07 23:19:21,758 _send_request:276 ERROR    Failed to connect to server at 'http://127.0.0.1:1/update/?commit=true'. Are you sure 'http://127.0.0.1:1' is correct? Checking it in a browser might help...
+Failed to add documents to Solr: Failed to connect to server at 'http://127.0.0.1:1/update/?commit=true'. Are you sure 'http://127.0.0.1:1' is correct? Checking it in a browser might help...
+2010-12-07 23:19:21,759 update:74 ERROR    Failed to add documents to Solr: Failed to connect to server at 'http://127.0.0.1:1/update/?commit=true'. Are you sure 'http://127.0.0.1:1' is correct? Checking it in a browser might help...
+2010-12-07 23:19:21,812 cache_method:159 INFO     cached output of get_names_of_nonarchived_projects: {"value": ["Mozilla Firefox"]}
+2010-12-07 23:19:22,184 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol"]}
+2010-12-07 23:19:22,255 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "symbolist poetry"]}
+2010-12-07 23:19:22,330 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "rails", "symbolist poetry"]}
+2010-12-07 23:19:22,413 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:22,506 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:22,607 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:22,714 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:22,830 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:22,955 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:23,078 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:23,212 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:23,352 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:23,501 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:23,657 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:23,818 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:23,988 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+.2010-12-07 23:19:26,189 add:595 DEBUG    Starting to build add request...
+2010-12-07 23:19:26,192 add:642 DEBUG    Built add request of 1 docs in 0.00 seconds.
+2010-12-07 23:19:26,193 _send_request:269 DEBUG    Starting request to 'http://127.0.0.1:1/update/?commit=true' (POST) with body '<add><doc>'...
+2010-12-07 23:19:26,195 _send_request:276 ERROR    Failed to connect to server at 'http://127.0.0.1:1/update/?commit=true'. Are you sure 'http://127.0.0.1:1' is correct? Checking it in a browser might help...
+Failed to add documents to Solr: Failed to connect to server at 'http://127.0.0.1:1/update/?commit=true'. Are you sure 'http://127.0.0.1:1' is correct? Checking it in a browser might help...
+2010-12-07 23:19:26,196 update:74 ERROR    Failed to add documents to Solr: Failed to connect to server at 'http://127.0.0.1:1/update/?commit=true'. Are you sure 'http://127.0.0.1:1' is correct? Checking it in a browser might help...
+2010-12-07 23:19:26,220 cache_method:159 INFO     cached output of get_names_of_nonarchived_projects: {"value": ["Mozilla Firefox"]}
+2010-12-07 23:19:26,564 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol"]}
+2010-12-07 23:19:26,628 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "symbolist poetry"]}
+2010-12-07 23:19:26,700 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "rails", "symbolist poetry"]}
+2010-12-07 23:19:26,780 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:26,865 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:26,958 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:27,062 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:27,173 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:27,287 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:27,415 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:27,550 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:27,688 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:27,834 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:27,988 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:28,152 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:28,316 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+.2010-12-07 23:19:30,929 add:595 DEBUG    Starting to build add request...
+2010-12-07 23:19:30,933 add:642 DEBUG    Built add request of 1 docs in 0.00 seconds.
+2010-12-07 23:19:30,934 _send_request:269 DEBUG    Starting request to 'http://127.0.0.1:1/update/?commit=true' (POST) with body '<add><doc>'...
+2010-12-07 23:19:30,936 _send_request:276 ERROR    Failed to connect to server at 'http://127.0.0.1:1/update/?commit=true'. Are you sure 'http://127.0.0.1:1' is correct? Checking it in a browser might help...
+Failed to add documents to Solr: Failed to connect to server at 'http://127.0.0.1:1/update/?commit=true'. Are you sure 'http://127.0.0.1:1' is correct? Checking it in a browser might help...
+2010-12-07 23:19:30,937 update:74 ERROR    Failed to add documents to Solr: Failed to connect to server at 'http://127.0.0.1:1/update/?commit=true'. Are you sure 'http://127.0.0.1:1' is correct? Checking it in a browser might help...
+2010-12-07 23:19:30,963 cache_method:159 INFO     cached output of get_names_of_nonarchived_projects: {"value": ["Mozilla Firefox"]}
+2010-12-07 23:19:31,305 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol"]}
+2010-12-07 23:19:31,371 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "symbolist poetry"]}
+2010-12-07 23:19:31,448 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "rails", "symbolist poetry"]}
+2010-12-07 23:19:31,525 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:31,613 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:31,708 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:31,810 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:31,918 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:32,035 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:32,163 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:32,292 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:32,428 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:32,576 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:32,727 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:32,949 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+2010-12-07 23:19:33,134 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["algol", "chinese chess", "rails", "symbolist poetry"]}
+.F2010-12-07 23:19:37,042 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,058 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,092 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,109 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,144 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,158 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,188 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,202 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,235 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,251 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,283 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,297 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,328 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,348 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,378 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,392 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,431 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,447 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,478 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:37,491 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:38,885 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:38,898 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:38,931 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:38,948 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:38,979 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:38,993 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,027 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,045 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,078 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,093 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,126 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,140 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,174 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,188 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,218 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,235 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,268 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,283 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,313 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:39,328 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+.2010-12-07 23:19:43,065 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,078 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,107 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,119 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,148 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,161 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,188 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,200 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,226 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,239 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,285 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,308 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,364 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,388 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,437 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,450 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,480 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,493 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,522 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:43,536 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,747 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,761 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,791 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,804 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,833 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,845 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,873 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,886 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,914 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,926 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,954 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,967 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:44,995 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:45,010 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:45,038 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:45,050 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:45,078 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:45,091 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:45,119 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:45,133 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,490 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,502 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,531 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,543 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,571 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,586 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,613 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,625 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,654 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,666 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,694 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,706 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,734 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,746 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,774 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,787 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,814 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,826 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,855 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:19:46,867 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+....2010-12-07 23:20:12,625 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:12,645 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+EFF...EF.2010-12-07 23:20:58,766 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:58,783 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:58,810 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:58,823 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:58,849 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:58,862 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:58,888 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:58,901 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:58,927 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:58,940 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:58,967 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:58,980 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:59,006 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:59,018 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:59,045 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:59,057 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:59,084 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:59,096 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:59,123 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:20:59,135 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:00,117 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:00,130 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:00,157 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:00,169 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:00,197 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:00,209 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:00,235 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:00,248 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:00,275 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:00,287 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:01,417 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:01,429 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:01,455 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:01,467 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:01,494 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:01,506 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:01,533 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:01,545 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:01,571 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:01,583 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+.2010-12-07 23:21:03,857 cache_method:159 INFO     cached output of _recommend_as_list: {"value": []}
+2010-12-07 23:21:04,334 cache_method:159 INFO     cached output of get_names_of_nonarchived_projects: {"value": []}
+2010-12-07 23:21:04,341 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": []}
+2010-12-07 23:21:05,748 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:05,765 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:05,798 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:05,811 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:05,839 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:05,854 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:05,886 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:05,898 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:05,928 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:05,941 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:05,974 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:05,988 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:06,016 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:06,029 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:06,060 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:06,076 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:06,105 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:06,132 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:06,165 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:06,179 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:07,290 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:07,306 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:07,334 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:07,347 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:07,382 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:07,395 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:07,424 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:07,437 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:07,468 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:07,484 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:08,884 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:08,897 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:08,926 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:08,939 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:08,972 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:08,987 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:09,015 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:09,029 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:09,057 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+2010-12-07 23:21:09,074 cache_method:159 INFO     cached output of _people_matching_ids: {"value": []}
+..2010-12-07 23:21:09,287 clear_search_cache:56 INFO     Clearing the search cache.
+.2010-12-07 23:21:10,122 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["Banshee"]}
+2010-12-07 23:21:10,188 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["Banshee", "C#"]}
+2010-12-07 23:21:10,238 cache_method:159 INFO     cached output of get_tag_texts_for_map: {"value": ["C#"]}
+2010-12-07 23:21:10,273 cache_method:159 INFO     cached output of _people_matching_ids: {"value": [1]}
+2010-12-07 23:21:10,305 cache_method:159 INFO     cached output of _people_matching_ids: {"value": [1, 2]}
+.F..
+======================================================================
+ERROR: Test that Query.get_bugs_unordered()
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 214, in test_search_single_query
+    self.failUnless(Bug.all_bugs.filter(cf)[0] in returned_bugs,
+  File "/home/jesstess/dev/oh-mainline/parts/sqlite_mysite/django/db/models/query.py", line 160, in __getitem__
+    return list(qs)[0]
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_languages_facet (mysite.search.tests.SingleTerm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 698, in test_languages_facet
+    expected_languages_facet_options
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 72, in compare_lists_of_dicts
+    self.assertEqual(sorted_one[k], sorted_two[k])
+IndexError: list index out of range
+
+======================================================================
+FAIL: test_removal_of_futile_terms (mysite.search.tests.DontRecommendFutileSearchTerms)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 1089, in test_removal_of_futile_terms
+    [u'useful'])
+AssertionError: [] != [u'useful']
+
+======================================================================
+FAIL: test_get_possible_facets (mysite.search.tests.QueryGetPossibleFacets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 579, in test_get_possible_facets
+    self.assertEqual(query.get_bugs_unordered().count(), 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_with_language_as_unknown_and_query (mysite.search.tests.QueryGetPossibleLanguageFacetOptionNames)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 916, in test_with_language_as_unknown_and_query
+    self.assertEqual(match_count, 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_with_term (mysite.search.tests.QueryGetPossibleLanguageFacetOptionNames)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 875, in test_with_term
+    sorted([u'Python', u'Perl']))
+AssertionError: [] != [u'Perl', u'Python']
+
+======================================================================
+FAIL: test_get_toughness_facet_options_with_terms (mysite.search.tests.QueryGetToughnessFacetOptions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 847, in test_get_toughness_facet_options_with_terms
+    self.assertEqual(bitesize_dict[u'count'], 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_find_perl_not_properly (mysite.search.tests.SearchOnFullWords)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 532, in test_find_perl_not_properly
+    self.assertEqual(list(results), [perl_bug])
+AssertionError: [] != [<Bug: title='1' project='f3065273d3ba473e922e8d90473f4ad8' project__language='C' description='perl...'>]
+
+======================================================================
+FAIL: test_search_two_queries (mysite.search.tests.SearchResultsSpecificBugs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 240, in test_search_two_queries
+    self.assert_(included_the_right_bug)
+AssertionError
+
+======================================================================
+FAIL: Is the fixture is wired correctly?
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 202, in test_that_fixture_works_properly
+    "There are %d, not 1, canonical bug(s) for the filter %s" % (len(matches), cf))
+AssertionError: There are 0, not 1, canonical bug(s) for the filter (AND: ('title__iregex', u'[[:<:]]PYTHON[[:>:]]'))
+
+======================================================================
+FAIL: test_toughness_facet (mysite.search.tests.SingleTerm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 673, in test_toughness_facet
+    expected_toughness_facet_options
+AssertionError: [{'count': 0, 'query_string': 'q=screensaver&toughness=bitesize', 'is_active': False, 'name': u'bitesize'}] != [{'count': 1, 'query_string': 'q=screensaver&toughness=bitesize', 'is_active': False, 'name': 'bitesize'}]
+
+======================================================================
+FAIL: test (mysite.search.tests.TestThatQueryTokenizesRespectingQuotationMarks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/jesstess/dev/oh-mainline/mysite/search/tests.py", line 253, in test
+    self.assertEqual(num_bugs, 1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 66 tests in 131.615s
+
+FAILED (failures=10, errors=2)
+Creating test database...
+Creating table ghettoq_queue
+Creating table ghettoq_message
+Creating table auth_permission
+Creating table auth_group
+Creating table auth_user
+Creating table auth_message
+Creating table django_content_type
+Creating table django_session
+Creating table django_site
+Creating table django_admin_log
+Creating table registration_registrationprofile
+Creating table django_authopenid_nonce
+Creating table django_authopenid_association
+Creating table django_authopenid_userassociation
+Creating table south_migrationhistory
+Creating table celery_taskmeta
+Creating table celery_tasksetmeta
+Creating table invitation_invitationkey
+Creating table search_project
+Creating table search_wrongicon
+Creating table search_projectinvolvementquestion
+Creating table search_answer
+Creating table search_bug
+Creating table search_bugalert
+Creating table search_epoch
+Creating table search_wannahelpernote
+Creating table search_hitcountcache
+Creating table profile_repositorycommitter
+Creating table profile_person
+Creating table profile_dataimportattempt
+Creating table profile_tagtype
+Creating table profile_tag
+Creating table profile_link_project_tag
+Creating table profile_link_person_tag
+Creating table profile_sourceforgeperson
+Creating table profile_sourceforgeproject
+Creating table profile_link_sf_proj_dude_fm
+Creating table profile_portfolioentry
+Creating table profile_citation
+Creating table profile_forwarder
+Creating table profile_unsubscribetoken
+Creating table customs_recentmessagefromcia
+Creating table customs_webresponse
+Creating table customs_bugzillatracker
+Creating table customs_bugzillaurl
+Creating table customs_googletracker
+Creating table customs_googlequery
+Creating table account_invitationrequest
+Creating table base_timestamp
+Creating table missions_step
+Creating table missions_stepcompletion
+Creating table votes
+Creating table reversion_revision
+Creating table reversion_version
+Installing index for ghettoq.Message model
+Installing index for auth.Permission model
+Installing index for auth.Message model
+Installing index for admin.LogEntry model
+Installing index for django_authopenid.UserAssociation model
+Installing index for invitation.InvitationKey model
+Installing index for search.WrongIcon model
+Installing index for search.Answer model
+Installing index for search.Bug model
+Installing index for search.BugAlert model
+Installing index for search.WannaHelperNote model
+Installing index for profile.RepositoryCommitter model
+Installing index for profile.DataImportAttempt model
+Installing index for profile.Tag model
+Installing index for profile.Link_Project_Tag model
+Installing index for profile.Link_Person_Tag model
+Installing index for profile.Link_SF_Proj_Dude_FM model
+Installing index for profile.PortfolioEntry model
+Installing index for profile.Citation model
+Installing index for profile.Forwarder model
+Installing index for profile.UnsubscribeToken model
+Installing index for customs.BugzillaUrl model
+Installing index for customs.GoogleQuery model
+Installing index for missions.StepCompletion model
+Installing index for voting.Vote model
+Installing index for reversion.Revision model
+Installing index for reversion.Version model
+Installing json fixture 'initial_data' from '/home/jesstess/dev/oh-mainline/mysite/missions/fixtures'.
+Installed 9 object(s) from 1 fixture(s)
+Destroying test database...

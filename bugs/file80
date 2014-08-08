@@ -1,0 +1,643 @@
+From 6162b53660857b9f34d129b24bc34b8a016fcb4e Mon Sep 17 00:00:00 2001
+From: Karen <karen@openhatch.org>
+Date: Thu, 7 Oct 2010 13:36:47 -0700
+Subject: [PATCH] Added project dumper and test
+
+---
+ 0001-Added-bug-data-dump-test.patch                |   97 ++++++++++++++++++++
+ 0002-Wrote-test-for-bug-dumping-it-passes.patch    |   93 +++++++++++++++++++
+ ...typos-in-the-README-file-added-an-extra-l.patch |   78 ++++++++++++++++
+ bugdump.patch                                      |   78 ++++++++++++++++
+ .../management/commands/dump_public_user_data.py   |   31 ++++++-
+ mysite/customs/tests.py                            |   22 ++++-
+ mysite/profile/tests.py                            |    8 ++
+ mysite/search/models.py                            |   11 ++
+ readme.patch                                       |   93 +++++++++++++++++++
+ 9 files changed, 507 insertions(+), 4 deletions(-)
+ create mode 100644 0001-Added-bug-data-dump-test.patch
+ create mode 100644 0002-Wrote-test-for-bug-dumping-it-passes.patch
+ create mode 100644 0003-Fixed-some-typos-in-the-README-file-added-an-extra-l.patch
+ create mode 100644 bugdump.patch
+ create mode 100644 readme.patch
+
+diff --git a/0001-Added-bug-data-dump-test.patch b/0001-Added-bug-data-dump-test.patch
+new file mode 100644
+index 0000000..3efa0b9
+--- /dev/null
++++ b/0001-Added-bug-data-dump-test.patch
+@@ -0,0 +1,97 @@
++From 1a86db6cfa2149c321f344d1a1176fb81a1c1312 Mon Sep 17 00:00:00 2001
++From: Karen <karen@laesa.(none)>
++Date: Thu, 30 Sep 2010 00:19:59 -0700
++Subject: [PATCH 1/3] Added bug data dump test
++
++---
++ README.mkd                                         |    2 +-
++ .../management/commands/dump_public_user_data.py   |    7 ++++++
++ mysite/customs/tests.py                            |   22 ++++++++++++++++++++
++ mysite/search/models.py                            |    1 +
++ 4 files changed, 31 insertions(+), 1 deletions(-)
++
++diff --git a/README.mkd b/README.mkd
++index f2b5663..85d67f3 100644
++--- a/README.mkd
+++++ b/README.mkd
++@@ -76,7 +76,7 @@ You'll download a whole bunch of Python code and run other setup tasks. This is
++ 
++ (If you want to know what it does, read the file!)
++ 
++-3. Run the user setup script. This one sets up permissions in MySQL.
+++3. Run the  user setup script. This one sets up permissions in MySQL.
++ 
++     mysql -uroot < mysite/scripts/database_02_users.sql
++ 
++diff --git a/mysite/customs/management/commands/dump_public_user_data.py b/mysite/customs/management/commands/dump_public_user_data.py
++index 14ab670..fa817b0 100644
++--- a/mysite/customs/management/commands/dump_public_user_data.py
+++++ b/mysite/customs/management/commands/dump_public_user_data.py
++@@ -1,6 +1,7 @@
++ import logging
++ 
++ from django.contrib.auth.models import User
+++from mysite.search.models import Bug
++ import sys
++ import simplejson
++ from django.core.management.base import BaseCommand
++@@ -51,6 +52,12 @@ class Command(BaseCommand):
++         # For now, since I can't write it right now, I pretend we got the empty list as the result.
++         public_data_from_person_model = []
++         data.extend(public_data_from_person_model)
+++        
+++        # exporting Bug data (?)
+++        public_bug_data = self.serialize_objects(
+++	        query_set=Bug.all_bugs.all(),
+++	        whitelisted_columns = ['project', 'title', 'description', 'status'])
+++        data.extend(public_bug_data)
++ 
++         ### anyway, now we stream all this data out using simplejson
++         simplejson.dump(data, output)
++diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
++index 6f1c1cb..f6340d6 100644
++--- a/mysite/customs/tests.py
+++++ b/mysite/customs/tests.py
++@@ -1581,5 +1581,27 @@ class DataExport(django.test.TestCase):
++         # and the user's password is blank (instead of the real password)
++         self.assertEquals(new_u.password, '')
++ 
+++
+++    def test_dump_bug(self):
+++		# data capture, woo
+++		fake_stdout = StringIO()
+++		# make fake bug
+++		b = Bug.create_dummy()
+++		b.title = 'fire-ant'
+++		
+++		# dump fake bug into fake stdout
+++		command = mysite.customs.management.commands.dump_public_user_data.Command()
+++		command.handle(output=fake_stdout)
+++		
+++		#now, delete bug...
+++		b.delete()
+++		
+++		# let's see if we can re-import fire-ant!
+++		for obj in django.core.serializers.deserialize('json', fake_stdout.getvalue()):
+++			obj.save()
+++		
+++		# testing to see if fire-ant is there
+++		reincarnated_b = django.contrib.auth.models.Bug.objects.get(title='fire-ant')
+++
++ # vim: set nu:
++ 
++diff --git a/mysite/search/models.py b/mysite/search/models.py
++index eb61291..870279e 100644
++--- a/mysite/search/models.py
+++++ b/mysite/search/models.py
++@@ -440,6 +440,7 @@ class Bug(OpenHatchModel):
++     def create_dummy(**kwargs):
++         now = datetime.datetime.utcnow()
++         n = str(Bug.all_bugs.count())
+++        # FIXME (?) Project.objects.all()[0] call below makes an out-of-bounds error in testing...
++         data = dict(title=n, project=Project.objects.all()[0], 
++                 date_reported=now,
++                 last_touched=now,
++-- 
++1.7.0.4
++
+diff --git a/0002-Wrote-test-for-bug-dumping-it-passes.patch b/0002-Wrote-test-for-bug-dumping-it-passes.patch
+new file mode 100644
+index 0000000..8b7c6fc
+--- /dev/null
++++ b/0002-Wrote-test-for-bug-dumping-it-passes.patch
+@@ -0,0 +1,93 @@
++From f9463b8779f804147c05fe132e0585c6d472fd26 Mon Sep 17 00:00:00 2001
++From: Karen <karen@openhatch.org>
++Date: Thu, 30 Sep 2010 11:57:53 -0700
++Subject: [PATCH 2/3] Wrote test for bug dumping -- it passes!
++
++---
++ .../management/commands/dump_public_user_data.py   |   24 ++++++++++++++++---
++ mysite/customs/tests.py                            |    7 ++++-
++ 2 files changed, 25 insertions(+), 6 deletions(-)
++
++diff --git a/mysite/customs/management/commands/dump_public_user_data.py b/mysite/customs/management/commands/dump_public_user_data.py
++index fa817b0..8c5cdd5 100644
++--- a/mysite/customs/management/commands/dump_public_user_data.py
+++++ b/mysite/customs/management/commands/dump_public_user_data.py
++@@ -6,10 +6,14 @@ import sys
++ import simplejson
++ from django.core.management.base import BaseCommand
++ import django.core.serializers
+++import django.core.serializers.json
+++import mysite.search.views
+++
++ 
++ ## You can run this, and it generates a JSON file that can be
++ ## passed to loaddata.
++ 
+++
++ class Command(BaseCommand):
++     help = "Create a JSON file of all the public data in the Person and User models."
++ 
++@@ -30,6 +34,20 @@ class Command(BaseCommand):
++             # Now, in obj, replace the fields with a safe version
++             obj['fields'] = fields_that_are_safe_to_export
++         return all
+++        
+++    def serialize_all_objects(self, query_set):
+++        obj_serializer = django.core.serializers.get_serializer('python')()
+++        all = obj_serializer.serialize(query_set)
+++        for obj in all:
+++            fields_that_are_safe_to_export = {}
+++            for key in obj['fields']:
+++                value = obj['fields'][key]
+++
+++                fields_that_are_safe_to_export[key] = value
+++
+++            # Now, in obj, replace the fields with a safe version
+++            obj['fields'] = fields_that_are_safe_to_export
+++        return all
++ 
++     def handle(self, output=None, *args, **options):
++         if output == None:
++@@ -54,10 +72,8 @@ class Command(BaseCommand):
++         data.extend(public_data_from_person_model)
++         
++         # exporting Bug data (?)
++-        public_bug_data = self.serialize_objects(
++-	        query_set=Bug.all_bugs.all(),
++-	        whitelisted_columns = ['project', 'title', 'description', 'status'])
+++        public_bug_data = self.serialize_all_objects(query_set=Bug.all_bugs.all())
++         data.extend(public_bug_data)
++ 
++         ### anyway, now we stream all this data out using simplejson
++-        simplejson.dump(data, output)
+++        simplejson.dump(data, output,cls=django.core.serializers.json.DjangoJSONEncoder)
++diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
++index f6340d6..41ccc29 100644
++--- a/mysite/customs/tests.py
+++++ b/mysite/customs/tests.py
++@@ -1586,8 +1586,9 @@ class DataExport(django.test.TestCase):
++ 		# data capture, woo
++ 		fake_stdout = StringIO()
++ 		# make fake bug
++-		b = Bug.create_dummy()
+++		b = Bug.create_dummy_with_project()
++ 		b.title = 'fire-ant'
+++		b.save()
++ 		
++ 		# dump fake bug into fake stdout
++ 		command = mysite.customs.management.commands.dump_public_user_data.Command()
++@@ -1600,8 +1601,10 @@ class DataExport(django.test.TestCase):
++ 		for obj in django.core.serializers.deserialize('json', fake_stdout.getvalue()):
++ 			obj.save()
++ 		
+++		# testing to see if there are ANY bugs
+++		self.assertTrue(Bug.all_bugs.all())
++ 		# testing to see if fire-ant is there
++-		reincarnated_b = django.contrib.auth.models.Bug.objects.get(title='fire-ant')
+++		reincarnated_b = mysite.search.models.Bug.all_bugs.get(title='fire-ant')
++ 
++ # vim: set nu:
++ 
++-- 
++1.7.0.4
++
+diff --git a/0003-Fixed-some-typos-in-the-README-file-added-an-extra-l.patch b/0003-Fixed-some-typos-in-the-README-file-added-an-extra-l.patch
+new file mode 100644
+index 0000000..31c6cea
+--- /dev/null
++++ b/0003-Fixed-some-typos-in-the-README-file-added-an-extra-l.patch
+@@ -0,0 +1,78 @@
++From 1294464437d83abadb439d2541baa1b018b2e1af Mon Sep 17 00:00:00 2001
++From: Karen <karen@openhatch.org>
++Date: Thu, 30 Sep 2010 00:30:03 -0700
++Subject: [PATCH 3/3] Fixed some typos in the README file, added an extra line or two of explanation about e.g. what happens if you try to create a superuser prior to migrating.
++
++---
++ README.mkd |   20 ++++++++++----------
++ 1 files changed, 10 insertions(+), 10 deletions(-)
++
++diff --git a/README.mkd b/README.mkd
++index 85d67f3..4722c87 100644
++--- a/README.mkd
+++++ b/README.mkd
++@@ -51,7 +51,7 @@ You already installed it in the previous section, so now start it:
++ 
++     sudo /etc/init.d/memcached start
++ 
++-If memcached complains that it is not enabled, configure it by reading `/etc/default/memcached`.
+++If memcached complains that it is not enabled, configure it by reading `/etc/default/memcached`. It's also possible that memcached may have been started automatically by your system when you installed it.
++ 
++ This is used by OpenHatch/Django for all the website caching, such as the full list of projects, as well as individual webpage requests. You can read more about Django caching at http://docs.djangoproject.com/en/dev/topics/cache/.
++ 
++@@ -68,35 +68,35 @@ You'll download a whole bunch of Python code and run other setup tasks. This is
++ 
++ ### Set up the database ###
++ 
++-1. Make sure you know how to connect to MySQL. Generally, to create a database, you have to be root. You can use the command `mysql -u root -p`, then type your MySQL root password.
+++1. Make sure you know how to connect to MySQL. Generally, to create a database, you have to be root. You can use the command `mysql -u root -p`, then type your MySQL root password. This will open a mysql session. ^C out of it to continue.
++ 
++ 2. Run the database creation script.
++ 
++-    mysql -uroot < mysite/scripts/database_01_create.sql
+++    mysql -uroot -p < mysite/scripts/database_01_create.sql
++ 
++ (If you want to know what it does, read the file!)
++ 
++-3. Run the  user setup script. This one sets up permissions in MySQL.
+++3. Run the user setup script. This one sets up permissions in MySQL.
++ 
++-    mysql -uroot < mysite/scripts/database_02_users.sql
+++    mysql -uroot -p < mysite/scripts/database_02_users.sql
++ 
++ (A note: If you ever decide you want to drop the database, just send "DROP DATABASE oh_milestone_a" to MySQL, then re-run the database creation script. You do not have to recreate the users.)
++ 
++ 4. Exit from MySQL, and run this command, again from the top level directory:
++ 
++-    bin/mysite syncdb
+++    ./bin/mysite syncdb
++ 
++-To the question, "Do you want to create a superuser?", answer "No". That's because you haven't run the migrations for the "profile" app yet.
+++To the question, "Do you want to create a superuser?", answer "No". That's because you haven't run the migrations for the "profile" app yet. (If you hit "Yes", everything will explode, and you'll need to delete "oh_milestone_a" and re-create your database.)
++ 
++ 5. Run the "migrations" to migrate your database from the empty state into the state it should be in.
++ 
++-    bin/mysite migrate
+++    ./bin/mysite migrate
++ 
++ There's a note about troubleshooting migrations below.
++ 
++ 6. You're done! The OpenHatch code will now run, and you make modifications.
++ 
++-If you want to grab a copy of the data used on openhatch.org, and you have permission to do so, you can get the current data and files. Run:
+++If you want to grab a copy of the data used on openhatch.org, and you have permission to do so (hint: probably not), you can get the current data and files. Run:
++ 
++     scripts/get_data_and_images
++ 
++@@ -104,7 +104,7 @@ If you want to grab a copy of the data used on openhatch.org, and you have permi
++ 
++ The following command will start the OpenHatch webserver:
++ 
++-    bin/mysite runserver
+++    ./bin/mysite runserver
++ 
++ This server really doesn't like running in the background, so run it in a separate tab or inside a GNU screen session.
++ If everything went well and the server started you should see something like this
++-- 
++1.7.0.4
++
+diff --git a/bugdump.patch b/bugdump.patch
+new file mode 100644
+index 0000000..2b0b5ca
+--- /dev/null
++++ b/bugdump.patch
+@@ -0,0 +1,78 @@
++From 1294464437d83abadb439d2541baa1b018b2e1af Mon Sep 17 00:00:00 2001
++From: Karen <karen@openhatch.org>
++Date: Thu, 30 Sep 2010 00:30:03 -0700
++Subject: [PATCH] Fixed some typos in the README file, added an extra line or two of explanation about e.g. what happens if you try to create a superuser prior to migrating.
++
++---
++ README.mkd |   20 ++++++++++----------
++ 1 files changed, 10 insertions(+), 10 deletions(-)
++
++diff --git a/README.mkd b/README.mkd
++index 85d67f3..4722c87 100644
++--- a/README.mkd
+++++ b/README.mkd
++@@ -51,7 +51,7 @@ You already installed it in the previous section, so now start it:
++ 
++     sudo /etc/init.d/memcached start
++ 
++-If memcached complains that it is not enabled, configure it by reading `/etc/default/memcached`.
+++If memcached complains that it is not enabled, configure it by reading `/etc/default/memcached`. It's also possible that memcached may have been started automatically by your system when you installed it.
++ 
++ This is used by OpenHatch/Django for all the website caching, such as the full list of projects, as well as individual webpage requests. You can read more about Django caching at http://docs.djangoproject.com/en/dev/topics/cache/.
++ 
++@@ -68,35 +68,35 @@ You'll download a whole bunch of Python code and run other setup tasks. This is
++ 
++ ### Set up the database ###
++ 
++-1. Make sure you know how to connect to MySQL. Generally, to create a database, you have to be root. You can use the command `mysql -u root -p`, then type your MySQL root password.
+++1. Make sure you know how to connect to MySQL. Generally, to create a database, you have to be root. You can use the command `mysql -u root -p`, then type your MySQL root password. This will open a mysql session. ^C out of it to continue.
++ 
++ 2. Run the database creation script.
++ 
++-    mysql -uroot < mysite/scripts/database_01_create.sql
+++    mysql -uroot -p < mysite/scripts/database_01_create.sql
++ 
++ (If you want to know what it does, read the file!)
++ 
++-3. Run the  user setup script. This one sets up permissions in MySQL.
+++3. Run the user setup script. This one sets up permissions in MySQL.
++ 
++-    mysql -uroot < mysite/scripts/database_02_users.sql
+++    mysql -uroot -p < mysite/scripts/database_02_users.sql
++ 
++ (A note: If you ever decide you want to drop the database, just send "DROP DATABASE oh_milestone_a" to MySQL, then re-run the database creation script. You do not have to recreate the users.)
++ 
++ 4. Exit from MySQL, and run this command, again from the top level directory:
++ 
++-    bin/mysite syncdb
+++    ./bin/mysite syncdb
++ 
++-To the question, "Do you want to create a superuser?", answer "No". That's because you haven't run the migrations for the "profile" app yet.
+++To the question, "Do you want to create a superuser?", answer "No". That's because you haven't run the migrations for the "profile" app yet. (If you hit "Yes", everything will explode, and you'll need to delete "oh_milestone_a" and re-create your database.)
++ 
++ 5. Run the "migrations" to migrate your database from the empty state into the state it should be in.
++ 
++-    bin/mysite migrate
+++    ./bin/mysite migrate
++ 
++ There's a note about troubleshooting migrations below.
++ 
++ 6. You're done! The OpenHatch code will now run, and you make modifications.
++ 
++-If you want to grab a copy of the data used on openhatch.org, and you have permission to do so, you can get the current data and files. Run:
+++If you want to grab a copy of the data used on openhatch.org, and you have permission to do so (hint: probably not), you can get the current data and files. Run:
++ 
++     scripts/get_data_and_images
++ 
++@@ -104,7 +104,7 @@ If you want to grab a copy of the data used on openhatch.org, and you have permi
++ 
++ The following command will start the OpenHatch webserver:
++ 
++-    bin/mysite runserver
+++    ./bin/mysite runserver
++ 
++ This server really doesn't like running in the background, so run it in a separate tab or inside a GNU screen session.
++ If everything went well and the server started you should see something like this
++-- 
++1.7.0.4
++
+diff --git a/mysite/customs/management/commands/dump_public_user_data.py b/mysite/customs/management/commands/dump_public_user_data.py
+index 8c5cdd5..44a97f4 100644
+--- a/mysite/customs/management/commands/dump_public_user_data.py
++++ b/mysite/customs/management/commands/dump_public_user_data.py
+@@ -1,7 +1,7 @@
+ import logging
+ 
+ from django.contrib.auth.models import User
+-from mysite.search.models import Bug
++from mysite.search.models import Bug, Project
+ import sys
+ import simplejson
+ from django.core.management.base import BaseCommand
+@@ -35,7 +35,7 @@ class Command(BaseCommand):
+             obj['fields'] = fields_that_are_safe_to_export
+         return all
+         
+-    def serialize_all_objects(self, query_set):
++    def serialize_objects_except(self, query_set, blacklisted_columns):
+         obj_serializer = django.core.serializers.get_serializer('python')()
+         all = obj_serializer.serialize(query_set)
+         for obj in all:
+@@ -43,6 +43,23 @@ class Command(BaseCommand):
+             for key in obj['fields']:
+                 value = obj['fields'][key]
+ 
++                if key in blacklisted_columns:
++                    pass # by failing to copy it in, we remove it from the perspective of the dump
++                else:
++                    # copy into the safe dictionary
++                    fields_that_are_safe_to_export[key] = value
++
++            # Now, in obj, replace the fields with a safe version
++            obj['fields'] = fields_that_are_safe_to_export
++        return all
++        
++    def serialize_all_objects(self, query_set):
++        obj_serializer = django.core.serializers.get_serializer('python')()
++        all = obj_serializer.serialize(query_set)
++        for obj in all:
++            fields_that_are_safe_to_export = {}
++            for key in obj['fields']:
++                value = obj['fields'][key]
+                 fields_that_are_safe_to_export[key] = value
+ 
+             # Now, in obj, replace the fields with a safe version
+@@ -71,9 +88,17 @@ class Command(BaseCommand):
+         public_data_from_person_model = []
+         data.extend(public_data_from_person_model)
+         
+-        # exporting Bug data (?)
++        
++        # exporting Project data
++        public_project_data = self.serialize_objects_except(
++            query_set=Project.objects.all(),
++            blacklisted_columns = ['icon_url','icon_raw'])
++        data.extend(public_project_data)
++        
++        # exporting Bug data
+         public_bug_data = self.serialize_all_objects(query_set=Bug.all_bugs.all())
+         data.extend(public_bug_data)
++        
+ 
+         ### anyway, now we stream all this data out using simplejson
+         simplejson.dump(data, output,cls=django.core.serializers.json.DjangoJSONEncoder)
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index 41ccc29..1f3018c 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -2,7 +2,7 @@
+ # vim: set ai et ts=4 sw=4:
+ 
+ # Imports {{{
+-from mysite.search.models import Project, Bug
++from mysite.search.models import Bug, Project
+ from mysite.profile.models import Person, Tag, TagType
+ import mysite.profile.views
+ from mysite.profile.tests import MockFetchPersonDataFromOhloh
+@@ -1605,6 +1605,26 @@ class DataExport(django.test.TestCase):
+ 		self.assertTrue(Bug.all_bugs.all())
+ 		# testing to see if fire-ant is there
+ 		reincarnated_b = mysite.search.models.Bug.all_bugs.get(title='fire-ant')
++		
++    def test_dump_project(self):
++        fake_stdout = StringIO()
++        # make fake Project
++        proj = Project.create_dummy_no_icon(name="karens-awesome-project")
++        
++        command = mysite.customs.management.commands.dump_public_user_data.Command()
++        command.handle(output=fake_stdout)
++        
++        # now delete fake Project...
++        proj.delete()
++        
++        # let's see if we can reincarnate it!
++        for obj in django.core.serializers.deserialize('json', fake_stdout.getvalue()):
++            obj.save()
++        
++        # test: are there ANY projects?
++        self.assertTrue(Project.objects.all())
++        # test: is our lovely fake project there?
++        reincarnated_proj = mysite.search.models.Project.objects.get(name="karens-awesome-project")
+ 
+ # vim: set nu:
+ 
+diff --git a/mysite/profile/tests.py b/mysite/profile/tests.py
+index 5eb5a38..7b714e9 100644
+--- a/mysite/profile/tests.py
++++ b/mysite/profile/tests.py
+@@ -38,9 +38,17 @@ from django.core.urlresolvers import reverse
+ from django.contrib.auth import authenticate
+ from django.contrib.auth.models import User
+ 
++import pdb
++
+ 
+ def do_nothing(*args, **kwargs):
+     return ''
++    
++class StarlingTests(TwillTests):
++	def test_page(self):
++		url = 'http://openhatch.org/starlings'
++		place = make_twill_url(url)
++		tc.go(place)
+ 
+ class ProfileTests(TwillTests):
+     # {{{
+diff --git a/mysite/search/models.py b/mysite/search/models.py
+index 870279e..24c6d3a 100644
+--- a/mysite/search/models.py
++++ b/mysite/search/models.py
+@@ -84,6 +84,17 @@ class Project(OpenHatchModel):
+         ret = Project(**data)
+         ret.save()
+         return ret
++        
++    @staticmethod
++    def create_dummy_no_icon(**kwargs):
++        now = datetime.datetime.utcnow()
++        data = dict(name=uuid.uuid4().hex,
++                icon_raw='',
++                    language='C')
++        data.update(kwargs)
++        ret = Project(**data)
++        ret.save()
++        return ret
+ 
+     name = models.CharField(max_length=200, unique=True,
+             help_text='<span class="example">This box is for fixing capitalization mistakes. To change the name of this project, email <a style="color: #666;" href="mailto:%s">%s</a>.</span>' % (('hello@openhatch.org',)*2))
+diff --git a/readme.patch b/readme.patch
+new file mode 100644
+index 0000000..d29aaa9
+--- /dev/null
++++ b/readme.patch
+@@ -0,0 +1,93 @@
++From f9463b8779f804147c05fe132e0585c6d472fd26 Mon Sep 17 00:00:00 2001
++From: Karen <karen@openhatch.org>
++Date: Thu, 30 Sep 2010 11:57:53 -0700
++Subject: [PATCH] Wrote test for bug dumping -- it passes!
++
++---
++ .../management/commands/dump_public_user_data.py   |   24 ++++++++++++++++---
++ mysite/customs/tests.py                            |    7 ++++-
++ 2 files changed, 25 insertions(+), 6 deletions(-)
++
++diff --git a/mysite/customs/management/commands/dump_public_user_data.py b/mysite/customs/management/commands/dump_public_user_data.py
++index fa817b0..8c5cdd5 100644
++--- a/mysite/customs/management/commands/dump_public_user_data.py
+++++ b/mysite/customs/management/commands/dump_public_user_data.py
++@@ -6,10 +6,14 @@ import sys
++ import simplejson
++ from django.core.management.base import BaseCommand
++ import django.core.serializers
+++import django.core.serializers.json
+++import mysite.search.views
+++
++ 
++ ## You can run this, and it generates a JSON file that can be
++ ## passed to loaddata.
++ 
+++
++ class Command(BaseCommand):
++     help = "Create a JSON file of all the public data in the Person and User models."
++ 
++@@ -30,6 +34,20 @@ class Command(BaseCommand):
++             # Now, in obj, replace the fields with a safe version
++             obj['fields'] = fields_that_are_safe_to_export
++         return all
+++        
+++    def serialize_all_objects(self, query_set):
+++        obj_serializer = django.core.serializers.get_serializer('python')()
+++        all = obj_serializer.serialize(query_set)
+++        for obj in all:
+++            fields_that_are_safe_to_export = {}
+++            for key in obj['fields']:
+++                value = obj['fields'][key]
+++
+++                fields_that_are_safe_to_export[key] = value
+++
+++            # Now, in obj, replace the fields with a safe version
+++            obj['fields'] = fields_that_are_safe_to_export
+++        return all
++ 
++     def handle(self, output=None, *args, **options):
++         if output == None:
++@@ -54,10 +72,8 @@ class Command(BaseCommand):
++         data.extend(public_data_from_person_model)
++         
++         # exporting Bug data (?)
++-        public_bug_data = self.serialize_objects(
++-	        query_set=Bug.all_bugs.all(),
++-	        whitelisted_columns = ['project', 'title', 'description', 'status'])
+++        public_bug_data = self.serialize_all_objects(query_set=Bug.all_bugs.all())
++         data.extend(public_bug_data)
++ 
++         ### anyway, now we stream all this data out using simplejson
++-        simplejson.dump(data, output)
+++        simplejson.dump(data, output,cls=django.core.serializers.json.DjangoJSONEncoder)
++diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
++index f6340d6..41ccc29 100644
++--- a/mysite/customs/tests.py
+++++ b/mysite/customs/tests.py
++@@ -1586,8 +1586,9 @@ class DataExport(django.test.TestCase):
++ 		# data capture, woo
++ 		fake_stdout = StringIO()
++ 		# make fake bug
++-		b = Bug.create_dummy()
+++		b = Bug.create_dummy_with_project()
++ 		b.title = 'fire-ant'
+++		b.save()
++ 		
++ 		# dump fake bug into fake stdout
++ 		command = mysite.customs.management.commands.dump_public_user_data.Command()
++@@ -1600,8 +1601,10 @@ class DataExport(django.test.TestCase):
++ 		for obj in django.core.serializers.deserialize('json', fake_stdout.getvalue()):
++ 			obj.save()
++ 		
+++		# testing to see if there are ANY bugs
+++		self.assertTrue(Bug.all_bugs.all())
++ 		# testing to see if fire-ant is there
++-		reincarnated_b = django.contrib.auth.models.Bug.objects.get(title='fire-ant')
+++		reincarnated_b = mysite.search.models.Bug.all_bugs.get(title='fire-ant')
++ 
++ # vim: set nu:
++ 
++-- 
++1.7.0.4
++
+-- 
+1.7.0.4
+

@@ -1,0 +1,25 @@
+From f3981d136df04c153d835af722595e202fe07779 Mon Sep 17 00:00:00 2001
+From: florapdx <floraworleypdx@gmail.com>
+Date: Tue, 19 Mar 2013 18:12:17 -0700
+Subject: [PATCH 10/10] added a 'see wiki for instructions' link under page
+ header
+
+---
+ mysite/customs/templates/customs/main.html | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/mysite/customs/templates/customs/main.html b/mysite/customs/templates/customs/main.html
+index 54b5164..e1f2398 100644
+--- a/mysite/customs/templates/customs/main.html
++++ b/mysite/customs/templates/customs/main.html
+@@ -28,6 +28,7 @@ Customs
+ <div class='module'>
+     <div class='head'>
+         <h3>{% block heading %}Customs{% endblock %}</h3>
++        <span>For instructions on adding your project's bug tracker, please see our <a href="https://openhatch.org/wiki/Bug_trackers">wiki page</a>.</span>
+         <ul>
+             <li>
+             {% block top_url %}{% endblock %}
+-- 
+1.8.1.3
+

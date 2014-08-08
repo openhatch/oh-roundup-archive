@@ -1,0 +1,142 @@
+From 77af6aa0a8e3ab9dc0786ebd8b01d15bf9e61fc8 Mon Sep 17 00:00:00 2001
+From: Jacquie Flemming <jacquelinehfl@gmail.com>
+Date: Sat, 21 Jan 2012 14:34:58 -0500
+Subject: [PATCH] Updated the default case for people search (AllTagsQuery) to
+ also search the users' first and last name
+
+---
+ mysite/profile/controllers.py |   49 ++++++++++++++++++++++++++++++++++++++--
+ mysite/profile/tests.py       |   34 +++++++++++++++++++++++++++-
+ 2 files changed, 79 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/profile/controllers.py b/mysite/profile/controllers.py
+index 3ca9c54..cc58773 100644
+--- a/mysite/profile/controllers.py
++++ b/mysite/profile/controllers.py
+@@ -177,7 +177,7 @@ def parse_string_query(s):
+         parsed['query_type'] = 'all_tags'
+         parsed['q'] = s
+ 
+-    # Now, clean up the q to parse out qutiation marks
++    # Now, clean up the q to parse out quotation marks
+     parsed['q'] = parsed['q'].strip() # trim whitespace
+     if len(parsed['q']) >= 2 and (
+         parsed['q'][0] == '"' == parsed['q'][-1]):
+@@ -363,10 +363,40 @@ class AllTagsQuery(PeopleFinder):
+     # FIXME: Probably we should add a add_query_summary() method.
+     def __init__(self, search_string):
+         self.template_data = {}
+-        self.people = []
+-        self.people = self.get_persons_by_tag_text(
++        self.people = mysite.profile.models.Person.objects.none()
++
++        search_list = search_string.split(" ")
++
++        # get search based on tags
++        tag_results = mysite.profile.models.Person.objects.none()
++        tag_results = self.get_persons_by_tag_text(
+             search_string)
+ 
++        # get search based on username
++        user_results = mysite.profile.models.Person.objects.none()
++        if len(search_list) == 1: 
++          user_results = self.get_persons_by_username(
++              search_string)
++
++        # get search based on last name
++        lastname_results = mysite.profile.models.Person.objects.none()
++        lastname_results2 = mysite.profile.models.Person.objects.none()
++        for search_word in search_list:
++          lastname_results2 = self.get_persons_by_lastname(
++              search_word)
++          lastname_results = lastname_results | lastname_results2;
++
++        # get search based on first name
++        firstname_results = mysite.profile.models.Person.objects.none()
++        firstname_results2 = mysite.profile.models.Person.objects.none()
++        for search_word in search_list:
++          firstname_results2 = self.get_persons_by_firstname(
++              search_word)
++          firstname_results =  firstname_results | firstname_results2
++
++        # Chain all the search results together
++        self.people = tag_results | user_results | lastname_results | firstname_results
++        
+     def get_persons_by_tag_text(self, search_string):
+         tag_ids = mysite.profile.models.Tag.objects.filter(
+             text__iexact=search_string).values_list('id', flat=True)
+@@ -374,6 +404,19 @@ class AllTagsQuery(PeopleFinder):
+             tag__id__in=tag_ids).values_list('person_id', flat=True)
+         return self.get_person_instances_from_person_ids(person_ids)
+ 
++    def get_persons_by_username(self, search_string):
++        return mysite.profile.models.Person.objects.filter(
++            user__username__icontains=search_string)
++
++    def get_persons_by_lastname(self, search_string):
++        return mysite.profile.models.Person.objects.filter(
++            user__last_name__icontains=search_string)
++
++    def get_persons_by_firstname(self, search_string):
++        return mysite.profile.models.Person.objects.filter(
++            user__first_name__icontains=search_string)
++
++
+ class ProjectQuery(PeopleFinder):
+     def __init__(self, search_string):
+         self.template_data = {}
+diff --git a/mysite/profile/tests.py b/mysite/profile/tests.py
+index 00f371a..c3e7883 100644
+--- a/mysite/profile/tests.py
++++ b/mysite/profile/tests.py
+@@ -1602,7 +1602,8 @@ class PeopleFinderClasses(TwillTests):
+         self.assertEqual(self.person, pq.people[0])
+ 
+ class PeopleFinderTagQueryTests(TwillTests):
+-    fixtures = ['user-paulproteus', 'person-paulproteus']
++    #fixtures = ['user-paulproteus', 'person-paulproteus', 'person-matt']
++    fixtures = ['user-paulproteus', 'person-paulproteus', 'user-barry', 'person-barry']
+ 
+     def setUp(self, *args, **kwargs):
+         super(PeopleFinderTagQueryTests, self).setUp(*args, **kwargs)
+@@ -1672,6 +1673,37 @@ class PeopleFinderTagQueryTests(TwillTests):
+         atq = mysite.profile.controllers.AllTagsQuery('python')
+         self.assertEqual([self.person], list(atq.people))
+ 
++    def test_all_tags_insenstive_case_search_a_name(self):
++        # query with person named 'Asheesh', case insenstive, will
++        # return the same person (also AllTagsQuery will find a person named
++        # Asheesh, even if a tag wasn't used)
++        atq1 = mysite.profile.controllers.AllTagsQuery('ASHEESH')
++        atq2 = mysite.profile.controllers.AllTagsQuery('asheesh')
++        self.assertEqual(list(atq1.people), list(atq2.people))
++
++    def test_all_tags_insensitive_case_search_multiple_names(self):
++        #persons = mysite.profile.models.Person.objects.all()
++        #print persons
++
++        # get Barry and Asheesh out of the model
++        person_last_name_spinoza = mysite.profile.models.Person.objects.get(
++            user__last_name__iexact='spinoza')
++        person_first_name_asheesh = mysite.profile.models.Person.objects.get(
++            user__first_name__iexact='asheesh')
++
++        #send query to AllTagsQuery
++        atq = mysite.profile.controllers.AllTagsQuery('asheesh spinoza')
++        atq_filter_spinoza = atq.people.filter(user__last_name__iexact="spinoza")[0]
++        atq_filter_asheesh = atq.people.filter(user__first_name__iexact="asheesh")[0]
++
++        #make sure we have people
++        self.assertNotEqual(0, len(atq.people))
++
++        #check that both Aseesh and Barry are in the AllTagsQuery result
++        self.assertEqual(atq_filter_spinoza, person_last_name_spinoza )
++        self.assertEqual(atq_filter_asheesh, person_first_name_asheesh)
++  
++
+ class PeopleSearch(TwillTests):
+     def test_project_queries_are_distinct_from_tag_queries(self):
+         # input "project:Exaile" into the search controller, ensure that it outputs
+-- 
+1.7.5.4
+

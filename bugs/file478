@@ -1,0 +1,48 @@
+From 1c11ff1fd00ac0c54a623e493df87af022b055ae Mon Sep 17 00:00:00 2001
+From: Kevin Cole <kjcole@ubuntu.com>
+Date: Sun, 26 Feb 2012 16:45:43 -0500
+Subject: [PATCH 1/2] - Adjusted font size of people list in
+ http://openhatch.org/people/   by adding "person" and
+ "location" classses to static/js/profile/map-v2.js  
+ and adding corresponding styles to
+ base/templates/base/base.html
+
+---
+ mysite/base/templates/base/base.html |    4 ++++
+ mysite/static/js/profile/map-v2.js   |    4 ++--
+ 2 files changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/base/templates/base/base.html b/mysite/base/templates/base/base.html
+index 07e23c9..788c8ac 100644
+--- a/mysite/base/templates/base/base.html
++++ b/mysite/base/templates/base/base.html
+@@ -64,6 +64,10 @@
+             #landing a.blog-feed { 
+                 background-image:
+                 url({% version '/static/images/base/landing/feed-icon-16x16-sprited.png' %}) }
++            .person {
++                font-size: 80%; }
++            .location {
++                font-size: 80%; }
+             body#profile #importer { 
+                 background-image:
+                 url({% version '/static/images/ship.png' %}) }
+diff --git a/mysite/static/js/profile/map-v2.js b/mysite/static/js/profile/map-v2.js
+index 4305931..786876d 100644
+--- a/mysite/static/js/profile/map-v2.js
++++ b/mysite/static/js/profile/map-v2.js
+@@ -14,9 +14,9 @@ function drawAllPeopleDivsAtOnce(list_of_people_data) {
+     for (i = 0; i < list_of_people_data.length && i < MAX_TO_DISPLAY; i++) {
+ 	f = list_of_people_data[i];
+         div = $("<div />");
+-        a = $("<a href='http://openhatch.org/people/"+f.attributes.all_data.extra_person_info.username+"/'>" + f.attributes.name + "</a>");
++        a = $("<a class='person' href='http://openhatch.org/people/"+f.attributes.all_data.extra_person_info.username+"/'>" + f.attributes.name + "</a>");
+         div.append(a);
+-        span = $("<span>, " + f.attributes.location + "</span>");
++        span = $("<span class='location'>, " + f.attributes.location + "</span>");
+         div.append(span);
+         $results.append(div);
+     }
+-- 
+1.7.5.4
+

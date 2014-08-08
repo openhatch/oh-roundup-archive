@@ -1,0 +1,151 @@
+From 0d823ba7f0f9ea45995a5c00595b041f1564326d Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Thu, 2 Jun 2011 08:34:25 +1200
+Subject: [PATCH] Use checkboxes (tick marks) to show the Git missions progress
+ Solves: http://openhatch.org/bugs/issue125
+
+---
+ .../templates/missions/diffpatch/base.html         |    8 ++++----
+ mysite/missions/templates/missions/git/base.html   |    6 +++---
+ mysite/missions/templates/missions/svn/base.html   |    8 ++++----
+ mysite/missions/templates/missions/tar/base.html   |    6 +++---
+ mysite/static/css/missions/base.css                |   11 +++++++++++
+ 5 files changed, 25 insertions(+), 14 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/diffpatch/base.html b/mysite/missions/templates/missions/diffpatch/base.html
+index 4cecc5d..0b82005 100644
+--- a/mysite/missions/templates/missions/diffpatch/base.html
++++ b/mysite/missions/templates/missions/diffpatch/base.html
+@@ -25,22 +25,22 @@
+     About this mission
+   </a>
+ </li>
+-<li id='link-single_file_patch'>
++<li id='link-single_file_patch' {% if patchsingle_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.diffpatch.views.single_file_patch %}'>
+     Patching individual files
+   </a>
+ </li>
+-<li id='link-single_file_diff'>
++<li id='link-single_file_diff' {% if diffsingle_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.diffpatch.views.single_file_diff %}'>
+     Diffing individual files
+   </a>
+ </li>
+-<li id='link-recursive_diff'>
++<li id='link-recursive_diff' {% if diffrecursive_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.diffpatch.views.recursive_diff %}'>
+     Diffing entire directories
+   </a>
+ </li>
+-<li id='link-recursive_patch'>
++<li id='link-recursive_patch' {% if patchrecursive_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.diffpatch.views.recursive_patch %}'>
+     Patching entire directories
+   </a>
+diff --git a/mysite/missions/templates/missions/git/base.html b/mysite/missions/templates/missions/git/base.html
+index 5662b40..58d4113 100644
+--- a/mysite/missions/templates/missions/git/base.html
++++ b/mysite/missions/templates/missions/git/base.html
+@@ -30,17 +30,17 @@
+     About Git
+   </a>
+ </li>
+-<li id='link-checkout'>
++<li id='link-checkout' {% if git_checkout_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.git.views.checkout %}'>
+     Cloning a project
+   </a>
+ </li>
+-<li id='link-diff'>
++<li id='link-diff' {% if git_diff_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.git.views.diff %}'>
+     Creating a patch
+   </a>
+ </li>
+-<li id='link-rebase'>
++<li id='link-rebase' {% if git_rebase_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.git.views.rebase %}'>
+     Rebase and merge
+   </a>
+diff --git a/mysite/missions/templates/missions/svn/base.html b/mysite/missions/templates/missions/svn/base.html
+index 6211980..200c8b6 100644
+--- a/mysite/missions/templates/missions/svn/base.html
++++ b/mysite/missions/templates/missions/svn/base.html
+@@ -20,7 +20,7 @@
+ 
+ 
+ {% block side_nav_links %}
+-<li id='link-main_page'>
++<li id='link-main_page' {% if repository_exists %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.svn.views.main_page %}'>
+     Mission start page
+   </a>
+@@ -30,17 +30,17 @@
+     About Subversion
+   </a>
+ </li>
+-<li id='link-checkout'>
++<li id='link-checkout' {% if svn_checkout_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.svn.views.checkout %}'>
+     Checking out a working copy
+   </a>
+ </li>
+-<li id='link-diff'>
++<li id='link-diff' {% if svn_diff_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.svn.views.diff %}'>
+     Diffing your changes
+   </a>
+ </li>
+-<li id='link-commit'>
++<li id='link-commit' {% if svn_commit_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.svn.views.commit %}'>
+     Committing your changes
+   </a>
+diff --git a/mysite/missions/templates/missions/tar/base.html b/mysite/missions/templates/missions/tar/base.html
+index 27006f9..8a46c98 100644
+--- a/mysite/missions/templates/missions/tar/base.html
++++ b/mysite/missions/templates/missions/tar/base.html
+@@ -24,17 +24,17 @@
+     About this mission
+   </a>
+ </li>
+-<li id='link-unpacking'>
++<li id='link-unpacking' {% if create_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.tar.views.unpacking %}'>
+     Unpacking tarballs
+   </a>
+ </li>
+-<li id='link-creating'>
++<li id='link-creating' {% if unpack_done %}class='tick-progress'{% else %}class='cross-progress'{% endif %}>
+   <a href='{% url mysite.missions.tar.views.creating %}'>
+     Creating tarballs
+   </a>
+ </li>
+-<li id='link-hints'>
++<li id='link-hints' class='bump-over'>
+   <a href='{% url mysite.missions.tar.views.hints %}'>
+     Hints
+   </a>
+diff --git a/mysite/static/css/missions/base.css b/mysite/static/css/missions/base.css
+index 3d3b141..9d38c88 100644
+--- a/mysite/static/css/missions/base.css
++++ b/mysite/static/css/missions/base.css
+@@ -34,3 +34,14 @@ body.missions .file-upload input[type="file"] {
+   padding: 0;
+   font-size: 100%
+ }
++body.missions .tick-progress {
++  list-style-image: url("http://openhatch.org/static/images/tick.png");
++  margin-left: 30px;
++}
++body.missions .cross-progress {
++  list-style-image: url("http://openhatch.org/static/images/light-tick.png");
++  margin-left: 30px;'
++}
++body.missions .bump-over {
++  margin-left: 30px;'
++}
+-- 
+1.7.2.5
+

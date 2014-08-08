@@ -1,0 +1,25 @@
+From 913950a8641526761404bc7aeaccbc34fef4459b Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Sun, 20 Jun 2010 00:39:56 +0000
+Subject: [PATCH] Corrected earlier fix - if no importance on bug ticket then Trac importer puts '' rather than 'N/A'.
+
+---
+ mysite/customs/bugtrackers/trac.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/trac.py b/mysite/customs/bugtrackers/trac.py
+index 582f3dc..0d3a138 100644
+--- a/mysite/customs/bugtrackers/trac.py
++++ b/mysite/customs/bugtrackers/trac.py
+@@ -155,7 +155,7 @@ class TracBug:
+         try:
+             ret['importance'] = trac_data['priority']
+         except KeyError:
+-            ret['importance'] = 'N/A'
++            ret['importance'] = ''
+ 
+         ret['looks_closed'] = (trac_data['status'] == 'closed')
+ 
+-- 
+1.7.1
+

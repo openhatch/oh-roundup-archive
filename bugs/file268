@@ -1,0 +1,25 @@
+From 914d6c42bf138d161ca26768e95fd78f895c8dd0 Mon Sep 17 00:00:00 2001
+From: 2mas <t.homas.noee@gmail.com>
+Date: Mon, 2 May 2011 13:02:15 -0700
+Subject: [PATCH] Issue #419
+
+---
+ mysite/missions/templates/missions/git/rebase.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/git/rebase.html b/mysite/missions/templates/missions/git/rebase.html
+index d5bf639..5e6ffb2 100644
+--- a/mysite/missions/templates/missions/git/rebase.html
++++ b/mysite/missions/templates/missions/git/rebase.html
+@@ -29,7 +29,7 @@
+ 
+ <p>Congratulations! The Brain has accepted your patch and commited it to the main repository. Now no one will accidentally get a "goodbye" instead of "hello"!  In fact, The Brain was so happy with your patch, he has invited you to his top secret dinner party. To get in the door, you'll need to find the password he has hidden in the commit log when your patch was applied.</p>
+ 
+-<p>To learn the secret password, you will need to update your local copy and read the logs:<br style="clear: left;" />
++<p>To learn the secret password, you will need to update your local copy and read the logs: <abbr title="on linux: git log">(hover for hint)</abbr><br style="clear: left;" />
+ <ul>
+ 	<li><code>git fetch</code></li>
+ 	<li><code>git rebase origin/master</code></li>
+-- 
+1.7.2.5
+

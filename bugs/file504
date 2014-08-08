@@ -1,0 +1,38 @@
+From f86aaf3144b63b3355ccce555f23e56432360a27 Mon Sep 17 00:00:00 2001
+From: Jason Woofenden <jason@jasonwoof.com>
+Date: Wed, 9 May 2012 23:58:01 -0400
+Subject: [PATCH] Git mission: accept password with dot (as shown)
+
+The last git mission tells you to find the password, which is given to you like
+this:
+
+    Knock 3 times and give the secret password: Pinky.
+
+But the mission page won't accept "Pinky." as the password, only "Pinky".
+
+Programmer types like to be all literal. I say we encourage that sort of thing.
+
+Noticing punctuation is a good thing!
+
+This patch makes the mission page accept the password with the period at the end.
+---
+ mysite/missions/git/views.py |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+index f4bce17..6782b54 100644
+--- a/mysite/missions/git/views.py
++++ b/mysite/missions/git/views.py
+@@ -99,7 +99,8 @@ def rebase_submit(request):
+     if request.method == 'POST':
+         form = forms.RebaseForm(request.POST)
+         if form.is_valid():
+-            if form.cleaned_data['secret_word'].lower() == 'pinky':
++            lower_secret = form.cleaned_data['secret_word'].lower()
++            if lower_secret == 'pinky' or lower_secret == 'pinky.':
+                 controllers.set_mission_completed(request.user.get_profile(), 'git_rebase')
+                 return HttpResponseRedirect(reverse(rebase))
+             else:
+-- 
+1.7.10
+

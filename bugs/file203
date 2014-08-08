@@ -1,0 +1,28 @@
+From 38f7562c92d793db0576c931dba334e67b4c2d05 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Fri, 8 Apr 2011 22:48:41 +0000
+Subject: [PATCH] Added reference to model manager in search.models.BugTracker.make_instance()
+
+This fixes Asheesh's last patch (tests now pass) in that make_instance is
+now using an existing model instance, rather than creating a new one with
+the same pk as an existing one.
+---
+ mysite/search/models.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/search/models.py b/mysite/search/models.py
+index b30cafb..72d7659 100644
+--- a/mysite/search/models.py
++++ b/mysite/search/models.py
+@@ -551,7 +551,7 @@ class BugTracker(OpenHatchModel):
+             # Then try to reconstitute the instance through the class
+             module = importlib.import_module(self.bug_tracker_model_module)
+             cls = getattr(module, self.bug_tracker_model_class_name)
+-            return cls(pk=self.bug_tracker_model_pk).create_class_that_can_actually_crawl_bugs()
++            return cls.all_trackers.get(pk=self.bug_tracker_model_pk).create_class_that_can_actually_crawl_bugs()
+ 
+         # Otherwise, it's a raw, hard-coded class that we can import.
+         cls = getattr(module, self.class_name)
+-- 
+1.7.3.4
+

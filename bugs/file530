@@ -1,0 +1,44 @@
+From f5a46e17e0fb9b573e43d4ff12d7c1251ffe53be Mon Sep 17 00:00:00 2001
+From: Nishant <nishant@ubuntu.(none)>
+Date: Mon, 18 Mar 2013 12:15:17 -0700
+Subject: [PATCH] Add yourself link removed from else and also moved the css
+ for the 'Add yourself' and 'see all' to project.css
+
+---
+ mysite/project/templates/project/project.html |    6 ++----
+ mysite/static/css/project/project.css         |    2 ++
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index 228089d..001ba04 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -304,10 +304,8 @@ about how you can help {{ project.display_name }}
+             <ul>
+                 <li>
+                     {% if project.cached_contributor_count %}
+-                        <a href='{% url mysite.profile.views.people %}?q=project:"{{project.name|urlencode}}"' style='float: right; font-weight: normal;'>See all</a>
+-                    {% else %}
+-                        <a href='{% url mysite.profile.views.importer %}?add_project_name={{ project.name|urlencode }}'
+-                                style='float: right; font-weight: normal;'>Add yourself</a>
++                        <a class='actionlink href='{% url mysite.profile.views.people %}?q=project:"{{project.name|urlencode}}"'>See all</a>
++                    <a class='actionlink' href='{% url mysite.profile.views.importer %}?add_project_name={{ project.name|urlencode }}'>Add yourself</a>
+                     {% endif %}
+                 </li>
+             </ul>
+diff --git a/mysite/static/css/project/project.css b/mysite/static/css/project/project.css
+index 9ec0eff..3e59c6e 100644
+--- a/mysite/static/css/project/project.css
++++ b/mysite/static/css/project/project.css
+@@ -68,6 +68,8 @@ body#project #other-questions { display: block; margin-bottom: 10px; }
+ body#project li:target { background-color: #ffd; }
+ body#project .quotemark { color: #555; }
+ 
++body#project .actionlink {float: right; font-weight: normal; margin-right: 10px}
++
+ body#project #wannahelp { width: 101% ! important; padding: 0; background: transparent; }
+ body#project #wanna_help_thanks_tipsy_closer {float: right;}
+ body#project #wannahelp-button { -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; padding: 10px 20px; color: #444; float: right; border: 3px solid #fff; white-space: normal; font-family: Helvetica, sans-serif; width: 100%; font-weight: normal; cursor: pointer; cursor: hand; text-align: center; text-shadow: 0px 1px 0px #fff; background-color: #c8e29d; background-repeat: repeat-x; background-position: top; font-size: 13pt; }
+-- 
+1.7.9.5
+

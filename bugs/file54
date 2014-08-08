@@ -1,0 +1,67 @@
+From 54c37fce60fe74a39cb75393981ea710b2ed0bc7 Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Wed, 7 Jul 2010 12:49:19 +0000
+Subject: [PATCH 1/2] Set as_appears_in_distribution for Sugar and OLPC.
+
+---
+ mysite/customs/bugtrackers/trac.py |    4 ++++
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/trac.py b/mysite/customs/bugtrackers/trac.py
+index 3eb90fe..3202671 100644
+--- a/mysite/customs/bugtrackers/trac.py
++++ b/mysite/customs/bugtrackers/trac.py
+@@ -343,6 +343,8 @@ class SugarLabsTrac(TracBugTracker):
+         ret_dict['good_for_newcomers'] = ('sugar-love' in trac_data['keywords'])
+         # Check whether this is a documentation bug.
+         ret_dict['concerns_just_documentation'] = ('documentation' in trac_data['keywords'])
++        # Set as_appears_in_distribution.
++        ret_dict['as_appears_in_distribution'] = 'Sugar'
+         # Then pass ret_dict back
+         return ret_dict
+ 
+@@ -414,6 +416,8 @@ class OLPCTrac(TracBugTracker):
+         ret_dict['good_for_newcomers'] = ('easy' in trac_data['keywords']) or ('sugar-love' in trac_data['keywords'])
+         # Check whether this is a documentation bug.
+         ret_dict['concerns_just_documentation'] = ('doc' in trac_data['keywords'])
++        # Set as_appears_in_distribution.
++        ret_dict['as_appears_in_distribution'] = 'OLPC'
+         # Then pass ret_dict back
+         return ret_dict
+ 
+-- 
+1.7.1
+
+
+From 14a779aa714cd41e801190fd6fa37699510c800f Mon Sep 17 00:00:00 2001
+From: Jack Grigg <me@jackgrigg.com>
+Date: Wed, 7 Jul 2010 12:56:13 +0000
+Subject: [PATCH 2/2] Set naming for OLPC to components, and enable importing for OLPC.
+
+---
+ mysite/customs/bugtrackers/trac.py |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/customs/bugtrackers/trac.py b/mysite/customs/bugtrackers/trac.py
+index 3202671..eafddb1 100644
+--- a/mysite/customs/bugtrackers/trac.py
++++ b/mysite/customs/bugtrackers/trac.py
+@@ -393,13 +393,13 @@ class XiphTrac(TracBugTracker):
+         return ret_dict
+ 
+ class OLPCTrac(TracBugTracker):
+-    enabled = False # Need to sort out naming for bug projects
++    enabled = True
+ 
+     def __init__(self):
+         TracBugTracker.__init__(self,
+                                 project_name='OLPC',
+                                 base_url='http://dev.laptop.org/',
+-                                bug_project_name_format='{project}')
++                                bug_project_name_format='{component}')
+ 
+     def generate_list_of_bug_ids_to_look_at(self):
+         queries = {
+-- 
+1.7.1
+

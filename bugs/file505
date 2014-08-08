@@ -1,0 +1,13 @@
+diff --git a/mysite/missions/diffpatch/controllers.py b/mysite/missions/diffpatch/controllers.py
+index 02bf5ff..fdbd90b 100644
+--- a/mysite/missions/diffpatch/controllers.py
++++ b/mysite/missions/diffpatch/controllers.py
+@@ -63,6 +63,8 @@ class SingleFilePatch(object):
+         if ''.join(the_patch.patch_stream(open(cls.OLD_FILE), the_patch.hunks[0])) == open(cls.NEW_FILE).read():
+             # Sweet! Success.
+             return True
++        else:
++            raise IncorrectPatch, "\n---------========-------------\n".join([''.join(the_patch.patch_stream(open(cls.OLD_FILE), the_patch.hunks[0])), open(cls.NEW_FILE).read()])
+ 
+         # Okay, at this point, we know the resulting contents are not good.
+ 

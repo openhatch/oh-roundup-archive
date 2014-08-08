@@ -1,0 +1,24 @@
+From 252e0c22daf7f7ad84945c3eda9eb11ffef59822 Mon Sep 17 00:00:00 2001
+From: paulhomebus <paulhomebus@gmail.com>
+Date: Tue, 22 Mar 2011 08:30:20 +1300
+Subject: [PATCH 1/1] I-added-debug_toolbar-to-buildout.cfg
+
+---
+ buildout.cfg |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/buildout.cfg b/buildout.cfg
+index 4f9ebfb..133d40f 100644
+--- a/buildout.cfg
++++ b/buildout.cfg
+@@ -39,6 +39,7 @@ eggs =
+     python-launchpad-bugs
+     html2text
+     coverage
++    debug_toolbar
+     pylint
+     unittest-xml-reporting
+     fabric
+-- 
+1.7.1
+

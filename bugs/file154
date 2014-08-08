@@ -1,0 +1,134 @@
+From 1999ad7a4da20ecc5bff422c3b27fc344bf9c2a3 Mon Sep 17 00:00:00 2001
+From: Jairo Lopez <jelfn@sislacom.com>
+Date: Mon, 14 Mar 2011 15:22:40 -0430
+Subject: [PATCH 2/2] I've refactored the meta function to be able to obtain the data without having
+ to return the request part of the web page.
+
+There have also added a function to return the sys.exit code to be able to poll
+the results via Nagios.
+
+The unittest functions have been added to demonstrate that the function returns
+what it should.
+---
+ mysite/base/tests.py |   45 +++++++++++++++++++++++++++++++++++++++++++++
+ mysite/base/views.py |   36 +++++++++++++++++++++++++++++++++---
+ 2 files changed, 78 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/base/tests.py b/mysite/base/tests.py
+index e9d9365..ca14d49 100644
+--- a/mysite/base/tests.py
++++ b/mysite/base/tests.py
+@@ -42,6 +42,7 @@ import mysite.search.models
+ import mysite.base.templatetags.base_extras
+ import mysite.base.unicode_sanity
+ import mysite.profile.views
++import mysite.base.views
+ 
+ def twill_setup():
+     app = AdminMediaHandler(WSGIHandler())
+@@ -424,4 +425,48 @@ class TimestampTests(django.test.TestCase):
+             new_timestamp = mysite.base.models.Timestamp.get_timestamp_for_string(url)
+             self.assertTrue(new_timestamp > mysite.base.models.Timestamp.ZERO_O_CLOCK)
+ 
++# Test cases for Nagios integration
++class NagiosTests(django.test.TestCase):
++    # Test for OK Nagios return (0)
++    def test_nagios_return_ok(self):
++        data = {}
++        data['dia_diagnostics'] = {}
++        data['bug_diagnostics'] = {}
++
++        my = data['bug_diagnostics']
++
++        my['Bugs last polled more than than one day + one hour ago'] = 0
++        my['Bugs last polled more than two days ago'] = 0
++        my['Bugs last polled more than two days ago (in percent)'] = 0.0
++
++        self.assertEqual(0, mysite.base.views.meta_exit_code(data))
++
++    # Test for WARNING Nagios return (1)
++    def test_nagios_return_warning(self):
++        data = {}
++        data['dia_diagnostics'] = {}
++        data['bug_diagnostics'] = {}
++
++        my = data['bug_diagnostics']
++
++        my['Bugs last polled more than than one day + one hour ago'] = 1
++        my['Bugs last polled more than two days ago'] = 0
++        my['Bugs last polled more than two days ago (in percent)'] = 0.0
++
++        self.assertEqual(1, mysite.base.views.meta_exit_code(data))
++
++    # Test for CRITICAL Nagios return (2)
++    def test_nagios_return_critical(self):
++        data = {}
++        data['dia_diagnostics'] = {}
++        data['bug_diagnostics'] = {}
++
++        my = data['bug_diagnostics']
++
++        my['Bugs last polled more than than one day + one hour ago'] = 0
++        my['Bugs last polled more than two days ago'] = 1 
++        my['Bugs last polled more than two days ago (in percent)'] = 0.0
++
++        self.assertEqual(2, mysite.base.views.meta_exit_code(data))
++
+ # vim: set ai et ts=4 sw=4 nu:
+diff --git a/mysite/base/views.py b/mysite/base/views.py
+index e4a9aba..b729841 100644
+--- a/mysite/base/views.py
++++ b/mysite/base/views.py
+@@ -160,8 +160,8 @@ def geocode(request):
+     return HttpResponse(coordinates_as_json, 
+                         mimetype='application/json')
+ 
+-@view
+-def meta(request):
++# Obtains meta data for request return
++def meta_data():
+     data = {}
+     data['dia_diagnostics'] = {}
+ 
+@@ -202,7 +202,37 @@ def meta(request):
+         last_polled__lt=two_days_ago).count() * 100.0 /
+         mysite.search.models.Bug.all_bugs.count())
+ 
+-    return (request, 'meta.html', data)
++    import pdb
++    pdb.set_trace()
++
++    return data
++
++def meta_exit_code(data=None):
++    if data is None:
++        data = meta_data()
++
++    # Temp variable for shortness
++    my = data['bug_diagnostics']
++
++    # More temp variables for shortness
++    bug1 = my['Bugs last polled more than than one day + one hour ago']
++    bug2 = my['Bugs last polled more than two days ago']
++    perbug = my['Bugs last polled more than two days ago (in percent)']
++
++    # Exit codes and stdout for Nagios integration
++    if bug2:
++        print "{0} - Polled 1+: {1} Polled 2+: {2} ({3}%)".format("CRITICAL", bug1, bug2, perbug)
++        return 2 
++    elif bug1:
++        print "{0} - Polled 1+: {1} Polled 2+: {2} ({3}%)".format("WARNING", bug1, bug2, perbug)
++        return 1
++    else:
++        print "{0} - Polled 1+: {1} Polled 2+: {2} ({3}%)".format("OK", bug1, bug2, perbug)
++        return 0
++        
++@view
++def meta(request):
++    return (request, 'meta.html', meta_data())
+ 
+ @login_required
+ def save_portfolio_entry_ordering_do(request):
+-- 
+1.7.2.3
+

@@ -1,0 +1,24 @@
+I will able to check that tonight.. <br><br><div class="gmail_quote">On Thu, Dec 22, 2011 at 12:37 PM, Asheesh Laroia <span dir="ltr">&lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0pt 0pt 0pt 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
+<br>
+Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:<br>
+<br>
+I deployed a fix for this that points users to that wiki page. I tested that it<br>
+when I create a tarball with ._ files in it, the special error message shows up.<br>
+<br>
+I don&#39;t actually have a Mac, so I&#39;d appreciate confirmation from someone that<br>
+this detection code is working propeerly. sicophrenic, can you (or someone else<br>
+who sees this) test it also and report back? I&#39;ll mark as need-review until some<br>
+non-me person can validate that it is fixed.<br>
+<br>
+----------<br>
+status: chatting -&gt; need-review<br>
+<br>
+__________________________________________<br>
+Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;<br>
+&lt;<a href="https://openhatch.org/bugs/issue616" target="_blank">https://openhatch.org/bugs/issue616</a>&gt;<br>
+__________________________________________<br>
+_______________________________________________<br>
+Devel mailing list<br>
+<a href="mailto:Devel@lists.openhatch.org">Devel@lists.openhatch.org</a><br>
+<a href="http://lists.openhatch.org/mailman/listinfo/devel" target="_blank">http://lists.openhatch.org/mailman/listinfo/devel</a><br>
+</blockquote></div><br>

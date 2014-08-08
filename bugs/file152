@@ -1,0 +1,71 @@
+From c39c40008a06bdac6750d6b953b51dfe3fc824c1 Mon Sep 17 00:00:00 2001
+From: Jairo Lopez <jelfn@sislacom.com>
+Date: Mon, 14 Mar 2011 17:43:18 -0430
+Subject: [PATCH 3/3] Made a function to return the error codes required by Nagios using the meta
+ data function submitted before.
+
+Cheers.
+---
+ mysite/base/views.py |   27 +++++++++++++++++++++++----
+ 1 files changed, 23 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/base/views.py b/mysite/base/views.py
+index b3081fc..b730d7b 100644
+--- a/mysite/base/views.py
++++ b/mysite/base/views.py
+@@ -44,6 +44,8 @@ import datetime
+ 
+ from django.contrib.auth.decorators import login_required
+ 
++import sys
++
+ def front_page_data():
+     data = {}
+     data['entries'] = mysite.customs.feed.cached_blog_entries()[:1]
+@@ -160,9 +162,8 @@ def geocode(request):
+     return HttpResponse(coordinates_as_json, 
+                         mimetype='application/json')
+ 
+-# Refactoring code to separate the meta data from the request return
++# Obtains meta data for request return
+ def meta_data():
+-
+     data = {}
+     data['dia_diagnostics'] = {}
+ 
+@@ -205,12 +206,30 @@ def meta_data():
+ 
+     return data
+ 
++def meta_exit_code(data=meta_data()):
++    # Temp variable for shortness
++    my = data['bug_diagnostics']
++
++    # More temp variables for shortness
++    1bug = my['Bugs last polled more than than one day + one hour ago']
++    2bug = my['Bugs last polled more than two days ago']
++    perbug = my['Bugs last polled more than two days ago (in percent)']
++
++    # Exit codes and stdout for Nagios integration
++    if 2bug:
++        print "{0} - Polled 1+: {1} Polled 2+: {2} ({3}%)".format("CRITICAL", 1bug, 2bug, perbug)
++        sys.exit(2)
++    elif 1bug:
++        print "{0} - Polled 1+: {1} Polled 2+: {2} ({3}%)".format("WARNING", 1bug, 2bug, perbug)
++        sys.exit(1)
++    else:
++        print "{0} - Polled 1+: {1} Polled 2+: {2} ({3}%)".format("OK", 1bug, 2bug, perbug)
++        sys.exit(0)
++
+ @view
+ def meta(request):
+-    
+     return (request, 'meta.html', meta_data())
+ 
+-
+ @login_required
+ def save_portfolio_entry_ordering_do(request):
+     from mysite.profile.models import PortfolioEntry
+-- 
+1.7.2.3
+

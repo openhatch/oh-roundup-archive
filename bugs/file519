@@ -1,0 +1,25 @@
+From 7279789738be6fe53ef6c9a160a2507c647b086a Mon Sep 17 00:00:00 2001
+From: Linda <lxu112358@gmail.com>
+Date: Sat, 15 Sep 2012 15:33:18 -0400
+Subject: [PATCH] Added bug tracker link.
+
+Implements change requested by Asheesh in #765
+---
+ mysite/base/templates/base/base.html | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/mysite/base/templates/base/base.html b/mysite/base/templates/base/base.html
+index fb88d63..c51ad98 100644
+--- a/mysite/base/templates/base/base.html
++++ b/mysite/base/templates/base/base.html
+@@ -175,6 +175,7 @@
+ 		  <li><a href="https://github.com/openhatch/oh-mainline">Github (source code)</a></li>
+ 		  <li><a href="http://lists.openhatch.org/mailman/listinfo/devel">Devel mailing list</a></li>
+ 		  <li><a href="http://openhatch.readthedocs.org/">Code docs</a></li>
++		  <li><a href="https://openhatch.org/bugs/">Bug tracker</a></li>
+ 		</ul>
+ 	      </div>
+ 
+-- 
+1.7.11.msysgit.1
+

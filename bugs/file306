@@ -1,0 +1,26 @@
+From a30f34805a192ec8c078e17965c8b8f05202c1b8 Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Wed, 1 Jun 2011 14:41:14 +1200
+Subject: [PATCH] I've added a url link to http://openhatch.org on the Openhatch logo.
+ See: http://openhatch.org/bugs/issue402
+
+---
+ html/page.html |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/html/page.html b/html/page.html
+index 50bcafd..e6082b6 100644
+--- a/html/page.html
++++ b/html/page.html
+@@ -31,7 +31,7 @@ current_milestone string:7;
+ >
+ 
+ <tr>
+- <td class="page-header-left">&nbsp;</td>
++ <td class="page-header-left"><a href="/" title="OpenHatch"><img src='/static/images/the-logo-bluegreen-87px.png' width='87' height='60' alt='openhatch' /></a></td>
+  <td class="page-header-top">
+    <div id="body-title">
+      <h2><span metal:define-slot="body_title">body title</span></h2>
+-- 
+1.7.2.5
+

@@ -1,0 +1,28 @@
+From 89b7e3776710fe37f0dd1a19c9bc90a04cb4a170 Mon Sep 17 00:00:00 2001
+From: Rodney Ewing <ewing.rj@gmail.com>
+Date: Tue, 16 Apr 2013 16:01:05 -0700
+Subject: [PATCH] fix for issue852
+
+---
+ mysite/project/templates/project/project.html | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/mysite/project/templates/project/project.html b/mysite/project/templates/project/project.html
+index dbc0846..6c79319 100644
+--- a/mysite/project/templates/project/project.html
++++ b/mysite/project/templates/project/project.html
+@@ -298,8 +298,7 @@ about how you can help {{ project.display_name }}
+             <ul>
+                 <li>
+                     {% if project.cached_contributor_count %}
+-                        <a class='actionlink' href='{% url mysite.profile.views.people %}?q=project:"{{project.name|urlencode}}">See all</a>
+-                        <a class='actionlink' href='{% url mysite.profile.views.importer %}?add_project_name={{ project.name|urlencode }}>Add yourself</a>
++                        <a class='actionlink' href='{% url mysite.profile.views.people %}?q=project:"{{project.name|urlencode}}"'>See all</a>
+                     {% endif %}
+                     <a class='actionlink' href='{% url mysite.profile.views.importer %}?add_project_name={{ project.name|urlencode }}'>Add yourself</a>
+                 </li>
+-- 
+1.7.12.4 (Apple Git-37)
+
+Closes: https://openhatch.org/bugs/issue852
+

@@ -1,0 +1,56 @@
+From 5980aeb14924d9d08b1ecf66854039c08536e645 Mon Sep 17 00:00:00 2001
+From: Vivek Shrivastava <vivshrivastava@gmail.com>
+Date: Mon, 7 Nov 2011 00:22:38 -0800
+Subject: [PATCH 4/4] Issue596 : Modified diff patch submission to use case insensitive regular expression instead of fixed case sensitive "Hello world!" string.
+           1.moved validation from controller.py to forms.py
+           2.used django form validation framework to check if the required line is present in the submitted data
+           3.enhanced/modified error messages
+
+---
+ mysite/missions/git/controllers.py |    2 +-
+ mysite/missions/git/forms.py       |    2 +-
+ mysite/missions/git/views.py       |    2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index 442a36d..e74a8be 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -50,7 +50,7 @@ class GitDiffMission(object):
+     def commit_if_ok(cls, username, diff):
+         repo = GitRepository(username)
+         commit_diff = subprocess.Popen(['git', 'am'], cwd=repo.repo_path, stdin=subprocess.PIPE)
+-        out,err = commit_diff.communicate(str(diff))
++        commit_diff.communicate(str(diff))
+         if commit_diff.returncode == 0: # for shell commands, success is 0
+             commit_msg = """Fixed a terrible mistake. Thanks for reporting this %s.
+                 Come to my house for a dinner party.
+diff --git a/mysite/missions/git/forms.py b/mysite/missions/git/forms.py
+index c2dbe9f..a6102cb 100644
+--- a/mysite/missions/git/forms.py
++++ b/mysite/missions/git/forms.py
+@@ -41,7 +41,7 @@ class DiffForm(django.forms.Form):
+         success_count = re.search(REGEX_DIFF_LINE, self.cleaned_data['diff'])
+         if success_count == None :
+             raise django.forms.ValidationError, (
+-                "Something doesn't look right.The expected line is '+print...' Give it another try!")
++                "Something doesn't look right.The expected line is '+print... ' Give it another try!")
+         return self.cleaned_data['diff']
+                
+ 
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+index 8c52f05..096fc3e 100644
+--- a/mysite/missions/git/views.py
++++ b/mysite/missions/git/views.py
+@@ -83,7 +83,7 @@ def diff_submit(request):
+                     controllers.set_mission_completed(request.user.get_profile(), 'git_diff')
+                     return HttpResponseRedirect(reverse(diff))
+                 else:
+-                    data['git_diff_error_message'] = "Unable to commit the patch. Please check your patch and try again"
++                    data['git_diff_error_message'] = "Unable to commit the patch. Please check your patch and try again "
+         data['git_diff_form'] = form
+     return diff(request, data)
+ 
+-- 
+1.7.2.5
+

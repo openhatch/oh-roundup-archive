@@ -1,0 +1,33 @@
+From 4a86ce24dfc71607b0addb59621e00030ead42a6 Mon Sep 17 00:00:00 2001
+From: Aaron Hill <aa1ronham@aol.com>
+Date: Fri, 10 May 2013 16:07:15 -0400
+Subject: [PATCH] Made tests test changed functionality
+
+---
+ mysite/search/tests.py | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/search/tests.py b/mysite/search/tests.py
+index 4ffc959..2c9db4b 100644
+--- a/mysite/search/tests.py
++++ b/mysite/search/tests.py
+@@ -491,9 +491,13 @@ class FacetsFilterResults(SearchTest):
+         self.assertEqual(list(results), [self.python_bug])
+ 
+     def test_any_facet(self):
+-        results = mysite.search.view_helpers.Query(
+-                terms=[], active_facet_options={}).get_bugs_unordered()
+-        self.assertEqual(list(results), [self.python_bug, self.not_python_bug])
++        language_query = mysite.search.view_helpers.Query.create_from_GET_data(
++                {'language': ''})
++        project_query = mysite.search.view_helpers.Query.create_from_GET_data(
++                {'project': ''})
++
++        self.assertTrue(language_query)
++        self.assertTrue(project_query)
+ 
+ class QueryGetPossibleFacets(SearchTest):
+     """Ask a query, what facets are you going to show on the left?
+-- 
+1.8.1.2
+

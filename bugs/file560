@@ -1,0 +1,24 @@
+From edd1716cb31faa6b372ac3bb2dcb377251099ce8 Mon Sep 17 00:00:00 2001
+From: Danielle Pham <quelledanielle@gmail.com>
+Date: Thu, 8 Aug 2013 13:13:29 -0400
+Subject: [PATCH] Add link to Try Git under Other resources
+
+---
+ mysite/missions/templates/missions/git/about_git.html | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/mysite/missions/templates/missions/git/about_git.html b/mysite/missions/templates/missions/git/about_git.html
+index 14a1568..ea38e75 100644
+--- a/mysite/missions/templates/missions/git/about_git.html
++++ b/mysite/missions/templates/missions/git/about_git.html
+@@ -26,6 +26,7 @@
+ 
+ <ul class="raquo_bullets">
+   <li>The <a href="http://git-scm.com/">website</a> for the git project contains a quickstart guide and links to <a href="http://git-scm.com/documentation"> other useful resources</a>.</li>
++  <li><a href="http://codeschool.com/courses/try-git">Try Git</a> is a free interactive tutorial on the basics of git.</li>
+   <li>The <a href="http://book.git-scm.com/"> Git Community Book</a> is a wonderful resource for more in depth explanation of git's features.</li>
+   <li>Many git users chat on the #git channel on freenode.net IRC </li>
+ </ul>
+-- 
+1.7.12.4 (Apple Git-37)
+

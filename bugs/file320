@@ -1,0 +1,177 @@
+From 58e891adf25968022597273a389f75132ded1a0a Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Fri, 3 Jun 2011 22:29:56 +1200
+Subject: [PATCH] Addition of new config git step to git's backend functions
+
+We wanted to make sure users already had git installed,
+this patch creates the backend functions in the git mission
+that allows us to check that the user has their
+git email address configured correctly.
+
+Solves: http://openhatch.org/bugs/issue413
+---
+ mysite/missions/fixtures/initial_data.json |    6 ++++-
+ mysite/missions/git/forms.py               |    3 ++
+ mysite/missions/git/tests.py               |   26 +++++++++++++----------
+ mysite/missions/git/views.py               |   31 ++++++++++++++++++++++++---
+ mysite/urls.py                             |    1 +
+ 5 files changed, 51 insertions(+), 16 deletions(-)
+
+diff --git a/mysite/missions/fixtures/initial_data.json b/mysite/missions/fixtures/initial_data.json
+index 6e69913..8bea1e2 100644
+--- a/mysite/missions/fixtures/initial_data.json
++++ b/mysite/missions/fixtures/initial_data.json
+@@ -46,5 +46,9 @@
+   {"model": "missions.Step",
+    "pk": 12,
+    "fields": {"name": "git_rebase"}
+-  }
++  },
++  {"model": "missions.Step",
++   "pk": 13,
++   "fields": {"name": "git_config"}
++   }
+ ]
+diff --git a/mysite/missions/git/forms.py b/mysite/missions/git/forms.py
+index 5f6144f..bd90e5b 100644
+--- a/mysite/missions/git/forms.py
++++ b/mysite/missions/git/forms.py
+@@ -18,6 +18,9 @@
+ 
+ import django.forms
+ 
++class ConfigForm(django.forms.Form):
++    user_email = django.forms.EmailField()
++
+ class CheckoutForm(django.forms.Form):
+     secret_word = django.forms.CharField(error_messages={'required': 'No author was given.'})
+ 
+diff --git a/mysite/missions/git/tests.py b/mysite/missions/git/tests.py
+index d815759..c3a52cd 100644
+--- a/mysite/missions/git/tests.py
++++ b/mysite/missions/git/tests.py
+@@ -59,19 +59,23 @@ class GitViewTests(TwillTests):
+         response = self.client.post(reverse(views.checkout_submit), {'secret_word': word})
+         paulproteus = Person.objects.get(user__username='paulproteus')
+         self.assert_(controllers.mission_completed(paulproteus, 'git_checkout'))
+-        
+-    def test_do_checkout_mission_incorrectly(self):
+-        word = 'the wrong word'
+-        response = self.client.post(reverse(views.checkout_submit), {'secret_word': word})
++
++    def email_address_is_rejected(self, email_address):
++        response = self.client.post(reverse(views.long_description_submit), {'user_email': email_address})
++        self.assertEqual(200, response.status_code)
++
++    def test_do_git_description_mission_incorrectly(self):
++        self.assertFalse(self.email_address_is_rejected('paulproteus@pathi.local'))
++        self.assertFalse(self.email_address_is_rejected('filipovskii_off@Puppo.(none)'))
+         paulproteus = Person.objects.get(user__username='paulproteus')
+-        self.assertFalse(controllers.mission_completed(paulproteus, 'git_checkout'))
+-        
+-    def test_do_rebase_mission_correctly(self):
+-        word = 'pinky'
+-        response = self.client.post(reverse(views.rebase_submit), {'secret_word': word})
++        self.assertFalse(controllers.mission_completed(paulproteus, 'git_config'))
++
++    def test_do_git_description_mission_correctly(self):
++        correct_email = 'paulproteus@openhatch.org'
++        response = self.client.post(reverse(views.long_description_submit), {'user_email': correct_email})
+         paulproteus = Person.objects.get(user__username='paulproteus')
+-        self.assert_(controllers.mission_completed(paulproteus, 'git_rebase'))
+-        
++        self.assertTrue(controllers.mission_completed(paulproteus, 'git_config'))
++
+     def test_do_rebase_mission_incorrectly(self):
+         word = 'the wrong word'
+         response = self.client.post(reverse(views.rebase_submit), {'secret_word': word})
+diff --git a/mysite/missions/git/views.py b/mysite/missions/git/views.py
+index e1a164c..1b550fd 100644
+--- a/mysite/missions/git/views.py
++++ b/mysite/missions/git/views.py
+@@ -29,13 +29,14 @@ def resetrepo(request):
+     if request.method != 'POST':
+         return HttpResponseNotAllowed(['POST'])
+     controllers.GitRepository(request.user.username).reset()
++    controllers.unset_mission_completed(request.user.get_profile(), 'git_config')
+     controllers.unset_mission_completed(request.user.get_profile(), 'git_checkout')
+     controllers.unset_mission_completed(request.user.get_profile(), 'git_diff')
+     controllers.unset_mission_completed(request.user.get_profile(), 'git_rebase')
+     if 'stay_on_this_page' in request.GET:
+         return HttpResponseRedirect(reverse(main_page))
+     else:
+-        return HttpResponseRedirect(reverse(checkout))
++        return HttpResponseRedirect(reverse(long_description))
+ 
+ @login_required
+ def checkout_submit(request):
+@@ -55,6 +56,25 @@ def checkout_submit(request):
+     return checkout(request, data)
+ 
+ @login_required
++def long_description_submit(request):
++    # Initialize data array and some default values.
++    data = {}
++    data['git_config_form'] = forms.ConfigForm()
++    data['git_config_error_message'] = ''
++    if request.method == 'POST':
++        form = forms.ConfigForm(request.POST)
++        if form.is_valid():
++            gitemail = form.cleaned_data['user_email']
++            if ('local' in gitemail or 'none' in gitemail or 'host' in gitemail):
++                data['git_config_error_message'] = 'The email address is invalid \
++                because it contains one of these words: <b>local, none or host!</b>'
++            else:
++                controllers.set_mission_completed(request.user.get_profile(), 'git_config')
++                return HttpResponseRedirect(reverse(long_description))
++            data['git_config_form'] = form
++    return long_description(request, data)
++
++@login_required
+ def diff_submit(request):
+     # Initialize data array and some default values.
+     data = {}
+@@ -99,6 +119,7 @@ class GitMissionPageState(MissionPageState):
+             repo = controllers.GitRepository(self.request.user.username)
+             data.update({
+                 'repository_exists': repo.exists(),
++                'git_config_done': controllers.mission_completed(person, 'git_config'),
+                 'git_checkout_done': controllers.mission_completed(person, 'git_checkout'),
+                 'git_diff_done': controllers.mission_completed(person, 'git_diff'),
+                 'git_rebase_done': controllers.mission_completed(person, 'git_rebase'),
+@@ -123,15 +144,17 @@ def main_page(request, passed_data = None):
+ @view
+ def long_description(request, passed_data = None):
+     state = GitMissionPageState(request, passed_data)
+-    state.this_mission_page_short_name = 'About Git'
+-    return (request, 'missions/git/about_git.html',
+-            state.as_dict_for_template_context())
++    state.this_mission_page_short_name = 'Setup Git'
++    data = state.as_dict_for_template_context()
++    data['git_config_form'] = forms.ConfigForm()
++    return (request, 'missions/git/about_git.html', data)
+ 
+ @login_required
+ @view
+ def checkout(request, passed_data = None):
+     state = GitMissionPageState(request, passed_data)
+     state.this_mission_page_short_name = 'Cloning'
++    state.mission_step_prerequisite = 'git_config'
+     data = state.as_dict_for_template_context()
+     data['git_checkout_form'] = forms.CheckoutForm()
+     return (request, 'missions/git/checkout.html', data)
+diff --git a/mysite/urls.py b/mysite/urls.py
+index d291e1f..d188e82 100644
+--- a/mysite/urls.py
++++ b/mysite/urls.py
+@@ -134,6 +134,7 @@ urlpatterns = patterns('',
+ 
+         (r'^missions/git$', 'mysite.missions.git.views.main_page'),
+         (r'^missions/git/description$', 'mysite.missions.git.views.long_description'),
++        (r'^missions/git/description/submit$', 'mysite.missions.git.views.long_description_submit'),
+         (r'^missions/git/checkout$', 'mysite.missions.git.views.checkout'),
+         (r'^missions/git/resetrepo$', 'mysite.missions.git.views.resetrepo'),
+         (r'^missions/git/checkout/submit$', 'mysite.missions.git.views.checkout_submit'),
+-- 
+1.7.2.5
+

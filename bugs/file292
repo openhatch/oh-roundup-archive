@@ -1,0 +1,43 @@
+From d129e0f78a2e6a1bef50bba00796df94318f78bd Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulbakulich@gmail.com>
+Date: Sun, 29 May 2011 20:56:05 +1200
+Subject: [PATCH] Git mission diff step now uses git am to apply patch.
+ Also added a check to the subprocess to make sure the patch is successful,
+ and if not it using git am --abort to return repo to original state.
+ Solves: http://openhatch.org/bugs/issue412 - bd
+
+---
+ mysite/missions/git/controllers.py |   18 +++++++++++-------
+ 1 files changed, 11 insertions(+), 7 deletions(-)
+
+diff --git a/mysite/missions/git/controllers.py b/mysite/missions/git/controllers.py
+index 355d2fd..f90a252 100644
+--- a/mysite/missions/git/controllers.py
++++ b/mysite/missions/git/controllers.py
+@@ -52,12 +52,16 @@ class GitDiffMission(object):
+         success_count = diff.find(EXPECTED_DIFF_LINE)
+         repo = GitRepository(username)
+         if success_count != -1:
+-	    subprocess.Popen(['git', 'am'], cwd=repo.repo_path, stdin=subprocess.PIPE).communicate(str(diff))
+-            #subprocess.Popen(['echo', diff, '|', 'git', 'am'], cwd=repo.repo_path)
+-            commit_msg = """Fixed a terrible mistake. Thanks for reporting this %s. 
+-                Come to my house for a dinner party.  
+-                Knock 3 times and give the secret password: Pinky.""" % username
+-            subprocess.Popen(['git', 'commit', '--allow-empty', '-m', '"' + commit_msg + '"'], cwd=repo.repo_path)
+-            return True
++            commit_diff = subprocess.Popen(['git', 'am'], cwd=repo.repo_path, stdin=subprocess.PIPE)
++            commit_diff.communicate(str(diff))
++            if commit_diff.returncode != 1:
++                commit_msg = """Fixed a terrible mistake. Thanks for reporting this %s. 
++                    Come to my house for a dinner party.  
++                    Knock 3 times and give the secret password: Pinky.""" % username
++                subprocess.Popen(['git', 'commit', '--allow-empty', '-m', commit_msg], cwd=repo.repo_path)
++                return True
++            else:
++                subprocess.check_call(['git', 'am', '--abort'], cwd=repo.repo_path)
++                return False
+         else:
+             return False
+-- 
+1.7.2.5
+

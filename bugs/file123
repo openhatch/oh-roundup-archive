@@ -1,0 +1,63 @@
+From 5bbffc75f54bdad9ea3f144f3eec6c069b221c78 Mon Sep 17 00:00:00 2001
+From: Krzysztof Tarnowski <krzysztof.tarnowski@ymail.com>
+Date: Sun, 30 Jan 2011 17:58:07 +0100
+Subject: [PATCH 3/3] Applied new file upload styles to the Tar mission.
+
+---
+ .../missions/templates/missions/tar/creating.html  |    5 +++--
+ .../missions/templates/missions/tar/unpacking.html |    5 +++--
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/mysite/missions/templates/missions/tar/creating.html b/mysite/missions/templates/missions/tar/creating.html
+index 17f6df2..02e4a92 100644
+--- a/mysite/missions/templates/missions/tar/creating.html
++++ b/mysite/missions/templates/missions/tar/creating.html
+@@ -27,7 +27,7 @@
+       <p></p>
+ 
+       <form method="post" enctype="multipart/form-data" action="{% url mysite.missions.tar.views.upload %}#create-form">
+-        <div class="form-row">
++        <div class="form-row file-upload-row">
+           <a name="create-form"></a>
+           After you make the tarball, upload it here:
+     {% if create_success %}
+@@ -43,9 +43,10 @@
+           <ul class="errorlist"><li>{{ what_was_wrong_with_the_tarball }}</li></ul>
+           {% endif %}
+           {{ create_form.tarfile.errors }}
+-          <br style="clear: left;" />
++          <div class="file-upload">
+           {{ create_form.tarfile }}
+           <input type="submit" value="Upload" style="float: none;" />
++          </div>
+           {% if not create_success and create_done %}
+           <br style="clear: left;" />
+           <em>You have already completed this part of the mission.</em>
+diff --git a/mysite/missions/templates/missions/tar/unpacking.html b/mysite/missions/templates/missions/tar/unpacking.html
+index 681dcdf..8d2f5be 100644
+--- a/mysite/missions/templates/missions/tar/unpacking.html
++++ b/mysite/missions/templates/missions/tar/unpacking.html
+@@ -15,7 +15,7 @@
+         </ul>
+         <p></p>
+       <form method="post" enctype="multipart/form-data" action="{% url mysite.missions.tar.views.extract_mission_upload %}#unpack-form">
+-        <div class="form-row">
++        <div class="form-row file-upload-row">
+           <a name="unpack-form"></a>
+           After you extract that file, upload it here:
+     {% if unpack_success %}
+@@ -27,9 +27,10 @@
+           <ul class="errorlist"><li>{{ what_was_wrong_with_the_extracted_file }}</li></ul>
+           {% endif %}
+           {{ unpack_form.extracted_file.errors }}
+-          <br style="clear: left;" />
++          <div class="file-upload">
+           {{ unpack_form.extracted_file }}
+           <input type="submit" value="Upload" style="float: none;" />
++          </div>
+         </div>
+       </form>
+     {% if unpack_done %}
+-- 
+1.7.3.5
+

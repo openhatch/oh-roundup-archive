@@ -1,0 +1,39 @@
+From 60fae98ae200a1e90a26e4effb278278d68b35e1 Mon Sep 17 00:00:00 2001
+From: Kevin Cole <kjcole@ubuntu.com>
+Date: Sun, 26 Feb 2012 21:40:42 -0500
+Subject: [PATCH 2/2] - changed class "location" to "geocode"
+
+---
+ mysite/base/templates/base/base.html |    2 +-
+ mysite/static/js/profile/map-v2.js   |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/base/templates/base/base.html b/mysite/base/templates/base/base.html
+index 788c8ac..9730e91 100644
+--- a/mysite/base/templates/base/base.html
++++ b/mysite/base/templates/base/base.html
+@@ -66,7 +66,7 @@
+                 url({% version '/static/images/base/landing/feed-icon-16x16-sprited.png' %}) }
+             .person {
+                 font-size: 80%; }
+-            .location {
++            .geocode {
+                 font-size: 80%; }
+             body#profile #importer { 
+                 background-image:
+diff --git a/mysite/static/js/profile/map-v2.js b/mysite/static/js/profile/map-v2.js
+index 786876d..5f2fcb1 100644
+--- a/mysite/static/js/profile/map-v2.js
++++ b/mysite/static/js/profile/map-v2.js
+@@ -16,7 +16,7 @@ function drawAllPeopleDivsAtOnce(list_of_people_data) {
+         div = $("<div />");
+         a = $("<a class='person' href='http://openhatch.org/people/"+f.attributes.all_data.extra_person_info.username+"/'>" + f.attributes.name + "</a>");
+         div.append(a);
+-        span = $("<span class='location'>, " + f.attributes.location + "</span>");
++        span = $("<span class='geocode'>, " + f.attributes.location + "</span>");
+         div.append(span);
+         $results.append(div);
+     }
+-- 
+1.7.5.4
+

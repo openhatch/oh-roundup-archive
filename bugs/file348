@@ -1,0 +1,39 @@
+From 3a017bda565022da42741d08f2a82f06b2ec464f Mon Sep 17 00:00:00 2001
+From: Paul Bakulich <paulhomebus@gmail.com>
+Date: Sun, 12 Jun 2011 10:55:33 +1200
+Subject: [PATCH] Another fix to contributors total on profile page
+
+I don't like it showing 1-4 (of 4), so this patch will
+only show that when there are more than 5 people
+to display.
+
+See: http://openhatch.org/bugs/issue347
+---
+ mysite/profile/templates/profile/contributors.html |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mysite/profile/templates/profile/contributors.html b/mysite/profile/templates/profile/contributors.html
+index 0536b31..e012140 100644
+--- a/mysite/profile/templates/profile/contributors.html
++++ b/mysite/profile/templates/profile/contributors.html
+@@ -22,7 +22,7 @@
+ {% if contributors %}
+ <div class='other-contributors'>
+     {% with project.get_contributors|length as contributor_count %}
+-        {% if contributor_count <= 4 %}
++        {% if contributor_count <= 5 %}
+             {% if contributor_count >= 2 %}
+                 <label>Other contributors ({{ contributor_count|sub:1 }}):</label>
+             {% else %}
+@@ -55,7 +55,7 @@
+         </li>
+         {% endfor %}
+     </ul>
+-    {% if contributor_count <= 4 %}
++    {% if contributor_count <= 5 %}
+         <a class='see-all'
+             href='{% url mysite.profile.views.people %}?q=project:{{ project.name|urlencode }}'
+         >Show on map &raquo;</a>
+-- 
+1.7.2.5
+

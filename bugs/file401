@@ -1,0 +1,483 @@
+From ab439eb97fecc912f6fc6f761fcea2cc57243074 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Wed, 14 Sep 2011 15:23:53 -0400
+Subject: [PATCH 1/7] Add twisted-ping-file to .gitignore
+
+This file is generated when the customs_twist management command runs.
+---
+ .gitignore |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/.gitignore b/.gitignore
+index 1e1c2d8..baa9037 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -27,3 +27,4 @@ mysite.egg-info/
+ .vagrant
+ deactivate/
+ mysite/indexes/
++mysite/static/twisted-ping-dir/twisted-ping-file
+-- 
+1.7.5.4
+
+
+From f7a2e7f207359a970106e71758530563b06ea468 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Wed, 14 Sep 2011 15:47:42 -0400
+Subject: [PATCH 2/7] Add python-gevent to dependencies
+
+---
+ README.mkd |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/README.mkd b/README.mkd
+index d0aae39..173e212 100644
+--- a/README.mkd
++++ b/README.mkd
+@@ -31,7 +31,7 @@ must install a few using your system package manager.
+ 
+ This is what we do on Debian testing/unstable:
+ 
+-    sudo apt-get install python2.6-dev python-libxml2 memcached python-mysqldb python-setuptools libxml2-dev libxslt-dev mysql-server mysql-client python-xapian python-setuptools python-imaging subversion
++    sudo apt-get install python2.6-dev python-libxml2 memcached python-mysqldb python-setuptools libxml2-dev libxslt-dev mysql-server mysql-client python-xapian python-setuptools python-imaging subversion python-gevent
+ 
+ Or the equivalent for your system. (It's important that you get Python 2.6 or greater -- some of the OpenHatch code depends on Python 2.6 or higher.)
+ 
+-- 
+1.7.5.4
+
+
+From 4b1b4d36acd5a8db04780cb63ef08c20074ded98 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Sat, 10 Sep 2011 15:55:36 -0400
+Subject: [PATCH 3/7] Adjust customs_daily_tasks so that workers from the
+ class return a list of work to be done
+
+This is preparatory work for running those functions in parallel.
+---
+ .../management/commands/customs_daily_tasks.py     |  128 ++++++++++++--------
+ mysite/customs/tests.py                            |   28 +++--
+ 2 files changed, 94 insertions(+), 62 deletions(-)
+
+diff --git a/mysite/customs/management/commands/customs_daily_tasks.py b/mysite/customs/management/commands/customs_daily_tasks.py
+index f21fed9..ed37e06 100644
+--- a/mysite/customs/management/commands/customs_daily_tasks.py
++++ b/mysite/customs/management/commands/customs_daily_tasks.py
+@@ -72,6 +72,7 @@ Supported tracker types:
+  * launchpad"""
+ 
+     def find_and_update_enabled_roundup_trackers(self):
++        things_to_do = []
+         enabled_roundup_trackers = []
+ 
+         ### First, the "find" step
+@@ -84,16 +85,20 @@ Supported tracker types:
+ 
+         ### Okay, now update!
+         for thing in enabled_roundup_trackers:
+-            instantiated = thing()
+-            project_name = instantiated.project.name
+-            logging.info("[Roundup] About to update bugs from project named %s." % project_name)
+-            try:
+-                instantiated.update()
+-            except urllib2.URLError, e:
+-                logging.error("[Roundup] ERROR: %s importer failed with urllib2.URLError, skipping..." % project_name)
+-                logging.error("[Roundup] Error message: %s" % str(e))
++            def do_it(thing=thing):
++                instantiated = thing()
++                project_name = instantiated.project.name
++                logging.info("[Roundup] About to update bugs from project named %s." % project_name)
++                try:
++                    instantiated.update()
++                except urllib2.URLError, e:
++                    logging.error("[Roundup] ERROR: %s importer failed with urllib2.URLError, skipping..." % project_name)
++                    logging.error("[Roundup] Error message: %s" % str(e))
++            things_to_do.append(do_it)
++        return things_to_do
+ 
+     def find_and_update_enabled_trac_instances(self):
++        things_to_do = []
+         enabled_trac_instances = []
+ 
+         ### First, the "find" step
+@@ -106,16 +111,20 @@ Supported tracker types:
+ 
+         ### Okay, now update!
+         for thing in enabled_trac_instances:
+-            instantiated = thing()
+-            tracker_name = instantiated.tracker_name
+-            logging.info("[Trac] About to update bugs from project named %s." % tracker_name)
+-            try:
+-                instantiated.update()
+-            except urllib2.URLError, e:
+-                logging.error("[Trac] ERROR: %s importer failed with urllib2.URLError, skipping..." % tracker_name)
+-                logging.error("[Trac] Error message: %s" % str(e))
++            def do_it(thing=thing):
++                instantiated = thing()
++                tracker_name = instantiated.tracker_name
++                logging.info("[Trac] About to update bugs from project named %s." % tracker_name)
++                try:
++                    instantiated.update()
++                except urllib2.URLError, e:
++                    logging.error("[Trac] ERROR: %s importer failed with urllib2.URLError, skipping..." % tracker_name)
++                    logging.error("[Trac] Error message: %s" % str(e))
++            things_to_do.append(do_it)
++        return things_to_do
+ 
+     def find_and_update_enabled_bugzilla_instances(self):
++        things_to_do = []
+         enabled_bugzilla_instances = []
+ 
+         ### First, the "find" step
+@@ -128,40 +137,49 @@ Supported tracker types:
+ 
+         ### Okay, now update!
+         for thing in enabled_bugzilla_instances:
+-            instantiated = thing()
+-            tracker_name = instantiated.tracker_name
+-            logging.info("[Bugzilla] About to update bugs from project named %s." % tracker_name)
+-            # FIXME: The Bugzilla trackers seem to throw error 500 a lot.
+-            # For now, chuck in a dirty big try except to stop importer
+-            # breaking.
+-            try:
+-                instantiated.update()
+-            except urllib2.URLError, e:
+-                logging.error("[Bugzilla] ERROR: %s importer failed with urllib2.URLError, skipping..." % tracker_name)
+-                logging.error("[Bugzilla] Error message: %s" % str(e))
++            def do_it(thing=thing):
++                instantiated = thing()
++                tracker_name = instantiated.tracker_name
++                logging.info("[Bugzilla] About to update bugs from project named %s." % tracker_name)
++                # FIXME: The Bugzilla trackers seem to throw error 500 a lot.
++                # For now, chuck in a dirty big try except to stop importer
++                # breaking.
++                try:
++                    instantiated.update()
++                except urllib2.URLError, e:
++                    logging.error("[Bugzilla] ERROR: %s importer failed with urllib2.URLError, skipping..." % tracker_name)
++                    logging.error("[Bugzilla] Error message: %s" % str(e))
++            things_to_do.append(do_it)
++        return things_to_do
+ 
+     def update_launchpad_hosted_projects(self):
+         ### For Launchpad:
+-        # First, we ask the projects' bug trackers if there are new bugs we should know about
+-        mysite.customs.bugtrackers.launchpad.refresh_bugs_from_all_indexed_launchpad_projects()
+-        # Second, we go through our *own* database of Launchpad-sourced bugs, and make sure they are all up to date
+-        mysite.customs.bugtrackers.launchpad.refresh_all_launchpad_bugs()
++        things_to_do = [
++            # First, we ask the projects' bug trackers if there are new bugs we should know about
++            mysite.customs.bugtrackers.launchpad.refresh_bugs_from_all_indexed_launchpad_projects,
++            # Second, we go through our *own* database of Launchpad-sourced bugs, and make sure they are all up to date
++            mysite.customs.bugtrackers.launchpad.refresh_all_launchpad_bugs]
++        return things_to_do
+ 
+     def check_for_broken_ohloh_links(self):
++        things_to_do = []
+         for citation in mysite.profile.models.Citation.untrashed.filter(
+             data_import_attempt__source__in=('oh', 'rs')):
+-            # check citation URL for being a 404
+-            # if so, remove set the URL to None. Also, log it.
+-            if citation.url:
+-                if mysite.customs.mechanize_helpers.link_works(citation.url):
+-                    # then we do nothing
+-                    pass
+-                else:
+-                    # aww shucks, I guess we have to remove it.
+-                    logging.warning("We had to remove the url %s from the citation whose PK is %d" % (
+-                        citation.url, citation.pk))
+-                    citation.url = None
+-                    citation.save()
++            def do_it(citation=citation):
++                # check citation URL for being a 404
++                # if so, remove set the URL to None. Also, log it.
++                if citation.url:
++                    if mysite.customs.mechanize_helpers.link_works(citation.url):
++                        # then we do nothing
++                        pass
++                    else:
++                        # aww shucks, I guess we have to remove it.
++                        logging.warning("We had to remove the url %s from the citation whose PK is %d" % (
++                                citation.url, citation.pk))
++                        citation.url = None
++                        citation.save()
++            things_to_do.append(do_it)
++        return things_to_do
+ 
+     def handle(self, override_cdt_fns=None, *args, **options):
+         if override_cdt_fns:
+@@ -184,14 +202,18 @@ Supported tracker types:
+ 
+         # Okay, so do the work.
+         for key in tasks:
+-            # Here, we call every one of the worker functions.
++            # Each of these keys returns an iterable of functions to call.
+             #
+-            # If they fail wih an error, we log the error and proceed
+-            # to the next worker function. (The alternative is that we
+-            # let the exception bubble-up and make the entire call to the
+-            # management command fail.)
+-            try:
+-                cdt_fns[key]()
+-            except Exception:
+-                logging.exception("During %s, the particular importer failed. "
+-                                  "Skipping it.", key)
++            # We simply pass each of those callables into the pool.
++            for function in cdt_fns[key]():
++                # Here, we call every one of the worker functions.
++                #
++                # If they fail wih an error, we log the error and proceed
++                # to the next worker function. (The alternative is that we
++                # let the exception bubble-up and make the entire call to the
++                # management command fail.)
++                try:
++                    function()
++                except Exception:
++                    logging.exception("During %s, the particular importer failed. "
++                                      "Skipping it.", key)
+diff --git a/mysite/customs/tests.py b/mysite/customs/tests.py
+index f78b8cd..1dc3eaf 100644
+--- a/mysite/customs/tests.py
++++ b/mysite/customs/tests.py
+@@ -2023,47 +2023,57 @@ class BugzillaImporterOnlyPerformsAQueryOncePerDay(django.test.TestCase):
+         # But now it should be fresh!
+         self.assert_(mysite.customs.bugtrackers.bugzilla.url_is_more_fresh_than_one_day(URL))
+ 
++def do_list_of_work(l):
++    '''Some helper methods in mysite.customs.management.commands.customs_daily_tasks
++       return a list of worker functions to call. This wrapper simply executes all
++       the elements of l, assuming they are callables.'''
++    for thing in l:
++        thing()
++
+ class DailyBugImporter(django.test.TestCase):
+ 
+     @mock.patch('mysite.customs.mechanize_helpers.mechanize_get')
+     def test_roundup_http_error_408_does_not_break(self, mock_error):
+         mock_error.side_effect = generate_408
+-        mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_roundup_trackers()
++        do_list_of_work(mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_roundup_trackers())
+ 
+     @mock.patch('mysite.customs.mechanize_helpers.mechanize_get')
+     @mock.patch('feedparser.parse')
+     def test_roundup_generic_error_does_break(self, mock_timeline_error, mock_error):
+         mock_error.side_effect = ValueError()
+         mock_timeline_error.side_effect = ValueError()
+-        self.assertRaises(ValueError, mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_roundup_trackers)
++        self.assertRaises(ValueError, 
++                          do_list_of_work, mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_roundup_trackers())
+ 
+     @mock.patch('mysite.customs.mechanize_helpers.mechanize_get')
+     @mock.patch('feedparser.parse')
+     def test_trac_http_error_408_does_not_break(self, mock_timeline_error, mock_error):
+         mock_error.side_effect = generate_408
+         mock_timeline_error.side_effect = generate_408
+-        mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_trac_instances()
++        do_list_of_work(mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_trac_instances())
+ 
+     @mock.patch('mysite.customs.mechanize_helpers.mechanize_get')
+     def test_trac_generic_error_does_break(self, mock_error):
+         mock_error.side_effect = ValueError()
+-        self.assertRaises(ValueError, mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_trac_instances)
++        self.assertRaises(ValueError, do_list_of_work, mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_trac_instances())
+ 
+     @mock.patch('mysite.customs.mechanize_helpers.mechanize_get')
+     def test_bugzilla_http_error_504_does_not_break(self, mock_error):
+         mock_error.side_effect = generate_504
+-        mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_bugzilla_instances()
++        do_list_of_work(mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_bugzilla_instances())
+ 
+     @mock.patch('mysite.customs.mechanize_helpers.mechanize_get')
+     def test_bugzilla_generic_error_does_break(self, mock_error):
+         mock_error.side_effect = ValueError()
+-        self.assertRaises(ValueError, mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_bugzilla_instances)
++        self.assertRaises(ValueError, do_list_of_work, mysite.customs.management.commands.customs_daily_tasks.Command().find_and_update_enabled_bugzilla_instances())
+ 
+     def test_management_command_does_not_explode_in_the_face_of_errors(self):
+-        def explosive_function():
+-            raise ValueError()
++        def list_of_explosive_functions():
++            def explosive_function():
++                raise ValueError()
++            return [explosive_function]
+         cmd = mysite.customs.management.commands.customs_daily_tasks.Command()
+-        cmd.handle(override_cdt_fns = {'explosive': explosive_function})
++        cmd.handle(override_cdt_fns = {'explosive': list_of_explosive_functions})
+ 
+ class GoogleCodeBugImporter(django.test.TestCase):
+     def setUp(self):
+-- 
+1.7.5.4
+
+
+From eddb1adafca6ad5147d0226092b47b5830a58509 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Sat, 10 Sep 2011 15:36:59 -0400
+Subject: [PATCH 4/7] Use gevent green-threads to do the work functions in
+ parallel
+
+---
+ .../management/commands/customs_daily_tasks.py     |   39 ++++++++++++++------
+ 1 files changed, 27 insertions(+), 12 deletions(-)
+
+diff --git a/mysite/customs/management/commands/customs_daily_tasks.py b/mysite/customs/management/commands/customs_daily_tasks.py
+index ed37e06..c43bab0 100644
+--- a/mysite/customs/management/commands/customs_daily_tasks.py
++++ b/mysite/customs/management/commands/customs_daily_tasks.py
+@@ -18,6 +18,9 @@
+ import logging
+ import urllib2
+ 
++import gevent.pool
++import gevent.monkey
++
+ from django.core.management.base import BaseCommand
+ 
+ import django.conf
+@@ -182,6 +185,10 @@ Supported tracker types:
+         return things_to_do
+ 
+     def handle(self, override_cdt_fns=None, *args, **options):
++        # Patch modules like urllib2 so that gevent's green-threads can know
++        # to switch to the next thread when one thread blocks on network I/O.
++        gevent.monkey.patch_all()
++
+         if override_cdt_fns:
+             cdt_fns = override_cdt_fns
+         else:
+@@ -200,20 +207,28 @@ Supported tracker types:
+             # Plan to do them all, since the user did not sub-specify.
+             tasks = cdt_fns.keys()
+ 
++        logging.info("Creating gevent pool.")
++        pool = gevent.pool.Pool(50)
++
+         # Okay, so do the work.
+         for key in tasks:
+             # Each of these keys returns an iterable of functions to call.
+             #
+             # We simply pass each of those callables into the pool.
+-            for function in cdt_fns[key]():
+-                # Here, we call every one of the worker functions.
+-                #
+-                # If they fail wih an error, we log the error and proceed
+-                # to the next worker function. (The alternative is that we
+-                # let the exception bubble-up and make the entire call to the
+-                # management command fail.)
+-                try:
+-                    function()
+-                except Exception:
+-                    logging.exception("During %s, the particular importer failed. "
+-                                      "Skipping it.", key)
++            def do_it(key=key):
++                for function in cdt_fns[key]():
++                    # Here, we call every one of the worker functions.
++                    #
++                    # If they fail wih an error, we log the error and proceed
++                    # to the next worker function. (The alternative is that we
++                    # let the exception bubble-up and make the entire call to the
++                    # management command fail.)
++                    try:
++                        function()
++                    except Exception:
++                        logging.exception("During %s, the particular importer failed. "
++                                          "Skipping it.", key)
++            pool.spawn(do_it)
++
++        # By calling join(), we refuse to proceed until all the threads finish.
++        pool.join()
+-- 
+1.7.5.4
+
+
+From f0e746e9cd644765819cce8edae818acccc8c1cf Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Wed, 14 Sep 2011 15:21:17 -0400
+Subject: [PATCH 5/7] Make a comment in customs_daily_tasks more informative
+
+---
+ .../management/commands/customs_daily_tasks.py     |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/management/commands/customs_daily_tasks.py b/mysite/customs/management/commands/customs_daily_tasks.py
+index c43bab0..3939e7b 100644
+--- a/mysite/customs/management/commands/customs_daily_tasks.py
++++ b/mysite/customs/management/commands/customs_daily_tasks.py
+@@ -214,7 +214,8 @@ Supported tracker types:
+         for key in tasks:
+             # Each of these keys returns an iterable of functions to call.
+             #
+-            # We simply pass each of those callables into the pool.
++            # We wrap each callable with a big Exception handler so that
++            # one failure does not kill the entire process.
+             def do_it(key=key):
+                 for function in cdt_fns[key]():
+                     # Here, we call every one of the worker functions.
+-- 
+1.7.5.4
+
+
+From 32554a0136ee59d17d91dbb2d96584d0954e07f1 Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Wed, 14 Sep 2011 15:22:00 -0400
+Subject: [PATCH 6/7] Increase parallelism: Spawn one thread per worker
+ function, not just per type of bug tracker
+
+---
+ .../management/commands/customs_daily_tasks.py     |    6 +++---
+ 1 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/mysite/customs/management/commands/customs_daily_tasks.py b/mysite/customs/management/commands/customs_daily_tasks.py
+index 3939e7b..2df2cf6 100644
+--- a/mysite/customs/management/commands/customs_daily_tasks.py
++++ b/mysite/customs/management/commands/customs_daily_tasks.py
+@@ -216,8 +216,8 @@ Supported tracker types:
+             #
+             # We wrap each callable with a big Exception handler so that
+             # one failure does not kill the entire process.
+-            def do_it(key=key):
+-                for function in cdt_fns[key]():
++            for function in cdt_fns[key]():
++                def do_it(function=function, key=key):
+                     # Here, we call every one of the worker functions.
+                     #
+                     # If they fail wih an error, we log the error and proceed
+@@ -229,7 +229,7 @@ Supported tracker types:
+                     except Exception:
+                         logging.exception("During %s, the particular importer failed. "
+                                           "Skipping it.", key)
+-            pool.spawn(do_it)
++                pool.spawn(do_it)
+ 
+         # By calling join(), we refuse to proceed until all the threads finish.
+         pool.join()
+-- 
+1.7.5.4
+
+
+From 216f6c144d5b812b12a70ccb190e25439008cf4f Mon Sep 17 00:00:00 2001
+From: Asheesh Laroia <asheesh@asheesh.org>
+Date: Wed, 14 Sep 2011 15:42:14 -0400
+Subject: [PATCH 7/7] Increase gevent-based concurrency to 500 simultaneous
+ connections.
+
+---
+ .../management/commands/customs_daily_tasks.py     |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/mysite/customs/management/commands/customs_daily_tasks.py b/mysite/customs/management/commands/customs_daily_tasks.py
+index 2df2cf6..5a5baa7 100644
+--- a/mysite/customs/management/commands/customs_daily_tasks.py
++++ b/mysite/customs/management/commands/customs_daily_tasks.py
+@@ -208,7 +208,7 @@ Supported tracker types:
+             tasks = cdt_fns.keys()
+ 
+         logging.info("Creating gevent pool.")
+-        pool = gevent.pool.Pool(50)
++        pool = gevent.pool.Pool(500)
+ 
+         # Okay, so do the work.
+         for key in tasks:
+-- 
+1.7.5.4
+

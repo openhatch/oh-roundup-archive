@@ -1,0 +1,35 @@
+[tag@chayot:~/dev/testing/svn_missions][04:02 PM]$ svn diff
+Index: word.txt
+===================================================================
+--- word.txt	(revision 4)
++++ word.txt	(working copy)
+@@ -1 +1 @@
+-midnight
++plenipotentiary
+Index: README
+===================================================================
+--- README	(revision 4)
++++ README	(working copy)
+@@ -1,5 +1,5 @@
+ The secret word needed to infiltrate the compound is in word.txt. You
+-also will need to be wearing a red hat.  Good luck on your mission!
++also will need to be wearing a blue hat.  Good luck on your mission!
+ 
+   -- Mr. Bad
+ 
+[tag@chayot:~/dev/testing/svn_missions][04:02 PM]$ svn update
+At revision 4.
+[tag@chayot:~/dev/testing/svn_missions][04:03 PM]$ svn commit
+sSending        README
+Sending        word.txt
+Transmitting file data ..vsvn: Commit failed (details follow):
+svn: Commit blocked by pre-commit hook (exit code 1) with no output.
+svn: Your commit message was left in a temporary file:
+svn:    '/home/tag/dev/testing/svn_missions/svn-commit.tmp'
+[tag@chayot:~/dev/testing/svn_missions][04:04 PM]$ cat /home/tag/dev/testing/svn_missions/svn-commit.tmp
+Helllo, Cleveland!
+--This line, and those below, will be ignored--
+
+M    word.txt
+M    README
+

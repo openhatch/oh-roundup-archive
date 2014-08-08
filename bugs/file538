@@ -1,0 +1,37 @@
+From a2c03d8dd49749853b43321276617f4144626611 Mon Sep 17 00:00:00 2001
+From: florapdx <floraworleypdx@gmail.com>
+Date: Tue, 19 Mar 2013 16:54:05 -0700
+Subject: [PATCH 04/10] added two other links - find project, and add project's
+ bugs' - links for usability
+
+---
+ mysite/profile/templates/profile/main.html | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/mysite/profile/templates/profile/main.html b/mysite/profile/templates/profile/main.html
+index cf43af7..b49fc52 100644
+--- a/mysite/profile/templates/profile/main.html
++++ b/mysite/profile/templates/profile/main.html
+@@ -94,9 +94,19 @@
+         <ul>
+             <li>
+             <a href='{% url mysite.profile.views.portfolio_editor %}'>
++                Find a project &raquo;
++            </a>
++            </li>
++            <li>
++            <a href='{% url mysite.profile.views.portfolio_editor %}'>
+                 Add contributions &raquo;
+             </a>
+             </li>
++            <li>
++            <a href='{% url mysite.profile.views.portfolio_editor %}'>
++                Add project's bugs &raquo;
++            </a>
++            </li>
+         </ul>
+         {% endif %}
+     </div>
+-- 
+1.8.1.3
+
