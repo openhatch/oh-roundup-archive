@@ -1,0 +1,268 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 938: strange result from canceling an openid request - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue938
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue938">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue938">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">strange result from canceling an openid request</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>need-review</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  2mas, paulproteus, tianyupu
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>tianyupu</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-02-13.01:29:36</b> by <b>2mas</b>, last changed <b>2014-03-09.08:24:57</b> by <b>tianyupu</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4162">msg4162 (view)</a></th>
+   <th>Author: tianyupu</th>
+   <th>Date: 2014-03-09.08:24:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I had a look at this, and I have found the issue, but being new to django and web dev, 
+I wasn't sure of the best way to fix the problem. I have created a PR that fixes the 
+issue, though, so that when the signup is cancelled, the login page is displayed again 
+as you would expect: <a href="https://github.com/openhatch/oh-mainline/pull/214">https://github.com/openhatch/oh-mainline/pull/214</a> I'm very open 
+to feedback about the best way to fix this, though :)
+
+The issue is that when the OpenID signup is cancelled, django renders the 
+authopenid/signin.html template (which is what is referred to in 
+vendor/packages/django-authopenid/django-authopenid/views.py) as a result of a request 
+to openid/signin (which urls.py tells us points to the signin function in the views.py 
+file mentioned above). If you look at authopenid/signin.html (located in 
+mysite/accounts/templates), it is the barebones page that 2mas saw.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4132">msg4132 (view)</a></th>
+   <th>Author: 2mas</th>
+   <th>Date: 2014-02-13.01:29:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I was shown a strange looking page when trying to login to OpenHatch and then realizing my 
+girlfriend was signed on to google at the time. The page looks functional but is a bare form with 
+no style or OpenHatch content.
+
+To reproduce this:
+ 1. Be signed in to a google account that does NOT have a profile setup with OpenHatch.
+ 2. Click login/signup on openhatch.org/
+ 3. Choose the Google account option
+ 4. When asked for permission for Google to provide the email address of the account click cancel 
+     (this is where I realized I should sign into my Google account before continuing.)
+
+I'm not sure whether or not this bug is caused by OpenHatch's openid code, or google/openid.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-03-09&nbsp;08:24:57</td><td>tianyupu</td><td>set</td><td>status: unread -> need-review<br />assignedto: <a href="user1032">tianyupu</a><br />messages:
+  + <a href="msg4162">msg4162</a><br />nosy:
+  + <a href="user1032">tianyupu</a></td></tr>
+<tr><td>2014-02-13&nbsp;01:43:49</td><td>2mas</td><td>set</td><td>title: strange result from canceling an opened request -> strange result from canceling an openid request</td></tr>
+<tr><td>2014-02-13&nbsp;01:29:36</td><td>2mas</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

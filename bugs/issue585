@@ -1,0 +1,453 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 585: Roundup's search is unreliable - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue585
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue585">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue585">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Roundup's search is unreliable</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>critical</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-09-05.22:11:50</b> by <b>aldeka</b>, last changed <b>2012-09-02.22:03:46</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3387">msg3387 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-09-02.22:03:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I believe search is now working properly, thanks to not using the (broken, I 
+suppose) Xapian support.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3343">msg3343 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-30.08:32:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just upgraded to 1.4.20 and reindexed. No improvement.
+
+Then I realized that I could just:
+
+ sudo apt-get remove python-xapian
+
+and Roundup will "downgrade" to using the database for searches.
+
+Maybe now things will be fine. The search for "mission" within the bug tracker 
+actually finds more hits now.
+
+I can enable xapian any time anyone asks, if anyone wants to see a demo.
+
+I'd love to get to the root cause, mostly for the benefit of upstream. I think 
+we'll be fine with xapian disabled.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3342">msg3342 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2012-07-30.05:03:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I don't know if this is the same bug, but there was a bug which broke Roundup
+search with Xapian 1.2 - <a href="http://issues.roundup-tracker.org/issue2550676">http://issues.roundup-tracker.org/issue2550676</a> - which
+was fixed upstream in Roundup v1.4.17. The latest upstream version is 1.4.20,
+and we are on v1.4.15. Might it be worthwhile upgrading?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2965">msg2965 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-08.23:15:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="https://www.google.com/search?q=site%3Aopenhatch.org+inurl%3Abugs+mission">https://www.google.com/search?q=site%3Aopenhatch.org+inurl%3Abugs+mission</a>
+
+Only *so* useful, but there you go for now...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2963">msg2963 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2012-02-08.23:12:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Did we ever bring this up with upstream?
+
+Also: aaaaaaaaaaaugh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2616">msg2616 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-09.23:33:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We should bring this up with upstream. Anyway not fixed yet for 0.11.10</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2587">msg2587 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-04.19:23:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I did try this:
+
+* Remove the Xapian index
+* Reindex
+* Re-do the search
+
+This did not actually fix the problem.
+
+Therefore this is, as far as I can tell, an issue with upstream Roundup.
+
+If we want to try digging deeper, we should read the Roundup code and see how
+they're using Xapian. Maybe there's e.g. some configuration option they set that
+is inappropriate.
+
+The other next step is to file a bug with upstream's bug tracker, perhaps with a
+copy of our database or instructions on how to reproduce the problem.
+
+It'd be nice if there were a command-line test tool that we could use to test if
+searches find things we expect them to. There's the roundup-admin tool, but per
+<a href="http://roundup.sourceforge.net/doc-1.0/user_guide.html">http://roundup.sourceforge.net/doc-1.0/user_guide.html</a> it doesn't seem to have a
+search option.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2555">msg2555 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-01.06:06:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So here's what I know about this:
+
+* Roundup uses Xapian to store an index
+
+* There is a command to regenerate the index
+
+* Surprisingly, when you regenerate the index, these searches still fail to find
+things.
+
+Things to try next:
+
+* Remove the Xapian index
+
+* Reindex
+
+* Re-do the search.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2484">msg2484 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-09-05.22:18:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Just confirmed that <a href="issue550">issue550</a> and <a href="issue546">issue546</a> were also missed in that 'mission'
+search. Argh!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2482">msg2482 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-09-05.22:11:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Search for 'mission' on the top right. You get taken to
+<a href="https://openhatch.org/bugs/issue?%40columns=id%2Cactivity%2Ctitle%2Ccreator%2Cassignedto%2Cstatus%2Cmilestone&amp;%40sort=activity&amp;%40group=priority&amp;%40search_text=mission&amp;submit=Search">https://openhatch.org/bugs/issue?%40columns=id%2Cactivity%2Ctitle%2Ccreator%2Cassignedto%2Cstatus%2Cmilestone&amp;%40sort=activity&amp;%40group=priority&amp;%40search_text=mission&amp;submit=Search</a>
+
+This doesn't *actually* have all of the bugs with 'mission' in their title or
+body text. For instance, (I noticed) <a href="issue535">issue535</a> does not appear. There are
+probably many others. Unfortunately, because of this problem, I have no way to
+tell how many!
+
+I first noticed this problem in trying to find all of the 'buildhelper' related
+bugs. Several bugs--bugs with 'buildhelper' in the title!--would never appear in
+searches. I could only access them easily because I was the one who opened them. &gt;.&lt;
+
+Without reliable, working Roundup search, there's no way to handle and reliably
+process the huge volume of bugs in this issue tracker. And it's been bugging me
+for a long time. Marking as 'critical' for that reason.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-09-02&nbsp;22:03:46</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg3387">msg3387</a></td></tr>
+<tr><td>2012-07-30&nbsp;08:32:57</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg3343">msg3343</a></td></tr>
+<tr><td>2012-07-30&nbsp;05:04:02</td><td>pythonian4000</td><td>set</td><td>status: chatting -> need-review<br />nosy:
+  + <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg3342">msg3342</a></td></tr>
+<tr><td>2012-02-08&nbsp;23:15:31</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2965">msg2965</a></td></tr>
+<tr><td>2012-02-08&nbsp;23:12:03</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg2963">msg2963</a></td></tr>
+<tr><td>2011-11-09&nbsp;23:33:54</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2616">msg2616</a><br />milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-10-04&nbsp;19:23:40</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2587">msg2587</a></td></tr>
+<tr><td>2011-10-01&nbsp;06:06:13</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2555">msg2555</a><br />milestone: <a href="milestone11">0.11.09</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-09-05&nbsp;22:18:03</td><td>aldeka</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2484">msg2484</a></td></tr>
+<tr><td>2011-09-05&nbsp;22:11:50</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,543 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 798: Code should be contained in scrollable boxes - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue798
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue798">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue798">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Code should be contained in scrollable boxes</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  nickdirienzo, paulproteus, shivateja
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>shivateja</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-12-14.21:41:23</b> by <b>nickdirienzo</b>, last changed <b>2014-01-09.09:24:08</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file550/0001-Add-SyntaxHighlighter-Issue-798.patch">0001-Add-SyntaxHighlighter-Issue-798.patch</a>
+  </td>
+  <td>
+   <span>shivateja</span>,
+   <span>2013-05-06.17:56:46</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file526/Screenshot%20from%202012-12-14%2016%3A15%3A22.png">Screenshot from 2012-12-14 16:15:22.png</a>
+  </td>
+  <td>
+   <span>nickdirienzo</span>,
+   <span>2012-12-14.21:41:22</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4035">msg4035 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-01-09.09:24:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've merged the patch by @ccarroll on github that resolves this. Huge thanks!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3982">msg3982 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-11-24.17:37:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think the simplest fix for the most important bit of this problem is to look 
+at:
+
+<a href="http://openhatch.org/missions/svn/checkout">http://openhatch.org/missions/svn/checkout</a>
+
+Recognize that the "svn checkout ..." line is supposed to be one command, but 
+also notice that it can very easily wrap onto two lines, so people don't realize 
+it's one long command.
+
+I think the best fix here is, as people have said below, to make that 
+preformatted area get a left-right scrollbar, so it always appears on just one 
+line, even if it's a line that you have to scroll. To achieve that, I think that 
+the CODE tag needs to be given the "overflow-x: scroll;" rule.
+
+Relevant things to know to find the issue here and fix it:
+
+$ git grep 'svn checkout'
+
+This command will show you the path to the template that contains the 'svn 
+checkout' line.
+
+Also, the CSS for the OpenHatch web app is mostly in 
+"static/less/base/base.less", so you should be able to find the current rules 
+for the CSS there, so you can change them there. (The "*.less" file extension 
+refers to the fact that we use <a href="http://lesscss.org/">http://lesscss.org/</a> , but that mostly won't 
+affect you I think.)
+
+(shivateja: we might let someone at an in-person OpenHatch event take this bug, 
+but I do want to say thank you for your research so far!)
+
+It would be great if the people who work on this bug use 'git grep' to look for 
+other uses of the 'code' tag, with e.g. this command:
+
+$ git grep -F '&lt;code&gt;'
+
+Note also that you need to make sure that you don't add horizontal scrollbars to  
+*all* the &lt;code&gt; tag instances. If the code tag doesn't need a scrollbar, don't 
+put one on it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3703">msg3703 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-08.17:32:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yeah, so let's just do the CSS modifications for now. I'll keep this "Assigned 
+to" you, unless you decide otherwise!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3702">msg3702 (view)</a></th>
+   <th>Author: shivateja</th>
+   <th>Date: 2013-05-08.17:23:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Asheesh. Thanks for the inputs. I was expecting this reply. I don't think
+using a syntax highlighter for one line commands is a good idea. Atleast, from
+the one's I've experimented with, none of them were satisfactory. I tried
+highlight.js (<a href="http://jsfiddle.net/jDUrC/1/">http://jsfiddle.net/jDUrC/1/</a>). It doesn't seem to be working
+properly with one liners(<a href="http://jsfiddle.net/jDUrC/2/">http://jsfiddle.net/jDUrC/2/</a> works!). I am exploring
+other frameworks too. Wouldn't some css modifications solve the issue?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3701">msg3701 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-08.17:23:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So, next steps:
+
+If you want to split out the patches that remove &lt;tt&gt; I would merge that 
+lickety-split.
+
+For syntax highlighting, I would recommend <a href="http://craig.is/making/rainbows">http://craig.is/making/rainbows</a> . 
+Another reasonable option seems to be <a href="http://google-code-">http://google-code-</a>
+prettify.googlecode.com/svn/trunk/styles/index.html
+
+But that only adds syntax highlighting; it doesn't make the code blocks 
+horizontally scrollable. 
+
+I would, therefore, focus on creating a CSS class for these code snippets 
+horizontally scrollable and have a max width. I'm happy to provide more 
+pointers, but I think Googling [css overflow scroll] would be the first thing I 
+would start with.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3700">msg3700 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-08.16:09:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi shivateja!
+
+I took a look at this, and have a few bits of feedback.
+
+First of all, thank you for beginning to look into it!
+
+I didn't know TT is deprecated in modern HTML! But you're right, it seems, from 
+my reading.
+
+When you write that you "filed a bug there" about the CODE tag not working for 
+syntax highlighting, do you mean a bug against OpenHatch or a bug against the 
+SyntaxHighlighter JS project? It's best to provide a link to such a bug when you 
+say you filed it.
+
+Thank you for providing a link to a sample page 
+&lt;<a href="http://127.0.0.1:8000/missions/git/description">http://127.0.0.1:8000/missions/git/description</a>&gt; where we can see the changes 
+you made!
+
+
+Those general questions aside, I have some reservations about merging this.
+
+Thanks for providing the jsfiddle at <a href="http://jsfiddle.net/XwyzS/">http://jsfiddle.net/XwyzS/</a> . One thing 
+that's true about the code in the jsfiddle, as well as the code on pages like 
+<a href="http://127.0.0.1:8000/missions/windows-setup/navigating">http://127.0.0.1:8000/missions/windows-setup/navigating</a> , is that every line 
+gets a number (e.g. "1") at the start, and a question mark that links to info 
+about SyntaxHighlighter. I find those are visually distracting when trying to 
+read a one-line command.
+
+Additionally, the way that SyntaxHighlighter stores information about its 
+configuration -- by embedding JSON in the HTML class attribute -- means our HTML 
+becomes invalid and fairly obscure. So I'd actually prefer to use a different JS 
+package than this one.
+
+It is also very confusing that "ls" simply doesn't render at all in that 
+jsfiddle! It makes me concerned  that our future attempts to use it will also be  
+buggy.
+
+Have to run away for a sec to charge my laptop; back in a bit.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3694">msg3694 (view)</a></th>
+   <th>Author: shivateja</th>
+   <th>Date: 2013-05-06.17:56:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Please review the attached patch. "ls" command is not being
+displayed(<a href="http://jsfiddle.net/XwyzS/)(See">http://jsfiddle.net/XwyzS/)(See</a> page
+/missions/windows-setup/navigating). As &lt;tt&gt; is deprecated, I replaced all those
+tags with appropriate tags. Autoloader works fine now. It was not working with
+custom tags(like using "code" instead of the default "pre"), filed a bug there.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3693">msg3693 (view)</a></th>
+   <th>Author: shivateja</th>
+   <th>Date: 2013-05-05.21:58:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Asheesh,
+Sorry for creating confusion. I resolved while I was making the application for
+GSoC. But after a bit of testing, I figured out SyntaxHighlighter's autoloader
+of brushes was not working for some unknown reason which I still couldn't figure
+it out. Attached a patch assuming code on openhatch is completely bash commands.
+Give me a day to submit final patch.
+
+(Sorry for the deleted comments. It was a mistake)
+
+Thanks.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3533">msg3533 (view)</a></th>
+   <th>Author: nickdirienzo</th>
+   <th>Date: 2012-12-14.21:41:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I feel that code snippets should be contained in their own boxes, so if a user 
+visits with a smaller screen they do not assume that each line is its own 
+command to enter on the terminal. 
+
+For example, <a href="http://openhatch.org/missions/svn/checkout,">http://openhatch.org/missions/svn/checkout,</a> on a Chromebook and my 
+Macbook Pro the snippet "svn checkout svn://openhatch.org/nickdirienzo/trunk 
+svn_missions" looks like it is two commands (see attached screenshot). 
+
+There's Pygments, but that would add more server-side work. Or it could be done 
+using SyntaxHighlighter client-side. I mean there are other options, but these 
+are the two that came to my head first. 
+
+Thoughts?</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-01-09&nbsp;09:24:08</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg4035">msg4035</a></td></tr>
+<tr><td>2013-11-24&nbsp;17:37:47</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3982">msg3982</a><br />keyword:
+  + <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2013-05-08&nbsp;17:32:27</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3703">msg3703</a></td></tr>
+<tr><td>2013-05-08&nbsp;17:23:46</td><td>shivateja</td><td>set</td><td>messages:
+  + <a href="msg3702">msg3702</a></td></tr>
+<tr><td>2013-05-08&nbsp;17:23:39</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3701">msg3701</a></td></tr>
+<tr><td>2013-05-08&nbsp;16:09:46</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3700">msg3700</a></td></tr>
+<tr><td>2013-05-06&nbsp;17:56:54</td><td>shivateja</td><td>set</td><td>files:
+  - <a href="file549">issue798.patch</a></td></tr>
+<tr><td>2013-05-06&nbsp;17:56:47</td><td>shivateja</td><td>set</td><td>files:
+  + <a href="file550">0001-Add-SyntaxHighlighter-Issue-798.patch</a><br />messages:
+  + <a href="msg3694">msg3694</a></td></tr>
+<tr><td>2013-05-05&nbsp;21:58:01</td><td>shivateja</td><td>set</td><td>files:
+  + <a href="file549">issue798.patch</a><br />messages:
+  + <a href="msg3693">msg3693</a></td></tr>
+<tr><td>2013-05-05&nbsp;21:50:29</td><td>shivateja</td><td>set</td><td>files:
+  - <a href="file548">issue798.patch</a></td></tr>
+<tr><td>2013-05-05&nbsp;21:50:12</td><td>shivateja</td><td>set</td><td>messages:
+  - <a href="msg3690">msg3690</a></td></tr>
+<tr><td>2013-05-05&nbsp;21:49:06</td><td>shivateja</td><td>set</td><td>messages:
+  - <a href="msg3691">msg3691</a></td></tr>
+<tr><td>2013-05-05&nbsp;21:48:59</td><td>shivateja</td><td>set</td><td>messages:
+  - <a href="msg3692">msg3692</a></td></tr>
+<tr><td>2013-05-05&nbsp;21:21:49</td><td>shivateja</td><td>set</td><td>messages:
+  + <a href="msg3692">msg3692</a></td></tr>
+<tr><td>2013-05-05&nbsp;21:09:42</td><td>shivateja</td><td>set</td><td>files:
+  + <a href="file548">issue798.patch</a><br />messages:
+  + <a href="msg3691">msg3691</a></td></tr>
+<tr><td>2013-05-05&nbsp;18:27:28</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user750">shivateja</a><br />messages:
+  + <a href="msg3690">msg3690</a><br />nosy:
+  + <a href="user750">shivateja</a></td></tr>
+<tr><td>2012-12-14&nbsp;21:41:23</td><td>nickdirienzo</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,600 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 541: Move the OpenHatch mission higher on the front page - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue541
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue541">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue541">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Move the OpenHatch mission higher on the front page</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.07</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, viv
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>viv</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-08-13.19:43:44</b> by <b>paulproteus</b>, last changed <b>2011-09-01.14:15:05</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file397/0001-issue-541-Moved-OpenHatch-missing-div-to-top-of-the-.patch">0001-issue-541-Moved-OpenHatch-missing-div-to-top-of-the-.patch</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-09-01.04:57:53</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file398/0001-issue-541-moved-main-line-under-blue-within-the-blue.patch">0001-issue-541-moved-main-line-under-blue-within-the-blue.patch</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-09-01.14:11:13</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file395/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-09-01.04:23:50</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file396/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-09-01.04:29:24</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2465">msg2465 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-01.14:15:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Some code style feedback: You adjusted the style by creating inline styles on the 
+particular &lt;div&gt;. It's better to change the CSS file, if possible.
+
+For now, this is shippable. So I'm shipping it!
+
+If aldeka has any further thoughts, they can be in a separate bug.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2464">msg2464 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-09-01.14:11:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>ready for review</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2463">msg2463 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-09-01.14:11:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>reopening to update the new patch</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2461">msg2461 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-01.05:39:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Marking as 'resolved', since the core issue is fixed!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2452">msg2452 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-01.05:12:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Vivek, this is resolved. Pushed.
+
+If you join IRC, you'll get some feedback on further changes that would make it
+extra awesome. It sure is getting late, so I don't know if there's still time
+for you... I'll paste the conversation here so far, just in case you want to
+make them.
+
+&lt;paulproteus&gt; aldeka: I just deployed a patch that changes the logged-out front
+page to move the mission box higher on the page. 
+&lt;paulproteus&gt; Curious if you would give it an eyeball and say what you think of
+the change.
+&lt;aldeka&gt; paulproteus: I'd cut the "about openhatch" and put the big giant title
+in that space instead.
+&lt;aldeka&gt; Also dang does the interior of that box have a lot of vertical space.
+&lt;paulproteus&gt; Mmm -- within the blue background?
+&lt;aldeka&gt; Right.
+
+If you have trouble getting on IRC, try the webchat link at
+<a href="https://openhatch.org/wiki/Contact">https://openhatch.org/wiki/Contact</a>
+
+If that doesn't work for you today, then we can file bugs about those changes later.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2450">msg2450 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-09-01.04:57:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ready for review</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2445">msg2445 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-01.04:31:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On Thu, 1 Sep 2011, viv wrote:
+
+&gt; ok.. got it.. I will move the box on the top....and under "*OpenHatch* 
+&gt; ?? community tools for free and open source software"
+
+Yup, I think that makes sense.
+
+If you decide that you want to do some other design changes to the front 
+page, totally feel free to submit it as a separate patch on top!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2444">msg2444 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-09-01.04:29:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>ok.. got it.. I will move the box on the top....and under "*OpenHatch* ·
+community tools for free and open source software"
+
+On Wed, Aug 31, 2011 at 9:26 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Try logging out first. It's only visible on the logged-out page.
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue541">https://openhatch.org/bugs/issue541</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2443">msg2443 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-01.04:26:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Try logging out first. It's only visible on the logged-out page.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2442">msg2442 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-09-01.04:23:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>my blindness... I still can not see this line at <a href="http://openhatch.org/">http://openhatch.org/</a> or
+<a href="http://openhatch.org/missions/">http://openhatch.org/missions/</a> I could only find 4 coinsurances of mission
+word on the main page.. and I still couldnt find the below mentioned line
+anywhere...
+
+On Wed, Aug 31, 2011 at 8:43 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Yeah -- just visually, on the front page, there are the info tabs, and
+&gt; below that, a box that says the mission of the OpenHatch project, e.g.
+&gt; "Free, open source software loses potential contributors..."
+&gt;
+&gt; Sorry for the vagueness, typng on my phone!
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue541">https://openhatch.org/bugs/issue541</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2440">msg2440 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-01.03:43:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yeah -- just visually, on the front page, there are the info tabs, and 
+below that, a box that says the mission of the OpenHatch project, e.g. 
+"Free, open source software loses potential contributors..."
+
+Sorry for the vagueness, typng on my phone!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2439">msg2439 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-09-01.03:22:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I am a bit confused, can you please elaborate what needs to be moved where...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2438">msg2438 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-08-31.23:43:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I take it..</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2306">msg2306 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-13.19:43:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>OpenHatch is becoming bigger than just the website -- we're organizing events
+and giving talks.
+
+It's important that people understand the purpose of the whole project, and for
+that reason, we should move the mission higher up on the front page.
+
+(From conversation with Mako)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-09-01&nbsp;14:15:05</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2465">msg2465</a></td></tr>
+<tr><td>2011-09-01&nbsp;14:11:30</td><td>viv</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg2464">msg2464</a></td></tr>
+<tr><td>2011-09-01&nbsp;14:11:14</td><td>viv</td><td>set</td><td>files:
+  + <a href="file398">0001-issue-541-moved-main-line-under-blue-within-the-blue.patch</a><br />status: resolved -> chatting<br />messages:
+  + <a href="msg2463">msg2463</a></td></tr>
+<tr><td>2011-09-01&nbsp;05:39:43</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg2461">msg2461</a></td></tr>
+<tr><td>2011-09-01&nbsp;05:12:03</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2452">msg2452</a></td></tr>
+<tr><td>2011-09-01&nbsp;04:57:53</td><td>viv</td><td>set</td><td>status: need-example -> need-review<br />files:
+  + <a href="file397">0001-issue-541-Moved-OpenHatch-missing-div-to-top-of-the-.patch</a><br />messages:
+  + <a href="msg2450">msg2450</a></td></tr>
+<tr><td>2011-09-01&nbsp;04:31:13</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2445">msg2445</a></td></tr>
+<tr><td>2011-09-01&nbsp;04:29:24</td><td>viv</td><td>set</td><td>files:
+  + <a href="file396">unnamed</a><br />messages:
+  + <a href="msg2444">msg2444</a></td></tr>
+<tr><td>2011-09-01&nbsp;04:26:38</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2443">msg2443</a></td></tr>
+<tr><td>2011-09-01&nbsp;04:23:50</td><td>viv</td><td>set</td><td>files:
+  + <a href="file395">unnamed</a><br />messages:
+  + <a href="msg2442">msg2442</a></td></tr>
+<tr><td>2011-09-01&nbsp;03:43:15</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2440">msg2440</a></td></tr>
+<tr><td>2011-09-01&nbsp;03:22:55</td><td>viv</td><td>set</td><td>status: in-progress -> need-example<br />messages:
+  + <a href="msg2439">msg2439</a></td></tr>
+<tr><td>2011-08-31&nbsp;23:43:32</td><td>viv</td><td>set</td><td>status: unread -> in-progress<br />assignedto: <a href="user79">viv</a><br />messages:
+  + <a href="msg2438">msg2438</a><br />nosy:
+  + <a href="user79">viv</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:31:42</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone11">0.11.09</a> -> <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-08-13&nbsp;19:43:44</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

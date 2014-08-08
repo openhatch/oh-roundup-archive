@@ -1,0 +1,368 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 1011: Can't access project page (OpenStack Horizon) - Error 500 - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue1011
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue1011">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue1011">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Can't access project page (OpenStack Horizon) - Error 500</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  blues_chick, jpichon, paulproteus, vkmc
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-07-04.15:00:09</b> by <b>jpichon</b>, last changed <b>2014-07-06.21:22:40</b> by <b>blues_chick</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4440">msg4440 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-07-06.21:22:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>@jpichon :-)
+
+Closing this issue as resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4437">msg4437 (view)</a></th>
+   <th>Author: jpichon</th>
+   <th>Date: 2014-07-06.16:07:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Great, I can access the page again. Thank you!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4435">msg4435 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-07-06.12:36:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks Asheesh for getting these fixes done and for your help on July 4th :) 
+I've reviewed your fixes, and OpenStack dashboard (Horizon) project now displays the correct 
+project page.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4434">msg4434 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-07-06.10:02:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just pushed fixes for this. Thanks Julie for filing the issue!
+Relevant commits:
+
+* <a href="https://github.com/openhatch/oh-">https://github.com/openhatch/oh-</a>
+mainline/commit/b36384e0fb20e4fe2a12ee7f25e12b2ec05fdfa8
+
+* <a href="https://github.com/openhatch/oh-">https://github.com/openhatch/oh-</a>
+mainline/commit/b8a73995bc37c81de23bdb77504a6493fa4ff735
+
+
+Sorry about the delays in getting a fix ready and deployed. Slightly more info 
+is in those commit messages.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4433">msg4433 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-07-04.16:19:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Submitted PR 296 to stop displaying current image on Error 500 page. If Travis comes back green, I 
+will wait a couple of hours and then merge. I would prefer someone else merge into master yet it is 
+a holiday in the US.
+
+@paulproteus - I did a quick check of the top few projects and a few were redirecting to 500 page 
+including OpenHatch. I'm not sure the fix to the cause of the 500 errors so I will need additional 
+help from you.
+
+Others on dev team - feel free to claim and work on correcting the root cause of the 500 error.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4432">msg4432 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-07-04.15:16:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thank you @jpichon for filing this issue, and I'm sorry that the page is displaying an Error 500 page. 
+I've increased the priority of the issue since I think OpenStack is an awesome project and openhatch 
+should not be directing potential contributors to the Error page.
+
+@paulproteus - Is this a database change needed?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4431">msg4431 (view)</a></th>
+   <th>Author: jpichon</th>
+   <th>Date: 2014-07-04.15:00:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>For at least the last few days, it hasn't been possible to access the OpenStack
+dashboard (Horizon) project page:
+<a href="http://openhatch.org/projects/OpenStack%20dashboard%20%28Horizon%29">http://openhatch.org/projects/OpenStack%20dashboard%20%28Horizon%29</a> . It shows
+an "Error 500 (server error)" with the I suck at life image.
+
+If it's a naming issue, I'm happy to tweak it (e.g. remove the parenthesis?) but
+unfortunately I can't access the project details to do this at the moment.
+
+I'm not sure what priority makes sense, it's a bug but for us it's pretty
+serious :) Thanks!</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-07-06&nbsp;21:22:40</td><td>blues_chick</td><td>set</td><td>status: testing -> resolved<br />messages:
+  + <a href="msg4440">msg4440</a></td></tr>
+<tr><td>2014-07-06&nbsp;16:07:37</td><td>jpichon</td><td>set</td><td>messages:
+  + <a href="msg4437">msg4437</a></td></tr>
+<tr><td>2014-07-06&nbsp;12:36:57</td><td>blues_chick</td><td>set</td><td>status: need-review -> testing<br />messages:
+  + <a href="msg4435">msg4435</a></td></tr>
+<tr><td>2014-07-06&nbsp;10:02:24</td><td>paulproteus</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg4434">msg4434</a></td></tr>
+<tr><td>2014-07-04&nbsp;16:19:19</td><td>blues_chick</td><td>set</td><td>status: chatting -> in-progress<br />messages:
+  + <a href="msg4433">msg4433</a></td></tr>
+<tr><td>2014-07-04&nbsp;15:16:52</td><td>blues_chick</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user723">blues_chick</a><br />messages:
+  + <a href="msg4432">msg4432</a><br />priority: bug -> urgent</td></tr>
+<tr><td>2014-07-04&nbsp;15:02:01</td><td>vkmc</td><td>set</td><td>nosy:
+  + <a href="user774">vkmc</a></td></tr>
+<tr><td>2014-07-04&nbsp;15:00:09</td><td>jpichon</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

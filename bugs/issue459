@@ -1,0 +1,356 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 459: Review the text on git training mission for compatibility with the current Pedagogy - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue459
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue459">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue459">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Review the text on git training mission for compatibility with the current Pedagogy</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, janet, jesstess, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>aldeka</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-06-23.20:08:59</b> by <b>janet</b>, last changed <b>2012-03-12.21:14:15</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3092">msg3092 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-12.21:14:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yay, the review is over.
+
+Now we just have to make the changes required!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2953">msg2953 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2012-02-08.21:36:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The review, if not the editing, is done. See 
+<a href="http://lists.openhatch.org/pipermail/devel/2012-February/002649.html">http://lists.openhatch.org/pipermail/devel/2012-February/002649.html</a> for details.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2640">msg2640 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-10.00:11:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Not yet done, but would be great. Marking as "later".</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2558">msg2558 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-01.06:30:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I want to keep <a href="https://openhatch.org/wiki/Missions_pedagogy">https://openhatch.org/wiki/Missions_pedagogy</a> in mind as we decide
+on the text fixes here.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2114">msg2114 (view)</a></th>
+   <th>Author: kracekumar</th>
+   <th>Date: 2011-06-23.21:36:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I agree with missing cd commands.I feel we should still focus of using git
+practically ,I have idea.
+Assumptions:
+People who come git commission should know at least one programming language  .
+First Mission could be to create a directory and write hello world program in
+their favourite language and initiate git directory and add the file to git .
+Then add a one line to the program and commit.Now run git diff.
+Second Mission:
+Add one more file  to git directory and commit.
+Then view log and revert the changes.
+Third Mission:
+Create branches and switch to branches.
+Create a patch file and sending via email.
+Final Mission:
+Git push exercise.
+
+Pushed directory can  be deleted /this mission can be done in something
+different manner.
+
+Above steps is how I learnt about git.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2105">msg2105 (view)</a></th>
+   <th>Author: janet</th>
+   <th>Date: 2011-06-23.20:08:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>One of the miro interns (coming from a Windows background) recently tried the
+git mission - this is the feedback I received:
+
+I couldn't make much use of the git mission because I  feel that the
+instructions are not too clear enough. I failed to execute the provided commands
+because I wasn't aware that "hover for hint" is applicable for Windows too, it
+said "for linux". I was executing commands outside the get_missions folder and
+missing the command "cd get_missions". Everything worked fine later.
+ 
+Also I did not see, Git Init, Git pull commands, I found some youtube videos
+that were very helpful.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-03-12&nbsp;21:14:15</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3092">msg3092</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-02-08&nbsp;21:36:37</td><td>aldeka</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg2953">msg2953</a></td></tr>
+<tr><td>2012-02-08&nbsp;21:34:35</td><td>aldeka</td><td>set</td><td>status: chatting -> in-progress</td></tr>
+<tr><td>2012-02-08&nbsp;21:34:29</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user4">aldeka</a><br />nosy:
+  + <a href="user4">aldeka</a></td></tr>
+<tr><td>2011-11-10&nbsp;00:11:37</td><td>paulproteus</td><td>set</td><td>title: Review the git training mission -> Review the text on git training mission for compatibility with the current Pedagogy<br />messages:
+  + <a href="msg2640">msg2640</a><br />milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-11-10&nbsp;00:10:14</td><td>paulproteus</td><td>set</td><td>title: Clarify some of the text on the git mission -> Review the git training mission</td></tr>
+<tr><td>2011-10-01&nbsp;06:30:25</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2558">msg2558</a><br />milestone: <a href="milestone11">0.11.09</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-09-05&nbsp;21:45:59</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone11">0.11.09</a></td></tr>
+<tr><td>2011-06-23&nbsp;21:36:34</td><td>kracekumar</td><td>set</td><td>status: chatting -> unread<br />messages:
+  + <a href="msg2114">msg2114</a></td></tr>
+<tr><td>2011-06-23&nbsp;21:35:40</td><td>kracekumar</td><td>set</td><td>messages:
+  - <a href="msg2113">msg2113</a></td></tr>
+<tr><td>2011-06-23&nbsp;21:35:03</td><td>kracekumar</td><td>set</td><td>priority: bug -> wish<br />status: unread -> chatting<br />messages:
+  + <a href="msg2113">msg2113</a></td></tr>
+<tr><td>2011-06-23&nbsp;20:10:09</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2011-06-23&nbsp;20:08:59</td><td>janet</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

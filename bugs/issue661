@@ -1,0 +1,316 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 661: Volunteer Opportunities (bite-sized bugs) should not list bugs with status needs-review - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue661
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue661">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue661">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Volunteer Opportunities (bite-sized bugs) should not list bugs with status needs-review</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  JasonWoof, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-01-21.22:58:22</b> by <b>JasonWoof</b>, last changed <b>2012-05-21.20:14:28</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3259">msg3259 (view)</a></th>
+   <th>Author: JasonWoof</th>
+   <th>Date: 2012-05-19.16:34:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Confirmed! I just looked over the first three pages of the volunteer opportunities, and the needs-review statuses are nowhere to be found :)
+
+Thank you!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3258">msg3258 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-18.18:43:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Okay, the backend changes for this are implemented and a fresh crawl is in 
+progress. This should take care of things.
+
+Within a few hours, when the crawl is done, we'll really know. I'll mark it as 
+resolved eagerly, but feel free to re-open if it doesn't seem to have done the 
+job.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2955">msg2955 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-08.22:27:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Agreed!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2899">msg2899 (view)</a></th>
+   <th>Author: JasonWoof</th>
+   <th>Date: 2012-01-21.22:58:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The Volunteer Opportunities page (and the links to it from project pages) include 
+bugs with the status "needs-review". I think these bugs are almost always past the 
+point where new contributors can help. (Generally reviewing needs to be done by 
+seasoned developers.)
+
+Project page with count of volunteer opportunities:
+
+<a href="https://openhatch.org/+projects/OpenHatch">https://openhatch.org/+projects/OpenHatch</a>   (last box in the right column)
+
+Volunteer Opportunities page showing (currently) lots of bugs that have "needs-
+review" status:
+
+<a href="https://openhatch.org/search/?project=OpenHatch">https://openhatch.org/search/?project=OpenHatch</a>
+
+
+My user story: I was curious if there was a bite-sized bug for OpenHatch that I 
+might be interested in tackling, so I found the openhatch project page, and after 
+some hunting around, found the volunteer opportunities link. Then at the volunteer 
+opportunities page I read the headlines, clicked a couple to see more, and then 
+clicked through to read one bug. After reading about a page worth of posts on the 
+bug, I realized that somebody fixed it already, and it was just awaiting review. 
+Oops... wasted some time there. Then I went back to the volunteer opportunities 
+list, and clicked all of them to see their statuses (thankfully they show on this 
+page) and found a couple bugs that hadn't gotten to the review phase yet. Not a 
+huge waste of time, but it cut into my attention span quite a bit.
+
+Thank you.
+
+            - Jason
+
+P.S. is this a bite-sized bug?</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-05-21&nbsp;20:14:28</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2012-05-19&nbsp;16:34:58</td><td>JasonWoof</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg3259">msg3259</a></td></tr>
+<tr><td>2012-05-18&nbsp;18:43:03</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg3258">msg3258</a></td></tr>
+<tr><td>2012-02-08&nbsp;22:27:30</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2955">msg2955</a><br />milestone: <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-01-21&nbsp;22:58:22</td><td>JasonWoof</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

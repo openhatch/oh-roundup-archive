@@ -1,0 +1,597 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 844: Subversion Mission for Mac - documentation and connection error to remote repo - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue844
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue844">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue844">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Subversion Mission for Mac - documentation and connection error to remote repo</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>in-progress</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  achock, blues_chick, fstopzero, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  bitesize, documentation, testing
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2013-03-21.19:29:11</b> by <b>fstopzero</b>, last changed <b>2014-02-08.13:04:44</b> by <b>achock</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file656/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>achock</span>,
+   <span>2014-02-08.13:03:38</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4118">msg4118 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-02-08.05:48:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey achock, did this get resolved? If not, are you still interested in taking a 
+look to make sure the link gets put in a good place?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4059">msg4059 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-01-15.15:55:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thank you aaron! 
+
+I think the best place for the link to the wiki page would be on the main page
+of the subversion mission.
+
+Perhaps editing: mysite/missions/templates/missions/svn/main_page.html</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4054">msg4054 (view)</a></th>
+   <th>Author: achock</th>
+   <th>Date: 2014-01-14.14:40:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks to britta and carol for helping me out with the wiki page. Now that the
+wiki page is done where would you like me to insert the anchor?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4051">msg4051 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-01-12.15:41:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Tested on a Mac running OSx 10.9.1.
+
+svn connectivity issue is fixed. I was able to complete the entire mission. I
+consider Item 2 (svn connectivity) resolved. Thank you paulproteus!
+
+Addition of Item 3 (Mission pages text being clipped):
+On a couple of the mission pages the text is getting cut off by approximately
+two characters. The major problem with this is that the secret word
+'plenipotentiary' was missing its initial two letters.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4045">msg4045 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-01-12.04:46:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Can y'all try this freshly, now that the underlying svn connectivity issue 
+is fixed?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4042">msg4042 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-01-11.23:20:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yeah, I think this is currently an issue related to the switch to 
+CloudFlare; see <a href="http://openhatch.org/bugs/issue910">http://openhatch.org/bugs/issue910</a>
+
+I can tackle that probably today.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4041">msg4041 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-01-11.23:15:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Update: Item 2a from <a href="msg4040">msg4040</a>.
+
+I tested the subversion mission on my Ubuntu system. Same results as on the Mac. 
+I am unable to checkout the repo using the 'svn checkout' command mentioned in 
+the mission. 
+
+If someone else, could confirm their findings on Linux that would be great. It 
+should take only a few minutes.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4040">msg4040 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-01-11.19:11:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Based on current testing of the Subversion mission on Mac OSx v10.9, I am
+recommending two next steps:
+1) Documentation of installation of Subversion on Mac using XCode: Aaron has
+begun taking screenshots of the installation process. The next step would be a
+brief write up of instructions
+
+2) Error on svn mission checkout: When the command 'svn checkout
+svn://openhatch.org/user_name/trunk svn_missions' is executed from the command
+line, the command hangs. On termination of the command, an error message 'svn:
+E200015: Unable to connect to a repository at URL
+'svn://openhatch.org/user_name/trunk'
+
+Item (2) requires more testing to determine if: a) the remote repo is being
+created correctly (test using a Linux system), b) if remote repo does exist,
+test if it can be accessed from within XCode; c) try to test from the terminal
+command line.
+
+My instinct on Item (2) is that this is related to permissions related to svn on
+the Mac or Mac's security system blocking access to the remote repo.
+
+Thanks to Aaron for moving this issue forward especially with Item 1 documentation.
+
+I am editing the issue title to more accurately reflect the current knowledge
+re: issue.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3986">msg3986 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-11-24.18:05:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>To increase the clarity here:
+
+on <a href="http://openhatch.org/missions/svn/description">http://openhatch.org/missions/svn/description</a> we should tell people to 
+install XCode. Since I'm not a Mac user, I'm not sure how to install XCode. It 
+looks like <a href="https://www.macports.org/guide/chunked/installing.xcode.html">https://www.macports.org/guide/chunked/installing.xcode.html</a> is a 
+reliable guide for installing XCode, but what do I know.
+
+If it is a reliable guide, then that seems like a good thing to link to. If you 
+have a better idea, or a video that you can find that you like, link to that.
+
+Anyway, once XCode has been installed, hopefully then typing 'svn help' into a 
+Terminal will cause you to see something like:
+
+usage: svn &lt;subcommand&gt; [options] [args]
+Subversion command-line client, version 1.7.13.
+Type 'svn help &lt;subcommand&gt;' for help on a specific subcommand.
+
+
+
+rather than "Command not found".
+
+It's important that whoever fixes this actually test that the proposed solution 
+seems to work. For example, maybe XCode typically installs svn in a place that 
+is not available to Terminal, but if you set the $PATH variable, then it does 
+become available? You, dear bug fixer, are going to have to find this out. (:
+
+The fix is going to be done by editing 
+mysite/missions/templates/missions/svn/about_svn.html and submitting a pull 
+request with your new text there. You should view the site locally on your 
+laptop/etc. before submitting the pull request.
+
+(Marking as bitesize, in the hopes that a new contributor to OpenHatch can 
+tackle this.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3974">msg3974 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-11-24.06:48:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I believe our recommendation should be to tell people to install XCode, and then 
+make sure they can run 'svn' from their Terminal.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3660">msg3660 (view)</a></th>
+   <th>Author: fstopzero</th>
+   <th>Date: 2013-03-23.17:04:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi,
+
+I'm looking at the training section on using Subversion. 
+
+My last issue I posted was on the VCS install and Subversion download.  There's some confusion out 
+there, apparently, on how to download for a Mac- some docs say it's included in OS X and higher:
+<a href="http://subversion.apache.org/packages.html#osx">http://subversion.apache.org/packages.html#osx</a>
+... but according to other discussions, that doesn't seem to be the case:
+
+<a href="http://stackoverflow.com/questions/12530085/how-to-setup-svn-on-mac-os-x-10-8-2">http://stackoverflow.com/questions/12530085/how-to-setup-svn-on-mac-os-x-10-8-2</a>
+
+The above link rec's that you download xcode and then enter the command line from there
+ 
+Apparently there is one at wandisco:
+<a href="http://www.wandisco.com/subversion/download#osx">http://www.wandisco.com/subversion/download#osx</a>
+
+... which comes with a very small amount of support - I've downloaded it, and am working now to 
+figure out what to do next. 
+
+As you can see, it is the *opposite* of intuitive.  It's important to note that the gui version of this is 
+not free.  Clarifying the documentation is very much needed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3653">msg3653 (view)</a></th>
+   <th>Author: fstopzero</th>
+   <th>Date: 2013-03-21.19:34:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey. 
+
+NIce description of what a VCS is, but there's only a download link for Windows users here:
+<a href="http://openhatch.org/missions/svn/description">http://openhatch.org/missions/svn/description</a>
+
+-Becka</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3652">msg3652 (view)</a></th>
+   <th>Author: fstopzero</th>
+   <th>Date: 2013-03-21.19:29:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://openhatch.org/missions/diffpatch/recursive_patch">http://openhatch.org/missions/diffpatch/recursive_patch</a>
+
+I'm a n00b to the command line and contributing, and am learning as I go through the trainings.  
+The instructions here:
+<a href="http://openhatch.org/missions/diffpatch/recursive_patch">http://openhatch.org/missions/diffpatch/recursive_patch</a>
+
+are windows specific, and also, seem to be unclear - I don't know if the patch isn't working because 
+of the recommended command line, or because I'm making a mistake.  
+
+Nitpicking here: the "1" looks like an "l" in this font.  Maybe an explanation on what the number 
+means? 
+
+Here's my command line:
+
+Beckas-MacBook-Air:recursivediff becka$ patch -p1 &lt; recipes.patch
+patch unexpectedly ends in middle of line
+patch: **** Only garbage was found in the patch input.
+Beckas-MacBook-Air:recursivediff becka$ patch -p1 &lt; more-garlic.patch
+-bash: more-garlic.patch: No such file or directory
+Beckas-MacBook-Air:recursivediff becka$ patch -p1 &lt; recipes.patch
+patch unexpectedly ends in middle of line
+patch: **** Only garbage was found in the patch input.
+Beckas-MacBook-Air:recursivediff becka$ patch -p1 &lt; page
+-bash: page: No such file or directory
+Beckas-MacBook-Air:recursivediff becka$ patch -p1 &lt; patch
+patching file recipes/README
+patching file recipes/MelanzaneParmigiana.txt</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-02-08&nbsp;13:04:44</td><td>achock</td><td>set</td><td>messages:
+  - <a href="msg4122">msg4122</a></td></tr>
+<tr><td>2014-02-08&nbsp;13:03:39</td><td>achock</td><td>set</td><td>files:
+  + <a href="file656">unnamed</a><br />messages:
+  + <a href="msg4122">msg4122</a></td></tr>
+<tr><td>2014-02-08&nbsp;05:48:41</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user958">achock</a><br />messages:
+  + <a href="msg4118">msg4118</a></td></tr>
+<tr><td>2014-01-15&nbsp;15:55:02</td><td>blues_chick</td><td>set</td><td>messages:
+  + <a href="msg4059">msg4059</a></td></tr>
+<tr><td>2014-01-14&nbsp;14:40:39</td><td>achock</td><td>set</td><td>messages:
+  + <a href="msg4054">msg4054</a></td></tr>
+<tr><td>2014-01-12&nbsp;15:41:26</td><td>blues_chick</td><td>set</td><td>messages:
+  + <a href="msg4051">msg4051</a></td></tr>
+<tr><td>2014-01-12&nbsp;04:46:53</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4045">msg4045</a></td></tr>
+<tr><td>2014-01-11&nbsp;23:20:55</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4042">msg4042</a></td></tr>
+<tr><td>2014-01-11&nbsp;23:15:34</td><td>blues_chick</td><td>set</td><td>status: chatting -> in-progress<br />messages:
+  + <a href="msg4041">msg4041</a></td></tr>
+<tr><td>2014-01-11&nbsp;19:11:24</td><td>blues_chick</td><td>set</td><td>nosy:
+  + <a href="user723">blues_chick</a><br />messages:
+  + <a href="msg4040">msg4040</a><br />keyword:
+  + <a href="keyword2">documentation</a>, <a href="keyword21">testing</a><br />title: More on Subversion deployment for Mac - clear as mud -> Subversion Mission for Mac - documentation and connection error to remote repo</td></tr>
+<tr><td>2013-11-24&nbsp;18:05:55</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3986">msg3986</a><br />keyword:
+  + <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2013-11-24&nbsp;06:48:41</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3974">msg3974</a></td></tr>
+<tr><td>2013-03-23&nbsp;17:04:22</td><td>fstopzero</td><td>set</td><td>priority: wish -> bug<br />messages:
+  + <a href="msg3660">msg3660</a><br />title: No download link for Mac users -> More on Subversion deployment for Mac - clear as mud</td></tr>
+<tr><td>2013-03-21&nbsp;19:34:02</td><td>fstopzero</td><td>set</td><td>priority: bug -> wish<br />status: unread -> chatting<br />messages:
+  + <a href="msg3653">msg3653</a><br />title: Windows specific instructions -> No download link for Mac users</td></tr>
+<tr><td>2013-03-21&nbsp;19:29:11</td><td>fstopzero</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

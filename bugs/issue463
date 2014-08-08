@@ -1,0 +1,714 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 463: If you submit nothing to /missions/diffpatch/diffrecursive/submit , the server crashes - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue463
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue463">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue463">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">If you submit nothing to /missions/diffpatch/diffrecursive/submit , the server crashes</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.07</td>
+ <th class="required">Priority</th>
+ <td>critical</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jesstess, paulproteus, viv
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>viv</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-07-01.22:12:31</b> by <b>paulproteus</b>, last changed <b>2011-08-31.23:03:24</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file391/0001-Issue-463-Handling-IndexError-exception-including-co.patch">0001-Issue-463-Handling-IndexError-exception-including-co.patch</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-08-29.05:04:26</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file379/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-08-08.07:06:48</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file390/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-08-27.21:56:24</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file392/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-08-29.05:05:29</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file393/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-08-31.18:36:41</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2435">msg2435 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-08-31.18:36:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oh Thanks.. I was kind of fiddling with Django unittests to post a file... I
+will seek new chalange on this Saturday meeting..
+
+Regards,
+
+Vivek
+
+On Wed, Aug 31, 2011 at 11:23 AM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Hi Vivek,
+&gt;
+&gt; I managed to merge this in locally, so you don't have to freshly rebase it.
+&gt;
+&gt; Having said that, it seems that this is already fixed in the current
+&gt; codebase.
+&gt; jesstess fixed the buggy core of the patch.py code, which makes the
+&gt; exception go
+&gt; away. So I won't push the patch that also wraps that in a try/catch
+&gt; contributed
+&gt; by viv.
+&gt;
+&gt; Sorry! )-: We should have closed this bug...
+&gt;
+&gt; Vivek, I hope you'll try your hand at another one, or help us work through
+&gt; some
+&gt; architectural changes in the future.
+&gt;
+&gt; ----------
+&gt; status: in-progress -&gt; resolved
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue463">https://openhatch.org/bugs/issue463</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2431">msg2431 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-31.18:23:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Vivek,
+
+I managed to merge this in locally, so you don't have to freshly rebase it.
+
+Having said that, it seems that this is already fixed in the current codebase.
+jesstess fixed the buggy core of the patch.py code, which makes the exception go
+away. So I won't push the patch that also wraps that in a try/catch contributed
+by viv.
+
+Sorry! )-: We should have closed this bug...
+
+Vivek, I hope you'll try your hand at another one, or help us work through some
+architectural changes in the future.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2417">msg2417 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-29.05:19:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi vivek,
+
+This patch is not against the latest openhatch code, I think.
+
+Can you do:
+
+ $ git fetch
+ $ git rebase origin/master
+
+and then re-submit the change?
+
+Also, do please write a test. As per <a href="issue562">issue562</a> we're probably going to remove our
+local changes to patch.py, and we're definitely going to want to make sure that
+the patch.py from <a href="http://code.google.com/p/python-patch/">http://code.google.com/p/python-patch/</a> has the bug fixed also.
+
+Thanks for submitting this so far!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2416">msg2416 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-08-29.05:05:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ready for review.
+
+On Sat, Aug 27, 2011 at 2:56 PM, Vivek Shrivastava &lt;<a href="mailto:vivshrivastava@gmail.com">vivshrivastava@gmail.com</a>
+&gt; wrote:
+
+&gt; Hi Asheesh,
+&gt;
+&gt; I should be able to do it by Aug 31.
+&gt;
+&gt; Thanks,
+&gt;
+&gt; VIvke
+&gt;
+&gt;
+&gt; On Sat, Aug 27, 2011 at 2:54 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;wrote:
+&gt;
+&gt;&gt;
+&gt;&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;&gt;
+&gt;&gt; Hey vivek,
+&gt;&gt;
+&gt;&gt; Let us know how things are going. If you're not going to have time for
+&gt;&gt; this, and
+&gt;&gt; still want it to be part of 0.11.07, I could maybe try to tackle it. I'll
+&gt;&gt; leave
+&gt;&gt; it for last, to give you as much time as possible. The milestone ends Aug
+&gt;&gt; 31, so
+&gt;&gt; I'll probably start looking at it on that date if I don't hear any more
+&gt;&gt; from you.
+&gt;&gt;
+&gt;&gt; Normally I'd just push it out of the milestone, but crasher bugs are sad
+&gt;&gt; for
+&gt;&gt; users.
+&gt;&gt;
+&gt;&gt; __________________________________________
+&gt;&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt;&gt; &lt;<a href="https://openhatch.org/bugs/issue463">https://openhatch.org/bugs/issue463</a>&gt;
+&gt;&gt; __________________________________________
+&gt;&gt;
+&gt;
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2415">msg2415 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-08-29.05:04:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Please review the changes. I would need to more time to write test if that is 
+necessary.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2412">msg2412 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-08-27.21:56:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Asheesh,
+
+I should be able to do it by Aug 31.
+
+Thanks,
+
+VIvke
+
+On Sat, Aug 27, 2011 at 2:54 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Hey vivek,
+&gt;
+&gt; Let us know how things are going. If you're not going to have time for
+&gt; this, and
+&gt; still want it to be part of 0.11.07, I could maybe try to tackle it. I'll
+&gt; leave
+&gt; it for last, to give you as much time as possible. The milestone ends Aug
+&gt; 31, so
+&gt; I'll probably start looking at it on that date if I don't hear any more
+&gt; from you.
+&gt;
+&gt; Normally I'd just push it out of the milestone, but crasher bugs are sad
+&gt; for
+&gt; users.
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue463">https://openhatch.org/bugs/issue463</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2411">msg2411 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-27.21:54:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey vivek,
+
+Let us know how things are going. If you're not going to have time for this, and 
+still want it to be part of 0.11.07, I could maybe try to tackle it. I'll leave 
+it for last, to give you as much time as possible. The milestone ends Aug 31, so 
+I'll probably start looking at it on that date if I don't hear any more from you.
+
+Normally I'd just push it out of the milestone, but crasher bugs are sad for 
+users.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2286">msg2286 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-08-08.07:06:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi  Jessica,
+
+I am sorry for keeping you updated..Actually I am kind of out of country
+right now.. I will finish this task or inform you about the progress by the
+end of this month.
+
+Thanks,
+
+Vivek
+
+On Sun, Aug 7, 2011 at 11:50 PM, jesstess &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; jesstess &lt;<a href="mailto:jessica.mckellar@gmail.com">jessica.mckellar@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; viv: I wanted to check in and see how things were going on this ticket. Do
+&gt; you have an
+&gt; implementation plan you are happy with, and do you need any help or
+&gt; feedback?
+&gt;
+&gt; ----------
+&gt; nosy: +jesstess
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue463">https://openhatch.org/bugs/issue463</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2282">msg2282 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-08-07.18:19:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>viv: I wanted to check in and see how things were going on this ticket. Do you have an 
+implementation plan you are happy with, and do you need any help or feedback?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2179">msg2179 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-07-10.17:39:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Assigning it to myself.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2128">msg2128 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-01.22:12:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If you submit the empty value to /missions/diffpatch/diffrecursive/submit , then
+the server hits an unhandled exception.
+
+This should be fixed! It's also a good opportunity to write a test. A
+good-quality way to fix this is:
+
+* Write a test that logs in and does a POST to
+/missions/diffpatch/diffrecursive/submit
+
+* Verify that you can reproduce the crash
+
+* Modify the view so that the test does not crash
+
+* Submit a patch (-:
+
+This is the stack trace you should expect to see.
+
+Traceback (most recent call last):
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/core/handlers/base.py",
+line 100, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/contrib/auth/decorators.py",
+line 25, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/diffpatch/views.py",
+line 91, in diffrecursive_submit
+   
+controllers.DiffRecursiveMission.validate_patch(form.cleaned_data['diff'].read())
+
+  File
+"/home/deploy/milestone-a.buildout/mysite/missions/diffpatch/controllers.py",
+line 76, in validate_patch
+    the_patch = patch.fromstring(patchdata)
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/base/patch.py", line
+67, in fromstring
+    return Patch( StringIO(s) )
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/base/patch.py", line
+118, in __init__
+    self.parse(stream)
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/base/patch.py", line
+325, in parse
+    self.hunks[nextfileno-1].append(hunkinfo.copy())
+
+IndexError: list index out of range</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-08-31&nbsp;23:03:24</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2011-08-31&nbsp;18:36:41</td><td>viv</td><td>set</td><td>files:
+  + <a href="file393">unnamed</a><br />status: resolved -> chatting<br />messages:
+  + <a href="msg2435">msg2435</a></td></tr>
+<tr><td>2011-08-31&nbsp;18:23:40</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg2431">msg2431</a></td></tr>
+<tr><td>2011-08-29&nbsp;05:19:33</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress</td></tr>
+<tr><td>2011-08-29&nbsp;05:19:24</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2417">msg2417</a></td></tr>
+<tr><td>2011-08-29&nbsp;05:05:30</td><td>viv</td><td>set</td><td>files:
+  + <a href="file392">unnamed</a><br />messages:
+  + <a href="msg2416">msg2416</a></td></tr>
+<tr><td>2011-08-29&nbsp;05:04:27</td><td>viv</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file391">0001-Issue-463-Handling-IndexError-exception-including-co.patch</a><br />messages:
+  + <a href="msg2415">msg2415</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:56:24</td><td>viv</td><td>set</td><td>files:
+  + <a href="file390">unnamed</a><br />messages:
+  + <a href="msg2412">msg2412</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:54:40</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2411">msg2411</a></td></tr>
+<tr><td>2011-08-08&nbsp;07:06:49</td><td>viv</td><td>set</td><td>files:
+  + <a href="file379">unnamed</a><br />messages:
+  + <a href="msg2286">msg2286</a></td></tr>
+<tr><td>2011-08-07&nbsp;18:20:00</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a><br />messages:
+  + <a href="msg2282">msg2282</a></td></tr>
+<tr><td>2011-07-10&nbsp;17:39:10</td><td>viv</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user79">viv</a><br />messages:
+  + <a href="msg2179">msg2179</a><br />nosy:
+  + <a href="user79">viv</a></td></tr>
+<tr><td>2011-07-01&nbsp;22:12:31</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

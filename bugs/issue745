@@ -1,0 +1,573 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 745: "diffing entire directories" dosn't work with ./foo only foo - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue745
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue745">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue745">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">"diffing entire directories" dosn't work with ./foo only foo</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  DeadDork, daveeloo, jesstess, passstab, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>daveeloo</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-07-03.22:47:54</b> by <b>passstab</b>, last changed <b>2013-05-18.23:11:24</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file522/issue745.diff">issue745.diff</a>
+  </td>
+  <td>
+   <span>jesstess</span>,
+   <span>2012-10-18.19:26:51</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3717">msg3717 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-18.23:11:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi all,
+
+The resolution we came to was to add a new error message for this case.
+
+DeadDork + jesstess, thanks for filing it; and huge thanks to daveeloo for 
+submitting a working test + patch! This is now deployed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3705">msg3705 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-08.18:21:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Comments left on the pull request!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3704">msg3704 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-08.18:06:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Pull request here, being reviewed: <a href="https://github.com/openhatch/oh-">https://github.com/openhatch/oh-</a>
+mainline/pull/111</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3685">msg3685 (view)</a></th>
+   <th>Author: DeadDork</th>
+   <th>Date: 2013-05-03.05:03:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Uhhh yeah, somebody else should take this. I'm under the C these days, not in Pythonica...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3684">msg3684 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-03.04:48:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Next steps for whoever wants to address this:
+
+* Prepare a sample file that uses an extra ./ in the path
+
+* Write a small test case that uses these files and generates the error
+
+* Put all that into a commit something like <a href="https://github.com/openhatch/oh-">https://github.com/openhatch/oh-</a>
+mainline/commit/e7a3294e1e8bb908792b8863203ad9adf6b6af60</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3476">msg3476 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-10-28.01:14:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thank you for your research into this. Excellent, through work!
+
+What I'd love to see, given what you've found, is that in the backend, we 
+check for this posssibility and indicate the problem to the user. 
+Basically, that puts us "in the right" in terms of not accepting bad 
+input, and also puts us on the right side of pedagogy, where when we know 
+what mistake a student has made, we help them fix it.
+
+A recent commit along those lines is this: 
+e7a3294e1e8bb908792b8863203ad9adf6b6af60
+
+That error catching should be supported with a test case in the test 
+suite, too.
+
+Is that something I can interest you folks in submitting a patch for?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3475">msg3475 (view)</a></th>
+   <th>Author: DeadDork</th>
+   <th>Date: 2012-10-28.00:56:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Antigen &amp; I tested a variety of scenarios, and determined that this is indeed 
+not a bug.
+
+The documentation on
+
+&lt;<a href="http://openhatch.org/missions/diffpatch/diffrecursive/submit#diffrecursive-">http://openhatch.org/missions/diffpatch/diffrecursive/submit#diffrecursive-</a>
+form&gt;
+
+says very clearly: 'It should be possible to apply it [the diff file] with 
+"patch -p1" from the "recipes" directory.'
+
+What this means, is that the PATH in the diff header will be offset by one when 
+the patch utility is used. For example, when the PATH is 'a/test.txt' and 
+'b/test.txt', respectively for the source and the target files, then the patch 
+utility will be trying to change the lines in 'test.txt' of b (again, because 
+the -p1 says to offset by one).
+
+This is where the issue occurs. If a user, using relative paths, creates a diff 
+file using './a/test.txt' and './b/test.txt', then the '-p1' will offset only to 
+'a' and 'b', not to 'test.txt'. That is, it will try to patch 'b/test.txt'. 
+Since we are trying to patch a file on the server that is presumably in the form 
+of 'a/test.txt', trying to patch 'b/test.txt' will fail--which is what you see.
+
+Pedagogically, it is our opinion that the current instructions are a bit vague, 
+but correct, and that this is not bug.
+
+We suggest that this issue be labeled resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3461">msg3461 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-10-22.19:23:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Awesome -- I take it your next step, DeadDork, is adding tests?
+
+Looking forward to that! And if you need any help with that at all, just get on 
+IRC and ping me (paulproteus is my nick). Or email the OH-Dev mailing list. I'm 
+always happy to help (at least, when I'm around (which is most of the time))!
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3459">msg3459 (view)</a></th>
+   <th>Author: DeadDork</th>
+   <th>Date: 2012-10-22.01:07:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>jesstess asked me to have this assigned to moi! I happily complied!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3457">msg3457 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-10-18.19:41:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'll add -- it'd be amazing if there were some more structural approach to 
+this, rather than handling it through string processing.
+
+For example, it seems like os.path.abspath might help here.
+
+But I'll happily accept any patch that works (preferably along with 
+an automated test case).
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3456">msg3456 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-10-18.19:38:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This patch looks great. It'd be even better with a test case, which should 
+be fairly easy to add. That way, future refactorings won't lose the 
+support for this case.
+
+Can I interest you in adding that?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3455">msg3455 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2012-10-18.19:26:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Whoops, forgot the patch!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3454">msg3454 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2012-10-18.19:26:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Our approach was to remove a leading "./" from filenames before processing them.
+
+We manually tested our changes on a test instance of the website, and we ran the test suite to 
+confirm that all existing tests still pass.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3310">msg3310 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-05.00:44:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for filing this! I think it should be a fairly simple issue -- we 
+should probably permit "./Skillet.txt" as a valid path in the check, not 
+just "Skillet.txt".</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3309">msg3309 (view)</a></th>
+   <th>Author: passstab</th>
+   <th>Date: 2012-07-03.22:47:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>in the "diffing entire directories" mission submitting the result of 
+"diff -ur ./recipes ./us &gt; ./outputt" returns 
+'Patch does not modify file "Skillet.txt", which it should modify.'
+whereas diff -ur recipes us &gt; ./outputt succeeds</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-05-18&nbsp;23:11:24</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg3717">msg3717</a></td></tr>
+<tr><td>2013-05-08&nbsp;18:21:33</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user568">DeadDork</a> -> <a href="user743">daveeloo</a><br />nosy:
+  + <a href="user743">daveeloo</a></td></tr>
+<tr><td>2013-05-08&nbsp;18:21:25</td><td>paulproteus</td><td>set</td><td>status: testing -> in-progress<br />messages:
+  + <a href="msg3705">msg3705</a></td></tr>
+<tr><td>2013-05-08&nbsp;18:06:33</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3704">msg3704</a></td></tr>
+<tr><td>2013-05-03&nbsp;05:03:57</td><td>DeadDork</td><td>set</td><td>messages:
+  + <a href="msg3685">msg3685</a></td></tr>
+<tr><td>2013-05-03&nbsp;04:48:42</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3684">msg3684</a></td></tr>
+<tr><td>2012-10-28&nbsp;01:14:35</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3476">msg3476</a></td></tr>
+<tr><td>2012-10-28&nbsp;00:56:32</td><td>DeadDork</td><td>set</td><td>messages:
+  + <a href="msg3475">msg3475</a></td></tr>
+<tr><td>2012-10-22&nbsp;19:23:34</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3461">msg3461</a></td></tr>
+<tr><td>2012-10-22&nbsp;01:07:51</td><td>DeadDork</td><td>set</td><td>assignedto: <a href="user12">jesstess</a> -> <a href="user568">DeadDork</a><br />messages:
+  + <a href="msg3459">msg3459</a><br />nosy:
+  + <a href="user568">DeadDork</a></td></tr>
+<tr><td>2012-10-18&nbsp;19:41:09</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3457">msg3457</a></td></tr>
+<tr><td>2012-10-18&nbsp;19:38:01</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3456">msg3456</a></td></tr>
+<tr><td>2012-10-18&nbsp;19:26:52</td><td>jesstess</td><td>set</td><td>files:
+  + <a href="file522">issue745.diff</a><br />messages:
+  + <a href="msg3455">msg3455</a></td></tr>
+<tr><td>2012-10-18&nbsp;19:26:12</td><td>jesstess</td><td>set</td><td>status: chatting -> testing<br />assignedto: <a href="user12">jesstess</a><br />messages:
+  + <a href="msg3454">msg3454</a><br />nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2012-07-05&nbsp;00:44:20</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3310">msg3310</a></td></tr>
+<tr><td>2012-07-03&nbsp;22:47:54</td><td>passstab</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

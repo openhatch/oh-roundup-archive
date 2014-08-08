@@ -1,0 +1,407 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 462: foss vs. floss - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue462
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue462">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue462">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">foss vs. floss</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.12</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jesstess, kabilan, palhmbs, paulproteus, willkahngreene
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>jesstess</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-07-01.15:28:49</b> by <b>willkahngreene</b>, last changed <b>2012-01-07.23:30:28</b> by <b>jesstess</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file416/kabi.patch">kabi.patch</a>
+  </td>
+  <td>
+   <span>kabilan</span>,
+   <span>2011-10-23.12:51:05</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file365/widget.png">widget.png</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-07-02.23:57:02</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2861">msg2861 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2012-01-07.23:30:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for getting this started, kabilan. I went ahead and deployed the relevant parts of kabilan.patch 
+and added a commit on top with Asheesh's &lt;abbr title&gt; suggestion. These changes are now live.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2610">msg2610 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-11-07.00:30:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi kabilan, and thanks for your patch! I wanted to check in on this ticket and see if I could help you 
+update your patch based on paulproteus's feedback.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2597">msg2597 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-24.19:27:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi there,
+
+This patch is a good start. In order for it to be committed to 
+the repository, you need to change a few things.
+
+Here are the things you need to remove from the patch:
+
+* The patch contains changes to single_file_patch.html  that are 
+not relevant to this particular bug. You should remove them from 
+the patch.
+*  The patch also contains unnecessary changes to many 
+executable files; you can see this in the patch file with the 
+"old mode" and "new mode" lines.
+
+In general, it is good to read through the patch before you send 
+it. That way, you can see problems like this and correct them 
+without waiting for someone in the project to find them. It's 
+okay that you submitted it in this form, though!
+
+It looks like you have not yet committed these changes to your 
+local repository. That means that easy for you to make a commit 
+that selectively contains just the changes you want. I suggest 
+you do that -- 
+<a href="http://blog.tplus1.com/index.php/2008/10/31/break-up-changes-">http://blog.tplus1.com/index.php/2008/10/31/break-up-changes-</a>
+into-different-commits-with-git-add-p/ explains more
+
+If you do just that, that would be enough and I would commit it. 
+In order to do a great job, here is what you would do on top:
+
+* Change "Free Open Source Software" in the &lt;abbr title&gt; to 
+"Free, Libre Open Source Software"
+* Use git format-patch to make the patch file (See 
+<a href="https://openhatch.org/wiki/How_we_handle_patches">https://openhatch.org/wiki/How_we_handle_patches</a> for more info)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2596">msg2596 (view)</a></th>
+   <th>Author: kabilan</th>
+   <th>Date: 2011-10-23.12:51:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>i have tried changing the code so that it uses only "FLOSS".</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2139">msg2139 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-07-02.23:50:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Also, on a side-note: Did you notice how the gloabal site list styling was 
+effecting the widget?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2126">msg2126 (view)</a></th>
+   <th>Author: willkahngreene</th>
+   <th>Date: 2011-07-01.15:28:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Seems like both FOSS and FLOSS terms are used on the OpenHatch stuff.
+
+For example, the widget I have on my web-site uses "FOSS" in the title:
+
+   <a href="http://bluesock.org/~willg/">http://bluesock.org/~willg/</a>
+
+And this page uses FLOSS at the top if you're not logged in:
+
+   <a href="http://openhatch.org/+projects/Miro">http://openhatch.org/+projects/Miro</a>
+
+The pedantic side of me thinks OH should standardize on either FLOSS or FOSS.
+
+This bug covers standardizing on one or the other and fixing the code such that
+it only uses one.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-01-07&nbsp;23:30:28</td><td>jesstess</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg2861">msg2861</a></td></tr>
+<tr><td>2012-01-07&nbsp;23:03:40</td><td>jesstess</td><td>set</td><td>assignedto: <a href="user260">kabilan</a> -> <a href="user12">jesstess</a></td></tr>
+<tr><td>2011-12-14&nbsp;00:08:47</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone14">0.11.12</a></td></tr>
+<tr><td>2011-11-07&nbsp;00:30:01</td><td>jesstess</td><td>set</td><td>assignedto: <a href="user260">kabilan</a><br />messages:
+  + <a href="msg2610">msg2610</a><br />nosy:
+  + <a href="user12">jesstess</a>, <a href="user260">kabilan</a></td></tr>
+<tr><td>2011-10-24&nbsp;19:27:49</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress</td></tr>
+<tr><td>2011-10-24&nbsp;19:27:44</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2597">msg2597</a></td></tr>
+<tr><td>2011-10-23&nbsp;12:51:06</td><td>kabilan</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file416">kabi.patch</a><br />messages:
+  + <a href="msg2596">msg2596</a></td></tr>
+<tr><td>2011-07-02&nbsp;23:57:02</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file365">widget.png</a></td></tr>
+<tr><td>2011-07-02&nbsp;23:50:02</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg2139">msg2139</a></td></tr>
+<tr><td>2011-07-01&nbsp;15:28:49</td><td>willkahngreene</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

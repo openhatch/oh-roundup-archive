@@ -1,0 +1,313 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 667: Safari appends ".txt" to tutorial's python script's name - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue667
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue667">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue667">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Safari appends ".txt" to tutorial's python script's name</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>need-review</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  alx, individuwill, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>individuwill</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-02-04.21:45:30</b> by <b>alx</b>, last changed <b>2014-04-20.20:41:57</b> by <b>individuwill</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4261">msg4261 (view)</a></th>
+   <th>Author: individuwill</th>
+   <th>Date: 2014-04-20.20:41:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Confirmed that if trying to download in Safari, after navigating to page (clicking the link in question 
+first), right clicking on the page and choosing "Save Page As..." Multiple options need to be changed 
+to download the file properly.
+
+The default is to download as a web archive. Then even if you change that to page source, you get 
+prompted again to append ".txt" to the file name. You must choose "Don't Append" to get the 
+desired result.
+
+I updated the instructions on the wiki instructing the user to right click the link directly and choose 
+a "Save As" option. I used the text from 4 different current browsers in the instructions (Safari on 
+Mavericks, Firefox on Mavericks, Chrome on Mavericks, and Internet Explorer 11 on Windows 8).
+
+The alternatives would be to host the file on a server where we could control the server's response 
+headers and set the content disposition header. Reference here: 
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html</a> and here: 
+<a href="http://www.symkat.com/force-download-with-http-headers">http://www.symkat.com/force-download-with-http-headers</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2937">msg2937 (view)</a></th>
+   <th>Author: jacquiesue</th>
+   <th>Date: 2012-02-04.21:54:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Just an FYI when I click save as from Safari on Mac OSX 10.7,
+I am prompted if I want to add the extension .txt, with "Don't Append" "Append".
+I selected "Don't append" and all is well.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2936">msg2936 (view)</a></th>
+   <th>Author: alx</th>
+   <th>Date: 2012-02-04.21:45:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On:
+ <a href="http://openhatch.org/wiki/Boston_Python_Workshop_5/Friday/Tutorial#Pyth">http://openhatch.org/wiki/Boston_Python_Workshop_5/Friday/Tutorial#Pyth</a>
+on_scripts
+
+when a Mac OS 10.7 Safari user clicks on
+ <a href="http://mit.edu/jesstess/www/BostonPythonWorkshop5/nobel.py">http://mit.edu/jesstess/www/BostonPythonWorkshop5/nobel.py</a>
+
+The file is opened in the browser. When right-clicked and "Saved As...", 
+the file is renamed from "nobel.py" to "nobel.py.txt".
+
+Later in step 4 ( CLI: "python nobel.py" ), the filename doesn't match, 
+and a student was observed to be visibly confused.
+
+I think this might be a server side issue over at the mit.edu server 
+where the script is stored, which is running Apache. So, this might be 
+fixable with a custom .htaccess file in
+ <a href="http://mit.edu/jesstess/www/BostonPythonWorkshop5/">http://mit.edu/jesstess/www/BostonPythonWorkshop5/</a>
+
+I think this has to do with "Content-Disposition".
+
+Another solution might be to move the file to openhatch.org (for example 
+to "/var/www/BostonPythonWorkshop5/pyfiles/"), where you have the 
+liberty of configuring nginx.conf with per-directory custom Content-
+Disposition header:
+
+location /files/BostonPythonWorkshop5/ {
+        root /var/www/BostonPythonWorkshop5/pyfiles/;
+        add_header Content-Disposition 'attachment;
+    }
+
+Or something like that. Hope this helps!</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-04-20&nbsp;20:41:57</td><td>individuwill</td><td>set</td><td>status: chatting -> need-review<br />assignedto: <a href="user1065">individuwill</a><br />messages:
+  + <a href="msg4261">msg4261</a><br />nosy:
+  + <a href="user1065">individuwill</a></td></tr>
+<tr><td>2013-03-19&nbsp;02:32:50</td><td>Coffeeman</td><td>set</td><td>nosy:
+  - <a href="user696">Coffeeman</a></td></tr>
+<tr><td>2013-03-19&nbsp;02:31:35</td><td>Coffeeman</td><td>set</td><td>nosy:
+  + <a href="user696">Coffeeman</a></td></tr>
+<tr><td>2012-02-04&nbsp;21:54:04</td><td>jacquiesue</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2937">msg2937</a></td></tr>
+<tr><td>2012-02-04&nbsp;21:45:30</td><td>alx</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

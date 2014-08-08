@@ -1,0 +1,386 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 713: 500 error when visiting "https://openhatch.org/customs/edit/<tracker>/<project>/url" directly - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue713
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue713">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue713">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">500 error when visiting "https://openhatch.org/customs/edit/&lt;tracker&gt;/&lt;project&gt;/url" directly</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mkman, RussiaM, berryp, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>berryp</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-03-12.23:26:31</b> by <b>berryp</b>, last changed <b>2012-03-21.17:56:00</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3153">msg3153 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-21.17:55:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've merged this fix. Thanks, all -- (and if you want to look at what sort of
+changes this required, do read the pull request)!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3151">msg3151 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-20.20:54:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="https://github.com/openhatch/oh-mainline/pull/13">https://github.com/openhatch/oh-mainline/pull/13</a> has a pull request by berryp</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3145">msg3145 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-18.17:29:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Seeing as this is not assigned to anyone at the moment, whoever wants to give it
+a look should assign it to themselves.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3132">msg3132 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-15.21:32:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Russia (and all),
+
+The fix for this would be somewhat straightforward.
+
+Steps:
+
+* Find the code in your text editor where the crash is occurring
+
+* Write a Django test (probably in mysite/customs/tests.py ) that can reproduce
+the crash
+
+* Fix the code (probably adding a try/except) -- in the case of bad data, we
+should return a HTTP Response of 400 Bad Request
+
+* Make sure the test passes now
+
+* Submit a patch/pull request with those changes
+
+It's not trivial, but it's a good introduction to the way we do unit testing.
+You should read our doc on Automated testing (on
+openhatch.org/wiki/Automated_testing for now; soon to be moved into
+openhatch.readthedocs.org) to see how that all works.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3112">msg3112 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-14.07:17:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This should be a simple fix, if you know Python exception handling.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3106">msg3106 (view)</a></th>
+   <th>Author: berryp</th>
+   <th>Date: 2012-03-13.22:40:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Traceback:
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/core/handlers/base.py" in get_response
+  111.                         response = callback(request, *callback_args, **callback_kwargs)
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/contrib/auth/decorators.py" in _wrapped_view
+  23.                 return view_func(request, *args, **kwargs)
+File "/Users/berryp/projects/openhatch/mysite/customs/views.py" in edit_tracker_url
+  232.             url_obj = all_trackers[tracker_type]['urlmodel'].objects.get(id=url_id)
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/db/models/manager.py" in get
+  132.         return self.get_query_set().get(*args, **kwargs)
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/db/models/query.py" in get
+  341.         clone = self.filter(*args, **kwargs)
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/db/models/query.py" in filter
+  550.         return self._filter_or_exclude(False, *args, **kwargs)
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/db/models/query.py" in _filter_or_exclude
+  568.             clone.query.add_q(Q(*args, **kwargs))
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/db/models/sql/query.py" in add_q
+  1194.                             can_reuse=used_aliases, force_having=force_having)
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/db/models/sql/query.py" in add_filter
+  1129.                 connector)
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/db/models/sql/where.py" in add
+  67.             value = obj.prepare(lookup_type, value)
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/db/models/sql/where.py" in prepare
+  316.             return self.field.get_prep_lookup(lookup_type, value)
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/db/models/fields/__init__.py" in get_prep_lookup
+  292.             return self.get_prep_value(value)
+File "/Users/berryp/projects/openhatch/vendor/packages/Django/django/db/models/fields/__init__.py" in get_prep_value
+  479.         return int(value)
+
+Exception Type: ValueError at /customs/edit/trac/ds/url/
+Exception Value: invalid literal for int() with base 10: ''</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3094">msg3094 (view)</a></th>
+   <th>Author: berryp</th>
+   <th>Date: 2012-03-12.23:26:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This should return a 404 when when no url id is specified.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-03-21&nbsp;17:56:00</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3153">msg3153</a></td></tr>
+<tr><td>2012-03-20&nbsp;20:54:27</td><td>paulproteus</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg3151">msg3151</a></td></tr>
+<tr><td>2012-03-18&nbsp;18:33:41</td><td>berryp</td><td>set</td><td>assignedto: <a href="user395">berryp</a></td></tr>
+<tr><td>2012-03-18&nbsp;17:29:59</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3145">msg3145</a></td></tr>
+<tr><td>2012-03-18&nbsp;17:29:39</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user72">Mkman</a></td></tr>
+<tr><td>2012-03-15&nbsp;21:32:11</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user394">RussiaM</a><br />messages:
+  + <a href="msg3132">msg3132</a></td></tr>
+<tr><td>2012-03-14&nbsp;07:17:17</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3112">msg3112</a><br />keyword:
+  + <a href="keyword1">bitesize</a><br />milestone: <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-03-13&nbsp;22:40:17</td><td>berryp</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3106">msg3106</a></td></tr>
+<tr><td>2012-03-12&nbsp;23:26:31</td><td>berryp</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

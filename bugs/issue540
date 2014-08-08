@@ -1,0 +1,307 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 540: OpenHatch front page should clearly indicate that the project is actively pursuing events - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue540
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue540">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue540">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">OpenHatch front page should clearly indicate that the project is actively pursuing events</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-08-13.19:41:24</b> by <b>paulproteus</b>, last changed <b>2014-04-26.19:32:21</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4280">msg4280 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-04-26.19:32:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I would claim this is now fixed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2655">msg2655 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-10.00:35:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is part of the front_page_demo branch, but not yet shipped in 0.11.10</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2581">msg2581 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-03.22:44:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This time, for real.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2408">msg2408 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-08-27.21:48:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Highly related to <a href="issue498">issue498</a>, methinks -- the UI for adding the calendar to the
+front page should also emphasize OH's own events.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2304">msg2304 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-13.19:41:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>(From conversation with Mako)
+
+If you are a newcomer to this OpenHatch thing, and you go to
+<a href="http://openhatch.org/">http://openhatch.org/</a> , you have no idea that we are actively organizing events.
+You *extra* have no idea those are diversity-oriented outreach events (the
+Boston Python Workshop).
+
+Mako suggests we keep a highlighted (i.e., yellow background) box at the top of
+the front page  with currently-exciting things; for example, right now, the
+Boston Python Workshop. Perhaps soon, a link to <a href="http://campus.openhatch.org/.">http://campus.openhatch.org/.</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-04-26&nbsp;19:32:21</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg4280">msg4280</a></td></tr>
+<tr><td>2011-11-10&nbsp;00:35:22</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2655">msg2655</a><br />milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-10-03&nbsp;22:44:21</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2581">msg2581</a><br />milestone: <a href="milestone11">0.11.09</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-09-05&nbsp;21:38:35</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone11">0.11.09</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:48:01</td><td>aldeka</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2408">msg2408</a><br />milestone: <a href="milestone10">0.11.07</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:31:46</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone11">0.11.09</a> -> <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-08-13&nbsp;19:41:24</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

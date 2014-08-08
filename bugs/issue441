@@ -1,0 +1,838 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 441: Issues with buildout - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue441
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue441">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue441">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Issues with buildout</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.07</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  kracekumar, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  this-would-rock
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-06-05.20:36:24</b> by <b>kracekumar</b>, last changed <b>2011-08-30.05:10:17</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file330/buildout_error.txt">buildout_error.txt</a>
+  </td>
+  <td>
+   <span>kracekumar</span>,
+   <span>2011-06-05.20:36:24</span>
+  </td>
+  <td>text/plain</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file353/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>kracekumar</span>,
+   <span>2011-06-19.08:47:20</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file381/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>kracekumar</span>,
+   <span>2011-08-19.16:37:02</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file382/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>kracekumar</span>,
+   <span>2011-08-19.18:07:23</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file383/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>kracekumar</span>,
+   <span>2011-08-19.18:20:27</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file384/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>kracekumar</span>,
+   <span>2011-08-19.18:58:05</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file386/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>kracekumar</span>,
+   <span>2011-08-21.10:45:18</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2421">msg2421 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-30.05:10:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This was fixed, for what it's worth, by forcefully using "distribute" not
+"setuptools" in the buildout process. See also
+
+*
+<a href="https://gitorious.org/openhatch/oh-mainline/commit/d06d05135d5646e585191cd6f30448da8497731e">https://gitorious.org/openhatch/oh-mainline/commit/d06d05135d5646e585191cd6f30448da8497731e</a>
+
+*
+<a href="https://gitorious.org/openhatch/oh-mainline/commit/5456563a6f248100458adcd72b435a4ba6a3f15c">https://gitorious.org/openhatch/oh-mainline/commit/5456563a6f248100458adcd72b435a4ba6a3f15c</a>
+
+*
+<a href="https://gitorious.org/openhatch/oh-mainline/commit/5ae639ffc69b020306148eb739574d4756c57d61">https://gitorious.org/openhatch/oh-mainline/commit/5ae639ffc69b020306148eb739574d4756c57d61</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2420">msg2420 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-30.05:08:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>kracekumar, and anyone else having problems:
+
+I want you to test running buildout, with the instructions from the regular
+README.md file, on the latest code on origin/master.
+
+I think I have fixed this there. I'll mark it resolved, since I tested it in my
+Ubuntu Lucid VM and it works there, but do let the bug know what you find.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2402">msg2402 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-27.21:39:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've confirmed by my own testing that the virtualenv-based setup works where 
+buildout did not. That is *great* news. kracekumar, I'd appreciate if you could 
+test that, but if not I will mark it resolved at the end of August anyway.
+
+There are a separate set of bugs for migrating OpenHatch's codebase to use 
+virtualenv for everyone. Those will be tackled in the future.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2366">msg2366 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-21.11:14:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>In the instructions, we ask you to 'sudo apt-get install 
+python-virtualenv'
+
+Make sure you read README.virtualenv.mkd
+
+Once you have it installed, that file should say what is next</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2365">msg2365 (view)</a></th>
+   <th>Author: kracekumar</th>
+   <th>Date: 2011-08-21.10:45:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="mailto:kracekumar@python-lover">kracekumar@python-lover</a>:~/codes/python/web/oh-mainline$ git fetch
+<a href="mailto:kracekumar@python-lover">kracekumar@python-lover</a>:~/codes/python/web/oh-mainline$ git rebase
+origin/no_buildout
+Cannot rebase: You have unstaged changes.
+Please commit or stash them.
+<a href="mailto:kracekumar@python-lover">kracekumar@python-lover</a>:~/codes/python/web/oh-mainline$
+<a href="mailto:kracekumar@python-lover">kracekumar@python-lover</a>:~/codes/python/web/oh-mainline$ ls
+504.html      CREDITS    puppet-provisioning-files  setup.py
+bootstrap.py  downloads  README.mkd                 Vagrantfile
+bootstrap.sh  LAYOUT     README.virtualenv.mkd
+buildout.cfg  LICENSE    run_importer.sh
+coveragerc    mysite     setup.cfg
+
+I think i have messed up the directorie.I can't find bin directory, I don't
+have virtualenv, should I start from first ?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2343">msg2343 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-19.23:46:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Okay, kracekumar, thanks for your patience.
+
+I've tested this on an Ubuntu 10.04 virtual machine, and I updated 
+README.virtualenv.mkd so that it should be complete.
+
+Would you be willing to test by:
+
+0. Updating your repo (git fetch ; git rebase origin/no_buildout)
+
+1. Erasing all files not in version control (git clean -f -x -d)
+
+2. Reading README.virtualenv.mkd and following the new instructions there
+
+Let me know if that gives you a working server! I think it should.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2342">msg2342 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-19.19:58:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It's odd that a few of those dependencies didn't download, even though they're 
+listed in setup.py. Those three that you had to 'pip install' are all in 
+setup.py.
+
+Can you try doing this fresh?
+
+1) git clean -f -d -x # NOTE: This will remove all unversioned files from the oh-
+mainline repository. It will be like you have a fresh checkout.
+
+2) git fetch
+
+3) git rebase origin/no_buildout
+
+4) Follow the instructions in README.virtualenv.mkd
+
+Hopefully you won't get those dependency errors this time.
+
+Also, if you'd try to save the output of 'python setup.py develop' that might be 
+helpful.
+
+I'd say we're about 92% of the way to the end. I'll also try testing this in a VM 
+shortly. What operating system are you running?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2341">msg2341 (view)</a></th>
+   <th>Author: kracekumar</th>
+   <th>Date: 2011-08-19.18:58:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Much Closer :)
+
+I did
+
+<a href="mailto:kracekumar@python-lover">kracekumar@python-lover</a>:~/codes/python/web/oh-mainline/mysite$ cd ../
+<a href="mailto:kracekumar@python-lover">kracekumar@python-lover</a>:~/codes/python/web/oh-mainline$ ./bin/python
+Python 2.7.1+ (r271:86832, Apr 11 2011, 18:05:24)
+[GCC 4.5.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; import django
+&gt;&gt;&gt; import mysite.settings
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File "mysite/settings.py", line 264, in &lt;module&gt;
+    import djcelery
+ImportError:
+
+So I went on to do *pip install django-celery* , found in github and next
+error was *Error: No module named ghettoq *and *followed pip install ghettoq
+*, then things seemed ok.Final Error message is
+*django.core.cache.backends.base.InvalidCacheBackendError:
+Memcached cache backend requires either the 'memcache' or 'cmemcache'
+library*
+
+Here is complete commands executed and output.
+
+<a href="https://gist.github.com/1157682">https://gist.github.com/1157682</a>
+
+Sorry for alternative using pocoo and gist, I had some bad gateway interface
+with paste this time.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2340">msg2340 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-19.18:25:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Getting better!
+
+Try this:
+
+     cd .. # out of the mysite directory, into oh-mainline
+     ./bin/python # you should see a Python prompt
+
+Inside the Python prompt:
+
+     import django # just make sure this works without error
+     import mysite.settings
+
+Probably the last line will give you an error. What error?
+
+BTW we are getting extremely closer; thank you for trying all this. 
+I'll update README.virtualenv.md with what I learn based on this 
+conversation.
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2339">msg2339 (view)</a></th>
+   <th>Author: kracekumar</th>
+   <th>Date: 2011-08-19.18:20:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Some funny error this time. `Settings.py` not found.
+<a href="http://paste.pocoo.org/show/460905/">http://paste.pocoo.org/show/460905/</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2338">msg2338 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-19.18:13:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Great, kracekumar! Does that mean you saw a bunch of scrolling text about 
+downloading the various dependencies?
+
+With these changes, you shouldn't need to use buildout at all. If the 'setup.py 
+develop' process downloaded a lot of stuff, you should be able to run the 
+OpenHatch app with:
+
+ $ cd mysite
+ $ python manage.py runserver
+ 
+I just made some fresh changes to the no_buildout branch, so if the above fails 
+for you, try:
+
+ $ git fetch
+ $ git rebase origin/no_buildout
+
+and then try the 'python manage.py runserver' command again.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2337">msg2337 (view)</a></th>
+   <th>Author: kracekumar</th>
+   <th>Date: 2011-08-19.18:07:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I followed the steps mentioned in previous mail and now I was able to move
+few more steps.This time some problem with zc.
+
+<a href="http://paste.pocoo.org/show/460903/">http://paste.pocoo.org/show/460903/</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2335">msg2335 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-19.17:01:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>One more thing, kracekumar:
+
+I want you to try recreating the virtualenv with this command:
+
+ $ virtualenv --clear --distribute $PWD
+
+("--clear" makes it re-create it. "--distribute" makes it use a different 
+installer tool.)
+
+Then try the 'python setup.py develop' thing again, and let me know if it works 
+this time.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2334">msg2334 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-19.16:54:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>kracekumar,
+
+That's a very helpful error message, as things go. Thank you. It suggests that 
+even with 'setup.py develop', your system can't download the files it needs.
+
+Can you try this command:
+
+ $ wget <a href="http://linode.openhatch.org/~paulproteus/">http://linode.openhatch.org/~paulproteus/</a> -O- | grep kombu | wc -l
+
+For me, it outputs the number "5", because there are 5 lines in that web page 
+that match kombu.
+
+That will tell me if your computer can download things from the linode in 
+general.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2333">msg2333 (view)</a></th>
+   <th>Author: kracekumar</th>
+   <th>Date: 2011-08-19.16:37:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey, I was out openhatch irc for almost one month or more than that.I tried
+above mentioned steps but it breaks, I can't fix the error since I am not
+django dev.
+
+<a href="https://gist.github.com/1157273">https://gist.github.com/1157273</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2330">msg2330 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-18.18:36:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>paulhmbs and kracekumar,
+
+<a href="http://lists.openhatch.org/pipermail/devel/2011-August/002289.html">http://lists.openhatch.org/pipermail/devel/2011-August/002289.html</a>
+
+Would one of you see if that helps? kracekumar in particular, since you can 
+reproduce the failure.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2081">msg2081 (view)</a></th>
+   <th>Author: kracekumar</th>
+   <th>Date: 2011-06-19.08:47:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello
+ I tried as per suggest it in wiki still have an issue.here is error message
+link.<a href="https://gist.github.com/1033993">https://gist.github.com/1033993</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2078">msg2078 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-18.20:54:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>To elaborate, the suggested fix for this was using a virtualenv wrapper, we
+edited the wiki to give more instructions on how to do that --
+<a href="http://openhatch.org/w/index.php?title=Getting_started_with_the_OpenHatch_code&amp;action=edit&amp;section=4">http://openhatch.org/w/index.php?title=Getting_started_with_the_OpenHatch_code&amp;action=edit&amp;section=4</a>
+
+Unfortunately the current method outlined isn't repeatable, at least not by me.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2041">msg2041 (view)</a></th>
+   <th>Author: kracekumar</th>
+   <th>Date: 2011-06-05.20:36:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I had downloaded openhatch source code and tried to install.$python bootstrap.py
+ran successful and ./bin/buildout didn't run properly.I have attached the error
+message.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-08-30&nbsp;05:10:17</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2011-08-30&nbsp;05:10:11</td><td>paulproteus</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg2421">msg2421</a></td></tr>
+<tr><td>2011-08-30&nbsp;05:08:16</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg2420">msg2420</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:39:30</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2402">msg2402</a></td></tr>
+<tr><td>2011-08-21&nbsp;11:14:04</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2366">msg2366</a></td></tr>
+<tr><td>2011-08-21&nbsp;10:45:19</td><td>kracekumar</td><td>set</td><td>files:
+  + <a href="file386">unnamed</a><br />messages:
+  + <a href="msg2365">msg2365</a></td></tr>
+<tr><td>2011-08-19&nbsp;23:46:00</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2343">msg2343</a></td></tr>
+<tr><td>2011-08-19&nbsp;19:58:36</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2342">msg2342</a></td></tr>
+<tr><td>2011-08-19&nbsp;18:58:05</td><td>kracekumar</td><td>set</td><td>files:
+  + <a href="file384">unnamed</a><br />messages:
+  + <a href="msg2341">msg2341</a></td></tr>
+<tr><td>2011-08-19&nbsp;18:25:29</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2340">msg2340</a></td></tr>
+<tr><td>2011-08-19&nbsp;18:20:27</td><td>kracekumar</td><td>set</td><td>files:
+  + <a href="file383">unnamed</a><br />messages:
+  + <a href="msg2339">msg2339</a></td></tr>
+<tr><td>2011-08-19&nbsp;18:13:41</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2338">msg2338</a></td></tr>
+<tr><td>2011-08-19&nbsp;18:07:24</td><td>kracekumar</td><td>set</td><td>files:
+  + <a href="file382">unnamed</a><br />messages:
+  + <a href="msg2337">msg2337</a></td></tr>
+<tr><td>2011-08-19&nbsp;17:01:11</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2335">msg2335</a></td></tr>
+<tr><td>2011-08-19&nbsp;16:54:38</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2334">msg2334</a></td></tr>
+<tr><td>2011-08-19&nbsp;16:37:02</td><td>kracekumar</td><td>set</td><td>files:
+  + <a href="file381">unnamed</a><br />messages:
+  + <a href="msg2333">msg2333</a></td></tr>
+<tr><td>2011-08-18&nbsp;18:36:28</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2330">msg2330</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:10:43</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-06-19&nbsp;08:47:20</td><td>kracekumar</td><td>set</td><td>files:
+  + <a href="file353">unnamed</a><br />messages:
+  + <a href="msg2081">msg2081</a></td></tr>
+<tr><td>2011-06-18&nbsp;20:54:47</td><td>palhmbs</td><td>set</td><td>status: chatting -> in-progress<br />nosy:
+  + <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg2078">msg2078</a><br />keyword:
+  + <a href="keyword12">this-would-rock</a><br />milestone: <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-06-05&nbsp;20:36:24</td><td>kracekumar</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

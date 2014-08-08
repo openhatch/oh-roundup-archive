@@ -1,0 +1,290 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 1028: Adjust our "twill tests" to either use Django's test client directly, or use django-webtest - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue1028
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue1028">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue1028">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Adjust our "twill tests" to either use Django's test client directly, or use django-webtest</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-08-04.02:13:37</b> by <b>paulproteus</b>, last changed <b>2014-08-04.02:19:52</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4515">msg4515 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-08-04.02:19:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>For clarity, let me say:
+
+When I write "for some of our tests" I mean for some of our "unit tests", aka 
+mysite/*/tests.py in the oh-mainline repository.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4514">msg4514 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-08-04.02:13:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right now, we use Twill, a mini fake Python web browser, for some of our tests. 
+This is convenient, but has some downsides:
+
+* twill is seemingly unmaintained.
+
+* This is a pretty non-standard thing to do. Therefore, we're likely to run into 
+issues that other projects don't run into. (For example, it seems that maybe our 
+Twill&lt;-&gt;Django integration stopped working, as of Django 1.5? Not sure.)
+
+We use Twill for its browser-like conveniences -- specifically, in the tests, we 
+can use a very simple API for filling out web forms and submitting them. 
+Luckily, django-webtest &lt;<a href="https://github.com/kmike/django-webtest">https://github.com/kmike/django-webtest</a>&gt; also provides 
+a very clean API that seems to be as expressive as the Twill one.
+
+It'd be great to see someone take this on as a backend refactoring task. I'd be 
+very happy to help mentor someone, if they want to do, and could remote pair-
+program to some extent on this, too.
+
+References:
+
+* <a href="https://djangosnippets.org/snippets/665/">https://djangosnippets.org/snippets/665/</a>
+
+* <a href="https://pythonhosted.org/django-test-utils/twill_runner.html">https://pythonhosted.org/django-test-utils/twill_runner.html</a>
+
+* <a href="https://pypi.python.org/pypi/django-webtest">https://pypi.python.org/pypi/django-webtest</a>
+
+* <a href="http://twill.idyll.org/">http://twill.idyll.org/</a>
+
+Note that, as of the time of writing, django-webtest is failing one of its unit 
+tests. It's not a failure that I think matters for our use, but I wanted to at 
+least remark on that to show readers of this OpenHatch but that I'm attentive to 
+that sort of thing. (-:
+
+In terms of a process for actually getting this done, here is what I would 
+recommend:
+
+* Add django-webtest (and its dependencies) to our dependencies
+
+* Pick the 3 easiest tests of ours that use "tc.go", getting help from me or 
+anyone else as needed
+
+And use that experience to answer the question, "Is django-webtest actually 
+worth using?" I think the answer will be yes, but by all means let's do a little 
+experiment before committing to it.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-08-04&nbsp;02:19:52</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg4515">msg4515</a></td></tr>
+<tr><td>2014-08-04&nbsp;02:13:37</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

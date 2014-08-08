@@ -1,0 +1,426 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 889: MySQL-based test suite fails due to problems with fixture loading - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue889
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue889">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue889">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">MySQL-based test suite fails due to problems with fixture loading</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>in-progress</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jwm, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>jwm</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2013-10-17.00:48:57</b> by <b>jwm</b>, last changed <b>2014-06-10.03:16:59</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file687/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>paulproteus</span>,
+   <span>2014-06-10.03:16:59</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4391">msg4391 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-06-10.03:16:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>​I think no one is!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4389">msg4389 (view)</a></th>
+   <th>Author: Aaron1011</th>
+   <th>Date: 2014-06-10.01:09:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Is anyone currently working on this?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4020">msg4020 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-01-05.07:38:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The best path forward, given how crazy this is, is to stop using Twill's API, and 
+for each of these tests that are failing, work to reimplement just enough of the 
+Twill API without using the Twill WSGI wrapping stuff.
+
+Sorry if that's vague. I can clarify more.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4007">msg4007 (view)</a></th>
+   <th>Author: mandarg</th>
+   <th>Date: 2013-12-22.01:51:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>More IRC snippets between me and paulproteus about this:
+
+[8:21pm] mandarg: well, it was about the MYSQL=true test failures
+[8:21pm] paulproteus: Mm, do ask!
+[8:21pm] paulproteus: Those are interesting and complex.
+[8:21pm] paulproteus: The fix, however, is simple I believe.
+[8:21pm] paulproteus: Which is to stop using tc.go() etc.
+[8:22pm] mandarg: is the problem that data is not getting loaded into the database when the tests are 
+executed, but there is no way of making sure the data is in before they start?
+[8:22pm] paulproteus: So...
+[8:22pm] paulproteus: The data is getting loaded into the database.
+[8:22pm] paulproteus: However, it's loaded in a transaction and not visible from other transactions.
+[8:22pm] paulproteus: The extent to which is "in" the database is questionable, you might see.
+[8:22pm] paulproteus: This is a feature of the Django test runner; doing it this way, as you saw, makes 
+for huge performance advantages.
+[8:23pm] paulproteus: The built-in Django "test client" seems to work properly with this, by making 
+sure to use the same MySQL connection as the one that did the insertion.
+[8:23pm] paulproteus: All is well.
+[8:23pm] mandarg: ah
+[8:23pm] paulproteus: But the Twill-based test suite somehow is not using the same MySQL 
+connection, I believe.
+[8:23pm] paulproteus: You can see that because if you force the transaction to get committed, then 
+the Twill-based tests pass.
+[8:23pm] paulproteus: So there's probably some way to make the Twill-based test suite do the right 
+thing here.
+[8:23pm] mandarg: did you see that?
+[8:23pm] paulproteus: And it's probably a regression in our test suite caused by a Django upgrade at 
+some point.
+
+-------------------------------------------------------------------------------------
+
+I believe the import of all this is that there are two ways to possibly fix this.
+
+1. Abandon twill entirely, and use something like django-webtest instead 
+(<a href="https://pypi.python.org/pypi/django-webtest">https://pypi.python.org/pypi/django-webtest</a>)
+
+2. Use something like <a href="http://pythonhosted.org/django-test-utils/,">http://pythonhosted.org/django-test-utils/,</a> which might fix the problems with 
+twill.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3898">msg3898 (view)</a></th>
+   <th>Author: jwm</th>
+   <th>Date: 2013-10-17.00:49:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a more noticable thing now that <a href="https://github.com/openhatch/oh-mainline/pull/146">https://github.com/openhatch/oh-mainline/pull/146</a> has 
+been merged.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3897">msg3897 (view)</a></th>
+   <th>Author: jwm</th>
+   <th>Date: 2013-10-17.00:48:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>20:33:22&lt; johnmorr&gt; paulproteus: do you have any idea why the travis build would fail (and
+ in nonsensical ways) with USE_MYSQL == true?
+20:33:38&lt; paulproteus&gt; Sadly yes.
+20:33:47 * johnmorr listens to paulproteus.
+20:33:54&lt; paulproteus&gt; They mostly relate to some kind of insanity in the inter-dependenci
+es between the fixtures and their primary keys.
+20:34:07&lt; paulproteus&gt; That's the first one.
+20:34:17&lt; paulproteus&gt; You can see some of this with sqlite too, but we skip those tests w
+ith sqlite.
+20:34:48&lt; paulproteus&gt; Let me go read the log for the rest
+20:34:59&lt; johnmorr&gt; <a href="https://travis-ci.org/openhatch/oh-mainline/jobs/12337407">https://travis-ci.org/openhatch/oh-mainline/jobs/12337407</a>
+20:35:31&lt; johnmorr&gt; looks like a bunch of twill failures, too
+20:35:32&lt; paulproteus&gt; <a href="https://travis-ci.org/openhatch/oh-mainline/jobs/12337093">https://travis-ci.org/openhatch/oh-mainline/jobs/12337093</a> is simply
+ because someone needs to 'apt-get install python-mysqldb'
+20:35:33&lt; paulproteus&gt; let me read that
+20:35:46&lt; paulproteus&gt; The twill failures are usually because the app lacks the data that 
+the tests expect, fwiw.
+20:35:52&lt; paulproteus&gt; Which are because the fixture loads failed.
+20:36:10&lt; paulproteus&gt; iirc we hit this problem with mysql 5.5 and up, but not e.g. 5.0, o
+n which we developed ~4y ago
+20:36:31&lt; johnmorr&gt; this problem == the fixture loads failing?
+20:36:35&lt; paulproteus&gt; Yeah.
+20:36:50&lt; paulproteus&gt; Which you should be able to reproduce by doing:
+20:36:53&lt; paulproteus&gt; $ export USE_MYSQL=1
+20:37:01&lt; paulproteus&gt; $ python manage.py syncdb --noinput
+20:37:11&lt; paulproteus&gt; $ python manage.py loaddata just_one_person.json
+20:37:26&lt; paulproteus&gt; (where just_one_person.json is the file part of a path of a real file in 
+mysite/*/fixtures/* )
+20:37:38&lt; paulproteus&gt; (I'm not sure that's a real valid name, but it's a made-up example; I hope 
+that's clear enough)
+20:37:43&lt; johnmorr&gt; nod paulproteus 
+20:38:04&lt; paulproteus&gt; So if you look at the failing tests, and the values of the fixtures list for 
+that test, you should probably be able to trigger the insane errors by simply loading them in the 
+order they are provided to that test case.
+20:38:08&lt; paulproteus&gt; Now... what to do about that.
+20:38:33&lt; paulproteus&gt; The lovely Walter iirc at PyCon sprints 2012 (2011??) looked into this for 
+a while and came out of it with his head spinning.
+20:38:40&lt; paulproteus&gt; Probably we can combine more of the fixtures into one file.
+20:38:52&lt; paulproteus&gt; Part of the problem (most of it? all of it?) relates to auto-creating Person 
+objects from User objects.
+20:38:59&lt; paulproteus&gt; it's all coming back to me...
+20:39:06&lt; paulproteus&gt; There's a post-create hook for the User object which makes sure a 
+Person object gets made.
+20:39:24&lt; paulproteus&gt; But in fixture load time we definitely want not to auto-create the Person 
+-- we want to use the Person object that is provided in the JSON!
+20:39:28&lt; paulproteus&gt; That's what I recall.
+20:39:43&lt; paulproteus&gt; I think that's the whole story. It's relatively bad, but also relatively hairy.
+20:39:47&lt; paulproteus&gt; If it could end, that would be fantastic.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-06-10&nbsp;03:16:59</td><td>paulproteus</td><td>set</td><td>files:
+  + <a href="file687">unnamed</a><br />messages:
+  + <a href="msg4391">msg4391</a></td></tr>
+<tr><td>2014-06-10&nbsp;01:09:02</td><td>Aaron1011</td><td>set</td><td>messages:
+  + <a href="msg4389">msg4389</a></td></tr>
+<tr><td>2014-01-05&nbsp;07:38:39</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4020">msg4020</a></td></tr>
+<tr><td>2013-12-22&nbsp;01:51:52</td><td>mandarg</td><td>set</td><td>messages:
+  + <a href="msg4007">msg4007</a></td></tr>
+<tr><td>2013-10-17&nbsp;00:49:17</td><td>jwm</td><td>set</td><td>messages:
+  + <a href="msg3898">msg3898</a></td></tr>
+<tr><td>2013-10-17&nbsp;00:48:57</td><td>jwm</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,480 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 931: Upgrade to stable release of Django (v1.6) - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue931
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue931">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue931">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Upgrade to stable release of Django (v1.6)</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>in-progress</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  blues_chick, onceuponatimeforever, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>onceuponatimeforever</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-02-03.04:39:26</b> by <b>onceuponatimeforever</b>, last changed <b>2014-07-27.04:20:22</b> by <b>blues_chick</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file690/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>blues_chick</span>,
+   <span>2014-06-20.14:43:22</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4494">msg4494 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-07-27.04:20:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Re: <a href="msg4493">msg4493</a>
+Susan - Wow! You are awesome :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4493">msg4493 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2014-07-27.02:54:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>OH site now runs on Django 1.5.8</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4414">msg4414 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-06-27.21:51:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Susan has also opened <a href="https://github.com/openhatch/oh-mainline/pull/291">https://github.com/openhatch/oh-mainline/pull/291</a>
+
+Changing this to in-progress. Echoing Carol, nicely done!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4405">msg4405 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-06-20.14:43:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Susan and Asheesh,
+
+Nicely done :)
+
+On Thu, Jun 19, 2014 at 12:39 AM, Susan Tan &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Susan Tan &lt;<a href="mailto:onceuponatimeforever@gmail.com">onceuponatimeforever@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; asheesh and I pair programmed at the Workshop Cafe, SF and the result is
+&gt; this merged PR:
+&gt; <a href="https://github.com/openhatch/oh-mainline/pull/289">https://github.com/openhatch/oh-mainline/pull/289</a>  OH is now successfully
+&gt; running on Django
+&gt; 1.4.13. The next step is to upgrade the OH app to Django 1.5. Finally,
+&gt; then I will upgrade the app to
+&gt; Django 1.6. Perhaps even up to Django 1.7 if I am feeling very brave.
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue931">https://openhatch.org/bugs/issue931</a>&gt;
+&gt; __________________________________________
+&gt;
+
+-- 
+*Carol Willing*
+Developer
+Willing Consulting
+
+willingc[at]gmail[dot]com
+760[dash]214[dash]8385</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4404">msg4404 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2014-06-19.07:39:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>asheesh and I pair programmed at the Workshop Cafe, SF and the result is this merged PR: 
+<a href="https://github.com/openhatch/oh-mainline/pull/289">https://github.com/openhatch/oh-mainline/pull/289</a>  OH is now successfully running on Django 
+1.4.13. The next step is to upgrade the OH app to Django 1.5. Finally, then I will upgrade the app to 
+Django 1.6. Perhaps even up to Django 1.7 if I am feeling very brave.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4395">msg4395 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2014-06-12.03:26:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've attempted to upgrade straight to django 1.6 but I've run into many dependency library problems. I'll 
+love to pair with someone on solving this problem.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4378">msg4378 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-06-07.17:16:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://www.cvedetails.com/version/138221/Djangoproject-Django-1.3.3.html">http://www.cvedetails.com/version/138221/Djangoproject-Django-1.3.3.html</a>
+
+While I'm not seeing remote code execution we should really probably do this
+sooner vs. later. Changing priority.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4106">msg4106 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-02-04.07:54:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I agree with the iterative approach recommended by Asheesh. Thanks for the link.
+"as easy" let's hope.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4104">msg4104 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-02-04.04:38:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>FWIW, I would recommend doing this one "major version" at a time, e.g. 
+upgrade to 1.4, make sure all is well, repeat.
+
+Often it's hard to upgrade more than one point-release at a time, and 
+problems become easier to solve if they are in smaller pieces.
+
+Technically speaking, upgrading should be "as easy" as following this: 
+<a href="http://kitsune.readthedocs.org/en/latest/vendor.html#updating-a-library-from-pypi">http://kitsune.readthedocs.org/en/latest/vendor.html#updating-a-library-from-pypi</a>
+
+(Note you must follow the "Updating a library from PyPI" section, unless 
+you know what you're doing; the page has many sections, not all of which 
+are equivalent to what we do.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4100">msg4100 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-02-03.14:57:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think this is a great idea. Wondering if the priority should be higher than
+wish. I would be willing to help out with this effort. I think from a security
+standpoint as well as developer usability this would be time well spent.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4097">msg4097 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2014-02-03.04:39:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Upgrade the entire OH webapp project to the latest stable version of Django, which is currently at v1.6. 
+This is potentially a major infrastructure project. 
+
+Why? Related to <a href="https://openhatch.org/bugs/issue925">https://openhatch.org/bugs/issue925</a> in which all the oauth django add-ons require 
+Django 1.4+.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-07-27&nbsp;04:20:22</td><td>blues_chick</td><td>set</td><td>messages:
+  + <a href="msg4494">msg4494</a></td></tr>
+<tr><td>2014-07-27&nbsp;02:54:26</td><td>onceuponatimeforever</td><td>set</td><td>messages:
+  + <a href="msg4493">msg4493</a></td></tr>
+<tr><td>2014-06-27&nbsp;21:51:04</td><td>ehashman</td><td>set</td><td>status: chatting -> in-progress<br />assignedto: <a href="user668">onceuponatimeforever</a><br />messages:
+  + <a href="msg4414">msg4414</a></td></tr>
+<tr><td>2014-06-20&nbsp;14:43:22</td><td>blues_chick</td><td>set</td><td>files:
+  + <a href="file690">unnamed</a><br />messages:
+  + <a href="msg4405">msg4405</a></td></tr>
+<tr><td>2014-06-19&nbsp;07:39:21</td><td>onceuponatimeforever</td><td>set</td><td>messages:
+  + <a href="msg4404">msg4404</a></td></tr>
+<tr><td>2014-06-12&nbsp;03:26:40</td><td>onceuponatimeforever</td><td>set</td><td>messages:
+  + <a href="msg4395">msg4395</a></td></tr>
+<tr><td>2014-06-07&nbsp;17:16:29</td><td>ehashman</td><td>set</td><td>priority: wish -> urgent<br />messages:
+  + <a href="msg4378">msg4378</a></td></tr>
+<tr><td>2014-02-04&nbsp;07:54:55</td><td>blues_chick</td><td>set</td><td>messages:
+  + <a href="msg4106">msg4106</a></td></tr>
+<tr><td>2014-02-04&nbsp;04:38:16</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4104">msg4104</a></td></tr>
+<tr><td>2014-02-03&nbsp;14:57:03</td><td>blues_chick</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user723">blues_chick</a><br />messages:
+  + <a href="msg4100">msg4100</a></td></tr>
+<tr><td>2014-02-03&nbsp;04:39:26</td><td>onceuponatimeforever</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

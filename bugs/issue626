@@ -1,0 +1,1047 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 626: Create custom bug parser for GHC Trac - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue626
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue626">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue626">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Create custom bug parser for GHC Trac</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  mlinksva, paulproteus, soonick5
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>soonick5</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-12-01.04:00:08</b> by <b>paulproteus</b>, last changed <b>2012-07-27.06:37:30</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file514/0001-When-difficulty-field-is-Easy-less-than-1-hour-then-.patch">0001-When-difficulty-field-is-Easy-less-than-1-hour-then-.patch</a>
+  </td>
+  <td>
+   <span>soonick5</span>,
+   <span>2012-07-18.02:27:28</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3337">msg3337 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-27.06:37:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This change is merged in
+<a href="https://github.com/openhatch/oh-bugimporters/commit/9f8d267e2a02a726c4ffd4a214247ceba9026fb6">https://github.com/openhatch/oh-bugimporters/commit/9f8d267e2a02a726c4ffd4a214247ceba9026fb6</a>
+
+Thanks!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3336">msg3336 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-26.22:00:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I was looking for it, but didn't see it, and wondered if you hadn't 
+submitted it.
+
+Now I realize I was looking at the wrong repository! My gravest 
+apologies; expect a review today!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3335">msg3335 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-07-26.21:58:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Asheesh,
+
+I submitted my pull request a while ago and nobody has checked it. Can you
+please take a look and let me know if everything is correct.
+
+I will try to connect to IRC one of these days to talk about the next steps.
+
+Regards,
+Adrian Ancona</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3325">msg3325 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-07-21.23:16:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Asheesh,
+
+Thanks for all your help. I just submitted the pull request after making the
+corrections you suggested: <a href="https://github.com/openhatch/oh-bugimporters/pull/9">https://github.com/openhatch/oh-bugimporters/pull/9</a>
+
+Regards,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3323">msg3323 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-20.00:19:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi soonick5!
+
+This patch has just two trivial problems:
+
+* +        assert returned_data['good_for_newcomers'], '''The bug is considered 
+
+This line ends with a space character, this sort of "trailing whitespace" can
+cause merge conflicts down the road. So it's better to remove the space
+character from the end of the line.
+
+Also, in the Mock, you write: "Haskell(GHK) tracker" -- actually, it's "GHC",
+not GHK.
+
+Beyond that, it looks great. I would merge it as-is, and if you want to make the
+above changes before submitting the pull request, that'd be fine with me.
+
+Thank you for your hard work!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3322">msg3322 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-07-18.02:27:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Asheesh,
+
+Thanks for the instructions. I am attaching a new patch so you can give it a
+final review before I submit the pull request on github.
+
+I like adding comments to my assertions so readers of the tests can more easily
+understand what each assertion is doing. For that reason I didn't remove the
+comment from my assertion. If this goes against any standard you have or for any
+reason think it is not correct I can remove it.
+
+Please take a look and let me know if everything is correct, and if it is I will
+make a pull request on github.
+
+Thanks,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3321">msg3321 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-16.21:36:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Adrian,
+
+Sorry about my lack of clarity earlier! To reply to your questions:
+
+* By the "verbose string"I mean this:
+
+ ('The bug is considered ' + 'good_for_newcomers because the value of the 
+difficulty ' + 'field is: "Easy (less than 1 hour)"')
+
+Good question about precise next steps. To clarify  that:
+
+* Remove the modification you did to TrackerModel(Mock)
+
+* Create a new class called HaskellTrackerModel -- it's okay to subclass 
+TrackerModel and just override the attributes you want to override. The 
+subclassing idea is a good one, and didn't occcur to me!
+
+Other mini next steps:
+
+* Adjust your test so that you refer to HaskellTrackerModel -- in 
+test_bug_with_difficulty_easy_is_bitesize(), set the local variable "tm" to an 
+instance of HaskellTrackerModel.
+
+* Amend your commit so it doesn't have "Wip" in the commit log message (although 
+good on you for making work-in-progress commits -- those are helpful! It's just a 
+good idea to clean that up before it lands in the main codebase).
+
+That should be it. Thanks for your patience, and also for the code! Ping this 
+ticket if you have any other questions.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3320">msg3320 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-07-16.01:58:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Asheesh,
+
+Thanks for taking the time to check my patch. I have a few questions about your
+comments, tough.
+
+I am not sure what is the verbose string you are talking about. Can you tell me
+which one is it?
+
+Also, I am a little confused about what the next steps are. What I understood
+is: Remove the modification I did to the TrackerModel(Mock) class on the init
+file and instead create a new one called HaskellTrackerModel. If this is
+correct...should I make HaskellTrackerModel inherit from TrackerModel instead of
+Mock and just overwrite "bitesized_type" and "bitesized_text" attributes?
+
+Is this the only change I need to make?
+
+Thanks,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3319">msg3319 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-13.04:36:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Adrian! Sorry about the long delay; I have been traveling, but I could have let you know about the delay sooner!  I just kept 
+thinking I'd have time to review it.
+
+Your patch is going along the right track -- with just a few changes, it can land.
+
+Actually -- by the way -- your solution is more elegant than what I had imagined. So let's stick with your way and just fix a few 
+things.
+
+First, cosmetic problems. Your top commit has "Wip" in the commit log message, as if you saved your work but didn't clean things up 
+before submitting. I recommend using "git commit --amend" to change just a commit log message, and "git rebase -i origin/master" to 
+change more than that.
+
+The value "good_for_newcomers" is supposed to just have a Boolean value. There's no way you would necessarily know that, before-hand, 
+but because of what it corresponds to in the database a bool is all you need. No need for the helpful (but verbose) string you have 
+there.
+
+Beyond that:
+
+Good job adding the test data!
+
+The way that TrackerModel objects are supposed to work, at the moment you can only select a single value for bitesized_type. So you 
+should implement logic that isn't splitting them on "," but instead supports each value individually.
+
+To make that work well, you should have a separate TrackerModel for the difficulty: easy option. To make that, just copy-paste the 
+current TrackerModel and name it HaskellTrackerModel, and change the fields as needed (for example, change "bitesized_type" to 
+"difficulty", etc.) in the new HaskellTrackerModel.
+
+I think that should be it.
+
+I said up-top this is more tidy than the way I was thinking -- I was initially imagining that we'd have to create a separate 
+BugParser class for this case, but you showed that it can be tidily implemented within the current TracBugParser. That is awesome to 
+see!
+
+I'm no longer doing as much active travel, so I should be much more available for reviews.
+
+Thanks!
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3318">msg3318 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-12.10:24:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I should have time to review this today. Thanks and sorry!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3317">msg3317 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-07-12.02:24:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Asheesh,
+
+It's been some time since I submitted this patch and you haven't checked it. If
+you are too busy, do you know if there is someone else who can help me review this?
+
+Thanks,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3311">msg3311 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-07-06.02:38:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Asheesh,
+
+Just checking if you have had time to check my patch?
+
+Regards,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3306">msg3306 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-06-30.19:30:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Asheesh,
+
+Thanks for creating that documentation, it was very helpful,
+
+I was finally able to write some code (patch attached) that I hope you can take
+a look and let me know your comments, but I also have some questions.
+
+- In other projects I have been we usually create doc blocks for every method we
+create, including tests. Is this something that people do in python?
+- I usually add a message to all my assertions so the reader of my code can
+understand what exactly I am testing. Is this discouraged? Is the syntax I used ok?
+- I added the new field and value we are looking for in the TrackModel mock, I
+imagine I need to add those same values somewhere else. Where?
+
+Thanks,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3305">msg3305 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-06-30.02:34:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi soonick5!
+
+I suggest that you keep things simple for now and try a more focused 
+approach for this change. Instead of looking at the Django code, focus on 
+the contents of oh-bugimporters, and use the oh-bugimporters test suite to 
+play with the bug import process.
+
+In the future it will be easier to run individual bug importers and see 
+what data they download... perhaps you can even help with that transition 
+in the future. For now, I'd say stick to running the code via the test 
+suite.
+
+I wrote up some new documentation for the oh-bugimporters code. Can you 
+read <a href="http://oh-bugimporters.readthedocs.org/">http://oh-bugimporters.readthedocs.org/</a> and let me know if that 
+clarifies things?
+
+Especially pay attention to the "The role of multiple BugParsers" 
+discussion.
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3304">msg3304 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-06-30.01:13:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Investigating
+/home/adrian/Dev/oh-mainline/mysite/customs/management/commands/custom_daily_tasks.py
+it seems like I should have some data in my profile_citation table but it is empty</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3303">msg3303 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-06-29.23:11:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>search_bug is the table where the bugs information come from.
+Apparently running
+
+$ python manage.py customs_daily_tasks
+
+Isn't updating the db</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3302">msg3302 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-06-29.22:54:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I ran:
+
+$ python manage.py customs_daily_tasks
+$ python manage.py shell_plus
+
+And then this on the shell:
+
+&gt;&gt;&gt; Bug.all_bugs.all()
+
+And I got this:
+
+[&lt;Bug: title='0' project='GNOME-Do' project__language='C#' description='...'&gt;,
+&lt;Bug: title='1' project='d29187f31e2e4ba1b2ac43a74d6a40bf' project__language='C'
+description='...'&gt;]</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3298">msg3298 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-06-26.16:31:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Adrian! Sorry about the mess.
+
+Here's what I suggest: I'll write more documentation for oh-bugimporters 
+so that this simple task is actually simple.
+
+Having said that, I'll also answer your questions briefly here.
+
+On Tue, 26 Jun 2012, soonick5 wrote:
+
+&gt; Hello,
+&gt;
+&gt; Thanks again for all your useful answers.
+&gt;
+&gt; I followed all the instructions from our chat but when it came to play 
+&gt; with the Bugs class I didn't know what to do.
+
+It's a Django model, so the shell gives you an interface to list all the 
+rows in the database that correspond to that model.
+
+You can get a list via:
+
+Bub.all_bugs.all()
+
+&gt;
+&gt; I also tried looking at the data being updated in the database but I didn't know
+&gt; which table I needed to look at. In this same subject, a lot of the
+&gt; documentation talks about a MySQL database but the only database I see in my
+&gt; local is a SQLite database. Is this configured to be this way based on the
+&gt; environment or do I need to have a MySQL database that I currently don't have?
+
+It's the sqlite database. We changed the defaults a year ago, or so, and 
+now that sqlite is the default.
+
+&gt;
+&gt; I did a very shallow check of what this does: python manage.py
+&gt; customs_daily_tasks and I didn't find where the actual importing of the code is
+&gt; made. Do you think you can point me to a file I can follow and move from it?
+
+Yes! Will do shortly.
+
+&gt; I am still pretty new to Python and Django so I may be asking some very 
+&gt; dump questions. If I am taking too long to do something that should be 
+&gt; really easy I would be happy to move a simpler task.
+
+I think we can make this task work. Shortly I'll publish better docs and 
+give you a link in this ticket.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3297">msg3297 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-06-26.03:58:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello,
+
+Thanks again for all your useful answers.
+
+I followed all the instructions from our chat but when it came to play with the
+Bugs class I didn't know what to do.
+
+I also tried looking at the data being updated in the database but I didn't know
+which table I needed to look at. In this same subject, a lot of the
+documentation talks about a MySQL database but the only database I see in my
+local is a SQLite database. Is this configured to be this way based on the
+environment or do I need to have a MySQL database that I currently don't have?
+
+I did a very shallow check of what this does: python manage.py
+customs_daily_tasks and I didn't find where the actual importing of the code is
+made. Do you think you can point me to a file I can follow and move from it?
+
+I am still pretty new to Python and Django so I may be asking some very dump
+questions. If I am taking too long to do something that should be really easy I
+would be happy to move a simpler task.
+
+Thanks,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3296">msg3296 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-06-26.01:53:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>[18:40:59] &lt;soonick5&gt; Hello, does anyone know how can I execute a bug importer
+from oh-bugimporters?
+[18:42:12] &lt;paulproteus&gt; soonick5: Hi!
+[18:42:15] &lt;paulproteus&gt; Sorry I didn't reply on the ticket; busy day.
+[18:42:24] &lt;paulproteus&gt; Quickly, I think the best way is just to write a test
+in the test suite.
+[18:42:35] &lt;paulproteus&gt; There isn't a good stand-alone way to run individual
+bug importers yet.
+[18:42:49] &lt;paulproteus&gt; I want to migrate the bug importers to be more based on
+"Scrapy" so that's easier, but for now it's kind of hard.
+[18:42:57] &lt;soonick5&gt; Don't worry, I imagine you have your eyes in a lot of stuff
+[18:43:05] &lt;paulproteus&gt; So my recommendation as a coder is to write tests, and
+then run the test suite, and watch the test pass/fail.
+[18:43:13] &lt;paulproteus&gt; Note also that you *can* run the code the way the
+backend does.
+[18:43:19] &lt;paulproteus&gt; To do that, get a copy of oh-mainline, and "cd" into it.
+[18:43:25] &lt;paulproteus&gt; Make sure that it can find oh-bugimporters, and then:
+[18:43:35] &lt;paulproteus&gt; python manage.py customs_daily_tasks
+[18:43:40] &lt;paulproteus&gt; That, iirc, runs the bug importer.
+[18:44:24] &lt;paulproteus&gt; But because oh-mainline and oh-bugimporter are somewhat
+tightly-coupled, it's kind of a drag to test individual bug parsers/importers
+this way.
+[18:44:42] &lt;soonick5&gt; How do I know if oh-mainline can find oh-bugimporters?
+[18:45:25] &lt;paulproteus&gt; python manage.py shell
+[18:45:27] &lt;paulproteus&gt; import bugimporters
+[18:45:32] &lt;paulproteus&gt; If that works, then you're in business.
+[18:45:50] &lt;paulproteus&gt; There's some autodetect magic where oh-mainline looks
+at ../oh-bugimporters and if it finds it there, it adds it to the path.
+[18:48:12] &lt;soonick5&gt; ok, that seemed to work
+[18:48:20] &lt;soonick5&gt; so once I run: python manage.py customs_daily_tasks
+[18:48:43] &lt;soonick5&gt; where can I check that the bugs were actually imported?
+will that reflect in the database?
+[18:48:49] &lt;paulproteus&gt; Yeah, it'll be reflected in the database.
+[18:49:16] &lt;paulproteus&gt; The best way to see how it's reflected in the database
+is by: python manage.py shell_plus
+[18:49:32] &lt;paulproteus&gt; Play with the Bug class there.
+[18:50:56] &lt;soonick5&gt; Awesome. I think with all these information I can finally
+start playing with my task
+[18:50:58] &lt;soonick5&gt; thanks
+[18:52:56] &lt;paulproteus&gt; My pleasure! Thanks for pinging here.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3295">msg3295 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-06-25.03:58:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks a lot for your answers.
+
+I started taking a look at the bug importers to make the suggested changes but
+now I realized that I don't know how to run a bug importer so I can test what it
+is doing.
+
+Do you know how I can do a run of the bug importer or point me to documentation
+about how to test this?
+
+Thanks,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3286">msg3286 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-06-16.16:15:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On Sat, 16 Jun 2012, soonick5 wrote:
+
+&gt;
+&gt;
+&gt; I have a few questions before I can start making some progress on this ticket:
+&gt;
+&gt; - Should I be looking at oh-mainline or oh-bugimporters?
+
+oh-bugimporters
+
+&gt; - Does the bug indexing happens on a cron job or is it manually triggered?
+
+cron job
+
+&gt; - It would be helpful to know what is the current result and what is the
+&gt; expected result so I know when I can mark this as completed.
+
+The currnt result is that when you parse a Trac bug, the 'difficulty' key 
+from the data table is ignored.
+
+The expected result is that the 'difficulty' field can be used to infer 
+the value of "good_for_newcomers".
+
+An easy implementation is to create a TracBugParser subclass that 
+overrides the extract_tracker_specific_data() method (I think that's what 
+it's called; blanking on name of method at the moment). 
+oh-bugimporters/bugimporters/bugzilla.py has sample BugParser subclasses. 
+Unlike the Bugzilla ones, you'll subclass TracBugParser and put it in 
+trac.py.
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3285">msg3285 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-06-16.16:12:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have a few questions before I can start making some progress on this ticket:
+
+- Should I be looking at oh-mainline or oh-bugimporters?
+- Does the bug indexing happens on a cron job or is it manually triggered?
+- It would be helpful to know what is the current result and what is the
+expected result so I know when I can mark this as completed.
+
+Thanks,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3208">msg3208 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-09.22:45:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Now that we've extracted oh-bugimporters, this would be great for e.g. the 
+upcoming sprint. Not going to get done for 0.12.02, though.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2960">msg2960 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-08.22:35:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This would be a pretty simple new BugParser.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2746">msg2746 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-01.04:00:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On bugs in the Trac bug tracker for the GHC project, the Bug.good_for_newcomers
+(AKA bitesize) field should be set to True if the Trac data has a key called
+
+'difficulty'
+
+whose value is
+
+'Easy (less than 1 hour)'
+
+Maybe we should do this with a custom bug parser. We could also make the web UI
+(even) more complex.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-07-27&nbsp;06:37:30</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg3337">msg3337</a></td></tr>
+<tr><td>2012-07-26&nbsp;22:00:58</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3336">msg3336</a></td></tr>
+<tr><td>2012-07-26&nbsp;21:58:27</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3335">msg3335</a></td></tr>
+<tr><td>2012-07-21&nbsp;23:16:27</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3325">msg3325</a></td></tr>
+<tr><td>2012-07-20&nbsp;00:19:25</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3323">msg3323</a></td></tr>
+<tr><td>2012-07-18&nbsp;02:27:32</td><td>soonick5</td><td>set</td><td>files:
+  + <a href="file514">0001-When-difficulty-field-is-Easy-less-than-1-hour-then-.patch</a><br />messages:
+  + <a href="msg3322">msg3322</a></td></tr>
+<tr><td>2012-07-18&nbsp;02:23:05</td><td>soonick5</td><td>set</td><td>files:
+  - <a href="file513">626.patch</a></td></tr>
+<tr><td>2012-07-16&nbsp;21:36:20</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3321">msg3321</a></td></tr>
+<tr><td>2012-07-16&nbsp;01:58:36</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3320">msg3320</a></td></tr>
+<tr><td>2012-07-13&nbsp;04:36:23</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3319">msg3319</a></td></tr>
+<tr><td>2012-07-12&nbsp;10:24:43</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3318">msg3318</a></td></tr>
+<tr><td>2012-07-12&nbsp;02:24:41</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3317">msg3317</a></td></tr>
+<tr><td>2012-07-07&nbsp;05:47:51</td><td>mlinksva</td><td>set</td><td>nosy:
+  + <a href="user492">mlinksva</a></td></tr>
+<tr><td>2012-07-06&nbsp;02:38:50</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3311">msg3311</a></td></tr>
+<tr><td>2012-06-30&nbsp;19:30:38</td><td>soonick5</td><td>set</td><td>files:
+  + <a href="file513">626.patch</a><br />messages:
+  + <a href="msg3306">msg3306</a></td></tr>
+<tr><td>2012-06-30&nbsp;02:34:12</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3305">msg3305</a></td></tr>
+<tr><td>2012-06-30&nbsp;01:13:46</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3304">msg3304</a></td></tr>
+<tr><td>2012-06-29&nbsp;23:11:30</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3303">msg3303</a></td></tr>
+<tr><td>2012-06-29&nbsp;22:54:37</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3302">msg3302</a></td></tr>
+<tr><td>2012-06-26&nbsp;16:31:47</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3298">msg3298</a></td></tr>
+<tr><td>2012-06-26&nbsp;03:58:48</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3297">msg3297</a></td></tr>
+<tr><td>2012-06-26&nbsp;01:53:41</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3296">msg3296</a></td></tr>
+<tr><td>2012-06-25&nbsp;03:58:11</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3295">msg3295</a></td></tr>
+<tr><td>2012-06-16&nbsp;16:15:41</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3286">msg3286</a></td></tr>
+<tr><td>2012-06-16&nbsp;16:12:05</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3285">msg3285</a></td></tr>
+<tr><td>2012-06-15&nbsp;22:10:47</td><td>soonick5</td><td>set</td><td>assignedto: <a href="user481">soonick5</a><br />nosy:
+  + <a href="user481">soonick5</a></td></tr>
+<tr><td>2012-05-09&nbsp;22:45:05</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3208">msg3208</a><br />milestone: <a href="milestone15">0.12.02</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2012-02-08&nbsp;22:35:43</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2960">msg2960</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2011-12-01&nbsp;04:00:08</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,421 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 659: Vandalism on talk pages - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue659
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue659">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue659">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Vandalism on talk pages</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, brittag, jesstess, paulproteus, willkahngreene
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-01-15.15:25:12</b> by <b>jesstess</b>, last changed <b>2013-08-18.08:52:17</b> by <b>brittag</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3813">msg3813 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2013-08-18.08:52:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I removed spam from about 70 pages today, and I can't easily find more. Also, vandalism/spam on 
+the wiki seems much less common now - looking at changes from the past month or so, I don't see 
+any obvious vandal edits.
+
+So I'm going to go ahead and mark this resolved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3379">msg3379 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2012-08-29.13:01:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here are some pages that still have spam:
+
+<a href="https://openhatch.org/wiki/Talk:Software_Freedom_Day_2011_Boston/Schedule">https://openhatch.org/wiki/Talk:Software_Freedom_Day_2011_Boston/Schedule</a>
+<a href="https://openhatch.org/wiki/User:108.3.196.171">https://openhatch.org/wiki/User:108.3.196.171</a>
+<a href="https://openhatch.org/wiki/User:189.204.69.172">https://openhatch.org/wiki/User:189.204.69.172</a>
+<a href="https://openhatch.org/wiki/Project_night">https://openhatch.org/wiki/Project_night</a>
+
+I found these by clicking a random selection of links on <a href="https://openhatch.org/w/index.php?">https://openhatch.org/w/index.php?</a>
+title=Special:UnwatchedPages (so there are probably more).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3372">msg3372 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-08-22.17:40:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Jessica and/or Karen and/or willkg, I'd like you to take a look at the wiki and 
+see if you think it's successfully not full of spam. If so, please mark this as 
+resolved!
+
+(takluyver, thank you for bringing up the issue with the forums. Let's make that 
+a different ticket. The solution will be different. I agree with the goal of 
+making that happen!)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3371">msg3371 (view)</a></th>
+   <th>Author: takluyver</th>
+   <th>Date: 2012-08-22.17:21:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Note that the forums are also dominated by spam:
+<a href="http://forum.openhatch.org/discussions">http://forum.openhatch.org/discussions</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3255">msg3255 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-17.00:35:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We've made good progress on this, but it's not February anymore, by a long shot. 
+Moving to 'later'.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3230">msg3230 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-13.17:58:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>My solution doesn't totally work.
+
+Further thoughts here: <a href="http://lists.openhatch.org/pipermail/devel/2012-">http://lists.openhatch.org/pipermail/devel/2012-</a>
+May/002839.html
+
+The current effort is to use GitMediawiki to make manual cleanup easier.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3184">msg3184 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-02.22:28:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Vandalism problems are definitely a serious problem on our wiki. Jessica, thanks
+for filing this ticket.
+
+Looking at <a href="http://openhatch.org/wiki/Special:RecentChanges">http://openhatch.org/wiki/Special:RecentChanges</a> , we get 0-10
+vandalism edits per week. That's actually something a human can deal with, so
+long as that person receives notifications and acts on those notifications.
+
+I'll subscribe to the RSS feed, as per willkahngreene's suggestion, and just
+make sure to respond to the RSS feed contents daily... done.
+
+I'll mark this plan as need-review and just personally take responsibility for
+being the anti-wiki-spam person.
+
+Now, I will say -- if someone else wants to take this job from me, that'd be great!
+
+I've gone ahead and removed the current crop of wiki spam as far as I can find.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2886">msg2886 (view)</a></th>
+   <th>Author: willkahngreene</th>
+   <th>Date: 2012-01-15.15:41:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We had vandalism problems with mediagoblin wiki. I ended up setting up
+rss2email, pointed it at the RecentPages rss feed, and now get notified of any
+changes to the wiki. Thus I can remove stuff as it happens without having to be
+proactive about checking.
+
+I don't know offhand if that'd be useful for you folks or not, but it's working
+for us currently mostly because we don't have a ton of changes.
+
+The thing I want to do soon is set up an IRC bot to monitor our wiki changes and
+tell us on IRC when they happen. That's more of a crowd-surfy solution.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2885">msg2885 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2012-01-15.15:25:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I got an alert about User talk:Jesstess3 getting created with bogus content:
+
+<a href="https://openhatch.org/w/index.php?title=Special:Undelete&amp;target=User_talk%3AJesstess3">https://openhatch.org/w/index.php?title=Special:Undelete&amp;target=User_talk%3AJesstess3</a>
+
+This probably means a bunch of talk pages have been vandalized. We need to:
+
+1. Revert the vandalism
+2. Implement something to keep this from happening / keep this from happening as easily</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-08-18&nbsp;08:52:17</td><td>brittag</td><td>set</td><td>status: in-progress -> resolved<br />nosy:
+  + <a href="user811">brittag</a><br />messages:
+  + <a href="msg3813">msg3813</a></td></tr>
+<tr><td>2012-08-29&nbsp;13:01:48</td><td>jesstess</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg3379">msg3379</a></td></tr>
+<tr><td>2012-08-22&nbsp;17:40:19</td><td>paulproteus</td><td>set</td><td>status: in-progress -> need-review<br />assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg3372">msg3372</a></td></tr>
+<tr><td>2012-08-22&nbsp;17:21:39</td><td>takluyver</td><td>set</td><td>messages:
+  + <a href="msg3371">msg3371</a></td></tr>
+<tr><td>2012-05-17&nbsp;00:35:55</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3255">msg3255</a><br />milestone: <a href="milestone15">0.12.02</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2012-05-13&nbsp;17:58:38</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg3230">msg3230</a></td></tr>
+<tr><td>2012-05-02&nbsp;22:28:04</td><td>paulproteus</td><td>set</td><td>status: chatting -> need-review<br />nosy:
+  + <a href="user4">aldeka</a>, <a href="user26">willkahngreene</a><br />messages:
+  + <a href="msg3184">msg3184</a></td></tr>
+<tr><td>2012-01-15&nbsp;15:41:42</td><td>willkahngreene</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2886">msg2886</a></td></tr>
+<tr><td>2012-01-15&nbsp;15:25:12</td><td>jesstess</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

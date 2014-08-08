@@ -1,0 +1,520 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 755: Add GHC tracker to /customs/ UI - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue755
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue755">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue755">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Add GHC tracker to /customs/ UI</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, soonick5
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>soonick5</td>
+ <th>Keywords</th>
+ <td>
+  bugimporters
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-08-01.02:43:30</b> by <b>soonick5</b>, last changed <b>2012-10-05.01:12:15</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3444">msg3444 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-10-05.01:12:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Agreed -- there it is! Thank you! (Whew.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3441">msg3441 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-09-29.00:11:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I finally added the values on the UI. I think we can close the ticket now. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3423">msg3423 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-09-23.20:25:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Blocker removed</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3416">msg3416 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-09-16.22:14:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Currently blocked by: <a href="https://openhatch.org/bugs/issue769">https://openhatch.org/bugs/issue769</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3404">msg3404 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-09-09.19:45:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I still have to make the update on the UI. When my change goes live. Do you know
+when my changes will reach the live site?
+
+Thanks,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3403">msg3403 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-09-09.19:43:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is resolved, with <a href="https://github.com/openhatch/oh-">https://github.com/openhatch/oh-</a>
+mainline/commit/caca04ecadc6373104ea53545fc48c832b51d6a7
+
+Thanks!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3402">msg3402 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-09-09.19:07:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thank you for this! See brief comments there.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3401">msg3401 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-09-09.18:45:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Asheesh,
+
+I created a pull request for adding the Difficulty field and some documentation.
+
+<a href="https://github.com/openhatch/oh-mainline/pull/65">https://github.com/openhatch/oh-mainline/pull/65</a>
+
+I need this to be live so I can correctly input the GHC bug tracker, so I am not
+closing this ticket yet, but I do need you to review and push when everything is ok.
+
+Thanks,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3384">msg3384 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-09-01.00:46:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is currently blocked by:
+
+<a href="https://openhatch.org/bugs/issue759">https://openhatch.org/bugs/issue759</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3382">msg3382 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-08-31.23:19:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Do note that when developing on your own computer, you can just run 
+'python manage.py runserver' and not "deploy" it.
+
+If that's unclear, I can clarify!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3381">msg3381 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-08-31.23:17:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I forgot how to deploy the site so I am adding a link to the deploy
+documentation so I don't forget again:
+
+<a href="http://openhatch.readthedocs.org/en/latest/deployment/index.html">http://openhatch.readthedocs.org/en/latest/deployment/index.html</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3355">msg3355 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-08-01.21:27:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Deleted this comment by mistake:
+
+Patch oh-mainline to make sure the new option for Trac flows through into the
+web UI so we can fix the configuration of GHC.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3353">msg3353 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-08-01.03:37:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Read this for documentation about deploying documentation:
+
+<a href="http://sphinx.readthedocs.org/en/latest/index.html">http://sphinx.readthedocs.org/en/latest/index.html</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3352">msg3352 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-08-01.03:09:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is the GHC tracker link:
+
+<a href="http://hackage.haskell.org/trac/ghc/">http://hackage.haskell.org/trac/ghc/</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3351">msg3351 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-08-01.03:08:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This link will be helpful:
+
+<a href="http://oh-bugimporters.readthedocs.org/en/latest/integration.html">http://oh-bugimporters.readthedocs.org/en/latest/integration.html</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3350">msg3350 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-08-01.03:05:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I need documentation for adding a bug tracker to /customs/ as an openhatch user.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-10-05&nbsp;01:12:15</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3444">msg3444</a></td></tr>
+<tr><td>2012-09-29&nbsp;00:11:13</td><td>soonick5</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg3441">msg3441</a></td></tr>
+<tr><td>2012-09-23&nbsp;20:25:58</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3423">msg3423</a></td></tr>
+<tr><td>2012-09-16&nbsp;22:14:59</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3416">msg3416</a></td></tr>
+<tr><td>2012-09-09&nbsp;19:45:40</td><td>soonick5</td><td>set</td><td>status: resolved -> in-progress<br />messages:
+  + <a href="msg3404">msg3404</a></td></tr>
+<tr><td>2012-09-09&nbsp;19:43:55</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg3403">msg3403</a></td></tr>
+<tr><td>2012-09-09&nbsp;19:07:58</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3402">msg3402</a></td></tr>
+<tr><td>2012-09-09&nbsp;18:45:43</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3401">msg3401</a></td></tr>
+<tr><td>2012-09-01&nbsp;00:46:27</td><td>soonick5</td><td>set</td><td>status: chatting -> in-progress<br />messages:
+  + <a href="msg3384">msg3384</a></td></tr>
+<tr><td>2012-08-31&nbsp;23:19:30</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3382">msg3382</a></td></tr>
+<tr><td>2012-08-31&nbsp;23:17:07</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3381">msg3381</a></td></tr>
+<tr><td>2012-08-01&nbsp;21:27:19</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3355">msg3355</a></td></tr>
+<tr><td>2012-08-01&nbsp;21:26:05</td><td>soonick5</td><td>set</td><td>messages:
+  - <a href="msg3349">msg3349</a></td></tr>
+<tr><td>2012-08-01&nbsp;03:37:25</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3353">msg3353</a></td></tr>
+<tr><td>2012-08-01&nbsp;03:09:13</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3352">msg3352</a></td></tr>
+<tr><td>2012-08-01&nbsp;03:08:40</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3351">msg3351</a></td></tr>
+<tr><td>2012-08-01&nbsp;03:05:31</td><td>soonick5</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3350">msg3350</a></td></tr>
+<tr><td>2012-08-01&nbsp;02:43:30</td><td>soonick5</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,344 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 573: Importer for bugs.python.org needs to be updated - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue573
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue573">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue573">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Importer for bugs.python.org needs to be updated</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.10</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, viv
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-08-29.16:37:25</b> by <b>paulproteus</b>, last changed <b>2011-10-03.19:30:53</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2580">msg2580 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-03.19:30:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I fixed this in a few commits. The main problem was that bugs.python.org now
+uses &lt;strong&gt; not &lt;b&gt;.
+
+<a href="https://gitorious.org/openhatch/oh-mainline/commit/f5d84041427ab821587a90cb4a383c331c3ff3a3">https://gitorious.org/openhatch/oh-mainline/commit/f5d84041427ab821587a90cb4a383c331c3ff3a3</a>
+and
+<a href="https://gitorious.org/openhatch/oh-mainline/commit/bb0ee63d12503922bb8adfc04f7c2392f8bdb3ad">https://gitorious.org/openhatch/oh-mainline/commit/bb0ee63d12503922bb8adfc04f7c2392f8bdb3ad</a>
+fix this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2579">msg2579 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-03.17:53:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm going to take a look at this right now, as part of decreasing the number of
+bugs that aren't refreshing.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2541">msg2541 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-09-29.00:40:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Due to some logistic problems.. I would like to move 
+it to next iteration..unless someone wants to 
+takeover...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2471">msg2471 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-09-03.21:03:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>taking it</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2418">msg2418 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-29.16:37:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>python.org's Roundup install has changed, and so our scraping code 
+no longer works. Here is a stacktrace from the deployment's bug 
+importing:
+
+2011-08-29 12:33:57,704 handle:197 ERROR    During roundup, the 
+particular importer failed. Skipping it.
+Traceback (most recent call last):
+  File "/home/deploy/milestone-
+a/mysite/customs/management/commands/customs_daily_tasks.py", line 
+194, in handle
+    cdt_fns[key]()
+  File "/home/deploy/milestone-
+a/mysite/customs/management/commands/customs_daily_tasks.py", line 
+91, in find_and_update_enabled_roundup_trackers
+    instantiated.update()
+  File "/home/deploy/milestone-
+a/mysite/customs/bugtrackers/roundup.py", line 212, in update
+    self.create_bug_object_for_remote_bug_id_if_necessary(bug_id)
+  File "/home/deploy/milestone-
+a/mysite/customs/bugtrackers/roundup.py", line 131, in 
+create_bug_object_for_remote_bug_id_if_necessary
+    remote_bug_id=remote_bug_id)
+  File "/home/deploy/milestone-
+a/mysite/customs/bugtrackers/roundup.py", line 147, in 
+_update_bug_object_for_remote_bug_id
+    'form[name=itemSynopsis] + p &gt; b, form[name=itemSynopsis] + hr + 
+p &gt; b')]
+ValueError: need more than 0 values to unpack
+
+The next steps are to:
+
+* Figure out if the test suite still passes
+* If so, add a new HTML snapshot of a bug to the test suite
+* Run the test suite again, and reproduce the failure
+* Fix the code so that the tests pass again
+
+That should do the trick. This is a good bug for someone who wants 
+to get their feet wet with the bug importer.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-10-03&nbsp;19:30:53</td><td>paulproteus</td><td>unlink</td><td><a href="issue574">issue574 blockers</a></td></tr>
+<tr><td>2011-10-03&nbsp;19:30:53</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg2580">msg2580</a></td></tr>
+<tr><td>2011-10-03&nbsp;17:53:45</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user79">viv</a> -> <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2579">msg2579</a></td></tr>
+<tr><td>2011-09-29&nbsp;00:40:57</td><td>viv</td><td>set</td><td>messages:
+  + <a href="msg2541">msg2541</a></td></tr>
+<tr><td>2011-09-03&nbsp;21:03:09</td><td>viv</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user79">viv</a><br />messages:
+  + <a href="msg2471">msg2471</a><br />nosy:
+  + <a href="user79">viv</a></td></tr>
+<tr><td>2011-08-31&nbsp;23:11:59</td><td>paulproteus</td><td>link</td><td><a href="issue574">issue574 blockers</a></td></tr>
+<tr><td>2011-08-29&nbsp;16:37:25</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,429 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 525: /+projects/ consistently loads surprisingly slowly - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue525
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue525">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue525">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">/+projects/ consistently loads surprisingly slowly</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.12</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, jessica, jesstess, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>jesstess</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-08-07.07:36:53</b> by <b>aldeka</b>, last changed <b>2012-01-08.18:10:16</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file442/issue525.tar.gz">issue525.tar.gz</a>
+  </td>
+  <td>
+   <span>jesstess</span>,
+   <span>2012-01-08.04:29:01</span>
+  </td>
+  <td>application/x-gzip</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file443/issue525.tar.gz">issue525.tar.gz</a>
+  </td>
+  <td>
+   <span>jesstess</span>,
+   <span>2012-01-08.05:13:37</span>
+  </td>
+  <td>application/x-gzip</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2865">msg2865 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-01-08.18:10:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ya-hoo!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2864">msg2864 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-01-08.16:49:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On my laptop, rendering /+projects/ still takes ages and ages.
+
+But these are hugely great changes, and I've just deployed them in
+0c8b6184495caacc3ed1739ea3c2aa1cf8589a92
+
+Further work is needed to make this actually fast, apparently.
+
+To get a sense of which SQL queries are being run, I loaded
+<a href="http://127.0.0.1:8000/+projects/">http://127.0.0.1:8000/+projects/</a> after adjusting settings.py to remove the
+LOGGING dict. (That way, every SQL query gets printed to the console.)
+
+LOTS of queries that look like this (Probably one per project):
+
+2012-01-08 11:43:39,499 execute:146 DEBUG    (0.282) SELECT
+`search_project`.`id`, `search_project`.`created_date`,
+`search_project`.`modified_date`, `search_project`.`name`,
+`search_project`.`display_name`, `search_project`.`homepage`,
+`search_project`.`language`, `search_project`.`icon_url`,
+`search_project`.`icon_raw`,
+`search_project`.`date_icon_was_fetched_from_ohloh`,
+`search_project`.`icon_for_profile`, `search_project`.`icon_smaller_for_badge`,
+`search_project`.`icon_for_search_result`,
+`search_project`.`logo_contains_name`,
+`search_project`.`cached_contributor_count` FROM `search_project` WHERE
+`search_project`.`id` = %s ; args=(911,)
+
+and
+
+2012-01-08 11:41:59,470 execute:146 DEBUG    (0.833) SELECT `search_bug`.`id`,
+`search_bug`.`created_date`, `search_bug`.`modified_date`,
+`search_bug`.`project_id`, `search_bug`.`title`, `search_bug`.`description`,
+`search_bug`.`status`, `search_bug`.`importance`,
+`search_bug`.`people_involved`, `search_bug`.`date_reported`,
+`search_bug`.`last_touched`, `search_bug`.`last_polled`,
+`search_bug`.`submitter_username`, `search_bug`.`submitter_realname`,
+`search_bug`.`canonical_bug_link`, `search_bug`.`good_for_newcomers`,
+`search_bug`.`looks_closed`, `search_bug`.`bize_size_tag_name`,
+`search_bug`.`concerns_just_documentation`,
+`search_bug`.`as_appears_in_distribution`, `search_bug`.`tracker_type_id`,
+`search_bug`.`tracker_id` FROM `search_bug` WHERE (`search_bug`.`looks_closed` =
+%s  AND `search_bug`.`project_id` = %s ); args=(False, 7929)
+
+Surely more. Further work should be done to shrink all that down.
+
+This is great, though -- thanks for getting this started, jesstess!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2863">msg2863 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-01-08.05:13:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>These patches look good. I will deploy them shortly.
+
+Some further work on top is also needed to make this actually fast.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2862">msg2862 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2012-01-08.04:29:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The attached tarball has a couple of commits:
+
+Speed up /projects by using cheaper ORM queries in get_projects_with_bugs.
+Remove buildhelper-mockup.html, which is unused.
+Remove unused JS files.
+
+On my desktop, the time difference from the ORM commit looked like this, starting up Django on a 
+cold cache:
+
+Before this commit:
+- time in projects() (time is per call, function called twice): 1.16
+- time in get_projects_with_bugs(): 2.34
+    
+After this commit:
+- time in projects() (time is per call, called twice): 0.19
+- time in get_projects_with_bugs(): 0.4
+
+There is more that can be done for this ticket, but if these changes look good it'd be great to get 
+them on the live site.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2277">msg2277 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-08-07.13:49:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>A lot of the pages load slowly and I think it's all the stuff being pulled up
+behind the scenes. Is it possible to cache the main project listing? And maybe
+if someone adds a project that it either forces a reload or tells the person
+adding that his/her project will be available on the main page at X time?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2273">msg2273 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-08-07.07:36:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>...especially given that there's no damn icons and hardly any images on the page. 
+But the styling loads slowly in a way that visibly annoying/jarring, every time I 
+open the page. 
+
+No idea if it's a JS problem, a database-hitting problem, a caching problem, or 
+maybe all three!</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-01-08&nbsp;18:10:16</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg2865">msg2865</a><br />milestone: <a href="milestone14">0.11.12</a></td></tr>
+<tr><td>2012-01-08&nbsp;16:49:07</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2864">msg2864</a></td></tr>
+<tr><td>2012-01-08&nbsp;05:13:37</td><td>jesstess</td><td>set</td><td>files:
+  + <a href="file443">issue525.tar.gz</a></td></tr>
+<tr><td>2012-01-08&nbsp;05:13:09</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2863">msg2863</a></td></tr>
+<tr><td>2012-01-08&nbsp;04:29:03</td><td>jesstess</td><td>set</td><td>status: in-progress -> need-review<br />files:
+  + <a href="file442">issue525.tar.gz</a><br />messages:
+  + <a href="msg2862">msg2862</a></td></tr>
+<tr><td>2012-01-07&nbsp;19:58:05</td><td>jesstess</td><td>set</td><td>status: chatting -> in-progress<br />assignedto: <a href="user12">jesstess</a><br />nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2011-08-07&nbsp;13:49:35</td><td>jessica</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user96">jessica</a><br />messages:
+  + <a href="msg2277">msg2277</a></td></tr>
+<tr><td>2011-08-07&nbsp;07:36:53</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

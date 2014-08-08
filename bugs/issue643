@@ -1,0 +1,296 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 643: Diff/patch mission needs a "quick reference" doc at the end - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue643
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue643">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue643">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Diff/patch mission needs a "quick reference" doc at the end</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  Diff/patch mission needs a "quick reference" doc at the end
+  
+  <span>
+   <br><span>View:</span>
+     <a href="issue643">643</a>
+  </span>
+ </td>
+ <th>Status</th>
+ <td>need-review</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, artLopez, jesstess, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>artLopez</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-12-04.22:48:14</b> by <b>aldeka</b>, last changed <b>2014-06-13.00:36:54</b> by <b>artLopez</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4398">msg4398 (view)</a></th>
+   <th>Author: artLopez</th>
+   <th>Date: 2014-06-13.00:36:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Diff/patch mission has a quick reference page</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4307">msg4307 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-05-04.00:21:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>One remark here --
+
+The tar mission has a quick reference at the end,
+<a href="http://openhatch.org/missions/tar/hints">http://openhatch.org/missions/tar/hints</a> ,
+
+which you can use for inspiration.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2917">msg2917 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-01-28.01:11:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We can handle this once we give the diff/patch mission a new plot.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2789">msg2789 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-12-04.22:48:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So people can quickly review what they learned through the mission.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-06-13&nbsp;00:36:54</td><td>artLopez</td><td>set</td><td>status: chatting -> need-review<br />assignedto: <a href="user1107">artLopez</a><br />messages:
+  + <a href="msg4398">msg4398</a><br />nosy:
+  + <a href="user1107">artLopez</a><br />blockers:
+  + <a href="issue643">Diff/patch mission needs a "quick reference" doc at the end</a></td></tr>
+<tr><td>2014-06-13&nbsp;00:36:54</td><td>artLopez</td><td>link</td><td><a href="issue643">issue643 blockers</a></td></tr>
+<tr><td>2014-05-04&nbsp;00:21:28</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4307">msg4307</a></td></tr>
+<tr><td>2012-06-01&nbsp;23:10:13</td><td>paulproteus</td><td>set</td><td>blockers:
+  - <a href="issue641">Diff/patch mission needs a plot</a></td></tr>
+<tr><td>2012-02-03&nbsp;23:27:56</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone14">0.11.12</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2012-01-28&nbsp;01:11:12</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />blockers:
+  + <a href="issue641">Diff/patch mission needs a plot</a><br />messages:
+  + <a href="msg2917">msg2917</a></td></tr>
+<tr><td>2012-01-07&nbsp;18:22:31</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2011-12-10&nbsp;21:32:08</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone14">0.11.12</a></td></tr>
+<tr><td>2011-12-04&nbsp;22:48:14</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

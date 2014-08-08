@@ -1,0 +1,343 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 584: Make a plan for OpenHatch swag - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue584
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue584">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue584">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Make a plan for OpenHatch swag</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  EXiMiOUS, aldeka, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>aldeka</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-09-05.22:03:37</b> by <b>aldeka</b>, last changed <b>2012-03-13.00:13:01</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3096">msg3096 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-13.00:13:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I declare this resolved! I agree with this plan.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3042">msg3042 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2012-02-21.07:15:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Plan: 
+
+* Blog post announcing the t-shirts and linking to a form for pre-orders goes up tomorrow. 
+(Assuming the blog stops error-500ing on me. &gt;.&lt;)
+
+* February 28, we send an order to the printer based on the pre-orders we got + a few extra. 
+Budget for this is in the realm of $600 (estimate was 30 shirts for $525; we'll see how many pre-
+orders we get!)
+
+* After confirming things with the printer, we set up a page / something with PayPal so people can 
+actually buy their shirts. Send email reminder to the people who pre-ordered to do this.
+
+* Get shirts from printer in time for PyCon. Distribute shirts there / to bay area people that week; 
+make plan for Boston people and figure out shipping for everybody else after PyCon.
+
+Stickers are a thing we ought to have in the future, but I don't really have the energy to get that 
+done before PyCon. We can revisit this pre-OSB/OSCON/the summer conference season!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2971">msg2971 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2012-02-08.23:30:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Assigning to myself, as part of the t-shirts/stickers effort.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2705">msg2705 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-14.02:30:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Deb (AKA eximious), you expressed an interest in this. So I thought I'd add you
+to the ticket. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2637">msg2637 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-10.00:08:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Not yet done, so moving out of the 0.11.10 milestone.
+
+But this would be a good thing to bring up on the [Peers] list:
+<a href="http://lists.openhatch.org/mailman/listinfo/peers">http://lists.openhatch.org/mailman/listinfo/peers</a> (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2479">msg2479 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-09-05.22:03:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I know Asheesh already has OpenHatch-specific business cards. It would be a good
+idea, if we're going to have in-person events and run the conference circuit in
+the future, to have other OpenHatch swag to give away as well. Stickers? Flyers? ???
+
+I've advocated for a long time that we ought to have OpenHatch t-shirts with
+Sufjan on them, of course :)
+
+This bug is not to actually design/order/make such swag as of yet, but to first
+decide what kinds we would want.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-03-13&nbsp;00:13:01</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3096">msg3096</a></td></tr>
+<tr><td>2012-02-21&nbsp;07:15:18</td><td>aldeka</td><td>set</td><td>status: chatting -> need-review</td></tr>
+<tr><td>2012-02-21&nbsp;07:15:13</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg3042">msg3042</a></td></tr>
+<tr><td>2012-02-08&nbsp;23:30:10</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user4">aldeka</a><br />messages:
+  + <a href="msg2971">msg2971</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2011-11-14&nbsp;02:30:03</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user64">EXiMiOUS</a><br />messages:
+  + <a href="msg2705">msg2705</a></td></tr>
+<tr><td>2011-11-10&nbsp;00:08:47</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2637">msg2637</a><br />milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-09-13&nbsp;04:07:54</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone11">0.11.09</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-09-05&nbsp;22:03:37</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

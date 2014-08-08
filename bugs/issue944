@@ -1,0 +1,352 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 944: Headers inside blog posts should be a little bolder - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue944
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue944">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue944">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Headers inside blog posts should be a little bolder</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>need-review</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  brittag, hermitnoon, onceuponatimeforever, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>hermitnoon</td>
+ <th>Keywords</th>
+ <td>
+  bitesize, css
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-02-27.08:47:35</b> by <b>brittag</b>, last changed <b>2014-04-14.18:31:07</b> by <b>mattskone</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4207">msg4207 (view)</a></th>
+   <th>Author: mattskone</th>
+   <th>Date: 2014-04-14.18:31:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Reviewed the PR at <a href="https://github.com/openhatch/oh-mainline/pull/219">https://github.com/openhatch/oh-mainline/pull/219</a> - looks good - 
+recommend merge.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4177">msg4177 (view)</a></th>
+   <th>Author: hermitnoon</th>
+   <th>Date: 2014-03-17.14:12:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey Guys, Thanks for the prompt response. Following @brittag's suggestion, I
+checked a few blog posts that used the same &lt;h3&gt; tags that could do with a
+boldening of the title. So I located the common &lt;h3&gt; that could affect all these
+posts at "mysite/static/css/blog-style.css". I added an extra "font-weight:
+bold" at line 221. I have submitted a merge request on Github as per the
+guidelines. Could you please take a look and review the change. 
+
+My earlier comment about blog-style.css not being the correct file was incorrect
+(Sincere apologies!)
+
+P.S. This is my first time contributing to an open source project. Thx for all
+the help. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4155">msg4155 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-03-04.21:17:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>One "simple" way to address this problem is to see if the &lt;body&gt; element 
+on blog pages have a particular class.
+
+Then you could override H3's style just for that one class.
+
+I can clarify more if needed!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4154">msg4154 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2014-03-04.20:49:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for looking into this, hermitnoon!
+
+It looks like this part of the CSS is controlled by the site-wide stylesheets instead of the blog-
+specific stylesheets. See here: <a href="http://openhatch.org/static/less/base/base.less">http://openhatch.org/static/less/base/base.less</a> - h3 { margin-
+bottom: 0px; text-align: left; clear: left; font-weight: normal; font-size: 1.1em; color: @default-
+text-color; letter-spacing: 0; margin: 0; }
+
+I figured this out because when I clicked "inspect element" in Chrome to look at this h3, the source 
+of the styling appeared to be the page itself instead of an external CSS file - and I remembered that 
+OpenHatch uses "less" - so some external CSS files get loaded into the page with JavaScript. So I 
+looked at the "less" files at the top of the page HTML and found the one that had the right h3 
+styling.
+
+I don't know if simply changing that h3 styling will cause problems elsewhere on the OpenHatch site 
+though - that sounds like something to investigate. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4153">msg4153 (view)</a></th>
+   <th>Author: hermitnoon</th>
+   <th>Date: 2014-03-04.13:56:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Could someone help me locate the CSS file for the blog. I think its not the
+"blog-style.css" file located in oh-mainline/mysite/static/css. I was told that
+the blog being a Wordpress site, could have a different CSS file. Could you
+please help with some leads here. Thx.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4147">msg4147 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2014-02-27.08:47:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Within blog posts (like <a href="http://openhatch.org/blog/2014/newsletter-january-2014/">http://openhatch.org/blog/2014/newsletter-january-2014/</a> for example), 
+the headers (&lt;h3&gt;s like "New projects in the OpenHatch volunteer opportunity finder") are not very 
+distinguished from the text. It'd be helpful for headers to be slightly bold.
+
+Susan pointed this out, and I agreed!</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-04-14&nbsp;18:31:07</td><td>mattskone</td><td>set</td><td>messages:
+  + <a href="msg4207">msg4207</a></td></tr>
+<tr><td>2014-03-17&nbsp;14:12:14</td><td>hermitnoon</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg4177">msg4177</a></td></tr>
+<tr><td>2014-03-04&nbsp;21:17:16</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4155">msg4155</a></td></tr>
+<tr><td>2014-03-04&nbsp;20:49:46</td><td>brittag</td><td>set</td><td>messages:
+  + <a href="msg4154">msg4154</a></td></tr>
+<tr><td>2014-03-04&nbsp;13:56:27</td><td>hermitnoon</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg4153">msg4153</a></td></tr>
+<tr><td>2014-03-03&nbsp;17:12:07</td><td>hermitnoon</td><td>set</td><td>assignedto: <a href="user1025">hermitnoon</a><br />nosy:
+  + <a href="user1025">hermitnoon</a></td></tr>
+<tr><td>2014-02-27&nbsp;08:47:35</td><td>brittag</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

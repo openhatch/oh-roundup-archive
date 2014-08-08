@@ -1,0 +1,377 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 670: Automatic Github mirror (Was: Sources are hard to find) - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue670
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue670">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue670">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Automatic Github mirror (Was: Sources are hard to find)</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, techtonik
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  this-would-rock, usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-02-08.07:49:14</b> by <b>techtonik</b>, last changed <b>2012-02-14.20:15:00</b> by <b>techtonik</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2993">msg2993 (view)</a></th>
+   <th>Author: techtonik</th>
+   <th>Date: 2012-02-14.20:14:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks to Asheesh OpenHatch is now on GitHub - 
+<a href="http://lists.openhatch.org/pipermail/devel/2012-February/002660.html">http://lists.openhatch.org/pipermail/devel/2012-February/002660.html</a>
+
+Well done! =)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2977">msg2977 (view)</a></th>
+   <th>Author: techtonik</th>
+   <th>Date: 2012-02-09.08:37:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>That are good news, indeed. Just want to add that getting other active/interesting 
+stuff from the project available from GitHub would rock too.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2972">msg2972 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2012-02-08.23:32:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Asheesh and I plan to move OH's main repo to Github in the next week or two. Even 
+better than a mirror!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2952">msg2952 (view)</a></th>
+   <th>Author: techtonik</th>
+   <th>Date: 2012-02-08.10:20:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for the welcome, but I am not converted yet, at least not completely. =)
+
+I've updated <a href="https://openhatch.org/wiki/Getting_started_with_the_OpenHatch_code">https://openhatch.org/wiki/Getting_started_with_the_OpenHatch_code</a> 
+with links to gitorious web interface. It still would be nice to get 
+automatically updated GitHub mirror. In PySide we've switched for the technical 
+reasons explained here - 
+<a href="https://groups.google.com/forum/#!topic/pyside/1WBjB1WRrms">https://groups.google.com/forum/#!topic/pyside/1WBjB1WRrms</a> but for me GitHub is 
+just more intuitive/convenient.
+
+Changing issue title accordingly.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2951">msg2951 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2012-02-08.09:38:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi techtonik,
+
+You can find github branch here: <a href="https://github.com/openhatch/">https://github.com/openhatch/</a>
+
+Welcome to the OpenHatch community!
+
+I'm not sure, but last I looked the github branch was  a bit
+out-of-date with the gitorious branch.
+
+Github: Last updated... November 17, 2011
+Gitorious: Last updated... Saturday February 04 2012 @ 10:19
+
+Paul Bakulich
+irc: codepal
+
+On 8 February 2012 20:49, techtonik &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+&gt;
+&gt;
+&gt; New submission from techtonik &lt;<a href="mailto:techtonik@gmail.com">techtonik@gmail.com</a>&gt;:
+&gt;
+&gt; First impression on OpenHatch - it is very-very awesome. But I've spend ten minutes
+&gt; on the site and still can't take a look at the OpenHatch source code license to see
+&gt; if it is perspective enough to study. The bottom "source code, etc." links to wiki,
+&gt; where it becomes clear that it is hosted on gitorious, but there are no any
+&gt; reference to web source browser.
+&gt;
+&gt; There should be at least link to <a href="http://gitorious.org/openhatch">http://gitorious.org/openhatch</a> but I'd like a
+&gt; mirror on Github.
+&gt;
+&gt; ----------
+&gt; keyword: this-would-rock, usability
+&gt; messages: 2949
+&gt; nosy: paulproteus, techtonik
+&gt; priority: wish
+&gt; status: unread
+&gt; title: Sources are hard to find - place
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue670">https://openhatch.org/bugs/issue670</a>&gt;
+&gt; __________________________________________
+&gt; _______________________________________________
+&gt; Devel mailing list
+&gt; <a href="mailto:Devel@lists.openhatch.org">Devel@lists.openhatch.org</a>
+&gt; <a href="http://lists.openhatch.org/mailman/listinfo/devel">http://lists.openhatch.org/mailman/listinfo/devel</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2949">msg2949 (view)</a></th>
+   <th>Author: techtonik</th>
+   <th>Date: 2012-02-08.07:49:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>First impression on OpenHatch - it is very-very awesome. But I've spend ten minutes 
+on the site and still can't take a look at the OpenHatch source code license to see 
+if it is perspective enough to study. The bottom "source code, etc." links to wiki, 
+where it becomes clear that it is hosted on gitorious, but there are no any 
+reference to web source browser.
+
+There should be at least link to <a href="http://gitorious.org/openhatch">http://gitorious.org/openhatch</a> but I'd like a 
+mirror on Github.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-02-14&nbsp;20:15:00</td><td>techtonik</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg2993">msg2993</a></td></tr>
+<tr><td>2012-02-09&nbsp;08:37:27</td><td>techtonik</td><td>set</td><td>messages:
+  + <a href="msg2977">msg2977</a></td></tr>
+<tr><td>2012-02-08&nbsp;23:32:23</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2972">msg2972</a><br />milestone: <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-02-08&nbsp;10:20:26</td><td>techtonik</td><td>set</td><td>messages:
+  + <a href="msg2952">msg2952</a><br />title: Sources are hard to find - place -> Automatic Github mirror (Was: Sources are hard to find)</td></tr>
+<tr><td>2012-02-08&nbsp;09:38:30</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2951">msg2951</a></td></tr>
+<tr><td>2012-02-08&nbsp;07:49:14</td><td>techtonik</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

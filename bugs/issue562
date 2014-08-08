@@ -1,0 +1,397 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 562: Move patch.py into vendor/ and explain our changes - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue562
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue562">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue562">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Move patch.py into vendor/ and explain our changes</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  RussiaM, jesstess, paulproteus, viv
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>RussiaM</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-08-21.16:40:14</b> by <b>paulproteus</b>, last changed <b>2012-03-15.00:31:24</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file482/0001-Deleted-patch.py-that-contained-python-patch-version.patch">0001-Deleted-patch.py-that-contained-python-patch-version.patch</a>
+  </td>
+  <td>
+   <span>RussiaM</span>,
+   <span>2012-03-13.23:38:00</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file492/0001-Moved-patch.py-to-vendors-and-Added-path-to-python-p.patch">0001-Moved-patch.py-to-vendors-and-Added-path-to-python-p.patch</a>
+  </td>
+  <td>
+   <span>RussiaM</span>,
+   <span>2012-03-14.22:10:51</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file483/0002-Added-path-to-python-patch-to-dependicies.pth.patch">0002-Added-path-to-python-patch-to-dependicies.pth.patch</a>
+  </td>
+  <td>
+   <span>RussiaM</span>,
+   <span>2012-03-13.23:38:41</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3129">msg3129 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-15.00:31:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Russia!
+
+This patch successfully moves patch.py into vendor/.
+
+It took more work than we thought to identify the changes between our version
+and the version from upstream, so I filed a new ticket for that: <a href="issue716">issue716</a>
+
+That takes care of this ticket reasonably well. Thanks for submitting this
+patch; reorganizing our dependencies makes OpenHatch's code easier to understand
+for others and myself in the future!
+
+And hopefully for you as well! See you on future tickets. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3124">msg3124 (view)</a></th>
+   <th>Author: RussiaM</th>
+   <th>Date: 2012-03-14.22:10:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Moved patch.py file to /vendor/packages and updated dependicies.pth
+Attempts to update to upstream versions 10.11 and 11.01 both failed test with multiple failures 
+and errors.
+Embedded fork of patch seems to work for now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3109">msg3109 (view)</a></th>
+   <th>Author: RussiaM</th>
+   <th>Date: 2012-03-13.23:38:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Removed patch.py from repo.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3108">msg3108 (view)</a></th>
+   <th>Author: RussiaM</th>
+   <th>Date: 2012-03-13.23:38:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Removed patch.py from repo.
+Added python-patch version 10.4-11 to vendor/ 
+Updated dependicies.pth to find it.
+Changes passed manage.py test.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2472">msg2472 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-03.21:04:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Vivek, I'm also marking you as nosy here, just so that you receive 
+updates about it. Not necessarily assigning it to you!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2367">msg2367 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-21.16:40:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right now, we use an embedded copy of <a href="http://code.google.com/p/python-patch/">http://code.google.com/p/python-patch/</a>
+
+<a href="issue484">issue484</a> highlights some problems with us using an outdated copy of this library.
+
+One easy next step is to remove our copy of the library, adjust the imports, and
+run the test suite. If the tests pass, ship it! (If not, say so, and the next
+step would be upstreaming our patches to the patch.py library until our tests
+pass with upstream code.)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-03-15&nbsp;00:31:24</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />title: Stop using outdated embedded hacked fork of patch.py -> Move patch.py into vendor/ and explain our changes<br />messages:
+  + <a href="msg3129">msg3129</a><br />milestone: <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-03-14&nbsp;22:10:52</td><td>RussiaM</td><td>set</td><td>files:
+  + <a href="file492">0001-Moved-patch.py-to-vendors-and-Added-path-to-python-p.patch</a><br />messages:
+  + <a href="msg3124">msg3124</a></td></tr>
+<tr><td>2012-03-13&nbsp;23:49:44</td><td>RussiaM</td><td>set</td><td>status: chatting -> need-review</td></tr>
+<tr><td>2012-03-13&nbsp;23:38:42</td><td>RussiaM</td><td>set</td><td>files:
+  + <a href="file483">0002-Added-path-to-python-patch-to-dependicies.pth.patch</a><br />messages:
+  + <a href="msg3109">msg3109</a></td></tr>
+<tr><td>2012-03-13&nbsp;23:38:01</td><td>RussiaM</td><td>set</td><td>files:
+  + <a href="file482">0001-Deleted-patch.py-that-contained-python-patch-version.patch</a><br />assignedto: <a href="user394">RussiaM</a><br />messages:
+  + <a href="msg3108">msg3108</a><br />nosy:
+  + <a href="user394">RussiaM</a></td></tr>
+<tr><td>2011-09-03&nbsp;21:04:37</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user79">viv</a><br />messages:
+  + <a href="msg2472">msg2472</a></td></tr>
+<tr><td>2011-08-21&nbsp;16:40:14</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,565 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 656: Tar.gz missions - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue656
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue656">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue656">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Tar.gz missions</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  C_open, armooo, jesstess, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-01-11.22:45:28</b> by <b>C_open</b>, last changed <b>2012-02-15.02:12:33</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file445/ghello_4.tar.gz">ghello_4.tar.gz</a>
+  </td>
+  <td>
+   <span>C_open</span>,
+   <span>2012-01-11.22:45:26</span>
+  </td>
+  <td>application/x-gzip</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file446/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>C_open</span>,
+   <span>2012-01-12.10:48:07</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file447/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>C_open</span>,
+   <span>2012-01-12.17:14:36</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2994">msg2994 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-15.02:12:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yay, marking resolved based on feedback on <a href="issue632">issue632</a> !</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2989">msg2989 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-13.04:10:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yeah -- we just diagnosed the same issue on <a href="issue632">issue632</a>
+
+I've tested that  it's fixed for me; I'd appreciate if armooo or C_open could
+verify this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2893">msg2893 (view)</a></th>
+   <th>Author: armooo</th>
+   <th>Date: 2012-01-18.22:24:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This seems like a problem with how gzip Content-Encoding is configured. In
+firefox setting network.http.accept-encoding to '' fixes the problem.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2890">msg2890 (view)</a></th>
+   <th>Author: xiaobai</th>
+   <th>Date: 2012-01-18.04:46:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>After fiddling around with python, I've found that the tarball properly
+generates on my windows machine in a way that I can open it. When I download it
+from the server (on both windows and ubuntu), I cannot open it with the hint
+given in the mission. I get the same error as C_open does. It's probably (like
+paulproteus said) a flaw with the tar file being sent out by the server.
+
+A simple workaround is just to use gunzip or gzip to decompress to a .tar first,
+and then unpackage it from there with "tar xvf ghello-0.4.tar". This solution
+would only require a simple change in the instructions.
+
+Another solution is that we create a working tarball and simply host it on the
+server for people to download, rather than just generating it on request. 
+
+I'm not 100% why it is the way it is now, as I'm fairly new to the project (and
+open source projects as well). Whichever solution is preferred can be done. 
+
+Hope I helped. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2877">msg2877 (view)</a></th>
+   <th>Author: C_open</th>
+   <th>Date: 2012-01-12.17:14:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>That makes sense and solves a headache of mine. You guys have been
+amazingly helpful. Thanks</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2876">msg2876 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-01-12.16:54:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It looks like there's some flaw with our tar file, in that we are sending 
+out (effectively)
+
+tar.gz.gz files, not
+
+tar.gz files.
+
+(Even though the name is .tar.gz.)
+
+I'd like to see if we can reproduce this problem, but that's what it 
+looks like reading the discussion here.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2875">msg2875 (view)</a></th>
+   <th>Author: C_open</th>
+   <th>Date: 2012-01-12.11:09:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Running tar xf on the &lt;filename&gt;.tar file unpacked it just fine. 
+
+I dont get the need for the extra step ? Or how to tell which method to use in
+the future ? (And what the differance this tar.bz has to other ones Iv downloaded ?)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2874">msg2874 (view)</a></th>
+   <th>Author: C_open</th>
+   <th>Date: 2012-01-12.10:48:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>:~/Downloads$ file ghello_4.tar
+ghello_4.tar: gzip compressed data, last modified: Wed Jan 11 21:25:42
+2012, max compression
+~/Downloads$
+
+Thanks for all the help. This seems like doing the xvfz comand in several
+steps ? How come ?
+
+On Wed, Jan 11, 2012 at 11:55 PM, jesstess &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; jesstess &lt;<a href="mailto:jessica.mckellar@gmail.com">jessica.mckellar@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; C_open, thanks, that was perfect.
+&gt;
+&gt; Can you run:
+&gt;
+&gt; 1. "gunzip ghello_4.tar.gz"
+&gt; 2. file &lt;filename&gt;, where &lt;filename&gt; is the name of the file produced by
+&gt; gunzip
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue656">https://openhatch.org/bugs/issue656</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2873">msg2873 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2012-01-11.23:55:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>C_open, thanks, that was perfect.
+
+Can you run:
+
+1. "gunzip ghello_4.tar.gz"
+2. file &lt;filename&gt;, where &lt;filename&gt; is the name of the file produced by gunzip</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2872">msg2872 (view)</a></th>
+   <th>Author: C_open</th>
+   <th>Date: 2012-01-11.23:13:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>~/Downloads$ file ghello_4.tar.gz 
+ghello_4.tar.gz: gzip compressed data, from Unix
+~/Downloads$ tar xvfz ghello_4.tar.gz 
+tar: This does not look like a tar archive
+tar: Skipping to next header
+tar: Exiting with failure status due to previous errors
+
+I hope this is what you wanted ? I right clicked "save link as"</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2871">msg2871 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2012-01-11.23:02:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi C_open, and thanks for getting in touch with us! This is a fine place to report bugs. Sending mail 
+to <a href="mailto:hello@openhatch.org">hello@openhatch.org</a> would also work.
+
+To debug this, can you paste the following here:
+
+1. The output of "file &lt;filename&gt;", where &lt;filename&gt; is the name of the file you downloaded from 
+the OpenHatch website.
+
+2. The full output of "tar xvfz &lt;filename&gt;", including the line containing the command you ran
+
+Can you also describe how you are downloading the file? (clicking on a link, using wget, etc.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2870">msg2870 (view)</a></th>
+   <th>Author: C_open</th>
+   <th>Date: 2012-01-11.22:45:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I am currently working my way through the missions and am pretty new to creating
+/ unpacking tar-balls. I have managed to unpack other tar.gz files from source
+forge but get the error of
+
+tar: This does not look like a tar archive
+tar: Skipping to next header
+tar: Exiting with failure status due to previous errors
+
+When I try and unpack (using the hint) the tar.gz from the missions (attached)
+Any help is appreciated
+
+I also hope this is in the right place...</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-02-15&nbsp;02:12:33</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg2994">msg2994</a></td></tr>
+<tr><td>2012-02-13&nbsp;04:10:02</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user292">armooo</a><br />messages:
+  + <a href="msg2989">msg2989</a><br />milestone: <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-01-18&nbsp;22:24:03</td><td>armooo</td><td>set</td><td>messages:
+  + <a href="msg2893">msg2893</a></td></tr>
+<tr><td>2012-01-18&nbsp;21:59:27</td><td>xiaobai</td><td>set</td><td>assignedto: <a href="user316">C_open</a> -> <a href="user3">paulproteus</a></td></tr>
+<tr><td>2012-01-18&nbsp;04:46:14</td><td>xiaobai</td><td>set</td><td>messages:
+  + <a href="msg2890">msg2890</a></td></tr>
+<tr><td>2012-01-12&nbsp;17:14:37</td><td>C_open</td><td>set</td><td>files:
+  + <a href="file447">unnamed</a><br />messages:
+  + <a href="msg2877">msg2877</a></td></tr>
+<tr><td>2012-01-12&nbsp;16:54:48</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2876">msg2876</a></td></tr>
+<tr><td>2012-01-12&nbsp;11:09:48</td><td>C_open</td><td>set</td><td>messages:
+  + <a href="msg2875">msg2875</a></td></tr>
+<tr><td>2012-01-12&nbsp;10:48:12</td><td>C_open</td><td>set</td><td>files:
+  + <a href="file446">unnamed</a><br />messages:
+  + <a href="msg2874">msg2874</a></td></tr>
+<tr><td>2012-01-11&nbsp;23:55:42</td><td>jesstess</td><td>set</td><td>messages:
+  + <a href="msg2873">msg2873</a></td></tr>
+<tr><td>2012-01-11&nbsp;23:13:35</td><td>C_open</td><td>set</td><td>messages:
+  + <a href="msg2872">msg2872</a></td></tr>
+<tr><td>2012-01-11&nbsp;23:02:51</td><td>jesstess</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user316">C_open</a><br />messages:
+  + <a href="msg2871">msg2871</a><br />nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2012-01-11&nbsp;22:45:28</td><td>C_open</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

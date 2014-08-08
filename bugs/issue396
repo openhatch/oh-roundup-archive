@@ -1,0 +1,460 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 396: we need an irc training mission! - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue396
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue396">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue396">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">we need an irc training mission!</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>in-progress</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  create a mission for irc
+  
+  <span>
+   <br><span>View:</span>
+     <a href="issue454">454</a>
+  </span>
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mark, aldeka, bsilverberg, janet, jesstess, palhmbs, paulproteus, satyaakam, spang
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>bsilverberg</td>
+ <th>Keywords</th>
+ <td>
+  this-would-rock
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-04-17.19:54:44</b> by <b>spang</b>, last changed <b>2014-04-16.15:25:28</b> by <b>bsilverberg</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4232">msg4232 (view)</a></th>
+   <th>Author: bsilverberg</th>
+   <th>Date: 2014-04-16.15:25:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here is the branch I have created which resolves merge conflicts with master and
+fixes issues so that both the templates and the bot work with the current code
+base: <a href="https://github.com/bobsilverberg/oh-mainline/tree/irc_mission">https://github.com/bobsilverberg/oh-mainline/tree/irc_mission</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4227">msg4227 (view)</a></th>
+   <th>Author: bsilverberg</th>
+   <th>Date: 2014-04-16.14:54:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I also fixed the issue where the bot's private message cannot be seen, but I
+think we're going to change the behaviour so it will be a channel message anyway.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4225">msg4225 (view)</a></th>
+   <th>Author: bsilverberg</th>
+   <th>Date: 2014-04-16.14:53:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have created an etherpad to discuss the new plot that Asheesh recommends
+using. It's at <a href="https://etherpad.mozilla.org/oh-irc-mission.">https://etherpad.mozilla.org/oh-irc-mission.</a> I am going to work
+on the back-end bot code if someone else is interested in working on the
+front-end django templates.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3536">msg3536 (view)</a></th>
+   <th>Author: satyaakam</th>
+   <th>Date: 2012-12-17.14:01:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi,
+   The code from stump's fork works fine here are the steps to run the code
+
+1) start the /missions/mysite/manage.py runserver
+
+2) $/missions/mysite/missions/python ../manage.py irc_missionbot
+
+3) login into the site <a href="http://localhost:8000/missions/irc">http://localhost:8000/missions/irc</a>
+
+as per the following mission bot message  it handles only one user at a time 
+
+&lt;oh_bottest&gt; Hi! Nice to have another person here.  We're busy but we try to be 
+friendly.  Say, do you know the answer to the question in the topic?
+
+when login from the web.freenode.net i do not see the message in in private</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3529">msg3529 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-12-05.17:21:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>FYI, there is work-in-progress code in the "missions" branch of stump's fork 
+here: <a href="https://github.com/stump/oh-mainline/tree/missions">https://github.com/stump/oh-mainline/tree/missions</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2639">msg2639 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-10.00:09:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Not yet done, so moving out of 0.11.10.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2556">msg2556 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-01.06:14:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Possible plot: <a href="http://lists.openhatch.org/pipermail/devel/2011-September/002396.html">http://lists.openhatch.org/pipermail/devel/2011-September/002396.html</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2135">msg2135 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-02.20:59:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The next step is to come up with a good plot.
+
+I can try to do that. I'm pretty excited about doing that. It'll need review from 
+others after I think I'm done.
+
+I would thrilled-ly mentor anyone who wanted to make that plot a reality during 
+July.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2108">msg2108 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-23.20:22:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>adding some superseder links - and nosies....</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2106">msg2106 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-23.20:13:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Nother issue created that's similar, adding tag this-would-rock</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1586">msg1586 (view)</a></th>
+   <th>Author: spang</th>
+   <th>Date: 2011-04-17.19:54:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It would be so awesome to be able to link to an OpenHatch tutorial/training mission 
+for IRC from my project's "contact" page with our IRC details! Some notes from IRC:
+
+15:44 &lt; paulproteus&gt; Gosh I really really would love an IRC training mission.
+15:45 &lt; paulproteus&gt; You'd learn about /me and highlighting people and it'd be so 
+cool.
+15:45 &lt; christine&gt; paulproteus: yeah, that would rock!
+15:45 &lt; paulproteus&gt; Maybe we could teach you DCC and !list
+15:45  * paulproteus chuckles.
+
+There are various IRC tutorials around the web, but I think we should start with 
+something simple, ignoring having a permanent IRC session (that could be an IRC 
+level 2 mission) and just getting online and joining a channel via a graphical 
+client like xchat.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-04-16&nbsp;15:25:28</td><td>bsilverberg</td><td>set</td><td>messages:
+  + <a href="msg4232">msg4232</a></td></tr>
+<tr><td>2014-04-16&nbsp;14:54:32</td><td>bsilverberg</td><td>set</td><td>messages:
+  + <a href="msg4227">msg4227</a></td></tr>
+<tr><td>2014-04-16&nbsp;14:53:43</td><td>bsilverberg</td><td>set</td><td>messages:
+  + <a href="msg4225">msg4225</a></td></tr>
+<tr><td>2014-04-16&nbsp;12:32:40</td><td>bsilverberg</td><td>set</td><td>status: chatting -> in-progress<br />assignedto: <a href="user578">satyaakam</a> -> <a href="user1071">bsilverberg</a><br />nosy:
+  + <a href="user1071">bsilverberg</a></td></tr>
+<tr><td>2012-12-17&nbsp;14:01:55</td><td>satyaakam</td><td>set</td><td>messages:
+  + <a href="msg3536">msg3536</a></td></tr>
+<tr><td>2012-12-11&nbsp;03:26:17</td><td>satyaakam</td><td>set</td><td>assignedto: <a href="user4">aldeka</a> -> <a href="user578">satyaakam</a><br />nosy:
+  + <a href="user578">satyaakam</a></td></tr>
+<tr><td>2012-12-05&nbsp;17:21:43</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3529">msg3529</a></td></tr>
+<tr><td>2012-08-04&nbsp;20:00:56</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a> -> <a href="user4">aldeka</a><br />nosy:
+  + <a href="user4">aldeka</a></td></tr>
+<tr><td>2012-02-08&nbsp;00:58:46</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone14">0.11.12</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-12-14&nbsp;00:09:58</td><td>aldeka</td><td>set</td><td>priority: wish -> feature</td></tr>
+<tr><td>2011-12-14&nbsp;00:09:26</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone14">0.11.12</a></td></tr>
+<tr><td>2011-11-10&nbsp;00:09:58</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2639">msg2639</a><br />milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-10-01&nbsp;06:14:26</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2556">msg2556</a><br />milestone: <a href="milestone11">0.11.09</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-09-05&nbsp;21:39:10</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone11">0.11.09</a></td></tr>
+<tr><td>2011-08-06&nbsp;21:08:08</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone10">0.11.07</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:59:42</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2135">msg2135</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:40:31</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-06-23&nbsp;20:25:14</td><td>palhmbs</td><td>link</td><td><a href="issue454">issue454 superseder</a></td></tr>
+<tr><td>2011-06-23&nbsp;20:22:14</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a>, <a href="user29">Mark</a>, <a href="user180">janet</a><br />superseder:
+  + <a href="issue454">create a mission for irc</a>, - <a href="issue452">create a mission for cmd-line file manipulation (unix/linux) basics</a><br />messages:
+  + <a href="msg2108">msg2108</a></td></tr>
+<tr><td>2011-06-23&nbsp;20:13:23</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting<br />superseder:
+  + <a href="issue452">create a mission for cmd-line file manipulation (unix/linux) basics</a><br />messages:
+  + <a href="msg2106">msg2106</a><br />keyword:
+  + <a href="keyword12">this-would-rock</a></td></tr>
+<tr><td>2011-06-02&nbsp;19:26:49</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a><br />milestone: <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-04-17&nbsp;20:05:20</td><td>spang</td><td>link</td><td><a href="issue187">issue187 superseder</a></td></tr>
+<tr><td>2011-04-17&nbsp;19:54:44</td><td>spang</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

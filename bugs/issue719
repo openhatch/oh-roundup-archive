@@ -1,0 +1,457 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 719: Unactive links (e.g. "Add a project" or "save") on "Manage projects" page - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue719
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue719">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue719">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Unactive links (e.g. "Add a project" or "save") on "Manage projects" page</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, berryp, pamselle, paulproteus, yarikoptic
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>berryp</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-03-17.20:56:01</b> by <b>yarikoptic</b>, last changed <b>2012-05-02.23:19:27</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file501/Screen%20Shot%202012-03-22%20at%2010.54.20%20AM.png">Screen Shot 2012-03-22 at 10.54.20 AM.png</a>
+  </td>
+  <td>
+   <span>berryp</span>,
+   <span>2012-03-22.18:00:55</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3162">msg3162 (view)</a></th>
+   <th>Author: yarikoptic</th>
+   <th>Date: 2012-03-23.19:37:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>FWIW -- that seems to fix the issue for me
+
+Thanks!
+
+On Fri, 23 Mar 2012, Asheesh Laroia wrote:
+
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+
+&gt; <a href="https://github.com/openhatch/oh-mainline/commit/2fdff235249132964aac4d7e9b4d16be0fd09dde">https://github.com/openhatch/oh-mainline/commit/2fdff235249132964aac4d7e9b4d16be0fd09dde</a>
+&gt; was that fix
+
+&gt; ----------
+&gt; status: resolved -&gt; chatting
+
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue719">https://openhatch.org/bugs/issue719</a>&gt;
+&gt; __________________________________________</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3161">msg3161 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-23.18:54:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="https://github.com/openhatch/oh-mainline/commit/2fdff235249132964aac4d7e9b4d16be0fd09dde">https://github.com/openhatch/oh-mainline/commit/2fdff235249132964aac4d7e9b4d16be0fd09dde</a>
+was that fix</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3160">msg3160 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-23.18:52:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just deployed berryp's fix for this!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3159">msg3159 (view)</a></th>
+   <th>Author: berryp</th>
+   <th>Date: 2012-03-23.02:03:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I submitted a pull request that should 
+resolve this issue <a href="https://github.com/">https://github.com/</a>
+openhatch/oh-mainline/pull/16</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3157">msg3157 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-22.19:37:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I tried adding class="clearfix" to the &lt;h4&gt;. That didn't seem to do the trick.
+
+I'm adding two people as CC:s who might have more of a sense of what a
+reasonable fix would be.
+
+I did have some trouble reproducing the issue on Firefox (well, Iceweasel).
+Within Chromium, here's what I did:
+
+1. Visit <a href="http://openhatch.org/+portfolio/editor/">http://openhatch.org/+portfolio/editor/</a>
+
+2. click "Add project" and see a new project box appear
+
+3. Try to click "Add project" to get another project box, but alas, the click
+appears to be ignored (this is the bug)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3156">msg3156 (view)</a></th>
+   <th>Author: berryp</th>
+   <th>Date: 2012-03-22.18:00:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>After inspecting the elements on the page it appears that the &lt;div/&gt; below the "Add project...." line 
+is filling the whole area inside the "Manage Projects box. I have illustrated this in the attached 
+screenshot. If you look in the inspector you'll see that I have hovered over the html below the "Add 
+project..." link block and the bounding box in the view is shown as taking up the whole space - and 
+in turn covering the links. I noticed the same for a &lt;div/&gt; inside this one.
+
+If I add a clear tag after the "App project..." link this pushes the bounding box down to it's correct 
+location and allows me to click the links. This may not be the correct fix but it does highlight where 
+the issue is.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3152">msg3152 (view)</a></th>
+   <th>Author: berryp</th>
+   <th>Date: 2012-03-21.17:10:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The links have the correct javascript events bound to them. You can test this in the Chrome or FireBug consoles:
+
+&gt; add_link = $('#add_pf_entry');
+&gt; add_link.data('events');
+
+    Object
+        click: Object
+            12: function (project_name) {
+                arguments: null
+                caller: null
+                guid: 12
+                length: 1
+                name: ""
+                prototype: Object
+                type: ""
+                __proto__: function Empty() {}
+            ...
+        ...
+
+&gt; add_link.click('');
+
+The Add Project form is now displayed. This same process works with the other links - such as the Save link 
+which saved the new project.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3140">msg3140 (view)</a></th>
+   <th>Author: yarikoptic</th>
+   <th>Date: 2012-03-17.20:56:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well, hard to provide adequate description of the setup to be useful, so there it is
+
+Debian GNU/Linux amd64 with iceweasel (AKA firefox) 10.0.2... there is a bunch
+of extensions (noscript which reports only google analytics disabled for the
+page, also vimperator disabling of which via Insert didn't have effect)
+
+So -- all those links cannot be "clicked" -- i.e. clicking on them results in no
+action taken.  FWIW -- here is an excerpt from IRC:
+
+16:47   yoh: sorry for a bombardment with questions:   on "Manage projects", do
+those "Add a project" "Sort/archive project" should be anyhow active links?  for
+me (iceweasel on debian) they are just redish text... 
+             source code   &lt;a id='reorder_projects' href='#'&gt;Sort/archive
+projects&lt;/a&gt;
+16:47   paulproteus: No prob... they should be bound by JavaScript, iirc.
+16:47   paulproteus: If you have JS turned on and clicking something does
+nothing, but it looks like it should do something, do file a bug.
+16:48   yoh: noscript is active but besides google analytics nothing is reported
+blocked on that page
+16:49   yoh: also "Save" links are the same business -- trying to click seems to
+result in nothing</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-05-02&nbsp;23:19:27</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2012-03-23&nbsp;19:37:31</td><td>yarikoptic</td><td>set</td><td>messages:
+  + <a href="msg3162">msg3162</a></td></tr>
+<tr><td>2012-03-23&nbsp;18:54:01</td><td>paulproteus</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg3161">msg3161</a></td></tr>
+<tr><td>2012-03-23&nbsp;18:52:36</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />assignedto: <a href="user395">berryp</a><br />messages:
+  + <a href="msg3160">msg3160</a><br />nosy:
+  + <a href="user395">berryp</a><br />milestone: <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-03-23&nbsp;02:03:28</td><td>berryp</td><td>set</td><td>messages:
+  + <a href="msg3159">msg3159</a></td></tr>
+<tr><td>2012-03-22&nbsp;19:37:52</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user4">aldeka</a>, <a href="user400">pamselle</a><br />messages:
+  + <a href="msg3157">msg3157</a></td></tr>
+<tr><td>2012-03-22&nbsp;18:00:56</td><td>berryp</td><td>set</td><td>files:
+  + <a href="file501">Screen Shot 2012-03-22 at 10.54.20 AM.png</a><br />messages:
+  + <a href="msg3156">msg3156</a></td></tr>
+<tr><td>2012-03-21&nbsp;17:10:03</td><td>berryp</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3152">msg3152</a></td></tr>
+<tr><td>2012-03-17&nbsp;20:56:01</td><td>yarikoptic</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

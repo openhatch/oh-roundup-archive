@@ -1,0 +1,377 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 937: code snippets display weird, in some training missions web pages, in li.raquo_bullets - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue937
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue937">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue937">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">code snippets display weird, in some training missions web pages, in li.raquo_bullets</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  chitrankdixit, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>chitrankdixit</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-02-08.05:45:22</b> by <b>paulproteus</b>, last changed <b>2014-03-09.17:57:58</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file658/issue937.patch">issue937.patch</a>
+  </td>
+  <td>
+   <span>chitrankdixit</span>,
+   <span>2014-02-09.20:32:46</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4168">msg4168 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-03-09.17:57:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I merged this and checked visually that it seems to fix the issue. Thanks!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4129">msg4129 (view)</a></th>
+   <th>Author: chitrankdixit</th>
+   <th>Date: 2014-02-09.20:32:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello paulproteus,
+
+I had read about this bug, I tried FireBug/Chrome DOM inspector to change the 
+CSS of the code and as per your bug specification found 'code' elements/tags are 
+working fine outside the class named 'raquo_bullets'. So there some change in 
+needed to apply the code tags written under 'li' elements/tags. There are more 
+pages suffering from this issue.
+
+other pages are
+
+<a href="http://openhatch.org/missions/diffpatch/recursive_diff">http://openhatch.org/missions/diffpatch/recursive_diff</a>
+<a href="http://openhatch.org/missions/svn/diff">http://openhatch.org/missions/svn/diff</a>
+<a href="http://openhatch.org/missions/svn/commit">http://openhatch.org/missions/svn/commit</a>
+
+I have changed the CSS in base.less
+ul.raquo_bullets {
+    ....
+    li{
+        ....
+        code {
+            ....
+        }
+    }
+}</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4125">msg4125 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-02-08.20:41:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>As a clarification here:
+
+The "In general..." sentence is probably not very clear; feel free to ignore it. 
+It seems I accidentally switched mid-sentence to talking about the problem and 
+talking about the solution.
+
+You'll probably want to try changing a few HTML properties using the 
+FireBug/Chrome DOM inspector, to get a sense of what effects would be caused by 
+different possible changes.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4117">msg4117 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-02-08.05:45:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On <a href="http://openhatch.org/missions/diffpatch/recursive_patch">http://openhatch.org/missions/diffpatch/recursive_patch</a> , I see the following 
+oddity.
+
+In the bullet beginning with "Unpack the tarball. This will create a familiar..." 
+the word "recipes" appears offset to the point where it is partly obscured.
+
+In general, what seems to be happening is that the CODE element should either 
+"clear: both;" (in CSS; explained here: 
+<a href="https://stackoverflow.com/questions/12871710/why-clear-both-css">https://stackoverflow.com/questions/12871710/why-clear-both-css</a> ), or something 
+else should be done...
+
+There are two reasonable fixes that I can think of. One would be to apply the 
+"clearfix" class to the li.raquo_bullets in that page. Another would be to add 
+some CSS rules so that, on this page, the CODE tag is "display: inline;".
+
+You can find which CSS files affect that page by running a local server, then 
+doing 'view source'. You'll find that localhost:8000/static/ corresponds to 
+mysite/static/.
+
+Oh -- another way to do it is to add a special CSS class to these CODE tags that 
+should have the "display: inline;" property. This would require creating a new 
+CSS class in our collection of CSS classes, which is a good thing to do 
+generally.
+
+
+To find the right HTML template file, I recommend running this in your terminal:
+
+git grep "This will create a familiar"
+
+You will probably see just one file.
+
+
+Once you fix it, you'll need to submit a pull request. Feel free to ask Asheesh 
+(me, aka paulproteus) for help as you progress through this. Additionally, it 
+would be great if you can look at other pages within the "training missions" part 
+of the site to see if they suffer from the same problem, and if your fix fixes 
+that, too.
+
+Note that there is a general reason that the CODE tag is formatted that way, even 
+though it's exhibiting this awful current behavior. The idea is that if a CODE 
+tag is really wide, then we want to make sure there is a scrollbar. See 
+<a href="http://openhatch.org/bugs/issue798">http://openhatch.org/bugs/issue798</a> for the origin of this.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-03-09&nbsp;17:57:58</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg4168">msg4168</a></td></tr>
+<tr><td>2014-02-10&nbsp;18:49:57</td><td>chitrankdixit</td><td>set</td><td>assignedto: <a href="user738">chitrankdixit</a><br />nosy:
+  + <a href="user738">chitrankdixit</a></td></tr>
+<tr><td>2014-02-09&nbsp;20:32:46</td><td>chitrankdixit</td><td>set</td><td>files:
+  + <a href="file658">issue937.patch</a><br />messages:
+  + <a href="msg4129">msg4129</a></td></tr>
+<tr><td>2014-02-08&nbsp;20:41:30</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg4125">msg4125</a></td></tr>
+<tr><td>2014-02-08&nbsp;05:45:22</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

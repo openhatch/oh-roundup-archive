@@ -1,0 +1,609 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 1009: UI for adding a project should be clearer - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue1009
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue1009">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue1009">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">UI for adding a project should be clearer</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  anurag619, paulproteus, shauna
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>anurag619</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-07-02.02:16:09</b> by <b>shauna</b>, last changed <b>2014-08-06.01:53:37</b> by <b>ehashman</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file727/image.png">image.png</a>
+  </td>
+  <td>
+   <span>anurag619</span>,
+   <span>2014-07-11.18:01:31</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file726/image1.png">image1.png</a>
+  </td>
+  <td>
+   <span>anurag619</span>,
+   <span>2014-07-11.17:59:09</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file729/image3.png">image3.png</a>
+  </td>
+  <td>
+   <span>anurag619</span>,
+   <span>2014-07-12.06:19:21</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file723/page1.png">page1.png</a>
+  </td>
+  <td>
+   <span>shauna</span>,
+   <span>2014-07-06.19:07:11</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file724/page2.png">page2.png</a>
+  </td>
+  <td>
+   <span>shauna</span>,
+   <span>2014-07-06.19:07:22</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file737/sample.png">sample.png</a>
+  </td>
+  <td>
+   <span>anurag619</span>,
+   <span>2014-07-16.11:54:31</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file738/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>paulproteus</span>,
+   <span>2014-07-20.20:49:23</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4522">msg4522 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-08-06.01:53:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Merged <a href="https://github.com/openhatch/oh-mainline/pull/310">https://github.com/openhatch/oh-mainline/pull/310</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4489">msg4489 (view)</a></th>
+   <th>Author: anurag619</th>
+   <th>Date: 2014-07-22.12:34:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Pull request submitted.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4488">msg4488 (view)</a></th>
+   <th>Author: shauna</th>
+   <th>Date: 2014-07-21.13:57:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yes, it looks good to me!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4484">msg4484 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-07-20.20:49:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey all,
+
+Anurag, your screenshot seems to me to be a massive improvement. Shauna
+and/or others on this ticket, do you agree?
+
+Anurag, have you submitted it as a pull request? If not, then I'd love to
+see that! And I'd love to merge it.
+
+Cheers,
+
+Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4473">msg4473 (view)</a></th>
+   <th>Author: anurag619</th>
+   <th>Date: 2014-07-16.11:54:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>so, I have added a description, not sure if its appropriate. May be you can pour
+in your thoughts. 
+
+sample attached.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4455">msg4455 (view)</a></th>
+   <th>Author: shauna</th>
+   <th>Date: 2014-07-12.22:11:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yes, the mysteriously named customs page is the one I was referring to.  The 
+page/CSS looks better now.  Not great, but hopefully we'll be redesigning this 
+whole page soon, so it's a good temporary fix.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4449">msg4449 (view)</a></th>
+   <th>Author: anurag619</th>
+   <th>Date: 2014-07-12.06:19:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>By tracker page you mean this: <a href="https://openhatch.org/customs/">https://openhatch.org/customs/</a> ?
+
+I know CSS to some extent but here the words are comparatively small so they are
+not giving the desired effect. I have attached another snap.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4446">msg4446 (view)</a></th>
+   <th>Author: shauna</th>
+   <th>Date: 2014-07-11.18:04:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Contents should be, from a previous comment: "This can link to both the add a 
+tracker page, and 
+<a href="http://openhatch.org/+portfolio/editor/">http://openhatch.org/+portfolio/editor/</a>".  Sorry that that was not clear.
+
+There seem to be some CSS issues with your addition that make it look out of 
+place.  How familiar are you with CSS?  We can point you to some good tutorials, 
+or alternatively we could find a time to pair with you and work on fixing the 
+CSS together.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4445">msg4445 (view)</a></th>
+   <th>Author: anurag619</th>
+   <th>Date: 2014-07-11.18:01:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>forgot the image (image.png)  :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4444">msg4444 (view)</a></th>
+   <th>Author: anurag619</th>
+   <th>Date: 2014-07-11.17:59:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>For <a href="http://openhatch.org/guide/,">http://openhatch.org/guide/,</a> I can add it as a tab (it looks bad though,
+image attached). But what will be the contents of the tab?
+
+(image1.png) - For <a href="http://openhatch.org/search/">http://openhatch.org/search/</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4438">msg4438 (view)</a></th>
+   <th>Author: shauna</th>
+   <th>Date: 2014-07-06.19:11:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>For <a href="http://openhatch.org/search/">http://openhatch.org/search/</a> this is a simple fix.  Next to the "add a bug 
+tracker" link, put "add a project".  (See page1.png, attached.)
+
+For <a href="http://openhatch.org/guide/">http://openhatch.org/guide/</a> it's a bit more complicated.  I think we need an 
+extra tab "add your project" (in addition to "Represent your project", "Give 
+newcomers direction", "Use proven social strategies") which should be the 
+default tab highlighted (currently the default tab is "Represent your project".  
+This can link to both the add a tracker page, and 
+<a href="http://openhatch.org/+portfolio/editor/">http://openhatch.org/+portfolio/editor/</a>
+
+It's worth noting that you need to log in to view 
+<a href="http://openhatch.org/+portfolio/editor/">http://openhatch.org/+portfolio/editor/</a>  We have room to say this on the /guide 
+page, not sure if it makes sense to add a warning to the /search page, which 
+will have a terse link.  Alternatively we could have a custom page before you're 
+directed to log in.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4436">msg4436 (view)</a></th>
+   <th>Author: anurag619</th>
+   <th>Date: 2014-07-06.15:49:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I would like to work on this issue. Kindly guide me as to where the link should
+appear on the desired page.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4429">msg4429 (view)</a></th>
+   <th>Author: shauna</th>
+   <th>Date: 2014-07-02.02:16:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>After much searching and asking, it appears this is the correct link for adding 
+a project (not via adding a bug tracker):
+<a href="http://openhatch.org/+portfolio/editor/">http://openhatch.org/+portfolio/editor/</a>
+
+We should at the very least have this linked here:
+<a href="http://openhatch.org/search/">http://openhatch.org/search/</a>
+
+and here:
+<a href="http://openhatch.org/guide/">http://openhatch.org/guide/</a>
+
+(That latter is where you go when you click "add your project" from the main 
+page.)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-08-06&nbsp;01:53:37</td><td>ehashman</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg4522">msg4522</a></td></tr>
+<tr><td>2014-07-22&nbsp;12:34:05</td><td>anurag619</td><td>set</td><td>messages:
+  + <a href="msg4489">msg4489</a></td></tr>
+<tr><td>2014-07-21&nbsp;13:57:59</td><td>shauna</td><td>set</td><td>messages:
+  + <a href="msg4488">msg4488</a></td></tr>
+<tr><td>2014-07-20&nbsp;20:49:24</td><td>paulproteus</td><td>set</td><td>files:
+  + <a href="file738">unnamed</a><br />messages:
+  + <a href="msg4484">msg4484</a></td></tr>
+<tr><td>2014-07-16&nbsp;11:54:31</td><td>anurag619</td><td>set</td><td>files:
+  + <a href="file737">sample.png</a><br />messages:
+  + <a href="msg4473">msg4473</a></td></tr>
+<tr><td>2014-07-12&nbsp;22:11:45</td><td>shauna</td><td>set</td><td>messages:
+  + <a href="msg4455">msg4455</a></td></tr>
+<tr><td>2014-07-12&nbsp;06:19:21</td><td>anurag619</td><td>set</td><td>files:
+  + <a href="file729">image3.png</a><br />messages:
+  + <a href="msg4449">msg4449</a></td></tr>
+<tr><td>2014-07-11&nbsp;18:04:06</td><td>shauna</td><td>set</td><td>messages:
+  + <a href="msg4446">msg4446</a></td></tr>
+<tr><td>2014-07-11&nbsp;18:01:31</td><td>anurag619</td><td>set</td><td>files:
+  + <a href="file727">image.png</a><br />messages:
+  + <a href="msg4445">msg4445</a></td></tr>
+<tr><td>2014-07-11&nbsp;17:59:09</td><td>anurag619</td><td>set</td><td>files:
+  + <a href="file726">image1.png</a><br />messages:
+  + <a href="msg4444">msg4444</a></td></tr>
+<tr><td>2014-07-06&nbsp;19:11:18</td><td>shauna</td><td>set</td><td>messages:
+  + <a href="msg4438">msg4438</a></td></tr>
+<tr><td>2014-07-06&nbsp;19:07:22</td><td>shauna</td><td>set</td><td>files:
+  + <a href="file724">page2.png</a></td></tr>
+<tr><td>2014-07-06&nbsp;19:07:11</td><td>shauna</td><td>set</td><td>files:
+  + <a href="file723">page1.png</a></td></tr>
+<tr><td>2014-07-06&nbsp;15:49:52</td><td>anurag619</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user1009">anurag619</a><br />messages:
+  + <a href="msg4436">msg4436</a><br />nosy:
+  + <a href="user1009">anurag619</a></td></tr>
+<tr><td>2014-07-02&nbsp;02:16:09</td><td>shauna</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

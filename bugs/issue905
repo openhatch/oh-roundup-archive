@@ -1,0 +1,402 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 905: Tar ball mission: unsuccesfull when compressing with respect of current folder - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue905
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue905">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue905">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Tar ball mission: unsuccesfull when compressing with respect of current folder</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.13.10</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  FilesUnknown, paulproteus, tianyupu
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>tianyupu</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2013-11-15.18:38:22</b> by <b>FilesUnknown</b>, last changed <b>2014-04-26.19:23:29</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file568/Picky%20about%20current%20directory.png">Picky about current directory.png</a>
+  </td>
+  <td>
+   <span>FilesUnknown</span>,
+   <span>2013-11-15.18:38:21</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file569/myproject-0.1.tar.gz">myproject-0.1.tar.gz</a>
+  </td>
+  <td>
+   <span>FilesUnknown</span>,
+   <span>2013-11-15.18:40:46</span>
+  </td>
+  <td>application/x-gzip</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4277">msg4277 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-04-26.19:23:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>My theory here is that we should provide great clarity.
+
+So either we should say:
+
+"You created ./myproject-0.1 but we wanted simply myproject-0.1" as a specific 
+error message.
+
+Or, we should accept it and declare success.
+
+But we shouldn't give this not-very-informative output that we give now.
+
+I would go with the former -- we should explain what's going on, in some fashion 
+similar to how we handle the .DS_Store files in the tar mission.
+
+I'd love to see a pull request that implements some more helpful error messages 
+for users for this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4156">msg4156 (view)</a></th>
+   <th>Author: tianyupu</th>
+   <th>Date: 2014-03-07.03:18:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello! I'm fairly new to OH and would like to help out :)
+
+I had a look at this bug, and this is what I found: if you use tar zcvf 
+myproject-0.1.tar.gz myproject-0.1 to create the tarball, your tar file has this 
+sort of file/folder structure:
+myproject-0.1.tar.gz/myproject-0.1/&lt;filename&gt;
+
+If, on the other hand, you use tar zcvf myproject-0.1.tar.gz ./myproject-0.1, you 
+would get the same files (Makefile, hello.c) into the tarball as the previous 
+method, but the folder structure in the tarball is different:
+myproject-0.1.tar.gz/./myproject-0.1/&lt;filename&gt;
+
+So while the commands are basically the same, they produce slightly different 
+tarballs. For the purposes of the training mission it probably doesn't matter too 
+much, but I feel that in practice you usually don't see tarballs that have "." as 
+the top-level folder, so I would say that this is not a bug. What do you think?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3955">msg3955 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-11-16.01:55:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm away from my main computer, so I can't easily reproduce and/or fix 
+this issue, but I want to quickly reply to say:
+
+You have done an amazing job of explaining how to reproduce the issue you 
+are seeing. Thank you for being so clear!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3954">msg3954 (view)</a></th>
+   <th>Author: FilesUnknown</th>
+   <th>Date: 2013-11-16.01:51:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>To recreate bug:
+1 Download files and place into folder "myproject-1.0".
+2 Run command "tar zcvf myproject-1.0.tar.gz ./myproject-1.0" in the directory 
+containing the folder "myproject-1.0".
+3 Upload file myproject-1.0.tar.gz
+4 recieve error "An unexpected entry "./myproject-0.1" is present"</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3953">msg3953 (view)</a></th>
+   <th>Author: FilesUnknown</th>
+   <th>Date: 2013-11-15.18:40:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Attached is the myproject-0.1.tar.gz that received the error 'An unexpected entry 
+"./myproject-0.1" is present".'</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3952">msg3952 (view)</a></th>
+   <th>Author: FilesUnknown</th>
+   <th>Date: 2013-11-15.18:38:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>if you use the setup "tar zcvf myproject-0.1.tar.gz ./myproject-0.1"
+instead of           "tar zcvf myproject-0.1.tar.gz myproject-0.1"
+the error "An unexpected entry "./myproject-0.1" is present".
+As far as I know myproject-0.1 is the exact same as ./myproject-0.1 
+semantically. I would consider this a bug because there is no need to yell at 
+the person for being correct in a different way. I accept I maybe wrong that 
+this may cause major headaches in certain situations that I don't know.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-04-26&nbsp;19:23:29</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4277">msg4277</a></td></tr>
+<tr><td>2014-03-09&nbsp;12:08:02</td><td>tianyupu</td><td>set</td><td>assignedto: <a href="user1032">tianyupu</a></td></tr>
+<tr><td>2014-03-07&nbsp;03:21:26</td><td>tianyupu</td><td>set</td><td>nosy:
+  + <a href="user1032">tianyupu</a></td></tr>
+<tr><td>2014-03-07&nbsp;03:18:53</td><td>tianyupu</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg4156">msg4156</a></td></tr>
+<tr><td>2013-11-16&nbsp;01:56:17</td><td>FilesUnknown</td><td>set</td><td>status: chatting -> unread</td></tr>
+<tr><td>2013-11-16&nbsp;01:55:05</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3955">msg3955</a></td></tr>
+<tr><td>2013-11-16&nbsp;01:51:19</td><td>FilesUnknown</td><td>set</td><td>messages:
+  + <a href="msg3954">msg3954</a></td></tr>
+<tr><td>2013-11-15&nbsp;18:40:47</td><td>FilesUnknown</td><td>set</td><td>files:
+  + <a href="file569">myproject-0.1.tar.gz</a><br />status: unread -> chatting<br />messages:
+  + <a href="msg3953">msg3953</a></td></tr>
+<tr><td>2013-11-15&nbsp;18:38:22</td><td>FilesUnknown</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

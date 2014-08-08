@@ -1,0 +1,315 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 569: Make mockups for project page sidebar button progression - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue569
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue569">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue569">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Make mockups for project page sidebar button progression</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>aldeka</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-08-27.21:34:36</b> by <b>aldeka</b>, last changed <b>2011-11-10.00:44:18</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2649">msg2649 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-10.00:28:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Not yet done, so pushing to 'later'
+
+<a href="http://littlegreenriver.com/stuffs/openhatch-mockups/">http://littlegreenriver.com/stuffs/openhatch-mockups/</a> is some work along those
+lines, though.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2398">msg2398 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-08-27.21:36:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>&lt;paulproteus&gt; We don't have a strong story for showing the wannahelper some
+useful info when they click that they want to help
+&lt;paulproteus&gt; It'd be nice to give them concrete next steps, maybe, rather than
+just let them queue up in the list.
+&lt;aldeka&gt; Hm.
+&lt;paulproteus&gt; Like show them a random 3 bugs from the project in a modal
+overlay, and/or say, "If you're looking for the source code, go to <a href="http://xyz">http://xyz</a>"
+&lt;aldeka&gt; I thought the whole idea was "I want to help; tell me what to do!".
+&lt;aldeka&gt; Not sure how much we can remove humans from that process.
+&lt;paulproteus&gt; I guess one thing we can do is let the project maintainer write
+some free-form text to show people.
+&lt;paulproteus&gt; "Hi! Here are the essentials: We will reach out to you, now that
+you've clicked the button. If you want to find us, join the #openhatch IRC
+channel. Right now! I mean it. Click here: <a href="http://openhatch.org/contact/">http://openhatch.org/contact/</a>" is
+something I would put there.
+&lt;aldeka&gt; Heh. :)
+&lt;paulproteus&gt; I know the following is radical, but:
+&lt;paulproteus&gt; If you click the button, that overlay could be the default action.
+&lt;paulproteus&gt; Then it says: "To make sure we reach out to you, you'll have to
+click this button and log in. Then you'll get a chance to say more about
+yourself. CLICK IT!"
+&lt;paulproteus&gt; i.e. that way, you can click the button and not immediately see a
+(possibly scary) "Log in!" thing
+&lt;paulproteus&gt; I'm afraid of dropping people on the floor at the "Log in!" point.
+&lt;paulproteus&gt; I can try to run some numbers and see how many people get to the
+login but then fail to log in, if that would help motivate/demotivate the
+suggestion.
+&lt;paulproteus&gt; (get to the login *after* clicking an I Want To Help link, that is)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2395">msg2395 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-08-27.21:34:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Spec for the mockups:
+
+1.) The IWH button should only appear if you're not already marked as a
+contributor to the project.
+2.) If you *are* marked as a contributor, a orange "I maintain this project"
+button should appear.
+3.) When you click the IWH button, an optional form field should appear asking
+what sorts of things you would be interested in helping with. This extra
+information would then appear for current maintainers in the 'prospective
+helpers' contacting interface.
+4.) After you click IWH, a rectangular green badge saying "I want to help"
+should appear in the place of the button.
+5.) If you are marked as a contributor of a project, a rectangular blue badge
+should appear saying "I am a contributor" (above where the maintainer button
+appears).
+6.) If you click the maintainer button, a rectangular orange "I am a maintainer"
+badge should appear in place of the button (below the contributor badge).
+
+Optional: Asheesh suggested having an overlay that appears after you click the
+IWH button, before even the optional extra field appears, where maintainers can
+write a special note to IWHelpers.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-11-10&nbsp;00:44:18</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-11-10&nbsp;00:28:57</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2649">msg2649</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:45:23</td><td>aldeka</td><td>link</td><td><a href="issue518">issue518 superseder</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:43:03</td><td>aldeka</td><td>link</td><td><a href="issue519">issue519 superseder</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:38:15</td><td>aldeka</td><td>set</td><td>assignedto: <a href="user4">aldeka</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:36:35</td><td>aldeka</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2398">msg2398</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:34:36</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

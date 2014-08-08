@@ -1,0 +1,371 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 860: Launchpad not available as an option when adding bug tracker from "Projects" - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue860
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue860">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue860">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Launchpad not available as an option when adding bug tracker from "Projects"</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.13.08</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jpichon, paulproteus, vkmc
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>jpichon</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2013-06-10.09:47:07</b> by <b>jpichon</b>, last changed <b>2013-08-26.20:44:30</b> by <b>jpichon</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file561/0001-Add-link-to-Launchpad-to-the-Project-s-Bug-Trackers.patch">0001-Add-link-to-Launchpad-to-the-Project-s-Bug-Trackers.patch</a>
+  </td>
+  <td>
+   <span>jpichon</span>,
+   <span>2013-08-21.21:05:33</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3831">msg3831 (view)</a></th>
+   <th>Author: jpichon</th>
+   <th>Date: 2013-08-26.20:42:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Woohoo, great, thank you :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3830">msg3830 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-08-26.19:49:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>BTW, didn't notice, but you did write that to the list already. Yay!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3826">msg3826 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-08-26.19:05:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi jpichon! I just took a look at this now.
+
+I'm impressed that you found this trivial issue lurking deep inside a hard-coded 
+list of options in the OpenHatch codebase.
+
+One day we should look at refactoring this to avoid bugs like this. For now, I 
+am simply thrilled to deploy it. So...
+
+I've done that!
+
+If you're willing to follow the "Permit us to share your work" section here
+<a href="http://openhatch.readthedocs.org/en/latest/contributor/handling_patches.html#per">http://openhatch.readthedocs.org/en/latest/contributor/handling_patches.html#per</a>
+mit-us-to-share-your-work
+that'd be lovely, too.
+
+Thanks for this! And good grief that it wasn't already there.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3815">msg3815 (view)</a></th>
+   <th>Author: jpichon</th>
+   <th>Date: 2013-08-21.20:18:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think the issue I mentioned that is specific to Horizon is not valid as the
+bug opportunities are now listed properly on the project page ("Volunteer
+opportunities matching OpenStack dashboard (Horizon) (149)") so perhaps the
+magic happens based on the Tracker Name, which was my misunderstanding and lack
+of patience. I can't check the project settings to see what the Bug Trackers tab
+reads though, as I get an error 500 at the moment when trying to edit the
+project :') However I am happy that this issue is resolved.
+
+As for adding "Launchpad" to the "Bug Tracker" tab, it doesn't look very
+complicated to do so, therefore I shall try and use this as an opportunity to
+make a first contribution to OpenHatch.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3726">msg3726 (view)</a></th>
+   <th>Author: jpichon</th>
+   <th>Date: 2013-06-10.09:47:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I first apologise for not doing things in the right order, though eventually I
+would have hit the same issue:
+
+1. I created a bug tracker for "OpenStack Dashboard (Horizon)" using
+<a href="http://openhatch.org/customs/add/launchpad">http://openhatch.org/customs/add/launchpad</a>
+
+2. I then created "OpenStack Dashboard (Horizon)" in the Projects in my profile
+
+I now would like to link the project to the tracker I previously created.
+
+If I go to <a href="http://openhatch.org/+projects/OpenStack%20dashboard%20%28Horizon%29,">http://openhatch.org/+projects/OpenStack%20dashboard%20%28Horizon%29,</a>
+and click on "No volunteer opportunities in OpenStack dashboard (Horizon)
+indexed here yet. Add a bug tracker", the options proposed are:
+
+Bugzilla
+GitHub
+Google Code
+Roundup
+Trac
+
+I would expect to also see Launchpad in the list.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-08-26&nbsp;20:44:30</td><td>jpichon</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2013-08-26&nbsp;20:42:15</td><td>jpichon</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg3831">msg3831</a></td></tr>
+<tr><td>2013-08-26&nbsp;19:49:14</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2013-08-26&nbsp;19:49:10</td><td>paulproteus</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg3830">msg3830</a></td></tr>
+<tr><td>2013-08-26&nbsp;19:05:17</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone17">0.13.08</a></td></tr>
+<tr><td>2013-08-26&nbsp;19:05:09</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3826">msg3826</a></td></tr>
+<tr><td>2013-08-21&nbsp;21:05:33</td><td>jpichon</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file561">0001-Add-link-to-Launchpad-to-the-Project-s-Bug-Trackers.patch</a></td></tr>
+<tr><td>2013-08-21&nbsp;20:18:00</td><td>jpichon</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user259">jpichon</a><br />messages:
+  + <a href="msg3815">msg3815</a></td></tr>
+<tr><td>2013-06-13&nbsp;14:34:52</td><td>vkmc</td><td>set</td><td>nosy:
+  + <a href="user774">vkmc</a></td></tr>
+<tr><td>2013-06-10&nbsp;09:47:07</td><td>jpichon</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

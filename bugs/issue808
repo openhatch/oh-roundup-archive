@@ -1,0 +1,410 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 808: + vs. %20: Probably we should stop using + as much in URLs - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue808
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue808">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue808">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">+ vs. %20: Probably we should stop using + as much in URLs</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  brittag, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2013-02-25.23:34:29</b> by <b>paulproteus</b>, last changed <b>2013-07-23.00:28:36</b> by <b>brittag</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3748">msg3748 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2013-07-23.00:28:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Looks good!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3747">msg3747 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-07-22.23:30:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Britta, thanks for finding this remaining issue!
+
+I've added a test and pushed <a href="https://github.com/openhatch/oh-">https://github.com/openhatch/oh-</a>
+mainline/commit/e485c8d98d5b7386ecf436526305e930ac25e4ad
+
+...good, it passes all tests. Deployed.
+
+Britta, can you close if you confirm it works? If so, please mark resolved!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3746">msg3746 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2013-07-22.22:36:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The intended redirect of +projects/* to projects/* is not currently working. Instead, +projects/* is 
+redirected to projects/
+
+I noticed this by clicking the <a href="http://openhatch.org/+projects/Liferea">http://openhatch.org/+projects/Liferea</a> link on 
+<a href="http://lzone.de/liferea/">http://lzone.de/liferea/</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3724">msg3724 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-29.06:36:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="https://github.com/openhatch/oh-mainline/pull/93">https://github.com/openhatch/oh-mainline/pull/93</a> has been updated and needs fresh 
+review.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3687">msg3687 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-03.05:15:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>jwm and I left a note here: <a href="https://github.com/openhatch/oh-mainline/pull/93">https://github.com/openhatch/oh-mainline/pull/93</a>
+
+The patch series needs some more work, but it is on the way!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3625">msg3625 (view)</a></th>
+   <th>Author: jwm</th>
+   <th>Date: 2013-03-19.20:47:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="https://github.com/openhatch/oh-mainline/pull/93">https://github.com/openhatch/oh-mainline/pull/93</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3571">msg3571 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-02-26.18:29:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The only reason we use + is... historical, and not a good reason.
+
+We were thinking using a "+" would keep the namespace at openhatch.org/ 
+clear if we wanted to add more things at the root.
+
+We haven't added much of anything new there in ages, so we might as well 
+just remove the pluses.
+
+We'd probably want to do all the following things:
+
+* Simple fix for this bug: Redirect " projects/*" to "+projects/*"
+
+* Fix to stop using plusses in general: change +projects/ in urls.py to be 
+projects/ and then fix up the test suite so it refers to projects/ not 
++projects, then add a redirect so +projects/* goes to projects/*
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3570">msg3570 (view)</a></th>
+   <th>Author: konarkmodi</th>
+   <th>Date: 2013-02-26.05:37:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Is there any specific reason for using + ?
+If no then probably we can simple let the url be : 
+<a href="http://openhatch.org/projects/OpenSkedge">http://openhatch.org/projects/OpenSkedge</a> ?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3569">msg3569 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-02-25.23:34:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>An enthusiastic fan was like:
+
+* omg "how did I not know this existed?"
+
+* then created a page for his project, OpenSkedge
+
+* then linked to it: <a href="http://blog.maxfierke.com/post/43903576500/openskedge-on-">http://blog.maxfierke.com/post/43903576500/openskedge-on-</a>
+openhatch
+
+But the problem is the href goes to <a href="http://openhatch.org/%20projects/OpenSkedge">http://openhatch.org/%20projects/OpenSkedge</a> 
+not +projects.
+
+Ouch. We should probably support this.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-07-23&nbsp;00:28:37</td><td>brittag</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3748">msg3748</a></td></tr>
+<tr><td>2013-07-22&nbsp;23:30:11</td><td>paulproteus</td><td>set</td><td>status: reopened -> need-review<br />nosy:
+  + <a href="user811">brittag</a><br />messages:
+  + <a href="msg3747">msg3747</a></td></tr>
+<tr><td>2013-07-22&nbsp;22:36:05</td><td>brittag</td><td>set</td><td>status: resolved -> reopened<br />messages:
+  + <a href="msg3746">msg3746</a></td></tr>
+<tr><td>2013-06-17&nbsp;00:56:14</td><td>jwm</td><td>set</td><td>status: need-review -> resolved</td></tr>
+<tr><td>2013-05-29&nbsp;06:36:19</td><td>paulproteus</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg3724">msg3724</a></td></tr>
+<tr><td>2013-05-03&nbsp;05:15:48</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg3687">msg3687</a></td></tr>
+<tr><td>2013-03-19&nbsp;20:47:36</td><td>jwm</td><td>set</td><td>status: chatting -> need-review</td></tr>
+<tr><td>2013-03-19&nbsp;20:47:27</td><td>jwm</td><td>set</td><td>messages:
+  + <a href="msg3625">msg3625</a></td></tr>
+<tr><td>2013-02-26&nbsp;18:29:58</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3571">msg3571</a></td></tr>
+<tr><td>2013-02-26&nbsp;05:37:55</td><td>konarkmodi</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3570">msg3570</a></td></tr>
+<tr><td>2013-02-25&nbsp;23:34:29</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

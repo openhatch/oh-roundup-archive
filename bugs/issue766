@@ -1,0 +1,662 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 766: "any" Languages selection in search does not return any results - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue766
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue766">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue766">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">"any" Languages selection in search does not return any results</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Aaron1011, kaizokuace, lalei, mandarg, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>Aaron1011</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-09-06.21:47:00</b> by <b>mandarg</b>, last changed <b>2013-05-23.02:11:27</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file543/0001-Fixed-the-any-option-when-filtering-by-language.patch">0001-Fixed-the-any-option-when-filtering-by-language.patch</a>
+  </td>
+  <td>
+   <span>Aaron1011</span>,
+   <span>2013-03-31.13:38:39</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file551/0001-Improved-fix-for-any-option.patch">0001-Improved-fix-for-any-option.patch</a>
+  </td>
+  <td>
+   <span>Aaron1011</span>,
+   <span>2013-05-06.23:49:52</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file553/0001-Made-tests-test-changed-functionality.patch">0001-Made-tests-test-changed-functionality.patch</a>
+  </td>
+  <td>
+   <span>Aaron1011</span>,
+   <span>2013-05-10.20:09:05</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file552/0005-Fixed-failing-FacetFilterResults-tests.patch">0005-Fixed-failing-FacetFilterResults-tests.patch</a>
+  </td>
+  <td>
+   <span>Aaron1011</span>,
+   <span>2013-05-08.18:35:51</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3720">msg3720 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-23.02:11:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Resolved in <a href="https://github.com/openhatch/oh-">https://github.com/openhatch/oh-</a>
+mainline/commit/32c9c8472755ad6ac98394c83fbe5ad748507791 , merged, and deployed.
+
+Thank you Aaron1011!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3719">msg3719 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-20.22:07:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The code here looks good to me, now that I understand it, but more comments 
+and/or commit log messages are needed!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3718">msg3718 (view)</a></th>
+   <th>Author: Aaron1011</th>
+   <th>Date: 2013-05-20.17:53:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have made a pull request that consolidates my patches here: 
+<a href="https://github.com/openhatch/oh-mainline/pull/114">https://github.com/openhatch/oh-mainline/pull/114</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3712">msg3712 (view)</a></th>
+   <th>Author: Aaron1011</th>
+   <th>Date: 2013-05-10.20:09:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello again,
+I have made another patch that test the create_from_GET_data method. I'm sorry 
+about my earlier tests, I don't know what I was thinking!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3707">msg3707 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-08.23:36:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Aaron! This is great, but the one thing that this patch doesn't have (which we 
+need) is a test case that covers the changed behavior.
+
+In particular, all the tests that you have added (from what I can tell) pass 
+without the change to mysite/search/view_helpers.py . So the tests only cover old 
+behavior.
+
+The point of adding a test in this case is to prove that the code you wrote fixes 
+an actual problem, so your test should be able to demonstrate a problem with the 
+code before your changes are applied.
+
+Let me know if I can clarify at all; IRC might be better to reach me! When you 
+arrive on IRC, feel free to ping me as paulproteus there (by just saying my name) 
+so I am sure to see you. If I'm away, you'll know because I don't answer a ping.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3706">msg3706 (view)</a></th>
+   <th>Author: Aaron1011</th>
+   <th>Date: 2013-05-08.18:35:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have uploaded a patch that fixes the failing tests. I didn't get the same error 
+about old_dbe, but a couple other tests started failing. The problem was changing 
+the else clause in create_from_GET_data. If a particular facet wasn't present at 
+all in the GET data, the else clause would execute, because the if statement would 
+evaluate to false. However, the any_facet option needs to be set to True only if a 
+facet is present but set to the empty string.
+
+My patch change the else clause back to a test for the empty string.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3698">msg3698 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-08.05:49:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Aaron!
+
+When I run the tests, I get some errors:
+
+➜  oh-mainline git:(fix/<a href="issue766">issue766</a>) ✗ python manage.py test 
+search.FacetsFilterResults
+Creating test database for alias 'default'...
+EE
+======================================================================
+ERROR: test_any_facet (mysite.search.tests.FacetsFilterResults)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/paulproteus/projects/oh-mainline/mysite/search/tests.py", line 
+479, in setUp
+    self.python_bug = Bug.create_dummy(project=python_project)
+NameError: global name 'python_project' is not defined
+
+======================================================================
+ERROR: test_facets_filter_results (mysite.search.tests.FacetsFilterResults)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/paulproteus/projects/oh-mainline/mysite/search/tests.py", line 
+479, in setUp
+    self.python_bug = Bug.create_dummy(project=python_project)
+NameError: global name 'python_project' is not defined
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.004s
+
+FAILED (errors=2)
+Destroying test database for alias 'default'...
+
+In particular, this is because on line 479 you need to write 
+project=self.python_project.
+
+Once I fix that, I get this VERY obscure error:
+
+======================================================================
+ERROR: test_any_facet (mysite.search.tests.FacetsFilterResults)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/paulproteus/projects/oh-mainline/mysite/base/tests.py", line 95, 
+in tearDown
+    settings.DEBUG_PROPAGATE_EXCEPTIONS = self.old_dbe
+AttributeError: 'FacetsFilterResults' object has no attribute 'old_dbe'
+
+which is caused by the setUp() method not calling the super() class's setUp(). 
+So I added that on top in this patch:
+
+diff --git a/mysite/search/tests.py b/mysite/search/tests.py
+index ce270bc..e3bcf8a 100644
+--- a/mysite/search/tests.py
++++ b/mysite/search/tests.py
+@@ -475,11 +475,12 @@ class SearchTemplateDecodesQueryString(SearchTest):
+ 
+ class FacetsFilterResults(SearchTest):
+     def setUp(self):
++        super(FacetsFilterResults, self).setUp()
+         self.python_project = Project.create_dummy(language='Python')
+-        self.python_bug = Bug.create_dummy(project=python_project)
++        self.python_bug = Bug.create_dummy(project=self.python_project)
+ 
+         self.not_python_project = Project.create_dummy(language='Nohtyp')
+-        self.not_python_bug = Bug.create_dummy(project=not_python_project)
++        self.not_python_bug = Bug.create_dummy(project=self.not_python_project)
+ 
+However, I still find that when I revert your changes to view_helpers.py, the 
+test you provide still passes. So I won't merge this yet; I don't think we're at 
+the bottom of the issue.
+
+I would focus on using the interactive shell (e.g., python manage.py shell_plus) 
+to interactively fiddle with the Query class and its create_from_GET_data 
+method, and see if you can identify what the wrong behavior is and identify a 
+fix. I think that the change you made actually doesn't fix the underlying issue, 
+though I'm not totally sure without a test case that covers this behavior.
+
+Thanks for your patience with me, and I'm looking forward to us getting to the 
+bottom of this together!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3697">msg3697 (view)</a></th>
+   <th>Author: Aaron1011</th>
+   <th>Date: 2013-05-06.23:49:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thank you for you advice! I have uploaded a new patch that implements your 
+suggestions.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3696">msg3696 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-06.21:35:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Aaron! Thank you for this patch, and sorry about the build-up here in the 
+review queue.
+
+I noticed that your patch no longer applies, so I took the liberty of rebasing it 
+before testing. You can keep working on the version you have, or rebase it 
+yourself. (The reason it doesn't apply to the current master on 
+<a href="http://github.com/openhatch/oh-mainline">http://github.com/openhatch/oh-mainline</a> is that we renamed the controllers files 
+to be named view_helpers.) It's OK by me if you submit it against an old version 
+of the code, since I can merge that myself.
+
+I also noticed that your test seems to pass even without your code changes. This 
+makes it hard to judge if the code changes are correct.
+
+A few thoughts on the code changes:
+
+
+I notice that you check if GET.get(facet) equals the empty string, but on the 
+lines above that, I think we already test that implicitly with "if 
+GET.get(facet):". So perhaps it would be better instead of writing:
+
+            if GET.get(facet) == '':
+                any_facet = True
+
+to write:
+
+            else:
+                any_facet = True
+
+Another thing I noticed is that your code is changing the behavior of the 
+create_from_GET_data function. So your test might as well just test that method.
+
+Thank you for this patch! I'm happy to help more; let me know what you think of 
+the above!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3663">msg3663 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-03-31.19:50:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm super excited, and will review this patch tomorrow!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3662">msg3662 (view)</a></th>
+   <th>Author: Aaron1011</th>
+   <th>Date: 2013-03-31.13:38:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Added patch.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3556">msg3556 (view)</a></th>
+   <th>Author: lalei</th>
+   <th>Date: 2013-01-22.19:49:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think it's depending on either we want to show the list of all bugs or not.
+If we want to show it, it needs to show the list of all bugs when "any" is 
+clicked on "Languages" and also on "Projects".
+If not, "any" links should be removed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3400">msg3400 (view)</a></th>
+   <th>Author: mandarg</th>
+   <th>Date: 2012-09-06.21:47:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Steps to reproduce. (Seen on Firefox and Chrome on Mac, pretty sure this is
+browser/OS independent though)
+
+1. Go to <a href="http://www.openhatch.org/search/">http://www.openhatch.org/search/</a>
+
+2. Under 'Languages', click on "More Languages"
+
+3. In the overlay, there is a selection called "any". Click on it.
+
+!4. No work items are shown, though the total number is correctly shown beside
+"any" in the overlay. The URL with query string that the selection leads to is
+<a href="https://openhatch.org/search/?q=&amp;language=">https://openhatch.org/search/?q=&amp;language=</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-05-23&nbsp;02:11:27</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg3720">msg3720</a></td></tr>
+<tr><td>2013-05-20&nbsp;22:07:15</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3719">msg3719</a></td></tr>
+<tr><td>2013-05-20&nbsp;17:53:43</td><td>Aaron1011</td><td>set</td><td>messages:
+  + <a href="msg3718">msg3718</a></td></tr>
+<tr><td>2013-05-10&nbsp;20:09:05</td><td>Aaron1011</td><td>set</td><td>files:
+  + <a href="file553">0001-Made-tests-test-changed-functionality.patch</a><br />messages:
+  + <a href="msg3712">msg3712</a></td></tr>
+<tr><td>2013-05-08&nbsp;23:36:12</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3707">msg3707</a></td></tr>
+<tr><td>2013-05-08&nbsp;18:35:51</td><td>Aaron1011</td><td>set</td><td>files:
+  + <a href="file552">0005-Fixed-failing-FacetFilterResults-tests.patch</a><br />messages:
+  + <a href="msg3706">msg3706</a></td></tr>
+<tr><td>2013-05-08&nbsp;05:49:51</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress</td></tr>
+<tr><td>2013-05-08&nbsp;05:49:37</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3698">msg3698</a></td></tr>
+<tr><td>2013-05-06&nbsp;23:49:53</td><td>Aaron1011</td><td>set</td><td>files:
+  + <a href="file551">0001-Improved-fix-for-any-option.patch</a><br />messages:
+  + <a href="msg3697">msg3697</a></td></tr>
+<tr><td>2013-05-06&nbsp;21:35:45</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3696">msg3696</a></td></tr>
+<tr><td>2013-03-31&nbsp;19:50:03</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3663">msg3663</a></td></tr>
+<tr><td>2013-03-31&nbsp;13:38:57</td><td>Aaron1011</td><td>set</td><td>status: chatting -> need-review</td></tr>
+<tr><td>2013-03-31&nbsp;13:38:39</td><td>Aaron1011</td><td>set</td><td>files:
+  + <a href="file543">0001-Fixed-the-any-option-when-filtering-by-language.patch</a><br />messages:
+  + <a href="msg3662">msg3662</a></td></tr>
+<tr><td>2013-03-30&nbsp;17:41:33</td><td>Aaron1011</td><td>set</td><td>assignedto: <a href="user702">Aaron1011</a><br />nosy:
+  + <a href="user702">Aaron1011</a></td></tr>
+<tr><td>2013-01-22&nbsp;19:49:17</td><td>lalei</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user611">lalei</a><br />messages:
+  + <a href="msg3556">msg3556</a></td></tr>
+<tr><td>2012-10-21&nbsp;17:13:25</td><td>kaizokuace</td><td>set</td><td>nosy:
+  + <a href="user566">kaizokuace</a></td></tr>
+<tr><td>2012-09-06&nbsp;21:47:00</td><td>mandarg</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

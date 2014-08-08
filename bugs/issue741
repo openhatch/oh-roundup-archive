@@ -1,0 +1,502 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 741: "Manage projects" page has action buttons, but they're not clickable - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue741
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue741">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue741">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">"Manage projects" page has action buttons, but they're not clickable</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.13.08</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  MarkTraceur, mstone, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-06-19.01:09:31</b> by <b>MarkTraceur</b>, last changed <b>2013-08-26.15:49:06</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file558/after.png">after.png</a>
+  </td>
+  <td>
+   <span>mstone</span>,
+   <span>2013-08-07.03:54:42</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file557/before.png">before.png</a>
+  </td>
+  <td>
+   <span>mstone</span>,
+   <span>2013-08-07.03:54:32</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file512/blocking-buttons.png">blocking-buttons.png</a>
+  </td>
+  <td>
+   <span>MarkTraceur</span>,
+   <span>2012-06-19.01:31:47</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file556/test-oh.sh">test-oh.sh</a>
+  </td>
+  <td>
+   <span>mstone</span>,
+   <span>2013-08-07.03:54:15</span>
+  </td>
+  <td>application/x-shellscript</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file511/ul-inspect.png">ul-inspect.png</a>
+  </td>
+  <td>
+   <span>MarkTraceur</span>,
+   <span>2012-06-19.01:31:15</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3823">msg3823 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-08-26.15:49:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I am thrilled to report that I have deployed Michael's patch, which fixes the 
+issue, plus I added another commit on top that slightly other parts of the CSS on 
+that page.
+
+I have tested in Firefox and Chromium on Debian.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3790">msg3790 (view)</a></th>
+   <th>Author: mstone</th>
+   <th>Date: 2013-08-07.04:04:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="https://github.com/openhatch/oh-mainline/pull/125">https://github.com/openhatch/oh-mainline/pull/125</a>
+
+(previous link was not properly lexed)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3789">msg3789 (view)</a></th>
+   <th>Author: mstone</th>
+   <th>Date: 2013-08-07.04:02:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Alternate pull request for review:
+<a href="https://github.com/openhatch/oh-mainline/pull/125.">https://github.com/openhatch/oh-mainline/pull/125.</a> Please see accompanying test
+script and before-and-after screenshots.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3788">msg3788 (view)</a></th>
+   <th>Author: mstone</th>
+   <th>Date: 2013-08-07.03:54:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>After change...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3787">msg3787 (view)</a></th>
+   <th>Author: mstone</th>
+   <th>Date: 2013-08-07.03:54:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Before change...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3786">msg3786 (view)</a></th>
+   <th>Author: mstone</th>
+   <th>Date: 2013-08-07.03:54:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Test setup script</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3773">msg3773 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2013-08-05.06:16:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I made a PR (with small CSS change) to fix this: <a href="https://github.com/openhatch/oh-">https://github.com/openhatch/oh-</a>
+mainline/pull/124 Feel free to code review.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3290">msg3290 (view)</a></th>
+   <th>Author: MarkTraceur</th>
+   <th>Date: 2012-06-19.01:31:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Bonus points: The lower div blocking the UL.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3289">msg3289 (view)</a></th>
+   <th>Author: MarkTraceur</th>
+   <th>Date: 2012-06-19.01:31:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The latter!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3288">msg3288 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-06-19.01:25:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Can you attach a screenshot, and preferably a
+screenshot of what you get when you do "inspect element"?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3287">msg3287 (view)</a></th>
+   <th>Author: MarkTraceur</th>
+   <th>Date: 2012-06-19.01:09:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>At least on my screen, I see the buttons (on the next line, mind you, so this
+might be a float bug) but the next project's div covers them up, so I can't
+click on them. In fact yes, the UL that contains the action buttons is float'd
+left, but apparently there is insufficient space in the parent element to put
+both on one line. This makes managing individual projects a little difficult,
+but it's a pretty simple style bug (I think!)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-08-26&nbsp;15:49:06</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />nosy:
+  + <a href="user239">mstone</a><br />messages:
+  + <a href="msg3823">msg3823</a></td></tr>
+<tr><td>2013-08-07&nbsp;04:04:28</td><td>mstone</td><td>set</td><td>messages:
+  + <a href="msg3790">msg3790</a></td></tr>
+<tr><td>2013-08-07&nbsp;04:02:32</td><td>mstone</td><td>set</td><td>messages:
+  + <a href="msg3789">msg3789</a><br />milestone: <a href="milestone17">0.13.08</a></td></tr>
+<tr><td>2013-08-07&nbsp;03:54:42</td><td>mstone</td><td>set</td><td>files:
+  + <a href="file558">after.png</a><br />messages:
+  + <a href="msg3788">msg3788</a></td></tr>
+<tr><td>2013-08-07&nbsp;03:54:32</td><td>mstone</td><td>set</td><td>files:
+  + <a href="file557">before.png</a><br />messages:
+  + <a href="msg3787">msg3787</a></td></tr>
+<tr><td>2013-08-07&nbsp;03:54:16</td><td>mstone</td><td>set</td><td>files:
+  + <a href="file556">test-oh.sh</a><br />messages:
+  + <a href="msg3786">msg3786</a></td></tr>
+<tr><td>2013-08-05&nbsp;06:16:01</td><td>onceuponatimeforever</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg3773">msg3773</a></td></tr>
+<tr><td>2012-06-19&nbsp;01:31:49</td><td>MarkTraceur</td><td>set</td><td>files:
+  + <a href="file512">blocking-buttons.png</a><br />messages:
+  + <a href="msg3290">msg3290</a></td></tr>
+<tr><td>2012-06-19&nbsp;01:31:17</td><td>MarkTraceur</td><td>set</td><td>files:
+  + <a href="file511">ul-inspect.png</a><br />messages:
+  + <a href="msg3289">msg3289</a></td></tr>
+<tr><td>2012-06-19&nbsp;01:25:58</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3288">msg3288</a></td></tr>
+<tr><td>2012-06-19&nbsp;01:09:31</td><td>MarkTraceur</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

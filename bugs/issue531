@@ -1,0 +1,366 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 531: Either adjust our use of zc.buildout so it actually works, or transition us to virtualenv - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue531
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue531">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue531">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Either adjust our use of zc.buildout so it actually works, or transition us to virtualenv</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.07</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-08-08.12:11:43</b> by <b>paulproteus</b>, last changed <b>2011-09-01.05:02:43</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2451">msg2451 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-01.05:02:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is fixed -- forcing the use of distribute, in bootstrap.py, seems to make
+the difference.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2288">msg2288 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-08.12:17:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>One other thing: virtualenv has two modes: "--no-site-packages" and, well, not
+passing that option in.
+
+For now, I think that if we go with virtualenv we should permit site packages to
+flow in. This way, the user can install some hard-to-install modules like PIL
+using their package manager.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2287">msg2287 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-08.12:11:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The current state of things
+---------------------------
+
+We use a tool called 'zc.buildout' (zc is short for 'Zope Corporation' that
+first wrote the tool) to create a little Python environment for OpenHatch's
+code and its dependencies.
+
+The reason we want to create a little Python environment is that the OpenHatch
+site, which is contained in a Python module called 'mysite', depends on other
+Python modules. We use two files, buildout.cfg and setup.py, to specify what
+version of those modules we want, and where to download them.
+
+This has the following advantages:
+
+* Users run two simple commands to get started:
+
+ python bootstrap.py
+ bin/buildout
+
+Buildout then installs the dependencies
+
+* The dependency modules don't have to be installed as root.
+
+This is crucial -- the main point of the "little Python environment" is
+that users can run the OpenHatch code without altering their main system's
+set of Python modules.
+
+What's bad about it
+-------------------
+
+There are approximately three problems with the setup we have now:
+
+1. It is not transparent
+
+When 'buildout' runs, it is not clear about why it is doing what
+it is doing. It is also not clear about where it is downloading
+dependencies from.
+
+This leads to people feeling a little confused -- buildout appears
+to be a magic black box that successfully builds a dev environment...
+...unless it fails to.
+
+2. In some environments, buildout seems to refuse to download anything
+
+This is pretty killer (in a bad way). It means that new contributors
+are faced with utter failure and no reasonable way to debug it.
+
+This is the most show-stopper of the problems with buildout. Careful
+reading of the buildout code might help understand why it does this,
+if you can create an environment that reproduces it.
+
+(One easy way to create such an environment, I think, is to take our
+Vagrant configuration and run it against an Ubuntu Lucid virtual machine.)
+
+One downside to buildout is that it seems to be a whole bunch of complex
+code, and it downloads buildout whenver 'bootstrap' runs.
+
+3. If the system Python environment includes a version of Django newer
+   than what we use in OpenHatch, Buildout uses that newer version,
+   often leading to incompatibility
+
+If you do:
+
+ sudo apt-get install python-django
+
+and you get a 1.3.x version of Django, and you then run buildout, buildout
+will let the system provide that 1.3.x version to the OpenHatch code.
+
+Often there are backwards-incompatible changes between versions of Django.
+The result is that a new contributor will say, "Gosh, I wonder why the OpenHatch
+code is so broken" and, since they didn't get any error message or otherwise,
+think we just ship broken code.
+
+We use a buildout addon called djangorecipe, which I *think* is supposed to be
+able to avoid this situation, but my new opinion on djangorecipe is that for the
+small things we want to do, we should just ditch djangorecipe.
+
+Reasonable possible solutions
+-----------------------------
+
+There are about two ways forward, as far as I can tell:
+
+1. Diagnose the problems with buildout, and fix it
+
+If we can root-cause and fix the download problem, that would be enough for
+me!
+
+2. Replace buildout with the a simpler setup based on virtualenv
+
+I think that this is probably even better. To see an example of how another
+project uses virtualenv and setup.py, check out the install instructions
+for debexpo:
+
+ $ git clone git://git.debian.org/debexpo/debexpo.git 
+
+There, you can read the README file.
+
+The debexpo documentation suggests using a virtualenv whose files live in
+~/.virtualenvs/expo/. I think it would be better if, instead, the virtualenv
+lives in "." -- the directory that holds the code.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-09-01&nbsp;05:02:43</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2451">msg2451</a><br />milestone: <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-08-08&nbsp;12:17:17</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2288">msg2288</a></td></tr>
+<tr><td>2011-08-08&nbsp;12:11:43</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

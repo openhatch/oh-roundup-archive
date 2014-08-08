@@ -1,0 +1,568 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 433: When you click to edit a bug tracker from the +projedit page, it should open in a little JavaScript modal dialog - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue433
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue433">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue433">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">When you click to edit a bug tracker from the +projedit page, it should open in a little JavaScript modal dialog</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  palhmbs, paulproteus, phalgun
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  bitesize, javascript
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-05-26.01:52:43</b> by <b>paulproteus</b>, last changed <b>2014-07-15.06:17:30</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file734/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>paulproteus</span>,
+   <span>2014-07-15.06:14:54</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file735/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>paulproteus</span>,
+   <span>2014-07-15.06:17:30</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4469">msg4469 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-07-15.06:17:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey all!
+
+It looks like the status of this bug is that phalgun implemented it, but we
+forgot to review it! How embarrassing.
+
+I think the best next step is that we actually review phalgun's
+implementation, and provide feedback.
+
+Thanks to all y'all for pinging the bug. It's a pleasure to be part of the
+project with you folks around!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4468">msg4468 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-07-15.06:14:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>phalgun, I see you asked how to add a project.
+
+Here's what you do:
+
+* Log into your personal instance
+
+* View your personal user page
+
+* Click "Add/edit projects" in the top right
+
+* Add a project to your personal profile, and save your personal profile
+
+Now, you will be able go from your profile to that project's page.
+
+Let me know if that gives you enough to go on, in order to test your
+changes!
+
+Two other hopefully useful pieces of advice:
+
+1. You can often get help with these sorts of questions on #openhatch , the
+IRC channel
+
+If you're unsure how to join, by all means ask me here! You can find some
+information on it in our technical documentation at
+<a href="http://openhatch.readthedocs.org/">http://openhatch.readthedocs.org/</a>
+
+2. You can create Django models via the command line
+
+You may be familiar with 'python manage.py runserver', which is how to run
+the web app on your own computer. You can also do
+
+python manage.py shell_plus
+
+and this gives you a Python shell that you can use to interact with the
+oh-mainline codebase and database. For example, at that prompt, you can run:
+
+&gt;&gt;&gt; Project.create_dummy(name='My Project')
+
+and that will create a Project object.
+
+You can see the implementation of create_dummy() in mysite/search/models.py
+
+One more thing -- I realize it has been ages since you asked your very
+reasonable questions on this ticket! Apologies that it took us so long to
+answer you well. I'd love to hear from you -- are you still interested in
+working on this? We'd love it if so!
+
+If not, then tell us too, and we'll understand.
+
+Best,
+
+Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4439">msg4439 (view)</a></th>
+   <th>Author: anurag619</th>
+   <th>Date: 2014-07-06.19:35:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello,
+
+I would like to know the current status of this bug. If no one is assigned I
+would like to work on the same.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3994">msg3994 (view)</a></th>
+   <th>Author: phalgun</th>
+   <th>Date: 2013-12-09.09:38:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks and sorry for the trivial doubt. I should have managed to find it on my own. 
+I created the project and you can see the demo here - <a href="http://oh-">http://oh-</a>
+<a href="issue433">issue433</a>.herokuapp.com/+projedit/OpenHatch
+
+Let me know if more changes are needed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3993">msg3993 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-12-09.08:49:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yes! Sorry about the delay in replying.
+
+To add a project, you should edit your personal profile, and as you add 
+them there, they are added to the site. Then you can edit the project via 
+the web UI and add the bug tracker.
+
+You can also (probably easier?) create them with 'manage.py shell'.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3992">msg3992 (view)</a></th>
+   <th>Author: phalgun</th>
+   <th>Date: 2013-12-09.08:48:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>@paulproteus, I have hosted the app on <a href="http://oh-issue433.herokuapp.com/">http://oh-issue433.herokuapp.com/</a> as suggested. Also the 
+patch could be found in <a href="https://github.com/phalgun/oh-mainline/tree/433">https://github.com/phalgun/oh-mainline/tree/433</a>
+
+To test the modal dialog in the herokuapp, I need to have some projects to add bug trackers and 
+edit them. But I do not know how to add a project. Can you please help me with this?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3981">msg3981 (view)</a></th>
+   <th>Author: phalgun</th>
+   <th>Date: 2013-11-24.07:28:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>@paulproteus, I haven't got a chance to work on this yet. I will probably give it a shot this week and 
+holler for help if needed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3971">msg3971 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-11-24.06:34:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>As a general remark, this is "bitesized" if you are comfortable with basic 
+Javascript/jQuery use. The actual code to make it work will probably be slightly 
+finnicky, but that's life.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3963">msg3963 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-11-24.05:57:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey phalgun, did you make any progress on this, and can I offer any help?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3922">msg3922 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-11-03.19:05:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Sure, phalgun!
+
+I upon reflection that the  <a href="http://jqueryui.com/dialog/">http://jqueryui.com/dialog/</a> library is probably a 
+better choice. But I'm not an experienced Javascript/frontend engineer, so I'm 
+not totally sure.
+
+But I do think it would do the job, and its website is actually online for now. 
+(-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3921">msg3921 (view)</a></th>
+   <th>Author: phalgun</th>
+   <th>Date: 2013-11-03.18:49:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi paulproteus, the flowplayer link in your description is throwing a 404. I want to give this bug a 
+try. Could you please update the link?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2143">msg2143 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-03.02:10:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>When you go to <a href="https://openhatch.org/+projedit/OpenHatch">https://openhatch.org/+projedit/OpenHatch</a> and click on 'Bug 
+trackers' what happens now is that the bug trackers open up in a separate 
+tab.
+
+What *should* happen is that we use a library like jQuery Tools' overlay, 
+where when you click on that, you get a "modal" dialog that pops up within 
+the window. You can see a demo of that sort of thing here: 
+<a href="http://flowplayer.org/tools/overlay/index.html">http://flowplayer.org/tools/overlay/index.html</a>
+
+If you happen to like JavaScript, this actually be pretty easy. You'll
+have to remove some "chrome" (site layout), which will require a little 
+template wrangling. That part gets less bitesized, and involves some CSS 
+work.
+
+This is pretty well-defined and would make a good first bug for someone with 
+JavaScript skills and a Django template background. We would totally help 
+you if you want help.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-07-15&nbsp;06:17:30</td><td>paulproteus</td><td>set</td><td>files:
+  + <a href="file735">unnamed</a><br />messages:
+  + <a href="msg4469">msg4469</a></td></tr>
+<tr><td>2014-07-15&nbsp;06:14:55</td><td>paulproteus</td><td>set</td><td>files:
+  + <a href="file734">unnamed</a><br />messages:
+  + <a href="msg4468">msg4468</a></td></tr>
+<tr><td>2014-07-06&nbsp;19:35:25</td><td>anurag619</td><td>set</td><td>messages:
+  + <a href="msg4439">msg4439</a></td></tr>
+<tr><td>2013-12-09&nbsp;09:38:32</td><td>phalgun</td><td>set</td><td>messages:
+  + <a href="msg3994">msg3994</a></td></tr>
+<tr><td>2013-12-09&nbsp;08:49:28</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3993">msg3993</a></td></tr>
+<tr><td>2013-12-09&nbsp;08:48:02</td><td>phalgun</td><td>set</td><td>messages:
+  + <a href="msg3992">msg3992</a></td></tr>
+<tr><td>2013-11-24&nbsp;07:28:30</td><td>phalgun</td><td>set</td><td>messages:
+  + <a href="msg3981">msg3981</a></td></tr>
+<tr><td>2013-11-24&nbsp;06:34:26</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3971">msg3971</a></td></tr>
+<tr><td>2013-11-24&nbsp;05:57:58</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3963">msg3963</a></td></tr>
+<tr><td>2013-11-03&nbsp;19:05:34</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user899">phalgun</a><br />messages:
+  + <a href="msg3922">msg3922</a></td></tr>
+<tr><td>2013-11-03&nbsp;18:49:07</td><td>phalgun</td><td>set</td><td>messages:
+  + <a href="msg3921">msg3921</a></td></tr>
+<tr><td>2011-07-03&nbsp;02:10:32</td><td>paulproteus</td><td>set</td><td>messages:
+  - <a href="msg1894">msg1894</a></td></tr>
+<tr><td>2011-07-03&nbsp;02:10:26</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2143">msg2143</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:37:19</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:51:51</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:49:15</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-26&nbsp;01:52:43</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

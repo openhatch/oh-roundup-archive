@@ -1,0 +1,388 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 854: replace import unittest with django.utils.unittest - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue854
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue854">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue854">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">replace import unittest with django.utils.unittest</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  cyogesh, paulproteus, rodney757
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>rodney757</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2013-04-24.19:16:24</b> by <b>rodney757</b>, last changed <b>2013-05-02.01:48:51</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file545/0001-Issue-854-replace-import-unittest-with-from-django.u.patch">0001-Issue-854-replace-import-unittest-with-from-django.u.patch</a>
+  </td>
+  <td>
+   <span>cyogesh</span>,
+   <span>2013-04-29.06:25:04</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file547/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>cyogesh</span>,
+   <span>2013-05-01.19:18:39</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3683">msg3683 (view)</a></th>
+   <th>Author: cyogesh</th>
+   <th>Date: 2013-05-01.19:18:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thank you for reviewing and pulling the patch. I did try to signup fro the
+mailing list, but it took too long to get the receive confirmation mail.
+Anyways, I have send the mail as required now.
+
+On 2 May 2013 00:40, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Thanks for this patch! I've merged it into the main codebase; you can see
+&gt; it at
+&gt; Github in commit 010969dbe2bfe9bc3b17794edea0877c5d12d92f
+&gt;
+&gt; Additionally, you should join the OpenHatch devel mailing list and send a
+&gt; note
+&gt; granting permission to share your work, per this note:
+&gt;
+&gt; <a href="http://openhatch.readthedocs.org/en/latest/contributor/handling_patches.html#per">http://openhatch.readthedocs.org/en/latest/contributor/handling_patches.html#per</a>
+&gt; mit-us-to-share-your-work
+&gt;
+&gt; Thank you again!
+&gt;
+&gt; ----------
+&gt; status: need-review -&gt; resolved
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue854">https://openhatch.org/bugs/issue854</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3682">msg3682 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-05-01.19:10:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for this patch! I've merged it into the main codebase; you can see it at 
+Github in commit 010969dbe2bfe9bc3b17794edea0877c5d12d92f 
+
+Additionally, you should join the OpenHatch devel mailing list and send a note 
+granting permission to share your work, per this note: 
+<a href="http://openhatch.readthedocs.org/en/latest/contributor/handling_patches.html#per">http://openhatch.readthedocs.org/en/latest/contributor/handling_patches.html#per</a>
+mit-us-to-share-your-work
+
+Thank you again!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3679">msg3679 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-04-29.07:48:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi! Only the stuff in mysite/ should be changed by us; where it makes, we 
+should submit patches to the upstream projects. Great question!
+
+I will review the patch itself tomorrow!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3678">msg3678 (view)</a></th>
+   <th>Author: cyogesh</th>
+   <th>Date: 2013-04-29.06:25:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Changed the import statement in tests.py as mentioned.
+
+I noticed that some vendor packages also need the same change. I would like to
+know, (even though its not usually the case), if these import statement should
+be changed in the vendor directory as well, or should I submit separate patches
+to the respective projects.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3675">msg3675 (view)</a></th>
+   <th>Author: rodney757</th>
+   <th>Date: 2013-04-24.19:16:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We should stop using 'import unittest' and start using 'from django.utils.import unittest'
+
+See <a href="https://docs.djangoproject.com/en/1.3/topics/testing/">https://docs.djangoproject.com/en/1.3/topics/testing/</a> 
+<a href="https://docs.djangoproject.com/en/1.3/topics/testing/#writing-unit-tests">https://docs.djangoproject.com/en/1.3/topics/testing/#writing-unit-tests</a> discussion of unittest2</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-05-02&nbsp;01:48:51</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2013-05-01&nbsp;19:18:39</td><td>cyogesh</td><td>set</td><td>files:
+  + <a href="file547">unnamed</a><br />status: resolved -> chatting<br />messages:
+  + <a href="msg3683">msg3683</a></td></tr>
+<tr><td>2013-05-01&nbsp;19:10:57</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3682">msg3682</a></td></tr>
+<tr><td>2013-04-29&nbsp;07:48:31</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3679">msg3679</a></td></tr>
+<tr><td>2013-04-29&nbsp;06:26:37</td><td>cyogesh</td><td>set</td><td>assignedto: <a href="user745">cyogesh</a> -> <a href="user732">rodney757</a></td></tr>
+<tr><td>2013-04-29&nbsp;06:25:08</td><td>cyogesh</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file545">0001-Issue-854-replace-import-unittest-with-from-django.u.patch</a><br />messages:
+  + <a href="msg3678">msg3678</a></td></tr>
+<tr><td>2013-04-28&nbsp;18:32:04</td><td>cyogesh</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user745">cyogesh</a><br />nosy:
+  + <a href="user745">cyogesh</a></td></tr>
+<tr><td>2013-04-24&nbsp;19:16:24</td><td>rodney757</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

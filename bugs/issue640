@@ -1,0 +1,462 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 640: Second step of diff/patch mission is too hard and unhelpful - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue640
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue640">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue640">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Second step of diff/patch mission is too hard and unhelpful</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  JasonWoof, aldeka, grantbow, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-12-04.22:42:57</b> by <b>aldeka</b>, last changed <b>2012-05-28.16:07:09</b> by <b>carpenterll</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file505/debug.patch">debug.patch</a>
+  </td>
+  <td>
+   <span>JasonWoof</span>,
+   <span>2012-05-10.05:14:04</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3268">msg3268 (view)</a></th>
+   <th>Author: carpenterll</th>
+   <th>Date: 2012-05-28.16:07:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>--- diffsingle.txt	2012-05-21 10:03:23.310863048 -0700
++++ diffsingle-modified.txt	2012-05-27 18:46:08.976724024 -0700
+@@ -1,3 +1,6 @@
++Move this sentence to at the start of the file, ensuring that it
++starts on the first line (remember about the blank lines!).
++
+ This mission is to have you make modifications to a file and submit a
+ diff of them. The changes may seem a bit silly, but they will cause the
+ diff to contain examples of different types of changes - additions,
+@@ -19,15 +22,11 @@
+ 
+ Read this sentence, and leave it alone.
+ 
+-Nod your head enthusiastically, and then remove this paragraph
+-(being careful to keep just one blank line between the surrounding paragraphs).
+-
+ Take this sentence, and copy it underneath itself (remember the blank line!).
+ 
+-Move this sentence to at the start of the file, ensuring that it
+-starts on the first line (remember about the blank lines!).
++Take this sentence, and copy it underneath itself (remember the blank line!).
+ 
+-There is a typo in this sentence, which oyu should fix.
++There is a typo in this sentence, which you should fix.
+ 
+ Finally, save your changes in your editor and make a unified diff
+ of your changes with the diff command. (If you're not sure how,</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3225">msg3225 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-11.22:48:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is pushed, as of <a href="https://github.com/openhatch/oh-">https://github.com/openhatch/oh-</a>
+mainline/commit/121f22612edde70c5684e3db754106c20f49630e
+
+Jason, thanks so much!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3222">msg3222 (view)</a></th>
+   <th>Author: JasonWoof</th>
+   <th>Date: 2012-05-10.22:34:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Huh, that test (9d0a2cb56c65) passes for me too. I think my line-ending woes are 
+a separate issue, and should not block this pull request.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3221">msg3221 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-10.22:03:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Jason,
+
+I can't seem to reproduce the problem you've described from within the test 
+suite. Can you take a look at <a href="https://github.com/paulproteus/oh-">https://github.com/paulproteus/oh-</a>
+mainline/commit/9d0a2cb56c65b255bba30cfe3da9ca73ad4f5c1f and see if you agree 
+with my changes there as a way to test this issue?
+
+If we can't diagnose it quickly, I'd say your problem is a separate (albeit 
+fairly critical) bug. I'd like to just get it resolved within this one if 
+possible so that it's fixed quickly.
+
+Thanks for the review!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3220">msg3220 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-10.21:33:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is intriguing. I will see if I can reproduce this in the test suite, and we 
+should totally add a patch like you described to normalize the input.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3218">msg3218 (view)</a></th>
+   <th>Author: JasonWoof</th>
+   <th>Date: 2012-05-10.05:14:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I checked out this branch locally, and I can't pass the mission.
+
+I tried doing the mission again, but got the same message about it not matching. I 
+compared my version to the answer in the source (with diff), and they are the same.
+
+I put some debugging code into oh-mainline, and it appears that when openhatch 
+applies my patch, three 0x0d characters are inserted (one just before each of first 
+three 0x0a characters)
+
+My diff file doesn't have these. But I'm sending my diff by pasting it into a 
+textbox. Maybe my browser (chromium 18.0.1025.168~r134367-1 from debian unstable) 
+is sending it with M$-style newlines.
+
+So if this is indeed the cause, we should sanitize textarea input by converting 
+mac/win newlines to unix before doing anything with the text.
+
+In case you want to see how I got this debug info: attached is the ugly little hack 
+I did to find out what two strings python was comparing (that weren't the same.)
+
+I'm out of time for tonight. I should have a little time for testing the next 
+couple days, and more time on the weekend.
+
+         - Jason</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3187">msg3187 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-02.23:18:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've:
+
+* Made the whitespace stuff clearer
+
+* Added instructions about what editor to use
+
+* Added instructions about making sure to save a copy of the original file
+
+* Made the changes simpler
+
+<a href="https://github.com/openhatch/oh-mainline/pull/22">https://github.com/openhatch/oh-mainline/pull/22</a> is the pull request. Review
+requested!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2786">msg2786 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-12-04.22:42:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right now, practically everybody fails the second step of the diff/patch mission, because of 
+whitespace errors or misinterpreting one of the instructions. This isn't very pedagogically useful, 
+since people fail for reasons unrelated to their understanding of the material.
+
+We should do some combination of 1.) make the second step changes simpler, 2.) make the 
+assessment script less picky about whitespace errors, and/or 3.) give the user more helpful error 
+messages, with a diff or line number to tell them where their submission is breaking.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-05-28&nbsp;16:07:09</td><td>carpenterll</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg3268">msg3268</a></td></tr>
+<tr><td>2012-05-27&nbsp;13:31:31</td><td>grantbow</td><td>set</td><td>nosy:
+  + <a href="user447">grantbow</a></td></tr>
+<tr><td>2012-05-11&nbsp;22:48:02</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3225">msg3225</a></td></tr>
+<tr><td>2012-05-10&nbsp;22:34:49</td><td>JasonWoof</td><td>set</td><td>messages:
+  + <a href="msg3222">msg3222</a></td></tr>
+<tr><td>2012-05-10&nbsp;22:03:14</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3221">msg3221</a></td></tr>
+<tr><td>2012-05-10&nbsp;21:33:29</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user83">JasonWoof</a><br />messages:
+  + <a href="msg3220">msg3220</a></td></tr>
+<tr><td>2012-05-10&nbsp;05:14:04</td><td>JasonWoof</td><td>set</td><td>files:
+  + <a href="file505">debug.patch</a><br />messages:
+  + <a href="msg3218">msg3218</a></td></tr>
+<tr><td>2012-05-02&nbsp;23:18:49</td><td>paulproteus</td><td>set</td><td>status: unread -> need-review<br />assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg3187">msg3187</a></td></tr>
+<tr><td>2012-04-22&nbsp;21:45:16</td><td>burkaman</td><td>set</td><td>nosy:
+  - <a href="user438">burkaman</a></td></tr>
+<tr><td>2012-04-22&nbsp;21:33:41</td><td>burkaman</td><td>set</td><td>nosy:
+  + <a href="user438">burkaman</a></td></tr>
+<tr><td>2012-02-08&nbsp;22:27:49</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone1">later</a> -> <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-02-08&nbsp;00:59:20</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone14">0.11.12</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-12-10&nbsp;21:32:48</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone14">0.11.12</a></td></tr>
+<tr><td>2011-12-04&nbsp;22:42:57</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

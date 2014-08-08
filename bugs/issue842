@@ -1,0 +1,330 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 842: tipsy.gif is missing - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue842
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue842">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue842">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">tipsy.gif is missing</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jeremyb, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2013-03-20.23:09:23</b> by <b>paulproteus</b>, last changed <b>2014-01-09.09:31:49</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4036">msg4036 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-01-09.09:31:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Resolved by <a href="https://github.com/openhatch/oh-mainline/pull/169">https://github.com/openhatch/oh-mainline/pull/169</a> and 
+<a href="https://github.com/openhatch/oh-mainline/pull/171">https://github.com/openhatch/oh-mainline/pull/171</a> !</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3985">msg3985 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-11-24.17:59:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It looks like this commit:
+
+12f5c03e2640af71a24c83ce1fa45a5b514c83a1
+
+removed tipsy.gif.
+
+I figured that out by running:
+
+$ git log --name-only | less
+
+and then typing / on my keyboard to enable search mode, and then typing tipsy and 
+pressing enter.
+
+So!
+
+Someone should go find tipsy.gif, either in oh-mainline history, or in the oh-
+bigfiles repo &lt;<a href="https://github.com/openhatch/oh-bigfiles">https://github.com/openhatch/oh-bigfiles</a>&gt;, and copy it back into 
+the right place in oh-mainline.
+
+Note that doing:
+
+$ git grep tipsy.gif
+
+shows that it is still referenced -- from a CSS file.
+
+Before trying to put the file back in place, you should be sure to reproduce the 
+bug. To do that, do a 'runserver' and visit a project page, and hover around 
+something that is supposed to generate the "tipsy" and make sure that you see a 
+404 message printed either your browser console, or (easier) in the output of 
+manage.py runserver (aka the web server log).
+
+Then, after digging up the file and putting it into place, go visit a project 
+page, and make sure that you no longer get a 404 printed to your web server log. 
+Also you'll be treated to some kind of exciting image in the web browser. (I 
+totally forget what the tipsy image looks like, but I bet you will know.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3642">msg3642 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-03-20.23:10:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Probably the fix is to find the original source of the image, make sure it is 
+freely licensed, and then include it in the repo at the right place.
+
+That, or we can stop referencing it so that even though it is missing, we don't 
+404.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3641">msg3641 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-03-20.23:09:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>When I do a GET of e.g.
+
+<a href="http://127.0.0.1:8000/+projects/GeoTrellis">http://127.0.0.1:8000/+projects/GeoTrellis</a>
+
+I see in my local log:
+
+[20/Mar/2013 19:07:53] "GET /static/images/tipsy.gif HTTP/1.1" 404 1790
+
+Doing 'git ls-files | grep tipsy' shows that it is indeed missing.
+
+I... wonder why it is missing.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-01-09&nbsp;09:31:49</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg4036">msg4036</a></td></tr>
+<tr><td>2013-11-24&nbsp;20:10:42</td><td>jeremyb</td><td>set</td><td>nosy:
+  + <a href="user920">jeremyb</a></td></tr>
+<tr><td>2013-11-24&nbsp;17:59:44</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3985">msg3985</a><br />keyword:
+  + <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2013-03-20&nbsp;23:10:08</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3642">msg3642</a></td></tr>
+<tr><td>2013-03-20&nbsp;23:09:23</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,313 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 418: Logged-in home page - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue418
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue418">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue418">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Logged-in home page</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  New logged-in landing page should have customized links for "Attract contributors to your project"
+  
+  <span>
+   <br><span>View:</span>
+     <a href="issue415">415</a>
+  </span>
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jessica, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-05-01.14:19:42</b> by <b>jessica</b>, last changed <b>2011-07-02.20:28:31</b> by <b>palhmbs</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1801">msg1801 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-05-01.14:21:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oops. Just noticed you started <a href="https://openhatch.org/bugs/issue415">https://openhatch.org/bugs/issue415</a>
+
+Ok, maye some of these should move over there. Sorry! 
+
+note to self: read all email before filing bugs ;)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1800">msg1800 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-05-01.14:19:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Let's start gathering up our ideas for 11.05 for this page :)
+
+___Contribute to open source tab___
+
+Projects box: 
+* Maybe show a link to bugs if there are some. Do we just show bitesize or all? 
+
+Training missions:
+* Show progress. This might mean some tinkering of the mission model. 
+
+* I did see somewhere in code a way to list people that have completed it. Not 
+sure if that'd be interesting but maybe? "Join 73 other people that have finished 
+the SVN mission" or such.
+
+* I would love to see a list of all missions dynamically so that we can say "new" 
+or "updated?" or such. Again, might mean tinkering with the missions model unless 
+I didn't understand the methods right.
+
+People:
+
+* Number of people shown should be limited to maybe 5?
+
+* Add "mentors" list
+
+___Attract contributors tab___
+
+* It maybe should link to projects you're a part of, particular show the ones 
+that have wannahelpers. - Asheesh
+
+* It should maybe provide a 'nudge' to fill out the project page, if it's blank. 
+- Asheesh
+
+* If one of the projects doesn't have any Bug objects associated with it, it 
+could (for now) link to the wiki page about adding a bug tracker. (Soon, maybe 
+later today, there'll be an in-site UI for that.) - Asheesh 
+
+* Maybe link to places/help on how to grow/maintain community? Ideas on where to 
+find developers? Related to: <a href="https://openhatch.org/bugs/issue323">https://openhatch.org/bugs/issue323</a>
+
+* Feature new developers? Or new user with contact information filled out that is 
+interested in that language but maybe hasn't seen that project?
+
+* Social networking tie-in? "Tweet this" for "Want to get started in open source? 
+Gain fame, fortune (of praise)." + shortened url to their bitesize bugs on 
+openhatch? with good hashtags? and how to set up a page on Facebook? Not sure 
+about that. Or maybe which pages would be good to "advertise" on?
+
+* List of colleges nearby with ACM chapters or area LUGS or again more "where to 
+find people" type ideas.
+
+* List of people that said "I wanna help" and a way to contact them. Related to: 
+<a href="http://openhatch.org/bugs/issue282">http://openhatch.org/bugs/issue282</a> and <a href="http://openhatch.org/bugs/issue408">http://openhatch.org/bugs/issue408</a> 
+
+ 
+
+Please add your ideas. We can always push some to later milestones but definitely 
+hope we keep iteratively improving these landing pages :)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-07-02&nbsp;20:28:31</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:49:32</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-07&nbsp;23:12:19</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-05-01&nbsp;23:25:47</td><td>palhmbs</td><td>set</td><td>superseder:
+  + <a href="issue415">New logged-in landing page should have customized links for "Attract contributors to your project"</a></td></tr>
+<tr><td>2011-05-01&nbsp;14:21:41</td><td>jessica</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1801">msg1801</a></td></tr>
+<tr><td>2011-05-01&nbsp;14:19:42</td><td>jessica</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

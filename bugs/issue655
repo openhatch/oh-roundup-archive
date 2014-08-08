@@ -1,0 +1,352 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 655: javascript error on homepage; means clicking on "Grow your project!" has no effect - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue655
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue655">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue655">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">javascript error on homepage; means clicking on "Grow your project!" has no effect</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.12</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Carols10cents, paulproteus, robut
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>robut</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-01-09.15:47:05</b> by <b>Carols10cents</b>, last changed <b>2012-01-21.23:34:31</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file455/0001-added-jquery.cookie.js-back-into-the-base-template.patch">0001-added-jquery.cookie.js-back-into-the-base-template.patch</a>
+  </td>
+  <td>
+   <span>robut</span>,
+   <span>2012-01-20.20:01:31</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2902">msg2902 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-01-21.23:34:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This fix is great. Thanks, robut!
+
+In the future, robut, you don't have to keep both of those messages in the
+commit log -- the second line about fixing a typo you could probably have
+removed when "squashing" the commits down to one.
+
+Pushed, and deploying momentarily!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2895">msg2895 (view)</a></th>
+   <th>Author: robut</th>
+   <th>Date: 2012-01-20.20:01:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I should have assigned myself to this earlier since I was working on it..
+
+I believe I solved it. It seems to work perfectly fine now on my test server.
+
+The reason this bug would show up on the live site, but  not on a local test
+server, is that jquery.cookie.js was loaded with the django toolbar. this script
+not being included in mysite/base/templates/base/base.html is the reason for
+this bug.
+
+patch is attached</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2892">msg2892 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-01-18.17:41:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for filing this! We can reproduce the problem but aren't quite 
+sure what the cause is yet.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2867">msg2867 (view)</a></th>
+   <th>Author: Carols10cents</th>
+   <th>Date: 2012-01-09.15:47:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>When I visit <a href="http://openhatch.org/">http://openhatch.org/</a> in either firefox 8.0.1 or chrome 16.0.912.75, I get a javascript 
+error on page load which prevents all other JS on the page from working. That means the first thing 
+I clicked, the "Grow your project!" tab, had no effect. This made me sad because I'm really excited 
+about this project :(
+
+I searched for javascript before filing this but didn't see any open issue for it.
+
+I'm getting slightly different stack traces/error messages in firebug/firefox and chrome dev tools 
+but I think they're complaining about the same issue; including both here.
+
+Firebug says:
+
+a.cookie is undefined
+(function(a){a.widget("ui.tabs",{_init...delete this._unrotate}}})})(jQuery);; jquery.tabs.js (line 13)
+
+Chrome dev tools say:
+
+Chrome error:
+Uncaught TypeError: Cannot call method 'apply' of undefined
+a.widget._cookiejquery.tabs.js:13
+a.widget._tabifyjquery.tabs.js:13
+a.widget._initjquery.tabs.js:13
+c.widget.c.fn.(anonymous function)jquery-ui-1.7.2.custom.min.js:10
+o.extend.eachjquery.min.js:12
+o.fn.o.eachjquery.min.js:12
+c.widget.c.fn.(anonymous function)jquery-ui-1.7.2.custom.min.js:10
+(anonymous function)/:543
+o.extend.ready.o.readyListjquery.min.js:19
+o.extend.eachjquery.min.js:12
+o.extend.readyjquery.min.js:19
+o.each.o.fn.(anonymous function)jquery.min.js:19
+
+Please let me know if there's any other information I can provide to help track this down.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-01-21&nbsp;23:34:31</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2902">msg2902</a><br />milestone: <a href="milestone14">0.11.12</a></td></tr>
+<tr><td>2012-01-20&nbsp;20:01:35</td><td>robut</td><td>set</td><td>status: chatting -> need-review<br />assignedto: <a href="user317">robut</a><br />messages:
+  + <a href="msg2895">msg2895</a><br />files:
+  + <a href="file455">0001-added-jquery.cookie.js-back-into-the-base-template.patch</a><br />nosy:
+  + <a href="user317">robut</a></td></tr>
+<tr><td>2012-01-18&nbsp;17:41:42</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2892">msg2892</a></td></tr>
+<tr><td>2012-01-09&nbsp;15:47:05</td><td>Carols10cents</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

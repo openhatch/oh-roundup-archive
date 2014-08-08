@@ -1,0 +1,380 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 419: Git mission doesn't tell you how to read the error log - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue419
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue419">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue419">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Git mission doesn't tell you how to read the error log</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.05</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  2mas, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>2mas</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-05-02.02:46:42</b> by <b>palhmbs</b>, last changed <b>2011-05-09.05:20:11</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file268/419.patch">419.patch</a>
+  </td>
+  <td>
+   <span>2mas</span>,
+   <span>2011-05-02.20:17:26</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1860">msg1860 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-09.05:20:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Deployed! Take a look. (-:</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1853">msg1853 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-08.08:33:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thomas: Author info is fine. No new patch is needed.
+
+What is needed is an email to the Devel list with your acceptance of your 
+working being ok under AGPLv3.
+
+So signup: <a href="http://lists.openhatch.org/mailman/listinfo/devel">http://lists.openhatch.org/mailman/listinfo/devel</a>
+Then send us an email like: 
+I'm okay with my work being under the Affero GPL, version 3 or later, at your 
+option.
+
+Then we can go ahead and deploy this, which would be really, really awesome!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1826">msg1826 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-04.14:58:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The patch looks good to me!
+
+2mas, can you resubmit it and make sure it has your author information it? It 
+seem maybe that when palhmbs edited it, he changed the author information, and 
+I'd love to see you get credit for it.
+
+One more thing: Take a look at 
+<a href="http://openhatch.org/wiki/How_we_handle_patches#Permit_us_to_share_your_work:">http://openhatch.org/wiki/How_we_handle_patches#Permit_us_to_share_your_work:</a> , 
+join our Devel list, and send the AGPLv3 email if you like. Then when you 
+resubmit with the author information right, we will toss into the live site!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1815">msg1815 (view)</a></th>
+   <th>Author: 2mas</th>
+   <th>Date: 2011-05-02.19:56:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Removed the -3 from git log</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1814">msg1814 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-02.10:24:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've reviewed this, and the patch looks great!
+
+I'm wondering though, whether the &lt;abbrev&gt; should contain git log -3,
+or just "git log"</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1807">msg1807 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-02.02:46:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The last step of the git mission doesn't tell you how to read the commit log.
+
+<a href="http://openhatch.org/missions/git/rebase">http://openhatch.org/missions/git/rebase</a>
+
+oh-mainline/mysite/missions/templates/missions/git/rebase.html
+
+The easiest way to fix this is add a &lt;abbrev&gt; hint like: oh-mainline/mysite/
+missions/git/checkout.html</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-05-09&nbsp;05:20:11</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1860">msg1860</a></td></tr>
+<tr><td>2011-05-08&nbsp;10:12:43</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-05-08&nbsp;08:33:55</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1853">msg1853</a></td></tr>
+<tr><td>2011-05-04&nbsp;14:58:47</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1826">msg1826</a></td></tr>
+<tr><td>2011-05-02&nbsp;20:17:26</td><td>2mas</td><td>set</td><td>files:
+  + <a href="file268">419.patch</a></td></tr>
+<tr><td>2011-05-02&nbsp;20:16:36</td><td>2mas</td><td>set</td><td>files:
+  - <a href="file266">419.patch</a></td></tr>
+<tr><td>2011-05-02&nbsp;20:16:32</td><td>2mas</td><td>set</td><td>files:
+  - <a href="file267">419_2.patch</a></td></tr>
+<tr><td>2011-05-02&nbsp;19:56:09</td><td>2mas</td><td>set</td><td>files:
+  + <a href="file267">419_2.patch</a><br />messages:
+  + <a href="msg1815">msg1815</a></td></tr>
+<tr><td>2011-05-02&nbsp;10:24:21</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1814">msg1814</a></td></tr>
+<tr><td>2011-05-02&nbsp;10:24:11</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg1813">msg1813</a></td></tr>
+<tr><td>2011-05-02&nbsp;10:23:49</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg1813">msg1813</a></td></tr>
+<tr><td>2011-05-02&nbsp;10:21:09</td><td>2mas</td><td>set</td><td>files:
+  + <a href="file266">419.patch</a></td></tr>
+<tr><td>2011-05-02&nbsp;09:10:16</td><td>2mas</td><td>set</td><td>assignedto: <a href="user121">2mas</a></td></tr>
+<tr><td>2011-05-02&nbsp;02:46:42</td><td>palhmbs</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

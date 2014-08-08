@@ -1,0 +1,419 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 879: People search doesn't work - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue879
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue879">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue879">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">People search doesn't work</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>need-review</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Mykola, jeremyb, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2013-09-20.14:06:30</b> by <b>Mykola</b>, last changed <b>2014-01-06.01:24:54</b> by <b>onceuponatimeforever</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file562/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>Mykola</span>,
+   <span>2013-10-02.17:26:49</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4028">msg4028 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2014-01-06.01:24:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>See new PR for your review: <a href="https://github.com/openhatch/oh-mainline/pull/188/commits">https://github.com/openhatch/oh-mainline/pull/188/commits</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3987">msg3987 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-11-24.18:40:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>There are two different issues here.
+
+1. If you access openhatch.org/people/ over https, then you run into a problem 
+where the OpenLayers javascript can't load. This is because we include it as 
+http:// . That violates the <a href="https://developer.mozilla.org/en-">https://developer.mozilla.org/en-</a>
+US/docs/Security/MixedContent "mixed content" rules (for all browsers, not just 
+Mozilla-based ones)
+
+The fix to this issue would probably be to copy that javascript into the oh-
+mainline app, somewhere in static/ , and then embed it from within the site 
+rather than from outside the site. That's what's recommended at 
+<a href="https://github.com/openlayers/openlayers/issues/1025">https://github.com/openlayers/openlayers/issues/1025</a> .
+
+Make sure that this fix lets the map load fully, over SSL! It might instead just 
+cause more mixed content problems if that Javascript fetches map images over 
+HTTP.
+
+Which reminds me: How do you test this locally? That's actually somewhat 
+complicated. <a href="http://www.ianlewis.org/en/testing-https-djangos-development-server">http://www.ianlewis.org/en/testing-https-djangos-development-server</a> 
+is a good link on that, if you have (or can easily get) the stunnel program.
+
+2. We probably don't need the map at all.
+
+This is a more complicated way to fix the problem, but also perhaps more 
+satisfying.
+
+There are a few things we could do in the place of the map.
+
+The first OK thing would probably be to disable the geographic functionality 
+entirely, and just return a bullet point list of people who match the search, 
+and show their self-stated locations in the bullet point list.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3870">msg3870 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-10-04.22:17:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ooh! Well, okay. Do you know how to use IRC? If so, join us on #openhatch.
+
+And in general, get yourself a copy of the code via the instructions here: 
+<a href="http://openhatch.readthedocs.org/en/latest/deployment/installation.html">http://openhatch.readthedocs.org/en/latest/deployment/installation.html</a>
+
+Let us know when you have it running locally.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3867">msg3867 (view)</a></th>
+   <th>Author: Mykola</th>
+   <th>Date: 2013-10-02.17:26:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi,
+
+Sure, programming always sound like fun =)
+
+Thanks
+
+On Wed, Oct 2, 2013 at 1:17 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Thanks for filing this! Per some discussion, it seems that we can make for
+&gt; a better experience if we don't show the map at all.
+&gt;
+&gt; I'm curious if you're interested in some Python and/or Javascript
+&gt; programming to make that happen. (-:
+&gt;
+&gt; If not, that's fine, we have a big community and can find someone to make
+&gt; this happen. But I thought I'd ping you with that opportunity!
+&gt;
+&gt; ----------
+&gt; status: unread -&gt; chatting
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue879">https://openhatch.org/bugs/issue879</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3866">msg3866 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-10-02.17:17:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for filing this! Per some discussion, it seems that we can make for 
+a better experience if we don't show the map at all.
+
+I'm curious if you're interested in some Python and/or Javascript 
+programming to make that happen. (-:
+
+If not, that's fine, we have a big community and can find someone to make 
+this happen. But I thought I'd ping you with that opportunity!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3861">msg3861 (view)</a></th>
+   <th>Author: Mykola</th>
+   <th>Date: 2013-09-20.14:06:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>My Browser is Chromium Version 28.0.1500.71 Ubuntu 13.04 (28.0.1500.71-
+0ubuntu1.13.04.1), doesn't work in FF either.
+When I go to a URL like:
+<a href="https://openhatch.org/people/?q=can_mentor:%22C%22">https://openhatch.org/people/?q=can_mentor:%22C%22</a>
+Place for the map is empty. It says only that it's "Loading the map...".
+So I go into console and see:
+1) [blocked] The page at <a href="https://openhatch.org/people/?q=can_mentor:%22C%22">https://openhatch.org/people/?q=can_mentor:%22C%22</a> ran 
+insecure content from <a href="http://openlayers.org/api/OpenLayers.js.">http://openlayers.org/api/OpenLayers.js.</a>
+ openhatch.org/:1
+2) Uncaught ReferenceError: OpenLayers is not defined
+In case of FF it's only the second one.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-01-16&nbsp;01:34:57</td><td>jwm</td><td>link</td><td><a href="issue882">issue882 superseder</a></td></tr>
+<tr><td>2014-01-06&nbsp;01:24:54</td><td>onceuponatimeforever</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg4028">msg4028</a></td></tr>
+<tr><td>2013-11-24&nbsp;20:11:27</td><td>jeremyb</td><td>set</td><td>nosy:
+  + <a href="user920">jeremyb</a></td></tr>
+<tr><td>2013-11-24&nbsp;18:40:45</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3987">msg3987</a></td></tr>
+<tr><td>2013-10-04&nbsp;22:17:47</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3870">msg3870</a></td></tr>
+<tr><td>2013-10-02&nbsp;17:26:49</td><td>Mykola</td><td>set</td><td>files:
+  + <a href="file562">unnamed</a><br />messages:
+  + <a href="msg3867">msg3867</a></td></tr>
+<tr><td>2013-10-02&nbsp;17:17:43</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3866">msg3866</a></td></tr>
+<tr><td>2013-09-20&nbsp;14:06:30</td><td>Mykola</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,511 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 547: It would be nice if the migrations ran on MySQL 5.5 - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue547
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue547">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue547">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">It would be nice if the migrations ran on MySQL 5.5</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>testing</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-08-17.20:10:08</b> by <b>paulproteus</b>, last changed <b>2011-11-14.02:11:55</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file388/original">original</a>
+  </td>
+  <td>
+   <span>paulproteus</span>,
+   <span>2011-08-26.15:13:14</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2689">msg2689 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-14.02:11:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is no longer very important because dev setups use sqlite now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2646">msg2646 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-10.00:22:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This probably already works, but needs testing.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2385">msg2385 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-26.15:13:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This format-patch file contains some commits I referred-to in <a href="msg2384">msg2384</a> .</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2384">msg2384 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-26.15:12:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm not going to work on this for a while (more than 10 days), and so I 
+wanted to leave the bug in good shape in case anyone else wants to come 
+by and take a look at it.
+
+The core of the problem is that MySQL gives the "errno 150" and 
+"Renaming table... failed" messages when there is a foreign key 
+constraint that is not being respected.
+
+The two things that we do that trigger this problem are:
+
+* Add foreign keys connections between models
+* Drop foreign key connections between models
+
+The good news it's easy to fix the "Add foreign keys" cases. The 
+migrations that we've created in the past used version 1 of the South 
+API. If we call the (basically) same method in version 2 of the South 
+API, we can fix the issue. Here's a sample delta that fixes one such 
+problem:
+
++from south.v2 import SchemaMigration
+ 
+-class Migration:
++class Migration(SchemaMigration):
+     
+     def forwards(self, orm):
+         
+         # Adding field 'Answer.project'
+-        db.add_column('search_answer', 'project', 
+orm['search.answer:project'])
++        db.add_column('search_answer', 'project', 
+self.gf('django.db.models.fields.related.ForeignKey')(default=None, 
+to=orm['search.Project']), keep_default=False)
+
+To fix all those, we should probably look for references to add_column 
+through the migrations, and make sure they are using the new South API.
+
+As for the second category of problem, we need to remove the foreign 
+key constraint from the tables that are affected. I don't currently 
+know a way to ask South to do that, but it is likely that such a way 
+exists.
+
+I'm attaching a format-patch file that contains my (extremely messy) 
+attempts to fix this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2383">msg2383 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-26.04:55:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>LATEST FOREIGN KEY ERROR indicates:
+
+110826  5:24:53 Error in foreign key constraint of table
+oh_milestone_a/search_projectinvolvementquestion:
+there is no index in the table which would contain
+the columns as the first columns, or the data types in the
+table do not match the ones in the referenced table
+or one of the ON ... SET NULL columns is declared NOT NULL. Constraint:
+,
+  CONSTRAINT "project_id_refs_id_30837ad" FOREIGN KEY ("project_id") REFERENCES
+"search_project" ("id")
+InnoDB: Renaming table `oh_milestone_a`.&lt;result 2 when explaining filename
+'#sql-4d98_2c'&gt; to `oh_milestone_a`.`search_projectinvolvementquestion` failed!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2382">msg2382 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-26.04:25:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The good news is that I can reproduce this problem. Within a Debian VM that runs
+MySQL 5.5:
+
+Error in migration: search:0034_answer_points_to_project_and_so_does_question
+Traceback (most recent call last):
+  File "./bin/mysite", line 87, in &lt;module&gt;
+    djangorecipe.manage.main('mysite.settings')
+  File "/vagrant/eggs/djangorecipe-0.23.1-py2.6.egg/djangorecipe/manage.py",
+line 16, in main
+    management.execute_manager(mod)
+  File "/vagrant/parts/mysite/django/core/management/__init__.py", line 438, in
+execute_manager
+    utility.execute()
+  File "/vagrant/parts/mysite/django/core/management/__init__.py", line 379, in
+execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/vagrant/parts/mysite/django/core/management/base.py", line 191, in
+run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/vagrant/parts/mysite/django/core/management/base.py", line 220, in execute
+    output = self.handle(*args, **options)
+  File
+"/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/management/commands/migrate.py",
+line 107, in handle
+    ignore_ghosts = ignore_ghosts,
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/migration/__init__.py", line
+191, in migrate_app
+    success = migrator.migrate_many(target, workplan, database)
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 222, in migrate_many
+    result = migrator.__class__.migrate_many(migrator, target, migrations, database)
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 293, in migrate_many
+    result = self.migrate(migration, database)
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 126, in migrate
+    result = self.run(migration)
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 100, in run
+    return self.run_migration(migration)
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 81, in run_migration
+    migration_function()
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/migration/migrators.py",
+line 57, in &lt;lambda&gt;
+    return (lambda: direction(orm))
+  File
+"/vagrant/mysite/search/migrations/0034_answer_points_to_project_and_so_does_question.py",
+line 30, in forwards
+    db.delete_column('search_projectinvolvementquestion', 'project_id')
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/db/generic.py", line 36, in
+_column_rm
+    return func(self, table, column, *args, **opts)
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/db/mysql.py", line 133, in
+delete_column
+    super(DatabaseOperations, self).delete_column(table_name, name)
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/db/generic.py", line 36, in
+_column_rm
+    return func(self, table, column, *args, **opts)
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/db/generic.py", line 779, in
+delete_column
+    self.execute(self.delete_column_string % params, [])
+  File "/vagrant/eggs/South-0.7.3.1-py2.6.egg/south/db/generic.py", line 214, in
+execute
+    cursor.execute(sql, params)
+  File "/vagrant/parts/mysite/django/db/backends/util.py", line 15, in execute
+    return self.cursor.execute(sql, params)
+  File "/vagrant/parts/mysite/django/db/backends/mysql/base.py", line 86, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib/pymodules/python2.6/MySQLdb/cursors.py", line 166, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib/pymodules/python2.6/MySQLdb/connections.py", line 35, in
+defaulterrorhandler
+    raise errorclass, errorvalue
+_mysql_exceptions.OperationalError: (1025, "Error on rename of
+'./oh_milestone_a/#sql-4d98_2c' to
+'./oh_milestone_a/search_projectinvolvementquestion' (errno: 150)")
+
+So hopefully that means I can fix it. Stay tuned for that.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2377">msg2377 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-24.23:20:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm taking a look at this inside a virtual machine to see if I can reproduce it.
+
+Getting MySQL running on a Debian virtual machine has been slow going, but I hope 
+to be able to at least say "yes"/"no" that I can reproduce this within a day.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2321">msg2321 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-17.20:10:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Mkman on IRC reports that, with MySQL 5.5, the migrations fail with a duplicate
+column name error.
+
+The next step is to install MySQL 5.5 somewhere and see if the migrations work.
+If so, then we're confused. If they fail, then we can debug the problem and
+commit a fix.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-11-14&nbsp;02:11:55</td><td>paulproteus</td><td>set</td><td>priority: feature -> wish<br />messages:
+  + <a href="msg2689">msg2689</a></td></tr>
+<tr><td>2011-11-10&nbsp;00:22:27</td><td>paulproteus</td><td>set</td><td>status: deferred -> testing<br />messages:
+  + <a href="msg2646">msg2646</a><br />milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-08-26&nbsp;15:13:14</td><td>paulproteus</td><td>set</td><td>files:
+  + <a href="file388">original</a><br />messages:
+  + <a href="msg2385">msg2385</a></td></tr>
+<tr><td>2011-08-26&nbsp;15:12:36</td><td>paulproteus</td><td>set</td><td>status: chatting -> deferred<br />priority: urgent -> feature<br />title: Migrations seem to fail on MySQL 5.5 -> It would be nice if the migrations ran on MySQL 5.5<br />messages:
+  + <a href="msg2384">msg2384</a><br />milestone: <a href="milestone10">0.11.07</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-08-26&nbsp;04:55:04</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2383">msg2383</a></td></tr>
+<tr><td>2011-08-26&nbsp;04:26:00</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2382">msg2382</a></td></tr>
+<tr><td>2011-08-24&nbsp;23:20:09</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2377">msg2377</a></td></tr>
+<tr><td>2011-08-17&nbsp;20:10:08</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

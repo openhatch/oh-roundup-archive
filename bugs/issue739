@@ -1,0 +1,316 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 739: /guide/ looks horribly broken in the redesign - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue739
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue739">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue739">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">/guide/ looks horribly broken in the redesign</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, paulproteus, soonick5
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  css
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-06-06.00:38:55</b> by <b>aldeka</b>, last changed <b>2014-01-12.04:53:06</b> by <b>onceuponatimeforever</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4001">msg4001 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2013-12-15.04:28:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>See <a href="https://github.com/openhatch/oh-mainline/pull/176">https://github.com/openhatch/oh-mainline/pull/176</a> for my attempt to implement 
+pythonian4000's CSS suggestions.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3997">msg3997 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2013-12-13.08:55:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Points that I can see (in FF 26.0 on Xubuntu 13.10):
+
+- I think the top tab could benefit from moving down 1px so its border is not
+overlapping the top bar (but IANAD :P).
+- The &lt;hr&gt; in the left column needs a "clear: left;" so it doesn't sit up to the
+right of the top tab.
+- Firebug shows that "body ul.raquo_bullets{}" is being applied 5 times
+(numbered #2 thru #6)??
+- "body ul.raquo_bullets{ padding-left: 1.1em; }" puts the bullets inside the box.
+- Or ".ui-widget-content{ padding-left: 0.9em }" does the same thing, and also
+adds spacing to the text above them.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3814">msg3814 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2013-08-18.08:57:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>When looking at this page today, I was distracted by seeing the word "Want" stuck between the left 
+boxes and center box. Looks like part of that link snuck out of place!
+
+If I look more closely I can guess that the bullets shouldn't extend outside of the grey center box, 
+but I didn't notice that when just using the page.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3491">msg3491 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-11-09.17:05:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Aldeka,
+
+How should this page look?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3280">msg3280 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2012-06-06.00:38:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Eeeeeek. The tab handler and the new module CSS do *not* get along. 
+<a href="http://openhatch.org/guide/">http://openhatch.org/guide/</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-01-12&nbsp;04:53:06</td><td>onceuponatimeforever</td><td>set</td><td>status: need-review -> resolved</td></tr>
+<tr><td>2013-12-15&nbsp;04:29:00</td><td>onceuponatimeforever</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg4001">msg4001</a></td></tr>
+<tr><td>2013-12-13&nbsp;08:55:14</td><td>pythonian4000</td><td>set</td><td>messages:
+  + <a href="msg3997">msg3997</a></td></tr>
+<tr><td>2013-08-18&nbsp;08:57:07</td><td>brittag</td><td>set</td><td>messages:
+  + <a href="msg3814">msg3814</a></td></tr>
+<tr><td>2012-11-09&nbsp;17:09:17</td><td>soonick5</td><td>set</td><td>nosy:
+  + <a href="user481">soonick5</a></td></tr>
+<tr><td>2012-11-09&nbsp;17:05:13</td><td>soonick5</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3491">msg3491</a></td></tr>
+<tr><td>2012-06-06&nbsp;00:38:55</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

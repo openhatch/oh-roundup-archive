@@ -1,0 +1,430 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 1016: Cron <deploy@linode> cd $HOME/milestone-a ; ./mysite/scripts/run_with_lock.sh python manage.py profile_hourly_tasks 2>&1 | grep -v DeprecationWarning | grep -v 'import ' | grep -v SubfieldBase (fwd) - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue1016
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue1016">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue1016">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Cron &lt;deploy@linode&gt; cd $HOME/milestone-a ; ./mysite/scripts/run_with_lock.sh python manage.py profile_hourly_tasks 2&gt;&amp;1 | grep -v DeprecationWarning | grep -v 'import ' | grep -v SubfieldBase (fwd)</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>need-review</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  eeshangarg, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>eeshangarg</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-07-14.02:38:28</b> by <b>paulproteus</b>, last changed <b>2014-07-16.17:38:23</b> by <b>eeshangarg</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4476">msg4476 (view)</a></th>
+   <th>Author: eeshangarg</th>
+   <th>Date: 2014-07-16.17:38:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Made a pull request: <a href="https://github.com/openhatch/oh-mainline/pull/304">https://github.com/openhatch/oh-mainline/pull/304</a>
+
+I tested my fix by typing the following command into the command line manually:
+./mysite/scripts/run_with_lock.sh python manage.py profile_hourly_tasks 2&gt;&amp;1 |
+grep -v DeprecationWarning | grep -v 'import ' | grep -v SubfieldBase
+
+I am not sure whether this is the best way to test this, but
+profile_hourly_tasks.py does not throw an exception after this fix and test.
+paulproteus also suggested that I write a unittest for this command but I wasn't
+able to figure out how to do this as I have never worked with tests before. I
+would be willing to work on the tests but I feel that I would need some guidance
+from paulproteus to do this. :)
+
+Thanks &amp; regards,
+Eeshan Garg</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4472">msg4472 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-07-15.23:48:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi eeshangarg!
+
+Here are my thoughts:
+
+* We should probably keep the part that clears the search cache. If this is the 
+only place that clears it, then we probably want to keep it.
+
+* If the cron job runs without printing any output, it won't email me. So it's fine 
+to run cron jobs; it's just bad to run cron jobs if it's going to print an error 
+message and fail. But no one likes failing code.
+
+* Eeshan, the thoroughness of your research makes you a great pleasure to work 
+with!
+
+* It might be reasonable to cover this management command with a unit test, so that 
+we can catch this sort of problem automatically.
+
+* The unit test is not required as part of a pull request, if you can indicate in 
+the pull request how to manually test your fix.
+
+Cheers!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4466">msg4466 (view)</a></th>
+   <th>Author: eeshangarg</th>
+   <th>Date: 2014-07-14.16:10:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi!
+
+I took a look at the bug and here is what I found:
+
+profile_hourly_tasks.py contains a function named
+periodically_check_if_bug_timestamp_eclipsed_the_cached_search_timestamp() that
+just clears the search cache based on whether the bug timestamp eclipsed the
+cached search timestamp and also logs some general information. This function
+clears the search cache using the clear_search_cache function defined in
+mysite/search/tasks/__init__.py.
+
+The remaining part of profile_hourly_tasks.py implements the custom management
+command which consists of a class the handle() method of which further utilizes
+two functions defined in mysite/profile/tasks which have been obsolete since
+5334c70faff0d4b596d880f50e3cff1cfaf1886f, as mentioned by paulproteus and this
+is where the exception mentioned by paulproteus occurs. But the end of the
+handle() method of the class that implements the command has a few lines of code
+that calls the
+periodically_check_if_bug_timestamp_eclipsed_the_cached_search_timestamp()
+function which clears the search cache every 4 hours. This call to the above
+mentioned function is at the end of the class and due to the exception that
+occurs never gets called, which implies that since
+5334c70faff0d4b596d880f50e3cff1cfaf1886f, the search cache hasn't been getting
+cleared at all and I checked and this is the only place in the OpenHatch code
+base where the search cache gets cleared.
+
+Apart from this little thing about the search cache, I think the rest of the
+file just accommodates the bug recommendation system which is now obsolete. So
+we could get rid of the profile_hourly_tasks.py file and all of the related
+methods and functions in other files that are not used at all in other parts of
+the site, of course. So we could get rid of all of this if clearing the search
+cache is not a problem. Also getting rid of it all also implies getting rid of
+the @hourly cron entry in mysite/config_files/crontab.linode, although I can't
+help thinking that this would actually take a huge amount of burden off of
+paulproteus' inbox. :)
+
+I apologize for the length of this response, I am a beginner and this is my
+first Python bug. I would love to work on this but would like to get some
+guidance from paulproteus before I actually make a pull request and it would be
+a great learning experience for me if I actually solve a bug reported by
+paulproteus himself. :)
+
+Thanks &amp; regards,
+Eeshan Garg</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4463">msg4463 (view)</a></th>
+   <th>Author: eeshangarg</th>
+   <th>Date: 2014-07-14.05:23:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi!
+
+I would be willing to work on this task. So I am assigning this task to myself.
+However, as I am a beginner, if I need help figuring something out, I'll ask on
+IRC or on the mailing list. :) 
+
+Thanks &amp; regards,
+Eeshan Garg</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4462">msg4462 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-07-14.02:38:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The 'profile_hourly_tasks' job crashes with an exception, due to us having 
+deleted a method it relies on. I think the correct thing to do is to 
+remove the 'profile_hourly_tasks' management command; see 
+<a href="https://docs.djangoproject.com/en/dev/howto/custom-management-commands/">https://docs.djangoproject.com/en/dev/howto/custom-management-commands/</a> or 
+<a href="http://stackoverflow.com/questions/4208006/how-does-one-use-django-custom-management-command-option">http://stackoverflow.com/questions/4208006/how-does-one-use-django-custom-management-command-option</a> 
+for more info about Django mangaement commands.
+
+The purpose of profile_hourly_tasks used to be that we would fill some 
+caches, once per hour, so that some database queries could be skipped.
+
+I think the idea is that used to fill the bug recommendations list with 
+data. But since 5334c70faff0d4b596d880f50e3cff1cfaf1886f there is no bug 
+recommendation system at all.
+
+If you're willing to read some Python code, and remove some, this is 
+probably an easy bug to fix. It would be great to see a pull request from 
+somoene new, but any pull request will cause my inbox to stop receiving 
+these emails hourly. (-:
+
+Anyway, the fix is almost certainly to remove the line that is crashing. 
+The question is if the entire file should go away! I'm not sure; it 
+depends on the contents of the file.
+
+Warmly,
+
+Asheesh.
+
+---------- Forwarded message ----------
+Date: Sun, 13 Jul 2014 22:00:02
+From: Cron Daemon &lt;<a href="mailto:root@linode.openhatch.org">root@linode.openhatch.org</a>&gt;
+To: <a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>
+Subject: Cron &lt;<a href="mailto:deploy@linode">deploy@linode</a>&gt; cd $HOME/milestone-a ;
+     ./mysite/scripts/run_with_lock.sh python manage.py profile_hourly_tasks 2&gt;&amp;1
+      | grep -v DeprecationWarning | grep -v 'import ' | grep -v SubfieldBase
+
+Traceback (most recent call last):
+   File "manage.py", line 15, in &lt;module&gt;
+     execfile('mysite/manage.py', globals(), locals())
+   File "mysite/manage.py", line 25, in &lt;module&gt;
+     execute_manager(mysite.settings)
+   File "/home/deploy/milestone-a.buildout/vendor/packages/Django/django/core/management/__init__.py", line 459, in execute_manager
+     utility.execute()
+   File "/home/deploy/milestone-a.buildout/vendor/packages/Django/django/core/management/__init__.py", line 382, in execute
+     self.fetch_command(subcommand).run_from_argv(self.argv)
+   File "/home/deploy/milestone-a.buildout/vendor/packages/Django/django/core/management/base.py", line 196, in run_from_argv
+     self.execute(*args, **options.__dict__)
+   File "/home/deploy/milestone-a.buildout/vendor/packages/Django/django/core/management/base.py", line 232, in execute
+     output = self.handle(*args, **options)
+   File "/home/deploy/milestone-a.buildout/mysite/profile/management/commands/profile_hourly_tasks.py", line 50, in handle
+     mysite.profile.tasks.sync_bug_timestamp_from_model_then_fill_recommended_bugs_cache(
+AttributeError: 'module' object has no attribute 'sync_bug_timestamp_from_model_then_fill_recommended_bugs_cache'</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-07-16&nbsp;17:38:23</td><td>eeshangarg</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg4476">msg4476</a></td></tr>
+<tr><td>2014-07-15&nbsp;23:48:57</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4472">msg4472</a></td></tr>
+<tr><td>2014-07-14&nbsp;16:10:31</td><td>eeshangarg</td><td>set</td><td>messages:
+  + <a href="msg4466">msg4466</a></td></tr>
+<tr><td>2014-07-14&nbsp;05:23:13</td><td>eeshangarg</td><td>set</td><td>priority: bug<br />assignedto: <a href="user1061">eeshangarg</a><br />status: unread -> chatting<br />messages:
+  + <a href="msg4463">msg4463</a><br />nosy:
+  + <a href="user1061">eeshangarg</a></td></tr>
+<tr><td>2014-07-14&nbsp;02:38:28</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

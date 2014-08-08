@@ -1,0 +1,305 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 409: For now, let's just ditch the /+projects/ page - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue409
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue409">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue409">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">For now, let's just ditch the /+projects/ page</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.04</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, palhmbs, paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-04-30.05:29:45</b> by <b>paulproteus</b>, last changed <b>2011-04-30.20:39:37</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1767">msg1767 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-30.20:39:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Okay, fine, we won't ditch it! But we had better fix it soon.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1764">msg1764 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-30.14:24:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On the down side, I don't make the suggested changesmyself during the 
+April milestone.
+
+On the upside, I agree with lots of these thoughts!
+
+There's <a href="https://openhatch.org/bugs/issue246">https://openhatch.org/bugs/issue246</a> about making the page more 
+*useful*. I just want to make sure users aren't led down the garden path 
+into a part of the site that won't help them get involved in open source.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1763">msg1763 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-04-30.13:59:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Well, it does take a while to load but it's nice to see how many projects are in 
+there. Maybe instead of ditching it, could just show the most popular (?) ones and 
+then offer the search from there. 
+
+Some ideas of "most popular" is to feature some by hand, or show those with the most 
+bugs, or most contributors, or newest bugs.
+
+Also, maybe an action button to lead those in that don't see their projects there. 
+"Don't see your project? Add it here." (or something)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1761">msg1761 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-04-30.05:29:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just talked with someone who used the site and ending up on /+projects/.
+
+I just thought about it, and I realized: that page is just useless. Let's ditch
+it until we come up with a good way to have a projects page.
+
+Any objections?
+
+I know it just got a really nice-looking top drawing from aldeka but the page
+wastes users' time. I want to ditch it until we figure out come up with a more
+useful way to present projects to users.
+
+(Really, we could have a neat tag-based project browser kinda like /search/ ?
+But some other day.)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-04-30&nbsp;20:39:37</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg1767">msg1767</a></td></tr>
+<tr><td>2011-04-30&nbsp;14:24:02</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1764">msg1764</a></td></tr>
+<tr><td>2011-04-30&nbsp;13:59:21</td><td>jessica</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1763">msg1763</a></td></tr>
+<tr><td>2011-04-30&nbsp;05:29:45</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

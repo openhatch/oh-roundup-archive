@@ -1,0 +1,332 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 714: Redesign /search/ to integrate both bugs and projects - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue714
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue714">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue714">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Redesign /search/ to integrate both bugs and projects</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.13.08</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-03-13.23:35:33</b> by <b>aldeka</b>, last changed <b>2013-08-07.01:01:38</b> by <b>aldeka</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file481/search-page.jpg">search-page.jpg</a>
+  </td>
+  <td>
+   <span>aldeka</span>,
+   <span>2012-03-13.23:35:31</span>
+  </td>
+  <td>image/jpeg</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3272">msg3272 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-06-01.19:54:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>There's another use case that seems to pop up, which is people who want to *add*
+their projects to the site.
+
+We should make sure we cover that. With the mockup as it stands, perhaps what we
+can do is when you arrive at /search/ with no search, you see a few different
+boxes like:
+
+* Want to search for something to do in open source?
+
+* Don't even have the foggiest idea how this all works?
+
+* Want to add your own project to our index?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3107">msg3107 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2012-03-13.23:35:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>See (terrible webcam scan of) mockup.
+
+Right now, we've killed /projects/, which means there's basically no way to 
+easily get to our project pages. (Which is kind of good, since they're broken 
+right now... that's a separate bug!)
+
+To fix that, here's a redesign of the /search/ page to make it easy to find both 
+bugs and projects through the same interface.
+
+Notes from the mockup:
+
+On the left is the filtering UI. Searches become filters (which can be removed, 
+like other filters, by clicking the 'X'). Eventually (not part of this bug), 
+there will be a 'curated bugs' category chosen through the project page 
+interface and a curated-bugs-only filter will be on by default when the page 
+loads.
+
+Below, filters for language (limited to 3 or so, with more link) and tags 
+(similarly expandable). "Bitesize" should be renamed to "easy" or "beginner".
+
+Below that, you can choose to only show projects, only show (projects with) 
+bugs, or to show everything.
+
+Below the filtering interface, a second left-column module states the number of 
+tracked projects, a link to add a project (create a project page), link to add a 
+bug tracker (to wiki docs), and 'About this feature' (which goes to the blog 
+post linked to by the current /search/ interface).
+
+At the top of the right column, there's a little banner for first-time 
+contributors, with a link to a wiki page with some helpful advice. It can be 
+X'ed out and disappeared.
+
+On the right column, you have modules for each project with their logo and 
+mentors (if any). The project logo and name link to the project page; the 
+mentors thing links to the mentors tab/area on their project page.
+
+If a matching project has bugs that we know about and match the query, $MIN 
+number of bugs appear below it (probably 2, maybe as many as 3). There's a 'more 
+bugs' link that will expand downward and show more matching bugs; in the absence 
+of js, it links to some obscure part of the project page with a full listing of 
+all the project's scraped/known bugs. Hovering over the bug changes its 
+background color; clicking a bug expands it to include more information (as 
+now).
+
+Projects can appear even without bugs or mentors, if our data on the project 
+(e.g. language) matches the query.
+
+Ordering of bugs within a project: first curated bugs, then bugs with the most 
+recent activity.
+
+Ordering of projects: favor projects that have curated bugs, projects with 
+answered Q&amp;As, and projects with mentors. Otherwise by similarity of project 
+and/or its bugs to search query/filters.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-08-07&nbsp;01:01:38</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone17">0.13.08</a></td></tr>
+<tr><td>2012-06-01&nbsp;19:54:48</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3272">msg3272</a></td></tr>
+<tr><td>2012-03-13&nbsp;23:35:33</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

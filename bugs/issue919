@@ -1,0 +1,370 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 919: Sometimes /account/settings/location/ crashes - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue919
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue919">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue919">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Sometimes /account/settings/location/ crashes</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  individuwill, onceuponatimeforever, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>individuwill</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-01-12.06:54:45</b> by <b>paulproteus</b>, last changed <b>2014-05-13.08:52:10</b> by <b>onceuponatimeforever</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4348">msg4348 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2014-05-13.08:52:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>In the issue #990, I've removed all mentions of the location, including the settings/location/ path.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4094">msg4094 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2014-02-03.03:13:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Attached is an imperfect, still-in-progress PR: <a href="https://github.com/openhatch/oh-mainline/pull/200">https://github.com/openhatch/oh-mainline/pull/200</a> 
+Feel free to comment, I still cannot reproduce the bug. :(</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4092">msg4092 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-02-03.01:42:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>No worries about not following up.
+
+Reproducing it is likely to be somewhat subtle. I seem to recall you were 
+having trouble getting the MaxMind database in a path that our code will 
+find.
+
+Also our code for finding that database is pretty bad. We should simplify 
+it.
+
+I won't be on IRC much later tonight, but if you can manage to help there 
+&amp; then from others, thumbs up. I'm happy to find some other time.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4091">msg4091 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2014-02-03.01:30:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I couldn't repro the bug several weeks ago. Sorry I should've kept you updated on the progress of 
+this ticket. I'll look into this further later tonight and Ill be on IRC to discuss it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4090">msg4090 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-02-03.01:23:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Susan!
+
+I remember you and I were looking at this on IRC a few weeks ago. Are you still 
+interested in working on it? Did you manage to reproduce the problem in the test 
+suite?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4048">msg4048 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-01-12.06:54:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is the traceback:
+
+Traceback (most recent call last):
+
+  File "/home/deploy/milestone-
+a.buildout/vendor/packages/Django/django/core/handlers/base.py", line 111, in 
+get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+
+  File "/home/deploy/milestone-
+a.buildout/vendor/packages/Django/django/contrib/auth/decorators.py", line 23, 
+in _wrapped_view
+    return view_func(request, *args, **kwargs)
+
+  File "&lt;string&gt;", line 2, in set_location
+
+  File "/home/deploy/milestone-a.buildout/mysite/base/decorators.py", line 73, 
+in view
+    request, template, view_data = func(*args, **kw)
+
+  File "/home/deploy/milestone-a.buildout/mysite/account/views.py", line 290, in 
+set_location
+    mysite.base.middleware.get_user_ip(request))[1]
+
+  File "/home/deploy/milestone-a.buildout/mysite/profile/view_helpers.py", line 
+142, in get_geoip_guess_for_ip
+    country_name = geoip_database.country_name_by_addr(ip_as_string)
+
+  File "/home/deploy/milestone-
+a.buildout/vendor/packages/pygeoip/pygeoip/__init__.py", line 467, in 
+country_name_by_addr
+    return self.record_by_addr(addr)['country_name']
+
+TypeError: 'NoneType' object is unsubscriptable
+
+
+In my opinion, the view_helpers.py get_geoip_guess_for_ip() function should 
+catch TypeError and do something reasonable in that situation.
+
+This causes real users to hit our Error 500 page, which is sad.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-05-13&nbsp;08:52:10</td><td>onceuponatimeforever</td><td>set</td><td>messages:
+  + <a href="msg4348">msg4348</a></td></tr>
+<tr><td>2014-04-20&nbsp;20:51:27</td><td>individuwill</td><td>set</td><td>assignedto: <a href="user1065">individuwill</a><br />nosy:
+  + <a href="user1065">individuwill</a></td></tr>
+<tr><td>2014-02-03&nbsp;03:13:31</td><td>onceuponatimeforever</td><td>set</td><td>messages:
+  + <a href="msg4094">msg4094</a></td></tr>
+<tr><td>2014-02-03&nbsp;01:42:44</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4092">msg4092</a></td></tr>
+<tr><td>2014-02-03&nbsp;01:30:11</td><td>onceuponatimeforever</td><td>set</td><td>messages:
+  + <a href="msg4091">msg4091</a></td></tr>
+<tr><td>2014-02-03&nbsp;01:23:18</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user668">onceuponatimeforever</a><br />messages:
+  + <a href="msg4090">msg4090</a></td></tr>
+<tr><td>2014-01-12&nbsp;06:54:45</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

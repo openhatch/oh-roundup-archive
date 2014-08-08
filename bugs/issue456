@@ -1,0 +1,606 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 456: Suggest follow-up material at the end of the git mission - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue456
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue456">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue456">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Suggest follow-up material at the end of the git mission</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Burt2Burt, Mark, digit, egor83, jesstess, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>Burt2Burt</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-06-22.20:48:44</b> by <b>jesstess</b>, last changed <b>2013-11-24.06:01:48</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file560/0001-Add-link-to-Try-Git-under-Other-resources.patch">0001-Add-link-to-Try-Git-under-Other-resources.patch</a>
+  </td>
+  <td>
+   <span>digit</span>,
+   <span>2013-08-08.17:16:23</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file485/0001-Added-http-www.git-scm.com-link-at-the-end-of-the-mi.patch">0001-Added-http-www.git-scm.com-link-at-the-end-of-the-mi.patch</a>
+  </td>
+  <td>
+   <span>Burt2Burt</span>,
+   <span>2012-03-14.03:38:37</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file498/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>Burt2Burt</span>,
+   <span>2012-03-18.09:44:22</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file500/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>Burt2Burt</span>,
+   <span>2012-03-20.13:27:38</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file559/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>Burt2Burt</span>,
+   <span>2013-08-08.00:09:50</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3964">msg3964 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-11-24.06:01:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi digit and Burt2Burt,
+
+First, let me apologize for letting these stay so long in the bug tracker.
+
+I have gone and pushed both of these patches. Huge thanks to both of you for 
+contributing them! And I hope and believe our project will be more responsive to 
+patches in the future.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3798">msg3798 (view)</a></th>
+   <th>Author: digit</th>
+   <th>Date: 2013-08-08.17:16:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I added a link to Try Git on <a href="http://openhatch.org/missions/git/description">http://openhatch.org/missions/git/description</a> under Other resources.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3796">msg3796 (view)</a></th>
+   <th>Author: Burt2Burt</th>
+   <th>Date: 2013-08-08.00:09:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Addressing your second question, I think adding
+<a href="http://www.codeschool.com/courses/try-git">http://www.codeschool.com/courses/try-git</a> is a wonderful idea. I used it
+myself and found it to be very helpful. Some concepts such as git add and
+git commit may not be apparent if a new user is just merely reading about
+them.
+
+On Wed, Aug 7, 2013 at 12:42 PM, digit &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; digit &lt;<a href="mailto:quelledanielle@gmail.com">quelledanielle@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; I noticed that the Pro Git book is already listed under Other resources on
+&gt; the Setup Git page
+&gt; (<a href="http://openhatch.org/missions/git/description">http://openhatch.org/missions/git/description</a>). It could be more
+&gt; consistent to list the external
+&gt; resources there instead of in the final success message.
+&gt;
+&gt; May I add <a href="http://gitref.org">http://gitref.org</a> and <a href="http://www.codeschool.com/courses/try-gitto">http://www.codeschool.com/courses/try-gitto</a> the existing list on
+&gt; the Setup Git page?
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue456">https://openhatch.org/bugs/issue456</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3794">msg3794 (view)</a></th>
+   <th>Author: digit</th>
+   <th>Date: 2013-08-07.19:42:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I noticed that the Pro Git book is already listed under Other resources on the Setup Git page 
+(<a href="http://openhatch.org/missions/git/description">http://openhatch.org/missions/git/description</a>). It could be more consistent to list the external 
+resources there instead of in the final success message.
+
+May I add <a href="http://gitref.org">http://gitref.org</a> and <a href="http://www.codeschool.com/courses/try-git">http://www.codeschool.com/courses/try-git</a> to the existing list on 
+the Setup Git page?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3150">msg3150 (view)</a></th>
+   <th>Author: Burt2Burt</th>
+   <th>Date: 2012-03-20.13:27:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, will continue to work on it this week.
+
+On Tue, Mar 20, 2012 at 1:15 AM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; Yes, totally ok for you to keep working on this, Burt2Burt! Do stay in
+&gt; touch,
+&gt; and ask questions as you need.
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue456">https://openhatch.org/bugs/issue456</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3148">msg3148 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-19.17:15:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yes, totally ok for you to keep working on this, Burt2Burt! Do stay in touch,
+and ask questions as you need.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3144">msg3144 (view)</a></th>
+   <th>Author: Burt2Burt</th>
+   <th>Date: 2012-03-18.09:44:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If it is ok, I would like to try to add these links. I will admit that this
+is the first bug that I am fixing and it might be a little challenging for
+me to remember all of the steps. If needed I will request for help via IRC
+chat. My name is 'Burt2Burt'.
+
+Portia
+
+On Sun, Mar 18, 2012 at 4:43 PM, tsousa &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; tsousa &lt;<a href="mailto:tsousahs@gmail.com">tsousahs@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; I think that these two links should be add.
+&gt;
+&gt; 1-<a href="http://gitref.org/">http://gitref.org/</a> - it's a nice reference for git
+&gt; 2- <a href="http://progit.org/book/">http://progit.org/book/</a> it's a free book licensed under Creative
+&gt; Commons
+&gt; Attribution Non Commercial Share Alike 3.0 license.
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue456">https://openhatch.org/bugs/issue456</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3142">msg3142 (view)</a></th>
+   <th>Author: tsousa</th>
+   <th>Date: 2012-03-18.08:43:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think that these two links should be add.
+
+1-<a href="http://gitref.org/">http://gitref.org/</a> - it's a nice reference for git
+2- <a href="http://progit.org/book/">http://progit.org/book/</a> it's a free book licensed under Creative Commons
+Attribution Non Commercial Share Alike 3.0 license.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3111">msg3111 (view)</a></th>
+   <th>Author: Burt2Burt</th>
+   <th>Date: 2012-03-14.03:38:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Added git link</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2144">msg2144 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-03.02:28:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just went through the git training mission.
+
+I think that, once the <a href="http://openhatch.org/missions/git/rebase">http://openhatch.org/missions/git/rebase</a> page is 
+completed, you should be told that there are extra resources you can use on the 
+"About Git" page.
+
+This is a pretty simple patch to the template that is used at 
+<a href="http://openhatch.org/missions/git/rebase">http://openhatch.org/missions/git/rebase</a> .</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2102">msg2102 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2011-06-23.12:17:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The "About git" page offers links to quite a few good resources.  Maybe it isn't 
+easy enough to find/see when going through the mission?
+<a href="http://openhatch.org/missions/git/description">http://openhatch.org/missions/git/description</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2097">msg2097 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-06-22.20:48:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>16:39 &lt; jesstess&gt; You can also use "git rebase" to change your commit history. We can get into 
+that if you want, but maybe reading through a git tutorial would be a good exercise first.
+16:40 &lt; Mkman&gt; i did some basic reading
+16:40 &lt; Mkman&gt; and i did your missions
+16:41 &lt; jesstess&gt; Hm, maybe the git mission could point to a more comprehensive tutorial at the 
+end, if it doesn't already.
+
+You could imagine a) linking to some good material on the page where you complete the mission, 
+and b) having material on openhatch.org/missions, so it's easy to find later.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-11-24&nbsp;06:01:48</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg3964">msg3964</a></td></tr>
+<tr><td>2013-08-08&nbsp;17:17:15</td><td>digit</td><td>set</td><td>status: chatting -> in-progress</td></tr>
+<tr><td>2013-08-08&nbsp;17:16:23</td><td>digit</td><td>set</td><td>files:
+  + <a href="file560">0001-Add-link-to-Try-Git-under-Other-resources.patch</a><br />messages:
+  + <a href="msg3798">msg3798</a></td></tr>
+<tr><td>2013-08-08&nbsp;00:09:52</td><td>Burt2Burt</td><td>set</td><td>files:
+  + <a href="file559">unnamed</a><br />messages:
+  + <a href="msg3796">msg3796</a></td></tr>
+<tr><td>2013-08-07&nbsp;19:53:40</td><td>digit</td><td>set</td><td>nosy:
+  + <a href="user827">digit</a></td></tr>
+<tr><td>2013-08-07&nbsp;19:42:32</td><td>digit</td><td>set</td><td>messages:
+  + <a href="msg3794">msg3794</a></td></tr>
+<tr><td>2012-03-20&nbsp;13:27:39</td><td>Burt2Burt</td><td>set</td><td>files:
+  + <a href="file500">unnamed</a><br />messages:
+  + <a href="msg3150">msg3150</a></td></tr>
+<tr><td>2012-03-19&nbsp;17:15:46</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3148">msg3148</a></td></tr>
+<tr><td>2012-03-18&nbsp;09:44:23</td><td>Burt2Burt</td><td>set</td><td>files:
+  + <a href="file498">unnamed</a><br />messages:
+  + <a href="msg3144">msg3144</a></td></tr>
+<tr><td>2012-03-18&nbsp;08:43:23</td><td>tsousa</td><td>set</td><td>messages:
+  + <a href="msg3142">msg3142</a></td></tr>
+<tr><td>2012-03-14&nbsp;03:38:38</td><td>Burt2Burt</td><td>set</td><td>files:
+  + <a href="file485">0001-Added-http-www.git-scm.com-link-at-the-end-of-the-mi.patch</a><br />messages:
+  + <a href="msg3111">msg3111</a></td></tr>
+<tr><td>2012-03-14&nbsp;03:35:52</td><td>Burt2Burt</td><td>set</td><td>assignedto: <a href="user398">Burt2Burt</a><br />nosy:
+  + <a href="user398">Burt2Burt</a></td></tr>
+<tr><td>2011-07-06&nbsp;23:16:15</td><td>egor83</td><td>set</td><td>nosy:
+  + <a href="user136">egor83</a></td></tr>
+<tr><td>2011-07-03&nbsp;02:28:19</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2144">msg2144</a></td></tr>
+<tr><td>2011-06-23&nbsp;12:17:33</td><td>Mark</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user29">Mark</a><br />messages:
+  + <a href="msg2102">msg2102</a></td></tr>
+<tr><td>2011-06-22&nbsp;20:48:44</td><td>jesstess</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

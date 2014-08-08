@@ -1,0 +1,449 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 449: "all projects" page returns 404 - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue449
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue449">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue449">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">"all projects" page returns 404</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.06</td>
+ <th class="required">Priority</th>
+ <td>critical</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  bolotov, jesstess, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>palhmbs</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-06-08.22:49:40</b> by <b>bolotov</b>, last changed <b>2011-06-28.00:51:12</b> by <b>jesstess</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file356/0001-Create-a-new-redirect2.patch">0001-Create-a-new-redirect2.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-06-20.03:15:09</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2125">msg2125 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-06-28.00:51:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for the backstory, paulproteus, and thanks for the patch, palhmbs. This has been deployed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2123">msg2123 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-27.02:21:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So here's the backstory with the + marks:
+
+They're there because Raffi AKA rafpaf AKA Raphael Krut-Landau AKA dithyramble
+always wanted to move e.g. <a href="https://openhatch.org/people/paulproteus/">https://openhatch.org/people/paulproteus/</a> to
+<a href="https://openhatch.org/paulproteus/">https://openhatch.org/paulproteus/</a> . Therefore, most new URLs got a prefix of
+"+" to minimize the chance of collisions down the line.
+
+So that's why it's +projects. It's "missions" because I made that URL and then
+forgot to stick to Raffi's convention.
+
+Also, I think we made the +projects/* pages before we made the +projects/
+listing page.
+
+So at least you know the backstory now, and you can see how it's created inertia
+to keep things the way they are. If you want to do a URL reorganization, that'd
+be okay, too, though I'd say it's a different ticket. (But if you do it here, I
+won't complain, so long as you use HTTP permanent redirects to avoid wasting
+Google-juice.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2115">msg2115 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-06-23.23:17:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I don't understand why <a href="http://openhatch.org/+projects/">http://openhatch.org/+projects/</a> is the preferred URL, when the rest of the 
+top-level navigation options don't have the '+' (eg. <a href="http://openhatch.org/people/,">http://openhatch.org/people/,</a> 
+<a href="http://openhatch.org/search/,">http://openhatch.org/search/,</a> <a href="http://openhatch.org/missions/">http://openhatch.org/missions/</a>). If someone can tell me why, I'm 
+happy to review this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2090">msg2090 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-20.03:33:57</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, sorry bout that. I've corrected it to use the HttpResponseRedirect.
+
+I'm not sure what caused the weirdness that allowed the link to be locally
+broken vs fixed on the main OH server, but now I can't find a problem with the
+nav.html file or urls.py.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2083">msg2083 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-19.22:19:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Paul,
+
+Your patch has an issue: What you made wasn't a redirect; it was just a new URL
+mapping.
+
+Look through urls.py for HttpResponseRedirect, and please re-do it that way.
+
+Also, good work root-causing the issue. Can you fix the template link so that we
+don't link to /projects/ ?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2073">msg2073 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-12.08:17:04</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I now see why this is such a problem, when your not logged in the landing-page
+directs you to <a href="http://openhatch.org/projects/">http://openhatch.org/projects/</a> - well, at least my local
+development server does. eg: <a href="http://localhost:8000/projects/">http://localhost:8000/projects/</a> 
+
+Apparently the main OH server has the link fixed.
+
+Anyway, here's a patch to create the redirect.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2068">msg2068 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-11.21:07:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, so paulproteus suggested I could do a redirect in urls.py, assigned to me.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2062">msg2062 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-09.02:10:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="http://openhatch.org/projects/">http://openhatch.org/projects/</a> does return a 404 - but for me
+<a href="http://openhatch.org/+projects/">http://openhatch.org/+projects/</a> does not...
+
+it'll be some weirdness in mysite/urls.py maybe?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2061">msg2061 (view)</a></th>
+   <th>Author: bolotov</th>
+   <th>Date: 2011-06-08.22:49:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>"all projects" (<a href="http://openhatch.org/+projects/">http://openhatch.org/+projects/</a>) returns 404 error
+
+The same is for (<a href="http://openhatch.org/projects/">http://openhatch.org/projects/</a>) url</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-06-28&nbsp;00:51:12</td><td>jesstess</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2125">msg2125</a></td></tr>
+<tr><td>2011-06-27&nbsp;02:21:43</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2123">msg2123</a></td></tr>
+<tr><td>2011-06-23&nbsp;23:17:22</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a><br />messages:
+  + <a href="msg2115">msg2115</a></td></tr>
+<tr><td>2011-06-20&nbsp;03:34:45</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-06-20&nbsp;03:33:57</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg2090">msg2090</a></td></tr>
+<tr><td>2011-06-20&nbsp;03:27:45</td><td>palhmbs</td><td>set</td><td>messages:
+  - <a href="msg2089">msg2089</a></td></tr>
+<tr><td>2011-06-20&nbsp;03:17:13</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file351">0001-Create-a-new-redirect.patch</a></td></tr>
+<tr><td>2011-06-20&nbsp;03:15:09</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file356">0001-Create-a-new-redirect2.patch</a></td></tr>
+<tr><td>2011-06-20&nbsp;03:13:46</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file355">0001-Create-a-new-redirect2.patch</a></td></tr>
+<tr><td>2011-06-20&nbsp;03:13:24</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file355">0001-Create-a-new-redirect2.patch</a><br />messages:
+  + <a href="msg2089">msg2089</a></td></tr>
+<tr><td>2011-06-19&nbsp;22:19:06</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2083">msg2083</a></td></tr>
+<tr><td>2011-06-12&nbsp;08:17:25</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-06-12&nbsp;08:17:04</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file351">0001-Create-a-new-redirect.patch</a><br />messages:
+  + <a href="msg2073">msg2073</a></td></tr>
+<tr><td>2011-06-11&nbsp;21:10:17</td><td>palhmbs</td><td>set</td><td>status: chatting -> in-progress</td></tr>
+<tr><td>2011-06-11&nbsp;21:09:03</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-06-11&nbsp;21:07:58</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg2068">msg2068</a></td></tr>
+<tr><td>2011-06-09&nbsp;02:10:43</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-06-09&nbsp;02:10:35</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2062">msg2062</a></td></tr>
+<tr><td>2011-06-08&nbsp;22:49:40</td><td>bolotov</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

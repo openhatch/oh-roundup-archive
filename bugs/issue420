@@ -1,0 +1,568 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 420: Git mission doesn't show up in the main page's 'Completed Missions' - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue420
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue420">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue420">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Git mission doesn't show up in the main page's 'Completed Missions'</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.05</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  2mas, Mark, jessica, palhmbs, paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>palhmbs</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-05-02.23:13:56</b> by <b>2mas</b>, last changed <b>2011-05-29.12:40:47</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file270/0001-Git-for-Landing.patch">0001-Git-for-Landing.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-05-03.08:48:43</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file294/0001-Small-fix.patch">0001-Small-fix.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-05-29.10:24:25</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg1951">msg1951 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-29.12:40:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>In the future, can you write more in the commit log about what you changed?
+
+Also please put the link to the bug tracker on its own line, rather than in the 
+first line? It gets really long, and then 'git log' gets hard to read.
+
+Other than that, this looks good. Pushing. Thanks for finding it!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1948">msg1948 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-29.10:24:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>And here it is.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1947">msg1947 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-29.10:07:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Re-opening this because of a small error in the landing page.
+The link for git mission directs to....
+<a href="https://openhatch.org/missions/git/description">https://openhatch.org/missions/git/description</a>
+
+When it should just be...
+<a href="https://openhatch.org/missions/git">https://openhatch.org/missions/git</a>
+
+I'll check that the others are uniform at the same time.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1890">msg1890 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-23.01:02:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Paul+Mark,
+
+Sorry I didn't notice this; it was indeed due to the bug state not being 
+need-review. Mega thanks to Mark for addressing that.
+
+Paul, your patch includes a little more than it needs to. In particular, it 
+includes UI changes that I want to be a separate commit. I'd prefer if 
+you'd get someone's sign-off on those UI changes -- maybe you can email 
+Devel and ask people what they think, with a link to your 
+
+I've carefully edited your patch and included only the part that is 
+relevant to this ticket. Once you 'git rebase origin/master' your local 
+repository will have a commit that contains the stuff I didn't accept.
+
+(I think that your changes are a good idea, but I think we should discuss 
+them on-list briefly.)
+
+Deployed! I took a look on the live site, and it looks great.
+
+Also, nearly 20 days is *too* long for a patch to wait. Sorry I let it wait 
+so long.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1876">msg1876 (view)</a></th>
+   <th>Author: Mark</th>
+   <th>Date: 2011-05-21.01:23:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It looks like a patch is here.  Should this be in needs review status?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1866">msg1866 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-11.20:59:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've decided that I should just dive on in and create the backend function/s for 
+the display of mission status.
+Trying to make it work without was too much of a headache.
+
+I love the idea of having it like "certain gaming quest trackers" with the 
+number completed out of a total.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1852">msg1852 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-05-07.23:18:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, we can make a new bug that is refactoring the missions and just hardcode for 
+now. :)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1840">msg1840 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-07.19:40:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>A new backend function is too complicated for me at this stage.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1828">msg1828 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-05-04.15:19:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I was thinking a new backend function or functions for the display of status. And 
+for the exact reason pythonian4000 said. It can get really "wordy" with all the 
+ifs and such.
+
+For example, if we have all the possible missions in a table, we can get a list 
+of missions. Also, we won't have to update at least two templates when we add a 
+new mission. Maybe also a way to get current state for the logged in user. 
+
+For example, this is just the Mission box on the landing page:
+
+==Learn/Missions== (snag all missions)
+* Git: step 2 &gt; (output mission.step and url)
+  git.info (maybe a little blurb too?)
+* Bzr: step 1 &gt;
+  bzr.info 
+* SVN: completed 
+  svn.info
+
+OR
+
+==Learn/Missions== 
+_In Progress_ (snag all missions that are started and not completed or snag all 
+missions and group by state?)
+* Git - step 3 &gt; (output mission.step and url)
+* SVN - step 5 &gt;
+
+_Not started_ 
+* Bzr - step 1 &gt;
+
+_Completed_
+* Bash
+* Diff
+
+OR more like certain gaming quest trackers ;)
+
+==Learn/Missions== (snag all missions)
+* Git: 2/5 (steps 2 out of 5 done) (output mission.step and number of steps and 
+url)
+* SVN: 0/3 (hasn't started)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1823">msg1823 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2011-05-04.13:52:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This might just be me, but I think the patch ends up a bit wordy. I think it is
+because you end up with the same text ("You have completed...") repeated over
+and over. Rather than doing this, maybe the "Completed missions" header could be
+left, and an "Unfinished missions" header could also be added (and maybe a "New
+missions" header (though the word "New" implies recent. Maybe "Unstarted", or
+something similar?)).
+
+On a more technical note, the patch applies fine and I get the changed text, but
+the ticks don't appear. Although the CSS shows the list-style-image attribute
+correctly, FireBug shows the two lines being concatenated to 
+list-style: disc inside url("<a href="http://openhatch.org/static/images/tick.gif">http://openhatch.org/static/images/tick.gif</a>");
+and changing it in Firebug to what it actually is in the CSS file doesn't make
+the ticks appear.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1819">msg1819 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-03.08:46:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've added the Git mission to the logged_in_landing page.
+I have also created tick boxes for completed or crosses for not.
+
+ie, jledbetter's comment @ <a href="issue322">issue322</a> : 
+"Mission status if in progress should be 11.05 (unless someone can do that cause 
+I'm out of time).
+
+To do that I've used the code from...
+oh-mainline/mysite/missions/templates/missions/main.html
+
+Please review!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1816">msg1816 (view)</a></th>
+   <th>Author: 2mas</th>
+   <th>Date: 2011-05-02.23:13:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On the index page, once you've completed a mission it is listed under the 'Training 
+Missions' section. The git mission hasn't been added to this?</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-05-29&nbsp;12:40:47</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1951">msg1951</a></td></tr>
+<tr><td>2011-05-29&nbsp;10:24:34</td><td>palhmbs</td><td>set</td><td>status: reopened -> need-review</td></tr>
+<tr><td>2011-05-29&nbsp;10:24:25</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file294">0001-Small-fix.patch</a><br />messages:
+  + <a href="msg1948">msg1948</a></td></tr>
+<tr><td>2011-05-29&nbsp;10:07:43</td><td>palhmbs</td><td>set</td><td>status: resolved -> reopened<br />messages:
+  + <a href="msg1947">msg1947</a></td></tr>
+<tr><td>2011-05-23&nbsp;01:02:16</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg1890">msg1890</a></td></tr>
+<tr><td>2011-05-21&nbsp;12:03:04</td><td>Mark</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-05-21&nbsp;01:24:10</td><td>Mark</td><td>set</td><td>nosy:
+  + <a href="user29">Mark</a></td></tr>
+<tr><td>2011-05-21&nbsp;01:23:31</td><td>Mark</td><td>set</td><td>messages:
+  + <a href="msg1876">msg1876</a></td></tr>
+<tr><td>2011-05-11&nbsp;20:59:04</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1866">msg1866</a></td></tr>
+<tr><td>2011-05-08&nbsp;08:25:48</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a></td></tr>
+<tr><td>2011-05-07&nbsp;23:18:38</td><td>jessica</td><td>set</td><td>messages:
+  + <a href="msg1852">msg1852</a></td></tr>
+<tr><td>2011-05-07&nbsp;19:40:47</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a> -> (no value)<br />messages:
+  + <a href="msg1840">msg1840</a></td></tr>
+<tr><td>2011-05-04&nbsp;15:19:31</td><td>jessica</td><td>set</td><td>nosy:
+  + <a href="user96">jessica</a><br />messages:
+  + <a href="msg1828">msg1828</a></td></tr>
+<tr><td>2011-05-04&nbsp;13:53:04</td><td>pythonian4000</td><td>set</td><td>nosy:
+  + <a href="user34">pythonian4000</a></td></tr>
+<tr><td>2011-05-04&nbsp;13:52:01</td><td>pythonian4000</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1823">msg1823</a></td></tr>
+<tr><td>2011-05-03&nbsp;08:49:53</td><td>palhmbs</td><td>set</td><td>status: resolved -> need-review</td></tr>
+<tr><td>2011-05-03&nbsp;08:48:43</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file270">0001-Git-for-Landing.patch</a></td></tr>
+<tr><td>2011-05-03&nbsp;08:48:26</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file269">0001-Git-for-Landing.patch</a></td></tr>
+<tr><td>2011-05-03&nbsp;08:46:06</td><td>palhmbs</td><td>set</td><td>status: unread -> resolved<br />files:
+  + <a href="file269">0001-Git-for-Landing.patch</a><br />nosy:
+  + <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1819">msg1819</a><br />assignedto: <a href="user42">palhmbs</a><br />milestone: <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-05-02&nbsp;23:13:56</td><td>2mas</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

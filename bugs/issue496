@@ -1,0 +1,319 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 496: We should have a policy-type document on what sorts of events we want to include in the web calendar - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue496
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue496">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue496">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">We should have a policy-type document on what sorts of events we want to include in the web calendar</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.07</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-07-16.20:54:48</b> by <b>paulproteus</b>, last changed <b>2011-08-16.18:04:34</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2313">msg2313 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-16.18:04:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I moved this to the wiki and consider it done:
+
+<a href="http://openhatch.org/wiki/Calendar_events">http://openhatch.org/wiki/Calendar_events</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2312">msg2312 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-16.00:38:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>First draft, online at <a href="http://openetherpad.org/calendar-events">http://openetherpad.org/calendar-events</a>
+
+Pasting it here:
+
+
+Q. What kinds of events should go on the OpenHatch calendar?
+
+A. We want to promote events that directly bring new contributors into free 
+software, or teach background needed to participate in free software projects. We 
+only list events that are free-of-cost or reasonably inexpensive to attend. They 
+can be in person or online.
+
+To us, there is a grey area where some events teach how to use proprietary 
+software. If those events are free of cost and explicitly about helping users 
+contribute to free software, then they can go on the calendar, too. For all these 
+events, it's fine if there is a cap to the maximum number of attendees. We'd 
+appreciate if you could update the OpenHatch calendar when the event fills up.
+
+To give you ideas, here are a few types of events we like:
+
+Online ,"Open house" events, like Debian's "One day with Debian Perl Team" on 
+July 1, 2011 &lt;<a href="http://lists.debian.org/debian-perl/2011/07/msg00002.html">http://lists.debian.org/debian-perl/2011/07/msg00002.html</a>&gt;
+Diversity outreach events for in-person programming meetups, like the Boston 
+Python Workshop that OpenHatch co-organizes 
+&lt;<a href="http://openhatch.org/wiki/Boston_Python_Workshop_3">http://openhatch.org/wiki/Boston_Python_Workshop_3</a>&gt;
+Parties to get newcomers involved in a free software project, like the Debian Bug 
+Squashing Party held at MIT in December 2008 &lt;<a href="http://lists.debian.org/debian-">http://lists.debian.org/debian-</a>
+devel/2008/12/<a href="msg00513">msg00513</a>.html&gt;
+Periodic meetings that are open to new contributors, like P2PU's weekly code 
+status meetings: <a href="https://github.com/p2pu/lernanta/wiki/Dev-Meetings-2011">https://github.com/p2pu/lernanta/wiki/Dev-Meetings-2011</a>
+(Theoretically) A free-of-cost hack fest that teaches how to use Adobe 
+Illustrator to design logos for free software projects.
+
+We're not particularly interested in events that simply teach how to use free 
+software. To qualify, you have to be teaching skills needed in free software 
+contribution (like programming) or directly getting people involved.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2252">msg2252 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-06.20:19:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I will try to work on this during the coming week.
+
+(Honestly it should take me 30 minutes to write a draft.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2217">msg2217 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-16.20:54:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I like writing things like this, so for now I will take it.
+
+I will ask for review+feedback from other people before it is "official".</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-08-16&nbsp;18:04:34</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg2313">msg2313</a></td></tr>
+<tr><td>2011-08-16&nbsp;00:38:10</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2312">msg2312</a></td></tr>
+<tr><td>2011-08-06&nbsp;20:19:59</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2252">msg2252</a></td></tr>
+<tr><td>2011-07-16&nbsp;20:54:48</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

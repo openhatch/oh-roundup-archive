@@ -1,0 +1,474 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 442: The listing of people in the sidebar on the map needs styling - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue442
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue442">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue442">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">The listing of people in the sidebar on the map needs styling</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, egor83, kjcole, palhmbs, pamselle, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>kjcole</td>
+ <th>Keywords</th>
+ <td>
+  bitesize, usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-06-05.20:46:32</b> by <b>palhmbs</b>, last changed <b>2012-05-02.23:20:41</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file478/0001-Adjusted-font-size-of-people-list-in-http-openhatch..patch">0001-Adjusted-font-size-of-people-list-in-http-openhatch..patch</a>
+  </td>
+  <td>
+   <span>kjcole</span>,
+   <span>2012-02-27.02:47:17</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file479/0002-changed-class-location-to-geocode.patch">0002-changed-class-location-to-geocode.patch</a>
+  </td>
+  <td>
+   <span>kjcole</span>,
+   <span>2012-02-27.02:48:37</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file495/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>kjcole</span>,
+   <span>2012-03-15.16:29:39</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3131">msg3131 (view)</a></th>
+   <th>Author: kjcole</th>
+   <th>Date: 2012-03-15.16:29:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On Wed, Mar 14, 2012 at 16:57, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; It could be that we need more styling, but this patch doesn't say what. So
+&gt; I'm
+&gt; marking it as resolved, and also adding two people as nosy who might have
+&gt; opinions as to what styling needs to be done.
+&gt;
+
+I've got neither style, nor class. ;-)
+
+My approach was to put the hooks in there for whomever wanted to tinker
+with the style and then put just enough style in to demonstrate it worked.
+The only guidance I had was something in the bug report that suggested
+"smaller" would be good.  So, have at it and enjoy.
+-- 
+Physical
+[image: [Photo: Kevin Cole]]
+Kevin Cole, RHCE &lt;<a href="http://launchpad.net/%7Ekjcole/">http://launchpad.net/%7Ekjcole/</a>&gt;
+Team Contact
+Ubuntu Linux DC "LoCo" &lt;<a href="http://dc.ubuntu-us.org/">http://dc.ubuntu-us.org/</a>&gt;
+Washington, DC (US)
+Virtual
+E-mail:kjcole (at) ubuntu•comWWW:<a href="http://dc.ubuntu-us.org/GPG">http://dc.ubuntu-us.org/GPG</a> Key ID:
+0xE6F332C7 &lt;<a href="http://research.gallaudet.edu/%7Ekjcole/pubkey.php">http://research.gallaudet.edu/%7Ekjcole/pubkey.php</a>&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3120">msg3120 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-14.20:57:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>It could be that we need more styling, but this patch doesn't say what. So I'm
+marking it as resolved, and also adding two people as nosy who might have
+opinions as to what styling needs to be done.
+
+That can be a different ticket.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3119">msg3119 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-14.20:47:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>kjcole, I merged this since it's a trivial patch. But really you should join
+OH-Dev and give us copyright sign-off!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3091">msg3091 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-12.21:12:45</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks, Kevin! One more thing -- can you grant us permission to share this work,
+as per <a href="http://openhatch.org/wiki/How_we_handle_patches">http://openhatch.org/wiki/How_we_handle_patches</a> ?
+
+Thanks!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3070">msg3070 (view)</a></th>
+   <th>Author: kjcole</th>
+   <th>Date: 2012-02-27.08:47:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Added myself to nosy and assigned.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3064">msg3064 (view)</a></th>
+   <th>Author: kjcole</th>
+   <th>Date: 2012-02-27.02:48:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>- changed class "location" to "geocode" in static/js/profile/map-v2.js and base/templates/base/base.html</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3063">msg3063 (view)</a></th>
+   <th>Author: kjcole</th>
+   <th>Date: 2012-02-27.02:47:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Adjusted font size of people list in <a href="http://openhatch.org/people/">http://openhatch.org/people/</a> by adding 
+"person" and "location" classses to static/js/profile/map-v2.js and adding 
+corresponding styles to base/templates/base/base.html</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2152">msg2152 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-03.03:24:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is pretty simple if you already have some familiarity with Django and 
+Javascript.
+
+When you visit <a href="http://openhatch.org/people/">http://openhatch.org/people/</a> , once the page finishes loading, the 
+people on the left appear in a pretty unstyled format.
+
+It'd be better to style the people there.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2042">msg2042 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-05.20:46:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>At the moment the people sidebar results start with styling then it loses it.
+
+Keep the styling, but reduce the font-size a little and also reduce the amount
+of results shown.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-05-02&nbsp;23:20:41</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved</td></tr>
+<tr><td>2012-03-15&nbsp;16:29:40</td><td>kjcole</td><td>set</td><td>files:
+  + <a href="file495">unnamed</a><br />messages:
+  + <a href="msg3131">msg3131</a></td></tr>
+<tr><td>2012-03-14&nbsp;20:57:16</td><td>paulproteus</td><td>set</td><td>status: resolved -> chatting<br />nosy:
+  + <a href="user4">aldeka</a>, <a href="user400">pamselle</a><br />messages:
+  + <a href="msg3120">msg3120</a></td></tr>
+<tr><td>2012-03-14&nbsp;20:47:16</td><td>paulproteus</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg3119">msg3119</a></td></tr>
+<tr><td>2012-03-12&nbsp;21:13:09</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress</td></tr>
+<tr><td>2012-03-12&nbsp;21:12:46</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3091">msg3091</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-02-27&nbsp;08:47:08</td><td>kjcole</td><td>set</td><td>assignedto: <a href="user375">kjcole</a><br />messages:
+  + <a href="msg3070">msg3070</a><br />nosy:
+  + <a href="user375">kjcole</a></td></tr>
+<tr><td>2012-02-27&nbsp;02:48:38</td><td>kjcole</td><td>set</td><td>files:
+  + <a href="file479">0002-changed-class-location-to-geocode.patch</a><br />messages:
+  + <a href="msg3064">msg3064</a></td></tr>
+<tr><td>2012-02-27&nbsp;02:47:19</td><td>kjcole</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file478">0001-Adjusted-font-size-of-people-list-in-http-openhatch..patch</a><br />messages:
+  + <a href="msg3063">msg3063</a></td></tr>
+<tr><td>2011-07-06&nbsp;21:20:12</td><td>egor83</td><td>set</td><td>nosy:
+  + <a href="user136">egor83</a></td></tr>
+<tr><td>2011-07-03&nbsp;03:24:20</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2152">msg2152</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:18:00</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-06-05&nbsp;20:53:24</td><td>palhmbs</td><td>set</td><td>keyword:
+  + <a href="keyword1">bitesize</a>, <a href="keyword7">usability</a></td></tr>
+<tr><td>2011-06-05&nbsp;20:46:32</td><td>palhmbs</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

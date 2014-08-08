@@ -1,0 +1,532 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 662: Latest snapshots fail to import - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue662
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue662">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue662">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Latest snapshots fail to import</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jacquiesue, paulproteus, walkerh
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>walkerh</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-01-23.04:11:18</b> by <b>jacquiesue</b>, last changed <b>2012-05-17.21:42:36</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file486/0001-Fix-hard-tabs-in-test-code.patch">0001-Fix-hard-tabs-in-test-code.patch</a>
+  </td>
+  <td>
+   <span>walkerh</span>,
+   <span>2012-03-14.19:50:43</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file487/0002-Add-small-static-json-snapshots-for-testing.patch">0002-Add-small-static-json-snapshots-for-testing.patch</a>
+  </td>
+  <td>
+   <span>walkerh</span>,
+   <span>2012-03-14.19:50:55</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file488/0003-Add-test-methods-to-exercise-snapshot-files.patch">0003-Add-test-methods-to-exercise-snapshot-files.patch</a>
+  </td>
+  <td>
+   <span>walkerh</span>,
+   <span>2012-03-14.19:51:06</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file489/0004-Fix-post_save-hook-for-Users-to-suppress-creating-Pe.patch">0004-Fix-post_save-hook-for-Users-to-suppress-creating-Pe.patch</a>
+  </td>
+  <td>
+   <span>walkerh</span>,
+   <span>2012-03-14.19:51:14</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file493/0005-Replace-now-broken-LoginWinOpenID-test-with-ProfileG.patch">0005-Replace-now-broken-LoginWinOpenID-test-with-ProfileG.patch</a>
+  </td>
+  <td>
+   <span>walkerh</span>,
+   <span>2012-03-15.00:02:56</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3256">msg3256 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-17.21:42:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I can verify that:
+
+* These patches are already included in oh-mainline
+
+* The latest snapshot does seem to import okay.
+
+With that, I'm closing this and marking it as such. Thanks to Walker for doing 
+the digging and patching!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3121">msg3121 (view)</a></th>
+   <th>Author: walkerh</th>
+   <th>Date: 2012-03-14.20:57:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Patch 0005 fixes the broken test, which was logically incorrect. (The test used a fixture that should 
+now be considered broken.)
+
+IMO, the test is still logically incorrect. I do not believe it is truly exercising the OpenID use case.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3118">msg3118 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-14.20:12:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Actually this test breaks the build. Walker is investigating.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3117">msg3117 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-14.20:07:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>walkerh's patches fix this, and they're shipped!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3116">msg3116 (view)</a></th>
+   <th>Author: walkerh</th>
+   <th>Date: 2012-03-14.19:52:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Done.
+
+Hopefully this is the last time someone submits bug fixes as attached patch files.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3113">msg3113 (view)</a></th>
+   <th>Author: walkerh</th>
+   <th>Date: 2012-03-14.16:49:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>New patch queue on the way that improves the test cases and fixes the bug.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3110">msg3110 (view)</a></th>
+   <th>Author: walkerh</th>
+   <th>Date: 2012-03-14.00:11:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Expressed bug as a failing test and two passing tests.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3105">msg3105 (view)</a></th>
+   <th>Author: walkerh</th>
+   <th>Date: 2012-03-13.21:59:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Test snaphots that expose the bug. All three versions should be loadable, but the last one crashes.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2928">msg2928 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-02.22:28:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Further information, perhaps relevant:
+
+The git commit 63934f24b1d59994cb3e46d6c4c2c0bd11f8d525 introduces a problem
+where our snapshots do not import using MySQL.
+
+We should add a Hudson check that tests if the latest nightly snapshot works;
+moreover, though, we need to fix the snapshots to work properly on both
+supported databases.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2908">msg2908 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-01-24.22:54:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks for reporting this. I've fixed the underlying problem, which is that the
+script that generated the snapshots was broken by the switch away from "buildout".
+
+I've fixed it, in that the snapshots get generated. However, there is something
+odd going on during the import phase, and I don't know what it is.
+
+Therefore, marking as in-progress.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2906">msg2906 (view)</a></th>
+   <th>Author: jacquiesue</th>
+   <th>Date: 2012-01-23.04:11:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I was following the 'Importing a data snapshot' wiki page and went to
+<a href="http://inside.openhatch.org/snapshots/">http://inside.openhatch.org/snapshots/</a> to download my first snapshot and I
+started getting errors during the loaddata step. After hopping on IRC, Asheesh
+helped me to realize that the snapshot was size 0. 
+
+Submitting a new issue to fix the snapshots.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-05-17&nbsp;21:42:36</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3256">msg3256</a></td></tr>
+<tr><td>2012-03-15&nbsp;00:02:56</td><td>walkerh</td><td>set</td><td>files:
+  + <a href="file493">0005-Replace-now-broken-LoginWinOpenID-test-with-ProfileG.patch</a></td></tr>
+<tr><td>2012-03-15&nbsp;00:02:40</td><td>walkerh</td><td>set</td><td>files:
+  - <a href="file490">0005-Fix-LoginWinOpenID-test.patch</a></td></tr>
+<tr><td>2012-03-14&nbsp;20:57:34</td><td>walkerh</td><td>set</td><td>status: reopened -> need-review<br />files:
+  + <a href="file490">0005-Fix-LoginWinOpenID-test.patch</a><br />messages:
+  + <a href="msg3121">msg3121</a></td></tr>
+<tr><td>2012-03-14&nbsp;20:12:54</td><td>paulproteus</td><td>set</td><td>status: resolved -> reopened<br />messages:
+  + <a href="msg3118">msg3118</a></td></tr>
+<tr><td>2012-03-14&nbsp;20:07:01</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />assignedto: <a href="user3">paulproteus</a> -> <a href="user393">walkerh</a><br />messages:
+  + <a href="msg3117">msg3117</a><br />nosy:
+  + <a href="user393">walkerh</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-03-14&nbsp;19:52:44</td><td>walkerh</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg3116">msg3116</a></td></tr>
+<tr><td>2012-03-14&nbsp;19:51:14</td><td>walkerh</td><td>set</td><td>files:
+  + <a href="file489">0004-Fix-post_save-hook-for-Users-to-suppress-creating-Pe.patch</a></td></tr>
+<tr><td>2012-03-14&nbsp;19:51:06</td><td>walkerh</td><td>set</td><td>files:
+  + <a href="file488">0003-Add-test-methods-to-exercise-snapshot-files.patch</a></td></tr>
+<tr><td>2012-03-14&nbsp;19:50:55</td><td>walkerh</td><td>set</td><td>files:
+  + <a href="file487">0002-Add-small-static-json-snapshots-for-testing.patch</a></td></tr>
+<tr><td>2012-03-14&nbsp;19:50:43</td><td>walkerh</td><td>set</td><td>files:
+  + <a href="file486">0001-Fix-hard-tabs-in-test-code.patch</a></td></tr>
+<tr><td>2012-03-14&nbsp;19:48:30</td><td>walkerh</td><td>set</td><td>files:
+  - <a href="file480">0002-Add-small-static-snapshots-for-testing.patch</a></td></tr>
+<tr><td>2012-03-14&nbsp;19:48:27</td><td>walkerh</td><td>set</td><td>files:
+  - <a href="file484">0001-Add-test-methods-for-snapshot-files-and-adjust-one-s.patch</a></td></tr>
+<tr><td>2012-03-14&nbsp;16:49:13</td><td>walkerh</td><td>set</td><td>messages:
+  + <a href="msg3113">msg3113</a></td></tr>
+<tr><td>2012-03-14&nbsp;00:11:40</td><td>walkerh</td><td>set</td><td>files:
+  + <a href="file484">0001-Add-test-methods-for-snapshot-files-and-adjust-one-s.patch</a><br />messages:
+  + <a href="msg3110">msg3110</a></td></tr>
+<tr><td>2012-03-13&nbsp;21:59:39</td><td>walkerh</td><td>set</td><td>files:
+  + <a href="file480">0002-Add-small-static-snapshots-for-testing.patch</a><br />messages:
+  + <a href="msg3105">msg3105</a></td></tr>
+<tr><td>2012-02-08&nbsp;00:58:28</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone14">0.11.12</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2012-02-02&nbsp;22:28:56</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2928">msg2928</a></td></tr>
+<tr><td>2012-01-24&nbsp;22:54:22</td><td>paulproteus</td><td>set</td><td>status: unread -> in-progress<br />assignedto: <a href="user3">paulproteus</a><br />title: After 28-Dec-2011 snapshots are empty -> Latest snapshots fail to import<br />messages:
+  + <a href="msg2908">msg2908</a><br />milestone: <a href="milestone14">0.11.12</a></td></tr>
+<tr><td>2012-01-23&nbsp;04:11:18</td><td>jacquiesue</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

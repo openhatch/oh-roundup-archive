@@ -1,0 +1,536 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 429: SVN Mission - Diff Step doesn't work with a valid svn diff - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue429
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue429">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue429">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">SVN Mission - Diff Step doesn't work with a valid svn diff</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>critical</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  2mas, grantbow, palhmbs, paulproteus, trebon
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-05-17.04:34:22</b> by <b>palhmbs</b>, last changed <b>2012-05-14.18:11:45</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file509/diff_mission_fail.patch">diff_mission_fail.patch</a>
+  </td>
+  <td>
+   <span>slandden</span>,
+   <span>2012-05-13.22:42:58</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3240">msg3240 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-14.18:11:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>With Shawn's ACK while sprinting remotely, I've fixed this issue. Thanks all for 
+the testing, and sorry it managed to stay broken. ):</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3239">msg3239 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-13.23:21:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Pull request here: <a href="https://github.com/openhatch/oh-mainline/pull/30">https://github.com/openhatch/oh-mainline/pull/30</a>
+
+This fixes the underlying subtle issue about our manage.py being dumb. As a side 
+note, if we never tried to support Heroku, we wouldn't have gotten into this 
+mess.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3238">msg3238 (view)</a></th>
+   <th>Author: slandden</th>
+   <th>Date: 2012-05-13.22:42:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>seems like there are the diff mission in general needs some work
+
+generated with diff -u diffsingle.txt diffsingle-modified.txt &gt;
+diff_mission_fail.patch
+
+and my diffsingle-modified.txt and the git diffsingle_result.txt have the same hash.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3237">msg3237 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-13.22:38:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Good news! I can reproduce the problem on a local instance of the site. Working 
+on identifying the cause now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3231">msg3231 (view)</a></th>
+   <th>Author: grantbow</th>
+   <th>Date: 2012-05-13.18:24:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I heard this might have something to do with initializing the svn repos that get
+checked out for new users. I have no visibility to test or work on the server
+aspect but I can help test the end user side of things.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3202">msg3202 (view)</a></th>
+   <th>Author: grantbow</th>
+   <th>Date: 2012-05-09.22:01:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have used a lot of bug systems but I find no sure clues to make sure I append a 
+comment and not change existing bug elements.
+
+I just tried but after trying many different permutations of white space and content I 
+was unable to gef my svn diff output accepted as input to the we  page.
+
+Can the error messages be made more helpful? The two different ones I got were 
+cryptic.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3199">msg3199 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-09.21:42:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So... this works for me. I wonder what is going on with trebon's and grantbow's 
+systems.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3198">msg3198 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-09.21:40:30</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I got an email from Grant Bow suggesting the problem remains... I'll see if I can 
+reproduce it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3172">msg3172 (view)</a></th>
+   <th>Author: trebon</th>
+   <th>Date: 2012-04-18.18:00:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Using Win7 and Notepad++, the form returns "The patch affects the wrong file."
+after submitting a diff affecting only README. The output can be found
+here:<a href="http://pastebin.com/FPnUnmWY">http://pastebin.com/FPnUnmWY</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1907">msg1907 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-27.23:15:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just wrote a test for this, and code to ace the test:
+
+<a href="http://gitorious.org/openhatch/oh-">http://gitorious.org/openhatch/oh-</a>
+mainline/commit/19fca5fca871aa6711c249ab5fb12a92190cdc1a
+
+Will deploy once Hudson likes it. Marking as resolved!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1874">msg1874 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-20.02:33:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I keep having trouble writing a test case for this, for some reason, so I can
+never quite figure out exactly how to fix it. People run it into this issue
+fairly frequently, I fear, so I'm glad there's a bug about it.
+
+2mas, can I interest you in trying to write an automated test for it? Then we
+can nip it in the bud: the test will fail; we'll fix the subversion mission; the
+test will pass; we'll deploy.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1872">msg1872 (view)</a></th>
+   <th>Author: cmaj135</th>
+   <th>Date: 2011-05-17.05:17:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>1. svn diff &gt;foo
+2. then open file file foo with Notepad++(or other edit 
+tools)
+3. Ctrl+A of what you select and paste in the textarea
+so it can work
+
+Note:
+I see the blank line at the end,I think it must be 
+included or the error will occur</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1871">msg1871 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-17.05:10:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, the person who had problems with this mission step (t_p on IRC),
+figured it out.
+It was the age old bug of not having the return at the end of the diff.
+
+Maybe we should make that bit clearer!?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1870">msg1870 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-17.04:34:21</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The SVN mission doesn't seem to be accepting a valid svn diff.
+
+eg:
+$ svn diff
+Index: README
+===================================================================
+--- README      (revision 3)
++++ README      (working copy)
+@@ -1,5 +1,5 @@
+ The secret word needed to infiltrate the compound is in word.txt. You
+-also will need to be wearing a red hat.  Good luck on your mision!
++also will need to be wearing a red hat.  Good luck on your mission!
+
+   -- Mr. Bad
+
+Should be valid, but something broke, so its not.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-05-14&nbsp;18:11:45</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3240">msg3240</a></td></tr>
+<tr><td>2012-05-13&nbsp;23:21:59</td><td>paulproteus</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg3239">msg3239</a></td></tr>
+<tr><td>2012-05-13&nbsp;22:42:58</td><td>slandden</td><td>set</td><td>files:
+  + <a href="file509">diff_mission_fail.patch</a><br />messages:
+  + <a href="msg3238">msg3238</a></td></tr>
+<tr><td>2012-05-13&nbsp;22:38:30</td><td>paulproteus</td><td>set</td><td>status: reopened -> in-progress<br />messages:
+  + <a href="msg3237">msg3237</a></td></tr>
+<tr><td>2012-05-13&nbsp;18:24:49</td><td>grantbow</td><td>set</td><td>messages:
+  + <a href="msg3231">msg3231</a></td></tr>
+<tr><td>2012-05-09&nbsp;22:01:49</td><td>grantbow</td><td>set</td><td>messages:
+  + <a href="msg3202">msg3202</a></td></tr>
+<tr><td>2012-05-09&nbsp;21:42:45</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user431">trebon</a>, <a href="user447">grantbow</a><br />messages:
+  + <a href="msg3199">msg3199</a></td></tr>
+<tr><td>2012-05-09&nbsp;21:40:31</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3198">msg3198</a><br />milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-04-18&nbsp;18:00:23</td><td>trebon</td><td>set</td><td>status: resolved -> reopened<br />messages:
+  + <a href="msg3172">msg3172</a></td></tr>
+<tr><td>2011-05-27&nbsp;23:15:42</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg1907">msg1907</a></td></tr>
+<tr><td>2011-05-20&nbsp;02:33:29</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1874">msg1874</a></td></tr>
+<tr><td>2011-05-17&nbsp;05:17:52</td><td>cmaj135</td><td>set</td><td>messages:
+  + <a href="msg1872">msg1872</a></td></tr>
+<tr><td>2011-05-17&nbsp;05:10:20</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1871">msg1871</a></td></tr>
+<tr><td>2011-05-17&nbsp;04:34:22</td><td>palhmbs</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

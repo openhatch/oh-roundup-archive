@@ -1,0 +1,489 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 411: Diff mission assumes knowledge - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue411
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue411">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue411">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Diff mission assumes knowledge</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  Diff/patch mission needs a plot
+  
+  <span>
+   <br><span>View:</span>
+     <a href="issue641">641</a>
+  </span>
+ </td>
+ <th>Nosy List</th>
+ <td>
+  2mas, jessica, kracekumar, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>kracekumar</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-05-01.02:22:00</b> by <b>jessica</b>, last changed <b>2012-01-21.23:49:46</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file322/0001-Done-with-adding-abbr-tag-in-missions-template-direc.patch">0001-Done-with-adding-abbr-tag-in-missions-template-direc.patch</a>
+  </td>
+  <td>
+   <span>kracekumar</span>,
+   <span>2011-06-03.18:07:40</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file329/0002-Done-with-abbr-typo-mistakes.patch">0002-Done-with-abbr-typo-mistakes.patch</a>
+  </td>
+  <td>
+   <span>kracekumar</span>,
+   <span>2011-06-05.19:57:00</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2903">msg2903 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-01-21.23:49:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This patch series doesn't apply anymore, and furthermore we're going to rewrite
+the diff/patch mission to have a plot: <a href="http://openhatch.org/bugs/issue641">http://openhatch.org/bugs/issue641</a>
+
+So I'm closing this as resolved for now, as it is superceded by <a href="issue641">issue641</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2638">msg2638 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-10.00:09:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This patch needs feedback. I will look into that shortly.
+
+It didn't make it for 0.11.10 yet.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2553">msg2553 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-01.05:50:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We should figure out exactly what changes are needed here, and then ship them
+soon. Pushing to 0.11.10 because it's not shipped yet, and here we are in October.
+
+I'd like to make sure we review this bug when writing
+<a href="https://openhatch.org/wiki/Missions_pedagogy">https://openhatch.org/wiki/Missions_pedagogy</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2039">msg2039 (view)</a></th>
+   <th>Author: kracekumar</th>
+   <th>Date: 2011-06-05.19:57:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I had corrected few typo mistakes in previous patch.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2037">msg2037 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-05.19:22:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>[15:18:00] &lt;paulproteus&gt; shiftingcontrol: Hi! I saw your patches.
+[15:18:07] &lt;paulproteus&gt; I have to run, but I have some quick feedback for you.
+[15:18:13] &lt;paulproteus&gt; HTML-wise, you made good changes.
+[15:18:21] &lt;shiftingcontrol&gt; paulproteus, yea i am waiting for
+[15:18:55] &lt;paulproteus&gt; Your English style isn't perfect, though.
+[15:19:10] &lt;shiftingcontrol&gt; paulproteus, yea i agree with that
+[15:19:26] &lt;paulproteus&gt; You misspelled &lt;abbr&gt; as &lt;abrr&gt; in one case, and you 
+do not put spaces after punctuation.
+[15:19:32] &lt;paulproteus&gt; Those have to be fixed before I can deploy this.
+[15:20:03] &lt;paulproteus&gt; I would suggest to you that you focus on code-oriented 
+changes rather than English style fixes for now.
+[15:20:14] &lt;shiftingcontrol&gt; paulproteus, ok i will do that and submit it as 
+another patch.even i felt that
+[15:20:29] &lt;paulproteus&gt; One thing you could do is ask people on the mailing 
+list for advice on the English text.
+[15:20:42] &lt;shiftingcontrol&gt; paulproteus, done. . .
+[15:21:10] &lt;paulproteus&gt; It would be a bit communication-heavy, though, so if 
+you'd want to stick to purely-code changes, you'll find it more efficient. If 
+you want to be making English language style-type fixes, then you'll need to 
+get feedback on the text first.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2020">msg2020 (view)</a></th>
+   <th>Author: kracekumar</th>
+   <th>Date: 2011-06-03.18:07:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I had completed adding &lt;abbr&gt; tag to respective &lt;a href&gt; in the diff
+missions.Here is the patch file.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2016">msg2016 (view)</a></th>
+   <th>Author: kracekumar</th>
+   <th>Date: 2011-06-03.17:13:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I had completed adding &lt;abbr&gt; tag to respective &lt;a href&gt; in the diff
+missions.Now what should I do ?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1998">msg1998 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-01.23:06:08</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thomas / iAmerikan: Are you interested?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1797">msg1797 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-01.10:17:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think we really should invite somebody new to do this!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1784">msg1784 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-01.08:21:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I totally agree.
+
+This is pretty easy for a new contributor: you'd get to know the templates 
+system, and fix an issue that makes it easier to learn through our 
+site.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1776">msg1776 (view)</a></th>
+   <th>Author: jessica</th>
+   <th>Date: 2011-05-01.02:22:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On <a href="https://openhatch.org/missions/diffpatch/single_patch">https://openhatch.org/missions/diffpatch/single_patch</a>
+
+I suggest that there be a hint or such for how to do that like some of the other
+missions do.
+
+Also, suggest that "Unpack the tarball" have a hint/link to the tar mission.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-01-21&nbsp;23:49:46</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />superseder:
+  + <a href="issue641">Diff/patch mission needs a plot</a><br />messages:
+  + <a href="msg2903">msg2903</a></td></tr>
+<tr><td>2011-11-10&nbsp;00:09:27</td><td>paulproteus</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg2638">msg2638</a><br />milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-10-01&nbsp;05:50:08</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2553">msg2553</a><br />milestone: <a href="milestone11">0.11.09</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-09-05&nbsp;21:39:03</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone11">0.11.09</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:41:15</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone10">0.11.07</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:44:21</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-06-05&nbsp;19:57:00</td><td>kracekumar</td><td>set</td><td>files:
+  + <a href="file329">0002-Done-with-abbr-typo-mistakes.patch</a><br />messages:
+  + <a href="msg2039">msg2039</a></td></tr>
+<tr><td>2011-06-05&nbsp;19:22:36</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2037">msg2037</a></td></tr>
+<tr><td>2011-06-04&nbsp;08:10:39</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user157">kracekumar</a><br />nosy:
+  + <a href="user157">kracekumar</a></td></tr>
+<tr><td>2011-06-03&nbsp;18:07:41</td><td>kracekumar</td><td>set</td><td>files:
+  + <a href="file322">0001-Done-with-adding-abbr-tag-in-missions-template-direc.patch</a><br />messages:
+  + <a href="msg2020">msg2020</a></td></tr>
+<tr><td>2011-06-03&nbsp;17:13:37</td><td>kracekumar</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg2016">msg2016</a></td></tr>
+<tr><td>2011-06-01&nbsp;23:06:09</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user121">2mas</a><br />messages:
+  + <a href="msg1998">msg1998</a></td></tr>
+<tr><td>2011-05-28&nbsp;21:57:46</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-05-01&nbsp;10:17:20</td><td>palhmbs</td><td>set</td><td>nosy:
+  + <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1797">msg1797</a><br />milestone: <a href="milestone8">0.11.05</a></td></tr>
+<tr><td>2011-05-01&nbsp;08:21:54</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg1784">msg1784</a></td></tr>
+<tr><td>2011-05-01&nbsp;02:22:00</td><td>jessica</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

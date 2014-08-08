@@ -1,0 +1,530 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 632: OpenHatch web server is double-compressing tar.gz files - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue632
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue632">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue632">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">OpenHatch web server is double-compressing tar.gz files</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.12.02</td>
+ <th class="required">Priority</th>
+ <td>critical</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, cmbryan, jesstess, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-12-02.08:14:35</b> by <b>aldeka</b>, last changed <b>2012-02-13.10:52:45</b> by <b>cmbryan</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file460/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>pythonian4000</span>,
+   <span>2012-02-08.04:21:55</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2990">msg2990 (view)</a></th>
+   <th>Author: cmbryan</th>
+   <th>Date: 2012-02-13.10:52:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yep, all good here too!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2988">msg2988 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-13.04:03:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The problem here was that our Apache configuration was explicitly adding the
+DEFLATE OutputFilter. This isn't actually a reasonable thing to do; nginx, the
+front-end web server, now handles compression for us.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2987">msg2987 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-13.03:58:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey cmbryan -- I just adjusted our Apache configuration. Can you please give it
+a fresh shot?
+
+I did test the fix, but I want you to test it too, so that I can be double-sure
+it's addressed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2986">msg2986 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-13.03:45:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi cmbryan,
+I can't reproduce the problem you're having with wget. This works fine:
+
+ wget <a href="https://openhatch.org/missions/tar/ghello-0.4.tar.gz">https://openhatch.org/missions/tar/ghello-0.4.tar.gz</a>
+ tar xvzf ghello-0.4.tar.gz
+
+BUT I *can* reproduce the problem by clicking on the ghello-0.4.tar.gz link in
+my web browser! I'll now see what I can do address the issue.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2944">msg2944 (view)</a></th>
+   <th>Author: pythonian4000</th>
+   <th>Date: 2012-02-08.04:21:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>If you add the -z flag to the tar command, it calls gzip / gunzip as
+required.
+On 8/02/2012 10:48 AM, "cmbryan" &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; cmbryan &lt;<a href="mailto:chrismbryan@gmail.com">chrismbryan@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; Hi again, found a solution by running 'gunzip' on the archive, followed by
+&gt; the
+&gt; usual tar. Surely this should be included in the hints?
+&gt;
+&gt; ----------
+&gt; status: reopened -&gt; need-review
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue632">https://openhatch.org/bugs/issue632</a>&gt;
+&gt; __________________________________________
+&gt; _______________________________________________
+&gt; Devel mailing list
+&gt; <a href="mailto:Devel@lists.openhatch.org">Devel@lists.openhatch.org</a>
+&gt; <a href="http://lists.openhatch.org/mailman/listinfo/devel">http://lists.openhatch.org/mailman/listinfo/devel</a>
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2940">msg2940 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-07.21:49:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Fundamentally that's a bug with the mission that you're working around. 
+I'll see if I can fix the web server so this problem goes away shortly!
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2939">msg2939 (view)</a></th>
+   <th>Author: cmbryan</th>
+   <th>Date: 2012-02-07.21:48:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi again, found a solution by running 'gunzip' on the archive, followed by the 
+usual tar. Surely this should be included in the hints?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2938">msg2938 (view)</a></th>
+   <th>Author: cmbryan</th>
+   <th>Date: 2012-02-06.12:54:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi, I'm still unable to unpack: tar xvzf ghello-0.4.tar.gz gives:
+
+tar: This does not look like a tar archive
+tar: Skipping to next header
+tar: Exiting with failure status due to previous errors
+
+Feeling like a noob, I've certainly worked with tarballs enough! ;)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2778">msg2778 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-04.22:02:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I just rebased this branch, merged it, deployed it, and afterward changed "tar
+xvfz" to "tar xvzf" because of a personal preference.
+
+Yay! Thanks Karen and Jessica for finding and fixing these issues.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2772">msg2772 (view)</a></th>
+   <th>Author: jesstess4</th>
+   <th>Date: 2011-12-04.20:30:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Branch jesstess has a commit series for this ticket that:
+
+1. Adjusts the unpack hint
+2. Fixes the upload issues on reset tar missions
+3. Adds tests for completing reset tar missions
+
+I tested the changes manually and ran the test suite.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2763">msg2763 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-12-04.17:37:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>For (2) and (3), it looks like the issue only exists when you reset the mission section after having 
+already completed it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2756">msg2756 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-12-02.18:36:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>1. tar zxvf ghello-0.4.tar.gz, not tar xvf, works on Mac. We should update our hint to reflect that.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2755">msg2755 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2011-12-02.08:14:34</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I tested out the tar mission on the live site as part of my pedagogy audit. Every step of the mission 
+was broken, on my Mac at least. I'll have to try to duplicate on Linux later...
+
+1. I downloaded the provided tarball and attempted to open it from the command line. No matter 
+what I tried, the command line tar utility gave me a "This does not look like a tar archive" error. 
+Even renaming the file didn't help. I eventually double-clicked the tarball using the GUI and was 
+able to unpackage the tarball that way, but that's just silly.
+
+2. I tried to upload ghello.c. Hitting the upload button apparently did nothing -- the page simply 
+reloaded/reset. Either something was wrong with my file (in which case, the lack of any error 
+message at all is a big problem), or the uploader is just completely busted.
+
+3. I tried to upload myproject-0.1.tar.gz as part of the second half of the mission. It also failed to 
+upload, the same way as ghello.c before it.
+
+Pedagogy audit FAIL.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-02-13&nbsp;10:52:45</td><td>cmbryan</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2990">msg2990</a></td></tr>
+<tr><td>2012-02-13&nbsp;04:03:19</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2988">msg2988</a><br />title: Tar mission entirely broken -> OpenHatch web server is double-compressing tar.gz files</td></tr>
+<tr><td>2012-02-13&nbsp;03:58:28</td><td>paulproteus</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg2987">msg2987</a></td></tr>
+<tr><td>2012-02-13&nbsp;03:45:52</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user349">cmbryan</a></td></tr>
+<tr><td>2012-02-13&nbsp;03:45:40</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2986">msg2986</a><br />milestone: <a href="milestone13">0.11.11</a> -> <a href="milestone15">0.12.02</a></td></tr>
+<tr><td>2012-02-08&nbsp;04:21:56</td><td>pythonian4000</td><td>set</td><td>files:
+  + <a href="file460">unnamed</a><br />messages:
+  + <a href="msg2944">msg2944</a></td></tr>
+<tr><td>2012-02-07&nbsp;21:49:35</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2940">msg2940</a></td></tr>
+<tr><td>2012-02-07&nbsp;21:48:04</td><td>cmbryan</td><td>set</td><td>status: reopened -> need-review<br />messages:
+  + <a href="msg2939">msg2939</a></td></tr>
+<tr><td>2012-02-06&nbsp;12:54:02</td><td>cmbryan</td><td>set</td><td>status: resolved -> reopened<br />assignedto: <a href="user12">jesstess</a> -> <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2938">msg2938</a></td></tr>
+<tr><td>2011-12-04&nbsp;22:02:10</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />assignedto: <a href="user12">jesstess</a><br />messages:
+  + <a href="msg2778">msg2778</a><br />milestone: <a href="milestone13">0.11.11</a></td></tr>
+<tr><td>2011-12-04&nbsp;20:30:41</td><td>jesstess4</td><td>set</td><td>status: chatting -> need-review<br />assignedto: <a href="user12">jesstess</a> -> (no value)<br />messages:
+  + <a href="msg2772">msg2772</a></td></tr>
+<tr><td>2011-12-04&nbsp;17:37:18</td><td>jesstess</td><td>set</td><td>messages:
+  + <a href="msg2763">msg2763</a></td></tr>
+<tr><td>2011-12-04&nbsp;17:13:59</td><td>jesstess</td><td>set</td><td>assignedto: <a href="user12">jesstess</a><br />nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2011-12-02&nbsp;18:36:46</td><td>aldeka</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2756">msg2756</a></td></tr>
+<tr><td>2011-12-02&nbsp;08:14:35</td><td>aldeka</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

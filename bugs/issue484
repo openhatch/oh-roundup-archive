@@ -1,0 +1,379 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 484: Crasher bug in the diffsingle training mission - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue484
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue484">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue484">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Crasher bug in the diffsingle training mission</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.07</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  jesstess, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>jesstess</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-07-16.04:02:49</b> by <b>paulproteus</b>, last changed <b>2011-08-21.16:40:48</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file385/0001-If-a-diffpatch-diff-is-submitted-without-diff-header.patch">0001-If-a-diffpatch-diff-is-submitted-without-diff-header.patch</a>
+  </td>
+  <td>
+   <span>jesstess</span>,
+   <span>2011-08-21.01:32:52</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2368">msg2368 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-21.16:40:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is deployed now. Turns out your fix was pretty simple!
+
+I agree that we've done a not-so-great thing by just including this patch.py
+library from <a href="http://code.google.com/p/python-patch/">http://code.google.com/p/python-patch/</a>
+
+Back when we got it, I think it felt abandoned, and I think it didn't have a
+setup.py (although my memory is hazy). It seems quite active now!
+<a href="http://code.google.com/p/python-patch/source/list?num=25&amp;start=121">http://code.google.com/p/python-patch/source/list?num=25&amp;start=121</a>
+
+We should work on upstreaming our slight changes in this case and/or just
+ditching our version and running the test suite with upstream's version listed
+as a dependency.
+
+I'll mark that as a different bug: <a href="issue562">issue562</a> . For now, this is resolved!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2359">msg2359 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-08-21.01:32:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The crash can be exercised by submitting anything that lacks diff headers.
+
+Attached is a patch with a unit test that prints a hint to include those headers instead of crashing. 
+This bug also existed for the diffrecursive sub-mission and is fixed by this patch.
+
+I have some commentary on our use of mysite/missions/base/patch.py: we seem to be using code 
+copied from <a href="http://code.google.com/p/python-patch/.">http://code.google.com/p/python-patch/.</a> A) this means we aren't seeing upstream 
+fixes unless someone is remembering to pull them in regularly, B) I think the line-by-line parsing is 
+overkill for the kind of validation we need, and C) it has a bunch of todos and no unit tests, which 
+suggests that there are more bugs lurking.
+
+If more bugs crop up, we should consider moving to simpler validation.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2203">msg2203 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-16.04:02:49</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here's the stack trace from a few minutes ago:
+
+Traceback (most recent call last):
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/core/handlers/base.py",
+line 100, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+
+  File
+"/home/deploy/milestone-a.buildout/parts/production/django/contrib/auth/decorators.py",
+line 25, in
+_wrapped_view
+    return view_func(request, *args, **kwargs)
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/diffpatch/views.py",
+line 69, in diffsingle_submit
+    controllers.DiffSingleFileMission.validate_patch(form.cleaned_data['diff'])
+
+  File
+"/home/deploy/milestone-a.buildout/mysite/missions/diffpatch/controllers.py",
+line 31, in validate_patch
+    the_patch = patch.fromstring(patchdata)
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/base/patch.py", line
+67, in fromstring
+    return Patch( StringIO(s) )
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/base/patch.py", line
+118, in __init__
+    self.parse(stream)
+
+  File "/home/deploy/milestone-a.buildout/mysite/missions/base/patch.py", line
+325, in parse
+    self.hunks[nextfileno-1].append(hunkinfo.copy())
+
+IndexError: list index out of range
+
+This is the POST data that was submitted:
+
+POST:&lt;QueryDict: {u'diff': [u"This mission is to have you make modifications to
+a file and submit a\r\ndiff of
+them. The changes may seem a bit silly, but they will cause the\r\ndiff to
+contain examples of different types of
+changes - additions,\r\ndeletions, and changes. Here is what we want you to do
+to this file:\r\n\r\n  1.  Keep an
+unmodified copy of this file handy; you'll need it to\r\n      make the diff
+once you're finished.\r\n\r\n  2.  Try
+to keep the formatting intact, as the result file will be\r\n      compared
+character-for-character. There is
+exactly one blank line\r\n      between each paragraph and bullet point, and all
+indentation is\r\n      done with
+spaces. There is never trailing whitespace.\r\n\r\n  3.  Delete this step (and
+the blank line below it). (Don't
+renumber the\r\n      ones below it.)\r\n\r\n  4.  Leave this step the way it
+is.\r\n\r\n  5.  Move this step so it
+comes between #1 and #2. (Again, don't\r\n      renumber the steps.)\r\n\r\n  6.  
+ Make an exact copy of this step and place it before #1; change the\r\n     
+copy's step number to be 0.\r\n\r\n
+7.  There is a typo in this step, which oyu should fix.\r\n\r\n  8.  Save the
+changes and make a unified diff of
+your changes using the\r\n      diff command. Submit the diff on the page from
+which you obtained\r\n      this
+file.\r\n\r\nGood luck!\r\n"]}&gt;,
+
+To fix this, you should first write a test that reproduces the crash. Then,
+change the code until the test passes.
+<a href="http://openhatch.org/wiki/Automated_testing">http://openhatch.org/wiki/Automated_testing</a> explains how we do testing in the code.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-08-21&nbsp;16:40:48</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2368">msg2368</a><br />milestone: <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-08-21&nbsp;01:32:54</td><td>jesstess</td><td>set</td><td>status: in-progress -> need-review<br />files:
+  + <a href="file385">0001-If-a-diffpatch-diff-is-submitted-without-diff-header.patch</a><br />messages:
+  + <a href="msg2359">msg2359</a></td></tr>
+<tr><td>2011-08-21&nbsp;00:27:33</td><td>jesstess</td><td>set</td><td>status: unread -> in-progress<br />assignedto: <a href="user12">jesstess</a><br />nosy:
+  + <a href="user12">jesstess</a></td></tr>
+<tr><td>2011-07-16&nbsp;04:02:49</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

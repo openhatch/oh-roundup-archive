@@ -1,0 +1,371 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 752: WordPress theme is out-of-date compared to main site - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue752
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue752">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue752">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">WordPress theme is out-of-date compared to main site</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, paulproteus, pythonian4000
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-07-29.21:03:48</b> by <b>paulproteus</b>, last changed <b>2012-08-31.19:03:55</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3380">msg3380 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-08-31.19:03:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The new WordPress theme is live, so marking this as resolved!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3347">msg3347 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-31.06:34:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Glad you generally like it!
+
+Note that since this can be generated by-hand, the rendering of "less" 
+into CSS server-side isn't a blocker.
+
+I figure we should let people comment, if they want to, on the 
+OH-Publicity thread about this, and if there are no objections, Karen, 
+would you do the honors of generating a new WordPress theme and jamming it 
+into place on, say, Wed or Thu?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3346">msg3346 (view)</a></th>
+   <th>Author: aldeka</th>
+   <th>Date: 2012-07-31.06:30:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Docs mostly makes sense to me; haven't read the code yet. 
+
+I'm somewhat shocked that we only need index.php, not other pages, and somewhat worried 
+about how the comments and sidebar widgets will end up looking, but I can look into that more 
+later.
+
+We should prioritize getting less to be generated server-side so we can add this to our deploy 
+script.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3341">msg3341 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-30.01:54:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Status update:
+
+* Jack (pythonian4000) has reviewed and helped me push my new Django views.
+
+* Little tool to do the conversion is written.
+
+* Process is documented (more on that below)
+
+The process is awaiting an ACK from Karen, as our frontend denizen.
+
+(It's also waiting on someone to review this set of style etc. tweaks: 
+<a href="https://github.com/openhatch/oh-mainline/pull/52">https://github.com/openhatch/oh-mainline/pull/52</a> )
+
+Karen -- would you be willing to read these two docs:
+
+* <a href="http://openhatch.readthedocs.org/en/latest/internals/wordpress.html">http://openhatch.readthedocs.org/en/latest/internals/wordpress.html</a>
+
+* <a href="https://github.com/paulproteus/oh-wordpress-">https://github.com/paulproteus/oh-wordpress-</a>
+theme/blob/master/OpenHatch_blog_theming.rst
+
+and let me know if they make sense to you?
+
+If they do make sense, then I'd like your feedback on the new theme, and 
+optionally your patches, and then to see it deployed.
+
+We can work on automating more of the deployment process in the future; one thing 
+at a time.
+
+Feel free to schedule a time to do this with me around, in person. But if you are 
+mobile and only have access to a web browser, feel free to get started by reading 
+the two above-linked bits of documentation!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3340">msg3340 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-29.21:03:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The WordPress theme looks reasonably okay, but right now it's out-of-date with 
+regard to the main site. In particular, the footer at the bottom isn't in sync 
+with the main site's footer. It'd be great if the blog theme were in sync with 
+the main site theme.
+
+Additionally, the WordPress theme has other problems:
+
+* It's not available in public version control.
+* We don't document how to change it.
+
+My current plan for how to change it involves writing a tool to convert our 
+Django theme into a WordPress theme. In particular:
+
+* First, I will add a Django view that generates a stub page with a few fill-in-
+the-blank pieces.
+
+* Then, I will write a little tool that converts these stub pages into a 
+WordPress-compatible theme directory.
+
+* Then, I will document the process for modifying our WordPress theme.
+
+* Then I will request review on all that. I will update this ticket as this plan 
+progresses, and feedback here is extremely welcome!
+
+(I realize the importance of this may be low -- hence priority == wish -- but I 
+think it's fun, and it's Sunday, and it will have the advantage of making it 
+easier to test style updates against the blog. We've had a long-standing problem 
+of CSS changes sometimes breaking the blog view, and we care a lot about the blog 
+looking reasonable.)</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-08-31&nbsp;19:03:55</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3380">msg3380</a></td></tr>
+<tr><td>2012-07-31&nbsp;06:34:39</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3347">msg3347</a></td></tr>
+<tr><td>2012-07-31&nbsp;06:30:20</td><td>aldeka</td><td>set</td><td>messages:
+  + <a href="msg3346">msg3346</a></td></tr>
+<tr><td>2012-07-30&nbsp;01:54:16</td><td>paulproteus</td><td>set</td><td>status: unread -> need-review<br />nosy:
+  + <a href="user34">pythonian4000</a><br />messages:
+  + <a href="msg3341">msg3341</a></td></tr>
+<tr><td>2012-07-29&nbsp;23:27:35</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user4">aldeka</a></td></tr>
+<tr><td>2012-07-29&nbsp;21:03:48</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,323 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 699: Switch OpenID login backend to django-socialauth, away from django_authopenid - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue699
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue699">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue699">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Switch OpenID login backend to django-socialauth, away from django_authopenid</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  annalee, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-02-25.20:25:58</b> by <b>annalee</b>, last changed <b>2012-07-02.21:27:34</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file494/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>paulproteus</span>,
+   <span>2012-03-15.01:50:07</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3307">msg3307 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-02.21:27:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I can reproduce this, and I'm going to conclude that it's not bitesize at all.
+
+The best thing to do is to switch the backend we're using to something that's 
+maintained. django_authopenid (that we use now) is unmaintained. django-
+socialauth &lt;<a href="http://django-social-auth.readthedocs.org/en/latest/index.html">http://django-social-auth.readthedocs.org/en/latest/index.html</a>&gt; is 
+under active maintenance.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3130">msg3130 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-03-15.01:50:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Totally a bug! I think there may already be a ticket for something similar.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3126">msg3126 (view)</a></th>
+   <th>Author: pamselle</th>
+   <th>Date: 2012-03-15.00:08:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Clicking the login link (the one in the header) from any page results in this use case.
+
+Not sure if this is a bug.
+
+The login links within the git mission have the correct redirects to send the user back to the 
+mission (and tested, work for Google and user acct login)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3045">msg3045 (view)</a></th>
+   <th>Author: annalee</th>
+   <th>Date: 2012-02-25.20:25:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>From <a href="https://openhatch.org/missions/git,">https://openhatch.org/missions/git,</a> when you hit the login link and log in
+using Google, a successful login redirects you to
+<a href="http://openhatch.org/account/login/,">http://openhatch.org/account/login/,</a> instead of back to
+<a href="https://openhatch.org/missions/git.">https://openhatch.org/missions/git.</a>
+
+Hitting "log out" likewise redirects to home.
+
+Not tested: any login methods other than Google.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-07-02&nbsp;21:27:34</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3307">msg3307</a><br />keyword:
+  - <a href="keyword1">bitesize</a><br />title: When logging in using Google,	user is redirected to front page instead of page they logged in from -> Switch OpenID login backend to django-socialauth, away from django_authopenid</td></tr>
+<tr><td>2012-03-15&nbsp;01:50:10</td><td>paulproteus</td><td>set</td><td>files:
+  + <a href="file494">unnamed</a><br />messages:
+  + <a href="msg3130">msg3130</a><br />title: When logging in using Google, user is redirected to front page instead of page they logged in from -> When logging in using Google,	user is redirected to front page instead of page they logged in from</td></tr>
+<tr><td>2012-03-15&nbsp;00:08:05</td><td>pamselle</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3126">msg3126</a></td></tr>
+<tr><td>2012-02-26&nbsp;15:38:15</td><td>jesstess</td><td>set</td><td>keyword:
+  + <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2012-02-25&nbsp;20:25:58</td><td>annalee</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

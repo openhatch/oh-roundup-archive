@@ -1,0 +1,319 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 866: Create web UI to have a user delete themselves - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue866
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue866">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue866">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Create web UI to have a user delete themselves</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>chatting</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  brittag, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2013-07-22.19:15:54</b> by <b>paulproteus</b>, last changed <b>2014-02-13.00:24:09</b> by <b>brittag</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4131">msg4131 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2014-02-13.00:24:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>(Relevant wiki page, for the record: <a href="https://openhatch.org/wiki/Account_deletion">https://openhatch.org/wiki/Account_deletion</a>)
+
+What if when a user wants to delete their account, they click a "delete me" button that does all the 
+easily-automated deletion tasks, and it also automatically sends an email to <a href="mailto:hello@openhatch.org">hello@openhatch.org</a> 
+requesting that admins do the remaining manual steps if necessary?
+
+That seems more convenient for the user.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3849">msg3849 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-09-11.23:10:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>For MediaWiki, we can "delete" users (britta-style delete) if we add this 
+extension: <a href="http://www.mediawiki.org/wiki/Extension:User_Merge_and_Delete">http://www.mediawiki.org/wiki/Extension:User_Merge_and_Delete</a> . It 
+requires being an admin.
+
+For Vanilla: We can delete users there, too, via the web UI (also by my admin 
+spam-removal scripts, but I figure that tool shouldn't have these two very 
+different purposes).
+
+If we can automate both of those, then have that be executed by the oh-mainline 
+code for when you are deleted, that is excellent. But if not, I propose: we 
+should just write a wiki page for admins indicating how to use the above tools, 
+and then when a user gets deleted, email <a href="mailto:hello@openhatch.org">hello@openhatch.org</a> indicating which 
+user to do the processing on.
+
+Thoughts?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3797">msg3797 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2013-08-08.00:48:38</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>What does it mean for a Roundup user or wiki user to be deleted, since their contributions can't 
+really be deleted (I think?)? What about an associated Vanilla forum user?
+
+I imagine that a user-who-wants-to-be-deleted is mainly interested in making their 
+name/username and any other personal information get removed from OpenHatch stuff, and 
+making their account inactive/invisible (and unable to be logged into).
+
+If that's a good guess, maybe that could be accomplished by renaming/anonymizing the accounts 
+that can't really be practically deleted, and deleting any personal details associated with those 
+accounts? Including deleting their user page &amp; user talk page on the wiki, and maybe removing their 
+username from wiki talk pages where they signed their name (if any)?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3742">msg3742 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-07-22.19:15:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think this should work something like email confirmation works generally, 
+where you get sent an email to confirm your deletion, and then we delete you.
+
+Note that in theory this is tricky; when the main OH user goes away, should the 
+Roundup user and wiki users get deleted as well?
+
+We should decide that.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-02-13&nbsp;00:24:09</td><td>brittag</td><td>set</td><td>messages:
+  + <a href="msg4131">msg4131</a></td></tr>
+<tr><td>2013-09-11&nbsp;23:10:25</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3849">msg3849</a></td></tr>
+<tr><td>2013-09-11&nbsp;23:07:23</td><td>brittag</td><td>set</td><td>milestone: <a href="milestone18">0.13.09</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2013-09-11&nbsp;22:59:55</td><td>brittag</td><td>set</td><td>priority: urgent -> bug</td></tr>
+<tr><td>2013-09-11&nbsp;22:59:27</td><td>brittag</td><td>set</td><td>milestone: <a href="milestone17">0.13.08</a> -> <a href="milestone18">0.13.09</a></td></tr>
+<tr><td>2013-08-08&nbsp;00:48:39</td><td>brittag</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user811">brittag</a><br />messages:
+  + <a href="msg3797">msg3797</a></td></tr>
+<tr><td>2013-08-07&nbsp;00:57:16</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone17">0.13.08</a></td></tr>
+<tr><td>2013-07-22&nbsp;19:15:54</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

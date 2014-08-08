@@ -1,0 +1,434 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 795: In 'diffpatch' mission, it's unclear if the patch file should be recipes.patch or more-garlic.patch. - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue795
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue795">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue795">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">In 'diffpatch' mission, it's unclear if the patch file should be recipes.patch or more-garlic.patch.</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.13.08</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  Lumpus, eeshangarg, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>eeshangarg</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-12-02.03:08:32</b> by <b>Lumpus</b>, last changed <b>2014-04-15.18:45:11</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4219">msg4219 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-04-15.18:45:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I am merging this now. Thanks for filing it, Lumpus, and for the very clear fix, 
+eeshangarg!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4216">msg4216 (view)</a></th>
+   <th>Author: eeshangarg</th>
+   <th>Date: 2014-04-15.13:43:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I verified my changes by applying the recipes.patch to the recipes directory in
+the "Patching entire directories" as described in the diff patch hints. The
+problem was that the High hint asked the one doing the tutorial to download the
+recipes.patch file but asked them to apply the more-garlic.patch file, which
+doesn't exist. Also the Medium hint is already good. It asks you to apply the
+recipes.patch file. I am sitting with @paulproteus and he says +1.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4215">msg4215 (view)</a></th>
+   <th>Author: eeshangarg</th>
+   <th>Date: 2014-04-14.23:09:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Made a pull request: <a href="https://github.com/openhatch/oh-mainline/pull/232">https://github.com/openhatch/oh-mainline/pull/232</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4214">msg4214 (view)</a></th>
+   <th>Author: eeshangarg</th>
+   <th>Date: 2014-04-14.22:07:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The first two of the five concerns have had separate tickets which have been
+already reviewed and resolved. The last two of the five will require separate
+bug reports. So, I have changed the title of this ticket to something relevant
+to the third problem in the list and I am currently working on a patch for it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4212">msg4212 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-04-14.20:45:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Eeshan, can you look at this this and see what the best next step is?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3920">msg3920 (view)</a></th>
+   <th>Author: Jayant</th>
+   <th>Date: 2013-11-02.18:22:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Please , Insert some response message even if answer is wrong .</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3885">msg3885 (view)</a></th>
+   <th>Author: tweath</th>
+   <th>Date: 2013-10-05.19:34:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Here's what I've found so far for Patching Entire Directories:
+
+- 3 is the correct answer the mission is looking for, though this answer hasn't
+been verified.
+- The instructions say to use wget to download files, which doesn't work with
+Git Bash; may want to suggest curl command like in the part before it.
+- Going to the High hints, it's unclear if the patch file should be
+recipes.patch or more-garlic.patch. 
+- When an incorrect response was entered, it doesn't say the response was
+incorrect and to try again.
+- After a correct response was entered, it says every other response is correct
+when it isn't.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3877">msg3877 (view)</a></th>
+   <th>Author: tweath</th>
+   <th>Date: 2013-10-05.17:22:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Working on this now.
+
+Mission URL: <a href="http://openhatch.org/missions/diffpatch">http://openhatch.org/missions/diffpatch</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3528">msg3528 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-12-02.17:29:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Lumpus,
+
+Looking at this mission, it seems to if we apply that patch to the data, 3 
+is the correct amount of garlic.
+
+But the backend wants '4' to be the number of cloves.
+
+There does seem to be something wrong with that...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3527">msg3527 (view)</a></th>
+   <th>Author: Lumpus</th>
+   <th>Date: 2012-12-02.03:08:32</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The download link on the "Patching entire directories' page of the "Using diff
+and patch" mission provides the download file from part 3 of the mission.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-04-15&nbsp;18:45:11</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg4219">msg4219</a></td></tr>
+<tr><td>2014-04-15&nbsp;13:43:18</td><td>eeshangarg</td><td>set</td><td>messages:
+  + <a href="msg4216">msg4216</a></td></tr>
+<tr><td>2014-04-14&nbsp;23:09:01</td><td>eeshangarg</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg4215">msg4215</a></td></tr>
+<tr><td>2014-04-14&nbsp;22:09:35</td><td>eeshangarg</td><td>set</td><td>title: Missing file for training mission 'Using diff and patch' -> In 'diffpatch' mission, it's unclear if the patch file should be recipes.patch or more-garlic.patch.</td></tr>
+<tr><td>2014-04-14&nbsp;22:07:19</td><td>eeshangarg</td><td>set</td><td>messages:
+  + <a href="msg4214">msg4214</a></td></tr>
+<tr><td>2014-04-14&nbsp;20:54:49</td><td>eeshangarg</td><td>set</td><td>assignedto: <a href="user1061">eeshangarg</a></td></tr>
+<tr><td>2014-04-14&nbsp;20:45:03</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user1061">eeshangarg</a><br />messages:
+  + <a href="msg4212">msg4212</a></td></tr>
+<tr><td>2013-11-02&nbsp;18:22:40</td><td>Jayant</td><td>set</td><td>messages:
+  + <a href="msg3920">msg3920</a></td></tr>
+<tr><td>2013-11-02&nbsp;18:21:10</td><td>Jayant</td><td>set</td><td>messages:
+  - <a href="msg3919">msg3919</a></td></tr>
+<tr><td>2013-11-02&nbsp;18:21:04</td><td>Jayant</td><td>set</td><td>messages:
+  + <a href="msg3919">msg3919</a></td></tr>
+<tr><td>2013-11-02&nbsp;18:20:02</td><td>Jayant</td><td>set</td><td>messages:
+  - <a href="msg3918">msg3918</a></td></tr>
+<tr><td>2013-11-02&nbsp;18:19:56</td><td>Jayant</td><td>set</td><td>messages:
+  + <a href="msg3918">msg3918</a></td></tr>
+<tr><td>2013-11-02&nbsp;18:19:17</td><td>Jayant</td><td>set</td><td>messages:
+  - <a href="msg3917">msg3917</a></td></tr>
+<tr><td>2013-11-02&nbsp;18:19:10</td><td>Jayant</td><td>set</td><td>messages:
+  + <a href="msg3917">msg3917</a></td></tr>
+<tr><td>2013-11-02&nbsp;18:18:49</td><td>Jayant</td><td>set</td><td>messages:
+  - <a href="msg3916">msg3916</a></td></tr>
+<tr><td>2013-11-02&nbsp;18:18:43</td><td>Jayant</td><td>set</td><td>messages:
+  + <a href="msg3916">msg3916</a></td></tr>
+<tr><td>2013-11-02&nbsp;18:17:15</td><td>Jayant</td><td>set</td><td>messages:
+  - <a href="msg3915">msg3915</a></td></tr>
+<tr><td>2013-11-02&nbsp;18:17:05</td><td>Jayant</td><td>set</td><td>messages:
+  + <a href="msg3915">msg3915</a></td></tr>
+<tr><td>2013-10-05&nbsp;19:34:02</td><td>tweath</td><td>set</td><td>messages:
+  + <a href="msg3885">msg3885</a></td></tr>
+<tr><td>2013-10-05&nbsp;17:22:15</td><td>tweath</td><td>set</td><td>status: chatting -> in-progress<br />messages:
+  + <a href="msg3877">msg3877</a></td></tr>
+<tr><td>2013-08-07&nbsp;00:53:29</td><td>paulproteus</td><td>set</td><td>milestone: <a href="milestone17">0.13.08</a></td></tr>
+<tr><td>2012-12-02&nbsp;17:29:28</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3528">msg3528</a></td></tr>
+<tr><td>2012-12-02&nbsp;03:08:32</td><td>Lumpus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

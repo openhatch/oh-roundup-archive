@@ -1,0 +1,448 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 691: In redesign: Existing profile pictures may have wrong size - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue691
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue691">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue691">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">In redesign: Existing profile pictures may have wrong size</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>need-review</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  mmilkin, paulproteus, skfroi
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>mmilkin</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-02-15.22:41:51</b> by <b>paulproteus</b>, last changed <b>2014-04-18.12:51:10</b> by <b>mmilkin</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file672/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>mmilkin</span>,
+   <span>2014-04-18.12:51:10</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4255">msg4255 (view)</a></th>
+   <th>Author: mmilkin</th>
+   <th>Date: 2014-04-18.12:51:10</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I also didn't want to effect more then that one page so what I did was
+remved the fat and skinny from the class definitions and created a new
+class that had the right width alignment (I hope it will work for you)
+( what I suggest is move the class form mysite/static/css/profile/base.css to
+some place more general)
+
++body div.photo-wide { width: 64%; }
+
+- Mike
+
+On Thu, Apr 17, 2014 at 11:44 PM, skfroi &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; skfroi &lt;<a href="mailto:irizarry.froilan@gmail.com">irizarry.froilan@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; This same issue is found on the set location page (see attached img). I'm
+&gt; working on a way to fix
+&gt; this without affecting anything else. Up to know the fix would be to set
+&gt; the submodule.skinny css
+&gt; class to a margin of 15px, down from 20px, or to eliminate the border to
+&gt; the links box at the left.
+&gt;
+&gt; Any suggestions?
+&gt;
+&gt; ----------
+&gt; nosy: +skfroi
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue691">https://openhatch.org/bugs/issue691</a>&gt;
+&gt; __________________________________________</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4253">msg4253 (view)</a></th>
+   <th>Author: skfroi</th>
+   <th>Date: 2014-04-18.04:39:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Disregard my last comment (<a href="msg4252">msg4252</a>). I confused this bug with 
+<a href="https://openhatch.org/bugs/issue956.">https://openhatch.org/bugs/issue956.</a> I'll be posting the comment with the screenshot to that bug. 
+Sorry for the mix up.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4211">msg4211 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-04-14.20:23:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>oh my goodness yesssss</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4210">msg4210 (view)</a></th>
+   <th>Author: mmilkin</th>
+   <th>Date: 2014-04-14.20:18:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre><a href="https://github.com/openhatch/oh-mainline/pull/224">https://github.com/openhatch/oh-mainline/pull/224</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4202">msg4202 (view)</a></th>
+   <th>Author: mmilkin</th>
+   <th>Date: 2014-04-14.15:21:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Looks like there are some css issues in the photo page</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4201">msg4201 (view)</a></th>
+   <th>Author: mmilkin</th>
+   <th>Date: 2014-04-14.15:16:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>is this the same bug as when you go to the 
+<a href="http://openhatch.org/account/edit/photo/">http://openhatch.org/account/edit/photo/</a>
+the site has bad padding  and wraps the box.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4179">msg4179 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2014-03-22.00:56:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Can you take a screenshot of the bug? Im not sure if this is still a reproducible bug.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3228">msg3228 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-05-11.22:49:12</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Marking as 'later' for now. Maybe something to look at during the sprint?</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3008">msg3008 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-02-15.22:41:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right now, we rescale people's profile pictures to proportions that made sense
+for the old layout.
+
+The new layout has more space for profile pictures, so we need to adjust the
+default proportions in the backend, as well as adjust the template to use the
+new size, as well as make sure that existing personal profile images can be
+easily re-scaled to the right size.
+
+The re-scaling can happen "lazily" (at page load-time) or "eagerly" (we could
+run a management command or something that does the rescaling).
+
+(This bug is about the redesign of the site that is occurring during 0.12.02.
+You can see that redesign in process, temporarily, here:
+<a href="http://gentle-robot-6466.herokuapp.com/">http://gentle-robot-6466.herokuapp.com/</a> )</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-04-18&nbsp;12:51:10</td><td>mmilkin</td><td>set</td><td>files:
+  + <a href="file672">unnamed</a><br />messages:
+  + <a href="msg4255">msg4255</a></td></tr>
+<tr><td>2014-04-18&nbsp;04:41:49</td><td>skfroi</td><td>set</td><td>messages:
+  - <a href="msg4252">msg4252</a></td></tr>
+<tr><td>2014-04-18&nbsp;04:41:27</td><td>skfroi</td><td>set</td><td>files:
+  - <a href="file670">openhatch_set_location.png</a></td></tr>
+<tr><td>2014-04-18&nbsp;04:39:48</td><td>skfroi</td><td>set</td><td>messages:
+  + <a href="msg4253">msg4253</a></td></tr>
+<tr><td>2014-04-18&nbsp;03:46:46</td><td>skfroi</td><td>set</td><td>messages:
+  + <a href="msg4252">msg4252</a></td></tr>
+<tr><td>2014-04-18&nbsp;03:45:22</td><td>skfroi</td><td>set</td><td>messages:
+  - <a href="msg4251">msg4251</a></td></tr>
+<tr><td>2014-04-18&nbsp;03:44:18</td><td>skfroi</td><td>set</td><td>files:
+  + <a href="file670">openhatch_set_location.png</a><br />nosy:
+  + <a href="user1073">skfroi</a><br />messages:
+  + <a href="msg4251">msg4251</a></td></tr>
+<tr><td>2014-04-14&nbsp;20:23:36</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4211">msg4211</a></td></tr>
+<tr><td>2014-04-14&nbsp;20:18:15</td><td>mmilkin</td><td>set</td><td>status: chatting -> need-review<br />messages:
+  + <a href="msg4210">msg4210</a></td></tr>
+<tr><td>2014-04-14&nbsp;15:21:33</td><td>mmilkin</td><td>set</td><td>assignedto: <a href="user1066">mmilkin</a><br />messages:
+  + <a href="msg4202">msg4202</a><br />nosy:
+  + <a href="user1066">mmilkin</a></td></tr>
+<tr><td>2014-04-14&nbsp;15:16:26</td><td>mmilkin</td><td>set</td><td>messages:
+  + <a href="msg4201">msg4201</a></td></tr>
+<tr><td>2014-03-22&nbsp;00:56:29</td><td>onceuponatimeforever</td><td>set</td><td>messages:
+  + <a href="msg4179">msg4179</a></td></tr>
+<tr><td>2012-05-11&nbsp;22:49:13</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3228">msg3228</a><br />milestone: <a href="milestone15">0.12.02</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2012-02-15&nbsp;22:41:51</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,341 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 747: Voice input on search field doesn't correctly blank field - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue747
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue747">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue747">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Voice input on search field doesn't correctly blank field</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>later</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, zitterbewegung
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  frontend
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-07-07.02:30:12</b> by <b>zitterbewegung</b>, last changed <b>2014-02-27.00:20:17</b> by <b>brittag</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4146">msg4146 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2014-02-27.00:20:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This was resolved by this merge: <a href="https://github.com/openhatch/oh-mainline/pull/183">https://github.com/openhatch/oh-mainline/pull/183</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4016">msg4016 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-01-04.19:37:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I can't reproduce this on Chrome on Android, either, for what it's worth.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3805">msg3805 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2013-08-16.22:26:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I tried to figure out how to reproduce this but couldn't, and paulproteus suggested it may be 
+reproducible on an Android phone with a voice input feature. He also suggested that using the new 
+HTML5 "placeholder" attribute (<a href="http://davidwalsh.name/html5-placeholder">http://davidwalsh.name/html5-placeholder</a>) may be a way to fix 
+this.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3780">msg3780 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-08-07.00:59:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Next step: Someone should see if they can reproduce it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3326">msg3326 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-24.21:53:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Adding the new "frontend" keyword.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3324">msg3324 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-07-21.07:13:24</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thank you for this bug report! We will see if we can reproduce it, and 
+fix it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3312">msg3312 (view)</a></th>
+   <th>Author: zitterbewegung</th>
+   <th>Date: 2012-07-07.02:30:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Steps to reproduce
+1. Visit <a href="http://openhatch.org/search/">http://openhatch.org/search/</a>
+2. Click the voice search function
+3. The text returned by the voice search will have the voice search appended to 
+the search field with the text textual search. The field should have been 
+cleared.</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-02-27&nbsp;00:20:17</td><td>brittag</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg4146">msg4146</a></td></tr>
+<tr><td>2014-01-04&nbsp;19:37:02</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4016">msg4016</a></td></tr>
+<tr><td>2013-09-11&nbsp;23:08:41</td><td>brittag</td><td>set</td><td>milestone: <a href="milestone18">0.13.09</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2013-09-11&nbsp;23:06:31</td><td>brittag</td><td>set</td><td>milestone: <a href="milestone17">0.13.08</a> -> <a href="milestone18">0.13.09</a></td></tr>
+<tr><td>2013-08-16&nbsp;22:26:19</td><td>brittag</td><td>set</td><td>messages:
+  + <a href="msg3805">msg3805</a></td></tr>
+<tr><td>2013-08-07&nbsp;00:59:59</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3780">msg3780</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone17">0.13.08</a></td></tr>
+<tr><td>2012-07-24&nbsp;21:53:45</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3326">msg3326</a><br />keyword:
+  + <a href="keyword19">frontend</a></td></tr>
+<tr><td>2012-07-21&nbsp;07:13:27</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3324">msg3324</a></td></tr>
+<tr><td>2012-07-07&nbsp;02:30:12</td><td>zitterbewegung</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

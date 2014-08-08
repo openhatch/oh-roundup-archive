@@ -1,0 +1,325 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 970: Need to find a replacement for the <tt> tag, as it is not available in HTML5 - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue970
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue970">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue970">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Need to find a replacement for the &lt;tt&gt; tag, as it is not available in HTML5</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  eeshangarg, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td></td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-04-29.15:26:55</b> by <b>eeshangarg</b>, last changed <b>2014-04-29.15:55:29</b> by <b>shauna</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file674/hints_after_replacing_tt_with_samp.png">hints_after_replacing_tt_with_samp.png</a>
+  </td>
+  <td>
+   <span>eeshangarg</span>,
+   <span>2014-04-29.15:26:54</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4299">msg4299 (view)</a></th>
+   <th>Author: shauna</th>
+   <th>Date: 2014-04-29.15:55:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Closing this as a duplicate.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4298">msg4298 (view)</a></th>
+   <th>Author: eeshangarg</th>
+   <th>Date: 2014-04-29.15:41:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Due to some problems in my internet connection, when I submitted my issue, the
+request was made twice(I have no idea why), maybe because my internet connection
+was disconnected in the middle of the request, and when it reconnected it made
+the same request again? Now there are two identical issues in the bug tracker
+&lt;<a href="https://openhatch.org/bugs/issue970">https://openhatch.org/bugs/issue970</a>&gt; and &lt;<a href="https://openhatch.org/bugs/issue971">https://openhatch.org/bugs/issue971</a>&gt;.
+My sincere apologies for this. Please let me know if there is a way this can be
+fixed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4295">msg4295 (view)</a></th>
+   <th>Author: eeshangarg</th>
+   <th>Date: 2014-04-29.15:26:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>While working on some front-end HTML and CSS issues at the PyCon 2014 sprints, I
+found that the OpenHatch website makes extensive use of the &lt;tt&gt; tag (which has
+been deprecated in HTML5) for representing text that needs to look like code. tt
+stands for 'teletype text'.
+
+The Front-end style guide &lt;<a href="https://openhatch.org/wiki/Front-end_style_guide">https://openhatch.org/wiki/Front-end_style_guide</a>&gt;,
+has more information for why a tag like the &lt;tt&gt; tag is needed. Please scroll to
+the section "Usage instructions for the code, pre and tt tags".
+
+paulproteus and other developers at the sprint advised me to come up with a
+replacement or fix for this issue. 
+
+I found two tags, namely &lt;samp&gt; and &lt;kbd&gt;, which could act as valid replacements
+for the &lt;tt&gt; tag, and which are available in HTML5. &lt;samp&gt; is generally used to
+represent sample output whereas &lt;kbd&gt; is generally used for keyboard input to be
+typed in by the user. Text enclosed within &lt;samp&gt; and &lt;kbd&gt; looks identical to
+text enclosed within &lt;tt&gt;.
+
+A list of all HTML elements, and whether they are available in HTML5 or not, can
+be found at &lt;<a href="http://en.wikipedia.org/wiki/HTML_element#List_of_all_HTML_elements">http://en.wikipedia.org/wiki/HTML_element#List_of_all_HTML_elements</a>&gt;.
+
+I also tested these tags locally, by replacing the &lt;tt&gt; tags on the medium hints
+of the 'Patching individual files' in the diffpatch training mission with &lt;kbd&gt;
+and &lt;samp&gt;. Associated screen shots before and after replacing the tags are
+attached. As you can see, there is no difference between the output of these
+three tags.
+
+Another solution that I can think of is to change the existing CSS properties of
+either the &lt;pre&gt; or the &lt;code&gt; tag to handle formatting that the &lt;tt&gt; tag
+currently handles (more info in the Front-end style guide, link above). 
+
+So, I would really appreciate it if someone who knows about HTML standards could
+give me some guidance on how to handle this task or if there is a better way to
+do this. Also, I would be willing to put in the time and effort to work on and
+resolve this task if someone could just point me in the right direction. Thanks!</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-04-29&nbsp;15:55:29</td><td>shauna</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg4299">msg4299</a></td></tr>
+<tr><td>2014-04-29&nbsp;15:41:56</td><td>eeshangarg</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg4298">msg4298</a></td></tr>
+<tr><td>2014-04-29&nbsp;15:26:55</td><td>eeshangarg</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

@@ -1,0 +1,419 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 756: Create documentation for creating documentation - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue756
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue756">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue756">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Create documentation for creating documentation</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>wish</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  paulproteus, soonick5
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>soonick5</td>
+ <th>Keywords</th>
+ <td>
+  documentation
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-08-01.16:23:36</b> by <b>soonick5</b>, last changed <b>2012-08-29.03:04:59</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3378">msg3378 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-08-29.03:04:59</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>These commits look really good to me. Thank you!
+
+Resolved in:
+<a href="https://github.com/openhatch/oh-mainline/commit/9c19c6d138f90e29ee5f61dfb0701d7649b8802f">https://github.com/openhatch/oh-mainline/commit/9c19c6d138f90e29ee5f61dfb0701d7649b8802f</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3377">msg3377 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-08-29.02:18:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Asheesh,
+
+Sorry for the mess. I created a clean pull request. Please take a look and let
+me know your comments.
+
+<a href="https://github.com/openhatch/oh-mainline/pull/59">https://github.com/openhatch/oh-mainline/pull/59</a>
+
+Regards,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3376">msg3376 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-08-29.01:28:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I will fix the pull request and make the correction in gitignore while Im on it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3375">msg3375 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-08-29.00:45:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi there!
+
+The pull request seems to have some commits by other people in it, too.
+
+Can you refresh your local commits, probably through these commands, 
+and update the pull request?
+
+git fetch
+
+git rebase origin/master
+
+One other micro feedback point is that you don't need "/*" at the end of 
+the new .gitignore lines. It's okay as-is, though, and I'd accept it as-is 
+(once rebased).
+
+I can help with more details on that if needed!
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3374">msg3374 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-08-29.00:07:06</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hello Asheesh,
+
+I created a new code review with the change you suggested:
+
+<a href="https://github.com/openhatch/oh-mainline/pull/58">https://github.com/openhatch/oh-mainline/pull/58</a>
+
+Regards,
+Adrian</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3365">msg3365 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-08-12.18:38:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Marking as resolved, since this is deployed!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3362">msg3362 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-08-12.18:31:39</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Thanks! I didn't notice the pull request; sorry about that! In the future, mark 
+these bugs as "need-review" to make sure they automatically get pushed to OH-Dev 
+where I'll definitely see the update.
+
+One note about this: We have a Python script that lets you avoid this. You can 
+run:
+
+tools/render_docs.py
+
+and then you dont' have to actually install python-sphinx.
+
+Having said that, this documentation that you've written is of excellent 
+quality, so consider the above a minor quibble. I'll merge it!
+
+Feel quite free to add a follow-up commit about the tools/render_docs.py script.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3356">msg3356 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-08-01.21:36:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Created pull request:
+
+<a href="https://github.com/openhatch/oh-mainline/pull/53">https://github.com/openhatch/oh-mainline/pull/53</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3354">msg3354 (view)</a></th>
+   <th>Author: soonick5</th>
+   <th>Date: 2012-08-01.16:23:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Create simple documentation explaining the basic usage of sphinx inside
+openhatch and the standards for writing documentation.
+
+This will be useful
+<a href="http://sphinx.readthedocs.org/en/latest/index.html">http://sphinx.readthedocs.org/en/latest/index.html</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2012-08-29&nbsp;03:04:59</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3378">msg3378</a></td></tr>
+<tr><td>2012-08-29&nbsp;02:18:16</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3377">msg3377</a></td></tr>
+<tr><td>2012-08-29&nbsp;01:28:44</td><td>soonick5</td><td>set</td><td>messages:
+  + <a href="msg3376">msg3376</a></td></tr>
+<tr><td>2012-08-29&nbsp;00:45:03</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3375">msg3375</a></td></tr>
+<tr><td>2012-08-29&nbsp;00:07:07</td><td>soonick5</td><td>set</td><td>status: reopened -> need-review<br />messages:
+  + <a href="msg3374">msg3374</a></td></tr>
+<tr><td>2012-08-28&nbsp;23:52:02</td><td>soonick5</td><td>set</td><td>status: resolved -> reopened</td></tr>
+<tr><td>2012-08-12&nbsp;18:38:29</td><td>paulproteus</td><td>set</td><td>status: resolved<br />messages:
+  + <a href="msg3365">msg3365</a></td></tr>
+<tr><td>2012-08-12&nbsp;18:31:41</td><td>paulproteus</td><td>set</td><td>status: chatting -> (no value)<br />messages:
+  + <a href="msg3362">msg3362</a></td></tr>
+<tr><td>2012-08-01&nbsp;21:36:19</td><td>soonick5</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3356">msg3356</a></td></tr>
+<tr><td>2012-08-01&nbsp;16:23:36</td><td>soonick5</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

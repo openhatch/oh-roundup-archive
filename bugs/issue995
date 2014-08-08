@@ -1,0 +1,476 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 995: "Bug set view" screen for Bug Set Creator - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue995
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue995">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue995">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">"Bug set view" screen for Bug Set Creator</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>gsoc14.11</td>
+ <th class="required">Priority</th>
+ <td>feature</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  "List view" screen for Bug Set Creator, "Open Source Comes to Campus" Bug Set Creator &amp; Organizer
+  
+  <span>
+   <br><span>View:</span>
+     <a href="issue994">994, </a>
+     <a href="issue978">978</a>
+  </span>
+ </td>
+ <th>Nosy List</th>
+ <td>
+  catherinedevlin, ehashman, paulproteus, shauna
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>ehashman</td>
+ <th>Keywords</th>
+ <td>
+  GSoC
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2014-06-02.03:50:35</b> by <b>ehashman</b>, last changed <b>2014-07-20.00:20:35</b> by <b>ehashman</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file685/bugset-fix.png">bugset-fix.png</a>
+  </td>
+  <td>
+   <span>ehashman</span>,
+   <span>2014-06-07.19:59:50</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file688/bugset-project.png">bugset-project.png</a>
+  </td>
+  <td>
+   <span>ehashman</span>,
+   <span>2014-06-10.03:46:50</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file684/bugset.png">bugset.png</a>
+  </td>
+  <td>
+   <span>ehashman</span>,
+   <span>2014-06-07.03:27:54</span>
+  </td>
+  <td>image/png</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4482">msg4482 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-07-20.00:20:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Updating the milestone and closing.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4481">msg4481 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2014-07-19.23:43:31</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This works great in dev.
+
+Outstanding issues:
+
+* We're vaguely unsure about security and django-inplaceedit. We should become 
+more sure. That became <a href="issue1020">issue1020</a>.
+
+* We currently need to be populating "Skills needed" from the 
+Project.primary_language. We are not doing that yet; we should do so at creation 
+time of AnnotatedBug objects. Therefore, out of scope for this issue.
+
+* We need to have some plan for simultaneous editing. Right now, we have no 
+plan, which is sad and dangerous.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4478">msg4478 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-07-19.22:01:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Submitted <a href="https://github.com/openhatch/oh-mainline/pull/305">https://github.com/openhatch/oh-mainline/pull/305</a> with CSS tweaks.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4401">msg4401 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-06-15.17:58:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Added basic edit functionality: <a href="https://github.com/openhatch/oh-mainline/pull/288">https://github.com/openhatch/oh-mainline/pull/288</a>
+
+This is not "production-ready"---there are still some CSS issues with
+django-inplaceedit.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4393">msg4393 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-06-10.03:46:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>PR merged, added cute screenshot.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4392">msg4392 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-06-10.03:42:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Opened new PR: <a href="https://github.com/openhatch/oh-mainline/pull/283">https://github.com/openhatch/oh-mainline/pull/283</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4383">msg4383 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-06-07.19:59:50</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Opened PR: <a href="https://github.com/openhatch/oh-mainline/pull/279">https://github.com/openhatch/oh-mainline/pull/279</a>
+
+New screenshot attached!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4377">msg4377 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-06-07.03:27:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Made changes as per code review and prettified the list view. Have not yet
+opened PR due to lack of tests. However, I have attached a nice preview
+screenshot as a teaser!
+
+See code at <a href="https://github.com/ehashman/oh-mainline/compare/issue995">https://github.com/ehashman/oh-mainline/compare/issue995</a> (&lt;-- not a
+permalink)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4372">msg4372 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-06-03.03:21:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Opened pull request: <a href="https://github.com/openhatch/oh-mainline/pull/278">https://github.com/openhatch/oh-mainline/pull/278</a></pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg4369">msg4369 (view)</a></th>
+   <th>Author: ehashman</th>
+   <th>Date: 2014-06-02.03:50:35</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Goal: create MVP version of an event bug set page, "bug set view" or List view
+in the design doc. See
+<a href="https://openhatch.org/wiki/GSoC_2014/bug-set-creator#List_view">https://openhatch.org/wiki/GSoC_2014/bug-set-creator#List_view</a> for details.
+
+Development for this bug will include 
+- tests!
+- AnnotatedBug models, which have a many-to-many relationship with the BugSets
+- necessary updates to the BugSet model and list view page
+- the web view, where bug annotations can be edited; this will correspond to
+<a href="http://openhatch.org/bugsets/slug">http://openhatch.org/bugsets/slug</a></pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-07-20&nbsp;00:25:51</td><td>ehashman</td><td>link</td><td><a href="issue1021">issue1021 superseder</a></td></tr>
+<tr><td>2014-07-20&nbsp;00:20:35</td><td>ehashman</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg4482">msg4482</a><br />milestone: <a href="milestone26">gsoc14.9</a> -> <a href="milestone28">gsoc14.11</a></td></tr>
+<tr><td>2014-07-19&nbsp;23:43:31</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg4481">msg4481</a></td></tr>
+<tr><td>2014-07-19&nbsp;22:01:07</td><td>ehashman</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg4478">msg4478</a></td></tr>
+<tr><td>2014-07-19&nbsp;20:55:15</td><td>ehashman</td><td>link</td><td><a href="issue1020">issue1020 superseder</a></td></tr>
+<tr><td>2014-06-15&nbsp;18:09:19</td><td>ehashman</td><td>link</td><td><a href="issue1003">issue1003 superseder</a></td></tr>
+<tr><td>2014-06-15&nbsp;18:07:43</td><td>ehashman</td><td>set</td><td>milestone: <a href="milestone23">gsoc14.6</a> -> <a href="milestone26">gsoc14.9</a></td></tr>
+<tr><td>2014-06-15&nbsp;17:58:22</td><td>ehashman</td><td>set</td><td>messages:
+  + <a href="msg4401">msg4401</a></td></tr>
+<tr><td>2014-06-10&nbsp;03:46:50</td><td>ehashman</td><td>set</td><td>files:
+  + <a href="file688">bugset-project.png</a><br />messages:
+  + <a href="msg4393">msg4393</a></td></tr>
+<tr><td>2014-06-10&nbsp;03:42:12</td><td>ehashman</td><td>set</td><td>messages:
+  + <a href="msg4392">msg4392</a></td></tr>
+<tr><td>2014-06-07&nbsp;19:59:50</td><td>ehashman</td><td>set</td><td>files:
+  + <a href="file685">bugset-fix.png</a><br />messages:
+  + <a href="msg4383">msg4383</a></td></tr>
+<tr><td>2014-06-07&nbsp;03:27:54</td><td>ehashman</td><td>set</td><td>files:
+  + <a href="file684">bugset.png</a><br />messages:
+  + <a href="msg4377">msg4377</a></td></tr>
+<tr><td>2014-06-03&nbsp;03:21:33</td><td>ehashman</td><td>set</td><td>status: chatting -> in-progress<br />messages:
+  + <a href="msg4372">msg4372</a></td></tr>
+<tr><td>2014-06-02&nbsp;03:50:35</td><td>ehashman</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

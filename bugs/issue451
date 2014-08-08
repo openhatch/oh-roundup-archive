@@ -1,0 +1,314 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 451: Bug_trackers page on the wiki is out of date with regard to the current site - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue451
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue451">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue451">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Bug_trackers page on the wiki is out of date with regard to the current site</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.07</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  usability
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-06-20.03:40:37</b> by <b>palhmbs</b>, last changed <b>2011-09-01.05:19:19</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2454">msg2454 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-01.05:19:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I updated <a href="http://openhatch.org/wiki/Bug_trackers">http://openhatch.org/wiki/Bug_trackers</a>
+
+It is instructive. The current directions are not super great. They should be
+*way* simpler.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2453">msg2453 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-01.05:13:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'll take this right now, because it's important to get this stuff right.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2155">msg2155 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-03.03:32:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is a good first bug for someone who wants to write some English text on 
+/wiki/Bug_trackers and work with us to make sure you understand the site, to 
+improve the wiki page (and maybe change the link).
+
+Probably, honestly, one of the core people should be the one to write the new 
+documentation, since we're the most familiar with the site and the way this stuff 
+works. Perhaps someone like jledbetter (AKA jessica) or paulproteus or 
+pythonian4000 or jesstess or Mark or palhmbs, who understand the way the site is 
+supposed to work. (If you want to write it, but don't have enough knowledge of 
+the current state, I am more than happy to explain the current state!)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2092">msg2092 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-20.03:43:20</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>In mysite/base/templates/base/landing.html is the front-page link that maybe
+ought to be fixed.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2091">msg2091 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-20.03:40:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The wiki has no references to point people to the new
+<a href="http://openhatch.org/+projedit/someproject#edit_bug_trackers">http://openhatch.org/+projedit/someproject#edit_bug_trackers</a>  page - do we
+change the wiki or the front-page link, or maybe both?</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-09-01&nbsp;05:19:19</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg2454">msg2454</a></td></tr>
+<tr><td>2011-09-01&nbsp;05:13:37</td><td>paulproteus</td><td>set</td><td>assignedto: <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2453">msg2453</a></td></tr>
+<tr><td>2011-07-03&nbsp;03:32:27</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2155">msg2155</a><br />keyword:
+  - <a href="keyword1">bitesize</a><br />title: Unlogged-in Landing page links to /wiki/Bug_trackers -> Bug_trackers page on the wiki is out of date with regard to the current site</td></tr>
+<tr><td>2011-07-02&nbsp;20:17:35</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-06-20&nbsp;03:43:35</td><td>palhmbs</td><td>set</td><td>status: chatting -> unread</td></tr>
+<tr><td>2011-06-20&nbsp;03:43:20</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2092">msg2092</a></td></tr>
+<tr><td>2011-06-20&nbsp;03:40:48</td><td>palhmbs</td><td>set</td><td>milestone: <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-06-20&nbsp;03:40:37</td><td>palhmbs</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

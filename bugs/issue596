@@ -1,0 +1,840 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 596: Git Training Missions: Create A Patch will not accept an answer - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue596
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue596">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue596">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Git Training Missions: Create A Patch will not accept an answer</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.11</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aviendhaSL, jesstess, paulproteus, viv
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>jesstess</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-09-21.02:04:48</b> by <b>aviendhaSL</b>, last changed <b>2011-12-04.02:32:56</b> by <b>jesstess</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file427/0001-Issue596.patch">0001-Issue596.patch</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-12-03.17:40:07</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file412/0001-made-the-git-patching-mission-more-forgiving-with-it.patch">0001-made-the-git-patching-mission-more-forgiving-with-it.patch</a>
+  </td>
+  <td>
+   <span>aviendhasl</span>,
+   <span>2011-10-04.17:17:58</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file418/0002-Issue596.patch">0002-Issue596.patch</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-11-07.00:18:22</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file424/0003-Issue596-Modified-diff-patch-submission-to-use-case-.patch">0003-Issue596-Modified-diff-patch-submission-to-use-case-.patch</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-11-23.07:52:49</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file425/0004-Issue596-Modified-diff-patch-submission-to-use-case-.patch">0004-Issue596-Modified-diff-patch-submission-to-use-case-.patch</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-11-23.07:53:53</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file419/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-11-09.23:45:05</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file422/unnamed">unnamed</a>
+  </td>
+  <td>
+   <span>viv</span>,
+   <span>2011-11-19.20:04:27</span>
+  </td>
+  <td>text/html</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2760">msg2760 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-12-04.02:32:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've deployed these changes. Thanks for sticking with this, viv!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2758">msg2758 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-12-04.00:23:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi viv,
+
+This patch passes my review!
+
+I added a change on top and pushed to origin/master.
+
+jesstess, would you be willing to push this (as part of reviewing <a href="issue445">issue445</a> ) ?
+I'm assigning to you for now; de-assign if not.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2757">msg2757 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-12-03.17:40:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Please find the latest patch.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2739">msg2739 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-11-23.07:53:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Please review both the patch <a href="file0004">file 0004</a> and 0003.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2728">msg2728 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-11-19.20:04:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>HI Jessica,
+
+I think I am good.. will come to IRC if face any problem.
+
+Thanks,
+
+Vivek
+
+On Fri, Nov 18, 2011 at 7:07 PM, jesstess &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; jesstess &lt;<a href="mailto:jessica.mckellar@gmail.com">jessica.mckellar@gmail.com</a>&gt; added the comment:
+&gt;
+&gt; Hi Vivek! I wanted to check in and see how this ticket was going. If you
+&gt; need any help with it, don't
+&gt; hesitate to get in touch on #openhatch, or feel free to reach out to me
+&gt; specifically
+&gt; (<a href="https://openhatch.org/people/jesstess/">https://openhatch.org/people/jesstess/</a> lists a couple of ways).
+&gt;
+&gt; ----------
+&gt; nosy: +jesstess
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue596">https://openhatch.org/bugs/issue596</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2724">msg2724 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-11-19.03:07:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Vivek! I wanted to check in and see how this ticket was going. If you need any help with it, don't 
+hesitate to get in touch on #openhatch, or feel free to reach out to me specifically 
+(<a href="https://openhatch.org/people/jesstess/">https://openhatch.org/people/jesstess/</a> lists a couple of ways).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2629">msg2629 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-11-09.23:45:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Yup.. I will fix it by next weekend..
+
+Thanks,
+
+Vivek
+
+On Wed, Nov 9, 2011 at 3:43 PM, Asheesh Laroia &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt; wrote:
+
+&gt;
+&gt; Asheesh Laroia &lt;<a href="mailto:asheesh@asheesh.org">asheesh@asheesh.org</a>&gt; added the comment:
+&gt;
+&gt; This didn't quite make it in time for 0.11.10, but hopefully it will make
+&gt; it
+&gt; into a later release!
+&gt;
+&gt; ----------
+&gt; milestone: 0.11.10 -&gt; later
+&gt;
+&gt; __________________________________________
+&gt; Roundup issue tracker &lt;<a href="mailto:bugs@openhatch.org">bugs@openhatch.org</a>&gt;
+&gt; &lt;<a href="https://openhatch.org/bugs/issue596">https://openhatch.org/bugs/issue596</a>&gt;
+&gt; __________________________________________
+&gt;</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2625">msg2625 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-09.23:43:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This didn't quite make it in time for 0.11.10, but hopefully it will make it
+into a later release!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2611">msg2611 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-11-07.19:06:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey Vivek,
+
+I just applied your patch locally to my copy of the code, and it seems that my
+valid patch that I submitted to
+<a href="http://127.0.0.1:8000/missions/git/diff/submit#gitdiff-form">http://127.0.0.1:8000/missions/git/diff/submit#gitdiff-form</a> doesn't validate.
+
+Running this command:
+
+./bin/sqlite_mysite test missions.GitViewTests
+
+indicates that the test suite can reproduce the failure. I can't push this until
+the tests pass.
+
+Also, some general style feedback:
+
+First, good job renaming the GitRepository.validate_diff_and_commit_if_ok method
+so that it does not say that it does the validation anymore.
+
+In missions/git/forms.py you raise a ValidationError, which is excellent, but
+then you also try to set data['git_diff_error_message']. That line will never be
+executed because function execution stops at a raise command. You should delete it.
+
+In general, the point of the switch to Django form validation is that we don't
+have to pass special-purpose error messages down into the template; instead, the
+form object will keep the information inside it, and so the logic in the
+template that checks the form object for errors will print the errors itself.
+
+Similarly, in mysite/missions/git/views.py you do not need the "else" line. Try
+without it, and see if it works.
+ 
+The only other quibble I have is that in missions/git/forms.py the line  after
+the data['git_diff_error_message'] operation is a line that ends in some
+whitespace. Remove the space characters (e.g. " ") from the end of the line.
+
+Sorry that it took me a day to get to reviewing this. Make sure you run the test
+suite before submitting; if you have a patch that doesn't pass the tests, but
+you're not sure why, do feel free to submit it in the broken state, but let us
+know that you need help with it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2609">msg2609 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-11-07.00:18:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ready for review....</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2605">msg2605 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-31.14:43:41</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Okay, cool!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2604">msg2604 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-10-31.08:21:15</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I took a look on this. I think I probably be able to finish by next week.. seems 
+straightforward.. but testing will take some time for me...Please reassign if 
+someone wants to finish by 31st Oct...</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2603">msg2603 (view)</a></th>
+   <th>Author: viv</th>
+   <th>Date: 2011-10-29.20:31:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>taking over..</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2602">msg2602 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-29.20:29:29</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>aviendha, we're aiming for having this in an October 31 release date. Do you
+think you can addresses these issues by then?
+
+If not, if someone else is willing to take your patch and adds some commits on
+top to address the feedback listed here, is that okay?
+
+Let us know!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2586">msg2586 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-10-04.17:36:46</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>&lt;paulproteus&gt; Can I suggest you change the variable name from "success_count" to
+"success"?
+&lt;aviendhaSL&gt; definitely
+&lt;paulproteus&gt; I'm also a little weirded out by returning a string there, rather
+than a boolean. I'll see what the other controllers there do; it seems like the
+nicest thing would be if this were a Django form validation error, and you
+raised an exception.
+&lt;paulproteus&gt; In general, mega thank you for this patch.
+&lt;paulproteus&gt; We don't seem to be using the Django forms library here at all, to
+my disappointment.
+&lt;aviendhaSL&gt; Any suggestion on how to change that then? I was just trying to
+figure out how to propagate a more useful error message up to return.
+&lt;paulproteus&gt; If you're willing to accept refactoring-level suggestions, I think
+that validation and committing should be separate methods on that class. Perhaps
+GitDiffMission should just have the validate() part, and the commit() part
+should move into the class GitRepository.
+--&gt; lotia (~<a href="mailto:lotia@l.monkey.org">lotia@l.monkey.org</a>) has joined #openhatch
+&lt;paulproteus&gt; Ah hah.
+&lt;paulproteus&gt; mysite/missions/forms.py -- there is a DiffForm
+&lt;paulproteus&gt; The best thing to do is move the validation into DiffForm, in a
+new method called clean_diff(), as per
+<a href="https://docs.djangoproject.com/en/1.2/ref/forms/validation/">https://docs.djangoproject.com/en/1.2/ref/forms/validation/</a>
+&lt;paulproteus&gt; Then you can raise ValidationError() and that will show up like
+any other form validation error, in the web UI.
+&lt;paulproteus&gt; ConfigForm.clean_user_email() is a good example of this, in
+mysite/missions/git/forms.py
+&lt;paulproteus&gt; How does that sound?
+&lt;paulproteus&gt; I feel a bit bad that I'm asking you to clean up code problems in
+the code that you're modifying, in ways that go beyond the original desired change.
+&lt;aviendhaSL&gt; sounds like a plan. It's fine.
+&lt;paulproteus&gt; I'll leave this conversation log on the bug so it's easy to find
+next time.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2583">msg2583 (view)</a></th>
+   <th>Author: aviendhasl</th>
+   <th>Date: 2011-10-04.17:17:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Attached a patch that makes the submission tests for forgiving and gives a more
+useful error message. I did not change the unit tests to check for the
+more-forgiving-ness, but I did check it manually.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2516">msg2516 (view)</a></th>
+   <th>Author: aviendhaSL</th>
+   <th>Date: 2011-09-21.03:14:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>well... yes. The comma also need to be gone. "Hello world" is the only
+acceptable string, and it must be exactly that.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2515">msg2515 (view)</a></th>
+   <th>Author: aviendhaSL</th>
+   <th>Date: 2011-09-21.03:12:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>nope. I just checked with the extra space deleted, and it still doesn't work.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2514">msg2514 (view)</a></th>
+   <th>Author: paultag</th>
+   <th>Date: 2011-09-21.02:50:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Asheesh mentioned it might be due to the double space, but the error message still 
+sucks</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2513">msg2513 (view)</a></th>
+   <th>Author: aviendhaSL</th>
+   <th>Date: 2011-09-21.02:04:47</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>When I try to submit what I think is a perfectly good patch on the second task
+of the git training mission
+(<a href="http://openhatch.org/missions/git/diff/submit#gitdiff-form">http://openhatch.org/missions/git/diff/submit#gitdiff-form</a>), the grader will
+not accept my input. I get the very unuseful error message "patch file is
+incorrect, try again". Input is given below.
+
+From f3c4e46bcf63cbdf15ae45df0fde7a0b73081bb8 Mon Sep 17 00:00:00 2001
+From: Aviendha Lannister &lt;<a href="mailto:aviendha1591@BreathOfAir.local">aviendha1591@BreathOfAir.local</a>&gt;
+Date: Tue, 20 Sep 2011 20:14:49 -0400
+Subject: [PATCH] Fixed hello world
+
+---
+ hello.py |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/hello.py b/hello.py
+index 680b306..12942f8 100644
+--- a/hello.py
++++ b/hello.py
+@@ -1,4 +1,4 @@
+ #! /usr/bin/env python
+ 
+ #Author: The Brain
+-print "Goodbye world!"
++print "Hello,  world!"
+-- 
+1.7.6.1</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-12-04&nbsp;02:32:56</td><td>jesstess</td><td>set</td><td>status: in-progress -> resolved<br />messages:
+  + <a href="msg2760">msg2760</a></td></tr>
+<tr><td>2011-12-04&nbsp;00:23:23</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />assignedto: <a href="user79">viv</a> -> <a href="user12">jesstess</a><br />messages:
+  + <a href="msg2758">msg2758</a><br />milestone: <a href="milestone1">later</a> -> <a href="milestone13">0.11.11</a></td></tr>
+<tr><td>2011-12-03&nbsp;17:40:09</td><td>viv</td><td>set</td><td>files:
+  + <a href="file427">0001-Issue596.patch</a><br />messages:
+  + <a href="msg2757">msg2757</a></td></tr>
+<tr><td>2011-11-23&nbsp;07:53:53</td><td>viv</td><td>set</td><td>status: in-progress -> need-review<br />files:
+  + <a href="file425">0004-Issue596-Modified-diff-patch-submission-to-use-case-.patch</a><br />messages:
+  + <a href="msg2739">msg2739</a></td></tr>
+<tr><td>2011-11-23&nbsp;07:52:49</td><td>viv</td><td>set</td><td>files:
+  + <a href="file424">0003-Issue596-Modified-diff-patch-submission-to-use-case-.patch</a></td></tr>
+<tr><td>2011-11-19&nbsp;20:04:33</td><td>viv</td><td>set</td><td>files:
+  + <a href="file422">unnamed</a><br />messages:
+  + <a href="msg2728">msg2728</a></td></tr>
+<tr><td>2011-11-19&nbsp;03:07:27</td><td>jesstess</td><td>set</td><td>nosy:
+  + <a href="user12">jesstess</a><br />messages:
+  + <a href="msg2724">msg2724</a></td></tr>
+<tr><td>2011-11-09&nbsp;23:45:06</td><td>viv</td><td>set</td><td>files:
+  + <a href="file419">unnamed</a><br />messages:
+  + <a href="msg2629">msg2629</a></td></tr>
+<tr><td>2011-11-09&nbsp;23:43:16</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2625">msg2625</a><br />milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone1">later</a></td></tr>
+<tr><td>2011-11-07&nbsp;19:06:20</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2611">msg2611</a></td></tr>
+<tr><td>2011-11-07&nbsp;00:18:23</td><td>viv</td><td>set</td><td>status: in-progress -> need-review<br />files:
+  + <a href="file418">0002-Issue596.patch</a><br />messages:
+  + <a href="msg2609">msg2609</a></td></tr>
+<tr><td>2011-10-31&nbsp;14:43:42</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2605">msg2605</a></td></tr>
+<tr><td>2011-10-31&nbsp;08:21:17</td><td>viv</td><td>set</td><td>messages:
+  + <a href="msg2604">msg2604</a></td></tr>
+<tr><td>2011-10-29&nbsp;20:31:10</td><td>viv</td><td>set</td><td>assignedto: <a href="user248">aviendhaSL</a> -> <a href="user79">viv</a><br />messages:
+  + <a href="msg2603">msg2603</a></td></tr>
+<tr><td>2011-10-29&nbsp;20:29:30</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user79">viv</a><br />messages:
+  + <a href="msg2602">msg2602</a></td></tr>
+<tr><td>2011-10-04&nbsp;17:36:46</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2586">msg2586</a><br />milestone: <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-10-04&nbsp;17:19:00</td><td>aviendhasl</td><td>set</td><td>status: chatting -> need-review</td></tr>
+<tr><td>2011-10-04&nbsp;17:17:59</td><td>aviendhasl</td><td>set</td><td>files:
+  + <a href="file412">0001-made-the-git-patching-mission-more-forgiving-with-it.patch</a><br />messages:
+  + <a href="msg2583">msg2583</a></td></tr>
+<tr><td>2011-10-04&nbsp;16:56:47</td><td>aviendhasl</td><td>set</td><td>assignedto: <a href="user248">aviendhaSL</a></td></tr>
+<tr><td>2011-09-21&nbsp;03:14:14</td><td>aviendhaSL</td><td>set</td><td>messages:
+  + <a href="msg2516">msg2516</a></td></tr>
+<tr><td>2011-09-21&nbsp;03:12:34</td><td>aviendhaSL</td><td>set</td><td>messages:
+  + <a href="msg2515">msg2515</a></td></tr>
+<tr><td>2011-09-21&nbsp;02:50:36</td><td>paultag</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg2514">msg2514</a></td></tr>
+<tr><td>2011-09-21&nbsp;02:04:48</td><td>aviendhaSL</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

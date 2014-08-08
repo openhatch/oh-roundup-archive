@@ -1,0 +1,671 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 819: +projedit for OpenHatch crashes - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue819
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue819">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue819">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">+projedit for OpenHatch crashes</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.13.09</td>
+ <th class="required">Priority</th>
+ <td>urgent</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  brittag, jwm, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>jwm</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2013-03-18.21:26:43</b> by <b>paulproteus</b>, last changed <b>2013-09-14.23:26:19</b> by <b>paulproteus</b>.</p>
+
+
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg3856">msg3856 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-09-14.23:26:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This is so fixed! Patch applied and deployed and tested.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3855">msg3855 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-09-14.23:17:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think this all sounds completely reasonable to me.
+
+I'll deploy this, and let the nightly bug crawl fix the DB. (See also discussion
+on IRC over the past half hour or so.)
+
+Working on deploying it now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3853">msg3853 (view)</a></th>
+   <th>Author: jwm</th>
+   <th>Date: 2013-09-14.22:40:37</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Oh, and I should add that after applying that patch, we'll have to wait for the bug importers to run 
+again, and update all the tracker_type_ids on bugs.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3852">msg3852 (view)</a></th>
+   <th>Author: jwm</th>
+   <th>Date: 2013-09-14.22:35:03</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey, sorry I missed that this bug was still assigned to me. Google's OpenID
+provider prefers GMail addresses, so it imported the ancient/unused GMail
+address from my Google Account when I registered, and I never noticed. D'oh.
+
+Anyway, TrackerModel.get_by_name() isn't downcasting its results to the
+TrackerModel subclasses. When core_bugimporters.import_one_bug_item() sets
+a Bug's tracker member, it's assigning a generic TrackerModel instance.
+
+This sets the bug's tracker_type_id to the generic TrackerModel type (from
+django_content_type), so Django's content type framework will instantiate
+the generic TrackerModel on subsequent loads of that bug's tracker. If I
+manually change the tracker_type_id on all OpenHatch bugs to the id of
+RoundupTrackerModel (from django_content_type), the tracker instances
+returned to the project page are subclasses, and the page functions
+properly.
+
+IOW, import_one_bug_item() saves a generic TrackerModel, so subsequent loads
+of that bug's data will (of course) retrieve a generic TrackerModel. When
+I manually fix the tracker_type_id on a Bug, Django starts returning the
+subclass, as I asked it to.
+
+Make sense?
+
+Therefore, when the edit page calls get_edit_url() on these generic tracker
+instances, get_edit_url() throws up its hands since it doesn't know how to
+build an edit link for a generic TrackerModel.
+
+I _think_ this is fixed by the one line patch below, which seems to do the
+Right Thing when I run:
+
+    mysite.customs.models.TrackerModel.objects.select_subclasses().filter(
+        rounduptrackermodel__tracker_name='OpenHatch')
+
+in the Django shell on the production site, but data snapshots don't
+populate any of the trackermodel tables, so it's hard to verify locally.
+If we add the trackermodel tables to data snapshots, we'd have to take care
+with the django_content_type table, since the autogenerated one in my
+local instance has different primary key values than the production site.
+
+This bug is related to <a href="https://openhatch.org/bugs/issue831,">https://openhatch.org/bugs/issue831,</a> which we talked
+about at PyCon. After chasing this (bug 819) to ground, I'm not sure moving
+TrackerModel to a mixin will really save us much.
+
+I think we should get rid of the manual registration in all_trackers by
+having anything that uses all_trackers iterate through all TrackerModel
+subclasses instead, and move the per-tracker configuration items (namestr
+and the links to the proper form, urlmodel, and urlform for each tracker
+type) into class members on those TrackerModel subclasses.
+
+Asheesh, what do you think?
+
+
+--
+diff --git a/mysite/customs/models.py b/mysite/customs/models.py
+index c704769..b78f90d 100644
+--- a/mysite/customs/models.py
++++ b/mysite/customs/models.py
+@@ -196,7 +196,7 @@ class TrackerModel(models.Model):
+         def _pipe_things(a, b):
+             return a | b
+         joined = reduce(_pipe_things, query_parts)
+-        return cls.objects.get(joined)
++        return cls.objects.select_subclasses().get(joined)
+ 
+ class TrackerQueryModel(models.Model):
+     '''This model just exists to provide a way to grab a QuerySet
+--</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3851">msg3851 (view)</a></th>
+   <th>Author: jwm</th>
+   <th>Date: 2013-09-14.04:49:54</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Poked at this a bunch tonight, think I know the proximate cause. Will write up what I found 
+sometime this weekend, time to sleep for now.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3846">msg3846 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-09-11.22:47:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hey John, are you interested in fixing this still? It's a complicated interaction 
+caused by having two bug tracker objects with the same name, from what I 
+understand.
+
+If not, then I can prioritize it for myself for this month.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3833">msg3833 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2013-08-30.09:43:26</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Weird, I just tried <a href="https://openhatch.org/+projedit/MCServer">https://openhatch.org/+projedit/MCServer</a> and that worked fine, while 
+<a href="http://openhatch.org/+projedit/OpenHatch">http://openhatch.org/+projedit/OpenHatch</a> still causes a 500 error.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3806">msg3806 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2013-08-17.07:29:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>This bug is particularly tricky to replicate locally. I add a new test project on the local open hatch site 
+and that "Edit project settings" link directs me to a valid page where I can edit the project settings.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3804">msg3804 (view)</a></th>
+   <th>Author: brittag</th>
+   <th>Date: 2013-08-16.21:51:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I noticed this bug today. I can get to it by going to a normal project page such as 
+<a href="https://openhatch.org/projects/OpenHatch">https://openhatch.org/projects/OpenHatch</a> and then clicking "Edit project settings" at the top right 
+of the blue central box.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3801">msg3801 (view)</a></th>
+   <th>Author: onceuponatimeforever</th>
+   <th>Date: 2013-08-09.06:47:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Is "<a href="http://openhatch.org/+projedit/OpenHatch">http://openhatch.org/+projedit/OpenHatch</a>" even a valid url? How do you get to that page from say, 
+the main home page? I'm not sure I understand the bug.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3778">msg3778 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-08-07.00:54:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>We should probably fix crasher bugs!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3623">msg3623 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-03-19.19:55:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>[Monitoring-private] [Kaboom at OH] ERROR (EXTERNAL IP): Internal Server Error:
+/+projedit/OpenHatch
+mr_website at linode.openhatch.org mr_website at linode.openhatch.org
+Tue Mar 19 18:28:37 UTC 2013
+
+    Previous message: [Monitoring-private] [Kaboom at OH] Broken INTERNAL link
+on openhatch.org
+    Next message: [Monitoring-private] [Kaboom at OH] Broken INTERNAL link on
+openhatch.org
+    Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
+
+Traceback (most recent call last):
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/core/handlers/base.py",
+line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/contrib/auth/decorators.py",
+line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+
+  File "/home/deploy/milestone-a.buildout/mysite/project/views.py", line 405, in
+edit_project
+    request, 'edit_project.html', context, slug=__name__)
+
+  File "/home/deploy/milestone-a.buildout/mysite/base/decorators.py", line 67,
+in as_view
+    return render_response(request, template, data)
+
+  File "/home/deploy/milestone-a.buildout/mysite/base/helpers.py", line 81, in
+render_response
+    return django.shortcuts.render_to_response(*args, **kwargs)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/shortcuts/__init__.py",
+line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs),
+**httpresponse_kwargs)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/loader.py",
+line 188, in render_to_string
+    return t.render(context_instance)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 123, in render
+    return self._render(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 117, in _render
+    return self.nodelist.render(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 744, in render
+    bits.append(self.render_node(node, context))
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 757, in render_node
+    return node.render(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/loader_tags.py",
+line 127, in render
+    return compiled_parent._render(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 117, in _render
+    return self.nodelist.render(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 744, in render
+    bits.append(self.render_node(node, context))
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 757, in render_node
+    return node.render(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/loader_tags.py",
+line 64, in render
+    result = block.nodelist.render(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 744, in render
+    bits.append(self.render_node(node, context))
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 757, in render_node
+    return node.render(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/defaulttags.py",
+line 311, in render
+    return self.nodelist_true.render(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 744, in render
+    bits.append(self.render_node(node, context))
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 757, in render_node
+    return node.render(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/defaulttags.py",
+line 227, in render
+    nodelist.append(node.render(context))
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 792, in render
+    output = self.filter_expression.resolve(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 510, in resolve
+    obj = self.var.resolve(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 653, in resolve
+    value = self._resolve_lookup(context)
+
+  File
+"/home/deploy/milestone-a.buildout/vendor/packages/Django/django/template/base.py",
+line 698, in _resolve_lookup
+    current = current()
+
+  File "/home/deploy/milestone-a.buildout/mysite/customs/models.py", line 169,
+in get_edit_url
+    raise ValueError, ("The tracker class seems to be misconfigured. "
+
+ValueError: The tracker class seems to be misconfigured. Read the comments
+around this message.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3590">msg3590 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2013-03-18.21:26:43</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On the live site, when you go to:
+
+<a href="http://openhatch.org/+projedit/OpenHatch">http://openhatch.org/+projedit/OpenHatch</a>
+
+You trigger a crash. The error is:
+
+ValueError: The tracker class seems to be misconfigured. Read the comments 
+around this message.
+
+John, can you perhaps figure out what is going on here?</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2013-09-14&nbsp;23:26:19</td><td>paulproteus</td><td>set</td><td>status: chatting -> resolved<br />messages:
+  + <a href="msg3856">msg3856</a></td></tr>
+<tr><td>2013-09-14&nbsp;23:17:58</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3855">msg3855</a></td></tr>
+<tr><td>2013-09-14&nbsp;22:40:37</td><td>jwm</td><td>set</td><td>messages:
+  + <a href="msg3853">msg3853</a></td></tr>
+<tr><td>2013-09-14&nbsp;22:35:04</td><td>jwm</td><td>set</td><td>messages:
+  + <a href="msg3852">msg3852</a></td></tr>
+<tr><td>2013-09-14&nbsp;04:49:55</td><td>jwm</td><td>set</td><td>messages:
+  + <a href="msg3851">msg3851</a></td></tr>
+<tr><td>2013-09-11&nbsp;22:59:04</td><td>brittag</td><td>set</td><td>milestone: <a href="milestone17">0.13.08</a> -> <a href="milestone18">0.13.09</a></td></tr>
+<tr><td>2013-09-11&nbsp;22:47:25</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3846">msg3846</a></td></tr>
+<tr><td>2013-08-30&nbsp;09:43:26</td><td>brittag</td><td>set</td><td>messages:
+  + <a href="msg3833">msg3833</a></td></tr>
+<tr><td>2013-08-17&nbsp;07:29:20</td><td>onceuponatimeforever</td><td>set</td><td>messages:
+  + <a href="msg3806">msg3806</a></td></tr>
+<tr><td>2013-08-16&nbsp;21:51:07</td><td>brittag</td><td>set</td><td>nosy:
+  + <a href="user811">brittag</a><br />messages:
+  + <a href="msg3804">msg3804</a></td></tr>
+<tr><td>2013-08-09&nbsp;06:47:25</td><td>onceuponatimeforever</td><td>set</td><td>messages:
+  + <a href="msg3801">msg3801</a></td></tr>
+<tr><td>2013-08-07&nbsp;00:54:11</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3778">msg3778</a><br />milestone: <a href="milestone17">0.13.08</a></td></tr>
+<tr><td>2013-03-19&nbsp;19:55:12</td><td>paulproteus</td><td>set</td><td>status: unread -> chatting<br />messages:
+  + <a href="msg3623">msg3623</a></td></tr>
+<tr><td>2013-03-19&nbsp;18:29:43</td><td>jwm</td><td>set</td><td>assignedto: <a href="user73">jwm</a></td></tr>
+<tr><td>2013-03-18&nbsp;21:26:43</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

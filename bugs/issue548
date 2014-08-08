@@ -1,0 +1,413 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 548: Change Subversion training mission to be clearer as to what to fix - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue548
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue548">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue548">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Change Subversion training mission to be clearer as to what to fix</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.07</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  hdorio, jesstess, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>hdorio</td>
+ <th>Keywords</th>
+ <td>
+  bitesize
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-08-18.08:39:24</b> by <b>hdorio</b>, last changed <b>2011-09-01.04:46:11</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file387/Replace-typographical-by-spelling.patch">Replace-typographical-by-spelling.patch</a>
+  </td>
+  <td>
+   <span>hdorio</span>,
+   <span>2011-08-26.03:45:20</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file380/svn_diff">svn_diff</a>
+  </td>
+  <td>
+   <span>hdorio</span>,
+   <span>2011-08-18.08:39:23</span>
+  </td>
+  <td>application/octet-stream</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2447">msg2447 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-01.04:46:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>hdorio! Thanks for this patch. Somehow I missed it, even though you properly
+marked it need-review.
+
+The patch looks good, and since it is so simple, I will deploy it immediately.
+
+It would be great if you would email our mailing list saying you give permission
+to share it. See the
+<a href="http://openhatch.org/wiki/How_we_handle_patches#Permit_us_to_share_your_work:">http://openhatch.org/wiki/How_we_handle_patches#Permit_us_to_share_your_work:</a>
+page -- look for the "Permit us to share your work" section. This particular
+patch is probably not copyrightable, but it'd be good to have that on file.
+
+If you can do that within about two days, then I will deploy this</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2374">msg2374 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-24.22:35:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>As far as I can tell, the key action item on this bug is to change "typographical" 
+to "spelling".
+
+That makes it quite bitesize. I'll mark it as such!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2348">msg2348 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-08-20.00:47:22</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>hdorio,
+
+&gt; Maybe you should change the word 'typographical' by 'spelling error'
+&gt; or at least remove the extra space after the period.
+
+I 100% agree with both suggestions. Would you be interested in creating a patch to address this? :)
+
+If you are, <a href="http://openhatch.org/wiki/Getting_started_with_the_OpenHatch_code">http://openhatch.org/wiki/Getting_started_with_the_OpenHatch_code</a> has some 
+instructions for how to get the code that makes up the site. 
+
+<a href="http://openhatch.org/wiki/Category:Hacking_OpenHatch">http://openhatch.org/wiki/Category:Hacking_OpenHatch</a> has some additional information, the 
+most important of which is that OpenHatch contributors talk on IRC, specifically #openhatch on 
+Freenode -- so if you get stuck while working on the patch, feel free to comment on this ticket or 
+talk with us on IRC.
+
+I look forward to hearing from you!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2332">msg2332 (view)</a></th>
+   <th>Author: hdorio</th>
+   <th>Date: 2011-08-18.22:48:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Maybe you should change the word 'typographical' by 'spelling error'
+or at least remove the extra space after the period.
+
+I'm not a native English speaker, but for me a 'typographical  error' is definitely not a spelling 
+error
+
+I quote wikipedia here (Redirected from Typographical)
+Typography is the art and technique of arranging type. The arrangement of type involves the 
+selection of typefaces, point size, line length, leading (line spacing), adjusting the spaces 
+between groups of letters (tracking) and adjusting the space between pairs of letters.
+
+But since "Mr. Bad is embarrassed by typos" and for me a typo could be both a typographical and 
+spelling error, I should be able to commit the spacing + the spelling error, not just the spelling 
+error.
+
+Maybe I'm wrong again, maybe in English two spaces after a period is typographically fine.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2323">msg2323 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-08-18.11:47:27</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi hdorio,
+
+The intended typographical error in the README is a spelling error and not a spacing error. Try 
+undoing the spacing change, fixing the spelling error, and submitting a new diff and let us know on 
+the ticket if that works.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2322">msg2322 (view)</a></th>
+   <th>Author: hdorio</th>
+   <th>Date: 2011-08-18.08:39:23</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>svn --version
+svn, version 1.6.12 (r955767)
+   compiled Jun  5 2011, 14:55:20
+
+On Ubuntu 10.10
+
+I'm pretty sure I've done the mission right but this error keeps coming :
+"The file resulting from patching does not have the correct contents."
+
+maybe I'm wrong just see my svn_diff</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-09-01&nbsp;04:46:11</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />assignedto: <a href="user231">hdorio</a><br />messages:
+  + <a href="msg2447">msg2447</a></td></tr>
+<tr><td>2011-08-26&nbsp;03:45:20</td><td>hdorio</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file387">Replace-typographical-by-spelling.patch</a></td></tr>
+<tr><td>2011-08-24&nbsp;22:36:58</td><td>paulproteus</td><td>set</td><td>title: Using Subversion - Diffing your changes -> Change Subversion training mission to be clearer as to what to fix</td></tr>
+<tr><td>2011-08-24&nbsp;22:35:58</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2374">msg2374</a><br />keyword:
+  + <a href="keyword1">bitesize</a></td></tr>
+<tr><td>2011-08-20&nbsp;00:47:22</td><td>jesstess</td><td>set</td><td>messages:
+  + <a href="msg2348">msg2348</a></td></tr>
+<tr><td>2011-08-18&nbsp;22:48:02</td><td>hdorio</td><td>set</td><td>messages:
+  + <a href="msg2332">msg2332</a></td></tr>
+<tr><td>2011-08-18&nbsp;11:47:29</td><td>jesstess</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user12">jesstess</a><br />messages:
+  + <a href="msg2323">msg2323</a></td></tr>
+<tr><td>2011-08-18&nbsp;08:39:24</td><td>hdorio</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

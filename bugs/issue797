@@ -1,0 +1,439 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 797: Getting Started doc suggests that weekly meetings occur - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue797
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue797">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue797">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">Getting Started doc suggests that weekly meetings occur</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td></td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  blues_chick, nickdirienzo, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>nickdirienzo</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2012-12-14.07:43:16</b> by <b>nickdirienzo</b>, last changed <b>2014-03-02.20:57:51</b> by <b>blues_chick</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file528/0002-Updated-getting_started.rst-to-have-an-anchor-to-the.patch">0002-Updated-getting_started.rst-to-have-an-anchor-to-the.patch</a>
+  </td>
+  <td>
+   <span>nickdirienzo</span>,
+   <span>2012-12-19.20:13:07</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg4151">msg4151 (view)</a></th>
+   <th>Author: blues_chick</th>
+   <th>Date: 2014-03-02.20:57:51</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Submitted PR 210 to close <a href="issue797">issue 797</a>.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3545">msg3545 (view)</a></th>
+   <th>Author: nickdirienzo</th>
+   <th>Date: 2012-12-27.17:42:48</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>No worries! I was going to poke on IRC, but family parties got in the way.
+
+* It does make sense. And no I won't always, but it worked, so I went with it.
+
+* Yeah I'm not entirely sure how I deleted it. I'll be sure to keep all patches next time. Sorry! :)
+
+No problem, and I plan to. I just got a little busy. And no worries about the slow merge! :)
+
+Nick</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3544">msg3544 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-12-27.17:20:42</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Nick! Sorry about the delay!
+
+Your changes look good to me, and I've pushed them. Some quick feedback:
+
+* Thanks for using that wording; it makes sense! I guess I hope I feel that way; 
+I wrote it. (: But other wording could have worked too; I hope you won't always 
+treat my word as gospel.
+
+* When submitting 0002, you deleted 0001 from the ticket. But your 0002 patch 
+does actually depend on 0001. Luckily I could go into the ticket history on the 
+web (by clicking around at the bottom) and find 0001, so I applied both.
+
+Thank you for these changes! I hope you'll keep contributing, and please accept 
+my apologies for the slow merge.
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3538">msg3538 (view)</a></th>
+   <th>Author: nickdirienzo</th>
+   <th>Date: 2012-12-19.20:13:07</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I anchored the devel@ to the actual email address too. I accidentally deleted the 
+0001 patch, so I'll just include the later patch file. My bad.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3537">msg3537 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-12-17.21:53:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Cool!
+
+You can put the "Closes: thing on a line of its town, the last line in the 
+commit msg.
+
+need-review is what I meant!
+
+As for the wiki, it doesn't go into a moderating system. I suggest just 
+making changes and emailing me (or the devel list) with your thoughts 
+about the changes, and we can all read and see if it is okay!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3535">msg3535 (view)</a></th>
+   <th>Author: nickdirienzo</th>
+   <th>Date: 2012-12-15.01:00:56</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I used your words. :)
+
+First time submitting a patch, let me know if I did this right. Wasn't sure 
+where to put "Closes <a href="https://openhatch.org/bugs/issue797">https://openhatch.org/bugs/issue797</a>" though; do I add it as 
+the last line in the patch?
+
+One day, I'll figure out the pull request thing on GitHub, but the doc says to 
+submit a patch to the issue so I just did that. Speaking of, in "Submitting your 
+patch series for review" it says to change the status to "in-review"... is that 
+supposed to read "need-review" or "in-progress"?
+
+re: wiki: I'll work on editing the wiki over the next few days. Does it go into 
+a moderating queue on editing/creating new pages? I don't want to publish 
+nonsensical writing!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3534">msg3534 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2012-12-15.00:22:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Might as well say, We used to have weekly development meetings, but they 
+are on hiatus for now. If you find the idea interesting and would show up, 
+do email devel@ and say so!
+
+Something like that, to see if people care. (:
+
+re: wiki: the best answer is oribably to empty out the wiki page and link 
+to the corresponding openhatch.readthedocs.org page.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg3532">msg3532 (view)</a></th>
+   <th>Author: nickdirienzo</th>
+   <th>Date: 2012-12-14.07:43:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On the Getting Started doc under Next Steps &gt; Get In Touch, it suggests that 
+weekly development meetings still occur. However, paulproteus suggested on IRC 
+that the docs should be adjusted to reflect that these meetings rarely happen.
+
+My thought is to change "We have weekly meetings, typically on Saturdays at 4pm 
+EST (-5 UTC)." to "If we are to have a development meeting on IRC, it will be 
+announced on the Devel mailing list beforehand." Thoughts? Or is it best to just 
+remove the statement entirely?
+
+Also, the wiki should be updated to reflect what is in the docs (this is 
+probably a separate bug to be issued though, since there is a lot of things to 
+be fixed there).</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2014-03-02&nbsp;20:57:51</td><td>blues_chick</td><td>set</td><td>status: chatting -> resolved<br />nosy:
+  + <a href="user723">blues_chick</a><br />messages:
+  + <a href="msg4151">msg4151</a></td></tr>
+<tr><td>2012-12-27&nbsp;17:42:48</td><td>nickdirienzo</td><td>set</td><td>status: resolved -> chatting<br />messages:
+  + <a href="msg3545">msg3545</a></td></tr>
+<tr><td>2012-12-27&nbsp;17:20:56</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg3544">msg3544</a></td></tr>
+<tr><td>2012-12-19&nbsp;20:13:07</td><td>nickdirienzo</td><td>set</td><td>files:
+  + <a href="file528">0002-Updated-getting_started.rst-to-have-an-anchor-to-the.patch</a><br />messages:
+  + <a href="msg3538">msg3538</a></td></tr>
+<tr><td>2012-12-19&nbsp;20:04:09</td><td>nickdirienzo</td><td>set</td><td>files:
+  - <a href="file527">0001-Updated-Getting-Started-to-mention-that-weekly-meeti.patch</a></td></tr>
+<tr><td>2012-12-17&nbsp;21:53:11</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3537">msg3537</a></td></tr>
+<tr><td>2012-12-15&nbsp;01:00:57</td><td>nickdirienzo</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file527">0001-Updated-Getting-Started-to-mention-that-weekly-meeti.patch</a><br />messages:
+  + <a href="msg3535">msg3535</a></td></tr>
+<tr><td>2012-12-15&nbsp;00:22:08</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg3534">msg3534</a></td></tr>
+<tr><td>2012-12-14&nbsp;07:43:16</td><td>nickdirienzo</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->

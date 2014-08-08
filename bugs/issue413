@@ -1,0 +1,1039 @@
+<!-- dollarId: issue.item,v 1.4 2001/08/03 01:19:43 richard Exp dollar-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Issue 413: git mission should ask you to configure git properly - Roundup issue tracker
+
+</title>
+<link rel="stylesheet" type="text/css" href="@@file/style.css">
+<meta http-equiv="Content-Type"
+      content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('https://openhatch.org/bugs/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script>
+
+
+
+</head>
+<body class="body">
+
+<table class="body">
+
+<tr>
+ <td class="page-header-left"><a href="/" title="OpenHatch"><img src="/static/images/the-logo-bluegreen-87px.png" width="87" height="60" alt="openhatch" /></a></td>
+ <td class="page-header-top">
+   <div id="body-title">
+     <h2>
+ 
+ 
+ Issue413
+ 
+</h2>
+   </div>
+   <div id="searchbox">
+     <form method="GET" action="issue">
+       <input type="hidden" name="@columns"
+              value="id,activity,title,creator,assignedto,status,milestone" />
+       <input type="hidden" name="@sort" value="activity" />
+       <input type="hidden" name="@group" value="priority" />
+       <input id="search-text" name="@search_text" size="10" />
+       <input type="submit" id="submit" name="submit"
+              value="Search" />
+     </form>
+  </div>
+ </td>
+</tr>
+
+<tr>
+ <td rowspan="2" valign="top" class="sidebar">
+  
+
+  <p class="classblock">
+    <b>This month: 0.13.10</b><br>
+    <a href="/wiki/0.13.10">Goals (in wiki)</a><br>
+    <a href="milestone19?@template=open">Bug list</a>
+  </p>
+
+  <form method="POST" action="https://openhatch.org/bugs/">
+   <p class="classblock">
+    <b>Issues</b><br>
+    
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,status,milestone&amp;assignedto=-1&amp;@group=priority&amp;@dispname=Show Unassigned&amp;@filter=status,assignedto&amp;@pagesize=50&amp;@startwith=0">Show Unassigned</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@dispname=Show All&amp;@filter=status&amp;@group=priority&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@pagesize=50&amp;@startwith=0">Show All</a><br>
+    <a href="issue?status=-1,1,2,3,4,5,6,7,9,10&amp;@sort=-activity&amp;@search_text=&amp;@columns=id,activity,title,creator,assignedto,status,milestone&amp;@dispname=Show Bitesized&amp;keyword=1&amp;@group=priority&amp;@filter=status,keyword&amp;@pagesize=50&amp;@startwith=0">Show Bitesized</a><br>
+    <a href="issue?@template=search">Search</a><br>
+    <input type="submit" class="form-small"
+           value="Show issue:"><input class="form-small" size="4" type="text" name="@number">
+    <input type="hidden" name="@type" value="issue">
+    <input type="hidden" name="@action" value="show">
+   </p>
+  </form>
+
+  
+
+  
+
+  
+
+   <p class="userblock">
+    <b>Login</b><br>
+    <a href="https://openhatch.org/account/login/?next=/bugs/issue413">Click here to login.</a>
+   </p>
+
+  
+  <p class="userblock">
+   <b>Help</b><br>
+   <a href="http://www.roundup-tracker.org/docs.html">Bug tracker docs</a>
+  </p>
+ </td>
+ <td>
+  
+  
+ </td>
+</tr>
+<tr>
+ <td class="content">
+
+
+
+
+
+<div>
+
+<form method="POST" name="itemSynopsis"
+      onsubmit="return submit_once()"
+      enctype="multipart/form-data" action="issue413">
+
+<table class="form">
+<tr>
+ <th class="required">Title</th>
+ <td colspan="3">git mission should ask you to configure git properly</td>
+</tr>
+
+<tr>
+ <th>Milestone</th>
+ <td>0.11.09</td>
+ <th class="required">Priority</th>
+ <td>bug</td>
+</tr>
+
+<tr>
+ <th>Waiting On</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Status</th>
+ <td>resolved</td>
+</tr>
+
+<tr>
+ <th>Superseder</th>
+ <td>
+  
+  
+  
+ </td>
+ <th>Nosy List</th>
+ <td>
+  aldeka, aviendhaSL, grumler, palhmbs, paulproteus
+  <br>
+ </td>
+</tr>
+
+<tr>
+ <th>Assigned To</th>
+ <td>paulproteus</td>
+ <th>Keywords</th>
+ <td>
+  
+  
+ </td>
+</tr>
+
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+<p>Created on <b>2011-05-01.08:43:56</b> by <b>paulproteus</b>, last changed <b>2011-09-30.15:46:13</b> by <b>paulproteus</b>.</p>
+
+<table class="files">
+ <tr><th colspan="5" class="header">Files</th></tr>
+ <tr>
+  <th>File name</th>
+  <th>Uploaded</th>
+  <th>Type</th>
+  <th>Edit</th>
+  <th>Remove</th>
+ </tr>
+ <tr>
+  <td>
+   <a href="file320/0001-Addition-of-new-git-config-step.patch">0001-Addition-of-new-git-config-step.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-06-03.10:33:58</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file350/0001-Template-changes1.patch">0001-Template-changes1.patch</a>
+  </td>
+  <td>
+   <span>palhmbs</span>,
+   <span>2011-06-12.06:48:02</span>
+  </td>
+  <td>text/x-diff</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <a href="file410/git-mission-helps-you-install.patch">git-mission-helps-you-install.patch</a>
+  </td>
+  <td>
+   <span>paulproteus</span>,
+   <span>2011-09-27.19:52:53</span>
+  </td>
+  <td>text/x-patch</td>
+  <td>
+  </td>
+  <td>
+   
+  </td>
+ </tr>
+</table>
+
+<table class="messages">
+ <tr><th colspan="4" class="header">Messages</th></tr>
+ 
+  <tr>
+   <th><a href="msg2542">msg2542 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-30.15:46:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I'm deploying this now, and marking it as resolved.
+
+Thanks for the discussion, patches, and feedback!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2539">msg2539 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-28.21:26:44</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>(the one to review is
+<a href="http://openhatch.org/bugs/file410/git-mission-helps-you-install.patch">http://openhatch.org/bugs/file410/git-mission-helps-you-install.patch</a> )</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2536">msg2536 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-27.19:52:53</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Also, the patch series is now actually attached!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2535">msg2535 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-27.19:52:33</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Adding grumler to the nosy list.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2533">msg2533 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-27.19:46:52</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The attached patch creates a new git mission step that asks you to run "git
+config --global user.email" (etc.) and also tells you how to install git.
+
+I would like review, from maybe palhmbs or aldeka, to see if this passes muster.
+
+(Paul, you might be particularly interested in how I moved the validation into
+the Django form object.)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2457">msg2457 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-09-01.05:37:00</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Pushing to 0.11.09 for now. I personally hope to get to this soon.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2414">msg2414 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-08-29.00:51:58</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Sure, paulproteus, it's fine by me cause I'm real busy with stuff at the moment.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2405">msg2405 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-08-27.21:43:18</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Paul,
+
+Is it okay if I try to re-work your tests so they work, and ship them during 
+0.11.07? If so I will try to. Otherwise I will push this to 0.11.09 and see if 
+you or someone else has bandwidth for it.
+
+Let us know on the bug! I don't want to take it away if you're hacking on it or 
+having fun with the plan of hacking on it in the future.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2136">msg2136 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-07-02.21:10:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>On self.client vs client: The only important thing is that you make sure that the 
+Django test client object comes from the login_with_client() function.
+
+I *think* that there's a built-in self.client that is not logged-in, so it can be 
+confusing.
+
+That's my recollection off the top of my head, and it's what I was thinking when 
+I wrote that comment.
+
+Now, finally marking as in-progress. Sorry about the long latency!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2129">msg2129 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-07-02.20:16:40</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Sliding into July milestone, since it's July.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2088">msg2088 (view)</a></th>
+   <th>Author: jesstess</th>
+   <th>Date: 2011-06-20.01:28:01</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Paul,
+
+Asheesh asked me to have a look at this. It looks like a bunch of this conversation happened on 
+IRC, which makes it hard for me to understand the state in this thread, but here's at least some 
+feedback:
+
+&gt; 2. Q: Why _should_ I handle the validation differently? Why is it sub-optimal?
+
+It's sub-optimal because we shouldn't roll our own way of validating e-mail addresses that 
+penalizes addresses containing certain keywords when there are existing, correct ways of validating 
+e-mail addresses.
+
+&gt; really what is stopping someone typing in _any_ valid email address?
+
+The question to ask, then, is if you actually care about verifying what `git config user.email` is set 
+to. You're right -- we can never know that they are using their correct address, and if that's the only 
+valuable test then we just shouldn't test it and move on.
+
+&gt; So why are you telling me... "I would also assert that the mission step hasn't been
+&gt; successfully completed, or some other deeper check."  when the actual test _is_
+&gt; asserting that the mission step hasn't been completed? eg:
+&gt; "self.assertFalse(controllers.mission_completed(paulproteus, 'git_config'))" @
+&gt; line #71.
+
+I think Asheesh just didn't see in the moment that this function was called from a test that does 
+make that check.
+
+Paul: thanks a ton for all the work you've been doing on OpenHatch. I'm sorry you are getting 
+frustrated with the back and forth of reviews, but stick with it. Also, you might find it satisfying to 
+work on some smaller tickets for a bit, for the satisfaction of closing out a bunch without so much 
+back and forth.
+
+I'll keep this in review so Asheesh can comment on Q1, which seems to have been discussed on IRC. 
+`self.client` is used exclusively over a local `client` in mysite/missions/git/tests.py, so I don't 
+understand Asheesh's comment either (but I also only skimmed the file).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2085">msg2085 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-19.22:40:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Paul! I missed your response to my review, and I will give this a fresh look.
+Marking as need-review so it shows up in my query.
+
+(-:,
+
+-- Asheesh.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2076">msg2076 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-12.10:24:25</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>So in trying to correct the problems that you have pointed out, I'm getting
+really, really confused...
+
+1. Q: What's the difference between current self.client.post() and client.post()
+- Hasn't everybody else used it?
+   ** self.cient is the result of self.login_with_client() @ line #27
+
+2. Q: Why _should_ I handle the validation differently? Why is it sub-optimal?
+  ** Ok, I get your point that my tests are gonna fail somebodies valid email
+address, but really what is stopping someone typing in _any_ valid email address? 
+  ** It's not like we're doing a double-opt-in sign-up here (but maybe we should
+be?).
+  ** Hey, at least once they do type in a invalid email they are told what's
+wrong with it!
+  ** I also have tested the functions I created manually and not just with the
+unit test.
+
+3. Q:  This isn't a test by itself. right? --&gt; def
+email_address_is_rejected(self, email_address): 
+   So why are you telling me... "I would also assert that the mission step
+hasn't been
+successfully completed, or some other deeper check."  when the actual test _is_
+asserting that the mission step hasn't been completed? eg:
+"self.assertFalse(controllers.mission_completed(paulproteus, 'git_config'))" @
+line #71.
+
+4. Q: Maybe you were having a bad day when you reviewed this patch?
+
+For me to take the time to get patches corrected and then have another set of
+hoops to jump through is really quite depressing, but then again, thanks heaps
+for taking the time to review all these git mission patches!!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2072">msg2072 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-12.06:48:02</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Updated templates, whitespace error fixed. 
+
+What inherent dangers are there when disabling the built-in Django template
+escaping? I thought since I created the error which is being sent to the
+template that it would be 'clean' enough not to break things. :P</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2015">msg2015 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-06-03.12:15:19</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I can't accept the "git config" tests yet because of this:
+
++    def test_do_git_description_mission_incorrectly(self):
++        self.assertFalse(self.email_address_is_rejected('<a href="mailto:paulproteus@pathi.local">paulproteus@pathi.local</a>'))
+
+You seem to assert that <a href="mailto:paulproteus@pathi.local">paulproteus@pathi.local</a> should *not* be rejected
+(assertFalse + the method name). That strikes me as incorrect; it should *be*
+rejected.
+
+Also, in "def email_address_is_rejected", checking the status code is a good
+first step, but I would also assert that the mission step hasn't been
+successfully completed, or some other deeper check.
+
+Also, your test is kind of messy: You will reject any email address that has
+"host" or "local" in it, but that means you'll reject "<a href="mailto:asheesh@mywebhost.com">asheesh@mywebhost.com</a>"
+(for example) and "<a href="mailto:asheesh@localtv.com">asheesh@localtv.com</a>". As I think this through, I wonder: can
+you just use the Django built-in EmailField to do the validation part? See also
+<a href="https://docs.djangoproject.com/en/dev/ref/forms/fields/">https://docs.djangoproject.com/en/dev/ref/forms/fields/</a>
+
+I would suggest that you extract the email checking functionality into a
+different function (probably, make it part of the def clean_email() in the
+Django form you're using -- and actually, if you make it an EmailField, you can
+use Django's built-in email checking)... actually, it *is* already an email
+field! Hmm.
+
+I would suggest you rewrite your email-validity-checks to use the Form class,
+rather than the Django view, so that you can just straightforwardly check if the
+form validation will accept e.g. pathi.local.
+
+Also, in the template, rather than passing HTML in from the Python code, you
+could just take the string the Python passes in and surround it as necessary
+with HTML. For example, instead of
+
+{{ var|safe|escape }}
+
+maybe
+
+&lt;strong&gt;{{ var|safe|escape }}&lt;/strong&gt;
+
+Disabling the built-in Django escaping is something I don't like doing lightly,
+but if in this case you need it and you know it's a safe thing to do, that's okay.
+
+You're on the right track, and your git commit message is way clearer and easier
+to read than they used to be!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg2012">msg2012 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-03.10:29:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Again, I've seperated out the patch, 1 for only the templates - this time I've
+added an var|safe|escape to the about_git.html template, so that I could bold a
+error message.
+
+Also a patch for the rest, which includes:
+urls.py, fixtures/initial_data.json, git/forms.py, git/views.py &amp; git/tests.py.
+
+My tests pass!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1984">msg1984 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-06-01.06:35:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>:(</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1944">msg1944 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-29.05:11:13</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>These are the template changes, in a seperate commit from the backend changes (views.py, 
+controllers.py, tests.py, forms.py).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1925">msg1925 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-28.22:35:36</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I think you missed addressing the issue about the form not showing an error message when it's not 
+valid - could you please help me to figure that out
+
+It should show an error when there is an error, but it not.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1901">msg1901 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-27.16:38:16</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>One more thing: It seems that the use of tabs in the source is due to Mark, not
+due to you. Sorry about being sloppy about that in the review.
+
+(and I guess I let these tab characters get into the source, so mega mea culpa)</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1900">msg1900 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-27.16:32:09</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Hi Paul,
+
+I think I can see some things that are going wrong here. But first of all, can
+you *please* submit your work in smaller fragments? For example, the fixes to
+about_git.html don't have to be in the same massive commit as these other changes.
+
+If you create smaller commits, then you can feel happy about the smaller pieces
+of work that are definitely correct, but moreover I can deploy them
+independently of other work that is not yet ready.
+
+If you need help with the git tools in order to make smaller commits, I am quite
+happy to provide it. It's quite possible to take an existing commit and separate
+it out into different commits, and that would make both of our lives easier.
+
+Okay, as for this test: here's what I said on IRC last night:
+
+&lt;paulproteus&gt; I suspect self.client is not logged in
+&lt;paulproteus&gt; use client = self.login_with_client()
+&lt;paulproteus&gt; then client.post()
+&lt;paulproteus&gt; Times like these, I often do 'print response' in the tests, to see
+what it is
+
+Have you tried doing 'print response' to see what exactly you're getting? You
+said you're getting an HTTP 302; that's a redirect. That either means that the
+view is asking the "client" to log in, or that the POST submission succeeded
+without error.
+
+In general, don't use self.client. Use a local variable in your test called
+"client" that you get as a result of calling self.login_with_client().
+
+Also, you have some English style issues: You wrote, "Now let's get Git setup"
+but (for American English, at least) it should be "Now let's get Git set up".
+
+Some other issues: In the patch, I see a change to the indenting of the
+HttpResponseRedirect at the end of "def resetrepo". Why change the indenting?
+You also seem to be mixing tabs and spaces, which is generally bad news for
+Python code. Please just use spaces.
+
+<a href="http://develop.participatoryculture.org/index.php/CodingStandards">http://develop.participatoryculture.org/index.php/CodingStandards</a> has some
+generally high-quality code style guidelines. 
+
+You're on the right track. I think that if you work to answer my questions about
+logging the user in, you can get this finished. Let me know how it goes.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1895">msg1895 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-26.08:46:11</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Ok, this is almost it - I need some feedback though cause the test isn't passing 
+and the form isn't showing error messages when it's not valid (just returns to the 
+page without an error message).</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1842">msg1842 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-07.20:30:14</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>See IRC logs from right now (May 7, 2011, 16:29 US/Eastern) for the review 
+I gave palhmbs.
+
+The big missing piece is a test.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1834">msg1834 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-06.01:49:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have created a new step in the About Git page, as needed - renamed About Git 
+to Setup Git. Added another form and initial.json entry for git_config.
+
+This git_config is #13, which will conflict with the bash mission index #13.
+
+I'm also not sure about the validation - I have setup the form with a EmailField,
+in the new ConfigForm. 
+I thought this would be enough validation, but I'm not sure.
+
+Please review!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1833">msg1833 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-05.22:34:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I have already created another issue for the --global thing. But that's ok.
+
+I'll try to fix all this up today, including making them paste the output of git 
+config --global user.email &amp; validating it.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1827">msg1827 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-04.15:18:17</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>The patch here needs some work, but it's getting there. Here's what I think needs 
+being changed:
+
+* You use em dashes, rather than hyphens, in the "git config --global" parts of the 
+docs. It seems that that is live right now, so I realize I should have caught those 
+earlier, but these commits should really fix that. (If you don't see what I mean, 
+try copy-pasting what you said.)
+
+* A default email address should be <a href="mailto:me@example.com">me@example.com</a> (example.com is actually 
+reserved for this use; see <a href="http://www.ietf.org/rfc/rfc2606.txt">http://www.ietf.org/rfc/rfc2606.txt</a> )
+ the "next" link 
+
+* I would prefer, slightly, that we actually validate that the user has configured 
+things in a reasonable way. Like asking them to paste the output of 'git config --
+global user.email' and making sure it has an @ sign in it. But I guess if we make 
+the experience super clear, we don't *have* to do that.
+
+Those are my thoughts; let me know if I missed something.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1802">msg1802 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-01.20:42:28</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I've moved the block, Preparing for the Mission to the Start page.
+Hopefully this resolves this issue and <a href="issue414">issue414</a>.
+
+Please review.</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1796">msg1796 (view)</a></th>
+   <th>Author: palhmbs</th>
+   <th>Date: 2011-05-01.10:15:05</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>I definitely think we should fix this pronto!</pre>
+   </td>
+  </tr>
+ 
+ 
+  <tr>
+   <th><a href="msg1786">msg1786 (view)</a></th>
+   <th>Author: paulproteus</th>
+   <th>Date: 2011-05-01.08:43:55</th>
+   <th>
+    
+   </th>
+  </tr>
+  <tr>
+   <td colspan="4" class="content">
+    <pre>Right now, for someone new to git, you may not have the git email address and 
+name properly configured.
+
+We could ask people to configure git to user their OpenHatch email address, and 
+then ask them to print it back out with:
+
+$ git config user.email
+<a href="mailto:user@host.example.com">user@host.example.com</a>
+
+and then ask them to paste the email address it printed back to them into the 
+field (for the validation step of the mission step).</pre>
+   </td>
+  </tr>
+ 
+</table>
+
+<table class="history"><tr><th colspan="4" class="header">
+History
+</th></tr><tr>
+<th>Date</th>
+<th>User</th>
+<th>Action</th>
+<th>Args</th>
+</tr>
+<tr><td>2011-09-30&nbsp;15:46:14</td><td>paulproteus</td><td>unlink</td><td><a href="issue414">issue414 blockers</a></td></tr>
+<tr><td>2011-09-30&nbsp;15:46:13</td><td>paulproteus</td><td>set</td><td>status: need-review -> resolved<br />messages:
+  + <a href="msg2542">msg2542</a></td></tr>
+<tr><td>2011-09-28&nbsp;21:48:20</td><td>aviendhaSL</td><td>set</td><td>nosy:
+  + <a href="user248">aviendhaSL</a></td></tr>
+<tr><td>2011-09-28&nbsp;21:26:45</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2539">msg2539</a></td></tr>
+<tr><td>2011-09-27&nbsp;19:52:54</td><td>paulproteus</td><td>set</td><td>files:
+  + <a href="file410">git-mission-helps-you-install.patch</a><br />messages:
+  + <a href="msg2536">msg2536</a></td></tr>
+<tr><td>2011-09-27&nbsp;19:52:34</td><td>paulproteus</td><td>set</td><td>nosy:
+  + <a href="user102">grumler</a><br />messages:
+  + <a href="msg2535">msg2535</a></td></tr>
+<tr><td>2011-09-27&nbsp;19:46:53</td><td>paulproteus</td><td>set</td><td>status: in-progress -> need-review<br />nosy:
+  + <a href="user4">aldeka</a><br />messages:
+  + <a href="msg2533">msg2533</a></td></tr>
+<tr><td>2011-09-05&nbsp;21:38:24</td><td>aldeka</td><td>set</td><td>milestone: <a href="milestone12">0.11.10</a> -> <a href="milestone11">0.11.09</a></td></tr>
+<tr><td>2011-09-01&nbsp;05:37:00</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2457">msg2457</a><br />milestone: <a href="milestone10">0.11.07</a> -> <a href="milestone12">0.11.10</a></td></tr>
+<tr><td>2011-08-29&nbsp;00:51:59</td><td>palhmbs</td><td>set</td><td>assignedto: <a href="user42">palhmbs</a> -> <a href="user3">paulproteus</a><br />messages:
+  + <a href="msg2414">msg2414</a></td></tr>
+<tr><td>2011-08-27&nbsp;21:43:18</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg2405">msg2405</a></td></tr>
+<tr><td>2011-07-02&nbsp;21:10:16</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2136">msg2136</a></td></tr>
+<tr><td>2011-07-02&nbsp;20:16:41</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg2129">msg2129</a><br />milestone: <a href="milestone9">0.11.06</a> -> <a href="milestone10">0.11.07</a></td></tr>
+<tr><td>2011-06-20&nbsp;01:28:02</td><td>jesstess</td><td>set</td><td>messages:
+  + <a href="msg2088">msg2088</a></td></tr>
+<tr><td>2011-06-19&nbsp;22:40:20</td><td>paulproteus</td><td>set</td><td>status: in-progress -> need-review<br />messages:
+  + <a href="msg2085">msg2085</a></td></tr>
+<tr><td>2011-06-12&nbsp;10:24:25</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg2076">msg2076</a></td></tr>
+<tr><td>2011-06-12&nbsp;06:48:30</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file319">0001-Template-changes.patch</a></td></tr>
+<tr><td>2011-06-12&nbsp;06:48:02</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file350">0001-Template-changes1.patch</a><br />messages:
+  + <a href="msg2072">msg2072</a></td></tr>
+<tr><td>2011-06-03&nbsp;12:15:19</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg2015">msg2015</a></td></tr>
+<tr><td>2011-06-03&nbsp;10:33:58</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-review<br />files:
+  + <a href="file320">0001-Addition-of-new-git-config-step.patch</a></td></tr>
+<tr><td>2011-06-03&nbsp;10:29:55</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file319">0001-Template-changes.patch</a><br />messages:
+  + <a href="msg2012">msg2012</a></td></tr>
+<tr><td>2011-06-03&nbsp;10:20:13</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file291">0001-Git-Config-Template-Changes.patch</a></td></tr>
+<tr><td>2011-06-01&nbsp;06:35:09</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1984">msg1984</a><br />milestone: <a href="milestone8">0.11.05</a> -> <a href="milestone9">0.11.06</a></td></tr>
+<tr><td>2011-06-01&nbsp;04:48:35</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file262">0001-Move-Preparing.patch</a></td></tr>
+<tr><td>2011-06-01&nbsp;04:48:31</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file276">0001-Added-new-git-step3.patch</a></td></tr>
+<tr><td>2011-06-01&nbsp;04:48:17</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file288">0001-Added-new-git-step4.patch</a></td></tr>
+<tr><td>2011-05-29&nbsp;05:11:13</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file291">0001-Git-Config-Template-Changes.patch</a><br />messages:
+  + <a href="msg1944">msg1944</a></td></tr>
+<tr><td>2011-05-29&nbsp;04:50:53</td><td>palhmbs</td><td>unlink</td><td><a href="issue422">issue422 superseder</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:35:37</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1925">msg1925</a></td></tr>
+<tr><td>2011-05-28&nbsp;22:28:41</td><td>palhmbs</td><td>link</td><td><a href="issue414">issue414 blockers</a></td></tr>
+<tr><td>2011-05-27&nbsp;16:38:17</td><td>paulproteus</td><td>set</td><td>messages:
+  + <a href="msg1901">msg1901</a></td></tr>
+<tr><td>2011-05-27&nbsp;16:32:11</td><td>paulproteus</td><td>set</td><td>status: need-review -> chatting<br />messages:
+  + <a href="msg1900">msg1900</a></td></tr>
+<tr><td>2011-05-26&nbsp;08:46:13</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review<br />files:
+  + <a href="file288">0001-Added-new-git-step4.patch</a><br />messages:
+  + <a href="msg1895">msg1895</a></td></tr>
+<tr><td>2011-05-07&nbsp;20:30:15</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1842">msg1842</a></td></tr>
+<tr><td>2011-05-06&nbsp;04:10:56</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file276">0001-Added-new-git-step3.patch</a></td></tr>
+<tr><td>2011-05-06&nbsp;04:04:46</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file275">0001-Added-new-git-step2.patch</a></td></tr>
+<tr><td>2011-05-06&nbsp;04:01:54</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file275">0001-Added-new-git-step2.patch</a></td></tr>
+<tr><td>2011-05-06&nbsp;04:01:42</td><td>palhmbs</td><td>set</td><td>files:
+  - <a href="file274">0001-Added-new-git-step.patch</a></td></tr>
+<tr><td>2011-05-06&nbsp;01:49:40</td><td>palhmbs</td><td>set</td><td>status: in-progress -> need-review</td></tr>
+<tr><td>2011-05-06&nbsp;01:49:28</td><td>palhmbs</td><td>set</td><td>files:
+  + <a href="file274">0001-Added-new-git-step.patch</a><br />messages:
+  + <a href="msg1834">msg1834</a></td></tr>
+<tr><td>2011-05-05&nbsp;22:34:05</td><td>palhmbs</td><td>set</td><td>messages:
+  + <a href="msg1833">msg1833</a></td></tr>
+<tr><td>2011-05-04&nbsp;15:18:18</td><td>paulproteus</td><td>set</td><td>status: need-review -> in-progress<br />messages:
+  + <a href="msg1827">msg1827</a></td></tr>
+<tr><td>2011-05-03&nbsp;21:02:30</td><td>palhmbs</td><td>link</td><td><a href="issue422">issue422 superseder</a></td></tr>
+<tr><td>2011-05-01&nbsp;20:42:28</td><td>palhmbs</td><td>set</td><td>status: chatting -> need-review<br />assignedto: <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1802">msg1802</a><br />files:
+  + <a href="file262">0001-Move-Preparing.patch</a></td></tr>
+<tr><td>2011-05-01&nbsp;10:15:05</td><td>palhmbs</td><td>set</td><td>status: unread -> chatting<br />nosy:
+  + <a href="user42">palhmbs</a><br />messages:
+  + <a href="msg1796">msg1796</a></td></tr>
+<tr><td>2011-05-01&nbsp;08:43:56</td><td>paulproteus</td><td>create</td><td></td></tr>
+</table>
+
+</div>
+
+</td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>
+
+<!-- SHA: cef943195fefd743431d22c020eef27edd6255e1 -->
